@@ -1,1 +1,15 @@
+R:
+
 - igraph package for R
+- rPython
+- Rcpp
+
+Python:
+
+- networkx
+- gzip
+- datetime
+- time
+- future.utils (iteritems)
+- os
+- sys
