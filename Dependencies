@@ -13,3 +13,7 @@ Python:
 - future.utils (iteritems)
 - os
 - sys
+- numpy
+- tqdm
+- six
+- random
