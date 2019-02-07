@@ -4,6 +4,12 @@ R:
 - rPython
 - Rcpp
 
+R Windows:
+
+- rPython-Win
+- Rtools
+- devtools
+
 Python:
 
 - networkx
