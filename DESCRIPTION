@@ -1,0 +1,16 @@
+Package: Dyncomm
+Type: Package
+Title: Dynamic Network Communities Detection and Generation
+Version: 0.1.0
+Author: Rui Portocarrero Sarmento, Luís Lemos, Giulio Rossetti, Vera Costa
+Maintainer: Rui P. Sarmento <email@ruisarmento.com>, Luís Lemos
+Description: This package is used for evolving network analysis regarding community detection
+License: GPL-2
+LazyData: False
+Imports:
+   igraph
+   rPython
+   Rcpp
+   rJava
+Suggests:
+   devtools
