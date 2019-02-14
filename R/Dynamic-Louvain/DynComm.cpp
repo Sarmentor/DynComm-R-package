@@ -4,9 +4,10 @@
  *
  */
 
+#define FLAG_RCPP
 
 #include <Rcpp.h>
-#include "DynComm.h"
+#include "DynCommBase.h"
 
 /**
  * Dummy class used to implement Enumeration like variables and function parameters in R from C++.
@@ -23,7 +24,7 @@ class Dummy {
  * Otherwise C++ would assign the first algorithm a 0.
  * This may be moved inside the class in the future when R supports enumerations inside classes.
  */
-enum ALGORITHM:int{LOUVAIN=1};
+// enum ALGORITHM:int{LOUVAIN=1};
 
 /**
  * Dynamic Communities class that handles all the IO for the base class.
@@ -34,10 +35,21 @@ public:
   // enum ALGORITHM:int{LOUVAIN=1};
 
 private:
-  // ALGORITHM algrthm=ALGORITHM::LOUVAIN;//algorithm selection
-  // std::string grph;//graph with edges
-  // std::string prmtrs;//algorithm parameters
+  ProgramParameters prmtrs;
+  ReaderFileEdge rFE;
   DynCommBase dcb;//dynamic communities base class where all the logic is
+
+  ProgramParameters convertToParameters(Rcpp::CharacterMatrix algorithmParameters=Rcpp::CharacterMatrix()){
+    int nrow = algorithmParameters.nrow();
+    int ncol = algorithmParameters.ncol();
+    ProgramParameters p;
+    for (int i = 0; i < nrow; i++) {
+      char *a[]={algorithmParameters(i,0),algorithmParameters(i,1)};
+      parse_args(2,a,p);
+    }
+    return p;
+  }
+
 public:
   /**
   * Default constructor not acceptable.
@@ -57,16 +69,44 @@ public:
   *   - MAX_INTEGER_VALUE depends on the platform being 32bit or 64bit. It is the maximum value of an integer in that platform
   */
   DynComm(
-    std::string graphFile, ALGORITHM algorithm=ALGORITHM::LOUVAIN, std::string algorithmParameters=""
+    Algorithm::ALGORITHM algorithm=Algorithm::ALGORITHM::LOUVAIN
+    ,const Quality::QUALITY & quality=Quality::QUALITY::MODULARITY
+    // , ProgramParameters algorithmParameters=argumentsDefault
+    ,Rcpp::CharacterMatrix algorithmParameters=Rcpp::CharacterMatrix()
   )
     :
-    // algrthm(algorithm)
-    // ,prmtrs(algorithmParameters)
-    dcb(dataReader, algorithm, algorithmParameters)
+    prmtrs(convertToParameters(algorithmParameters))
+    ,rFE(prmtrs)
+    ,dcb(&rFE, algorithm,quality, prmtrs)
   {
-    //load graph from file using file reader
-    // grph=toGraph(graphFile);
   }
+
+  /**
+   * Constructor for loading graph from white character (tab or space) separated values string
+   * Format of file is:
+   *   - one edge per line
+   *   - edge contains two or three values separated by a white space, in this order, source node, destination node and, optionally, a weight
+   *   - if weight is not given, it will default to 1
+   *   - edges with a weight of exactly zero are not added
+   *   - source and destination nodes are integers between 0 and MAX_INTEGER_VALUE
+   *   - weight is a double
+   *   - MAX_INTEGER_VALUE depends on the platform being 32bit or 64bit. It is the maximum value of an integer in that platform
+   */
+  // DynComm(
+  //   std::string str
+  //   ,Algorithm::ALGORITHM algorithm=Algorithm::ALGORITHM::LOUVAIN
+  //   ,const Quality::QUALITY & quality=Quality::QUALITY::MODULARITY
+  //   // , ProgramParameters algorithmParameters=argumentsDefault
+  //   ,Rcpp::CharacterMatrix algorithmParameters=Rcpp::CharacterMatrix()
+  // )
+  //   :
+  //   prmtrs(convertToParameters(algorithmParameters))
+  //   ,rFE(prmtrs)
+  //   ,dcb(&rFE, algorithm,quality, prmtrs)
+  // {
+  // }
+  //
+  // ReaderStringEdge rd("1 2\n1 3\n2 3\n3 6\n4 6\n4 5\n5 7\n6 7",parameters);
 
   /**
   * Constructor for loading graph from R matrix
@@ -79,17 +119,17 @@ public:
   *   - weight is a double
   *   - MAX_INTEGER_VALUE depends on the platform being 32bit or 64bit. It is the maximum value of an integer in that platform
   */
-  DynComm(
-    Rcpp::NumericMatrix graphMatrix, ALGORITHM algorithm=ALGORITHM::LOUVAIN, std::string algorithmParameters=""
-  )
-    :
-    // algrthm(algorithm)
-    // ,prmtrs(algorithmParameters)
-    dcb(dataReader, algorithm, algorithmParameters)
-  {
-    //load graph from R Matrix using R matrix reader
-    // grph=toGraph(graphMatrix);
-  }
+  // DynComm(
+  //   Rcpp::NumericMatrix graphMatrix, Algorithm::ALGORITHM algorithm=ALGORITHM::LOUVAIN, std::string algorithmParameters=""
+  // )
+  //   :
+  //   // algrthm(algorithm)
+  //   // ,prmtrs(algorithmParameters)
+  //   dcb(dataReader, algorithm, algorithmParameters)
+  // {
+  //   //load graph from R Matrix using R matrix reader
+  //   // grph=toGraph(graphMatrix);
+  // }
 
   /**
   * Function to add and remove edges from the graph using a matrix.
@@ -107,12 +147,12 @@ public:
   *   - MAX_INTEGER_VALUE depends on the platform being 32bit or 64bit. It is the maximum value of an integer in that platform
   * @return true if adding/removing succeeded
   */
-  bool addRemoveEdgesMatrix(Rcpp::NumericMatrix edges) {
-    //add edge
-    dcb.addRemoveEdges(dataReader);
-    //rerun algorithm
-    dcb.run();
-  }
+  // bool addRemoveEdgesMatrix(Rcpp::NumericMatrix edges) {
+  //   //add edge
+  //   dcb.addRemoveEdges(dataReader);
+  //   //rerun algorithm
+  //   dcb.run();
+  // }
 
   /**
    * Function to add and remove edges from the graph using a file.
@@ -131,10 +171,11 @@ public:
    * @return true if adding/removing succeeded
    */
   bool addRemoveEdgesFile(std::string graphAddRemoveFile) {
+    ProgramParameters p(prmtrs);
+    p.filename=graphAddRemoveFile;
+    ReaderFileEdge r(p);
     //add edge
-    dcb.addRemoveEdges(dataReader);
-    //rerun algorithm
-    dcb.run();
+    return dcb.addRemoveEdges(&r);
   }
 
   /**
@@ -154,8 +195,17 @@ public:
   /**
   * @return a list of all communities
   */
-  Rcpp::List communities(){
-
+  Rcpp::NumericVector communities(){
+    // return dcb.communities();
+    typeCommunities c=dcb.communities();
+    Rcpp::NumericVector v(c.size());
+    int i=1;
+    for(typeCommunities::const_iterator it=c.cbegin();it!=c.cend();++it){
+      typeCommunity cc=*it;
+      v[i]=cc;
+      ++i;
+    }
+    return v;
   }
 
   /**
@@ -165,15 +215,47 @@ public:
   *  - total weight of edges
   *  - number of nodes in community
   */
-  Rcpp::List community(int community){
+  // Rcpp::NumericVector community(int community){
+  //   typeCommunities c=dcb.communities();
+  //   Rcpp::NumericVector v(c.size());
+  //   int i=1;
+  //   for(typeCommunities::const_iterator it=c.cbegin();it!=c.cend();++it){
+  //     typeCommunity cc=*it;
+  //     v[i]=cc;
+  //     ++i;
+  //   }
+  //   return v;
+  // }
 
+  typeWeight communityInnerEdgesWeight(int community){
+    return dcb.communityInnerEdgesWeight(community);
+    }
+
+  //		int communityInnerEdgesCount(int community){return grph.i
+
+  typeWeight communityTotalWeight(int community){
+    return dcb.communityTotalWeight(community);
+    }
+
+  //		int communityTotalEdgesCount(int community){
+
+  int communityNodeCount(int community){
+    return dcb.communityNodeCount(community);
   }
 
   /**
   * @return a list of all nodes belonging to the given community
   */
-  Rcpp::List nodes(int community){
-
+  Rcpp::NumericVector nodes(int community){
+    typeNodeList c=dcb.nodes(community);
+    Rcpp::NumericVector v(c.size());
+    int i=1;
+    for(typeNodeListIteratorConst it=c.cbegin();it!=c.cend();++it){
+      typeNode cc=*it;
+      v[i]=cc;
+      ++i;
+    }
+    return v;
   }
 
   /**
@@ -187,48 +269,62 @@ public:
   *   - weight is a double
   *   - MAX_INTEGER_VALUE depends on the platform being 32bit or 64bit. It is the maximum value of an integer in that platform
   */
-  Rcpp::NumericMatrix snapshotMatrix(bool diferential=true){
-
-  }
+  // Rcpp::NumericMatrix snapshotMatrix(bool diferential=true){
+  //
+  // }
 
   /**
   * Get a snapshot of the current community mapping written to file
   */
-  bool snapshotFile(const std::string snapshotFile,bool diferential=true){
-
-  }
+  // bool snapshotFile(const std::string snapshotFile,bool diferential=true){
+  //
+  // }
 
 };
 
 
 // RCPP_EXPOSED_ENUM_NODECL(DynComm::ALGORITHM)
-RCPP_EXPOSED_ENUM_NODECL(ALGORITHM)
+RCPP_EXPOSED_ENUM_NODECL(Algorithm::ALGORITHM)
+  RCPP_EXPOSED_ENUM_NODECL(Quality::QUALITY)
 
   RCPP_MODULE(DynComm) {
     using namespace Rcpp;
 
-    class_<Dummy>("ALGORITHM")
-      .default_constructor()
-    ;
-    enum_<ALGORITHM, Dummy>("EnumType")
-      .value("LOUVAIN", LOUVAIN)
-    // .value("Enum1", ENUM1)
-    // .value("Enum2", ENUM2)
-    ;
+    // class_<Dummy>("ALGORITHM")
+    //   .default_constructor()
+    // ;
+    // enum_<Algorithm::ALGORITHM, Dummy>("EnumType")
+    //   .value("LOUVAIN", Algorithm::ALGORITHM::LOUVAIN)
+    // // .value("Enum1", ENUM1)
+    // // .value("Enum2", ENUM2)
+    // ;
+
+    // class_<ProgramParameters>("ProgramParameters")
+    //   .constructor<ProgramParameters>()
+    //   ;
 
     class_<DynComm>( "DynComm")
       // .constructor<std::string,DynComm::ALGORITHM, std::string>()
       // .constructor<int, DynComm::ALGORITHM, std::string>()
-         .constructor< std::string,ALGORITHM,  std::string>()
-         .constructor< int,ALGORITHM,  std::string>()
-         .method("addRemoveEdgesMatrix", &DynComm::addRemoveEdgesMatrix)
+         .constructor< Algorithm::ALGORITHM, Quality::QUALITY, Rcpp::CharacterMatrix>()
+         // .constructor< int,Algorithm::ALGORITHM,  std::string>()
+         // .method("addRemoveEdgesMatrix", &DynComm::addRemoveEdgesMatrix)
          .method("addRemoveEdgesFile", &DynComm::addRemoveEdgesFile)
          .method("quality", &DynComm::quality)
          .method("communityCount", &DynComm::communityCount)
          .method("communities", &DynComm::communities)
-         .method("community", &DynComm::community)
+         .method("communityInnerEdgesWeight", &DynComm::communityInnerEdgesWeight)
+         .method("communityTotalWeight", &DynComm::communityTotalWeight)
+         .method("communityNodeCount", &DynComm::communityNodeCount)
          .method("nodes", &DynComm::nodes)
-         .method("snapshotFile", &DynComm::snapshotFile)
-         .method("snapshotMatrix", &DynComm::snapshotMatrix)
+         // .method("snapshotFile", &DynComm::snapshotFile)
+         // .method("snapshotMatrix", &DynComm::snapshotMatrix)
       ;
   }
+
+/*
+ * R example run
+ *
+ * parameters<-matrix(c("filename","../test/full/as19971108.txt"),1,2)
+ * dc<-new(DynComm,1,1,parameters)
+ */

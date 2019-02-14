@@ -11,18 +11,33 @@
 #include "DynCommBaseInterface.h"
 
 /**
- * Dynamic Communities class API.
+ * Algorithms API.
  */
-class AlgorithmInterface:public DynCommBaseInterface {
-private:
+class AlgorithmInterface{
+protected:
 	/**
-	 * Function to add and remove a single edge from the graph.
+	 * Function to execute before adding or removing a single edge from the graph.
 	 * It is used internally by the constructor and the addRemoveEdges function.
 	 * Any edge with a weight different from zero is inserted.
 	 * Any edge with a weight of exactly zero is removed.
+	 * @param source
+	 * @param destination
+	 * @param weight
 	 * @return true if adding/removing succeeded
 	 */
-	virtual bool addRemoveEdge(const typeNode & source, const typeNode & destination, const typeWeight & weight=1.0)=0;
+	virtual bool addRemoveEdgePre(const typeNode & source, const typeNode & destination, const typeWeight & weight=1.0)=0;
+
+	/**
+	 * Function execute after adding or removing a single edge from the graph.
+	 * It is used internally by the constructor and the addRemoveEdges function.
+	 * Any edge with a weight different from zero is inserted.
+	 * Any edge with a weight of exactly zero is removed.
+	 * @param source
+	 * @param destination
+	 * @param weight
+	 * @return true if adding/removing succeeded
+	 */
+	virtual bool addRemoveEdgePost(const typeNode & source, const typeNode & destination, const typeWeight & weight=1.0)=0;
 
 	/**
 	 * Function where the actual algorithm is implemented

@@ -10,11 +10,13 @@
 
 #include <string>
 #include "program.h"
+#include "edge.h"
 
 /**
  * Interface for a simple stream writer.
  * It can only append to the end.
  */
+//template<typename TYPEOBJECT>
 class WriterInterface{
 public:
 	/**
@@ -24,81 +26,115 @@ public:
 
 	virtual ~WriterInterface(){}
 
-	template<typename T,typename U>
-	virtual bool write(T & sink, const U & object,WRITETYPE type=WRITETYPE::VALUE)=0;
+	/**
+	 * @return true if the sink is ready to be written
+	 */
+	virtual bool isReady()=0;
+
+	/**
+	 *
+	 * @param object
+	 * @param type
+	 * @return
+	 */
+	virtual bool write(const std::string & object,WRITETYPE type=WRITETYPE::VALUE)=0;
+
+	/**
+	 *
+	 * @return either an ok message or an error message
+	 */
+	virtual std::string status()=0;
 };
 
 class WriterFile: public WriterInterface{
-	//TODO implement this class
 private:
+	std::string stts;
 	const ProgramParameters & par;
 	std::ofstream foutput;
 	unsigned int lineNumber=1;
-	int state=0;//=0 error; =1 write object; =2 write comment; = 3 write newline; =4 write object separator
+	int state=0;//=0 error; =1 write object; =2 write comment; = 3 ready/waiting/start of line
 
 public:
-	WriterFile(const ProgramParameters & parameters):par(parameters),lineNumber(1),state(4){
-//		foutput.open(par.outfilename,std::fstream::out);
+	WriterFile(const ProgramParameters & parameters):stts("Ok"),par(parameters),lineNumber(1){
+		foutput.open(par.outfilename,std::fstream::out);
+		if(foutput.is_open()) state=3;
+		else{
+			std::stringstream ss;
+			ss << "The file " << par.outfilename << " does not exist\n";
+			stts=ss.str();
+			state=0;
+		}
 	}
 
 	~WriterFile(){
 		foutput.close();
 	}
 
+	bool isReady(){
+		if (state==5) return true;
+		return false;
+	}
 	/**
 	 *
 	 * @param type is currently ignored
-	 * @return the next object of the requested type or the error message as indicated by hasNext()
+	 * @return true if writing succeeded
 	 */
-	bool write(const GraphUndirectedGroupable & object,WRITETYPE type=WRITETYPE::VALUE){
-//		if (!foutput.is_open()) {
-//			state=0;
-//			std::stringstream ss;
-//			ss << "The file " << par.filename << " does not exist\n";
-//			return ss.str();
-//		}
-////		if(!finput.eof()) {
-//			switch(state){
-//			case 0:
+	bool write(const std::string & object,WRITETYPE type=WRITETYPE::VALUE){
+		switch(state){
+		case 1://previously wrote object
+			switch(type){
+			case WRITETYPE::COMMENT://requesting write comment. Must write new line before
+				foutput << "\n# "<< object<<"\n";
+				state=3;
+				break;
+			case WRITETYPE::LINE://requesting write new line after value
+				foutput << " "<< object<<"\n";
+				state=3;
+				break;
+			case WRITETYPE::VALUE://requesting write another value. Must insert separator before
+				foutput << " "<< object;
+				state=1;
+				break;
+			}
+			return true;
+			break;
+//		case 2://previously wrote comment. Never reached :o
+//			switch(type){
+//			case WRITETYPE::COMMENT://requesting write comment
+//				foutput << "# "<< object<<"\n";
+//				state=;
 //				break;
-//			case 1:
-//				state=2;
-//				return src;
+//			case WRITETYPE::LINE://requesting write new line after value
+//				foutput << " "<< object<<"\n";
+//				state=;
 //				break;
-//			case 2:
-//				state=3;
-//				return dest;
+//			case WRITETYPE::VALUE://requesting write another value. Must insert separator before
+//				foutput << " "<< object;
+//				state=;
 //				break;
-//			case 3:
-//				if(finput.eof()) state=5;
-//				else state=4;
-//				return weight;
-//				break;
-//			case 4:
-//				if (par.type==LINK_WEIGHT::WEIGHTED) {
-//					finput >> src >> std::ws >> dest >> std::ws >> weight;
-//				} else {
-//					finput >> src >> std::ws >> dest;
-//				}
-//				if (finput) {
-//					state=1;
-//					lineNumber++;
-//					return "\n";
-//				}
-//				else{
-//					std::stringstream ss;
-//					ss << "The file " << par.filename << " has an error on line " << lineNumber << "\n";
-//					state=0;
-//					return ss.str();
-//				}
-//				break;
-////			case 5://end of file processed outside this switch
-////				break;
 //			}
-////		}
+//			break;
+		case 3://ready/waiting/start of line
+			switch(type){
+			case WRITETYPE::COMMENT://requesting write comment
+				foutput << "# "<< object<<"\n";
+				state=3;
+				break;
+			case WRITETYPE::LINE://requesting write new line after value
+				foutput << object<<"\n";
+				state=3;
+				break;
+			case WRITETYPE::VALUE://requesting write value
+				foutput << object;
+				state=1;
+				break;
+			}
+			break;
+		}
 		return false;
 	}
 
+	std::string status(){return stts;}
 };
 
 
