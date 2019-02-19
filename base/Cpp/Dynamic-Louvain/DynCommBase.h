@@ -45,7 +45,9 @@ public:
 		,prmtrs(algorithmParameters)
 	{
 		//TODO validate errors
-		addRemoveEdges(reader);
+		if(!addRemoveEdges(reader)){//check for reader errors
+			CERR << reader->status();
+		}
 	}
 
 	/**
@@ -61,38 +63,61 @@ public:
 	/**
 	 * @return the current quality measure of the community mapping on the graph
 	 */
-	typeQuality quality(){
+	typeQuality quality()const {
 		return qlt.quality();
 	}
 
 	/**
 	 * @return the number of communities
 	 */
-	int communityCount(){
+	int communityCount()const {
 		return grph.communityCount();
 	}
 
 	/**
 	 * @return a list of all communities
 	 */
-	typeCommunities communities(){
+	typeCommunities communities()const {
 		return grph.communities();
 	}
 
-	typeWeight communityInnerEdgesWeight(int community){return grph.innerEdges(community);}
+	typeWeight communityInnerEdgesWeight(int community)const {return grph.innerEdges(community);}
 
 	//		int communityInnerEdgesCount(int community){return grph.i
 
-	typeWeight communityTotalWeight(int community){return grph.totalEdges(community);}
+	typeWeight communityTotalWeight(int community)const {return grph.totalEdges(community);}
 
 	//		int communityTotalEdgesCount(int community){
 
-	int communityNodeCount(int community){return grph.community(community);}
+	typeWeight communityEdgeWeight(typeCommunity source,typeCommunity destination)const{
+		return grph.weightCommunity(source, destination);
+	}
+
+	int communityNodeCount(int community)const {
+		unsigned int cnt=0;
+		typeCommunityListRange r=grph.nodes(community);
+		for(typeCommunityListRangeIteratorConst it=r.first; it!=r.second; ++it){
+			++cnt;
+		}
+		return cnt;
+	}
+
+	typeCommunity community(typeNode node)const{
+		return grph.community(node);
+	}
+
+	unsigned int nodesCount()const{
+		return grph.nodeCount();
+	}
+
+	typeNodeList nodes()const{
+		return grph.getNodes();
+	}
 
 	/**
 	 * @return a list of all nodes belonging to the given community
 	 */
-	typeNodeList nodes(int community){
+	typeNodeList nodes(int community)const {
 		typeNodeList lst;
 		typeCommunityListRange r=grph.nodes(community);
 		for(typeCommunityListRangeIteratorConst it=r.first; it!=r.second; ++it){
@@ -107,7 +132,27 @@ public:
 	 * The differential parameter will probably be moved inside the writer as a parameter
 	 * @return true if the operation succeeded
 	 */
-	bool results(WriterInterface * writer,bool differential=true){
+	bool results(WriterInterface * writer,bool differential=true) const{
+		const typeCommunities gc=grph.communities();
+		for(typeCommunities::const_iterator it=gc.cbegin();it!=gc.cend();++it){
+			const typeCommunity c=*it;
+//			COUT << c;
+			writer->write(std::to_string(c),WriterInterface::WRITETYPE::VALUE);
+			typeNodeList n=nodes(c);
+			unsigned int i=1;
+			for(typeNodeListIteratorConst itn=n.cbegin();itn!=n.cend();++itn){
+//				COUT << " " << *itn;
+				if(i==n.size()){//last value
+					writer->write(std::to_string(*itn),WriterInterface::WRITETYPE::LINE);
+				}
+				else{
+					writer->write(std::to_string(*itn),WriterInterface::WRITETYPE::VALUE);
+				}
+				++i;
+			}
+//			COUT << "\n";
+//			writer->write("",WriterInterface::WRITETYPE::LINE);
+		}
 		return true;
 	}
 

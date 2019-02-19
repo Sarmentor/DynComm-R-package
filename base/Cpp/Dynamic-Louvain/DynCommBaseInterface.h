@@ -37,24 +37,24 @@ public:
 	/**
 	 * @return the current quality measure of the community mapping on the graph
 	 */
-	virtual typeQuality quality()=0;
+	virtual typeQuality quality()const=0;
 
 	/**
 	 * @return the number of communities
 	 */
-	virtual int communityCount()=0;
+	virtual int communityCount()const=0;
 
 	/**
 	 * @return the list of all existing communities without any further information
 	 */
-	virtual typeCommunities communities()=0;
+	virtual typeCommunities communities()const=0;
 
 	/**
 	 *
 	 * @param community
 	 * @return the sum of the weights of all inner edges of the selected community
 	 */
-	virtual typeWeight communityInnerEdgesWeight(int community)=0;
+	virtual typeWeight communityInnerEdgesWeight(int community)const=0;
 
 //	virtual int communityInnerEdgesCount(int community)=0; TODO
 
@@ -63,29 +63,54 @@ public:
 	 * @param community
 	 * @return the sum of the weights of all edges of the selected community
 	 */
-	virtual typeWeight communityTotalWeight(int community)=0;
+	virtual typeWeight communityTotalWeight(int community)const=0;
 
 //	virtual int communityTotalEdgesCount(int community)=0; TODO
+
+	/**
+	 *
+	 * @param source
+	 * @param destination
+	 * @return the weight of the edge that connects two given communities
+	 */
+	virtual typeWeight communityEdgeWeight(typeCommunity source,typeCommunity destination)const=0;
 
 	/**
 	 *
 	 * @param community
 	 * @return the amount of nodes in the selected community
 	 */
-	virtual int communityNodeCount(int community)=0;
+	virtual int communityNodeCount(int community)const=0;
 
+
+	/**
+	 *
+	 * @param node
+	 * @return the community of a given node
+	 */
+	virtual typeCommunity community(typeNode node)const=0;
+
+	/**
+	 * @return the number of existing nodes
+	 */
+	virtual unsigned int nodesCount()const=0;
+
+	/**
+	 * @return the list of all existing nodes
+	 */
+	virtual typeNodeList nodes()const=0;
 
 	/**
 	 * @return a list of all nodes belonging to the given community
 	 */
-	virtual typeNodeList nodes(int community)=0;
+	virtual typeNodeList nodes(int community)const=0;
 
 	/**
 	 * Get a snapshot of the current community mapping
 	 * The differential parameter will probably be moved inside the writer as a parameter in the next version of the source code
 	 * @return true if the operation succeeded
 	 */
-	virtual bool results(WriterInterface * writer,bool differential=true)=0;
+	virtual bool results(WriterInterface * writer,bool differential=true)const=0;
 
 };
 

@@ -44,15 +44,17 @@ public:
 //			std::map<typeCommunity,typeWeight>::const_iterator it=tot.find(comm);
 //			totc=it->second;
 //		}
-		const typeWeight & m2   = 2*g.totalWeight();
+		const typeWeight & m2   = g.totalWeight();
+		CERR << "gain: node=" << node << "; comm=" << comm << "; dnodecomm=" << g.neighborsCommunityWeight(node,comm) << "; w_degree=" << w_degree << "; tot[comm]=" << totc << "; m2=" << m2 << "; gain=" << (g.neighborsCommunityWeight(node,comm) - totc*w_degree/m2) << "\n";
 		return (g.neighborsCommunityWeight(node,comm) - totc*w_degree/m2);
 	}
 
 	typeQuality quality()const{
 		//TODO review the formulas
 		typeWeight q  = 0.0L;
-		const typeWeight & m2 = 2*g.totalWeight();
+		const typeWeight & m2 = g.totalWeight();
 		for (typeNodeListIterator it=g.getNodes().begin() ; it!=g.getNodes().end() ; it++){
+//		for (typeCommunities::const_iterator it=g.communities().cbegin() ; it!=g.communities().cend() ; ++it){
 			const typeNode & i=*it;
 //			std::map<typeCommunity,typeWeight>::const_iterator itt=in.find(i);
 //			const typeWeight & a = itt->second;
@@ -60,9 +62,15 @@ public:
 //			itt=tot.find(i);
 //			const typeWeight & t = itt->second;
 			const typeWeight & t = g.totalEdges(i);
-			if (t > 0.0L) q += a - (t*t) / m2;
+			CERR << "quality: i=" << i << "; tot[i]=" << t << "; m2=" << m2 ;
+			if (t > 0.0L){
+				CERR << "; in[i]=" << a << "; previous q=" << q << "; delta q=" << a - (t*t) / m2;
+				q += a - (t*t) / m2;
+			}
+			CERR << "; new q=" << q << "\n";
 		}
 		q /= m2;
+		CERR << "quality: final q=" << q << "\n";
 		return q;
 	}
 

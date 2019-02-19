@@ -137,5 +137,85 @@ public:
 	std::string status(){return stts;}
 };
 
+class WriterString: public WriterInterface{
+private:
+	std::string stts;
+	const ProgramParameters & par;
+	unsigned int lineNumber=1;
+	int state=0;//=0 error; =1 write object; =2 write comment; = 3 ready/waiting/start of line
+
+public:
+	WriterString(const ProgramParameters & parameters):stts("Ok"),par(parameters),lineNumber(1),state(3){}
+
+	~WriterString(){}
+
+	bool isReady(){
+		if (state==5) return true;
+		return false;
+	}
+
+	/**
+	 *
+	 * @param type is currently ignored
+	 * @return true if writing succeeded
+	 */
+	bool write(const std::string & object,WRITETYPE type=WRITETYPE::VALUE){
+		switch(state){
+		case 1://previously wrote object
+			switch(type){
+			case WRITETYPE::COMMENT://requesting write comment. Must write new line before
+				COUT << "\n# "<< object<<"\n";
+				state=3;
+				break;
+			case WRITETYPE::LINE://requesting write new line after value
+				COUT << " "<< object<<"\n";
+				state=3;
+				break;
+			case WRITETYPE::VALUE://requesting write another value. Must insert separator before
+				COUT << " "<< object;
+				state=1;
+				break;
+			}
+			return true;
+			break;
+//		case 2://previously wrote comment. Never reached :o
+//			switch(type){
+//			case WRITETYPE::COMMENT://requesting write comment
+//				foutput << "# "<< object<<"\n";
+//				state=;
+//				break;
+//			case WRITETYPE::LINE://requesting write new line after value
+//				foutput << " "<< object<<"\n";
+//				state=;
+//				break;
+//			case WRITETYPE::VALUE://requesting write another value. Must insert separator before
+//				foutput << " "<< object;
+//				state=;
+//				break;
+//			}
+//			break;
+		case 3://ready/waiting/start of line
+			switch(type){
+			case WRITETYPE::COMMENT://requesting write comment
+				COUT << "# "<< object<<"\n";
+				state=3;
+				break;
+			case WRITETYPE::LINE://requesting write new line after value
+				COUT << object<<"\n";
+				state=3;
+				break;
+			case WRITETYPE::VALUE://requesting write value
+				COUT << object;
+				state=1;
+				break;
+			}
+			break;
+		}
+		return false;
+	}
+
+	std::string status(){return stts;}
+};
+
 
 #endif /* SRC_WRITER_H_ */

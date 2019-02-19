@@ -8,7 +8,7 @@
 #ifndef PROGRAM_H_
 #define PROGRAM_H_
 
-//#include "defines.h"
+#include "defines.h"
 #include <string>
 #include <iostream>
 #include <sstream>
@@ -51,13 +51,8 @@ void usage(const std::string & prog_name, const std::string & more) {
 	ss << "-h\tshow this usage message" << "\n";
 	ss << "-s\tsequence directory: indicates the directory where the sequence files are placed." << "\n";
 
-#ifndef FLAG_RCPP
-	std::cout << ss.str();
+	COUT << ss.str();
 	exit(0);
-#else	//FLAG_RCPP
-//	Rcout << ss;
-	Rcpp::stop(ss.str());
-#endif	//FLAG_RCPP
 }
 
 //#define WEIGHTED   0
@@ -160,11 +155,7 @@ void display_time(const std::string & str) {
 	time ( &rawtime );
 	std::stringstream ss;
 	ss << str << ": " << ctime (&rawtime);
-#ifndef FLAG_RCPP
-	std::cout << ss.str();
-#else	//FLAG_RCPP
-	Rcpp::Rcout << ss.str();
-#endif	//FLAG_RCPP
+	COUT << ss.str();
 }
 
 #endif /* PROGRAM_H_ */

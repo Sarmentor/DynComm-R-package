@@ -10,6 +10,7 @@
 
 //#include "defines.h"
 #include "stringFormater.h"
+#include <limits>
 
 typedef unsigned int typeNode;
 typedef long double typeWeight;
@@ -226,7 +227,7 @@ public:
 /**
  * special node zero
  */
-const typeNode noNode=0;
+const typeNode noNode=std::numeric_limits<typeNode>::max();
 
 /**
  * special edge

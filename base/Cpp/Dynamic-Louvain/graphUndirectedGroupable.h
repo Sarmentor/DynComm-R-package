@@ -52,7 +52,7 @@ typedef std::pair<typeCommunityEdgesIterator,typeCommunityEdgesIterator> typeCom
 typedef std::pair<typeCommunityEdgesIteratorConst,typeCommunityEdgesIteratorConst> typeCommunityEdgesRangeConst;
 typedef std::set<typeCommunity> typeCommunities;
 
-const typeCommunity noGroup=0;
+const typeCommunity noGroup=std::numeric_limits<typeCommunity>::max();
 
 class GraphUndirectedGroupable: public GraphUndirected{
 private:
@@ -944,7 +944,7 @@ public:
 
 	bool removeEdge(const Edge & edge){return removeEdge(edge.source(),edge.destination());}
 
-	typeCommunityListRange nodes(const typeCommunity & c){
+	typeCommunityListRange nodes(const typeCommunity & c)const{
 		return n2c.keys(c);
 	}
 
@@ -973,7 +973,7 @@ public:
 //		else
 	}
 
-	const typeCommunities communities(){
+	const typeCommunities communities()const{
 //		return cc.getNodes();
 		typeNodeList c(cc.getNodes());
 		for(typeCommunityEdgesIteratorConst it=inner.cbegin();it!=inner.cend();++it){
@@ -1150,7 +1150,7 @@ public:
 		return cc.neighborsCount(com);
 	}
 
-	typeWeight weightCommunity(const typeCommunity & source, const typeCommunity & destination){
+	typeWeight weightCommunity(const typeCommunity & source, const typeCommunity & destination)const{
 		if(source==destination){
 			typeCommunityEdgesIteratorConst it=inner.find(source);
 			if(it==inner.cend()) return std::numeric_limits<typeWeight>::quiet_NaN();

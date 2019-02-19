@@ -48,6 +48,17 @@ public:
 	{
 	}
 
+	const std::string toString(const StringFormater & sf=defaultStringFormater)const{
+		StringFormater f=sf;
+		std::stringstream ss;
+		if(!sf.isDefault()){
+			f.build(ss,"");
+			++f;
+		}
+		f.header("Quality:");
+		ss << grph.toString(f);
+		return ss.str();
+	}
 };
 
 #endif /* SRC_ALGORITHMBASE_H_ */

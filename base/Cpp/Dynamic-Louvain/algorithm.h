@@ -99,11 +99,19 @@ public:
 	bool addRemoveEdges(ReaderInterface<Edge> * reader){
 		//TODO add reader error handling
 		ReaderInterface<Edge>::NEXTTYPE n=reader->hasNext();
+		if(n==ReaderInterface<Edge>::NEXTTYPE::CANNOTOPEN) return false;
 		while(n!=ReaderInterface<Edge>::NEXTTYPE::CANNOTOPEN && n!=ReaderInterface<Edge>::NEXTTYPE::ENDOFFILE){
 			if(n==ReaderInterface<Edge>::NEXTTYPE::VALUE){
 				Edge ed=reader->next();
 				addRemoveEdgePre(ed.source(),ed.destination(),ed.weight());
-				grph.addEdge(ed,false);
+				if(ed.weight()==0){
+					CERR << "remove edge=" << ed.toString() << "\n";
+					grph.removeEdge(ed);
+				}
+				else{
+					CERR << "add edge=" << ed.toString() << "\n";
+					grph.addEdge(ed,true);
+				}
 				addRemoveEdgePost(ed.source(),ed.destination(),ed.weight());
 			}
 			else{

@@ -30,25 +30,25 @@ private:
 			const typeLinksPair & p=*it;
 			if(p.first!=c1) break;
 			const HalfEdge & h=p.second;
-//			std::cerr << "disband("<< c1 << ";" << c2 << ")->before remove edge(c,c)="<< c1 << ";" << h.destination() << "\n" << toString(defaultStringFormater(1)) << "\n";
+			CERR << "disband("<< c1 << ";" << c2 << ")->before remove edge(c,c)="<< c1 << ";" << h.destination() << "\n" << toString(defaultStringFormater(1)) << "\n";
 			cg.removeEdge(c1,h.destination());
-//			std::cerr << "disband("<< c1 << ";" << c2 << ")->after remove edge(c,c)="<< c1 << ";" << h.destination() << "\n" << toString(defaultStringFormater(1)) << "\n";
+			CERR << "disband("<< c1 << ";" << c2 << ")->after remove edge(c,c)="<< c1 << ";" << h.destination() << "\n" << toString(defaultStringFormater(1)) << "\n";
 		}
 		typeLinksRangeConst nc2=cg.neighboringCommunities(c2);
 		for(typeLinksIteratorConst it=nc2.first;it!=nc2.second;++it){
 			const typeLinksPair & p=*it;
 			if(p.first!=c2) break;
 			const HalfEdge & h=p.second;
-//			std::cerr << "disband("<< c1 << ";" << c2 << ")->before remove edge(c,c)="<< c2 << ";" << h.destination() << "\n" << toString(defaultStringFormater(1)) << "\n";
+			CERR << "disband("<< c1 << ";" << c2 << ")->before remove edge(c,c)="<< c2 << ";" << h.destination() << "\n" << toString(defaultStringFormater(1)) << "\n";
 			cg.removeEdge(c2,h.destination());
-//			std::cerr << "disband("<< c1 << ";" << c2 << ")->after remove edge(c,c)="<< c2 << ";" << h.destination() << "\n" << toString(defaultStringFormater(1)) << "\n";
+			CERR << "disband("<< c1 << ";" << c2 << ")->after remove edge(c,c)="<< c2 << ";" << h.destination() << "\n" << toString(defaultStringFormater(1)) << "\n";
 		}
 		//remove inner edges
-//		std::cerr << "disband("<< c1 << ";" << c2 << ")->before remove inner edge(c)="<< c1 << "\n" << toString(defaultStringFormater(1)) << "\n";
+		CERR << "disband("<< c1 << ";" << c2 << ")->before remove inner edge(c)="<< c1 << "\n" << toString(defaultStringFormater(1)) << "\n";
 		cg.removeEdge(c1,c1);
-//		std::cerr << "disband("<< c1 << ";" << c2 << ")->before remove inner edge(c)="<< c2 << "\n" << toString(defaultStringFormater(1)) << "\n";
+		CERR << "disband("<< c1 << ";" << c2 << ")->before remove inner edge(c)="<< c2 << "\n" << toString(defaultStringFormater(1)) << "\n";
 		cg.removeEdge(c2,c2);
-//		std::cerr << "disband("<< c1 << ";" << c2 << ")->after remove\n" << toString(defaultStringFormater(1)) << "\n";
+		CERR << "disband("<< c1 << ";" << c2 << ")->after remove\n" << toString(defaultStringFormater(1)) << "\n";
 		//take nodes of affected communities from g and add them to cg disbanded by adding edges to their neighbors
 		std::set<typeNode> ns;
 		typeCommunityListRange rc1=grph.nodes(c1);
@@ -77,23 +77,23 @@ private:
 				const typeNode & nei=h.destination();
 				const typeCommunity & cn=grph.community(nei);
 				if(cn!=c1 && cn!=c2){
-//					std::cerr << "disband("<< c1 << ";" << c2 << ")->added edge(n,c)="<< n << ";" << cn << "\n";
+					CERR << "disband("<< c1 << ";" << c2 << ")->added edge(n,c)="<< n << ";" << cn << "\n";
 					cg.addEdge(n,cn,h.weight());//add edge between community of neighbor and node
 				}
 				else{
-//					std::cerr << "disband("<< c1 << ";" << c2 << ")->added edge(n,n)="<< n << ";" << nei << "\n";
+					CERR << "disband("<< c1 << ";" << c2 << ")->added edge(n,n)="<< n << ";" << nei << "\n";
 					cg.addEdge(n,nei,h.weight());//add edge between neighbor and node
 				}
 //				cg.community(n,n);//set community of node to node
-//				std::cerr << "disband("<< c1 << ";" << c2 << ")->after add\n" << toString(defaultStringFormater(1)) << "\n";
+				CERR << "disband("<< c1 << ";" << c2 << ")->after add\n" << toString(defaultStringFormater(1)) << "\n";
 			}
 		}
 		//disband g
-//		std::cerr << "disband("<< c1 << ";" << c2 << ")->before disband("<< c1 << ")\n" << toString(defaultStringFormater(1)) << "\n";
+		CERR << "disband("<< c1 << ";" << c2 << ")->before disband("<< c1 << ")\n" << toString(defaultStringFormater(1)) << "\n";
 		grph.disband(c1);
-//		std::cerr << "disband("<< c1 << ";" << c2 << ")->before disband("<< c2 << ")\n" << toString(defaultStringFormater(1)) << "\n";
+		CERR << "disband("<< c1 << ";" << c2 << ")->before disband("<< c2 << ")\n" << toString(defaultStringFormater(1)) << "\n";
 		grph.disband(c2);
-//		std::cerr << "disband("<< c1 << ";" << c2 << ")->end disband\n" << toString(defaultStringFormater(1)) << "\n";
+		CERR << "disband("<< c1 << ";" << c2 << ")->end disband\n" << toString(defaultStringFormater(1)) << "\n";
 //		for(std::set<typeNode>::const_iterator it=ns.cbegin();it!=ns.cend();++it){
 //			const typeNode & n=*it;
 //			cg.community(n,n);//set community of node to node
@@ -279,7 +279,7 @@ public:
 			long double quality = qlt.quality();
 			long double new_qual;
 
-//			int level = 0;
+			int level = 0;
 
 			//#ifdef MODIFIED
 		//	Graph gg(g);
@@ -295,15 +295,15 @@ public:
 
 			//main cycle
 //			do {
-	//			if (parameters.verbose) {
-	//				std::cerr << "level " << level << ":\n";
-	//				display_time("  start computation");
-	//				std::cerr << "  network size: "
-	//						<< c.nodeCount() << " nodes, "
-	//						<< c.edgeCount() << " links, "
-	//						<< c.totalWeight() << " weight" << endl;
-	//			}
-	//			std::cerr << "**** pre one level ****\n"<< c.toString();
+//				if (prmtrs.verbose) {
+					CERR << "level " << level << ":\n";
+					display_time("  start computation");
+					CERR << "  network size: "
+							<< grph.nodeCount() << " nodes, "
+							<< grph.edgeCount() << " links, "
+							<< grph.totalWeight() << " weight\n";
+//				}
+				CERR << "**** pre one level ****\n"<< toString();
 				//group nodes into communities
 				improvement = one_level();
 				//get quality of the new grouping
@@ -314,7 +314,8 @@ public:
 		//			std::cerr << c.toString();
 		//		if (parameters.display_level==-1)
 		//			c.display_partition();
-	//				std::cerr << "**** post one level ****\n"<< c.toString();
+				++level;
+					CERR << "**** post one level ****\n"<< toString();
 
 		//#ifdef REFACTORED
 		//		g.display();
@@ -328,7 +329,7 @@ public:
 		//		c = Louvain(-1, precision, q);
 	//			if (parameters.verbose)
 	//				std::cerr << "  quality increased from " << quality << " to " << new_qual << endl;
-				std::cerr << "  quality modified from " << quality << " to " << new_qual << "\n";
+				CERR << "  quality modified from " << quality << " to " << new_qual << "\n";
 				//quality = (c.qual)->quality();
 				quality = new_qual;
 
@@ -355,7 +356,7 @@ public:
 	//			if (!improvement) add_remove_edges(qlt,index,has_add_file,has_rem_file); ************* TODO
 				//debug print
 		//		c.display_partition();
-		//		std::cerr << c.toString();
+//				CERR << toString();
 		//		g.display();
 				//#endif	//MODIFIED
 
@@ -386,6 +387,19 @@ public:
     	AlgorithmBase(graph,quality,algorithmParameters)
   {
   }
+
+  const std::string toString(const StringFormater & sf=defaultStringFormater)const{
+  		StringFormater f=sf;
+  		std::stringstream ss;
+		if(!sf.isDefault()){
+			f.build(ss,"");
+			++f;
+		}
+  		ss << AlgorithmBase::toString(sf);
+  		f.header("cg:");
+  		ss << cg.toString(f);
+  		return ss.str();
+  	}
 
 };
 
