@@ -16,6 +16,7 @@
 #include "setUtilities.h"
 
 typedef typeNode typeCommunity;
+//typedef long typeCommunity;
 
 typedef MapReversable<typeNode,typeCommunity> typeCommunityList;
 
@@ -32,7 +33,7 @@ typedef typeCommunityList::typePair typeCommunityListPair;
 /**
  * std::multimap<typeCommunity,typeNode>::const_iterator
  */
-typedef typeCommunityList::const_range_iterator typeCommunityListRangeIteratorConst;
+typedef typeCommunityList::range_iterator_const typeCommunityListRangeIteratorConst;
 
 /**
  * std::pair<std::multimap<typeCommunity,typeNode>::const_iterator,std::multimap<typeCommunity,typeNode>::const_iterator>
@@ -743,8 +744,10 @@ private:
 		if(it!=ce.end()){
 //			const typeCommunityEdgesPair & p=*it;
 			typeWeight w;
-			if(add) w=2*(it->second/2+weight);
-			else w=2*(it->second/2-weight);
+//			if(add) w=2*(it->second/2+weight);
+//			else w=2*(it->second/2-weight);
+			if(add) w=(it->second+weight);
+			else w=(it->second-weight);
 //			if(innerEdge) w-=2*weight;
 //			else w-=*weight;
 			if(w==0){
@@ -758,7 +761,8 @@ private:
 		else{
 			if(add){
 				if(weight!=0){
-					ce.insert(std::make_pair(com,2*weight));
+//					ce.insert(std::make_pair(com,2*weight));
+					ce.insert(std::make_pair(com,weight));
 				}
 				return true;
 			}
@@ -788,6 +792,7 @@ public:
 
 	bool addEdge(const typeNode & source, const typeNode & destination, const typeWeight & weight=1.0, const bool & replace=false){
 		debugSaveState();
+//		COUT << "graph pre add edge: "<<toString();
 		//get old weight of edge if it exists
 		typeWeight w=GraphUndirected::weight(source,destination);
 		if(isnan(w)) w=0;
@@ -812,8 +817,8 @@ public:
 					ww-=w;
 				}
 				if(source==destination) ww=ww/2;
-				bool b=update(total,cc1,ww,true);
-				if(b) update(inner,cc1,ww,true);
+				bool b=update(total,cc1,2*ww,true);
+				if(b) update(inner,cc1,2*ww,true);
 				else inner.erase(cc1);
 			}
 			else{
@@ -833,6 +838,7 @@ public:
 			}
 		}
 		debugAddEdge(b,source,destination,weight,replace);
+//		COUT << "graph post add edge: "<<toString();
 		return b;
 	}
 
@@ -862,6 +868,7 @@ public:
 	}
 
 	bool removeEdge(const typeNode & source, const typeNode & destination){
+		COUT << "graph pre remove edge: "<<toString();
 		typeWeight weight=GraphUndirected::weight(source,destination);
 		if(isnan(weight)){
 
@@ -888,9 +895,9 @@ public:
 ////					total[c1]-=weight;
 ////				}
 				typeWeight w=weight;
-				if(source==destination) w=weight/2;
-				bool b=update(total,c1,w,false);
-				if(b) update(inner,c1,w,false);
+//				if(source==destination) w=weight/2;
+				bool b=update(total,c1,2*w,false);
+				if(b) update(inner,c1,2*w,false);
 				else inner.erase(c1);
 			}
 			else{
@@ -937,8 +944,10 @@ public:
 			bool res=GraphUndirected::removeEdge(source,destination);
 			if(neighborsCount(source)==0) n2c.remove(source);
 			if(neighborsCount(destination)==0) n2c.remove(destination);
+			COUT << "graph post remove edge: "<<toString();
 			return res;
 		}
+		COUT << "graph post remove edge: "<<toString();
 		return false;
 	}
 
@@ -975,7 +984,7 @@ public:
 
 	const typeCommunities communities()const{
 //		return cc.getNodes();
-		typeNodeList c(cc.getNodes());
+		typeCommunities c(cc.getNodes().begin(),cc.getNodes().end());
 		for(typeCommunityEdgesIteratorConst it=inner.cbegin();it!=inner.cend();++it){
 			c.insert(it->first);
 		}
@@ -1043,13 +1052,22 @@ public:
 		const typeCommunity c=community(node);
 		if(c==noGroup) return false;
 		if(c==com)return true;
+//		COUT << "graph pre community("<<node<<","<< com<<"): "<<toString();
 		typeWeight a1=neighborsCommunityWeight(node,com);
 		typeWeight a2=neighborsCommunityWeight(node,c);
+		if(node==c) a2*=2;
 		typeWeight w=neighborsWeight(node);
-		update(inner,com,a1/2.0,true);
-		update(inner,c,a2/2.0,false);
-		update(total,com,(w-a1)/2.0,true);
-		update(total,c,(w-a2)/2.0,false);
+//		typeWeight in=innerEdges(node);
+		typeWeight in=weight(node,node);
+		if(isnan(in))in=0;
+//		update(inner,com,a1/2.0,true);
+//		update(inner,c,a2/2.0,false);
+//		update(total,com,(w-a1)/2.0,true);
+//		update(total,c,(w-a2)/2.0,false);
+		update(inner,com,2*a1+in,true);
+		update(inner,c,a2+in,false);
+		update(total,com,w+in,true);
+		update(total,c,w+in,false);
 		const typeLinksRangeConst & nei=neighbors(node);
 //		for(typeLinksIteratorConst it=nei.first;it!=nei.second;++it){
 		typeLinksIteratorConst it=nei.first;
@@ -1059,39 +1077,41 @@ public:
 			if(p.first!=node)break;
 			const HalfEdge & he=p.second;
 			const typeNode & dest=he.destination();
-			const typeWeight & wei=he.weight();
-			const typeCommunity & co=community(dest);
-//			typeWeight ww=weight(node,dest);
-//			if(isnan(ww)){//edge does not exist
-////				cc.addEdge(c,)
-//			}
-//			else{
-				if(c!=co){
-					typeWeight cw=cc.weight(c,co);
+			if(dest!=node){
+				const typeWeight & wei=he.weight();
+				const typeCommunity & co=community(dest);
+	//			typeWeight ww=weight(node,dest);
+	//			if(isnan(ww)){//edge does not exist
+	////				cc.addEdge(c,)
+	//			}
+	//			else{
+					if(c!=co){
+						typeWeight cw=cc.weight(c,co);
+						if(isnan(cw)){
+	//						cc.addEdge(c,co,ww);
+	//						cc.addEdge(co,c,ww);
+						}
+						else{
+							cw-=wei;
+							if(cw!=0){
+								cc.addEdge(c,co,cw,true);
+							}
+							else{//remove edge since there will be no more connection between the two communities
+								cc.removeEdge(c,co);
+							}
+						}
+					}
+	//			}
+				if(co!=com){
+					typeWeight cw=cc.weight(co,com);
 					if(isnan(cw)){
-//						cc.addEdge(c,co,ww);
-//						cc.addEdge(co,c,ww);
+						cc.addEdge(co,com,wei);
+	//					cc.addEdge(co,c,ww);
 					}
 					else{
-						cw-=wei;
-						if(cw!=0){
-							cc.addEdge(c,co,cw,true);
-						}
-						else{//remove edge since there will be no more connection between the two communities
-							cc.removeEdge(c,co);
-						}
+						cc.addEdge(co,com,cw+wei,true);
+	//					cc.addEdge(com,co,cw+wei,true);
 					}
-				}
-//			}
-			if(co!=com){
-				typeWeight cw=cc.weight(co,com);
-				if(isnan(cw)){
-					cc.addEdge(co,com,wei);
-//					cc.addEdge(co,c,ww);
-				}
-				else{
-					cc.addEdge(co,com,cw+wei,true);
-//					cc.addEdge(com,co,cw+wei,true);
 				}
 			}
 		}
@@ -1117,6 +1137,7 @@ public:
 		if(node<com){//node is the new minimum of the destination community
 			replaceCommunity(com,node);
 		}
+//		COUT << "graph post community: "<<toString();
 		return b;
 	}
 
@@ -1217,11 +1238,14 @@ public:
 			const typeLinksPair & b=*it;
 			const HalfEdge & c=b.second;
 			const typeNode & d=c.destination();
-			if(community(d)==com){
-				cnt+=2*c.weight();
-				//get reverse edge
-//				typeWeight w=weight(d,node);
-//				if(!isnan(w))cnt+=w;
+			if(d!=node){
+				if(community(d)==com){
+	//				cnt+=2*c.weight();
+					cnt+=c.weight();
+					//get reverse edge
+	//				typeWeight w=weight(d,node);
+	//				if(!isnan(w))cnt+=w;
+				}
 			}
 		}
 //		if(!firstRun){
@@ -1278,22 +1302,22 @@ public:
 			}
 		}
 		//add any links from cc missing
-		if(edgeCount()<cc.edgeCount()){
-			typeLinksRangeConst e=cc.edges();
-			typeLinksIteratorConst it=e.first;
-			while(it!=e.second){
-				const typeLinksPair & p=*it;
+//		if(edgeCount()<cc.edgeCount()){
+			typeLinksRangeConst ee=cc.edges();
+			typeLinksIteratorConst it2=ee.first;
+			while(it2!=ee.second){
+				const typeLinksPair & p=*it2;
 				const typeNode & s=p.first;
 				const typeNode & d=p.second.destination();
-				const typeWeight & w=weight(s,d);
-				if(isnan(w)){
+				const typeWeight & w=cc.weight(s,d);
+				if(!isnan(w)){
 					nd.insert(s);
 					nd.insert(d);
 					GraphUndirected::addEdge(s,d,p.second.weight());//add missing link
 				}
-				++it;
+				++it2;
 			}
-		}
+//		}
 		//add inner edges
 		typeCommunityEdgesIteratorConst iti=inner.cbegin();
 		while(iti!=inner.cend()){

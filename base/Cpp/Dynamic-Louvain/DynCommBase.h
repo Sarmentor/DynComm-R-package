@@ -11,6 +11,7 @@
 #include "DynCommBaseInterface.h"
 #include "algorithm.h"
 #include "quality.h"
+#include "timeFunctions.h"
 
 /**
  * Dynamic Communities class API.
@@ -22,6 +23,16 @@ private:
 	GraphUndirectedGroupable grph;//graph with edges
 	Quality qlt;
 	ProgramParameters prmtrs;//algorithm parameters
+
+	/**
+	 * total time used processing
+	 */
+	uint64 timeTotal=0;
+
+	/**
+	 * auxiliary time used to store the start time
+	 */
+	uint64 timeStart=0;
 
 public:
 	/**
@@ -43,11 +54,14 @@ public:
 		algrthm(grph,reader,qlt,algorithm,algorithmParameters)
 		,qlt(grph,quality,algorithmParameters)
 		,prmtrs(algorithmParameters)
+		,timeTotal(0)
+		,timeStart(Time::currentTime())
 	{
 		//TODO validate errors
 		if(!addRemoveEdges(reader)){//check for reader errors
 			CERR << reader->status();
 		}
+		timeTotal+=Time::currentTime()-timeStart;
 	}
 
 	/**
@@ -57,7 +71,10 @@ public:
 	 * @return true if adding/removing succeeded
 	 */
 	bool addRemoveEdges(ReaderInterface<Edge> * reader){
-		return algrthm.addRemoveEdges(reader);
+		timeStart=Time::currentTime();
+		bool b=algrthm.addRemoveEdges(reader);
+		timeTotal+=Time::currentTime()-timeStart;
+		return b;
 	}
 
 	/**
@@ -155,6 +172,12 @@ public:
 		}
 		return true;
 	}
+
+	/**
+	 *
+	 * @return the total processing time in microseconds
+	 */
+	uint64 time()const{return timeTotal;}
 
 };
 

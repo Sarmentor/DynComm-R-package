@@ -52,6 +52,11 @@ public:
 		}
 	}
 
+	/**
+	 *
+	 * @return the chosen quality formula
+	 */
+	QUALITY type()const{return q;}
 };
 
 #endif /* QUALITY_H_ */

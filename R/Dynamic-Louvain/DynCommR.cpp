@@ -315,6 +315,8 @@ public:
 		return v;
 	}
 
+	uint64 time(){return dcb.time();}
+
 	/**
 	 * Get a snapshot of the current community mapping written to file
 	 */
@@ -376,6 +378,7 @@ RCPP_MODULE(DynComm) {
 				 .method("nodesAll", &DynComm::nodesAll)
          .method("nodes", &DynComm::nodes)
          .method("communityMapping", &DynComm::communityMapping)
+		 .method("time", &DynComm::time)
 				 // .method("snapshotFile", &DynComm::snapshotFile)
 				 // .method("snapshotMatrix", &DynComm::snapshotMatrix)
 				 ;
@@ -391,6 +394,11 @@ RCPP_MODULE(DynComm) {
  * dc$communityNodeCount(1)
  * dc$nodes(1)
  * dc$communityMapping(TRUE)
+ * dc$time()
+ *
+ * or in one line
+ *
+ * parameters<-matrix(c("filename","test/full/as19971108.txt"),1,2);dc<-new(DynComm,DynComm::Algorithm.LOUVAIN,DynComm::Quality.MODULARITY,parameters);dc$communityCount();dc$communities();dc$communityNodeCount(1);dc$nodes(1);dc$communityMapping(TRUE);dc$time()
  *
  */
 

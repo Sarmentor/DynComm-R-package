@@ -12,6 +12,7 @@
 #include <sys/time.h>	//gettimeofday
 
 #include "defines.h"
+#include "systemDefines.h"
 #include <limits>
 
 namespace Time {
@@ -39,10 +40,10 @@ inline uint64 longTime(const timespec& t){
  * @brief Get the current system time in microseconds as an unsigned 64 bit integer
  */
 inline uint64 currentTime(){
-	timeval tm;
-	if(gettimeofday(&tm,NULL)==0){//DEPRECATED but is the one to use in fedora13 since there is no other better
-//	timespec tm;
-//	if(clock_gettime(CLOCK_REALTIME, &tm)==0){//this is the one to use on modern systems
+//	timeval tm;
+//	if(gettimeofday(&tm,NULL)==0){//DEPRECATED but is the one to use in fedora13 since there is no other better
+	timespec tm;
+	if(clock_gettime(CLOCK_REALTIME, &tm)==0){//this is the one to use on modern systems
 		return longTime(tm);
 	}
 	return 0;//return epoch on error so that further processing can detect and possibly correct
@@ -53,8 +54,16 @@ inline uint64 currentTime(){
  */
 class TimeKeeper{
 private:
-	uint64 r;//reference time for math
-	uint64 t;//intended base time (time referential)
+	/**
+	 * reference time used for calculations of elapsed time
+	 */
+	uint64 r;
+
+	/**
+	 * base time (time referential) to be used instead of epoch
+	 */
+	uint64 t;
+
 	inline uint64 validateBaseTime(const uint64& time) const{
 		if(time<=r){
 			return time;
@@ -81,22 +90,29 @@ public:
 	}
 	/**
 	 * get current time or the elapsed time regarding the saved reference time or translate a time to the configured time referential
+	 * If there is no base time and the given time is zero, return the current time (time since epoch)
+	 * If there is no base time and the given time is not zero, return the elapsed time since the last call to set or the constructor
+	 * If there is no base time and the given time is zero, return the current time (time since epoch
+	 *
+	 * @param time
+	 * @return
 	 */
 	inline uint64 get(const uint64& time=0) const{
 		if(t==0){
 			if(time==0){
-				return currentTime();
+				return currentTime();//return the current time (time since epoch)
 			}
 			else{
-				return validateTime(time);
+				return validateTime(time)-r;//return the difference of the given time compared to the reference time (stored on the last call of set or the constructor)
 			}
 		}
 		else{
 			if(time==0){
-				return currentTime()-r+t;
+				return currentTime()-r+t;//return the elapsed time since reference time in regard to the configured base time
 			}
 			else{
 				uint64 x=validateTime(time);
+				//return the time difference of the given time compared to the reference time in regard to the configured base time
 				return ((x==std::numeric_limits<uint64>::max())?std::numeric_limits<uint64>::max():x-r+t);
 			}
 		}

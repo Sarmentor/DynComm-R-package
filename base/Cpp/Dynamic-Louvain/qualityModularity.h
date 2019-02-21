@@ -45,7 +45,7 @@ public:
 //			totc=it->second;
 //		}
 		const typeWeight & m2   = g.totalWeight();
-		CERR << "gain: node=" << node << "; comm=" << comm << "; dnodecomm=" << g.neighborsCommunityWeight(node,comm) << "; w_degree=" << w_degree << "; tot[comm]=" << totc << "; m2=" << m2 << "; gain=" << (g.neighborsCommunityWeight(node,comm) - totc*w_degree/m2) << "\n";
+//		CERR << "gain: node=" << node << "; comm=" << comm << "; dnodecomm=" << g.neighborsCommunityWeight(node,comm) << "; w_degree=" << w_degree << "; tot[comm]=" << totc << "; m2=" << m2 << "; gain=" << (g.neighborsCommunityWeight(node,comm) - totc*w_degree/m2) << "\n";
 		return (g.neighborsCommunityWeight(node,comm) - totc*w_degree/m2);
 	}
 
@@ -62,15 +62,15 @@ public:
 //			itt=tot.find(i);
 //			const typeWeight & t = itt->second;
 			const typeWeight & t = g.totalEdges(i);
-			CERR << "quality: i=" << i << "; tot[i]=" << t << "; m2=" << m2 ;
+//			CERR << "quality: i=" << i << "; tot[i]=" << t << "; m2=" << m2 ;
 			if (t > 0.0L){
-				CERR << "; in[i]=" << a << "; previous q=" << q << "; delta q=" << a - (t*t) / m2;
+//				CERR << "; in[i]=" << a << "; previous q=" << q << "; delta q=" << a - (t*t) / m2;
 				q += a - (t*t) / m2;
 			}
-			CERR << "; new q=" << q << "\n";
+//			CERR << "; new q=" << q << "\n";
 		}
 		q /= m2;
-		CERR << "quality: final q=" << q << "\n";
+//		CERR << "quality: final q=" << q << "\n";
 		return q;
 	}
 

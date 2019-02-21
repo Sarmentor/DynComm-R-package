@@ -411,13 +411,13 @@ public:
 				if (str) {
 					std::istringstream line_buffer(line);
 					line_buffer >> src >> std::ws >> dest >> std::ws >> weight;
-					CERR << "fail="<< line_buffer.fail()<< "; eof="<< line_buffer.eof()<< "; bad="<< line_buffer.bad()<< "; count="<< line_buffer.gcount()<< "\n";
+//					CERR << "fail="<< line_buffer.fail()<< "; eof="<< line_buffer.eof()<< "; bad="<< line_buffer.bad()<< "; count="<< line_buffer.gcount()<< "\n";
 					if(!line_buffer){//failed
 						line_buffer.clear();//clear all ifstream errors
 						line_buffer.seekg(0,line_buffer.beg);//reset stream read position
 						//attemp read unweighted edge
 						line_buffer >> src >> std::ws >> dest;
-						CERR << "fail="<< line_buffer.fail()<< "; eof="<< line_buffer.eof()<< "; bad="<< line_buffer.bad()<< "; count="<< line_buffer.gcount()<< "\n";
+//						CERR << "fail="<< line_buffer.fail()<< "; eof="<< line_buffer.eof()<< "; bad="<< line_buffer.bad()<< "; count="<< line_buffer.gcount()<< "\n";
 						if(!line_buffer){//failed
 							line_buffer.clear();//clear all ifstream errors
 							line_buffer.seekg(0,line_buffer.beg);//reset stream read position
@@ -430,7 +430,7 @@ public:
 								//attemp read comment line
 								std::string s;
 								line_buffer >> s;
-								CERR << "fail="<< line_buffer.fail()<< "; eof="<< line_buffer.eof()<< "; bad="<< line_buffer.bad()<< "; count="<< line_buffer.gcount()<< "\n";
+//								CERR << "fail="<< line_buffer.fail()<< "; eof="<< line_buffer.eof()<< "; bad="<< line_buffer.bad()<< "; count="<< line_buffer.gcount()<< "\n";
 //							}
 								state=4;
 						}

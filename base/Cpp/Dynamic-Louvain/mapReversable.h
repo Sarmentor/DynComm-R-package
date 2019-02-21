@@ -211,9 +211,9 @@ public:
 
 	typedef typename std::map<T,U>::const_iterator const_iterator;
 	typedef std::pair<T,U> typePair;
-	typedef typename std::multimap<U,T>::const_iterator const_range_iterator;
+	typedef typename std::multimap<U,T>::const_iterator range_iterator_const;
 	typedef std::pair<U,T> typeRangePair;
-	typedef std::pair<const_range_iterator,const_range_iterator> typeRange;
+	typedef std::pair<range_iterator_const,range_iterator_const> typeRange;
 
 	/**
 	 * default constructor
@@ -240,7 +240,7 @@ public:
 	 * @param value
 	 * @return a pair of constant range iterators pointing, respectively, to the beginning and to the end of the range of keys that holds the given value
 	 */
-	const_range_iterator key(const U & value)const {return r.find(value);}
+	range_iterator_const key(const U & value)const {return r.find(value);}
 
 	/**
 	 * get all the keys that have a given value
@@ -274,12 +274,12 @@ public:
 	 *
 	 * @return a constant iterator to the beginning of the multimap
 	 */
-	const_range_iterator cbeginr()const{return r.cbegin();}
+	range_iterator_const cbeginr()const{return r.cbegin();}
 	/**
 	 *
 	 * @return a constant iterator to the end of the multimap
 	 */
-	const_range_iterator cendr()const{return r.cend();}
+	range_iterator_const cendr()const{return r.cend();}
 
 	/**
 	 * Get value associated with key. If the key entry does not exists it is created with the default value
@@ -406,7 +406,7 @@ public:
 		U debugOldValue=oldValue;
 		U debugNewValue=newValue;
 		std::set<T> s;
-		for(const_iterator it=p.first;it!=p.second;++it){//for all keys in range
+		for(range_iterator_const it=p.first;it!=p.second;++it){//for all keys in range
 			const std::pair<U,T> & a=*it;//get pair
 			s.insert(a.second);//get key
 		}

@@ -565,7 +565,7 @@ public:
 		typeLinksRangeConst r=neighbors(node);
 		for(typeLinksIteratorConst it=r.first;it!=r.second;++it){
 			const typeLinksPair & p=*it;
-			if(node!=p.second.destination()) w+=2*p.second.weight();
+			if(node!=p.second.destination()) w+=p.second.weight();
 		}
 		return w;
 	}
@@ -603,7 +603,8 @@ public:
 		for (typeLinksIteratorConst it=p.first ; it!=p.second ; ++it) {
 			const typeLinksPair & a=*it;
 			const HalfEdge & b=a.second;
-			if(node!=b.destination()) res += b.weight();
+//			if(node!=b.destination())
+				res += b.weight();
 		}
 		return res;
 	}

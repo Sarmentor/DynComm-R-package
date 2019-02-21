@@ -105,11 +105,11 @@ public:
 				Edge ed=reader->next();
 				addRemoveEdgePre(ed.source(),ed.destination(),ed.weight());
 				if(ed.weight()==0){
-					CERR << "remove edge=" << ed.toString() << "\n";
+//					CERR << "remove edge=" << ed.toString() << "\n";
 					grph.removeEdge(ed);
 				}
 				else{
-					CERR << "add edge=" << ed.toString() << "\n";
+//					CERR << "add edge=" << ed.toString() << "\n";
 					grph.addEdge(ed,true);
 				}
 				addRemoveEdgePost(ed.source(),ed.destination(),ed.weight());

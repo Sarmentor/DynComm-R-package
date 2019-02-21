@@ -5,8 +5,8 @@
  *      Author: poltergeist0
  */
 
-#ifndef DEFINES_H_
-#define DEFINES_H_
+#ifndef SYSTEMDEFINES_H_
+#define SYSTEMDEFINES_H_
 
 #include <cstdint>  //uint
 #include <string>   //basic_string,stoi
@@ -52,4 +52,4 @@ typedef u_char uchar;
 typedef std::basic_string<uchar> ustring;
 
 
-#endif /* DEFINES_H_ */
+#endif /* SYSTEMDEFINES_H_ */
