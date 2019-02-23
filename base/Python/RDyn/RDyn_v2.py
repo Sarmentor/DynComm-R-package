@@ -524,4 +524,4 @@ def main():
                 sigma=args.sigma, lambdad=args.lbd, alpha=args.alpha, paction=args.prob_action,
                 prenewal=args.prob_renewal, quality_threshold=args.quality_threshold,
                 new_node=args.new_nodes, del_node=args.delete_nodes, max_evts=args.max_events)
-rdyn.execute(simplified=args.simplified)
+    rdyn.execute(simplified=args.simplified)
