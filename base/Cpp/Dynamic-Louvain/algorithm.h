@@ -113,6 +113,7 @@ public:
 					grph.addEdge(ed,true);
 				}
 				addRemoveEdgePost(ed.source(),ed.destination(),ed.weight());
+//				CERR << toString()<< "\n";
 			}
 			else{
 				reader->next();//skip anything else other than a value
@@ -121,6 +122,18 @@ public:
 		}
 		return run();
 	}
+
+	  const std::string toString(const StringFormater & sf=defaultStringFormater)const{
+			switch(algrthm){
+			default:
+			case ALGORITHM::LOUVAIN:
+				return algorithmLouvain.toString(sf);
+			break;
+			//		case ALGORITHM::SHAKEN:
+			//			return louvain.addRemoveEdges(reader);
+			//		case ALGORITHM::
+			}
+	  }
 };
 
 #endif /* SRC_ALGORITHM_H_ */

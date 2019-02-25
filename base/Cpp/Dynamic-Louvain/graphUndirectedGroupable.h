@@ -817,6 +817,7 @@ public:
 					ww-=w;
 				}
 				if(source==destination) ww=ww/2;
+//				CERR << "graph add edge("<<source<<","<< destination<<"): com("<<cc1<<","<< cc2<<") ; wei="<<2*ww<< "\n";
 				bool b=update(total,cc1,2*ww,true);
 				if(b) update(inner,cc1,2*ww,true);
 				else inner.erase(cc1);
@@ -868,7 +869,7 @@ public:
 	}
 
 	bool removeEdge(const typeNode & source, const typeNode & destination){
-		COUT << "graph pre remove edge: "<<toString();
+//		COUT << "graph pre remove edge: "<<toString();
 		typeWeight weight=GraphUndirected::weight(source,destination);
 		if(isnan(weight)){
 
@@ -895,7 +896,8 @@ public:
 ////					total[c1]-=weight;
 ////				}
 				typeWeight w=weight;
-//				if(source==destination) w=weight/2;
+				if(source==destination) w=weight/2;
+//				CERR << "graph remove edge("<<source<<","<< destination<<"): com("<<c1<<","<< c2<<") ; wei="<<2*w<< "\n";
 				bool b=update(total,c1,2*w,false);
 				if(b) update(inner,c1,2*w,false);
 				else inner.erase(c1);
@@ -944,10 +946,10 @@ public:
 			bool res=GraphUndirected::removeEdge(source,destination);
 			if(neighborsCount(source)==0) n2c.remove(source);
 			if(neighborsCount(destination)==0) n2c.remove(destination);
-			COUT << "graph post remove edge: "<<toString();
+//			COUT << "graph post remove edge: "<<toString();
 			return res;
 		}
-		COUT << "graph post remove edge: "<<toString();
+//		COUT << "graph post remove edge: "<<toString();
 		return false;
 	}
 
@@ -1055,7 +1057,8 @@ public:
 //		COUT << "graph pre community("<<node<<","<< com<<"): "<<toString();
 		typeWeight a1=neighborsCommunityWeight(node,com);
 		typeWeight a2=neighborsCommunityWeight(node,c);
-		if(node==c) a2*=2;
+//		if(node==c) a2*=2;
+//		typeWeight cw=cc.weight(com,c);
 		typeWeight w=neighborsWeight(node);
 //		typeWeight in=innerEdges(node);
 		typeWeight in=weight(node,node);
@@ -1064,19 +1067,29 @@ public:
 //		update(inner,c,a2/2.0,false);
 //		update(total,com,(w-a1)/2.0,true);
 //		update(total,c,(w-a2)/2.0,false);
-		update(inner,com,2*a1+in,true);
-		update(inner,c,a2+in,false);
+//		COUT << "graph community("<<node<<","<< com<<"): neigcomwei("<<node<<","<< com<<")="<<a1<<" ; neigcomwei("<<node<<","<< c<<")="<<a2<<" ; w="<<w<<" ;in="<<in<< "\n";
+//		if(a2==0){//isolated node or community
+//			update(inner,com,2*a1+in,true);
+//			update(inner,c,in,false);
+//		}
+//		else{//not an isolated node
+			update(inner,com,2*a1+in,true);
+			update(inner,c,2*a2+in,false);
+//		}
 		update(total,com,w+in,true);
 		update(total,c,w+in,false);
+//		COUT << "graph community update("<<node<<","<< com<<"): "<<toString();
 		const typeLinksRangeConst & nei=neighbors(node);
 //		for(typeLinksIteratorConst it=nei.first;it!=nei.second;++it){
 		typeLinksIteratorConst it=nei.first;
 		while(it!=nei.second){
 			const typeLinksPair & p=*it;
 			++it;
+//			COUT << "graph community("<<node<<","<< com<<"): nei="<<p.first<<"\n";
 			if(p.first!=node)break;
 			const HalfEdge & he=p.second;
 			const typeNode & dest=he.destination();
+//			COUT << "graph community nei("<<node<<","<< com<<"): nei("<<p.first<<","<< dest<<"\n";
 			if(dest!=node){
 				const typeWeight & wei=he.weight();
 				const typeCommunity & co=community(dest);
@@ -1115,6 +1128,7 @@ public:
 				}
 			}
 		}
+//		COUT << "graph community n2c\n";
 		bool b=n2c.add(node,com,true);
 		if(node==c){//node was the minimum of the community
 			typeNode min=minimumNode(c);//determine new minimum
@@ -1134,10 +1148,11 @@ public:
 			inner.erase(c);
 			total.erase(c);
 		}
+//		COUT << "graph community min\n";
 		if(node<com){//node is the new minimum of the destination community
 			replaceCommunity(com,node);
 		}
-//		COUT << "graph post community: "<<toString();
+//	COUT << "graph post community: "<<toString();
 		return b;
 	}
 

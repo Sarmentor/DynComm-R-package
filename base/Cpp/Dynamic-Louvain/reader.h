@@ -282,20 +282,79 @@ public:
 				typeNode src;
 				typeNode dest;
 				typeWeight weight;
-				if (par.type==LINK_WEIGHT::WEIGHTED) {
-					finput >> src >> std::ws >> dest >> std::ws >> weight;
-				} else {
-					finput >> src >> std::ws >> dest;
-					weight=1;
-				}
+//				if (par.type==LINK_WEIGHT::WEIGHTED) {
+//					finput >> src >> std::ws >> dest >> std::ws >> weight;
+//				} else {
+//					finput >> src >> std::ws >> dest;
+//					weight=1;
+//				}
+//				if (finput) {
+//					state=1;
+//					ed=Edge(src,dest,weight);
+//					lineNumber++;
+//					return noEdge;
+//				}
+//				else{
+//					if(!finput.eof()){
+//						state=5;
+//						stts="End of file\n";
+//						return noEdge;
+//					}
+//					else{
+//						std::stringstream ss;
+//						ss << "The file " << par.filename << " has an error on line " << lineNumber << "\n";
+//						state=0;
+//						stts=ss.str();
+//						return noEdge;
+//					}
+//				}
+				std::string line;
+				std::getline(finput, line);
 				if (finput) {
-					state=1;
-					ed=Edge(src,dest,weight);
-					lineNumber++;
+					std::istringstream line_buffer(line);
+					line_buffer >> src >> std::ws >> dest >> std::ws >> weight;
+//					CERR << "fail="<< line_buffer.fail()<< "; eof="<< line_buffer.eof()<< "; bad="<< line_buffer.bad()<< "; count="<< line_buffer.gcount()<< "\n";
+					if(!line_buffer){//failed
+						line_buffer.clear();//clear all ifstream errors
+						line_buffer.seekg(0,line_buffer.beg);//reset stream read position
+						//attemp read unweighted edge
+						line_buffer >> src >> std::ws >> dest;
+//						CERR << "fail="<< line_buffer.fail()<< "; eof="<< line_buffer.eof()<< "; bad="<< line_buffer.bad()<< "; count="<< line_buffer.gcount()<< "\n";
+						if(!line_buffer){//failed
+							line_buffer.clear();//clear all ifstream errors
+							line_buffer.seekg(0,line_buffer.beg);//reset stream read position
+							//attemp read blank line
+//							line_buffer >> std::ws;
+//							CERR << "fail="<< line_buffer.fail()<< "; eof="<< line_buffer.eof()<< "; bad="<< line_buffer.bad()<< "; count="<< line_buffer.gcount()<< "\n";
+//							if(!line_buffer){//failed
+//								line_buffer.clear();//clear all ifstream errors
+//								line_buffer.seekg(0,line_buffer.beg);//reset stream read position
+								//attemp read comment line
+								std::string s;
+								line_buffer >> s;
+//								CERR << "fail="<< line_buffer.fail()<< "; eof="<< line_buffer.eof()<< "; bad="<< line_buffer.bad()<< "; count="<< line_buffer.gcount()<< "\n";
+//							}
+								state=4;
+						}
+						else{//success reading without weight
+							state=1;
+							weight=1;
+							ed=Edge(src,dest,weight);
+							lineNumber++;
+						}
+					}
+					else{//success reading with weight
+						state=1;
+						if(par.type==LINK_WEIGHT::UNWEIGHTED){//ignore weight read from stream
+							if(weight!=0) weight=1;//only ignore if edge is to be inserted
+						}
+						ed=Edge(src,dest,weight);
+						lineNumber++;
+					}
 					return noEdge;
 				}
 				else{
-					if(!finput.eof()){
+					if(finput.eof()){
 						state=5;
 						stts="End of file\n";
 						return noEdge;

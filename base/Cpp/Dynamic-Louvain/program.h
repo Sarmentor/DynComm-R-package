@@ -86,7 +86,6 @@ struct ProgramParameters{
 void parse_args(int argc, char *argv[], ProgramParameters & par) {
 	if (argc<2)
 		usage(argv[0], "Bad arguments number\n");
-
 	for (int i = 1; i < argc; i++) {
 		if(argv[i][0] == '-') {
 			switch(argv[i][1]) {
@@ -150,12 +149,12 @@ void parse_args(int argc, char *argv[], ProgramParameters & par) {
 		usage(std::string(argv[0]), "No input file has been provided\n");
 }
 
-void display_time(const std::string & str) {
-	time_t rawtime;
-	time ( &rawtime );
-	std::stringstream ss;
-	ss << str << ": " << ctime (&rawtime);
-	COUT << ss.str();
-}
+//void display_time(const std::string & str) {
+//	time_t rawtime;
+//	time ( &rawtime );
+//	std::stringstream ss;
+//	ss << str << ": " << ctime (&rawtime);
+//	COUT << ss.str();
+//}
 
 #endif /* PROGRAM_H_ */
