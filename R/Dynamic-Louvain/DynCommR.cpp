@@ -51,8 +51,14 @@ private:
 		int ncol = algorithmParameters.ncol();
 		ProgramParameters p;
 		for (int i = 0; i < nrow; i++) {
-			char *a[]={algorithmParameters(i,0),algorithmParameters(i,1)};
-			parse_args(2,a,p);
+		  if(algorithmParameters(i,0)=="filename"){
+		    char *a[]={"DynComm",algorithmParameters(i,1)};
+		    parse_args(2,a,p);
+		  }
+		  else{
+			  char *a[]={"DynComm",algorithmParameters(i,0),algorithmParameters(i,1)};
+			  parse_args(3,a,p);
+		  }
 		}
 		return p;
 	}
@@ -387,7 +393,7 @@ RCPP_MODULE(DynComm) {
 /*
  * R example run
  *
- * parameters<-matrix(c("filename","test/full/as19971108.txt"),1,2)
+ * parameters<-matrix(c("filename","test/full/as19971108.txt","-s","test/full/sequences"),2,2,TRUE)
  * dc<-new(DynComm,DynComm::Algorithm.LOUVAIN,DynComm::Quality.MODULARITY,parameters)
  * dc$communityCount()
  * dc$communities()
@@ -395,10 +401,11 @@ RCPP_MODULE(DynComm) {
  * dc$nodes(1)
  * dc$communityMapping(TRUE)
  * dc$time()
+ * dc$addRemoveEdgesFile("test/full/sequences/s0000000000.txt")
  *
  * or in one line
  *
- * parameters<-matrix(c("filename","test/full/as19971108.txt"),1,2);dc<-new(DynComm,DynComm::Algorithm.LOUVAIN,DynComm::Quality.MODULARITY,parameters);dc$communityCount();dc$communities();dc$communityNodeCount(1);dc$nodes(1);dc$communityMapping(TRUE);dc$time()
+ * parameters<-matrix(c("filename","test/full/as19971108.txt","-s","test/full/sequences"),2,2,TRUE);dc<-new(DynComm,DynComm::Algorithm.LOUVAIN,DynComm::Quality.MODULARITY,parameters);dc$communityCount();dc$communities();dc$communityNodeCount(1);dc$nodes(1);dc$communityMapping(TRUE);dc$time();dc$addRemoveEdgesFile("test/full/sequences/s0000000000.txt");dc$communityMapping(TRUE);dc$time()
  *
  */
 

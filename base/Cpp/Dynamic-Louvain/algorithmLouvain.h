@@ -145,30 +145,42 @@ private:
 
 	void disband(const typeCommunity c1,const typeCommunity c2){
 		//remove affected communities from cg by removing all edges to their respective neighbors
+//		CERR << "disband("<< c1 << ";" << c2 << ")\n";
 		typeLinksRangeConst nc1=cg.neighboringCommunities(c1);
-		for(typeLinksIteratorConst it=nc1.first;it!=nc1.second;++it){
-			const typeLinksPair & p=*it;
-			if(p.first!=c1) break;
-			const HalfEdge & h=p.second;
-			CERR << "disband("<< c1 << ";" << c2 << ")->before remove edge(c,c)="<< c1 << ";" << h.destination() << "\n" << toString(defaultStringFormater(1)) << "\n";
-			cg.removeEdge(c1,h.destination());
-			CERR << "disband("<< c1 << ";" << c2 << ")->after remove edge(c,c)="<< c1 << ";" << h.destination() << "\n" << toString(defaultStringFormater(1)) << "\n";
+//		CERR << "disband("<< c1 << ";" << c2 << ")->iterator="<< c1 << ";" << h.destination() << "\n" << toString(defaultStringFormater(1)) << "\n";
+		{
+	//		for(typeLinksIteratorConst it=nc1.first;it!=nc1.second;++it){
+			typeLinksIteratorConst it=nc1.first;
+			while(it!=nc1.second){
+				const typeLinksPair & p=*it;
+				if(p.first!=c1) break;
+				const HalfEdge & h=p.second;
+//				CERR << "disband("<< c1 << ";" << c2 << ")->before remove edge(c,c)="<< c1 << ";" << h.destination() << "\n" << toString(defaultStringFormater(1)) << "\n";
+				++it;
+				cg.removeEdge(c1,h.destination());
+//				CERR << "disband("<< c1 << ";" << c2 << ")->after remove edge(c,c)="<< c1 << ";" << h.destination() << "\n" << toString(defaultStringFormater(1)) << "\n";
+			}
 		}
-		typeLinksRangeConst nc2=cg.neighboringCommunities(c2);
-		for(typeLinksIteratorConst it=nc2.first;it!=nc2.second;++it){
-			const typeLinksPair & p=*it;
-			if(p.first!=c2) break;
-			const HalfEdge & h=p.second;
-			CERR << "disband("<< c1 << ";" << c2 << ")->before remove edge(c,c)="<< c2 << ";" << h.destination() << "\n" << toString(defaultStringFormater(1)) << "\n";
-			cg.removeEdge(c2,h.destination());
-			CERR << "disband("<< c1 << ";" << c2 << ")->after remove edge(c,c)="<< c2 << ";" << h.destination() << "\n" << toString(defaultStringFormater(1)) << "\n";
+		{
+			typeLinksRangeConst nc2=cg.neighboringCommunities(c2);
+	//		for(typeLinksIteratorConst it=nc2.first;it!=nc2.second;++it){
+			typeLinksIteratorConst it=nc2.first;
+			while(it!=nc2.second){
+				const typeLinksPair & p=*it;
+				if(p.first!=c2) break;
+				const HalfEdge & h=p.second;
+//				CERR << "disband("<< c1 << ";" << c2 << ")->before remove edge(c,c)="<< c2 << ";" << h.destination() << "\n" << toString(defaultStringFormater(1)) << "\n";
+				++it;
+				cg.removeEdge(c2,h.destination());
+//				CERR << "disband("<< c1 << ";" << c2 << ")->after remove edge(c,c)="<< c2 << ";" << h.destination() << "\n" << toString(defaultStringFormater(1)) << "\n";
+			}
 		}
 		//remove inner edges
-		CERR << "disband("<< c1 << ";" << c2 << ")->before remove inner edge(c)="<< c1 << "\n" << toString(defaultStringFormater(1)) << "\n";
+//		CERR << "disband("<< c1 << ";" << c2 << ")->before remove inner edge(c)="<< c1 << "\n" << toString(defaultStringFormater(1)) << "\n";
 		cg.removeEdge(c1,c1);
-		CERR << "disband("<< c1 << ";" << c2 << ")->before remove inner edge(c)="<< c2 << "\n" << toString(defaultStringFormater(1)) << "\n";
+//		CERR << "disband("<< c1 << ";" << c2 << ")->before remove inner edge(c)="<< c2 << "\n" << toString(defaultStringFormater(1)) << "\n";
 		cg.removeEdge(c2,c2);
-		CERR << "disband("<< c1 << ";" << c2 << ")->after remove\n" << toString(defaultStringFormater(1)) << "\n";
+//		CERR << "disband("<< c1 << ";" << c2 << ")->after remove\n" << toString(defaultStringFormater(1)) << "\n";
 		//take nodes of affected communities from g and add them to cg disbanded by adding edges to their neighbors
 		std::set<typeNode> ns;
 		typeCommunityListRange rc1=grph.nodes(c1);
@@ -197,23 +209,23 @@ private:
 				const typeNode & nei=h.destination();
 				const typeCommunity & cn=grph.community(nei);
 				if(cn!=c1 && cn!=c2){
-					CERR << "disband("<< c1 << ";" << c2 << ")->added edge(n,c)="<< n << ";" << cn << "\n";
+//					CERR << "disband("<< c1 << ";" << c2 << ")->added edge(n,c)="<< n << ";" << cn << "\n";
 					cg.addEdge(n,cn,h.weight());//add edge between community of neighbor and node
 				}
 				else{
-					CERR << "disband("<< c1 << ";" << c2 << ")->added edge(n,n)="<< n << ";" << nei << "\n";
+//					CERR << "disband("<< c1 << ";" << c2 << ")->added edge(n,n)="<< n << ";" << nei << "\n";
 					cg.addEdge(n,nei,h.weight());//add edge between neighbor and node
 				}
 //				cg.community(n,n);//set community of node to node
-				CERR << "disband("<< c1 << ";" << c2 << ")->after add\n" << toString(defaultStringFormater(1)) << "\n";
+//				CERR << "disband("<< c1 << ";" << c2 << ")->after add\n" << toString(defaultStringFormater(1)) << "\n";
 			}
 		}
 		//disband g
-		CERR << "disband("<< c1 << ";" << c2 << ")->before disband("<< c1 << ")\n" << toString(defaultStringFormater(1)) << "\n";
+//		CERR << "disband("<< c1 << ";" << c2 << ")->before disband("<< c1 << ")\n" << toString(defaultStringFormater(1)) << "\n";
 		grph.disband(c1);
-		CERR << "disband("<< c1 << ";" << c2 << ")->before disband("<< c2 << ")\n" << toString(defaultStringFormater(1)) << "\n";
+//		CERR << "disband("<< c1 << ";" << c2 << ")->before disband("<< c2 << ")\n" << toString(defaultStringFormater(1)) << "\n";
 		grph.disband(c2);
-		CERR << "disband("<< c1 << ";" << c2 << ")->end disband\n" << toString(defaultStringFormater(1)) << "\n";
+//		CERR << "disband("<< c1 << ";" << c2 << ")->end disband\n" << toString(defaultStringFormater(1)) << "\n";
 //		for(std::set<typeNode>::const_iterator it=ns.cbegin();it!=ns.cend();++it){
 //			const typeNode & n=*it;
 //			cg.community(n,n);//set community of node to node
@@ -301,6 +313,7 @@ private:
 		} while (nb_moves>0 && new_qual-cur_qual > prmtrs.precision);
 
 		//sync changed communities back to reference graph
+//		COUT << "start sync\nfirst="<< firstRun << "\n";
 		if(firstRun){
 			typeCommunities coms=grph.communities();//get all found communities
 			for(typeCommunities::const_iterator itc=coms.cbegin();itc!=coms.cend();++itc){
@@ -310,6 +323,7 @@ private:
 				if(in!=0){
 					cg.addEdge(srcc,srcc,in);
 				}
+//				COUT << "outer edges\n";
 				//handle outer edges
 				typeLinksRangeConst neighbors=grph.neighboringCommunities(srcc);
 				for(typeLinksIteratorConst itn=neighbors.first;itn!=neighbors.second;++itn){
@@ -317,7 +331,7 @@ private:
 					const HalfEdge & he=p.second;
 					const typeNode & destc=he.destination();
 					const typeWeight & weight=he.weight();
-//					std::cout << srcc << ";" << destc << ";" << weight << "\n";
+//				COUT << srcc << ";" << destc << ";" << weight << "\n";
 					cg.addEdge(srcc,destc,weight);
 				}
 			}
@@ -328,19 +342,25 @@ private:
 			for(typeNodeListIteratorConst itc=coms.cbegin();itc!=coms.cend();++itc){
 				const typeNode & n=*itc;
 				const typeCommunity & c=cg.community(n);
+//				COUT << n << ";" << c << "\n";
 				if(n!=c){//community has changed
 					typeCommunityListRange r=grph.nodes(n);
-					for(typeCommunityListRangeIteratorConst itr=r.first;itr!=r.second;++itr){
+					for(typeCommunityListRangeIteratorConst itr=r.first;itr!=r.second;){
 						const typeCommunityListRangePair & p=*itr;
 						const typeNode & nd=p.second;
+						++itr;
 //						const typeCommunity & cm=p.first;
+//            COUT <<"community change ("<< nd << ";" << c << ") start\n";
 						grph.community(nd,c);
+//						COUT <<"community change ("<< nd << ";" << c << ") end\n";
 					}
 				}
 			}
+//			COUT << "communities to graph\n";
 			//TODO recreate cg.graph with communities of cg.cc
 			cg.communitiesToGraph();
 		}
+//		COUT << "end sync\nimprovement="<< improvement<< "\n";
 
 		return improvement;
 //	  return true;
@@ -379,10 +399,12 @@ public:
 				const typeCommunity & c2=grph.community(destination);
 				typeWeight w=cg.weight(c1,c2);//get weight of link if it exists
 				if(isnan(w)){//edge does not exist
+					if(c1==c2) w=2*weight;
 					cg.addEdge(c1,c2,weight);
 				}
 				else{//edge already exists
-					w+=weight;
+					if(c1==c2) w+=2*weight;
+					else w+=weight;
 					cg.addEdge(c1,c2,w,true);
 				}
 			}
@@ -443,7 +465,7 @@ public:
 		//		if (parameters.display_level==-1)
 		//			c.display_partition();
 				++level;
-//					CERR << "**** post one level ****\n"<< toString();
+//				CERR << "**** post one level ****\n"<< toString();
 
 		//#ifdef REFACTORED
 		//		g.display();
@@ -489,6 +511,7 @@ public:
 				//#endif	//MODIFIED
 
 			} while(improvement);
+//			CERR << toString()<< "\n";
 			return true;
 	  }
 

@@ -1,8 +1,8 @@
-#include "../../../base/Cpp/Dynamic-Louvain/defines.h"
+#include "defines.h"
 
 #ifndef FLAG_RCPP
 
-#include "../../../base/Cpp/Dynamic-Louvain/DynCommBase.h"
+#include "DynCommBase.h"
 //#include "quality.h"
 //#include "reader.h"
 //#include "writer.h"
@@ -31,10 +31,10 @@ int main(int argc, char *argv[]) {
 	ProgramParameters parameters;
 //	parse_args(argc, argv,parameters);
 	std::string origin="1 2\n#comment\n\n1 3\n2 3\n3 6\n4 6\n4 5\n5 7\n6 7";
-	unsigned int size=0;
-	std::string sequences[size];//={"3 6 0\n1 4 1","2 3 0\n5 6 1","1 4 0\n8 9 1","5 6 0\n8 9 0\n2 3 1\n3 6 1"};
-//	unsigned int size=4;
-//	std::string sequences[size]={"3 6 0\n1 4 1","2 3 0\n5 6 1","1 4 0\n8 9 1","5 6 0\n8 9 0\n2 3 1\n3 6 1"};
+//	unsigned int size=0;
+//	std::string sequences[size];//={"3 6 0\n1 4 1","2 3 0\n5 6 1","1 4 0\n8 9 1","5 6 0\n8 9 0\n2 3 1\n3 6 1"};
+	unsigned int size=4;
+	std::string sequences[size]={"3 6 0\n1 4 1","2 3 0\n5 6 1","1 4 0\n8 9 1","5 6 0\n8 9 0\n2 3 1\n3 6 1"};
 	ReaderStringEdge rd(origin,parameters);
 
 //	bool improvement=true;
@@ -61,6 +61,15 @@ int main(int argc, char *argv[]) {
 		if(index<size) hasAddRemove=true;
 
 		if(hasAddRemove){
+			COUT << "comm count="<< c.communityCount()<<"\n";
+			COUT << "comms="<< set::toString(c.communities())<<"\n";
+			COUT << "comm 1 node count="<< c.communityNodeCount(1)<<"\n";
+			COUT << "comm 1 nodes="<< set::toString(c.nodes(1))<<"\n";
+			WriterString wr(parameters);
+			wr.write("snapshot:",WriterInterface::WRITETYPE::LINE);
+			c.results(&wr);
+			COUT << c.quality()<<"\n";
+			COUT << c.time()<<"us\n";
 			ReaderStringEdge rd2(sequences[index],p);
 			c.addRemoveEdges(&rd2);
 		}

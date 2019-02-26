@@ -73,7 +73,8 @@ public:
 	bool addRemoveEdges(ReaderInterface<Edge> * reader){
 		timeStart=Time::currentTime();
 		bool b=algrthm.addRemoveEdges(reader);
-		timeTotal+=Time::currentTime()-timeStart;
+		uint64 tm=Time::currentTime();
+		timeTotal+=(tm-timeStart);
 		return b;
 	}
 
