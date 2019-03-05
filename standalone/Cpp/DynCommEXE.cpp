@@ -1,8 +1,8 @@
-#include "defines.h"
+#include "../../base/Cpp/defines.h"
 
 #ifndef FLAG_RCPP
 
-#include "DynCommBase.h"
+#include "../../base/Cpp/DynCommBase.h"
 //#include "quality.h"
 //#include "reader.h"
 //#include "writer.h"
