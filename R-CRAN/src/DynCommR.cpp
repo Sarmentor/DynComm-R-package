@@ -4,12 +4,12 @@
  *
  */
 
-#include "defines.h"
+#include "../../base/Cpp/defines.h"
 
 #ifdef FLAG_RCPP
 
 // #include <Rcpp.h>
-#include "DynCommBase.h"
+#include "../../base/Cpp/DynCommBase.h"
 
 /**
  * Dummy class used to implement Enumeration like variables and function parameters in R from C++.
