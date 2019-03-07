@@ -1,11 +1,49 @@
 library(devtools)
-library(rPython)
 library(reticulate)
 
 packages.py <- c("networkx","time","numpy","tqdm","six")
 
-py_install(packages.py, envname = "r-reticulate", method = "auto", conda = "auto")
+py_install(packages.py, envname = "virtualenv", method = "auto", conda = "auto")
 
 setwd("../")
-python.load(file = paste(getwd(),'/base/Python/TILES/TILES.py',sep=""), get.exception = TRUE)
+source_python(paste(getwd(),'/base/Python/TILES/TILES.py',sep=""))
+
+#' The implementation of TILES algorithm.
+#'
+#' @param init.graph input initial edge list graph
+#' @param streamfile .csv file with stream input edges
+#' @param ttl edge time to live (days)
+#' @param obs observation window (days)
+#' @param path Path where generate the results and find the edge file
+#' @param start starting date
+#' @param end ending date
+#' @return dynamic community detection represented in a XXXXXX type of object
+#' @seealso \code{\link{nchar}} which this function wraps
+#' @export
+#' @examples
+#' str_length(letters)
+TILES <- function(streamfile, init.graph=NULL, ttl=Inf, obs=7, path="", start=NULL, end=NULL){
+  
+  #initial networkx graph
+  import("networkx")
+  py.initgraph <- nx.Graph(init.graph)
+  
+  """
+    Constructor
+    :param g: networkx graph
+    :param ttl: edge time to live (days)
+    :param obs: observation window (days)
+    :param path: Path where generate the results and find the edge file
+    :param start: starting date
+    :param end: ending date
+
+  """
+  
+  TILES$__init__(self, filename=streamfile, g=py.initgraph, ttl=float('inf'), obs=7, path="", start=start, end=end)
+  
+  return(TILES$execute(self))
+  
+}
+
+
 
