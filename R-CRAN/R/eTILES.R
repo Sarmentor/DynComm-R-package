@@ -37,7 +37,7 @@ eTILES <- function(streamfile.edge.removal , init.graph=NULL, obs=7, path="", st
   
   """
   
-  eTILES$__init__(self, filename=streamfile, g=py.initgraph, obs=7, path="", start=start, end=end)
+  eTILES$__init__(self, filename=streamfile.edge.removal, g=py.initgraph, obs=7, path="", start=start, end=end)
   
   return(eTILES$execute(self))
   
