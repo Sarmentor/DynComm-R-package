@@ -22,22 +22,22 @@ source_python(paste(getwd(),'/base/Python/TILES/TILES.py',sep=""))
 #' @export
 #' @examples
 #' str_length(letters)
-TILES <- function(streamfile, init.graph=NULL, ttl=Inf, obs=7, path="", start=NULL, end=NULL){
+tiles <- function(streamfile, init.graph=NULL, ttl=Inf, obs=7, path="", start=NULL, end=NULL){
   
   #initial networkx graph
   import("networkx")
   py.initgraph <- nx.Graph(init.graph)
   
-  """
-    Constructor
-    :param g: networkx graph
-    :param ttl: edge time to live (days)
-    :param obs: observation window (days)
-    :param path: Path where generate the results and find the edge file
-    :param start: starting date
-    :param end: ending date
-
-  """
+  #"""
+  #
+  #  Constructor
+  #  :param g: networkx graph
+  #  :param ttl: edge time to live (days)
+  #  :param obs: observation window (days)
+  #  :param path: Path where generate the results and find the edge file
+  #  :param start: starting date
+  #  :param end: ending date
+  #"""
   
   TILES$__init__(self, filename=streamfile, g=py.initgraph, ttl=float('inf'), obs=7, path="", start=start, end=end)
   

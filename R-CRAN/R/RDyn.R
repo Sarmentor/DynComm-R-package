@@ -28,7 +28,7 @@ source_python(paste(getwd(),'/base/Python/RDyn/RDyn_v2.py',sep=""))
 #' @export
 #' @examples
 #' str_length(letters)
-RDyn <- function(size=1000, iterations=100, avg_deg=15, sigma=.6,
+rdyn <- function(size=1000, iterations=100, avg_deg=15, sigma=.6,
                  lambdad=1, alpha=2.5, paction=1, prenewal=.8,
                  quality_threshold=.2, new_node=.0, del_node=.0, max_evts=1){
   
