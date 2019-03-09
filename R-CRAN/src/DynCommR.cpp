@@ -40,7 +40,7 @@ class DummyQuality: public DummyEnum{
  * Dynamic Communities class that handles all the IO for the base class.
  * This (file/class) is the R version.
  */
-class DynComm{
+class DynCommR{
 private:
 	ProgramParameters prmtrs;
 	ReaderFileEdge rFE;
@@ -68,7 +68,7 @@ public:
 	 * Default constructor not acceptable.
 	 * Must be passed at least the chosen algorithm and the graph
 	 */
-	DynComm()=delete;
+	DynCommR()=delete;
 
 	/**
 	 * Constructor for loading graph from white character (tab or space) separated values file
@@ -81,7 +81,7 @@ public:
 	 *   - weight is a double
 	 *   - MAX_INTEGER_VALUE depends on the platform being 32bit or 64bit. It is the maximum value of an integer in that platform
 	 */
-	DynComm(
+	DynCommR(
 			Algorithm::ALGORITHM algorithm=Algorithm::ALGORITHM::LOUVAIN
 			,const Quality::QUALITY & quality=Quality::QUALITY::MODULARITY
 			// , ProgramParameters algorithmParameters=argumentsDefault
@@ -365,26 +365,26 @@ RCPP_MODULE(DynComm) {
 	//   .constructor<ProgramParameters>()
 	//   ;
 
-	class_<DynComm>( "DynComm")
+	class_<DynCommR>( "DynCommR")
     		  // .constructor<std::string,DynComm::ALGORITHM, std::string>()
     		  // .constructor<int, DynComm::ALGORITHM, std::string>()
         		 .constructor< Algorithm::ALGORITHM, Quality::QUALITY, Rcpp::CharacterMatrix>()
 				 // .constructor< int,Algorithm::ALGORITHM,  std::string>()
 				 // .method("addRemoveEdgesMatrix", &DynComm::addRemoveEdgesMatrix)
-				 .method("addRemoveEdgesFile", &DynComm::addRemoveEdgesFile)
-				 .method("quality", &DynComm::quality)
-				 .method("communityCount", &DynComm::communityCount)
-				 .method("communities", &DynComm::communities)
-				 .method("communityInnerEdgesWeight", &DynComm::communityInnerEdgesWeight)
-				 .method("communityTotalWeight", &DynComm::communityTotalWeight)
-         .method("communityEdgeWeight", &DynComm::communityEdgeWeight)
-				 .method("communityNodeCount", &DynComm::communityNodeCount)
-     .method("community", &DynComm::community)
-     .method("nodesCount", &DynComm::nodesCount)
-				 .method("nodesAll", &DynComm::nodesAll)
-         .method("nodes", &DynComm::nodes)
-         .method("communityMapping", &DynComm::communityMapping)
-		 .method("time", &DynComm::time)
+				 .method("addRemoveEdgesFile", &DynCommR::addRemoveEdgesFile)
+				 .method("quality", &DynCommR::quality)
+				 .method("communityCount", &DynCommR::communityCount)
+				 .method("communities", &DynCommR::communities)
+				 .method("communityInnerEdgesWeight", &DynCommR::communityInnerEdgesWeight)
+				 .method("communityTotalWeight", &DynCommR::communityTotalWeight)
+         .method("communityEdgeWeight", &DynCommR::communityEdgeWeight)
+				 .method("communityNodeCount", &DynCommR::communityNodeCount)
+     .method("community", &DynCommR::community)
+     .method("nodesCount", &DynCommR::nodesCount)
+				 .method("nodesAll", &DynCommR::nodesAll)
+         .method("nodes", &DynCommR::nodes)
+         .method("communityMapping", &DynCommR::communityMapping)
+		 .method("time", &DynCommR::time)
 				 // .method("snapshotFile", &DynComm::snapshotFile)
 				 // .method("snapshotMatrix", &DynComm::snapshotMatrix)
 				 ;
@@ -401,11 +401,11 @@ RCPP_MODULE(DynComm) {
  * dc$nodes(1)
  * dc$communityMapping(TRUE)
  * dc$time()
- * dc$addRemoveEdgesFile("test/full/sequences/s0000000000.txt")
+ *dc$addRemoveEdgesFile("test/full/sequences/s0000000000.txt")
  *
  * or in one line
  *
- * parameters<-matrix(c("filename","test/full/as19971108.txt","-s","test/full/sequences"),2,2,TRUE);dc<-new(DynComm,DynComm::Algorithm.LOUVAIN,DynComm::Quality.MODULARITY,parameters);dc$communityCount();dc$communities();dc$communityNodeCount(1);dc$nodes(1);dc$communityMapping(TRUE);dc$time();dc$addRemoveEdgesFile("test/full/sequences/s0000000000.txt");dc$communityMapping(TRUE);dc$time()
+ * parameters<-matrix(c("filename","test/full/as19971108.txt","-s","test/full/sequences"),2,2,TRUE);dc<-new(DynComm,DynComm::Algorithm.LOUVAIN,DynComm::Quality.MODULARITY,parameters);dc$communityCount();dc$communities();dc$communityNodeCount(1);dc$nodes(1);dc$communityMapping(TRUE);dc$time()
  *
  */
 
