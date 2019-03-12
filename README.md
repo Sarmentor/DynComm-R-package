@@ -12,7 +12,7 @@ install.packages("dyncomm")
 
 For the development version, you can use Github, with the devtools package:
 
-devtools::install_github("dyncomm-r-package/")
+devtools::install_github("DynComm-R-package/")
 
 - Documentation
 
