@@ -2,7 +2,7 @@ R Package
 
 R/dyncomm
 
-R/dyncomm is an R package for Dynamic Network Community Detection and Generation
+R/dyncomm is an R package for Dynamic Network Community Detection
 
 - Installation
 
