@@ -1,6 +1,6 @@
 Package: dyncomm
 Type: Package
-Title: Dynamic Network Communities Detection and Generation
+Title: Dynamic Network Communities Detection
 Version: 201901.01.0
 Author: Rui Portocarrero Sarmento, Luís Lemos, Giulio Rossetti, Vera Costa
 Maintainer: Rui P. Sarmento <email@ruisarmento.com>
