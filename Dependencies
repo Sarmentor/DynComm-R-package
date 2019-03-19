@@ -1,7 +1,7 @@
 R:
 
 - igraph package for R
-- rPython
+- reticulate
 - Rcpp
 
 R Windows (TODO):
