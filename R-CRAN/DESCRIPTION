@@ -10,7 +10,7 @@ Description: This package is used for evolving network analysis regarding commun
 License: GPL-2
 Encoding: UTF-8
 LazyData: false
-Imports: rPython, Rcpp (>= 0.12.15), rJava, igraph
+Imports: reticulate, rPython, Rcpp (>= 0.12.15), rJava, igraph
 Depends: methods, Rcpp (>= 0.12.15)
 LinkingTo: Rcpp
 RcppModules: DynComm
