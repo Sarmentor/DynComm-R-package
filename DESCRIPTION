@@ -1,4 +1,4 @@
-Package: dyncomm
+Package: DynComm
 Type: Package
 Title: Dynamic Network Communities Detection
 Version: 201901.01.0
