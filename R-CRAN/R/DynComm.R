@@ -33,6 +33,18 @@ QUALITY <- list(
 # setMethod("plot", "Dynom", function(x, ...) { Dynom@alg=x })
 
 # derived from example in https://www.cyclismo.org/tutorial/R/s3Classes.html
+
+
+#' The implementation of the package function.
+#'
+#' @param Algorithm Selected Algorithm
+#' @param Quality Selected Quality Measure
+#' @param paramenters input parameters
+#' @return Object Returns an object of class Dyncomm
+#' @seealso \code{\link{nchar}} which this function wraps
+#' @export
+#' @examples
+#' TODO
 DynComm <- function(Algorithm,Quality,parameters)
 {
   
@@ -72,7 +84,8 @@ DynComm <- function(Algorithm,Quality,parameters)
       alg
     },
 
-    addRemoveEdgesFile = function(graphAddRemoveFile){
+
+	addRemoveEdgesFile = function(graphAddRemoveFile){
       if(alg>=1 & alg<=10000){
         dc$addRemoveEdgesFile(graphAddRemoveFile)
       }

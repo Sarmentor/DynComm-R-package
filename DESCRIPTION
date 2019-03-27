@@ -16,3 +16,4 @@ LinkingTo: Rcpp
 RcppModules: DynComm
 SystemRequirements: C++11
 Suggests: devtools
+RoxygenNote: 6.1.1
