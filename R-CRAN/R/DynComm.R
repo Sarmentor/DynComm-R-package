@@ -1,6 +1,53 @@
 
+########################### Package Documentation ###########################
 
-# List of available algorithms
+#' DynComm: Dynamic Network Communities Detection
+#' 
+#' This package is used for evolving network analysis regarding community detection.
+#' Implements several algorithms that calculate communities for graphs whose nodes and edges change over time.
+#' Edges, which can have new nodes, can be added or deleted.
+#' Changes in the communities are calculated without recalculating communities for the entire graph.
+#' 
+#' @docType package
+#' @name DynComm-package
+NULL
+
+########################### API Documentation ###########################
+
+#' ALGORITHM
+#'
+#' List of available algorithms.
+#' 
+#' An algorithm mainly defines how nodes and/or communities are processed,
+#' when quality measurements occur and what happens to the communities
+#' depending on the value of the quality obtained.
+#'
+#' @usage ALGORITHM$algorithm
+#' 
+#' @format A named list with the names of the available algorithms:
+#'  \describe{
+#'   \item{algorithm}{See available algorithms below.}
+#'  }
+#'  
+#' @section Currently supported algorithms:
+#' \describe{
+#'   \item{Louvain}{is a greedy optimization method to extract communities 
+#'             from large networks by optimizing the density of edges 
+#'             inside communities to edges outside communities.}
+#' }
+#'
+#' @section Algorithms expected to be supported in the future:
+#' \describe{
+#'   \item{TILES}{}
+#'   \item{eTILES}{}
+#' }
+#' 
+#' @examples
+#' ALGORITHM$LOUVAIN
+#' ALGORITHM$TILES
+#' 
+#' @export
+#'
 ALGORITHM <- list(
   # C++ algorithms are listed from 1 to 10000
   LOUVAIN=1L
@@ -10,7 +57,42 @@ ALGORITHM <- list(
   ,ETILES=10002L
   )
 
-# List of available quality measures
+#' QUALITY
+#'
+#' List of available quality measurement functions.
+#' 
+#' A quality measurement function mainly returns a value that indicates 
+#' the proximity of the current grouping of nodes (communities) to the
+#' optimum one. Theoretically, the bigger the value, the closer the 
+#' current grouping is to the best possible grouping.
+#' 
+#' Each QUALITY internally defines two functions. One is used to 
+#' evaluate if moving a node from one group (community) to another 
+#' possibly yields a better overall result. The other is used to measure 
+#' the actual overall quality of the entire grouping (current community 
+#' mapping).
+#'
+#' @usage QUALITY$quality
+#' 
+#' @format A named list with the names of the available algorithms:
+#'  \describe{
+#'   \item{quality}{See available quality below.}
+#'  }
+#'  
+#' @section Currently supported quality measurement functions are:
+#' \describe{
+#'   \item{MODULARITY}{TO DO}
+#'   \item{BALMOD}{TO DO}
+#' }
+#'
+#' @section Quality measurement functions expected to be supported in the future:
+#'
+#' @examples
+#' QUALITY$MODULARITY
+#' QUALITY$BALMOD
+#' 
+#' @export
+#'
 QUALITY <- list(
   # C++ quality measures are listed from 1 to 10000
   MODULARITY=1L
@@ -18,33 +100,49 @@ QUALITY <- list(
   # Python quality measures are listed from 10001 to 20000
 )
 
-# DynComm<-function(Algorithm,Quality,parameters){
-#   if(Algorithm==ALGORITHM$LOUVAIN){
-#     new(DynCommR,Algorithm,Quality,parameters)
-#   }
-#   else{
-#     print("Unknown algorithm :(")
-#   }
-# }
-
-# Dynom <- setClass("Dynom",slots = c(alg="numeric"))
-
-# setMethod("plot", c("Dynom", "missing"), function(x, y, ...) { alg=y })
-# setMethod("plot", "Dynom", function(x, ...) { Dynom@alg=x })
+#' DynComm
+#'
+#' This class provides a single interface for all algorithms in the different languages.
+#' It provides methods to get results of processing and to interact with the nodes, edges and communities.
+#'
+#' @rdname DynComm
+#' 
+#' @docType class
+#' 
+#' @section A Custom Section:
+#'
+#' Text accompanying the custom section.
+#'
+#' @param x A description of the parameter 'x'. The
+#'   description can span multiple lines.
+#' @param y A description of the parameter 'y'.
+#'
+#' @return \code{NULL}
+#'
+#' @export
+#'
+#' @examples
+# parameters<-matrix(c("filename","test/full/as19971108.txt","-s","test/full/sequences"),2,2,TRUE)
+# dc<-DynComm(ALGORITHM$LOUVAIN,QUALITY$MODULARITY,parameters)
+# dc$communityCount()
+# dc$communities()
+# dc$communityNodeCount(1)
+# dc$nodes(1)
+# dc$communityMapping(TRUE)
+# dc$time()
+# dc$addRemoveEdgesFile("test/full/sequences/s0000000000.txt")
+#'
+#' ## don't run this in calls to 'example(add_numbers)'
+#' \dontrun{
+#'    add_numbers(2, 3)
+#' }
+#'
+#' ## don't test this during 'R CMD check'
+#' \donttest{
+#'    add_numbers(4, 5)
+#' }
 
 # derived from example in https://www.cyclismo.org/tutorial/R/s3Classes.html
-
-
-#' The implementation of the package function.
-#'
-#' @param Algorithm Selected Algorithm
-#' @param Quality Selected Quality Measure
-#' @param paramenters input parameters
-#' @return Object Returns an object of class Dyncomm
-#' @seealso \code{\link{nchar}} which this function wraps
-#' @export
-#' @examples
-#' TODO
 DynComm <- function(Algorithm,Quality,parameters)
 {
   
@@ -77,15 +175,40 @@ DynComm <- function(Algorithm,Quality,parameters)
     # {
     #   return(get("thisEnv",thisEnv))
     # },
-    
+
+        
+    #' 
+    #'
+    #' getAlgorithm
+    #'
+    #' This method returns the algorithm with which this object was initialized.
+    #'
+    #' @rdname getAlgorithm
+    #' 
+    #' @docType method
+    #' 
+    #' @method DynComm getAlgorithm
+    #'
+    #' @examples
+    #' dc<-DynComm(ALGORITHM$LOUVAIN,QUALITY$MODULARITY,parameters)
+    #' dc$getAlgorithm()
+    #'
+    #' ## don't run this in calls to 'example(add_numbers)'
+    #' \dontrun{
+    #'    add_numbers(2, 3)
+    #' }
+    #'
+    #' ## don't test this during 'R CMD check'
+    #' \donttest{
+    #'    add_numbers(4, 5)
+    #' }
     getAlgorithm = function()
     {
       # return(alg)
-      alg
+      ALGORITHM[alg]
     },
 
-
-	addRemoveEdgesFile = function(graphAddRemoveFile){
+    addRemoveEdgesFile = function(graphAddRemoveFile){
       if(alg>=1 & alg<=10000){
         dc$addRemoveEdgesFile(graphAddRemoveFile)
       }
@@ -223,14 +346,3 @@ DynComm <- function(Algorithm,Quality,parameters)
   class(me) <- append(class(me),"DynComm")
   return(me)
 }
-
-# parameters<-matrix(c("filename","test/full/as19971108.txt","-s","test/full/sequences"),2,2,TRUE)
-# dc<-DynComm(ALGORITHM$LOUVAIN,QUALITY$MODULARITY,parameters)
-# dc$communityCount()
-# dc$communities()
-# dc$communityNodeCount(1)
-# dc$nodes(1)
-# dc$communityMapping(TRUE)
-# dc$time()
-# dc$addRemoveEdgesFile("test/full/sequences/s0000000000.txt")
-      
