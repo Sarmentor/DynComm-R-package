@@ -106,4 +106,4 @@ on_failure:
     - cmd: echo zipping everything after a failure...
     - cmd: cd "%APPVEYOR_BUILD_FOLDER%"
     - cmd: 7z a failed_state.zip . |grep -v "Compressing"
-- cmd: appveyor PushArtifact failed_state.zip
+    - cmd: appveyor PushArtifact failed_state.zip
