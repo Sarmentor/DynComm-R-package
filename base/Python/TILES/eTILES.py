@@ -8,7 +8,7 @@ import gzip
 import datetime
 import time
 import copy
-from .TILES import TILES
+from TILES import TILES
 
 
 import sys
@@ -202,4 +202,4 @@ class eTILES(TILES):
             self.g.remove_edge(u, v)
 
         # update of shared communities
-self.update_shared_coms(coms_to_change)
+        self.update_shared_coms(coms_to_change)
