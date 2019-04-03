@@ -1,9 +1,5 @@
 language: r
 before_install:
   - cd R-CRAN
-r:
-  - oldrel
-  - release
-  - devel
 repos:
   CRAN: https://cloud.r-project.org
