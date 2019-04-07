@@ -3,7 +3,9 @@
 \docType{data}
 \name{ALGORITHM}
 \alias{ALGORITHM}
-\title{ALGORITHM}
+\alias{algorithm}
+\alias{Algorithm}
+\title{List of available algorithms.}
 \format{A named list with the names of the available algorithms:
  \describe{
   \item{algorithm}{See available algorithms below.}
@@ -12,9 +14,6 @@
 ALGORITHM$algorithm
 }
 \description{
-List of available algorithms.
-}
-\details{
 An algorithm mainly defines how nodes and/or communities are processed,
 when quality measurements occur and what happens to the communities
 depending on the value of the quality obtained.
@@ -28,17 +27,8 @@ depending on the value of the quality obtained.
 }
 }
 
-\section{Algorithms expected to be supported in the future}{
-
-\describe{
-  \item{TILES}{}
-  \item{eTILES}{}
-}
-}
-
 \examples{
 ALGORITHM$LOUVAIN
-ALGORITHM$TILES
 
 }
 \keyword{datasets}

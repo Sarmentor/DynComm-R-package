@@ -14,17 +14,17 @@ library(igraph)
 #' str_length(letters)
 densopt <- function(graph, graph.directed = TRUE, comms = NULL, type.names= c("num","alfa")){
   
-  mygraph <- read.graph(graph, format = "ncol", directed = graph.directed)
-  
+  mygraph <- graph
+  Density.df.results <- data.frame("ori.mean"=c(),"comm.mean"=c(),"ori.mod"=c(),"mod.new"=c(),stringsAsFactors = FALSE)
   n.comms <- max(membership(comms))
   new.n.comms <- n.comms
   
   if(type.names=="num"){
     #numeric node names
-    df.comms <<- data.frame(node = as.numeric(names(membership(comms))), comm = as.numeric(membership(comms)))
+    df.comms <<- data.frame(node = 1:length(membership(comms)), comm = as.numeric(membership(comms)))
   }else if(type.names=="alfa"){
     #alfanumeric node names
-    df.comms <<- data.frame(node = names(membership(comms)), comm = as.numeric(membership(comms)))
+    df.comms <<- data.frame(node = 1:length(membership(comms)), comm = as.numeric(membership(comms)))
   }
   
   #
@@ -93,12 +93,17 @@ densopt <- function(graph, graph.directed = TRUE, comms = NULL, type.names= c("n
   cat("\nAverage Original Comm. Density: ", ori.mean)
   cat("\nAverage Optimized Comm. Density: ", comm.mean)
   cat("\nOld Modularity: ", ori.mod)
-  cat("\nNew Modularity: ", mod.new)
+  cat("\nNew Modularity: ", mod.new,"\n")
   
-  Density.df.results <<- rbind(Density.df.results, c(graph.n,ori.mean,comm.mean, ori.mod, mod.new))
-  names(Density.df.results) <- c("graph.n","ori.mean","comm.mean", "ori.mod", "mod.new")
-  return(Density.df.results)
+  Density.df.results <<- rbind(Density.df.results, c(ori.mean,comm.mean, ori.mod, mod.new))
+  names(Density.df.results) <<- c("ori.mean","comm.mean","ori.mod","mod.new")
+  
+  return(list(res=Density.df.results,new.comms=df.comms))
 }
 
-
-
+#example
+g <-erdos.renyi.game(135, 5/135, directed = TRUE)
+summary(g)
+res.comm <- walktrap.community(g)
+res.list <- densopt(graph=g, graph.directed = TRUE, comms = res.comm, type.names= "num")
+write.table(res.list$new.comms)
