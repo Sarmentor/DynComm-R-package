@@ -9,13 +9,13 @@
 communityMapping()
 }
 \value{
-a two column matrix with communities in the first column and the nodes in the second
+a two column matrix with communities in the first column and the vertices in the second
 }
 \description{
 Get the community mapping for all communities after the last iteration.
 }
 \examples{
-dc<-DynComm(ALGORITHM$LOUVAIN,QUALITY$MODULARITY,parameters)
+dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
 dc$communityMapping()
 
 }

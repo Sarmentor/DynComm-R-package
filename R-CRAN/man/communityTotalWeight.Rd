@@ -18,7 +18,7 @@ a floating point number with the weight
 Get the sum of weights of all edges of the given community after the last iteration.
 }
 \examples{
-dc<-DynComm(ALGORITHM$LOUVAIN,QUALITY$MODULARITY,parameters)
+dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
 dc$communityTotalWeight(1)
 
 }

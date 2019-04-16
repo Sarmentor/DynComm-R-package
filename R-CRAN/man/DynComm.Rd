@@ -7,29 +7,29 @@
 \alias{dyncomm}
 \title{DynComm}
 \usage{
-DynComm(algorithm, quality, parameters)
+DynComm(Algorithm,Criterion,Parameters)
 }
 \arguments{
-\item{parameters}{A two column matrix defining additional parameters. See
-the Parameters section on this page}
+\item{Algorithm}{One of the available ALGORITHM See \code{\link{ALGORITHM}}}
 
-\item{algorithm}{One of the available algorithms. See \code{\link{ALGORITHM}}}
+\item{Criterion}{One of the available CRITERION. See \code{\link{CRITERION}}}
 
-\item{quality}{One of the available quality measurement functions. See \code{\link{QUALITY}}}
+\item{Parameters}{A two column matrix defining additional parameters. See
+the PARAMETERS section on this page}
 }
 \value{
 \code{DynComm} object
 }
 \description{
-This class provides a single interface for all algorithms in the different 
+Provides a single interface for all algorithms in the different 
 languages.
-It provides methods to get results of processing and to interact with the 
-nodes, edges and communities.
+Includes methods to get results of processing and to interact with the 
+vertices, edges and communities.
 }
-\section{Parameters}{
+\section{PARAMETERS}{
 
 A two column matrix defining additional parameters to be passed to the
-selected algorithm and quality measurement function.
+selected ALGORITHM and CRITERION.
 The first column names the parameter and the second defines its value.
 \describe{
   \item{
@@ -69,63 +69,77 @@ The first column names the parameter and the second defines its value.
 
 \describe{
 
-  \item{getAlgorithm()}{Get the algorithm being used. See \link{DynComm$getAlgorithm}}
   
 
-  \item{addRemoveEdgesFile(graphAddRemoveFile)}{Add and remove edges read from a file. See \link{DynComm$addRemoveEdgesFile}}
+  \item{addRemoveEdgesFile(graphAddRemoveFile)}{Add and remove edges read from a file. See \link{addRemoveEdgesFile}}
   
 
-  \item{quality()}{Get the quality measurement of the graph after the last iteration. See \link{DynComm$quality}}
+  \item{quality()}{Get the quality measurement of the graph after the last iteration. See \link{quality}}
   
 
-  \item{communityCount()}{Get the number of communities after the last iteration. See \link{DynComm$communityCount}}
+  \item{communityCount()}{Get the number of communities after the last iteration. See \link{communityCount}}
   
 
-  \item{communities()}{Get all communities after the last iteration. See \link{DynComm$communities}}
+  \item{communities()}{Get all communities after the last iteration. See \link{communities}}
   
 
-  \item{communityInnerEdgesWeight(community)}{Get the sum of weights of the inner edges of the given community after the last iteration. See \link{DynComm$communityInnerEdgesWeight}}
+  \item{communityInnerEdgesWeight(community)}{Get the sum of weights of the inner edges of the given community after the last iteration. See \link{communityInnerEdgesWeight}}
   
 
-  \item{communityTotalWeight(community)}{Get the sum of weights of all edges of the given community after the last iteration. See \link{DynComm$communityTotalWeight}}
+  \item{communityTotalWeight(community)}{Get the sum of weights of all edges of the given community after the last iteration. See \link{communityTotalWeight}}
   
 
-  \item{communityEdgeWeight(source,destination)}{Get the weight of the edge that goes from source to destination after the last iteration. See \link{DynComm$communityEdgeWeight}}
+  \item{communityEdgeWeight(source,destination)}{Get the weight of the edge that goes from source to destination after the last iteration. See \link{communityEdgeWeight}}
   
 
-  \item{communityNodeCount(community)}{Get the amount of nodes in the given community after the last iteration. See \link{DynComm$communityNodeCount}}
+  \item{communityVertexCount(community)}{Get the amount of vertices in the given community after the last iteration. See \link{communityVertexCount}}
   
 
-  \item{community(node)}{Get the community of the given node after the last iteration. See \link{DynComm$community}}
+  \item{communityNodeCount(community)}{Alias for communityVertexCount(). See \link{communityVertexCount}}
   
 
-  \item{nodesCount()}{Get the total number of nodes after the last iteration. See \link{DynComm$nodesCount}}
+  \item{community(vertex)}{Get the community of the given vertex after the last iteration. See \link{community}}
   
 
-  \item{nodesAll()}{Get all nodes in the graph after the last iteration. See \link{DynComm$nodesAll}}
+  \item{vertexCount()}{Get the total number of vertices after the last iteration. See \link{vertexCount}}
   
 
-  \item{nodes(community)}{Get all nodes belonging to the given community after the last iteration. See \link{DynComm$nodes}}
+  \item{nodesCount()}{Alias for vertexCount(). See \link{vertexCount}}
   
 
-  \item{communityMapping()}{Get the community mapping for all communities after the last iteration.See \link{DynComm$communityMapping}}
+  \item{vertexAll()}{Get all vertices in the graph after the last iteration. See \link{vertexAll}}
   
 
-  \item{time()}{Get the cumulative time spent on processing after the last iteration. See \link{DynComm$time}}
+  \item{nodesAll()}{Alias for vertexAll(). See \link{vertexAll}}
+  
+
+  \item{vertices(community)}{Get all vertices belonging to the given community after the last iteration. See \link{vertices}}
+  
+
+  \item{nodes(community)}{Alias for vertices(community). See \link{vertices}}
+  
+
+  \item{communityMapping()}{Get the community mapping for all communities after the last iteration.See \link{communityMapping}}
+  
+
+  \item{time()}{Get the cumulative time spent on processing after the last iteration. See \link{time}}
   
 
 }
 }
 
 \examples{
-dc<-DynComm(ALGORITHM$LOUVAIN,QUALITY$MODULARITY,parameters)
+\dontrun{
+Parameters<-matrix(c("-e","0.1"),1,2,TRUE)
+dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
 dc$addRemoveEdgesFile("initial_graph.txt")
 dc$communityCount()
 dc$communities()
 dc$communityNodeCount(1)
-dc$nodes(1)
+dc$vertices(1)
 dc$communityMapping(TRUE)
 dc$time()
 dc$addRemoveEdgesFile("s0000000000.txt")
+}
 
 }

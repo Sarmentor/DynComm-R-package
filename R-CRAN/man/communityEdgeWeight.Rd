@@ -9,9 +9,9 @@
 communityEdgeWeight(source,destination)
 }
 \arguments{
-\item{source}{The name of the source node that is part of the edge}
+\item{source}{The name of the source vertex that is part of the edge}
 
-\item{destination}{The name of the destination node that is part of the edge}
+\item{destination}{The name of the destination vertex that is part of the edge}
 }
 \value{
 a floating point number with the weight
@@ -20,7 +20,7 @@ a floating point number with the weight
 Get the weight of the edge that goes from source to destination after the last iteration.
 }
 \examples{
-dc<-DynComm(ALGORITHM$LOUVAIN,QUALITY$MODULARITY,parameters)
+dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
 dc$communityEdgeWeight(12,42)
 
 }

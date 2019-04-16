@@ -4,21 +4,21 @@
 \name{DynComm$community}
 \alias{DynComm$community}
 \alias{community}
-\title{community(node)}
+\title{community(vertex)}
 \usage{
-community(node)
+community(vertex)
 }
 \arguments{
-\item{node}{The name of the intended node}
+\item{vertex}{The name of the intended vertex}
 }
 \value{
-an unsigned integer with the community of the given node
+an unsigned integer with the community of the given vertex
 }
 \description{
-Get the community of the given node after the last iteration.
+Get the community of the given vertex after the last iteration.
 }
 \examples{
-dc<-DynComm(ALGORITHM$LOUVAIN,QUALITY$MODULARITY,parameters)
+dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
 dc$community(8)
 
 }

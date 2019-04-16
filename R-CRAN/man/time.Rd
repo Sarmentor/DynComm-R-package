@@ -7,6 +7,7 @@
 \title{time()}
 \usage{
 time()
+time(DynComm)
 }
 \value{
 an unsigned integer with the total processing time
@@ -15,7 +16,7 @@ an unsigned integer with the total processing time
 Get the cumulative time spent on processing after the last iteration.
 }
 \examples{
-dc<-DynComm(ALGORITHM$LOUVAIN,QUALITY$MODULARITY,parameters)
+dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
 dc$time()
 ## 2.3
 }

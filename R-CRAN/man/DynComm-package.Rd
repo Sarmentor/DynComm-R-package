@@ -10,8 +10,8 @@
 Bundle of algorithms used for evolving network analysis regarding 
 community detection.
 Implements several algorithms, using a common API, that calculate 
-communities for graphs whose nodes and edges change over time.
-Edges, which can have new nodes, can be added or deleted, and changes in the 
+communities for graphs whose vertices and edges change over time.
+Edges, which can have new vertices, can be added or deleted, and changes in the 
 communities are calculated without recalculating communities for the 
 entire graph.
 }

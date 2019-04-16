@@ -4,12 +4,12 @@
  *
  */
 
-#include "../../base/Cpp/defines.h"
+#include "base/Cpp/defines.h"
 
 #ifdef FLAG_RCPP
 
 // #include <Rcpp.h>
-#include "../../base/Cpp/DynCommBase.h"
+#include "base/Cpp/DynCommBase.h"
 
 /**
  * Dummy class used to implement Enumeration like variables and function parameters in R from C++.
@@ -74,10 +74,10 @@ public:
 	 * Constructor for loading graph from white character (tab or space) separated values file
 	 * Format of file is:
 	 *   - one edge per line
-	 *   - edge contains two or three values separated by a white space, in this order, source node, destination node and, optionally, a weight
+	 *   - edge contains two or three values separated by a white space, in this order, source vertex, destination vertex and, optionally, a weight
 	 *   - if weight is not given, it will default to 1
 	 *   - edges with a weight of exactly zero are not added
-	 *   - source and destination nodes are integers between 0 and MAX_INTEGER_VALUE-1
+	 *   - source and destination vertices are integers between 0 and MAX_INTEGER_VALUE-1
 	 *   - weight is a double
 	 *   - MAX_INTEGER_VALUE depends on the platform being 32bit or 64bit. It is the maximum value of an integer in that platform
 	 */
@@ -99,10 +99,10 @@ public:
 	 * Constructor for loading graph from white character (tab or space) separated values string
 	 * Format of file is:
 	 *   - one edge per line
-	 *   - edge contains two or three values separated by a white space, in this order, source node, destination node and, optionally, a weight
+	 *   - edge contains two or three values separated by a white space, in this order, source vertex, destination vertex and, optionally, a weight
 	 *   - if weight is not given, it will default to 1
 	 *   - edges with a weight of exactly zero are not added
-	 *   - source and destination nodes are integers between 0 and MAX_INTEGER_VALUE-1
+	 *   - source and destination vertices are integers between 0 and MAX_INTEGER_VALUE-1
 	 *   - weight is a double
 	 *   - MAX_INTEGER_VALUE depends on the platform being 32bit or 64bit. It is the maximum value of an integer in that platform
 	 */
@@ -126,10 +126,10 @@ public:
 	 * Constructor for loading graph from R matrix
 	 * Format of matrix is:
 	 *   - one edge per line
-	 *   - edge contains two or three columns, in this order, source node, destination node and, optionally, a weight
+	 *   - edge contains two or three columns, in this order, source vertex, destination vertex and, optionally, a weight
 	 *   - if weight is not given, it will default to 1
 	 *   - edges with a weight of exactly zero are not added
-	 *   - source and destination nodes are integers between 0 and MAX_INTEGER_VALUE-1
+	 *   - source and destination vertices are integers between 0 and MAX_INTEGER_VALUE-1
 	 *   - weight is a double
 	 *   - MAX_INTEGER_VALUE depends on the platform being 32bit or 64bit. It is the maximum value of an integer in that platform
 	 */
@@ -153,10 +153,10 @@ public:
 	 * The weight column
 	 * Format of the matrix is:
 	 *   - one edge per line
-	 *   - edge contains two or three columns, in this order, source node, destination node and, optionally, a weight
+	 *   - edge contains two or three columns, in this order, source vertex, destination vertex and, optionally, a weight
 	 *   - if weight is not given, it will default to 1
 	 *   - edges with a weight of exactly zero are removed
-	 *   - source and destination nodes are integers between 0 and MAX_INTEGER_VALUE-1
+	 *   - source and destination vertices are integers between 0 and MAX_INTEGER_VALUE-1
 	 *   - weight is a double
 	 *   - MAX_INTEGER_VALUE depends on the platform being 32bit or 64bit. It is the maximum value of an integer in that platform
 	 * @return true if adding/removing succeeded
@@ -176,10 +176,10 @@ public:
 	 * The weight column
 	 * Format of the file is:
 	 *   - one edge per line
-	 *   - edge contains two or three columns, in this order, source node, destination node and, optionally, a weight
+	 *   - edge contains two or three columns, in this order, source vertex, destination vertex and, optionally, a weight
 	 *   - if weight is not given, it will default to 1
 	 *   - edges with a weight of exactly zero are removed
-	 *   - source and destination nodes are integers between 0 and MAX_INTEGER_VALUE-1
+	 *   - source and destination vertices are integers between 0 and MAX_INTEGER_VALUE-1
 	 *   - weight is a double
 	 *   - MAX_INTEGER_VALUE depends on the platform being 32bit or 64bit. It is the maximum value of an integer in that platform
 	 * @return true if adding/removing succeeded
@@ -218,8 +218,8 @@ public:
 		int i=0;
 		for(typeCommunities::const_iterator it=c.cbegin();it!=c.cend();++it){
 			typeCommunity cc=*it;
-			// COUT << "comm "<< cc <<" node count="<< dcb.communityNodeCount(cc)<<"\n";
-			// COUT << "comm "<< cc <<" nodes="<< set::toString(dcb.nodes(cc))<<"\n";
+			// COUT << "comm "<< cc <<" vertex count="<< dcb.communityVertexCount(cc)<<"\n";
+			// COUT << "comm "<< cc <<" vertices="<< set::toString(dcb.vertices(cc))<<"\n";
 			v[i]=cc;
 			++i;
 		}
@@ -231,7 +231,7 @@ public:
 	 *  - total weight of inner edges
 	 *  - total weight of outer edges
 	 *  - total weight of edges
-	 *  - number of nodes in community
+	 *  - number of vertices in community
 	 */
 	// Rcpp::NumericVector community(int community){
 	//   typeCommunities c=dcb.communities();
@@ -261,24 +261,24 @@ public:
 		return dcb.communityEdgeWeight(source,destination);
 	}
 
-	int communityNodeCount(int community){
-		return dcb.communityNodeCount(community);
+	int communityVertexCount(int community){
+		return dcb.communityVertexCount(community);
 	}
 
-	typeCommunity community(typeNode node)const{
-		return dcb.community(node);
+	typeCommunity community(typeVertex vertex)const{
+		return dcb.community(vertex);
 	}
 
-	unsigned int nodesCount()const{
-		return dcb.nodesCount();
+	unsigned int verticesCount()const{
+		return dcb.verticesCount();
 	}
 
-	Rcpp::NumericVector nodesAll(){
-		typeNodeList c=dcb.nodes();
+	Rcpp::NumericVector verticesAll(){
+		typeVertexList c=dcb.vertices();
 		Rcpp::NumericVector v(c.size());
 		int i=0;
-		for(typeNodeListIteratorConst it=c.cbegin();it!=c.cend();++it){
-			typeNode cc=*it;
+		for(typeVertexListIteratorConst it=c.cbegin();it!=c.cend();++it){
+			typeVertex cc=*it;
 			v[i]=cc;
 			++i;
 		}
@@ -286,14 +286,14 @@ public:
 	}
 
 	/**
-	 * @return a list of all nodes belonging to the given community
+	 * @return a list of all vertices belonging to the given community
 	 */
-	Rcpp::NumericVector nodes(int community){
-		typeNodeList c=dcb.nodes(community);
+	Rcpp::NumericVector vertices(int community){
+		typeVertexList c=dcb.vertices(community);
 		Rcpp::NumericVector v(c.size());
 		int i=0;
-		for(typeNodeListIteratorConst it=c.cbegin();it!=c.cend();++it){
-			typeNode cc=*it;
+		for(typeVertexListIteratorConst it=c.cbegin();it!=c.cend();++it){
+			typeVertex cc=*it;
 			v[i]=cc;
 			++i;
 		}
@@ -303,17 +303,17 @@ public:
 	/**
 	 * Get a snapshot of the current community mapping as a R Matrix
 	 * Format of the file is:
-	 *   - one node mapping per line
-	 *   - mapping contains two columns, in this order, node and community
-	 *   - node and community are integers between 0 and MAX_INTEGER_VALUE-1
+	 *   - one vertex mapping per line
+	 *   - mapping contains two columns, in this order, vertex and community
+	 *   - vertex and community are integers between 0 and MAX_INTEGER_VALUE-1
 	 *   - MAX_INTEGER_VALUE depends on the platform being 32bit or 64bit. It is the maximum value of an integer in that platform
 	 */
 	Rcpp::NumericMatrix communityMapping(bool diferential=true){
-		Rcpp::NumericMatrix v(dcb.nodesCount(),2);
-		typeNodeList c=dcb.nodes();
+		Rcpp::NumericMatrix v(dcb.verticesCount(),2);
+		typeVertexList c=dcb.vertices();
 		int i=0;
-		for(typeNodeListIteratorConst it=c.cbegin();it!=c.cend();++it){
-			typeNode cc=*it;
+		for(typeVertexListIteratorConst it=c.cbegin();it!=c.cend();++it){
+			typeVertex cc=*it;
 			v(i,0)=cc;
 			v(i,1)=dcb.community(cc);
 			++i;
@@ -378,11 +378,11 @@ RCPP_MODULE(DynComm) {
 				 .method("communityInnerEdgesWeight", &DynCommR::communityInnerEdgesWeight)
 				 .method("communityTotalWeight", &DynCommR::communityTotalWeight)
          .method("communityEdgeWeight", &DynCommR::communityEdgeWeight)
-				 .method("communityNodeCount", &DynCommR::communityNodeCount)
+				 .method("communityVertexCount", &DynCommR::communityVertexCount)
      .method("community", &DynCommR::community)
-     .method("nodesCount", &DynCommR::nodesCount)
-				 .method("nodesAll", &DynCommR::nodesAll)
-         .method("nodes", &DynCommR::nodes)
+     .method("verticesCount", &DynCommR::verticesCount)
+				 .method("verticesAll", &DynCommR::verticesAll)
+         .method("vertices", &DynCommR::vertices)
          .method("communityMapping", &DynCommR::communityMapping)
 		 .method("time", &DynCommR::time)
 				 // .method("snapshotFile", &DynComm::snapshotFile)
@@ -397,15 +397,15 @@ RCPP_MODULE(DynComm) {
  * dc<-new(DynComm,DynComm::Algorithm.LOUVAIN,DynComm::Quality.MODULARITY,parameters)
  * dc$communityCount()
  * dc$communities()
- * dc$communityNodeCount(1)
- * dc$nodes(1)
+ * dc$communityVertexCount(1)
+ * dc$vertices(1)
  * dc$communityMapping(TRUE)
  * dc$time()
  *dc$addRemoveEdgesFile("test/full/sequences/s0000000000.txt")
  *
  * or in one line
  *
- * parameters<-matrix(c("filename","test/full/as19971108.txt","-s","test/full/sequences"),2,2,TRUE);dc<-new(DynComm,DynComm::Algorithm.LOUVAIN,DynComm::Quality.MODULARITY,parameters);dc$communityCount();dc$communities();dc$communityNodeCount(1);dc$nodes(1);dc$communityMapping(TRUE);dc$time()
+ * parameters<-matrix(c("filename","test/full/as19971108.txt","-s","test/full/sequences"),2,2,TRUE);dc<-new(DynComm,DynComm::Algorithm.LOUVAIN,DynComm::Quality.MODULARITY,parameters);dc$communityCount();dc$communities();dc$communityVertexCount(1);dc$vertices(1);dc$communityMapping(TRUE);dc$time()
  *
  */
 

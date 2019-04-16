@@ -12,13 +12,13 @@ communityNodeCount(community)
 \item{community}{The name of the intended community}
 }
 \value{
-an unsigned integer with the number nodes in the given community
+an unsigned integer with the number vertices in the given community
 }
 \description{
-Get the amount of nodes in the given community after the last iteration.
+Get the amount of vertices in the given community after the last iteration.
 }
 \examples{
-dc<-DynComm(ALGORITHM$LOUVAIN,QUALITY$MODULARITY,parameters)
+dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
 dc$communityNodeCount(3)
 
 }

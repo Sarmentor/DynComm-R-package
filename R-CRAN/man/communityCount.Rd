@@ -15,7 +15,7 @@ an unsigned integer value with the number of communities
 Get the number of communities after the last iteration of the algorithm.
 }
 \examples{
-dc<-DynComm(ALGORITHM$LOUVAIN,QUALITY$MODULARITY,parameters)
+dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
 dc$communityCount()
 
 }

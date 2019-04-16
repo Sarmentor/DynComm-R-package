@@ -9,15 +9,15 @@
 nodesCount()
 }
 \value{
-an unsigned integer with the number of nodes in the graph
+an unsigned integer with the number of vertices in the graph
 }
 \description{
-Get the total number of nodes after the last iteration. It can be useful since
-nodes can be added, if an edge being added has nodes that do not exist in the 
+Get the total number of vertices after the last iteration. It can be useful since
+vertices can be added, if an edge being added has vertices that do not exist in the 
 graph, or removed, if they are not part of any edge after removing an edge.
 }
 \examples{
-dc<-DynComm(ALGORITHM$LOUVAIN,QUALITY$MODULARITY,parameters)
+dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
 dc$nodesCount()
 
 }

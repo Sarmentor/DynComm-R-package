@@ -9,13 +9,13 @@
 nodesAll()
 }
 \value{
-a list of all nodes in the graph
+a list of all vertices in the graph
 }
 \description{
-Get all nodes in the graph after the last iteration.
+Get all vertices in the graph after the last iteration.
 }
 \examples{
-dc<-DynComm(ALGORITHM$LOUVAIN,QUALITY$MODULARITY,parameters)
+dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
 dc$nodesAll()
 
 }

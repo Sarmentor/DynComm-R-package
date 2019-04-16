@@ -19,7 +19,7 @@ Get the sum of weights of the inner edges of the given community after the
 last iteration.
 }
 \examples{
-dc<-DynComm(ALGORITHM$LOUVAIN,QUALITY$MODULARITY,parameters)
+dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
 dc$communityInnerEdgesWeight(1)
 
 }
