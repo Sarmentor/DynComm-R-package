@@ -29,7 +29,7 @@ private:
 	Louvain algorithmLouvain;
 //	Shaken algorithmShaken;
 
-	bool addRemoveEdgePre(const typeNode & source, const typeNode & destination, const typeWeight & weight=1.0){
+	bool addRemoveEdgePre(const typeVertex & source, const typeVertex & destination, const typeWeight & weight=1.0){
 		switch(algrthm){
 		default:
 		case ALGORITHM::LOUVAIN:
@@ -41,7 +41,7 @@ private:
 		}
 	}
 
-	bool addRemoveEdgePost(const typeNode & source, const typeNode & destination, const typeWeight & weight=1.0){
+	bool addRemoveEdgePost(const typeVertex & source, const typeVertex & destination, const typeWeight & weight=1.0){
 		switch(algrthm){
 		default:
 		case ALGORITHM::LOUVAIN:

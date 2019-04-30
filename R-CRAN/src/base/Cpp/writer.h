@@ -37,7 +37,7 @@ public:
 	 * @param type
 	 * @return
 	 */
-	virtual bool write(const std::string & object,WRITETYPE type=WRITETYPE::VALUE)=0;
+	virtual bool write(const std::string & object, const WRITETYPE & type=WRITETYPE::VALUE)=0;
 
 	/**
 	 *
@@ -79,7 +79,7 @@ public:
 	 * @param type is currently ignored
 	 * @return true if writing succeeded
 	 */
-	bool write(const std::string & object,WRITETYPE type=WRITETYPE::VALUE){
+	bool write(const std::string & object,const WRITETYPE & type=WRITETYPE::VALUE){
 		switch(state){
 		case 1://previously wrote object
 			switch(type){
@@ -98,22 +98,6 @@ public:
 			}
 			return true;
 			break;
-//		case 2://previously wrote comment. Never reached :o
-//			switch(type){
-//			case WRITETYPE::COMMENT://requesting write comment
-//				foutput << "# "<< object<<"\n";
-//				state=;
-//				break;
-//			case WRITETYPE::LINE://requesting write new line after value
-//				foutput << " "<< object<<"\n";
-//				state=;
-//				break;
-//			case WRITETYPE::VALUE://requesting write another value. Must insert separator before
-//				foutput << " "<< object;
-//				state=;
-//				break;
-//			}
-//			break;
 		case 3://ready/waiting/start of line
 			switch(type){
 			case WRITETYPE::COMMENT://requesting write comment
@@ -137,17 +121,18 @@ public:
 	std::string status(){return stts;}
 };
 
-class WriterString: public WriterInterface{
+class WriterStringStream: public WriterInterface{
 private:
+	std::stringstream & str;
 	std::string stts;
 	const ProgramParameters & par;
 	unsigned int lineNumber=1;
 	int state=0;//=0 error; =1 write object; =2 write comment; = 3 ready/waiting/start of line
 
 public:
-	WriterString(const ProgramParameters & parameters):stts("Ok"),par(parameters),lineNumber(1),state(3){}
+	WriterStringStream(std::stringstream & stream,const ProgramParameters & parameters):str(stream),stts("Ok"),par(parameters),lineNumber(1),state(3){}
 
-	~WriterString(){}
+	~WriterStringStream(){}
 
 	bool isReady(){
 		if (state==5) return true;
@@ -159,53 +144,37 @@ public:
 	 * @param type is currently ignored
 	 * @return true if writing succeeded
 	 */
-	bool write(const std::string & object,WRITETYPE type=WRITETYPE::VALUE){
+	bool write(const std::string & object, const WRITETYPE & type=WRITETYPE::VALUE){
 		switch(state){
 		case 1://previously wrote object
 			switch(type){
 			case WRITETYPE::COMMENT://requesting write comment. Must write new line before
-				COUT << "\n# "<< object<<"\n";
+				str << "\n# "<< object<<"\n";
 				state=3;
 				break;
 			case WRITETYPE::LINE://requesting write new line after value
-				COUT << " "<< object<<"\n";
+				str << " "<< object<<"\n";
 				state=3;
 				break;
 			case WRITETYPE::VALUE://requesting write another value. Must insert separator before
-				COUT << " "<< object;
+				str << " "<< object;
 				state=1;
 				break;
 			}
 			return true;
 			break;
-//		case 2://previously wrote comment. Never reached :o
-//			switch(type){
-//			case WRITETYPE::COMMENT://requesting write comment
-//				foutput << "# "<< object<<"\n";
-//				state=;
-//				break;
-//			case WRITETYPE::LINE://requesting write new line after value
-//				foutput << " "<< object<<"\n";
-//				state=;
-//				break;
-//			case WRITETYPE::VALUE://requesting write another value. Must insert separator before
-//				foutput << " "<< object;
-//				state=;
-//				break;
-//			}
-//			break;
 		case 3://ready/waiting/start of line
 			switch(type){
 			case WRITETYPE::COMMENT://requesting write comment
-				COUT << "# "<< object<<"\n";
+				str << "# "<< object<<"\n";
 				state=3;
 				break;
 			case WRITETYPE::LINE://requesting write new line after value
-				COUT << object<<"\n";
+				str << object<<"\n";
 				state=3;
 				break;
 			case WRITETYPE::VALUE://requesting write value
-				COUT << object;
+				str << object;
 				state=1;
 				break;
 			}

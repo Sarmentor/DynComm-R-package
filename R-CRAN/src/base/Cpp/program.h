@@ -141,12 +141,12 @@ void parse_args(int argc, char *argv[], ProgramParameters & par) {
 		} else {
 			if (par.filename=="")
 				par.filename = std::string(argv[i]);
-			else
-				usage(std::string(argv[0]), "More than one filename\n");
+			// else
+			// 	usage(std::string(argv[0]), "More than one filename\n");
 		}
 	}
-	if (par.filename == "")
-		usage(std::string(argv[0]), "No input file has been provided\n");
+	// if (par.filename == "")
+	// 	usage(std::string(argv[0]), "No input file has been provided\n");
 }
 
 //void display_time(const std::string & str) {

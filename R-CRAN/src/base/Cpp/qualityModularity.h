@@ -26,7 +26,7 @@ public:
 	~Modularity(){}
 
 
-	typeQuality gain(const typeNode & node,const typeCommunity & comm)const{
+	typeQuality gain(const typeVertex & node,const typeCommunity & comm)const{
 		//TODO review the formulas
 		const typeWeight & w_degree=g.weighted_degree(node);
 		const typeCommunity & oc=g.community(node);
@@ -53,9 +53,9 @@ public:
 		//TODO review the formulas
 		typeWeight q  = 0.0L;
 		const typeWeight & m2 = g.totalWeight();
-		for (typeNodeListIterator it=g.getNodes().begin() ; it!=g.getNodes().end() ; it++){
+		for (typeVertexListIterator it=g.getVertices().begin() ; it!=g.getVertices().end() ; it++){
 //		for (typeCommunities::const_iterator it=g.communities().cbegin() ; it!=g.communities().cend() ; ++it){
-			const typeNode & i=*it;
+			const typeVertex & i=*it;
 //			std::map<typeCommunity,typeWeight>::const_iterator itt=in.find(i);
 //			const typeWeight & a = itt->second;
 			const typeWeight & a = g.innerEdges(i);

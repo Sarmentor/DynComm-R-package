@@ -25,7 +25,7 @@ protected:
 	 * @param weight
 	 * @return true if adding/removing succeeded
 	 */
-	virtual bool addRemoveEdgePre(const typeNode & source, const typeNode & destination, const typeWeight & weight=1.0)=0;
+	virtual bool addRemoveEdgePre(const typeVertex & source, const typeVertex & destination, const typeWeight & weight=1.0)=0;
 
 	/**
 	 * Function execute after adding or removing a single edge from the graph.
@@ -37,7 +37,7 @@ protected:
 	 * @param weight
 	 * @return true if adding/removing succeeded
 	 */
-	virtual bool addRemoveEdgePost(const typeNode & source, const typeNode & destination, const typeWeight & weight=1.0)=0;
+	virtual bool addRemoveEdgePost(const typeVertex & source, const typeVertex & destination, const typeWeight & weight=1.0)=0;
 
 	/**
 	 * Function where the actual algorithm is implemented

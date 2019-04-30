@@ -11,6 +11,7 @@
 #include "qualityInterface.h"
 #include "reader.h"
 #include "writer.h"
+#include "systemDefines.h"
 
 typedef ReaderInterface<Edge> ReaderEdgeBase;
 
@@ -52,9 +53,16 @@ public:
 	/**
 	 *
 	 * @param community
+	 * @return the neighboring communities of the given community
+	 */
+	virtual typeLinksRangeConst communityNeighbours(typeCommunity community)const=0;
+
+	/**
+	 *
+	 * @param community
 	 * @return the sum of the weights of all inner edges of the selected community
 	 */
-	virtual typeWeight communityInnerEdgesWeight(int community)const=0;
+	virtual typeWeight communityInnerEdgesWeight(typeCommunity community)const=0;
 
 //	virtual int communityInnerEdgesCount(int community)=0; TODO
 
@@ -63,7 +71,7 @@ public:
 	 * @param community
 	 * @return the sum of the weights of all edges of the selected community
 	 */
-	virtual typeWeight communityTotalWeight(int community)const=0;
+	virtual typeWeight communityTotalWeight(typeCommunity community)const=0;
 
 //	virtual int communityTotalEdgesCount(int community)=0; TODO
 
@@ -78,39 +86,45 @@ public:
 	/**
 	 *
 	 * @param community
-	 * @return the amount of nodes in the selected community
+	 * @return the amount of vertices in the selected community
 	 */
-	virtual int communityNodeCount(int community)const=0;
+	virtual int communityVertexCount(typeCommunity community)const=0;
 
 
 	/**
 	 *
-	 * @param node
-	 * @return the community of a given node
+	 * @param vertex
+	 * @return the community of a given vertex
 	 */
-	virtual typeCommunity community(typeNode node)const=0;
+	virtual typeCommunity community(typeVertex vertex)const=0;
 
 	/**
-	 * @return the number of existing nodes
+	 * @return the number of existing vertices
 	 */
-	virtual unsigned int nodesCount()const=0;
+	virtual unsigned int vertexCount()const=0;
 
 	/**
-	 * @return the list of all existing nodes
+	 * @return the list of all existing vertices
 	 */
-	virtual typeNodeList nodes()const=0;
+	virtual typeVertexList vertices()const=0;
 
 	/**
-	 * @return a list of all nodes belonging to the given community
+	 * @return a list of all vertices belonging to the given community
 	 */
-	virtual typeNodeList nodes(int community)const=0;
+	virtual typeVertexList vertices(typeCommunity community)const=0;
 
 	/**
 	 * Get a snapshot of the current community mapping
 	 * The differential parameter will probably be moved inside the writer as a parameter in the next version of the source code
 	 * @return true if the operation succeeded
 	 */
-	virtual bool results(WriterInterface * writer,bool differential=true)const=0;
+	virtual bool communityMapping(WriterInterface * writer,bool differential=true)const=0;
+
+	virtual typeLinksRangeConst neighbours(typeVertex vertex)const=0;
+
+	virtual typeWeight weight(const typeVertex & source, const typeVertex & destination) const =0;
+
+	virtual uint64 time(bool accumulated=true)const=0;
 
 };
 

@@ -8,6 +8,7 @@
 #ifndef SRC_DYNCOMMBASE_H_
 #define SRC_DYNCOMMBASE_H_
 
+#include "defines.h"
 #include "DynCommBaseInterface.h"
 #include "algorithm.h"
 #include "quality.h"
@@ -25,7 +26,7 @@ private:
 	ProgramParameters prmtrs;//algorithm parameters
 
 	/**
-	 * total time used processing
+	 * total accumulated time used for processing
 	 */
 	uint64 timeTotal=0;
 
@@ -33,6 +34,11 @@ private:
 	 * auxiliary time used to store the start time
 	 */
 	uint64 timeStart=0;
+
+	/**
+	 * total time used for processing
+	 */
+	uint64 timeProcessing=0;
 
 public:
 	/**
@@ -52,16 +58,12 @@ public:
 	)
 	:
 		algrthm(grph,reader,qlt,algorithm,algorithmParameters)
-		,qlt(grph,quality,algorithmParameters)
-		,prmtrs(algorithmParameters)
-		,timeTotal(0)
-		,timeStart(Time::currentTime())
+	,qlt(grph,quality,algorithmParameters)
+	,prmtrs(algorithmParameters)
+	,timeTotal(0)
+	,timeStart(Time::currentTime())
+	,timeProcessing(0)
 	{
-		//TODO validate errors
-		if(!addRemoveEdges(reader)){//check for reader errors
-			CERR << reader->status();
-		}
-		timeTotal+=Time::currentTime()-timeStart;
 	}
 
 	/**
@@ -74,7 +76,8 @@ public:
 		timeStart=Time::currentTime();
 		bool b=algrthm.addRemoveEdges(reader);
 		uint64 tm=Time::currentTime();
-		timeTotal+=(tm-timeStart);
+		timeProcessing=tm-timeStart;
+		timeTotal+=timeProcessing;
 		return b;
 	}
 
@@ -99,11 +102,20 @@ public:
 		return grph.communities();
 	}
 
-	typeWeight communityInnerEdgesWeight(int community)const {return grph.innerEdges(community);}
+	/**
+	 *
+	 * @param community
+	 * @return
+	 */
+	typeLinksRangeConst communityNeighbours(typeCommunity community)const {
+		return grph.neighboringCommunities(community);
+	}
+
+	typeWeight communityInnerEdgesWeight(typeCommunity community)const {return grph.innerEdges(community);}
 
 	//		int communityInnerEdgesCount(int community){return grph.i
 
-	typeWeight communityTotalWeight(int community)const {return grph.totalEdges(community);}
+	typeWeight communityTotalWeight(typeCommunity community)const {return grph.totalEdges(community);}
 
 	//		int communityTotalEdgesCount(int community){
 
@@ -111,33 +123,33 @@ public:
 		return grph.weightCommunity(source, destination);
 	}
 
-	int communityNodeCount(int community)const {
+	int communityVertexCount(typeCommunity community)const {
 		unsigned int cnt=0;
-		typeCommunityListRange r=grph.nodes(community);
+		typeCommunityListRange r=grph.vertices(community);
 		for(typeCommunityListRangeIteratorConst it=r.first; it!=r.second; ++it){
 			++cnt;
 		}
 		return cnt;
 	}
 
-	typeCommunity community(typeNode node)const{
-		return grph.community(node);
+	typeCommunity community(typeVertex vertex)const{
+		return grph.community(vertex);
 	}
 
-	unsigned int nodesCount()const{
-		return grph.nodeCount();
+	unsigned int vertexCount()const{
+		return grph.vertexCount();
 	}
 
-	typeNodeList nodes()const{
-		return grph.getNodes();
+	typeVertexList vertices()const{
+		return grph.getVertices();
 	}
 
 	/**
-	 * @return a list of all nodes belonging to the given community
+	 * @return a list of all vertices belonging to the given community
 	 */
-	typeNodeList nodes(int community)const {
-		typeNodeList lst;
-		typeCommunityListRange r=grph.nodes(community);
+	typeVertexList vertices(typeCommunity community)const {
+		typeVertexList lst;
+		typeCommunityListRange r=grph.vertices(community);
 		for(typeCommunityListRangeIteratorConst it=r.first; it!=r.second; ++it){
 			typeCommunityListRangePair p=*it;
 			lst.insert(p.second);
@@ -150,16 +162,14 @@ public:
 	 * The differential parameter will probably be moved inside the writer as a parameter
 	 * @return true if the operation succeeded
 	 */
-	bool results(WriterInterface * writer,bool differential=true) const{
+	bool communityMapping(WriterInterface * writer,bool differential=true) const{
 		const typeCommunities gc=grph.communities();
 		for(typeCommunities::const_iterator it=gc.cbegin();it!=gc.cend();++it){
 			const typeCommunity c=*it;
-//			COUT << c;
 			writer->write(std::to_string(c),WriterInterface::WRITETYPE::VALUE);
-			typeNodeList n=nodes(c);
+			typeVertexList n=vertices(c);
 			unsigned int i=1;
-			for(typeNodeListIteratorConst itn=n.cbegin();itn!=n.cend();++itn){
-//				COUT << " " << *itn;
+			for(typeVertexListIteratorConst itn=n.cbegin();itn!=n.cend();++itn){
 				if(i==n.size()){//last value
 					writer->write(std::to_string(*itn),WriterInterface::WRITETYPE::LINE);
 				}
@@ -168,17 +178,26 @@ public:
 				}
 				++i;
 			}
-//			COUT << "\n";
-//			writer->write("",WriterInterface::WRITETYPE::LINE);
 		}
 		return true;
 	}
 
+	typeLinksRangeConst neighbours(typeVertex vertex)const {
+		return grph.neighbors(vertex);
+	}
+
+	typeWeight weight(const typeVertex & source, const typeVertex & destination) const {
+		return grph.weight(source,destination);
+	}
+
 	/**
 	 *
-	 * @return the total processing time in microseconds
+	 * @return the total processing time in nanoseconds
 	 */
-	uint64 time()const{return timeTotal;}
+	uint64 time(bool accumulated=true)const{
+	  if(!accumulated) return timeProcessing;
+	  return timeTotal;
+	}
 
 };
 

@@ -14,6 +14,7 @@
  */
 #define FLAG_RCPP
 
+
 /**
  * Redirect output and error streams and program exit to the correct place if compiling for R CRAN
  */

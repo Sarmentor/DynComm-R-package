@@ -23,8 +23,15 @@ the PARAMETERS section on this page}
 \description{
 Provides a single interface for all algorithms in the different 
 languages.
+}
+\details{
 Includes methods to get results of processing and to interact with the 
 vertices, edges and communities.
+Provided methods to return information on the graph are divided into two 
+layers. A lower level layer that interacts with vertices and how they 
+connect. And a higher level layer that interacts with communities and how 
+they connect.
+Besides the main algorithm, also accepts post processing algorithms.
 }
 \section{PARAMETERS}{
 
@@ -69,60 +76,85 @@ The first column names the parameter and the second defines its value.
 
 \describe{
 
+  \item{postProcess(actions)}{Set a list of post processing steps. See \code{\link{postProcess}}}
   
 
-  \item{addRemoveEdgesFile(graphAddRemoveFile)}{Add and remove edges read from a file. See \link{addRemoveEdgesFile}}
+  \item{select(postProcessing)}{Select between getting the results of the algorithm or one of the post processing steps. See \code{\link{select}}}
   
 
-  \item{quality()}{Get the quality measurement of the graph after the last iteration. See \link{quality}}
+  \item{results(differential)}{Get additional results of the algorithm or the currently selected post processing steps. See \code{\link{results}}}
   
 
-  \item{communityCount()}{Get the number of communities after the last iteration. See \link{communityCount}}
+  \item{addRemoveEdges(graphAddRemove)}{Add and remove edges read from a matrix or file. See \code{\link{addRemoveEdges}}}
   
 
-  \item{communities()}{Get all communities after the last iteration. See \link{communities}}
+  \item{addRemove(graphAddRemove)}{Alias for addRemoveEdges(). See \code{\link{addRemoveEdges}}}
   
 
-  \item{communityInnerEdgesWeight(community)}{Get the sum of weights of the inner edges of the given community after the last iteration. See \link{communityInnerEdgesWeight}}
+  \item{add(graphAddRemove)}{Alias for addRemoveEdges(). See \code{\link{addRemoveEdges}}}
   
 
-  \item{communityTotalWeight(community)}{Get the sum of weights of all edges of the given community after the last iteration. See \link{communityTotalWeight}}
+  \item{quality()}{Get the quality measurement of the graph after the last iteration. See \code{\link{quality}}}
   
 
-  \item{communityEdgeWeight(source,destination)}{Get the weight of the edge that goes from source to destination after the last iteration. See \link{communityEdgeWeight}}
+  \item{communityCount()}{Get the number of communities after the last iteration. See \code{\link{communityCount}}}
   
 
-  \item{communityVertexCount(community)}{Get the amount of vertices in the given community after the last iteration. See \link{communityVertexCount}}
+  \item{communities()}{Get all communities after the last iteration. See \code{\link{communities}}}
   
 
-  \item{communityNodeCount(community)}{Alias for communityVertexCount(). See \link{communityVertexCount}}
+  \item{communityNeighbours(community)}{Get the neighbours of the given community after the last iteration. See \code{\link{communityNeighbours}}}
   
 
-  \item{community(vertex)}{Get the community of the given vertex after the last iteration. See \link{community}}
+  \item{communityInnerEdgesWeight(community)}{Get the sum of weights of the inner edges of the given community after the last iteration. See \code{\link{communityInnerEdgesWeight}}}
   
 
-  \item{vertexCount()}{Get the total number of vertices after the last iteration. See \link{vertexCount}}
+  \item{communityTotalWeight(community)}{Get the sum of weights of all edges of the given community after the last iteration. See \code{\link{communityTotalWeight}}}
   
 
-  \item{nodesCount()}{Alias for vertexCount(). See \link{vertexCount}}
+  \item{communityEdgeWeight(source,destination)}{Get the weight of the edge that goes from source community to destination community after the last iteration. See \code{\link{communityEdgeWeight}}}
   
 
-  \item{vertexAll()}{Get all vertices in the graph after the last iteration. See \link{vertexAll}}
+  \item{communityVertexCount(community)}{Get the amount of vertices in the given community after the last iteration. See \code{\link{communityVertexCount}}}
   
 
-  \item{nodesAll()}{Alias for vertexAll(). See \link{vertexAll}}
+  \item{communityNodeCount(community)}{Alias for communityVertexCount(). See \code{\link{communityVertexCount}}}
   
 
-  \item{vertices(community)}{Get all vertices belonging to the given community after the last iteration. See \link{vertices}}
+  \item{community(vertex)}{Get the community of the given vertex after the last iteration. See \code{\link{community}}}
   
 
-  \item{nodes(community)}{Alias for vertices(community). See \link{vertices}}
+  \item{vertexCount()}{Get the total number of vertices after the last iteration. See \code{\link{vertexCount}}}
   
 
-  \item{communityMapping()}{Get the community mapping for all communities after the last iteration.See \link{communityMapping}}
+  \item{nodesCount()}{Alias for vertexCount(). See \code{\link{vertexCount}}}
   
 
-  \item{time()}{Get the cumulative time spent on processing after the last iteration. See \link{time}}
+  \item{verticesAll()}{Get all vertices in the graph after the last iteration. See \code{\link{verticesAll}}}
+  
+
+  \item{nodesAll()}{Alias for verticesAll(). See \code{\link{verticesAll}}}
+  
+
+  \item{neighbours(vertex)}{Get the neighbours of the given vertex after the last iteration. See \code{\link{neighbours}}}
+  
+
+  \item{edgeWeight(source,destination)}{Get the weight of the edge that goes from source vertex to destination vertex after the last iteration. See \code{\link{edgeWeight}}}
+  
+
+  \item{edge(source,destination)}{Alias for edgeWeight(). See \code{\link{edgeWeight}}}
+  
+
+  \item{vertices(community)}{Get all vertices belonging to the given community after the last iteration. See \code{\link{vertices}}}
+  
+
+  \item{nodes(community)}{Alias for vertices(community). See \code{\link{vertices}}}
+  
+
+  \item{communityMapping(differential)}{Get the community mapping for all communities after the last iteration.See \code{\link{communityMapping}}}
+  
+
+  \item{time()}{Get the cumulative time spent on processing after the last iteration. See \code{\link{time}}}
   
 
 }
@@ -133,6 +165,7 @@ The first column names the parameter and the second defines its value.
 Parameters<-matrix(c("-e","0.1"),1,2,TRUE)
 dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
 dc$addRemoveEdgesFile("initial_graph.txt")
+dc$addRemoveEdges(matrix(c(1,2,1,3,2,3,3,6,4,6,4,5,5,7,6,7),ncol=2,byrow=TRUE))
 dc$communityCount()
 dc$communities()
 dc$communityNodeCount(1)
@@ -142,4 +175,7 @@ dc$time()
 dc$addRemoveEdgesFile("s0000000000.txt")
 }
 
+}
+\author{
+poltergeist0
 }

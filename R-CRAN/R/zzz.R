@@ -1,1 +1,1 @@
-loadModule("DynComm", TRUE)
+loadModule("DynCommRcppModule", TRUE)

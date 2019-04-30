@@ -8,20 +8,18 @@
 #ifndef EDGE_H_
 #define EDGE_H_
 
-//#include "defines.h"
 #include "stringFormater.h"
 #include <limits>
 
-typedef unsigned int typeNode;
+typedef unsigned int typeVertex;
 typedef long double typeWeight;
-//typedef long double typeQuality;
 
 /**
  * Class that encapsulates the destination and weight portion of an edge (link between two nodes)
  */
 class HalfEdge{
 private:
-	typeNode dst;//destination node
+	typeVertex dst;//destination node
 	typeWeight wght;//weight of edge
 
 public:
@@ -29,13 +27,13 @@ public:
 	 *
 	 * @return the destination
 	 */
-	const typeNode& destination() const {return dst;}
+	const typeVertex& destination() const {return dst;}
 	/**
 	 * Modify the destination
 	 * @param destination
 	 * @return true if the value was modified successfully
 	 */
-	const bool destination(const typeNode & destination){
+	const bool destination(const typeVertex & destination){
 		dst=destination;
 		return true;
 	}
@@ -59,7 +57,7 @@ public:
 	 * @param destination
 	 * @param weight
 	 */
-	HalfEdge(const typeNode & destination, const typeWeight & weight=0) : dst (destination), wght (weight) {}
+	HalfEdge(const typeVertex & destination, const typeWeight & weight=0) : dst (destination), wght (weight) {}
 
 	/**
 	 * Weak comparator for ordering. Weight is ignored
@@ -83,7 +81,7 @@ public:
 	 * @param rhs is the node used to compare to
 	 * @return true if the destination node of this half edge is equal to the given node
 	 */
-	const bool operator== (const typeNode & rhs) const {
+	const bool operator== (const typeVertex & rhs) const {
 		return dst==rhs;
 	}
 
@@ -91,7 +89,7 @@ public:
 	 * Assignment operator for node only. Weight is ignored
 	 * @return the destination node of this half edge
 	 */
-	operator const typeNode &() const {return dst;}
+	operator const typeVertex &() const {return dst;}
 
 	/**
 	 *
@@ -100,7 +98,6 @@ public:
 	std::string toString(const StringFormater & sf=defaultStringFormater) const{
 		std::string s;
 		s.append(std::to_string(dst));
-//		s.append(",");
 		s.append(sf.valueSeparator());
 		s.append(std::to_string(wght));
 		return s;
@@ -113,7 +110,7 @@ public:
  */
 class Edge: private HalfEdge{
 private:
-	typeNode src;//source node
+	typeVertex src;//source node
 
 public:
 	/**
@@ -122,19 +119,19 @@ public:
 	 * @param destination
 	 * @param weight
 	 */
-	Edge (const typeNode & source, const typeNode & destination, const typeWeight & weight=0) : HalfEdge(destination, weight),src (source){}
+	Edge (const typeVertex & source, const typeVertex & destination, const typeWeight & weight=0) : HalfEdge(destination, weight),src (source){}
 
 	/**
 	 *
 	 * @return the source
 	 */
-	const typeNode& source() const {return src;}
+	const typeVertex& source() const {return src;}
 	/**
 	 * Modify the source
 	 * @param source
 	 * @return true if the value was modified successfully
 	 */
-	const bool source(const typeNode& source){
+	const bool source(const typeVertex& source){
 		src=source;
 		return true;
 	}
@@ -142,13 +139,13 @@ public:
 	 *
 	 * @return the destination
 	 */
-	const typeNode& destination() const {return HalfEdge::destination();}
+	const typeVertex& destination() const {return HalfEdge::destination();}
 	/**
 	 * Modify the destination
 	 * @param destination
 	 * @return true if the value was modified successfully
 	 */
-	const bool destination(const typeNode & destination){
+	const bool destination(const typeVertex & destination){
 		HalfEdge::destination(destination);
 		return true;
 	}
@@ -196,7 +193,7 @@ public:
 	 * @param rhs is the node used to compare to
 	 * @return true if the destination node of this half edge is equal to the given node
 	 */
-	const bool operator== (const typeNode & rhs) const {
+	const bool operator== (const typeVertex & rhs) const {
 		return src==rhs;
 	}
 
@@ -204,7 +201,7 @@ public:
 	 * Assignment operator for source node only. Weight is ignored
 	 * @return the source node of this edge
 	 */
-	operator const typeNode &() const {return src;}
+	operator const typeVertex &() const {return src;}
 
 	/**
 	 *
@@ -212,39 +209,24 @@ public:
 	 */
 	std::string toString(const StringFormater & sf=defaultStringFormater) const{
 		std::string s;
-//		s.append("(");
 		s.append(sf.tupleOpen());
 		s.append(std::to_string(src));
-//		s.append(",");
 		s.append(sf.valueSeparator());
 		s.append(HalfEdge::toString());
-//		s.append(")");
 		s.append(sf.tupleClose());
 		return s;
 	}
 };
 
 /**
- * special node zero
+ * special node that indicates NO VERTEX
  */
-const typeNode noNode=std::numeric_limits<typeNode>::max();
+const typeVertex noVertex=std::numeric_limits<typeVertex>::max();
 
 /**
- * special edge
+ * special edge that indicates NO EDGE
  */
-const Edge noEdge(noNode,noNode);
-
-/**
- * Comparison operator. Weight is ignored
- * @param rhs
- * @return true if this edge (first source then destination) is equal to the given (rhs) edge (first source then destination)
- */
-//const bool operator== (const Edge & lhs, const typeNode & rhs) const {
-//	if (src == rhs.src)return HalfEdge::operator ==(rhs);
-//	return false;
-//}
-
-
+const Edge noEdge(noVertex,noVertex);
 
 
 #endif /* EDGE_H_ */

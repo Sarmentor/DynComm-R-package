@@ -20,24 +20,25 @@ namespace Time {
 /**
  * @brief longTime Converts a timeval type time to an unsigned 64 bit integer
  * @param t is the timeval to convert
- * @return an unsigned 64 bit integer
+ * @return an unsigned 64 bit integer representing time in nanoseconds
  */
 inline uint64 longTime(const timeval& t){
 	uint64 a=static_cast<uint64>(t.tv_sec);
 	a*=static_cast<uint64>(1000000);
 	a+=static_cast<uint64>(t.tv_usec);
+	a*=static_cast<uint64>(1000);//convert to nanoseconds
     return a;
 }
 inline uint64 longTime(const timespec& t){
 	uint64 a=static_cast<uint64>(t.tv_sec);
 	a*=static_cast<uint64>(1000000000);
 	a+=static_cast<uint64>(t.tv_nsec);
-	a/=static_cast<uint64>(1000);//convert to microseconds. Can be commented when currentTime() starts using clock_gettime() instead of gettimeofday()
+//	a/=static_cast<uint64>(1000);//convert to microseconds. Can be commented when currentTime() starts using clock_gettime() instead of gettimeofday()
     return a;
 }
 
 /**
- * @brief Get the current system time in microseconds as an unsigned 64 bit integer
+ * @brief Get the current system time in nanoseconds as an unsigned 64 bit integer
  */
 inline uint64 currentTime(){
 //	timeval tm;

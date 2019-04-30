@@ -8,13 +8,12 @@
 #ifndef GRAPHINTERFACE_H_
 #define GRAPHINTERFACE_H_
 
-//#include "defines.h"
 #include "edge.h"
 
 /**
  * std::multimap<unsigned int, HalfEdge>
  */
-typedef std::multimap<typeNode, HalfEdge> typeLinks;
+typedef std::multimap<typeVertex, HalfEdge> typeLinks;
 
 /**
  * std::multimap<unsigned int, HalfEdge>::iterator
@@ -26,7 +25,7 @@ typedef typeLinks::iterator typeLinksIterator;
  */
 typedef typeLinks::const_iterator typeLinksIteratorConst;
 
-typedef std::pair<typeNode, HalfEdge> typeLinksPair;
+typedef std::pair<typeVertex, HalfEdge> typeLinksPair;
 
 /**
  * std::pair<std::multimap<unsigned int, HalfEdge>::iterator, std::multimap<unsigned int, HalfEdge>::iterator >
@@ -38,21 +37,21 @@ typedef std::pair<typeLinksIterator, typeLinksIterator > typeLinksRange;
  */
 typedef std::pair<typeLinksIteratorConst, typeLinksIteratorConst > typeLinksRangeConst;
 
-typedef std::set<typeNode> typeNodeList;
+typedef std::set<typeVertex> typeVertexList;
 
-typedef const std::set<typeNode> typeNodeListConst;
+typedef const std::set<typeVertex> typeVertexListConst;
 
 /**
  * std::set<typeNode>::iterator
  */
-typedef std::set<typeNode>::iterator typeNodeListIterator;
+typedef std::set<typeVertex>::iterator typeVertexListIterator;
 
 /**
  * std::set<typeNode>::const_iterator
  */
-typedef std::set<typeNode>::const_iterator typeNodeListIteratorConst;
+typedef std::set<typeVertex>::const_iterator typeVertexListIteratorConst;
 
-typedef std::pair<typeNodeListIteratorConst, typeNodeListIteratorConst > typeNodeListRangeConst;
+typedef std::pair<typeVertexListIteratorConst, typeVertexListIteratorConst > typeVertexListRangeConst;
 
 class GraphInterface {
 public:
@@ -69,7 +68,7 @@ public:
 	 * @param replace if true and link exists, it replaces the weight, otherwise fails. Default value is false
 	 * @return true if added, false if it already exists
 	 */
-	virtual bool addEdge(const typeNode & source, const typeNode & destination, const typeWeight & weight=1.0, const bool & replace=false)=0;
+	virtual bool addEdge(const typeVertex & source, const typeVertex & destination, const typeWeight & weight=1.0, const bool & replace=false)=0;
 
 	/**
 	 * Add an edge
@@ -85,7 +84,7 @@ public:
 	 * @param destination
 	 * @return true if the edge existed and was successfully removed
 	 */
-	virtual bool removeEdge(const typeNode & source, const typeNode & destination)=0;
+	virtual bool removeEdge(const typeVertex & source, const typeVertex & destination)=0;
 
 	/**
 	 * remove an edge
@@ -99,19 +98,19 @@ public:
 	 *
 	 * @return all unique nodes in the graph
 	 */
-	virtual const typeNodeList & getNodes()const =0;
+	virtual const typeVertexList & getVertices()const =0;
 
 	/**
 	 * @return pointers to the first and last neighbor of the node
 	 */
-	virtual typeLinksRangeConst neighbors(const typeNode & node)const =0;
+	virtual typeLinksRangeConst neighbors(const typeVertex & node)const =0;
 
 	/**
 	 *
 	 * @param node
 	 * @return the number of neighbors of the given node
 	 */
-	virtual unsigned int neighborsCount(const typeNode & node)const=0;
+	virtual unsigned int neighborsCount(const typeVertex & node)const=0;
 
 	/**
 	 *
@@ -130,7 +129,7 @@ public:
 	 * @param node
 	 * @return the weighted degree (sum of weights of the neighbors) of the node
 	 */
-	virtual typeWeight weighted_degree(const typeNode & node)const=0;
+	virtual typeWeight weighted_degree(const typeVertex & node)const=0;
 
 	/**
 	 *

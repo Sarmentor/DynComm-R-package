@@ -9,9 +9,26 @@
 \description{
 Bundle of algorithms used for evolving network analysis regarding 
 community detection.
+}
+\details{
 Implements several algorithms, using a common API, that calculate 
 communities for graphs whose vertices and edges change over time.
 Edges, which can have new vertices, can be added or deleted, and changes in the 
 communities are calculated without recalculating communities for the 
 entire graph.
+}
+\section{Referenced Work}{
+
+This package uses the following work as reference material for the 
+implementation of the algorithms.
+}
+
+\references{
+\insertRef{cordeiro2016dynamic}{DynComm}
+\insertRef{Rossetti:2017:TOA:3127967.3128003}{DynComm}
+\insertRef{RG17}{DynComm}
+\insertRef{densopt}{DynComm}
+}
+\author{
+poltergeist0
 }

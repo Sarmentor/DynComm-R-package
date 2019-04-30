@@ -36,7 +36,7 @@ public:
 
 	~Quality(){}
 
-	typeQuality gain(const typeNode & node,const typeCommunity & comm)const{
+	typeQuality gain(const typeVertex & node,const typeCommunity & comm)const{
 		switch(q){
 		default:
 		case QUALITY::MODULARITY: return mod.gain(node,comm);

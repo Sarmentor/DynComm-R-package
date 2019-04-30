@@ -29,7 +29,7 @@ private:
 	 * @param node
 	 * @return the community of the given node or a special community of zero if the node does not exist
 	 */
-	const typeCommunity & community(const typeNode & node)const{
+	const typeCommunity & community(const typeVertex & node)const{
 		if(!firstRun){
 			const typeCommunity & c=cg.community(node);
 			if(c!=noGroup) return c;
@@ -44,7 +44,7 @@ private:
 	 * @param replaceAll if true replaces the old community indicated by parameter node by the new community, otherwise replaces the community only for the given node
 	 * @return true if the node exists and insertion succeeded or replacement succeeded
 	 */
-	bool community(const typeNode & node, const typeCommunity & com){
+	bool community(const typeVertex & node, const typeCommunity & com){
 		if(firstRun){
 			return grph.community(node,com);
 		}
@@ -68,37 +68,37 @@ private:
 		return cg.edges();
 	}
 
-	const typeNodeList & getNodes()const{
-		if(firstRun) return grph.getNodes();
-		return cg.getNodes();
+	const typeVertexList & getVertices()const{
+		if(firstRun) return grph.getVertices();
+		return cg.getVertices();
 	}
 
-	typeCommunityListRange nodes(const typeCommunity & c){
-		if(firstRun) return grph.nodes(c);
-		return cg.nodes(c);
+	typeCommunityListRange vertices(const typeCommunity & c){
+		if(firstRun) return grph.vertices(c);
+		return cg.vertices(c);
 	}
 
-	typeLinksRangeConst neighbors(const typeNode & node)const {
+	typeLinksRangeConst neighbors(const typeVertex & node)const {
 		if(firstRun) return grph.neighbors(node);
 		return cg.neighbors(node);
 	}
 
-	unsigned int neighborsCount(const typeNode & node)const{
+	unsigned int neighborsCount(const typeVertex & node)const{
 		if(firstRun) return grph.neighborsCount(node);
 		return cg.neighborsCount(node);
 	}
 
-	unsigned int neighborsCommunityCount(const typeNode & node)const{
+	unsigned int neighborsCommunityCount(const typeVertex & node)const{
 		if(firstRun)return grph.neighborsCommunityCount(node);
 		return cg.neighborsCommunityCount(node);
 	}
 
-	typeWeight neighborsCommunityWeight(const typeNode & node, const typeCommunity & com){
+	typeWeight neighborsCommunityWeight(const typeVertex & node, const typeCommunity & com){
 		if(firstRun)return grph.neighborsCommunityWeight(node,com);
 		return cg.neighborsCommunityWeight(node,com);
 	}
 
-	typeWeight neighborsCommunityWeight(const typeNode & node){
+	typeWeight neighborsCommunityWeight(const typeVertex & node){
 		if(firstRun)return grph.neighborsCommunityWeight(node);
 		return cg.neighborsCommunityWeight(node);
 	}
@@ -113,9 +113,9 @@ private:
 		return cg.totalWeight();
 	}
 
-	const typeWeight nodeCount()const{
-		if(firstRun)return grph.nodeCount();
-		return cg.nodeCount();
+	const typeWeight verticesCount()const{
+		if(firstRun)return grph.vertexCount();
+		return cg.vertexCount();
 	}
 
 	const typeWeight edgeCount()const{
@@ -128,14 +128,14 @@ private:
 		return cg.communityCount();
 	}
 
-	typeWeight weighted_degree(const typeNode & node)const{
-		if(firstRun) return grph.weighted_degree(node);
-		return cg.weighted_degree(node);
+	typeWeight weighted_degree(const typeVertex & vertex)const{
+		if(firstRun) return grph.weighted_degree(vertex);
+		return cg.weighted_degree(vertex);
 	}
 
-	typeQuality gain(const typeNode & node,const typeCommunity & comm)const{
-		if(firstRun) return qlt.gain(node,comm);
-		return qltc.gain(node,comm);
+	typeQuality gain(const typeVertex & vertex,const typeCommunity & comm)const{
+		if(firstRun) return qlt.gain(vertex,comm);
+		return qltc.gain(vertex,comm);
 	}
 
 	typeQuality quality()const{
@@ -149,7 +149,6 @@ private:
 		typeLinksRangeConst nc1=cg.neighboringCommunities(c1);
 //		CERR << "disband("<< c1 << ";" << c2 << ")->iterator="<< c1 << ";" << h.destination() << "\n" << toString(defaultStringFormater(1)) << "\n";
 		{
-	//		for(typeLinksIteratorConst it=nc1.first;it!=nc1.second;++it){
 			typeLinksIteratorConst it=nc1.first;
 			while(it!=nc1.second){
 				const typeLinksPair & p=*it;
@@ -163,7 +162,6 @@ private:
 		}
 		{
 			typeLinksRangeConst nc2=cg.neighboringCommunities(c2);
-	//		for(typeLinksIteratorConst it=nc2.first;it!=nc2.second;++it){
 			typeLinksIteratorConst it=nc2.first;
 			while(it!=nc2.second){
 				const typeLinksPair & p=*it;
@@ -182,31 +180,29 @@ private:
 		cg.removeEdge(c2,c2);
 //		CERR << "disband("<< c1 << ";" << c2 << ")->after remove\n" << toString(defaultStringFormater(1)) << "\n";
 		//take nodes of affected communities from g and add them to cg disbanded by adding edges to their neighbors
-		std::set<typeNode> ns;
-		typeCommunityListRange rc1=grph.nodes(c1);
+		std::set<typeVertex> ns;
+		typeCommunityListRange rc1=grph.vertices(c1);
 		for(typeCommunityListRangeIteratorConst it=rc1.first;it!=rc1.second;++it){
 			const typeCommunityListRangePair & p=*it;
 			ns.insert(p.second);
-			cg.community(p.second,p.second);//set community of node to node
+			cg.community(p.second,p.second);//set community of vertex to vertex
 		}
-		typeCommunityListRange rc2=grph.nodes(c2);
+		typeCommunityListRange rc2=grph.vertices(c2);
 		for(typeCommunityListRangeIteratorConst it=rc2.first;it!=rc2.second;++it){
 			const typeCommunityListRangePair & p=*it;
 			ns.insert(p.second);
 			cg.community(p.second,p.second);//set community of node to node
 		}
-		for(std::set<typeNode>::const_iterator it=ns.cbegin();it!=ns.cend();++it){
-			const typeNode & n=*it;
-//			const typeCommunity & c=g.community(n);
+		for(std::set<typeVertex>::const_iterator it=ns.cbegin();it!=ns.cend();++it){
+			const typeVertex & n=*it;
 			typeLinksRangeConst r=grph.neighbors(n);
-//			for(typeLinksIteratorConst itn=r.first;itn!=r.second;++itn){
 			typeLinksIteratorConst itn=r.first;
 			while(itn!=r.second){
 				const typeLinksPair & p=*itn;
 				++itn;
 				if(p.first!=n) break;
 				const HalfEdge & h=p.second;
-				const typeNode & nei=h.destination();
+				const typeVertex & nei=h.destination();
 				const typeCommunity & cn=grph.community(nei);
 				if(cn!=c1 && cn!=c2){
 //					CERR << "disband("<< c1 << ";" << c2 << ")->added edge(n,c)="<< n << ";" << cn << "\n";
@@ -216,7 +212,6 @@ private:
 //					CERR << "disband("<< c1 << ";" << c2 << ")->added edge(n,n)="<< n << ";" << nei << "\n";
 					cg.addEdge(n,nei,h.weight());//add edge between neighbor and node
 				}
-//				cg.community(n,n);//set community of node to node
 //				CERR << "disband("<< c1 << ";" << c2 << ")->after add\n" << toString(defaultStringFormater(1)) << "\n";
 			}
 		}
@@ -226,29 +221,25 @@ private:
 //		CERR << "disband("<< c1 << ";" << c2 << ")->before disband("<< c2 << ")\n" << toString(defaultStringFormater(1)) << "\n";
 		grph.disband(c2);
 //		CERR << "disband("<< c1 << ";" << c2 << ")->end disband\n" << toString(defaultStringFormater(1)) << "\n";
-//		for(std::set<typeNode>::const_iterator it=ns.cbegin();it!=ns.cend();++it){
-//			const typeNode & n=*it;
-//			cg.community(n,n);//set community of node to node
-//		}
 	}
 
-	std::map<typeCommunity, typeWeight> neigh_comm(const typeNode & node)const {
+	std::map<typeCommunity, typeWeight> neigh_comm(const typeVertex & vertex)const {
 		std::map<typeCommunity, typeWeight> a;
-		if(node==noNode) return a;
-		a[community(node)]=0;
-		//get neighbors of node
-		typeLinksRangeConst p = neighbors(node);
-		//for all neighbors of node
+		if(vertex==noVertex) return a;
+		a[community(vertex)]=0;
+		//get neighbors of vertex
+		typeLinksRangeConst p = neighbors(vertex);
+		//for all neighbors of vertex
 		for (typeLinksIteratorConst it=p.first ; it!=p.second ; it++){
 			//get neighbor, community and weight
 			const typeLinksPair & b=*it;
 			const HalfEdge & c=b.second;
-			const typeNode & neigh  = c.destination();
+			const typeVertex & neigh  = c.destination();
 			const typeCommunity & neigh_comm = community(neigh);
 			const typeWeight & neigh_w = c.weight();
 
-			//if neighbor is not the given node
-			if (neigh!=node) {
+			//if neighbor is not the given vertex
+			if (neigh!=vertex) {
 				//increment weight
 				a[neigh_comm]+=neigh_w;
 			}
@@ -262,11 +253,10 @@ private:
     bool one_level(){
 		bool improvement=false ;
 		int nb_moves;
-//		int nb_pass_done = 0;
 		long double new_qual = quality();
 		long double cur_qual = new_qual;
 
-		const typeNodeList nodes=getNodes();
+		const typeVertexList nodes=getVertices();
 		// repeat while
 		//   there is an improvement of quality
 		//   or there is an improvement of quality greater than a given epsilon
@@ -274,15 +264,14 @@ private:
 		do {
 			cur_qual = new_qual;
 			nb_moves = 0;
-//			nb_pass_done++;
 
 			// for each node: remove the node from its community and insert it in the best community
-			for (typeNodeListIteratorConst node_tmp = nodes.cbegin() ; node_tmp != nodes.cend() ; node_tmp++) {
-				const typeNode & node = *node_tmp;
-				typeCommunity node_comm = community(node);
+			for (typeVertexListIteratorConst node_tmp = nodes.cbegin() ; node_tmp != nodes.cend() ; node_tmp++) {
+				const typeVertex & vertex = *node_tmp;
+				typeCommunity node_comm = community(vertex);
 
 				// computation of all neighbor node communities of current node
-				std::map<typeCommunity, typeWeight> nc=neigh_comm(node);
+				std::map<typeCommunity, typeWeight> nc=neigh_comm(vertex);
 
 				// compute the nearest community for node
 				// default choice for future insertion is the former community
@@ -292,14 +281,14 @@ private:
 				for (std::map<typeCommunity, typeWeight>::iterator it=nc.begin() ; it!=nc.end() ; it++){
 					const std::pair<typeCommunity, typeWeight> & p=*it;
 					//calculate gain in quality by inserting the given node in the community of the neighbor
-					typeWeight increase=gain(node,p.first);
+					typeWeight increase=gain(vertex,p.first);
 					if (increase>best_increase) {
 						best_comm = p.first;
 						best_increase = increase;
 					}
 				}
 				// insert node in the nearest community
-				community(node,best_comm);
+				community(vertex,best_comm);
 				if (best_comm!=node_comm){
 					nb_moves++;
 				}
@@ -329,7 +318,7 @@ private:
 				for(typeLinksIteratorConst itn=neighbors.first;itn!=neighbors.second;++itn){
 					const typeLinksPair & p=*itn;
 					const HalfEdge & he=p.second;
-					const typeNode & destc=he.destination();
+					const typeVertex & destc=he.destination();
 					const typeWeight & weight=he.weight();
 //				COUT << srcc << ";" << destc << ";" << weight << "\n";
 					cg.addEdge(srcc,destc,weight);
@@ -338,36 +327,33 @@ private:
 			firstRun=false;
 		}
 		else{//not the first run
-			typeNodeListConst coms=cg.getNodes();
-			for(typeNodeListIteratorConst itc=coms.cbegin();itc!=coms.cend();++itc){
-				const typeNode & n=*itc;
+			typeVertexListConst coms=cg.getVertices();
+			for(typeVertexListIteratorConst itc=coms.cbegin();itc!=coms.cend();++itc){
+				const typeVertex & n=*itc;
 				const typeCommunity & c=cg.community(n);
 //				COUT << n << ";" << c << "\n";
 				if(n!=c){//community has changed
-					typeCommunityListRange r=grph.nodes(n);
+					typeCommunityListRange r=grph.vertices(n);
 					for(typeCommunityListRangeIteratorConst itr=r.first;itr!=r.second;){
 						const typeCommunityListRangePair & p=*itr;
-						const typeNode & nd=p.second;
+						const typeVertex & nd=p.second;
 						++itr;
-//						const typeCommunity & cm=p.first;
-//            COUT <<"community change ("<< nd << ";" << c << ") start\n";
+//			            COUT <<"community change ("<< nd << ";" << c << ") start\n";
 						grph.community(nd,c);
 //						COUT <<"community change ("<< nd << ";" << c << ") end\n";
 					}
 				}
 			}
 //			COUT << "communities to graph\n";
-			//TODO recreate cg.graph with communities of cg.cc
 			cg.communitiesToGraph();
 		}
 //		COUT << "end sync\nimprovement="<< improvement<< "\n";
 
 		return improvement;
-//	  return true;
   }
 
 public:
-	bool addRemoveEdgePre(const typeNode & source, const typeNode & destination, const typeWeight & weight=1.0){
+	bool addRemoveEdgePre(const typeVertex & source, const typeVertex & destination, const typeWeight & weight=1.0){
 		if(weight!=0.0){//add edge
 
 		}
@@ -377,7 +363,6 @@ public:
 				const typeCommunity & c2=grph.community(destination);
 				typeWeight w=cg.weight(c1,c2);//get weight of link if it exists
 				if(isnan(w)){//edge does not exist
-	//				cg.addEdge(c1,c2,weight);
 				}
 				else{//edge already exists
 					typeWeight weight=grph.weight(source,destination);
@@ -392,7 +377,7 @@ public:
 		return true;
 	}
 
-	bool addRemoveEdgePost(const typeNode & source, const typeNode & destination, const typeWeight & weight=1.0){
+	bool addRemoveEdgePost(const typeVertex & source, const typeVertex & destination, const typeWeight & weight=1.0){
 		if(weight!=0.0){//add edge
 			if(!firstRun){
 				const typeCommunity & c1=grph.community(source);
@@ -413,7 +398,6 @@ public:
 				const typeCommunity & c2=grph.community(destination);
 				if(c1!=c2){//disband both communities
 					disband(c1,c2);
-					//				disband(c2);
 				}
 			}
 		}
@@ -425,91 +409,14 @@ public:
 
 	bool run(){
 			bool improvement = true;
-
-//			long double qual = quality();
-//			long double new_qual;
-
 			int level = 0;
-
-			//#ifdef MODIFIED
-		//	Graph gg(g);
-		//	Quality* qq;
-		//	init_quality(&qq,&gg,0);
-		//	Louvain refLouvain(-1,precision,qq);//copy the current graph and quality to use as reference when adding/removing nodes
-		//	bool first=true;
-//			unsigned int index=0;
-//			bool has_add_file = false;
-//			bool has_rem_file = false;
-
-			//#endif //MODIFIED
-
 			//main cycle
 			do {
-//				if (prmtrs.verbose) {
-//					CERR << "level " << level << ":\n";
-//					display_time("  start computation");
-//					CERR << "  network size: "
-//							<< grph.nodeCount() << " nodes, "
-//							<< grph.edgeCount() << " links, "
-//							<< grph.totalWeight() << " weight\n";
-//				}
-//				CERR << "**** pre one level ****\n"<< toString();
 				//group nodes into communities
 				improvement = one_level();
 				//get quality of the new grouping
-//				new_qual = quality();
-
-		//		if (++level==parameters.display_level)
-		////			c.display();
-		//			std::cerr << c.toString();
-		//		if (parameters.display_level==-1)
-		//			c.display_partition();
 				++level;
 //				CERR << "**** post one level ****\n"<< toString();
-
-		//#ifdef REFACTORED
-		//		g.display();
-		//#endif //REFACTORED
-		//		g = c.partition2graph_binary();
-				//#ifdef MODIFIED
-		//		init_quality(&g, nb_calls);
-				//#endif	//MODIFIED
-	//			nb_calls++;
-
-		//		c = Louvain(-1, precision, q);
-	//			if (parameters.verbose)
-	//				std::cerr << "  quality increased from " << quality << " to " << new_qual << endl;
-//				CERR << "  quality modified from " << qual << " to " << new_qual << "\n";
-				//quality = (c.qual)->quality();
-//				qual = new_qual;
-
-	//			if (parameters.verbose)
-	//				display_time("  end computation");
-
-//				if (prmtrs.filename_part!="" && level==1) // do at least one more computation if partition is provided
-//					improvement=true;
-
-				//#ifdef	//MODIFIED
-				//sync back modifications to reference
-				//sync back communities
-		//		for (int node=0 ; node < q->size ; node++){
-		//			int &new_community=c.qual->n2c[node];
-		//			std::vector<int> &refN2c=refLouvain.qual->n2c;
-		//			for(int i=0;i<refN2c.size();i++){
-		//				if(refN2c[i]==node){
-		//					refN2c[i]=new_community;
-		//				}
-		//			}
-		//		}
-				//#endif	//MODIFIED
-				//add and remove requested links
-	//			if (!improvement) add_remove_edges(qlt,index,has_add_file,has_rem_file); ************* TODO
-				//debug print
-		//		c.display_partition();
-//				CERR << toString();
-		//		g.display();
-				//#endif	//MODIFIED
-
 			} while(improvement);
 //			CERR << toString()<< "\n";
 			return true;

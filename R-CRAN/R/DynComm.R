@@ -1,15 +1,35 @@
+########################### Developer Notice ###########################
+# Description:
+# This file holds the DynComm user interface and its documentation.
+#
+# Internally, it dispatches calls to objects that implement the API and do the 
+# actual work.
+#
+# There should never be any reason to change it unless the API or the user 
+# interface changes.
+#
+# Main algorithms are handled by the DynCommMain object. Post processing
+# algorithms are handled by the DynCommPostProcess object. Changes should be in
+# those objects. They can be found in the files with the same name as the object.
+#
+# Author: poltergeist0
+# Date: 2019-01-01
+
 
 ########################### Package Documentation ###########################
-
 #' @name DynComm-package
 #' 
 #' @aliases dyncomm-package Dyncomm-package
 #' 
 #' @title DynComm: Dynamic Network Communities Detection
 #' 
+#' @author poltergeist0
+#' 
 #' @description 
 #' Bundle of algorithms used for evolving network analysis regarding 
 #' community detection.
+#' 
+#' @details 
 #' Implements several algorithms, using a common API, that calculate 
 #' communities for graphs whose vertices and edges change over time.
 #' Edges, which can have new vertices, can be added or deleted, and changes in the 
@@ -21,76 +41,42 @@
 #' @importFrom Rdpack reprompt
 #' @useDynLib DynComm
 #' 
-# @references \url{https://en.en}
-# @references
-# \insertRef{cordeiro2016dynamic}{DynComm}
-#
-# \insertRef{R}{bibtex}
+#' @section Referenced Work:
+#' This package uses the following work as reference material for the 
+#' implementation of the algorithms.
+#' @references
+#' \insertRef{cordeiro2016dynamic}{DynComm}
+#' \insertRef{Rossetti:2017:TOA:3127967.3128003}{DynComm}
+#' \insertRef{RG17}{DynComm}
+#' \insertRef{densopt}{DynComm}
 #' 
 #' 
 NULL
 
+source('R/DynCommMain.R')
+source('R/DynCommPostProcess.R')
+
 ########################### API Documentation ###########################
-
-#' @name POSTPROCESSING
-#'
-#' @aliases POST post postProcessing postprocessing
-#' 
-#' @title List of available post processing algorithms.
-#' 
-#' @description 
-#' A post processing algorithm is a function that modifies the results 
-#' presented to the user, allowing for limited result manipulation, but does not 
-#' internally modify the results obtained by the algorithm.
-#' 
-#' As an example, we are only interested in viewing communities larger than some 
-#' value but do not want to actually remove the smaller ones from the graph, 
-#' invalidating possible future processing over them. A post processing 
-#' algorithm can filter the unwanted values from the results or present a more 
-#' compact version of them.
-#'
-#' @usage POSTPROCESSING
-#' 
-#' @format A named list with the names of the available algorithms:
-#'  \describe{
-#'    \item{DENSOPT}{Density optimization.
-#'             @references \insertRef{densopt}{DynComm}
-#'          }
-#'  }
-#'  
-#' @examples
-#' POSTPROCESSING$DENSOPT
-#' 
-#' @export
-#'
-POSTPROCESSING <- list(
-  # C++ algorithms are listed from 1 to 10000
-  NONE=1L #reserved to indicate no post processing
-  # ,COUNTLOW=2L #filter out communities with edge count lower than a given value (high pass filter)
-  # ,COUNTHIGH=3L #filter out communities with edge count higher than a given value (low pass filter)
-  # ,COUNTBETWEEN=4L  #filter out communities with edge count between a given lower and higher value (band-stop or band-rejection filter)
-  # ,COUNTTOP=5L  #get the top n communities with higher edge count
-  # ,COUNTBOTTOM=6L  #get the bottom n communities with lower edge count
-  # ,WEIGHTLOW=7L #filter out communities with total weight lower than a given value (high pass filter)
-  # ,WEIGHTHIGH=8L #filter out communities with total weight higher than a given value (low pass filter)
-  # ,WEIGHTBETWEEN=9L  #filter out communities with total weight between a given value lower and higher value (band-stop or band-rejection filter)
-  # ,WEIGHTTOP=10L  #get the top n communities with higher total weight
-  # ,WEIGHTBOTTOM=11L  #get the bottom n communities with lower total weight
-  ,DENSOPT=100L
-  # Python algorithms are listed from 10001 to 20000
-)
-
 #' @name DynComm
 #' 
 #' @aliases Dyncomm dyncomm
 #' 
 #' @title DynComm
 #'
+#' @author poltergeist0
+#' 
 #' @description 
 #' Provides a single interface for all algorithms in the different 
 #' languages.
+#' 
+#' @details 
 #' Includes methods to get results of processing and to interact with the 
 #' vertices, edges and communities.
+#' Provided methods to return information on the graph are divided into two 
+#' layers. A lower level layer that interacts with vertices and how they 
+#' connect. And a higher level layer that interacts with communities and how 
+#' they connect.
+#' Besides the main algorithm, also accepts post processing algorithms.
 #'
 #' @rdname DynComm
 #' 
@@ -114,6 +100,7 @@ POSTPROCESSING <- list(
 #' Parameters<-matrix(c("-e","0.1"),1,2,TRUE)
 #' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
 #' dc$addRemoveEdgesFile("initial_graph.txt")
+#' dc$addRemoveEdges(matrix(c(1,2,1,3,2,3,3,6,4,6,4,5,5,7,6,7),ncol=2,byrow=TRUE))
 #' dc$communityCount()
 #' dc$communities()
 #' dc$communityNodeCount(1)
@@ -172,75 +159,48 @@ DynComm <- function(Algorithm,Criterion,Parameters)
   thisEnv <- environment()
   
   ########## constructor #############
-  # chc <- Algorithm  #main algorithm choice
-  alg <- DynCommBase(Algorithm,Criterion,Parameters)  #main algorithm
-  # qlt <- Quality
-  # prm <- Parameters  #main algorithm parameters
+  alg <- DynCommMain(Algorithm,Criterion,Parameters)  #main algorithm
   pst <- POSTPROCESSING$NONE  #post processing flag redirects function calls to post processing object. Set to NONE on add/remove edge
   pstid <- 1
   act <- NULL   #list of actions and their parameters to recreate after adding/removing edges. It is delayed until requested.
   prc <- NULL   #pointer to last object in list of post processing objects. They are chained in series. Head is main algorithm
   
-  # if(chc>=1 & chc<=10000){
-  #   dc <- new(DynCommR,chc,qlt,prm)
-  #   # print(dc)
-  #   # TO DO: check for errors
-  # }
-  # else if(chc>=10001 & chc<=20000){
-  #   # print("Python algorithm")
-  #   dc <- reticulate::import_from_path("DynCommPython","../base/Python")
-  #   # calls to python should be equal to calls to c++ but may need separate processing of outputs
-  # }
-  # else{
-  #   print("Unknown algorithm :(")
-  # }
-  # print(dc)
-
+  ## internal function that recreates the post processing chain
   recreatePostProcessing = function(){
+    print("TODO: validate no actions")
+    # invalidate previous post processing. Results are outdated
     assign("prc",NULL,thisEnv)
     for (cnt in act) {
-      #get biggest id for current action
       i<-1
-      # first <- FALSE
       if(is.null(prc)){#no actions yet
-        # first <- TRUE
+        # assign main algorithm to queue
         assign("prc",alg,thisEnv)
       }
       else{#actions exist
-        # cat("prc=",is(prc,"ObjectBase"),"\n")
-        # print("prc=")
-        # print(is(prc,"ObjectX"))
-        # print("\n")
-        if(!is(prc,"ObjectX")){
-          # print("actions exist")
-          # print(cnt)
-          # print(i)
+        # if there is more than the main algorithm, get biggest id for the current action
+        if(!is(prc,"DynCommBase")){
           q<-prc$exists(cnt,i)
-          # print(q)
+          # increment id while a post processing object of the given type exists
           while(q){
             i<-i+1
-            # assign("i",i+1,thisEnv)
-            # print(cnt)
-            # print(i)
             q<-prc$exists(cnt,i)
-            # print(q)
           }
         }
       }
-      # print("new post process")
-      # print(cnt)
-      # print(i)
+      # select the latest post processing algorithm and id as default for posterior user operations
       assign("pst", cnt,thisEnv)
       assign("pstid", i,thisEnv)
-      if(cnt==POSTPROCESSING$OBJECT1){
-        assign("prc",Object1(prc,i),thisEnv)
-        # print("object1")
+      # create post processing object and assign it to the end of the queue
+      tmp <- DynCommPostProcess(pst,pstid,prc,NULL) #TODO pass parameters to post processing
+      if(is.null(tmp)){
+        print("Invalid post processing")
+        print(pst)
+        assign("prc",NULL,thisEnv)
+        return(FALSE)
       }
-      else if(cnt==POSTPROCESSING$OBJECT2){
-        assign("prc",Object2(prc,i),thisEnv)
-        # print("object2")
-      }
+      assign("prc",tmp,thisEnv)
     }
+    return(TRUE)
   }
   
   ## Create the list used to represent an
@@ -251,37 +211,29 @@ DynComm <- function(Algorithm,Criterion,Parameters)
     ## that I can refer to it later.
     thisEnv = thisEnv,
     
-    ## Define the accessors for the data fields.
-    # getEnv = function()
-    # {
-    #   return(get("thisEnv",thisEnv))
-    # },
-
     #' 
-    #'   \item{postProcess(actions)}{Set a list of post processing steps. See \link{}}
+    #'   \item{postProcess(actions)}{Set a list of post processing steps. See \code{\link{postProcess}}}
     #'   
     postProcess = function(actions){
       assign("act", actions,thisEnv)
-      recreatePostProcessing()
+      return(recreatePostProcessing())
     },
     
     #' 
-    #'   \item{select(postProcessing)}{Select between getting the results of the algorithm or one of the post processing steps. See \link{}}
+    #'   \item{select(postProcessing)}{Select between getting the results of the algorithm or one of the post processing steps. See \code{\link{select}}}
     #'   
-    select = function(postProcessing, id=1)
+    select = function(postProcessing=POSTPROCESSING$NONE, id=1)
     {
       if(postProcessing==POSTPROCESSING$NONE){
         assign("pst",postProcessing,thisEnv)
+        return(TRUE)
       }
       else{
         if(is.null(prc)){
           #recreate post processing chain
-          recreatePostProcessing()
-          # return(TRUE)
+          return(recreatePostProcessing())
         }
         if(prc$exists(postProcessing, id)){
-          # pst <- postProcessing
-          # pstid <- id
           assign("pst",postProcessing,thisEnv)
           assign("pstid",id,thisEnv)
           return(TRUE)
@@ -294,435 +246,295 @@ DynComm <- function(Algorithm,Criterion,Parameters)
     },
     
     #' 
-    #'   \item{results()}{Get additional results of the algorithm or the currently selected post processing steps. See \link{}}
+    #'   \item{results(differential)}{Get additional results of the algorithm or the currently selected post processing steps. See \code{\link{results}}}
     #'   
-    results = function()
-    {
+    results = function(differential=TRUE){
       if(pst==POSTPROCESSING$NONE){#get from algorithm
-        to do
-        
+        return(alg$results(differential))
       }
       else{#get from post processing
-        to do
-        
+        return(prc$results(differential,pst,pstid))
       }
     },
 
     #' 
-    #'   \item{addRemoveEdgesFile(graphAddRemoveFile)}{Add and remove edges read from a file. See \link{addRemoveEdgesFile}}
+    #'   \item{addRemoveEdges(graphAddRemove)}{Add and remove edges read from a matrix or file. See \code{\link{addRemoveEdges}}}
     #'   
-    addRemoveEdgesFile = function(graphAddRemoveFile){
-      # pst <- POSTPROCESSING$NONE
-      # prc <- NULL
+    addRemoveEdges = function(graphAddRemove){
+      # invalidate previous post processing queue. Results will be outdated
       assign("pst",POSTPROCESSING$NONE,thisEnv)
       assign("prc",NULL,thisEnv)
-      if(chc>=1 & chc<=10000){
-        dc$addRemoveEdgesFile(graphAddRemoveFile)
+      # update graph
+      if(is.matrix(graphAddRemove) && ncol(graphAddRemove)>1 && ncol(graphAddRemove)<4){#test for matrix
+        return(alg$addRemoveEdgesMatrix(graphAddRemove))
       }
-      else if(chc>=10001 & chc<=20000){
-        # print("Python algorithm")
-        dc$addRemoveEdgesFile(graphAddRemoveFile)
+      else if(is.character(graphAddRemove) && length(graphAddRemove)==1 && nchar(graphAddRemove)>0){#file was given
+        return(alg$addRemoveEdgesFile(graphAddRemove))
       }
-      else{
-        print("Unknown :(")
+      else{#neither file nor matrix
+        print("Invalid input")
+        return(FALSE)
       }
     },
 
     #' 
-    #'   \item{edgesFile(graphAddRemoveFile)}{Alias for addRemoveEdgesFile(). See \link{addRemoveEdgesFile}}
+    #'   \item{addRemove(graphAddRemove)}{Alias for addRemoveEdges(). See \code{\link{addRemoveEdges}}}
     #'   
-    edgesFile = function(graphAddRemoveFile){
-      addRemoveEdgesFile(graphAddRemoveFile)
+    addRemove = function(graphAddRemove){
+      return(addRemoveEdges(graphAddRemove))
     },
     
     #' 
-    #'   \item{quality()}{Get the quality measurement of the graph after the last iteration. See \link{quality}}
+    #'   \item{add(graphAddRemove)}{Alias for addRemoveEdges(). See \code{\link{addRemoveEdges}}}
+    #'   
+    add = function(graphAddRemove){
+      return(addRemoveEdges(graphAddRemove))
+    },
+    
+    #' 
+    #'   \item{quality()}{Get the quality measurement of the graph after the last iteration. See \code{\link{quality}}}
     #'   
     quality=function(){
       if(pst==POSTPROCESSING$NONE){
-        if(chc>=1 & chc<=10000){
-          dc$quality()
-        }
-        else if(chc>=10001 & chc<=20000){
-          # print("Python algorithm")
-          dc$quality()
-        }
-        else{
-          print("Unknown :(")
-        }
+        return(alg$quality())
       }
       else{
-        # if(pst==POSTPROCESSING$DENSOPT){
-          # print("Python algorithm")
-          prc$quality(pst,pstid)
-        # }
-        # else{
-        #   print("Unknown :(")
-        # }
+        return(prc$quality(pst,pstid))
       }
     },
     
     #' 
-    #'   \item{communityCount()}{Get the number of communities after the last iteration. See \link{communityCount}}
+    #'   \item{communityCount()}{Get the number of communities after the last iteration. See \code{\link{communityCount}}}
     #'   
     communityCount=function(){
       if(pst==POSTPROCESSING$NONE){
-        if(chc>=1 & chc<=10000){
-          dc$communityCount()
-        }
-      else if(chc>=10001 & chc<=20000){
-        # print("Python algorithm")
-        dc$communityCount()
+        return(alg$communityCount())
       }
       else{
-          print("Unknown :(")
-        }
-      }
-      else{
-        # if(pst==POSTPROCESSING$DENSOPT){
-          # print("Python algorithm")
-          prc$communityCount(pst,pstid)
-        # }
-        # else{
-        #   print("Unknown :(")
-        # }
+        return(prc$communityCount(pst,pstid))
       }
     },
     
     #' 
-    #'   \item{communities()}{Get all communities after the last iteration. See \link{communities}}
+    #'   \item{communities()}{Get all communities after the last iteration. See \code{\link{communities}}}
     #'   
     communities=function(){
       if(pst==POSTPROCESSING$NONE){
-        if(chc>=1 & chc<=10000){
-          dc$communities()
-        }
-      else if(chc>=10001 & chc<=20000){
-        # print("Python algorithm")
-        dc$communities()
+        return(alg$communities())
       }
       else{
-          print("Unknown :(")
-        }
-      }
-      else{
-        # if(pst==POSTPROCESSING$DENSOPT){
-          # print("Python algorithm")
-          prc$communities(pst,pstid)
-        # }
-        # else{
-        #   print("Unknown :(")
-        # }
+        return(prc$communities(pst,pstid))
       }
     },
     
+    #' 
+    #'   \item{communityNeighbours(community)}{Get the neighbours of the given community after the last iteration. See \code{\link{communityNeighbours}}}
+    #'   
+    communityNeighbours=function(community){
+      if(pst==POSTPROCESSING$NONE){
+        return(alg$communityNeighbours(community))
+      }
+      else{
+        return(prc$communityNeighbours(community,pst,pstid))
+      }
+    },
     
     #' 
-    #'   \item{communityInnerEdgesWeight(community)}{Get the sum of weights of the inner edges of the given community after the last iteration. See \link{communityInnerEdgesWeight}}
+    #'   \item{communityInnerEdgesWeight(community)}{Get the sum of weights of the inner edges of the given community after the last iteration. See \code{\link{communityInnerEdgesWeight}}}
     #'   
     communityInnerEdgesWeight=function(community){
       if(pst==POSTPROCESSING$NONE){
-        if(chc>=1 & chc<=10000){
-        dc$communityInnerEdgesWeight(community)
-      }
-      else if(chc>=10001 & chc<=20000){
-        # print("Python algorithm")
-        dc$communityInnerEdgesWeight(community)
+        return(alg$communityInnerEdgesWeight(community))
       }
       else{
-        print("Unknown :(")
-      }
-      }
-      else{
-        # if(pst==POSTPROCESSING$DENSOPT){
-          # print("Python algorithm")
-          prc$communityInnerEdgesWeight(pst,pstid)
-        # }
-        # else{
-        #   print("Unknown :(")
-        # }
+        return(prc$communityInnerEdgesWeight(community,pst,pstid))
       }
     },
     
     #' 
-    #'   \item{communityTotalWeight(community)}{Get the sum of weights of all edges of the given community after the last iteration. See \link{communityTotalWeight}}
+    #'   \item{communityTotalWeight(community)}{Get the sum of weights of all edges of the given community after the last iteration. See \code{\link{communityTotalWeight}}}
     #'   
     communityTotalWeight=function(community){
       if(pst==POSTPROCESSING$NONE){
-        if(chc>=1 & chc<=10000){
-          dc$communityTotalWeight(community)
-        }
-      else if(chc>=10001 & chc<=20000){
-        # print("Python algorithm")
-        dc$communityTotalWeight(community)
+        return(alg$communityTotalWeight(community))
       }
       else{
-          print("Unknown :(")
-        }
-      }
-      else{
-        # if(pst==POSTPROCESSING$DENSOPT){
-          # print("Python algorithm")
-          prc$communityTotalWeight(pst,pstid)
-        # }
-        # else{
-        #   print("Unknown :(")
-        # }
+        return(prc$communityTotalWeight(community,pst,pstid))
       }
     },
       
         
     #' 
-    #'   \item{communityEdgeWeight(source,destination)}{Get the weight of the edge that goes from source to destination after the last iteration. See \link{communityEdgeWeight}}
+    #'   \item{communityEdgeWeight(source,destination)}{Get the weight of the edge that goes from source community to destination community after the last iteration. See \code{\link{communityEdgeWeight}}}
     #'   
     communityEdgeWeight=function(source,destination){
       if(pst==POSTPROCESSING$NONE){
-        if(chc>=1 & chc<=10000){
-            dc$communityEdgeWeight(source,destination)
-          }
-      else if(chc>=10001 & chc<=20000){
-        # print("Python algorithm")
-        dc$communityEdgeWeight(source,destination)
+        return(alg$communityEdgeWeight(source,destination))
       }
       else{
-            print("Unknown :(")
-          }
-      }
-      else{
-        # if(pst==POSTPROCESSING$DENSOPT){
-          # print("Python algorithm")
-          prc$communityEdgeWeight(pst,pstid)
-        # }
-        # else{
-        #   print("Unknown :(")
-        # }
+        return(prc$communityEdgeWeight(source,destination,pst,pstid))
       }
     },
         
     #' 
-    #'   \item{communityVertexCount(community)}{Get the amount of vertices in the given community after the last iteration. See \link{communityVertexCount}}
+    #'   \item{communityVertexCount(community)}{Get the amount of vertices in the given community after the last iteration. See \code{\link{communityVertexCount}}}
     #'   
     communityVertexCount=function(community){
       if(pst==POSTPROCESSING$NONE){
-        if(chc>=1 & chc<=10000){
-            dc$communityVertexCount(community)
-          }
-      else if(chc>=10001 & chc<=20000){
-        # print("Python algorithm")
-        dc$communityVertexCount(community)
+        return(alg$communityVertexCount(community))
       }
       else{
-            print("Unknown :(")
-          }
-      }
-      else{
-        # if(pst==POSTPROCESSING$DENSOPT){
-          # print("Python algorithm")
-          prc$communityVertexCount(pst,pstid)
-        # }
-        # else{
-        #   print("Unknown :(")
-        # }
+        return(prc$communityVertexCount(community,pst,pstid))
       }
     },
         
     #' 
-    #'   \item{communityNodeCount(community)}{Alias for communityVertexCount(). See \link{communityVertexCount}}
+    #'   \item{communityNodeCount(community)}{Alias for communityVertexCount(). See \code{\link{communityVertexCount}}}
     #'   
     communityNodeCount=function(community){
-      communityVertexCount(community)
+      return(communityVertexCount(community))
     },
     
     #' 
-    #'   \item{community(vertex)}{Get the community of the given vertex after the last iteration. See \link{community}}
+    #'   \item{community(vertex)}{Get the community of the given vertex after the last iteration. See \code{\link{community}}}
     #'   
     community=function(vertex){
       if(pst==POSTPROCESSING$NONE){
-        if(chc>=1 & chc<=10000){
-            dc$community(vertex)
-          }
-      else if(chc>=10001 & chc<=20000){
-        # print("Python algorithm")
-        dc$community(vertex)
+        return(alg$community(vertex))
       }
       else{
-            print("Unknown :(")
-          }
-      }
-      else{
-        # if(pst==POSTPROCESSING$DENSOPT){
-          # print("Python algorithm")
-          prc$community(pst,pstid)
-        # }
-        # else{
-        #   print("Unknown :(")
-        # }
+        return(prc$community(vertex,pst,pstid))
       }
     },
         
     #' 
-    #'   \item{vertexCount()}{Get the total number of vertices after the last iteration. See \link{vertexCount}}
+    #'   \item{vertexCount()}{Get the total number of vertices after the last iteration. See \code{\link{vertexCount}}}
     #'   
     vertexCount=function(){
-      # if(pst==POSTPROCESSING$NONE){
-        if(chc>=1 & chc<=10000){
-            dc$vertexCount()
-          }
-      else if(chc>=10001 & chc<=20000){
-        # print("Python algorithm")
-        dc$vertexCount()
+      if(pst==POSTPROCESSING$NONE){
+        return(alg$vertexCount())
       }
       else{
-            print("Unknown :(")
-          }
-      # }
-      # else{
-      #   if(pst==POSTPROCESSING$DENSOPT){
-      #     # print("Python algorithm")
-      #     prc$vertexCount(pst,pstid)
-      #   }
-      #   else{
-      #     print("Unknown :(")
-      #   }
-      # }
+        return(prc$vertexCount(pst,pstid))
+      }
     },
+
     #' 
-    #'   \item{nodesCount()}{Alias for vertexCount(). See \link{vertexCount}}
+    #'   \item{nodesCount()}{Alias for vertexCount(). See \code{\link{vertexCount}}}
     #'   
     nodesCount=function(){
-      vertexCount()
+      return(vertexCount())
     },
     
     #' 
-    #'   \item{vertexAll()}{Get all vertices in the graph after the last iteration. See \link{vertexAll}}
+    #'   \item{verticesAll()}{Get all vertices in the graph after the last iteration. See \code{\link{verticesAll}}}
     #'   
-    vertexAll=function(){
-      # if(pst==POSTPROCESSING$NONE){
-        if(chc>=1 & chc<=10000){
-            dc$vertexAll()
-          }
-      else if(chc>=10001 & chc<=20000){
-        # print("Python algorithm")
-        dc$vertexAll()
+    verticesAll=function(){
+      if(pst==POSTPROCESSING$NONE){
+        return(alg$verticesAll())
       }
       else{
-            print("Unknown :(")
-          }
-      # }
-      # else{
-      #   if(pst==POSTPROCESSING$DENSOPT){
-      #     # print("Python algorithm")
-      #     prc$vertexAll(pst,pstid)
-      #   }
-      #   else{
-      #     print("Unknown :(")
-      #   }
-      # }
+        return(prc$verticesAll(pst,pstid))
+      }
     },
         
     #' 
-    #'   \item{nodesAll()}{Alias for vertexAll(). See \link{vertexAll}}
+    #'   \item{nodesAll()}{Alias for verticesAll(). See \code{\link{verticesAll}}}
     #'   
     nodesAll=function(){
-      vertexAll()
+      return(verticesAll())
     },
     
     #' 
-    #'   \item{vertices(community)}{Get all vertices belonging to the given community after the last iteration. See \link{vertices}}
+    #'   \item{neighbours(vertex)}{Get the neighbours of the given vertex after the last iteration. See \code{\link{neighbours}}}
+    #'   
+    neighbours=function(vertex){
+      if(pst==POSTPROCESSING$NONE){
+        return(alg$neighbours(vertex))
+      }
+      else{
+        return(prc$neighbours(vertex,pst,pstid))
+      }
+    },
+    
+    #' 
+    #'   \item{edgeWeight(source,destination)}{Get the weight of the edge that goes from source vertex to destination vertex after the last iteration. See \code{\link{edgeWeight}}}
+    #'   
+    edgeWeight=function(source,destination){
+      if(pst==POSTPROCESSING$NONE){
+        return(alg$edgeWeight(source,destination))
+      }
+      else{
+        return(prc$edgeWeight(source,destination,pst,pstid))
+      }
+    },
+    
+    #' 
+    #'   \item{edge(source,destination)}{Alias for edgeWeight(). See \code{\link{edgeWeight}}}
+    #'   
+    edge=function(source,destination){
+      return(edgeWeight(source,destination))
+    },
+    
+    #' 
+    #'   \item{vertices(community)}{Get all vertices belonging to the given community after the last iteration. See \code{\link{vertices}}}
     #'   
     vertices=function(community){
       if(pst==POSTPROCESSING$NONE){
-        if(chc>=1 & chc<=10000){
-              dc$vertices(community)
-            }
-      else if(chc>=10001 & chc<=20000){
-        # print("Python algorithm")
-        dc$vertices(community)
+        return(alg$vertices(community))
       }
       else{
-              print("Unknown :(")
-            }
-      }
-      else{
-        # if(pst==POSTPROCESSING$DENSOPT){
-          # print("Python algorithm")
-          prc$vertices(pst,pstid)
-        # }
-        # else{
-        #   print("Unknown :(")
-        # }
+        return(prc$vertices(community,pst,pstid))
       }
     },
     
     #' 
-    #'   \item{nodes(community)}{Alias for vertices(community). See \link{vertices}}
+    #'   \item{nodes(community)}{Alias for vertices(community). See \code{\link{vertices}}}
     #'   
     nodes=function(community){
-      vertices(community)
+      return(vertices(community))
     },
         
     #' 
-    #'   \item{communityMapping()}{Get the community mapping for all communities after the last iteration.See \link{communityMapping}}
+    #'   \item{communityMapping(differential)}{Get the community mapping for all communities after the last iteration.See \code{\link{communityMapping}}}
     #'   
-    communityMapping = function(){
+    communityMapping = function(differential=TRUE, file=""){
       if(pst==POSTPROCESSING$NONE){
-        if(chc>=1 & chc<=10000){
-        dc$communityMapping(TRUE)
-      }
-      else if(chc>=10001 & chc<=20000){
-        # print("Python algorithm")
-        dc$communityMapping(TRUE)
-      }
-      else{
-        print("Unknown :(")
-      }
+        if(is.character(file) && length(file)==1 && nchar(file)>0){#file was given
+          return(alg$communityMappingFile(differential,file))
+        }
+        else{
+          return(alg$communityMappingMatrix(differential))
+        }
       }
       else{
-        # if(pst==POSTPROCESSING$DENSOPT){
-          # print("Python algorithm")
-          prc$communityMapping(pst,pstid)
-        # }
-        # else{
-        #   print("Unknown :(")
-        # }
+        if(is.character(file) && length(file)==1 && nchar(file)>0){#file was given
+          return(prc$communityMappingFile(differential,file,pst,pstid))
+        }
+        else{
+          return(prc$communityMappingMatrix(differential,pst,pstid))
+        }
       }
     },
     
     #' 
-    #'   \item{time()}{Get the cumulative time spent on processing after the last iteration. See \link{time}}
+    #'   \item{time()}{Get the cumulative time spent on processing after the last iteration. See \code{\link{time}}}
     #'   
-    time=function(){
+    time=function(differential=FALSE){
       if(pst==POSTPROCESSING$NONE){
-        if(chc>=1 & chc<=10000){
-            dc$time()
-          }
-      else if(chc>=10001 & chc<=20000){
-        # print("Python algorithm")
-        dc$time()
+        return(alg$time(differential))
       }
       else{
-            print("Unknown :(")
-          }
-      }
-      else{
-        # if(pst==POSTPROCESSING$DENSOPT){
-          # print("Python algorithm")
-          prc$time(pst,pstid)
-        # }
-        # else{
-        #   print("Unknown :(")
-        # }
+        return(prc$time(differential,pst,pstid))
       }
     }
-      
     
   )
   # close methods section of the documentation
   #' 
   #' }
   #' 
-  
-  
+
   ## Define the value of the list within the current environment.
   assign('this',me,envir=thisEnv)
   
@@ -732,40 +544,200 @@ DynComm <- function(Algorithm,Criterion,Parameters)
 }
 
 
-# @name getAlgorithm
-# 
-# @aliases getAlgorithm
-# 
-# @title getAlgorithm()
-#
-# @description This method returns the algorithm with which this object was initialized.
-# 
-# @details to do
-#
-# @rdname getAlgorithm
-# 
-# @docType methods
-# 
-# @usage getAlgorithm()
-# 
-# @method DynComm getAlgorithm
-# 
-# @return ALGORITHM
-#
-# @examples
-# dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-# dc$getAlgorithm()
-# 
-# NULL
-
-#' @name addRemoveEdgesFile
+#' @name postProcess
 #' 
-#' @aliases edgesFile
+#' @aliases postprocess
 #' 
-#' @title addRemoveEdgesFile(graphAddRemoveFile)
+#' @title postProcess(actions)
 #'
+#' @author poltergeist0
+#' 
 #' @description 
-#' This method reads edges from a file and adds or removes them from the graph.
+#' This method receives a list of actions to perform in post processing in the 
+#' same order they are listed.
+#' 
+#' @details 
+#' Several actions of the same type are allowed. They receive an internal ID
+#' number that starts at one and increments by one unit with each action of the 
+#' same type. Later, this ID can be used to select the intended action and get 
+#' results from it
+#' 
+#' The format of the actions is a list of action. Each action is a list of the
+#' action name (see \code{\link{POSTPROCESSING}}) and parameters. The parameters is a matrix
+#' of two columns, the first having the name of the parameter and, the second,
+#' the value of the parameter. The parameters is optional, and may be missing,
+#' in which case default values are used, if required at all.
+#' 
+#' The parameters accepted by each post processing algorithm can be found on the
+#' help page of each respective algorithm.
+#' 
+#' This slighty awkward syntax is due to R not supporting matrix of matrices.
+#' 
+#' @rdname postProcess
+#' 
+#' @docType methods
+#' 
+#' @usage
+#' postProcess(actions)
+#' postProcess(dyncomm,actions)
+#' 
+#' @param actions A list of post processing actions/steps
+#' 
+#' @param dyncomm A DynComm object, if not using the inline version of the function call
+#' 
+#' @method DynComm postProcess
+#' 
+#' @return FALSE if any kind of error occurred. Otherwise, TRUE
+#'
+#' @examples
+#' \dontrun{
+#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
+#' dc$postProcess(list(list(POSTPROCESSING$WEIGHTTOP,matrix(data=c("n",10),ncol=2,byrow=TRUE)),list(POSTPROCESSING$DENSOPT),list(POSTPROCESSING$WEIGHTTOP,matrix(data=c("n",3),ncol=2,byrow=TRUE))))
+#' # first POSTPROCESSING$WEIGHTTOP gets ID=1 and second gets ID=2
+#' # POSTPROCESSING$DENSOPT uses default parameters
+#' dc$select(POSTPROCESSING$WEIGHTTOP,1)  #selects the results of the first WEIGHTTOP
+#' dc$select(POSTPROCESSING$WEIGHTTOP,2)  #selects the results of the second WEIGHTTOP
+#' dc$select(POSTPROCESSING$NONE)  #selects the main algorithm results
+#' }
+#' \dontrun{
+#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
+#' postProcess(dc,list(list(POSTPROCESSING$WEIGHTTOP,matrix(data=c("n",10),ncol=2,byrow=TRUE)),list(POSTPROCESSING$DENSOPT),list(POSTPROCESSING$WEIGHTTOP,matrix(data=c("n",3),ncol=2,byrow=TRUE))))
+#' # first POSTPROCESSING$WEIGHTTOP gets ID=1 and second gets ID=2
+#' # POSTPROCESSING$DENSOPT uses default parameters
+#' select(dc,POSTPROCESSING$WEIGHTTOP,1)  #selects the results of the first WEIGHTTOP
+#' select(dc,POSTPROCESSING$WEIGHTTOP,2)  #selects the results of the second WEIGHTTOP
+#' select(dc,POSTPROCESSING$NONE)  #selects the main algorithm results
+#' }
+#' 
+# NULL
+postProcess <- function(dyncomm,actions){
+  return(dyncomm$postProcess(actions))
+}
+
+#' @name select
+#' 
+#' @title select(postProcessing, id)
+#'
+#' @author poltergeist0
+#' 
+#' @description 
+#' This method allows for the selection of which result should be shown. Any of 
+#' the post processing algorithms and the main algorithm can be choosen.
+#' 
+#' @details 
+#' The ID parameter is used to distinguish between several post processing 
+#' algorithms of the same type. It is not required for neither the main 
+#' algorithm nor any post processing algorithm type that only appears one time.
+#' 
+#' The main algorithm can be selected with POSTPROCESSING$NONE and the ID is 
+#' ignored. See \code{\link{POSTPROCESSING}} for other available algorithms.
+#' 
+#' @rdname select
+#' 
+#' @docType methods
+#' 
+#' @usage
+#' select(postProcessing, id)
+#' select(dyncomm,postProcessing, id)
+#' 
+#' @param postProcessing The name of the post processing algorithm \code{\link{POSTPROCESSING}}
+#' 
+#' @param id The ID of the post processing algorithm. Default value is 1
+#' 
+#' @param dyncomm A DynComm object, if not using the inline version of the function call
+#' 
+#' @method DynComm select
+#' 
+#' @return FALSE if any kind of error occurred. Otherwise, TRUE
+#'
+#' @examples
+#' \dontrun{
+#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
+#' dc$postProcess(list(list(POSTPROCESSING$WEIGHTTOP,matrix(data=c("n",10),ncol=2,byrow=TRUE)),list(POSTPROCESSING$DENSOPT),list(POSTPROCESSING$WEIGHTTOP,matrix(data=c("n",3),ncol=2,byrow=TRUE))))
+#' # first POSTPROCESSING$WEIGHTTOP gets ID=1 and second gets ID=2
+#' # POSTPROCESSING$DENSOPT uses default parameters
+#' dc$select(POSTPROCESSING$WEIGHTTOP,1)  #selects the results of the first WEIGHTTOP
+#' dc$select(POSTPROCESSING$WEIGHTTOP,2)  #selects the results of the second WEIGHTTOP
+#' dc$select(POSTPROCESSING$NONE)  #selects the main algorithm results
+#' }
+#' \dontrun{
+#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
+#' postProcess(dc,list(list(POSTPROCESSING$WEIGHTTOP,matrix(data=c("n",10),ncol=2,byrow=TRUE)),list(POSTPROCESSING$DENSOPT),list(POSTPROCESSING$WEIGHTTOP,matrix(data=c("n",3),ncol=2,byrow=TRUE))))
+#' # first POSTPROCESSING$WEIGHTTOP gets ID=1 and second gets ID=2
+#' # POSTPROCESSING$DENSOPT uses default parameters
+#' select(dc,POSTPROCESSING$WEIGHTTOP,1)  #selects the results of the first WEIGHTTOP
+#' select(dc,POSTPROCESSING$WEIGHTTOP,2)  #selects the results of the second WEIGHTTOP
+#' select(dc,POSTPROCESSING$NONE)  #selects the main algorithm results
+#' }
+#' 
+# NULL
+select <- function(dyncomm,postProcessing=POSTPROCESSING$NONE, id=1){
+  return(dyncomm$select(postProcessing=POSTPROCESSING$NONE, id=1))
+}
+
+#' @name results
+#' 
+#' @title results(differential)
+#'
+#' @author poltergeist0
+#' 
+#' @description 
+#' This method returns additional results from the selected post processing
+#' algorithm or the main algorithm. See \code{\link{select}} to know how to 
+#' select an algorithm.
+#' 
+#' @details 
+#' Additional results are any results other than those returned by other 
+#' existing functions like \code{\link{quality}}, \code{\link{time}} and 
+#' \code{\link{communityMapping}}.
+#' 
+#' @rdname results
+#' 
+#' @docType methods
+#' 
+#' @usage
+#' results(differential)
+#' results(dyncomm,differential)
+#' 
+#' @param differential If TRUE, only values that have changed in the latest run will be returned
+#' 
+#' @param dyncomm A DynComm object, if not using the inline version of the function call
+#' 
+#' @method DynComm results
+#' 
+#' @return a two column matrix where, the first column is the name of the 
+#' result and, the second column is its value.
+#'
+#' @examples
+#' \dontrun{
+#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
+#' dc$results()
+#' }
+#' \dontrun{
+#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
+#' results(dc)
+#' }
+#' 
+# NULL
+results <- function(dyncomm,differential=TRUE){
+  return(dyncomm$results(differential))
+}
+
+#' @name addRemoveEdges
+#' 
+#' @aliases addRemove add
+#' 
+#' @title addRemoveEdges(graphAddRemove)
+#'
+#' @author poltergeist0
+#' 
+#' @description 
+#' This method reads edges from either a matrix or a file and adds or removes 
+#' them from the graph.
+#' 
+#' @details 
+#' The matrix must have at least two columns with the source and destination
+#' vertices. Optionally, it can have a third column with the weight of the edge.
 #' 
 #' The file must have only one edge per line, with values separated by a white
 #' space (both SPACE and TAB work in any amount and combination).
@@ -784,55 +756,56 @@ DynComm <- function(Algorithm,Criterion,Parameters)
 #' The method detects automatically if the weight is present on a row by row 
 #' basis so some rows may have weights defined and others not.
 #' 
-# @details to do
-#'
-#' @rdname addRemoveEdgesFile
+#' @rdname addRemoveEdges
 #' 
 #' @docType methods
 #' 
 #' @usage
-#' addRemoveEdgesFile(graphAddRemoveFile)
-#' addRemoveEdgesFile(dyncomm,graphAddRemoveFile)
-#' edgesFile(graphAddRemoveFile)
-#' edgesFile(dyncomm,graphAddRemoveFile)
+#' addRemoveEdges(graphAddRemove)
+#' addRemoveEdges(dyncomm,graphAddRemove)
+#' addRemove(graphAddRemove)
+#' addRemove(dyncomm,graphAddRemove)
+#' add(graphAddRemove)
+#' add(dyncomm,graphAddRemove)
 #' 
-#' @param graphAddRemoveFile The filename that contains the edges to add/remove
+#' @param graphAddRemove Either the matrix or the filename that contains the edges to add/remove
 #' 
 #' @param dyncomm A DynComm object, if not using the inline version of the function call
 #' 
-#' @method DynComm addRemoveEdgesFile
+#' @method DynComm addRemoveEdges
 #' 
 #' @return FALSE if any kind of error occurred. Otherwise, TRUE
 #'
 #' @examples
 #' \dontrun{
 #' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-#' dc$addRemoveEdgesFile("graphAddRemoveFile.txt")
+#' dc$addRemoveEdges("graphAddRemoveFile.txt")
 #' }
 #' \dontrun{
 #' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-#' addRemoveEdgesFile(dc,"graphAddRemoveFile.txt")
+#' addRemoveEdges(dc,"graphAddRemoveFile.txt")
 #' }
 #' 
 # NULL
-addRemoveEdgesFile <- function(dyncomm,graphAddRemoveFile){
-  dyncomm$addRemoveEdgesFile(graphAddRemoveFile)
+addRemoveEdges <- function(dyncomm,graphAddRemove){
+  return(dyncomm$addRemoveEdges(graphAddRemove))
 }
-edgesFile <- function(dyncomm,graphAddRemoveFile){
-  dyncomm$addRemoveEdgesFile(graphAddRemoveFile)
+addRemove <- function(dyncomm,graphAddRemove){
+  return(dyncomm$addRemoveEdges(graphAddRemove))
+}
+add <- function(dyncomm,graphAddRemove){
+  return(dyncomm$addRemoveEdges(graphAddRemove))
 }
 
 #' @name quality
 #'
-# @aliases quality
-#'
 #' @title quality()
 #'
+#' @author poltergeist0
+#' 
 #' @description 
 #' Get the quality measurement of the graph after the last iteration of the 
 #' algorithm.
-#'
-# @details to do
 #'
 #' @rdname quality
 #'
@@ -860,18 +833,19 @@ edgesFile <- function(dyncomm,graphAddRemoveFile){
 #'
 # NULL
 quality <- function(dyncomm){
-  dyncomm$quality()
+  return(dyncomm$quality())
 }
 
 #' @name communityCount
 #'
-# @aliases communityCount
+#' @aliases communityCount
 #'
 #' @title communityCount()
 #'
-#' @description Get the number of communities after the last iteration of the algorithm.
-#'
-# @details to do
+#' @author poltergeist0
+#' 
+#' @description 
+#' Get the number of communities after the last iteration of the algorithm.
 #'
 #' @rdname communityCount
 #'
@@ -899,19 +873,17 @@ quality <- function(dyncomm){
 #'
 # NULL
 communityCount <- function(dyncomm){
-  dyncomm$communityCount()
+  return(dyncomm$communityCount())
 }
 
 #' @name communities
 #'
-# @aliases communities
-#'
 #' @title communities()
 #'
+#' @author poltergeist0
+#' 
 #' @description 
 #' This method returns all communities after the last iteration.
-#'
-# @details to do
 #'
 #' @rdname communities
 #'
@@ -939,7 +911,47 @@ communityCount <- function(dyncomm){
 #'
 # NULL
 communities <- function(dyncomm){
-  dyncomm$communities()
+  return(dyncomm$communities())
+}
+
+#' @name communityNeighbours
+#'
+#' @title communityNeighbours(community)
+#'
+#' @author poltergeist0
+#' 
+#' @description 
+#' Get all neighbours (community connected through direct edges) of the given community in the graph after the last iteration.
+#'
+#' @rdname communityNeighbours
+#'
+#' @docType methods
+#'
+#' @param community The community to get neighbours from
+#' 
+#' @param dyncomm A DynComm object, if not using the inline version of the function call
+#' 
+#' @usage 
+#' communityNeighbours(community)
+#' communityNeighbours(dyncomm,community)
+#'
+#' @method DynComm communityNeighbours
+#'
+#' @return a matrix of all communities in the graph that are neighbours of the given community and their edge weight
+#'
+#' @examples
+#' \dontrun{
+#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
+#' dc$communityNeighbours(community)
+#'}
+#' \dontrun{
+#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
+#' communityNeighbours(dc,community)
+#'}
+#'
+# NULL
+communityNeighbours <- function(dyncomm,community){
+  return(dyncomm$communityNeighbours(community))
 }
 
 #' @name communityInnerEdgesWeight
@@ -948,11 +960,11 @@ communities <- function(dyncomm){
 #'
 #' @title communityInnerEdgesWeight(community)
 #'
+#' @author poltergeist0
+#' 
 #' @description 
 #' Get the sum of weights of the inner edges of the given community after the 
 #' last iteration.
-#'
-# @details to do
 #'
 #' @rdname communityInnerEdgesWeight
 #'
@@ -982,7 +994,7 @@ communities <- function(dyncomm){
 #'
 # NULL
 communityInnerEdgesWeight <- function(dyncomm,community){
-  dyncomm$communityInnerEdgesWeight(community)
+  return(dyncomm$communityInnerEdgesWeight(community))
 }
 
 #' @name communityTotalWeight
@@ -991,10 +1003,10 @@ communityInnerEdgesWeight <- function(dyncomm,community){
 #'
 #' @title communityTotalWeight(community)
 #'
+#' @author poltergeist0
+#' 
 #' @description 
 #' Get the sum of weights of all edges of the given community after the last iteration.
-#'
-# @details to do
 #'
 #' @rdname communityTotalWeight
 #'
@@ -1024,7 +1036,7 @@ communityInnerEdgesWeight <- function(dyncomm,community){
 #'
 # NULL
 communityTotalWeight <- function(dyncomm,community){
-  dyncomm$communityTotalWeight(community)
+  return(dyncomm$communityTotalWeight(community))
 }
 
 #' @name communityEdgeWeight
@@ -1033,18 +1045,18 @@ communityTotalWeight <- function(dyncomm,community){
 #'
 #' @title communityEdgeWeight(source,destination)
 #'
+#' @author poltergeist0
+#' 
 #' @description 
-#' Get the weight of the edge that goes from source to destination after the last iteration.
-#'
-# @details to do
+#' Get the weight of the edge that goes from source community to destination community after the last iteration.
 #'
 #' @rdname communityEdgeWeight
 #'
 #' @docType methods
 #'
-#' @param source The name of the source vertex that is part of the edge
+#' @param source The name of the source community that is part of the edge
 #' 
-#' @param destination The name of the destination vertex that is part of the edge
+#' @param destination The name of the destination community that is part of the edge
 #' 
 #' @param dyncomm A DynComm object, if not using the inline version of the function call
 #' 
@@ -1068,7 +1080,7 @@ communityTotalWeight <- function(dyncomm,community){
 #'
 # NULL
 communityEdgeWeight <- function(dyncomm,source,destination){
-  dyncomm$communityEdgeWeight(source,destination)
+  return(dyncomm$communityEdgeWeight(source,destination))
 }
 
 #' @name communityVertexCount
@@ -1077,10 +1089,10 @@ communityEdgeWeight <- function(dyncomm,source,destination){
 #'
 #' @title communityVertexCount(community)
 #'
+#' @author poltergeist0
+#' 
 #' @description 
 #' Get the amount of vertices in the given community after the last iteration.
-#'
-# @details to do
 #'
 #' @rdname communityVertexCount
 #'
@@ -1112,22 +1124,20 @@ communityEdgeWeight <- function(dyncomm,source,destination){
 #'
 # NULL
 communityVertexCount <- function(dyncomm,community){
-  dyncomm$communityVertexCount()
+  return(dyncomm$communityVertexCount())
 }
 communityNodeCount <- function(dyncomm,community){
-  dyncomm$communityVertexCount()
+  return(dyncomm$communityVertexCount())
 }
 
 #' @name community
 #'
-# @aliases community
-#'
 #' @title community(vertex)
 #'
+#' @author poltergeist0
+#' 
 #' @description 
 #' Get the community of the given vertex after the last iteration.
-#'
-# @details to do
 #'
 #' @rdname community
 #'
@@ -1157,7 +1167,7 @@ communityNodeCount <- function(dyncomm,community){
 #'
 # NULL
 community <- function(dyncomm,vertex){
-  dyncomm$community(vertex)
+  return(dyncomm$community(vertex))
 }
 
 #' @name vertexCount
@@ -1166,12 +1176,12 @@ community <- function(dyncomm,vertex){
 #'
 #' @title vertexCount()
 #'
+#' @author poltergeist0
+#' 
 #' @description 
 #' Get the total number of vertices after the last iteration. It can be useful since
 #' vertices can be added, if an edge being added has vertices that do not exist in the 
 #' graph, or removed, if they are not part of any edge after removing an edge.
-#'
-# @details to do
 #'
 #' @rdname vertexCount
 #'
@@ -1201,55 +1211,139 @@ community <- function(dyncomm,vertex){
 #'
 # NULL
 vertexCount <- function(dyncomm){
-  dyncomm$vertexCount()
+  return(dyncomm$vertexCount())
 }
 nodesCount <- function(dyncomm){
-  dyncomm$vertexCount()
+  return(dyncomm$vertexCount())
 }
 
-#' @name vertexAll
+#' @name verticesAll
 #'
 #' @aliases nodesAll
 #'
-#' @title vertexAll()
+#' @title verticesAll()
 #'
+#' @author poltergeist0
+#' 
 #' @description 
 #' Get all vertices in the graph after the last iteration.
 #'
-# @details to do
-#'
-#' @rdname vertexAll
+#' @rdname verticesAll
 #'
 #' @docType methods
 #'
 #' @param dyncomm A DynComm object, if not using the inline version of the function call
 #' 
 #' @usage 
-#' vertexAll()
-#' vertexAll(dyncomm)
+#' verticesAll()
+#' verticesAll(dyncomm)
 #' nodesAll()
 #' nodesAll(dyncomm)
 #'
-#' @method DynComm vertexAll
+#' @method DynComm verticesAll
 #'
 #' @return a list of all vertices in the graph
 #'
 #' @examples
 #' \dontrun{
 #' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-#' dc$vertexAll()
+#' dc$verticesAll()
 #'}
 #' \dontrun{
 #' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-#' vertexAll(dc)
+#' verticesAll(dc)
 #'}
 #'
 # NULL
-vertexAll <- function(dyncomm){
-  dyncomm$vertexAll()
+verticesAll <- function(dyncomm){
+  return(dyncomm$verticesAll())
 }
 nodesAll <- function(dyncomm){
-  dyncomm$vertexAll()
+  return(dyncomm$verticesAll())
+}
+
+#' @name neighbours
+#'
+#' @title neighbours(vertex)
+#'
+#' @author poltergeist0
+#' 
+#' @description 
+#' Get all neighbours (vertices connected through direct edges) of the given vertex in the graph after the last iteration.
+#'
+#' @rdname neighbours
+#'
+#' @docType methods
+#'
+#' @param vertex The vertex to get neighbours from
+#' 
+#' @param dyncomm A DynComm object, if not using the inline version of the function call
+#' 
+#' @usage 
+#' neighbours(vertex)
+#' neighbours(dyncomm,vertex)
+#'
+#' @method DynComm neighbours
+#'
+#' @return a matrix of all vertices in the graph that are neighbours of the given vertex and their edge weight
+#'
+#' @examples
+#' \dontrun{
+#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
+#' dc$neighbours(vertex)
+#'}
+#' \dontrun{
+#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
+#' neighbours(dc,vertex)
+#'}
+#'
+# NULL
+neighbours <- function(dyncomm,vertex){
+  return(dyncomm$neighbours(vertex))
+}
+
+#' @name edgeWeight
+#'
+# @aliases edgeWeight
+#'
+#' @title edgeWeight(source,destination)
+#'
+#' @author poltergeist0
+#' 
+#' @description 
+#' Get the weight of the edge that goes from source vertex to destination vertex after the last iteration.
+#'
+#' @rdname edgeWeight
+#'
+#' @docType methods
+#'
+#' @param source The name of the source vertex that is part of the edge
+#' 
+#' @param destination The name of the destination vertex that is part of the edge
+#' 
+#' @param dyncomm A DynComm object, if not using the inline version of the function call
+#' 
+#' @usage 
+#' edgeWeight(source,destination)
+#' edgeWeight(dyncomm,source,destination)
+#'
+#' @method DynComm edgeWeight
+#'
+#' @return a floating point number with the weight
+#'
+#' @examples
+#' \dontrun{
+#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
+#' dc$edgeWeight(12,42)
+#'}
+#' \dontrun{
+#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
+#' edgeWeight(dc,12,42)
+#'}
+#'
+# NULL
+edgeWeight <- function(dyncomm,source,destination){
+  return(dyncomm$edgeWeight(source,destination))
 }
 
 #' @name vertices
@@ -1258,10 +1352,10 @@ nodesAll <- function(dyncomm){
 #'
 #' @title vertices(community)
 #'
+#' @author poltergeist0
+#' 
 #' @description 
 #' Get all vertices belonging to the given community after the last iteration.
-#'
-# @details to do
 #'
 #' @rdname vertices
 #'
@@ -1293,36 +1387,47 @@ nodesAll <- function(dyncomm){
 #'
 # NULL
 vertices <- function(dyncomm,community){
-  dyncomm$vertices(community)
+  return(dyncomm$vertices(community))
 }
 nodes <- function(dyncomm,community){
-  dyncomm$vertices(community)
+  return(dyncomm$vertices(community))
 }
 
 #' @name communityMapping
 #'
 # @aliases communityMapping
 #'
-#' @title communityMapping()
+#' @title communityMapping(differential)
 #'
+#' @author poltergeist0
+#' 
 #' @description 
 #' Get the community mapping for all communities after the last iteration.
 #'
-# @details to do
-#'
+#' @details 
+#' If file is not given, returns a two column matrix with vertices in 
+#' the first column and the communities in the second.
+#' 
+#' If file is given, returns a single row, single column matrix with TRUE or 
+#' FALSE, depending whether if writing to file succeeded or failed, respectively.
+#' 
 #' @rdname communityMapping
 #'
 #' @docType methods
 #'
+#' @param differential If TRUE, only values that have changed in the latest run will be returned
+#' 
+#' @param file If given, outputs the community mapping to the given file instead of the console
+#' 
 #' @param dyncomm A DynComm object, if not using the inline version of the function call
 #' 
 #' @usage 
-#' communityMapping()
-#' communityMapping(dyncomm)
+#' communityMapping(differential)
+#' communityMapping(dyncomm,differential)
 #'
 #' @method DynComm communityMapping
 #'
-#' @return a two column matrix with communities in the first column and the vertices in the second
+#' @return a matrix with either the community mapping or a boolean value
 #'
 #' @examples
 #' \dontrun{
@@ -1335,25 +1440,33 @@ nodes <- function(dyncomm,community){
 #'}
 #'
 # NULL
-communityMapping <- function(dyncomm){
-  dyncomm$communityMapping()
+communityMapping <- function(dyncomm,differential=TRUE, file=""){
+  return(dyncomm$communityMapping(differential,file))
 }
 
 #' @name time
 #'
 # @aliases time
 #'
-#' @title time()
+#' @title time(differential=FALSE)
 #'
+#' @author poltergeist0
+#' 
 #' @description 
-#' Get the cumulative time spent on processing after the last iteration.
+#' Get the time, in nanoseconds, spent on processing after the last iteration.
 #'
-# @details to do
-#'
+#' @details 
+#' If the differential parameter is set, the time taken by the last iteration
+#' will be returned. Otherwise, the default behaviour is to, return the 
+#' accumulated time spent on processing since the creation of the DynComm 
+#' object.
+#' 
 #' @rdname time
 #'
 #' @docType methods
 #'
+#' @param differential Select between differential and accumulated time.
+#' 
 #' @param dyncomm A DynComm object, if not using the inline version of the function call
 #' 
 #' @usage
@@ -1378,7 +1491,6 @@ communityMapping <- function(dyncomm){
 #' }
 #' 
 # NULL
-time <- function(dyncomm){
-  dyncomm$time()
+time <- function(dyncomm,differential=FALSE){
+  return(dyncomm$time(differential))
 }
-

@@ -1,14 +1,27 @@
-/*
- * R adaptation interface for Dynamic Communities algorithms.
- *
- *
- */
+/************************************************************************
+ ************************* Developer Notice *****************************
+ ************************************************************************
+ * Description:
+ * 
+ * R adaptation interface for Dynamic Communities algorithms implemented 
+ * in C++11.
+ * 
+ * There should never be any reason to change it unless the API or the 
+ * user interface changes.
+ * 
+ * Add your C++ algorithms in the "base/Cpp/DynCommBase.h" file.
+ * 
+ * Author: poltergeist0
+ * 
+ * Date: 2019-01-01
+ ************************************************************************
+ ************************************************************************
+ ************************************************************************/
 
 #include "base/Cpp/defines.h"
 
 #ifdef FLAG_RCPP
 
-// #include <Rcpp.h>
 #include "base/Cpp/DynCommBase.h"
 
 /**
@@ -29,18 +42,10 @@ class DummyQuality: public DummyEnum{
 };
 
 /**
- * Enumeration with the list of supported Dynamic Communities algorithms.
- * This enumeration must start at 1 since R indexing (for arrays, etc) starts at 1 instead of 0.
- * Otherwise C++ would assign the first algorithm a 0.
- * This may be moved inside the class in the future when R supports enumerations inside classes.
- */
-// enum ALGORITHM:int{LOUVAIN=1};
-
-/**
  * Dynamic Communities class that handles all the IO for the base class.
  * This (file/class) is the R version.
  */
-class DynCommR{
+class DynCommRcpp{
 private:
 	ProgramParameters prmtrs;
 	ReaderFileEdge rFE;
@@ -50,13 +55,16 @@ private:
 		int nrow = algorithmParameters.nrow();
 		int ncol = algorithmParameters.ncol();
 		ProgramParameters p;
-		for (int i = 0; i < nrow; i++) {
+		// COUT << nrow << "\n";
+		for (int i = 0; i < nrow; ++i) {
+		  // COUT << i << " c1="<< algorithmParameters(i,0) << " c2="<< algorithmParameters(i,1)<< " \n";
 		  if(algorithmParameters(i,0)=="filename"){
-		    char *a[]={"DynComm",algorithmParameters(i,1)};
+		    // COUT << i << " filename\n";
+		    char *a[]={"DynCommRcpp",algorithmParameters(i,1)};
 		    parse_args(2,a,p);
 		  }
 		  else{
-			  char *a[]={"DynComm",algorithmParameters(i,0),algorithmParameters(i,1)};
+			  char *a[]={"DynCommRcpp",algorithmParameters(i,0),algorithmParameters(i,1)};
 			  parse_args(3,a,p);
 		  }
 		}
@@ -68,7 +76,7 @@ public:
 	 * Default constructor not acceptable.
 	 * Must be passed at least the chosen algorithm and the graph
 	 */
-	DynCommR()=delete;
+	DynCommRcpp()=delete;
 
 	/**
 	 * Constructor for loading graph from white character (tab or space) separated values file
@@ -81,10 +89,9 @@ public:
 	 *   - weight is a double
 	 *   - MAX_INTEGER_VALUE depends on the platform being 32bit or 64bit. It is the maximum value of an integer in that platform
 	 */
-	DynCommR(
+	DynCommRcpp(
 			Algorithm::ALGORITHM algorithm=Algorithm::ALGORITHM::LOUVAIN
 			,const Quality::QUALITY & quality=Quality::QUALITY::MODULARITY
-			// , ProgramParameters algorithmParameters=argumentsDefault
 			,Rcpp::CharacterMatrix algorithmParameters=Rcpp::CharacterMatrix()
 	)
 	:
@@ -92,88 +99,14 @@ public:
 	,rFE(prmtrs)
 	,dcb(&rFE, algorithm,quality, prmtrs)
 	{
-		// std::cout << "failled\n";
 	}
-
-	/**
-	 * Constructor for loading graph from white character (tab or space) separated values string
-	 * Format of file is:
-	 *   - one edge per line
-	 *   - edge contains two or three values separated by a white space, in this order, source vertex, destination vertex and, optionally, a weight
-	 *   - if weight is not given, it will default to 1
-	 *   - edges with a weight of exactly zero are not added
-	 *   - source and destination vertices are integers between 0 and MAX_INTEGER_VALUE-1
-	 *   - weight is a double
-	 *   - MAX_INTEGER_VALUE depends on the platform being 32bit or 64bit. It is the maximum value of an integer in that platform
-	 */
-	// DynComm(
-	//   std::string str
-	//   ,Algorithm::ALGORITHM algorithm=Algorithm::ALGORITHM::LOUVAIN
-	//   ,const Quality::QUALITY & quality=Quality::QUALITY::MODULARITY
-	//   // , ProgramParameters algorithmParameters=argumentsDefault
-	//   ,Rcpp::CharacterMatrix algorithmParameters=Rcpp::CharacterMatrix()
-	// )
-	//   :
-	//   prmtrs(convertToParameters(algorithmParameters))
-	//   ,rFE(prmtrs)
-	//   ,dcb(&rFE, algorithm,quality, prmtrs)
-	// {
-	// }
-	//
-	// ReaderStringEdge rd("1 2\n1 3\n2 3\n3 6\n4 6\n4 5\n5 7\n6 7",parameters);
-
-	/**
-	 * Constructor for loading graph from R matrix
-	 * Format of matrix is:
-	 *   - one edge per line
-	 *   - edge contains two or three columns, in this order, source vertex, destination vertex and, optionally, a weight
-	 *   - if weight is not given, it will default to 1
-	 *   - edges with a weight of exactly zero are not added
-	 *   - source and destination vertices are integers between 0 and MAX_INTEGER_VALUE-1
-	 *   - weight is a double
-	 *   - MAX_INTEGER_VALUE depends on the platform being 32bit or 64bit. It is the maximum value of an integer in that platform
-	 */
-	// DynComm(
-	//   Rcpp::NumericMatrix graphMatrix, Algorithm::ALGORITHM algorithm=ALGORITHM::LOUVAIN, std::string algorithmParameters=""
-	// )
-	//   :
-	//   // algrthm(algorithm)
-	//   // ,prmtrs(algorithmParameters)
-	//   dcb(dataReader, algorithm, algorithmParameters)
-	// {
-	//   //load graph from R Matrix using R matrix reader
-	//   // grph=toGraph(graphMatrix);
-	// }
-
-	/**
-	 * Function to add and remove edges from the graph using a matrix.
-	 * After successfully adding/removing, the algorithm will automatically run again.
-	 * Any edge with a weight different from zero is inserted.
-	 * Any edge with a weight of exactly zero is removed.
-	 * The weight column
-	 * Format of the matrix is:
-	 *   - one edge per line
-	 *   - edge contains two or three columns, in this order, source vertex, destination vertex and, optionally, a weight
-	 *   - if weight is not given, it will default to 1
-	 *   - edges with a weight of exactly zero are removed
-	 *   - source and destination vertices are integers between 0 and MAX_INTEGER_VALUE-1
-	 *   - weight is a double
-	 *   - MAX_INTEGER_VALUE depends on the platform being 32bit or 64bit. It is the maximum value of an integer in that platform
-	 * @return true if adding/removing succeeded
-	 */
-	// bool addRemoveEdgesMatrix(Rcpp::NumericMatrix edges) {
-	//   //add edge
-	//   dcb.addRemoveEdges(dataReader);
-	//   //rerun algorithm
-	//   dcb.run();
-	// }
 
 	/**
 	 * Function to add and remove edges from the graph using a file.
 	 * After successfully adding/removing, the algorithm will automatically run again.
 	 * Any edge with a weight different from zero is inserted.
 	 * Any edge with a weight of exactly zero is removed.
-	 * The weight column
+	 * The weight column is optional
 	 * Format of the file is:
 	 *   - one edge per line
 	 *   - edge contains two or three columns, in this order, source vertex, destination vertex and, optionally, a weight
@@ -184,14 +117,37 @@ public:
 	 *   - MAX_INTEGER_VALUE depends on the platform being 32bit or 64bit. It is the maximum value of an integer in that platform
 	 * @return true if adding/removing succeeded
 	 */
-	bool addRemoveEdgesFile(std::string graphAddRemoveFile) {
+	bool addRemoveEdgesFile(std::string graphAddRemove) {
 		ProgramParameters p(prmtrs);
-		p.filename=graphAddRemoveFile;
+		p.filename=graphAddRemove;
 		ReaderFileEdge r(p);
 		//add edge
 		return dcb.addRemoveEdges(&r);
 	}
 
+	/**
+	 * Function to add and remove edges from the graph using a matrix.
+	 * After successfully adding/removing, the algorithm will automatically run again.
+	 * Any edge with a weight different from zero is inserted.
+	 * Any edge with a weight of exactly zero is removed.
+	 * The weight column is optional
+	 * Format of the matrix is:
+	 *   - one edge per line
+	 *   - edge contains two or three columns, in this order, source vertex, destination vertex and, optionally, a weight
+	 *   - if weight is not given, it will default to 1
+	 *   - edges with a weight of exactly zero are removed
+	 *   - source and destination vertices are integers between 0 and MAX_INTEGER_VALUE-1
+	 *   - weight is a double
+	 *   - MAX_INTEGER_VALUE depends on the platform being 32bit or 64bit. It is the maximum value of an integer in that platform
+	 * @return true if adding/removing succeeded
+	 */
+	bool addRemoveEdgesMatrix(Rcpp::NumericMatrix graphAddRemove=Rcpp::NumericMatrix()) {
+	  ProgramParameters p(prmtrs);
+	  ReaderMatrixEdge r(graphAddRemove,p);
+	  //add edge
+	  return dcb.addRemoveEdges(&r);
+	}
+	
 	/**
 	 * @return the current quality measure of the community mapping on the graph
 	 */
@@ -210,16 +166,11 @@ public:
 	 * @return a list of all communities
 	 */
 	Rcpp::NumericVector communities(){
-		// return dcb.communities();
 		typeCommunities c=dcb.communities();
-		// COUT << "comm count="<< dcb.communityCount()<<"\n";
-		// COUT << "comms="<< set::toString(dcb.communities())<<"\n";
 		Rcpp::NumericVector v(c.size());
 		int i=0;
 		for(typeCommunities::const_iterator it=c.cbegin();it!=c.cend();++it){
 			typeCommunity cc=*it;
-			// COUT << "comm "<< cc <<" vertex count="<< dcb.communityVertexCount(cc)<<"\n";
-			// COUT << "comm "<< cc <<" vertices="<< set::toString(dcb.vertices(cc))<<"\n";
 			v[i]=cc;
 			++i;
 		}
@@ -227,23 +178,25 @@ public:
 	}
 
 	/**
-	 * @return a list with information about the selected community. The information provided is:
-	 *  - total weight of inner edges
-	 *  - total weight of outer edges
-	 *  - total weight of edges
-	 *  - number of vertices in community
+	 * @return a matrix of neighboring communities of the given community and the weight of their edge
 	 */
-	// Rcpp::NumericVector community(int community){
-	//   typeCommunities c=dcb.communities();
-	//   Rcpp::NumericVector v(c.size());
-	//   int i=1;
-	//   for(typeCommunities::const_iterator it=c.cbegin();it!=c.cend();++it){
-	//     typeCommunity cc=*it;
-	//     v[i]=cc;
-	//     ++i;
-	//   }
-	//   return v;
-	// }
+	Rcpp::NumericMatrix communityNeighbours(typeCommunity community)const{
+		typeLinksRangeConst c=dcb.communityNeighbours(community);
+		int i=0;
+		for(typeLinksIteratorConst it=c.first;it!=c.second;++it){
+			++i;
+		}
+		Rcpp::NumericMatrix v(i,2);
+		Rcpp::colnames(v) = Rcpp::CharacterVector::create("neighbour","weight");
+		i=0;
+		for(typeLinksIteratorConst it=c.first;it!=c.second;++it){
+			typeLinksPair cc=*it;
+			v(i,0)=cc.second.destination();
+			v(i,1)=cc.second.weight();
+			++i;
+		}
+		return v;
+	}
 
 	typeWeight communityInnerEdgesWeight(int community){
 		return dcb.communityInnerEdgesWeight(community);
@@ -269,8 +222,8 @@ public:
 		return dcb.community(vertex);
 	}
 
-	unsigned int verticesCount()const{
-		return dcb.verticesCount();
+	unsigned int vertexCount()const{
+		return dcb.vertexCount();
 	}
 
 	Rcpp::NumericVector verticesAll(){
@@ -308,8 +261,8 @@ public:
 	 *   - vertex and community are integers between 0 and MAX_INTEGER_VALUE-1
 	 *   - MAX_INTEGER_VALUE depends on the platform being 32bit or 64bit. It is the maximum value of an integer in that platform
 	 */
-	Rcpp::NumericMatrix communityMapping(bool diferential=true){
-		Rcpp::NumericMatrix v(dcb.verticesCount(),2);
+	Rcpp::NumericMatrix communityMappingMatrix(bool differential=true){
+		Rcpp::NumericMatrix v(dcb.vertexCount(),2);
 		typeVertexList c=dcb.vertices();
 		int i=0;
 		for(typeVertexListIteratorConst it=c.cbegin();it!=c.cend();++it){
@@ -321,23 +274,66 @@ public:
 		return v;
 	}
 
-	uint64 time(){return dcb.time();}
+	/**
+	 * Get a snapshot of the current community mapping as a R Matrix
+	 * Format of the file is:
+	 *   - one vertex mapping per line
+	 *   - mapping contains two columns, in this order, vertex and community
+	 *   - vertex and community are integers between 0 and MAX_INTEGER_VALUE-1
+	 *   - MAX_INTEGER_VALUE depends on the platform being 32bit or 64bit. It is the maximum value of an integer in that platform
+	 */
+	Rcpp::NumericMatrix communityMappingFile(bool differential=true,const std::string & file="communityMapping.txt"){
+	  Rcpp::NumericMatrix v(1,1);
+	  ProgramParameters p(prmtrs);
+	  p.outfilename=file;
+	  WriterFile w(p);
+	  bool b=dcb.communityMapping(&w);
+	  if(b) v(1,1)=true;
+	  else v(1,1)=false;
+	  return v;
+	}
+	
+	Rcpp::CharacterMatrix results(bool differential=true){
+		Rcpp::CharacterMatrix v(1,2);
+		v(0,0)="time differential";
+		v(0,1)=std::to_string(dcb.time(false));
+    return v;
+	}
 
 	/**
-	 * Get a snapshot of the current community mapping written to file
+	 * @return a list of neighboring communities of the given community
 	 */
-	// bool snapshotFile(const std::string snapshotFile,bool diferential=true){
-	//
-	// }
+	Rcpp::NumericMatrix neighbours(typeVertex vertex)const{
+		typeLinksRangeConst c=dcb.neighbours(vertex);
+		int i=0;
+		for(typeLinksIteratorConst it=c.first;it!=c.second;++it){
+			++i;
+		}
+		Rcpp::NumericMatrix v(i,2);
+		Rcpp::colnames(v) = Rcpp::CharacterVector::create("neighbour","weight");
+		i=0;
+		for(typeLinksIteratorConst it=c.first;it!=c.second;++it){
+			typeLinksPair cc=*it;
+			v(i,0)=cc.second.destination();
+			v(i,1)=cc.second.weight();
+			++i;
+		}
+		return v;
+	}
+
+	typeWeight edgeWeight(typeVertex source,typeVertex destination)const{
+		return dcb.weight(source,destination);
+	}
+
+	uint64 time(bool differential=false){return dcb.time(differential);}
 
 };
 
 
-// RCPP_EXPOSED_ENUM_NODECL(DynComm::ALGORITHM)
 RCPP_EXPOSED_ENUM_NODECL(Algorithm::ALGORITHM)
 RCPP_EXPOSED_ENUM_NODECL(Quality::QUALITY)
 
-RCPP_MODULE(DynComm) {
+RCPP_MODULE(DynCommRcppModule) {
 	using namespace Rcpp;
 
 	class_<DummyAlgorithm>("Algorithm")
@@ -350,43 +346,35 @@ RCPP_MODULE(DynComm) {
 
 	enum_<Algorithm::ALGORITHM, DummyAlgorithm>("TypeOfAlgorithm")
     		  .value("LOUVAIN", Algorithm::ALGORITHM::LOUVAIN)
-			  // .value("Enum1", ENUM1)
-			  // .value("Enum2", ENUM2)
 			  ;
 
 	enum_<Quality::QUALITY, DummyQuality>("TypeOfQuality")
     		  .value("MODULARITY", Quality::QUALITY::MODULARITY)
-			  .value("BALMOD", Quality::QUALITY::BALMOD)
-			  // .value("Enum1", ENUM1)
-			  // .value("Enum2", ENUM2)
+  			  .value("BALMOD", Quality::QUALITY::BALMOD)
 			  ;
 
-	// class_<ProgramParameters>("ProgramParameters")
-	//   .constructor<ProgramParameters>()
-	//   ;
-
-	class_<DynCommR>( "DynCommR")
-    		  // .constructor<std::string,DynComm::ALGORITHM, std::string>()
-    		  // .constructor<int, DynComm::ALGORITHM, std::string>()
-        		 .constructor< Algorithm::ALGORITHM, Quality::QUALITY, Rcpp::CharacterMatrix>()
-				 // .constructor< int,Algorithm::ALGORITHM,  std::string>()
-				 // .method("addRemoveEdgesMatrix", &DynComm::addRemoveEdgesMatrix)
-				 .method("addRemoveEdgesFile", &DynCommR::addRemoveEdgesFile)
-				 .method("quality", &DynCommR::quality)
-				 .method("communityCount", &DynCommR::communityCount)
-				 .method("communities", &DynCommR::communities)
-				 .method("communityInnerEdgesWeight", &DynCommR::communityInnerEdgesWeight)
-				 .method("communityTotalWeight", &DynCommR::communityTotalWeight)
-         .method("communityEdgeWeight", &DynCommR::communityEdgeWeight)
-				 .method("communityVertexCount", &DynCommR::communityVertexCount)
-     .method("community", &DynCommR::community)
-     .method("verticesCount", &DynCommR::verticesCount)
-				 .method("verticesAll", &DynCommR::verticesAll)
-         .method("vertices", &DynCommR::vertices)
-         .method("communityMapping", &DynCommR::communityMapping)
-		 .method("time", &DynCommR::time)
-				 // .method("snapshotFile", &DynComm::snapshotFile)
-				 // .method("snapshotMatrix", &DynComm::snapshotMatrix)
+	class_<DynCommRcpp>( "DynCommRcpp")
+    		 .constructor< Algorithm::ALGORITHM, Quality::QUALITY, Rcpp::CharacterMatrix>()
+				 .method("addRemoveEdgesMatrix", &DynCommRcpp::addRemoveEdgesMatrix)
+				 .method("addRemoveEdgesFile", &DynCommRcpp::addRemoveEdgesFile)
+				 .method("quality", &DynCommRcpp::quality)
+				 .method("results", &DynCommRcpp::results)
+				 .method("communityCount", &DynCommRcpp::communityCount)
+				 .method("communities", &DynCommRcpp::communities)
+				 .method("communityInnerEdgesWeight", &DynCommRcpp::communityInnerEdgesWeight)
+				 .method("communityTotalWeight", &DynCommRcpp::communityTotalWeight)
+         .method("communityEdgeWeight", &DynCommRcpp::communityEdgeWeight)
+				 .method("communityVertexCount", &DynCommRcpp::communityVertexCount)
+         .method("community", &DynCommRcpp::community)
+         .method("communityNeighbours", &DynCommRcpp::communityNeighbours)
+	       .method("vertexCount", &DynCommRcpp::vertexCount)
+				 .method("verticesAll", &DynCommRcpp::verticesAll)
+         .method("vertices", &DynCommRcpp::vertices)
+         .method("communityMappingFile", &DynCommRcpp::communityMappingFile)
+         .method("communityMappingMatrix", &DynCommRcpp::communityMappingMatrix)
+         .method("neighbours", &DynCommRcpp::neighbours)
+         .method("edgeWeight", &DynCommRcpp::edgeWeight)
+		     .method("time", &DynCommRcpp::time)
 				 ;
 }
 
@@ -394,7 +382,7 @@ RCPP_MODULE(DynComm) {
  * R example run
  *
  * parameters<-matrix(c("filename","test/full/as19971108.txt","-s","test/full/sequences"),2,2,TRUE)
- * dc<-new(DynComm,DynComm::Algorithm.LOUVAIN,DynComm::Quality.MODULARITY,parameters)
+ * dc<-new(DynCommRcpp,DynCommRcpp::Algorithm.LOUVAIN,DynCommRcpp::Quality.MODULARITY,parameters)
  * dc$communityCount()
  * dc$communities()
  * dc$communityVertexCount(1)
@@ -405,7 +393,7 @@ RCPP_MODULE(DynComm) {
  *
  * or in one line
  *
- * parameters<-matrix(c("filename","test/full/as19971108.txt","-s","test/full/sequences"),2,2,TRUE);dc<-new(DynComm,DynComm::Algorithm.LOUVAIN,DynComm::Quality.MODULARITY,parameters);dc$communityCount();dc$communities();dc$communityVertexCount(1);dc$vertices(1);dc$communityMapping(TRUE);dc$time()
+ * parameters<-matrix(c("filename","test/full/as19971108.txt","-s","test/full/sequences"),2,2,TRUE);dc<-new(DynCommRcpp,DynCommRcpp::Algorithm.LOUVAIN,DynCommRcpp::Quality.MODULARITY,parameters);dc$communityCount();dc$communities();dc$communityVertexCount(1);dc$vertices(1);dc$communityMapping(TRUE);dc$time()
  *
  */
 

@@ -23,7 +23,7 @@ public:
 	 * @param comm
 	 * @return the gain in quality, which may be positive or negative
 	 */
-	virtual typeQuality gain(const typeNode & node, const typeCommunity & comm)const=0;
+	virtual typeQuality gain(const typeVertex & node, const typeCommunity & comm)const=0;
 
 	/**
 	 * compute the quality of the current partition scheme

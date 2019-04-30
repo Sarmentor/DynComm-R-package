@@ -34,13 +34,6 @@ public:
 
 	/**
 	 *
-	 * @param source is the data source to read data from (file, vector, etc)
-	 * @return true if operation succeeded. False, otherwise
-	 */
-//	virtual bool open(TYPESOURCE source)=0;
-
-	/**
-	 *
 	 * @return the type of the next object that can be read
 	 */
 	virtual NEXTTYPE hasNext()=0;
@@ -68,8 +61,6 @@ public:
 
 	~ReaderDummy(){}
 
-//	bool open(std::string ignore){return true;}
-
 	/**
 	 * @return end of file type
 	 */
@@ -84,139 +75,22 @@ public:
 	std::string status(){return "End of file\n";}
 };
 
-/**
- * Reader for files
- */
-class ReaderFile: public ReaderInterface<std::string>{
-	//TODO reimplement this class with a more robust way of reading files
-private:
-	std::string stts;
-	const ProgramParameters & par;
-	std::ifstream finput;
-	unsigned int lineNumber=1;
-//	std::string nxt;//next object
-	std::string src;
-	std::string dest;
-	std::string weight;
-	int state=0;//=0 error; =1 reads src; =2 reads dest; = 3 reads weight; =4 reads newline; =5 end of file
-
-public:
-	ReaderFile(const ProgramParameters & parameters):stts("Ok"),par(parameters),lineNumber(1),src(""),dest(""),weight("1.0"),state(4){
-		finput.open(par.filename,std::fstream::in);
-		next();
-	}
-
-	~ReaderFile(){
-		finput.close();
-	}
-
-	/**
-	 *
-	 * @return the type of the next object or error condition
-	 */
-	NEXTTYPE hasNext(){
-//		if (!finput.is_open()) return NEXTTYPE::ERROR;
-//		if(!finput.eof()){
-			//TODO
-			switch(state){
-			default:
-			case 0: return NEXTTYPE::CANNOTOPEN;
-			case 1: return NEXTTYPE::VALUE;
-			case 2: return NEXTTYPE::VALUE;
-			case 3: return NEXTTYPE::VALUE;
-			case 4: return NEXTTYPE::NEWLINE;
-			case 5: return NEXTTYPE::ENDOFFILE;
-			}
-//			return NEXTTYPE::VALUE;
-//		}
-//		return NEXTTYPE::ENDOFFILE;
-	}
-
-	/**
-	 *
-	 * @param type is currently ignored
-	 * @return the next object of the requested type or the error message as indicated by hasNext()
-	 */
-	std::string next(READTYPE type=READTYPE::VALUE){
-		if (!finput.is_open()) {
-			state=0;
-			std::stringstream ss;
-			ss << "The file " << par.filename << " does not exist\n";
-			stts=ss.str();
-			return ss.str();
-		}
-//		if(!finput.eof()) {
-			switch(state){
-			case 0:
-				break;
-			case 1:
-				state=2;
-				return src;
-				break;
-			case 2:
-				state=3;
-				return dest;
-				break;
-			case 3:
-				if(finput.eof()) state=5;
-				else state=4;
-				return weight;
-				break;
-			case 4:
-				if (par.type==LINK_WEIGHT::WEIGHTED) {
-					finput >> src >> std::ws >> dest >> std::ws >> weight;
-				} else {
-					finput >> src >> std::ws >> dest;
-				}
-				if (finput) {
-					state=1;
-					lineNumber++;
-					return "\n";
-				}
-				else{
-					if(!finput.eof()){
-						state=5;
-						stts="End of file\n";
-						return stts;
-					}
-					else{
-						std::stringstream ss;
-						ss << "The file " << par.filename << " has an error on line " << lineNumber << "\n";
-						state=0;
-						stts=ss.str();
-						return stts;
-					}
-				}
-				break;
-//			case 5://end of file processed outside this switch
-//				break;
-			}
-//		}
-		state=5;
-		stts="End of file\n";
-		return stts;
-	}
-
-	std::string status(){return stts;}
-};
 
 /**
  * Reader for files
  */
 class ReaderFileEdge: public ReaderInterface<Edge>{
-	//TODO reimplement this class with a more robust way of reading files
 private:
 	std::string stts;
 	const ProgramParameters & par;
 	std::ifstream finput;
 	unsigned int lineNumber=1;
-//	std::string nxt;//next object
 	Edge ed;
 	int state=0;//=0 error; =1 reads edge; =4 reads newline; =5 end of file
 
 public:
 	ReaderFileEdge(const ProgramParameters & parameters):stts("Ok"),par(parameters),lineNumber(1),ed(noEdge),state(4){
-		finput.open(par.filename,std::fstream::in);
+		finput.open(parameters.filename,std::fstream::in);
 		next();
 	}
 
@@ -229,21 +103,14 @@ public:
 	 * @return the type of the next object or error condition
 	 */
 	NEXTTYPE hasNext(){
-//		if (!finput.is_open()) return NEXTTYPE::ERROR;
-//		if(!finput.eof()){
-			//TODO
-			switch(state){
-			default:
-			case 0: return NEXTTYPE::CANNOTOPEN;
-			case 1: return NEXTTYPE::VALUE;
-//			case 2: return NEXTTYPE::VALUE;
-//			case 3: return NEXTTYPE::VALUE;
-			case 4: return NEXTTYPE::NEWLINE;
-			case 5: return NEXTTYPE::ENDOFFILE;
-			}
-//			return NEXTTYPE::VALUE;
-//		}
-//		return NEXTTYPE::ENDOFFILE;
+		//TODO
+		switch(state){
+		default:
+		case 0: return NEXTTYPE::CANNOTOPEN;
+		case 1: return NEXTTYPE::VALUE;
+		case 4: return NEXTTYPE::NEWLINE;
+		case 5: return NEXTTYPE::ENDOFFILE;
+		}
 	}
 
 	/**
@@ -253,61 +120,21 @@ public:
 	 */
 	Edge next(READTYPE type=READTYPE::VALUE){
 		if (!finput.is_open()) {
-			state=0;
 			std::stringstream ss;
-//			ss << "The file " << par.filename << " does not exist\n";
 			ss<<"The file " << par.filename << " does not exist\n";
-			stts=ss.str();
 			return noEdge;
 		}
-//		if(!finput.eof()) {
 			switch(state){
 			case 0:
 				break;
 			case 1:
-//				state=2;
 				state=4;
 				return ed;
 				break;
-//			case 2:
-//				state=3;
-//				return dest;
-//				break;
-//			case 3:
-//				if(finput.eof()) state=5;
-//				else state=4;
-//				return weight;
-//				break;
 			case 4:
-				typeNode src;
-				typeNode dest;
+				typeVertex src;
+				typeVertex dest;
 				typeWeight weight;
-//				if (par.type==LINK_WEIGHT::WEIGHTED) {
-//					finput >> src >> std::ws >> dest >> std::ws >> weight;
-//				} else {
-//					finput >> src >> std::ws >> dest;
-//					weight=1;
-//				}
-//				if (finput) {
-//					state=1;
-//					ed=Edge(src,dest,weight);
-//					lineNumber++;
-//					return noEdge;
-//				}
-//				else{
-//					if(!finput.eof()){
-//						state=5;
-//						stts="End of file\n";
-//						return noEdge;
-//					}
-//					else{
-//						std::stringstream ss;
-//						ss << "The file " << par.filename << " has an error on line " << lineNumber << "\n";
-//						state=0;
-//						stts=ss.str();
-//						return noEdge;
-//					}
-//				}
 				std::string line;
 				std::getline(finput, line);
 				if (finput) {
@@ -323,17 +150,10 @@ public:
 						if(!line_buffer){//failed
 							line_buffer.clear();//clear all ifstream errors
 							line_buffer.seekg(0,line_buffer.beg);//reset stream read position
-							//attemp read blank line
-//							line_buffer >> std::ws;
-//							CERR << "fail="<< line_buffer.fail()<< "; eof="<< line_buffer.eof()<< "; bad="<< line_buffer.bad()<< "; count="<< line_buffer.gcount()<< "\n";
-//							if(!line_buffer){//failed
-//								line_buffer.clear();//clear all ifstream errors
-//								line_buffer.seekg(0,line_buffer.beg);//reset stream read position
 								//attemp read comment line
 								std::string s;
 								line_buffer >> s;
 //								CERR << "fail="<< line_buffer.fail()<< "; eof="<< line_buffer.eof()<< "; bad="<< line_buffer.bad()<< "; count="<< line_buffer.gcount()<< "\n";
-//							}
 								state=4;
 						}
 						else{//success reading without weight
@@ -368,10 +188,7 @@ public:
 					}
 				}
 				break;
-//			case 5://end of file processed outside this switch
-//				break;
 			}
-//		}
 		state=5;
 		stts="End of file\n";
 		return noEdge;
@@ -381,24 +198,20 @@ public:
 };
 
 class ReaderStringEdge: public ReaderInterface<Edge>{
-	//TODO reimplement this class with a more robust way of reading files
 private:
 	std::string stts;
 	const ProgramParameters & par;
 	std::stringstream str;
 	unsigned int lineNumber=1;
-//	std::string nxt;//next object
 	Edge ed;
 	int state=0;//=0 error; =1 reads edge; =4 reads newline; =5 end of file
 
 public:
 	ReaderStringEdge(std::string data,const ProgramParameters & parameters):stts("Ok"),par(parameters),str(data),lineNumber(1),ed(noEdge),state(4){
-//		finput.open(par.filename,std::fstream::in);
 		next();
 	}
 
 	~ReaderStringEdge(){
-//		finput.close();
 	}
 
 	/**
@@ -406,21 +219,14 @@ public:
 	 * @return the type of the next object or error condition
 	 */
 	NEXTTYPE hasNext(){
-//		if (!finput.is_open()) return NEXTTYPE::ERROR;
-//		if(!finput.eof()){
 			//TODO
 			switch(state){
 			default:
 			case 0: return NEXTTYPE::CANNOTOPEN;
 			case 1: return NEXTTYPE::VALUE;
-//			case 2: return NEXTTYPE::VALUE;
-//			case 3: return NEXTTYPE::VALUE;
 			case 4: return NEXTTYPE::NEWLINE;
 			case 5: return NEXTTYPE::ENDOFFILE;
 			}
-//			return NEXTTYPE::VALUE;
-//		}
-//		return NEXTTYPE::ENDOFFILE;
 	}
 
 	/**
@@ -429,42 +235,17 @@ public:
 	 * @return the next object of the requested type or the error message as indicated by hasNext()
 	 */
 	Edge next(READTYPE type=READTYPE::VALUE){
-//		if (!finput.is_open()) {
-//			state=0;
-//			std::stringstream ss;
-////			ss << "The file " << par.filename << " does not exist\n";
-//			ss<<"The file " << par.filename << " does not exist\n";
-//			stts=ss.str();
-//			return noEdge;
-//		}
-//		if(!finput.eof()) {
 			switch(state){
 			case 0:
 				break;
 			case 1:
-//				state=2;
 				state=4;
 				return ed;
 				break;
-//			case 2:
-//				state=3;
-//				return dest;
-//				break;
-//			case 3:
-//				if(finput.eof()) state=5;
-//				else state=4;
-//				return weight;
-//				break;
 			case 4:
-				typeNode src;
-				typeNode dest;
+				typeVertex src;
+				typeVertex dest;
 				typeWeight weight;
-//				if (par.type==LINK_WEIGHT::WEIGHTED) {
-//					str >> src >> std::ws >> dest >> std::ws >> weight;
-//				} else {
-//					str >> src >> std::ws >> dest;
-//					weight=1;
-//				}
 				std::string line;
 				std::getline(str, line);
 				if (str) {
@@ -480,17 +261,10 @@ public:
 						if(!line_buffer){//failed
 							line_buffer.clear();//clear all ifstream errors
 							line_buffer.seekg(0,line_buffer.beg);//reset stream read position
-							//attemp read blank line
-//							line_buffer >> std::ws;
-//							CERR << "fail="<< line_buffer.fail()<< "; eof="<< line_buffer.eof()<< "; bad="<< line_buffer.bad()<< "; count="<< line_buffer.gcount()<< "\n";
-//							if(!line_buffer){//failed
-//								line_buffer.clear();//clear all ifstream errors
-//								line_buffer.seekg(0,line_buffer.beg);//reset stream read position
 								//attemp read comment line
 								std::string s;
 								line_buffer >> s;
 //								CERR << "fail="<< line_buffer.fail()<< "; eof="<< line_buffer.eof()<< "; bad="<< line_buffer.bad()<< "; count="<< line_buffer.gcount()<< "\n";
-//							}
 								state=4;
 						}
 						else{//success reading without weight
@@ -525,10 +299,7 @@ public:
 					}
 				}
 				break;
-//			case 5://end of file processed outside this switch
-//				break;
 			}
-//		}
 		state=5;
 		stts="End of file\n";
 		return noEdge;
@@ -537,114 +308,98 @@ public:
 	std::string status(){return stts;}
 };
 
+#ifdef FLAG_RCPP
+
 /**
  * Reader for R Matrix
  */
-//class ReaderMatrixEdge: public ReaderInterface<Edge>{
-	//TODO implement this class
-//private:
-//	const ProgramParameters & par;
-//	Rcpp::Matrix & finput;
-//	unsigned int lineNumber=1;
-////	std::string nxt;//next object
-//	std::string src;
-//	std::string dest;
-//	std::string weight;
-//	int state=0;//=0 error; =1 reads src; =2 reads dest; = 3 reads weight; =4 reads newline; =5 end of file
-//
-//public:
-//	ReaderMatrix(const Rcpp::Matrix & finput,const ProgramParameters & parameters):stts("Ok"),par(parameters),lineNumber(1),src(""),dest(""),weight("1.0"),state(4){
-//		next();
-//	}
-//
-//	~ReaderMatrix(){}
-//
-//	/**
-//	 *
-//	 * @return the type of the next object or error condition
-//	 */
-//	NEXTTYPE hasNext(){
-////		if (!finput.is_open()) return NEXTTYPE::ERROR;
-////		if(!finput.eof()){
-//			//TODO
-//			switch(state){
-//			default:
-//			case 0: return NEXTTYPE::ERROR;
-//			case 1: return NEXTTYPE::VALUE;
-//			case 2: return NEXTTYPE::VALUE;
-//			case 3: return NEXTTYPE::VALUE;
-//			case 4: return NEXTTYPE::NEWLINE;
-//			case 5: return NEXTTYPE::ENDOFFILE;
-//			}
-////			return NEXTTYPE::VALUE;
-////		}
-////		return NEXTTYPE::ENDOFFILE;
-//	}
-//
-//	/**
-//	 *
-//	 * @param type is currently ignored
-//	 * @return the next object of the requested type or the error message as indicated by hasNext()
-//	 */
-//	GraphUndirectedGroupable next(READTYPE type=READTYPE::VALUE){
-//		if (!finput.is_open()) {
-//			state=0;
-//			std::stringstream ss;
-//			ss << "The file " << par.filename << " does not exist\n";
-//			return ss.str();
-//		}
-////		if(!finput.eof()) {
-//			switch(state){
-//			case 0:
-//				break;
-//			case 1:
-//				state=2;
-//				return src;
-//				break;
-//			case 2:
-//				state=3;
-//				return dest;
-//				break;
-//			case 3:
-//				if(finput.eof()) state=5;
-//				else state=4;
-//				return weight;
-//				break;
-//			case 4:
-//				if (par.type==LINK_WEIGHT::WEIGHTED) {
-//					finput >> src >> std::ws >> dest >> std::ws >> weight;
-//				} else {
-//					finput >> src >> std::ws >> dest;
-//				}
-//				if (finput) {
-//					state=1;
-//					lineNumber++;
-//					return "\n";
-//				}
-//				else{
-//					std::stringstream ss;
-//					ss << "The file " << par.filename << " has an error on line " << lineNumber << "\n";
-//					state=0;
-//					return ss.str();
-//				}
-//				break;
-////			case 5://end of file processed outside this switch
-////				break;
-//			}
-////		}
-//		return "End of file\n";
-//	}
-//
-//};
-
-//class Readers{
-//public:
-//	enum class READER:unsigned int{FILESTRING,FILEEDGE,RMATRIX};
-//private:
-//	READER selected;
-//public:
-//	Readers(READER reader):selected(reader){}
-//	void set(READER reader){selected=reader;}
-//};
+class ReaderMatrixEdge: public ReaderInterface<Edge>{
+private:
+  std::string stts;
+  const ProgramParameters & par;
+  const Rcpp::NumericMatrix & dt;
+  unsigned int lineNumber=0;
+  Edge ed;
+  int state=0;//=0 error; =1 reads edge; =4 reads newline; =5 end of file
+  
+public:
+  ReaderMatrixEdge(const Rcpp::NumericMatrix & data,const ProgramParameters & parameters):stts("Ok"),par(parameters),dt(data),lineNumber(0),ed(noEdge),state(4){
+    next();
+  }
+  
+  ~ReaderMatrixEdge(){
+  }
+  
+  /**
+  *
+  * @return the type of the next object or error condition
+  */
+  NEXTTYPE hasNext(){
+    //TODO
+    switch(state){
+    default:
+    case 0: return NEXTTYPE::CANNOTOPEN;
+    case 1: return NEXTTYPE::VALUE;
+    case 4: return NEXTTYPE::NEWLINE;
+    case 5: return NEXTTYPE::ENDOFFILE;
+    }
+  }
+  
+  /**
+  *
+  * @param type is currently ignored
+  * @return the next object of the requested type or the error message as indicated by hasNext()
+  */
+  Edge next(READTYPE type=READTYPE::VALUE){
+    switch(state){
+    case 0:
+      break;
+    case 1:
+      state=4;
+      return ed;
+      break;
+    case 4:
+      typeVertex src;
+      typeVertex dest;
+      typeWeight weight;
+      if(dt.rows()>lineNumber){//there are rows to process
+        if(dt.cols()==3){//weighted
+          src=dt(lineNumber,0);
+          dest=dt(lineNumber,1);
+          weight=dt(lineNumber,2);
+          if(par.type==LINK_WEIGHT::UNWEIGHTED){//ignore weight
+            if(weight!=0) weight=1;//only ignore if edge is to be inserted
+          }
+          ed=Edge(src,dest,weight);
+          lineNumber++;
+          state=1;
+        }
+        else if(dt.cols()==2){//unweighted
+          src=dt(lineNumber,0);
+          dest=dt(lineNumber,1);
+          weight=1;
+          ed=Edge(src,dest,weight);
+          lineNumber++;
+          state=1;
+        }
+        else{//error. Too much or too little data
+          state=4;
+        }
+      }
+      else{//no more data
+        state=5;
+        stts="End of file\n";
+      }
+      return noEdge;
+      break;
+    }
+    state=5;
+    stts="End of file\n";
+    return noEdge;
+  }
+  
+  std::string status(){return stts;}
+};
+#endif //FLAG_RCPP
 
 #endif /* SRC_READER_H_ */
