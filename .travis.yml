@@ -3,3 +3,4 @@ before_install:
   - cd R-CRAN
 repos:
   CRAN: https://cloud.r-project.org
+cache: false
