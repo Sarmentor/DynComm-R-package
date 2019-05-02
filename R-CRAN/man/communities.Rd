@@ -9,7 +9,8 @@ communities()
 communities(dyncomm)
 }
 \arguments{
-\item{dyncomm}{A DynComm object, if not using the inline version of the function call}
+\item{dyncomm}{A DynComm object, if not using the inline version of the 
+function call}
 }
 \value{
 a list of all communities

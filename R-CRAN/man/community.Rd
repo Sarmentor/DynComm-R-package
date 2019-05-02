@@ -9,7 +9,8 @@ community(vertex)
 community(dyncomm,vertex)
 }
 \arguments{
-\item{dyncomm}{A DynComm object, if not using the inline version of the function call}
+\item{dyncomm}{A DynComm object, if not using the inline version of the 
+function call}
 
 \item{vertex}{The name of the intended vertex}
 }

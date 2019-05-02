@@ -9,15 +9,18 @@ communityNeighbours(community)
 communityNeighbours(dyncomm,community)
 }
 \arguments{
-\item{dyncomm}{A DynComm object, if not using the inline version of the function call}
+\item{dyncomm}{A DynComm object, if not using the inline version of the 
+function call}
 
 \item{community}{The community to get neighbours from}
 }
 \value{
-a matrix of all communities in the graph that are neighbours of the given community and their edge weight
+a matrix of all communities in the graph that are neighbours of the 
+given community and their edge weight
 }
 \description{
-Get all neighbours (community connected through direct edges) of the given community in the graph after the last iteration.
+Get all neighbours (community connected through direct edges) of the given 
+community in the graph after the last iteration.
 }
 \examples{
 \dontrun{

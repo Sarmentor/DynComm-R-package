@@ -19,7 +19,7 @@ library(reticulate)
 # @export
 # @examples
 # str_length(letters)
-tiles <- function(streamfile, init.graph=NULL, ttl=Inf, obs=7, path="", start=NULL, end=NULL){
+tiles <- function(streamfile.edge.removal, init.graph=NULL, ttl=Inf, obs=7, path="", start=NULL, end=NULL){
 
   #initial networkx graph
   nx <-reticulate::import("networkx")

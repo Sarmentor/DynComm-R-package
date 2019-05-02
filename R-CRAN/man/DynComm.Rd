@@ -10,12 +10,14 @@
 DynComm(Algorithm,Criterion,Parameters)
 }
 \arguments{
-\item{Algorithm}{One of the available ALGORITHM See \code{\link{ALGORITHM}}}
+\item{Algorithm}{One of the available ALGORITHM. Default ALGORITHM$LOUVAIN. 
+See \code{\link{ALGORITHM}}}
 
-\item{Criterion}{One of the available CRITERION. See \code{\link{CRITERION}}}
+\item{Criterion}{One of the available CRITERION. Default CRITERION$MODULARITY.
+See \code{\link{CRITERION}}}
 
-\item{Parameters}{A two column matrix defining additional parameters. See
-the PARAMETERS section on this page}
+\item{Parameters}{A two column matrix defining additional parameters. Default NULL.
+See the PARAMETERS section on this page}
 }
 \value{
 \code{DynComm} object
@@ -79,7 +81,7 @@ The first column names the parameter and the second defines its value.
   \item{postProcess(actions)}{Set a list of post processing steps. See \code{\link{postProcess}}}
   
 
-  \item{select(postProcessing)}{Select between getting the results of the algorithm or one of the post processing steps. See \code{\link{select}}}
+  \item{select(postProcessing,id)}{Select between getting the results of the algorithm or one of the post processing steps. See \code{\link{select}}}
   
 
   \item{results(differential)}{Get additional results of the algorithm or the currently selected post processing steps. See \code{\link{results}}}
@@ -151,10 +153,10 @@ The first column names the parameter and the second defines its value.
   \item{nodes(community)}{Alias for vertices(community). See \code{\link{vertices}}}
   
 
-  \item{communityMapping(differential)}{Get the community mapping for all communities after the last iteration.See \code{\link{communityMapping}}}
+  \item{communityMapping(differential, file)}{Get the community mapping for all communities after the last iteration.See \code{\link{communityMapping}}}
   
 
-  \item{time()}{Get the cumulative time spent on processing after the last iteration. See \code{\link{time}}}
+  \item{time(differential)}{Get the cumulative time spent on processing after the last iteration. See \code{\link{time}}}
   
 
 }
@@ -175,6 +177,9 @@ dc$time()
 dc$addRemoveEdgesFile("s0000000000.txt")
 }
 
+}
+\seealso{
+\code{\link{DynComm-package}}
 }
 \author{
 poltergeist0

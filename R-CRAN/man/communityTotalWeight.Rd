@@ -9,7 +9,8 @@ communityTotalWeight(community)
 communityTotalWeight(dyncomm,community)
 }
 \arguments{
-\item{dyncomm}{A DynComm object, if not using the inline version of the function call}
+\item{dyncomm}{A DynComm object, if not using the inline version of the 
+function call}
 
 \item{community}{The name of the intended community}
 }
@@ -17,7 +18,8 @@ communityTotalWeight(dyncomm,community)
 a floating point number with the weight
 }
 \description{
-Get the sum of weights of all edges of the given community after the last iteration.
+Get the sum of weights of all edges of the given community after the last 
+iteration.
 }
 \examples{
 \dontrun{

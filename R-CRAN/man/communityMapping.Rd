@@ -9,11 +9,14 @@ communityMapping(differential)
 communityMapping(dyncomm,differential)
 }
 \arguments{
-\item{dyncomm}{A DynComm object, if not using the inline version of the function call}
+\item{dyncomm}{A DynComm object, if not using the inline version of the 
+function call}
 
-\item{differential}{If TRUE, only values that have changed in the latest run will be returned}
+\item{differential}{If TRUE, only values that have changed in the latest run 
+will be returned}
 
-\item{file}{If given, outputs the community mapping to the given file instead of the console}
+\item{file}{If given, outputs the community mapping to the given file instead 
+of the console}
 }
 \value{
 a matrix with either the community mapping or a boolean value

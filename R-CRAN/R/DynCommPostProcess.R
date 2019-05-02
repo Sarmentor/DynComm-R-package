@@ -40,7 +40,7 @@ source ("R/DensityOPT2.R")
 #' @format A named list with the names of the available algorithms:
 #'  \describe{
 #'    \item{DENSOPT}{Density optimization.
-#'             @references \insertRef{densopt}{DynComm}
+#'             @references \insertRef{Sarmento2019Apr}{DynComm}
 #'          }
 #'  }
 #'  
@@ -142,7 +142,7 @@ APIFUNCTIONS <- list(
 #' 
 #' @aliases dyncommpostprocess
 #' 
-#' @title DynCommPostProcess(postProcessing, id)
+#' @title DynCommPostProcess(postProcessing, id, previous, Parameters)
 #'
 #' @author poltergeist0
 #' 

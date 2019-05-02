@@ -9,7 +9,8 @@ communityCount()
 communityCount(dyncomm)
 }
 \arguments{
-\item{dyncomm}{A DynComm object, if not using the inline version of the function call}
+\item{dyncomm}{A DynComm object, if not using the inline version of the 
+function call}
 }
 \value{
 an unsigned integer value with the number of communities

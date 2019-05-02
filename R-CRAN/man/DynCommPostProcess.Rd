@@ -4,7 +4,7 @@
 \name{DynCommPostProcess}
 \alias{DynCommPostProcess}
 \alias{dyncommpostprocess}
-\title{DynCommPostProcess(postProcessing, id)}
+\title{DynCommPostProcess(postProcessing, id, previous, Parameters)}
 \usage{
 DynCommPostProcess(postProcessing, id)
 }

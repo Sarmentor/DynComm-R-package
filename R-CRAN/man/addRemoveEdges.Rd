@@ -9,15 +9,15 @@
 \usage{
 addRemoveEdges(graphAddRemove)
 addRemoveEdges(dyncomm,graphAddRemove)
-addRemove(graphAddRemove)
 addRemove(dyncomm,graphAddRemove)
-add(graphAddRemove)
 add(dyncomm,graphAddRemove)
 }
 \arguments{
-\item{dyncomm}{A DynComm object, if not using the inline version of the function call}
+\item{dyncomm}{A DynComm object, if not using the inline version of the 
+function call}
 
-\item{graphAddRemove}{Either the matrix or the filename that contains the edges to add/remove}
+\item{graphAddRemove}{Either the matrix or the filename that contains the 
+edges to add/remove}
 }
 \value{
 FALSE if any kind of error occurred. Otherwise, TRUE
@@ -33,8 +33,8 @@ vertices. Optionally, it can have a third column with the weight of the edge.
 The file must have only one edge per line, with values separated by a white
 space (both SPACE and TAB work in any amount and combination).
 
-The first value is the source vertex, the second is the destination vertex, and 
-the third is the weight.
+The first value is the source vertex, the second is the destination vertex, 
+and the third is the weight.
 
 The weight can be ommited if the edge is to be added using the default weight
 of 1 (one), or if the parameter to ignore weights was set.

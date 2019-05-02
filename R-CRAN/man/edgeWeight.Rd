@@ -9,7 +9,8 @@ edgeWeight(source,destination)
 edgeWeight(dyncomm,source,destination)
 }
 \arguments{
-\item{dyncomm}{A DynComm object, if not using the inline version of the function call}
+\item{dyncomm}{A DynComm object, if not using the inline version of the 
+function call}
 
 \item{source}{The name of the source vertex that is part of the edge}
 
@@ -19,7 +20,8 @@ edgeWeight(dyncomm,source,destination)
 a floating point number with the weight
 }
 \description{
-Get the weight of the edge that goes from source vertex to destination vertex after the last iteration.
+Get the weight of the edge that goes from source vertex to destination vertex 
+after the last iteration.
 }
 \examples{
 \dontrun{

@@ -13,8 +13,8 @@ community detection.
 \details{
 Implements several algorithms, using a common API, that calculate 
 communities for graphs whose vertices and edges change over time.
-Edges, which can have new vertices, can be added or deleted, and changes in the 
-communities are calculated without recalculating communities for the 
+Edges, which can have new vertices, can be added or deleted, and changes in 
+the communities are calculated without recalculating communities for the 
 entire graph.
 }
 \section{Referenced Work}{
@@ -27,7 +27,10 @@ implementation of the algorithms.
 \insertRef{cordeiro2016dynamic}{DynComm}
 \insertRef{Rossetti:2017:TOA:3127967.3128003}{DynComm}
 \insertRef{RG17}{DynComm}
-\insertRef{densopt}{DynComm}
+\insertRef{Sarmento2019Apr}{DynComm}
+}
+\seealso{
+\code{\link{DynComm}}
 }
 \author{
 poltergeist0

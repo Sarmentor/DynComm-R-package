@@ -11,7 +11,7 @@
 \format{A named list with the names of the available algorithms:
  \describe{
    \item{DENSOPT}{Density optimization.
-            @references \insertRef{densopt}{DynComm}
+            @references \insertRef{Sarmento2019Apr}{DynComm}
          }
  }}
 \usage{

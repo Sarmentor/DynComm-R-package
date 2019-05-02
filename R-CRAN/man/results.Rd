@@ -9,9 +9,11 @@ results(differential)
 results(dyncomm,differential)
 }
 \arguments{
-\item{dyncomm}{A DynComm object, if not using the inline version of the function call}
+\item{dyncomm}{A DynComm object, if not using the inline version of the 
+function call}
 
-\item{differential}{If TRUE, only values that have changed in the latest run will be returned}
+\item{differential}{If TRUE, only values that have changed in the latest run 
+will be returned}
 }
 \value{
 a two column matrix where, the first column is the name of the 

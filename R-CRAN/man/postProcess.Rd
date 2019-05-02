@@ -10,7 +10,8 @@ postProcess(actions)
 postProcess(dyncomm,actions)
 }
 \arguments{
-\item{dyncomm}{A DynComm object, if not using the inline version of the function call}
+\item{dyncomm}{A DynComm object, if not using the inline version of the 
+function call}
 
 \item{actions}{A list of post processing actions/steps}
 }
@@ -19,7 +20,7 @@ FALSE if any kind of error occurred. Otherwise, TRUE
 }
 \description{
 This method receives a list of actions to perform in post processing in the 
-same order they are listed.
+same order they are listed from left to right.
 }
 \details{
 Several actions of the same type are allowed. They receive an internal ID
@@ -28,10 +29,10 @@ same type. Later, this ID can be used to select the intended action and get
 results from it
 
 The format of the actions is a list of action. Each action is a list of the
-action name (see \code{\link{POSTPROCESSING}}) and parameters. The parameters is a matrix
-of two columns, the first having the name of the parameter and, the second,
-the value of the parameter. The parameters is optional, and may be missing,
-in which case default values are used, if required at all.
+action name (see \code{\link{POSTPROCESSING}}) and parameters. The parameters
+is a matrix of two columns, the first having the name of the parameter and, 
+the second, the value of the parameter. The parameters is optional, and may 
+be missing, in which case default values are used, if required at all.
 
 The parameters accepted by each post processing algorithm can be found on the
 help page of each respective algorithm.

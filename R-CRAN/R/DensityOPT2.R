@@ -9,7 +9,7 @@
 # Date: 2019-01-01
 
 
-library(igraph)
+# library(igraph) #cannot use library in packages http://r-pkgs.had.co.nz/namespace.html#namespace
 
 #example
 # g <-erdos.renyi.game(135, 5/135, directed = TRUE)

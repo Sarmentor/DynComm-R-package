@@ -9,15 +9,18 @@ neighbours(vertex)
 neighbours(dyncomm,vertex)
 }
 \arguments{
-\item{dyncomm}{A DynComm object, if not using the inline version of the function call}
+\item{dyncomm}{A DynComm object, if not using the inline version of the 
+function call}
 
 \item{vertex}{The vertex to get neighbours from}
 }
 \value{
-a matrix of all vertices in the graph that are neighbours of the given vertex and their edge weight
+a matrix of all vertices in the graph that are neighbours of the 
+given vertex and their edge weight
 }
 \description{
-Get all neighbours (vertices connected through direct edges) of the given vertex in the graph after the last iteration.
+Get all neighbours (vertices connected through direct edges) of the given 
+vertex in the graph after the last iteration.
 }
 \examples{
 \dontrun{

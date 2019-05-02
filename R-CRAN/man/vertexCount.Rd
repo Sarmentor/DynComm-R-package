@@ -12,15 +12,17 @@ nodesCount()
 nodesCount(dyncomm)
 }
 \arguments{
-\item{dyncomm}{A DynComm object, if not using the inline version of the function call}
+\item{dyncomm}{A DynComm object, if not using the inline version of the 
+function call}
 }
 \value{
 an unsigned integer with the number of vertices in the graph
 }
 \description{
-Get the total number of vertices after the last iteration. It can be useful since
-vertices can be added, if an edge being added has vertices that do not exist in the 
-graph, or removed, if they are not part of any edge after removing an edge.
+Get the total number of vertices after the last iteration. It can be useful 
+since vertices can be added, if an edge being added has vertices that do not 
+exist in the graph, or removed, if they are not part of any edge after 
+removing an edge.
 }
 \examples{
 \dontrun{

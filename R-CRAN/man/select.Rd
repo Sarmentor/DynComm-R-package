@@ -9,14 +9,16 @@ select(postProcessing, id)
 select(dyncomm,postProcessing, id)
 }
 \arguments{
-\item{dyncomm}{A DynComm object, if not using the inline version of the function call}
+\item{dyncomm}{A DynComm object, if not using the inline version of the 
+function call}
 
-\item{postProcessing}{The name of the post processing algorithm \code{\link{POSTPROCESSING}}}
+\item{postProcessing}{The name of the post processing algorithm. Default 
+POSTPROCESSING$NONE. See \code{\link{POSTPROCESSING}}}
 
 \item{id}{The ID of the post processing algorithm. Default value is 1}
 }
 \value{
-FALSE if any kind of error occurred. Otherwise, TRUE
+FALSE if the algorithm does not exist in the chain. Otherwise, TRUE
 }
 \description{
 This method allows for the selection of which result should be shown. Any of 
