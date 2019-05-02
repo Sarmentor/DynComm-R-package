@@ -17,7 +17,7 @@
 # # @seealso \code{\link{nchar}} which this function wraps
 # # @export
 # # @examples
-# # str_length(letters)
+# # 
 # etiles <- function(streamfile.edge.removal , init.graph=NULL, obs=7, path="", start=NULL, end=NULL){
 # 
 #   #initial networkx graph
