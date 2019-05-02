@@ -82,19 +82,19 @@ install:
     - cmd: if [%PYTHON_VERSION%] NEQ [NONE] make msvc
 
     # now build the with the right compiler for each python version
-    - cmd: if [%PYTHON_VERSION%] NEQ [NONE] cd igraph-*-msvc
+    - cmd: if [%PYTHON_VERSION%] NEQ [NONE] cd R-CRAN-*-msvc
 
     - cmd: if %PYTHON_VERSION%==2.7 call "C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\bin\vcvars64.bat"
     - cmd: if %PYTHON_VERSION%==2.7 vcbuild.exe /upgrade
-    - cmd: if %PYTHON_VERSION%==2.7 vcbuild.exe igraph.vcproj "Release|%TARGET_ARCH%"
+    - cmd: if %PYTHON_VERSION%==2.7 vcbuild.exe DynComm.vcproj "Release|%TARGET_ARCH%"
 
     - cmd: if %PYTHON_VERSION%==3.4 call "%VS100COMNTOOLS%\vsvars32.bat"
-    - cmd: if %PYTHON_VERSION%==3.4 VCUpgrade.exe /overwrite igraph.vcproj
-    - cmd: if %PYTHON_VERSION%==3.4 msbuild.exe igraph.vcxproj /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+    - cmd: if %PYTHON_VERSION%==3.4 VCUpgrade.exe /overwrite DynComm.vcproj
+    - cmd: if %PYTHON_VERSION%==3.4 msbuild.exe DynComm.vcxproj /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
 
     - cmd: if %PYTHON_VERSION%==3.5 call "%VS140COMNTOOLS%\vsvars32.bat"
-    - cmd: if %PYTHON_VERSION%==3.5 devenv /upgrade igraph.vcproj
-    - cmd: if %PYTHON_VERSION%==3.5 msbuild.exe igraph.vcxproj /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+    - cmd: if %PYTHON_VERSION%==3.5 devenv /upgrade DynComm.vcproj
+    - cmd: if %PYTHON_VERSION%==3.5 msbuild.exe DynComm.vcxproj /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
 
 test_script:
     - cmd: cd "%APPVEYOR_BUILD_FOLDER%"

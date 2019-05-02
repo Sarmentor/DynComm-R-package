@@ -1,12 +1,14 @@
 R:
 
 - igraph package for R
-- reticulate
+- rPython
 - Rcpp
 
 R Windows (TODO):
 
+- rPython-Win
 - Rtools
+- devtools
 
 Python:
 

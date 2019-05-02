@@ -1,18 +1,23 @@
 Package: DynComm
 Type: Package
-Title: Dynamic Network Communities Detection
+Title: Dynamic Network Communities Detection and Generation
 Version: 201901.01.0
 Author: Rui Portocarrero Sarmento, Luís Lemos, Giulio Rossetti, Vera Costa
 Maintainer: Rui P. Sarmento <email@ruisarmento.com>
-Description: This package is used for evolving network analysis regarding community detection. Implements several algorithms that calculate communities for graphs whose nodes and edges change over time.
-    Edges, which can have new nodes, can be added or deleted. Changes in the communities are calculated without
-    recalculating communities for the entire graph.
-License: GPL-2
+Description: This package is used for evolving network analysis regarding 
+  community detection. Implements several algorithms that calculate communities 
+  for graphs whose nodes and edges change over time.
+  Edges, which can have new nodes, can be added or deleted. Changes in the 
+  communities are calculated without recalculating communities for the entire 
+  graph.
+License: file LICENSE
 Encoding: UTF-8
 LazyData: false
-Imports: reticulate, Rcpp (>= 0.12.15), igraph
-Depends: methods, Rcpp (>= 0.12.15)
+Imports: reticulate, Rcpp (>= 0.12.15), rJava, igraph, Rdpack, methods
+Depends: 
 LinkingTo: Rcpp
-RcppModules: DynComm
+RcppModules: DynCommRcpp
+RdMacros: Rdpack
 SystemRequirements: C++11
+Suggests: devtools
 RoxygenNote: 6.1.1
