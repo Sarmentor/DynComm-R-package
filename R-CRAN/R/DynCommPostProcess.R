@@ -157,10 +157,6 @@ APIFUNCTIONS <- list(
 #' @rdname DynCommPostProcess
 #' 
 #' @docType class
-#' 
-#' @usage 
-#' DynCommPostProcess(postProcessing, id)
-#' DynCommPostProcess(postProcessing, id, previous,Parameters)
 #'
 #' @param Algorithm One of the available ALGORITHM See \code{\link{ALGORITHM}}
 #' 
@@ -170,6 +166,10 @@ APIFUNCTIONS <- list(
 #'   the PARAMETERS section on this page
 #'
 #' @param previous (this optional will probably be deprecated)
+#'
+#' @usage 
+#' DynCommPostProcess(postProcessing, id, previous,Parameters)
+#'
 #'
 #' @return \code{DynCommPostProcess} object
 #'

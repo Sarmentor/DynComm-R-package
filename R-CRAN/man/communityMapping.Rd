@@ -38,7 +38,7 @@ dc$communityMapping()
 }
 \dontrun{
 dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-communityMapping(dc)
+communityMapping(dc,file="")
 }
 
 }
