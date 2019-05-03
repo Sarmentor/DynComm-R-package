@@ -1635,7 +1635,7 @@ nodes <- function(dyncomm,community){
 #' @examples
 #' \dontrun{
 #' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-#' dc$communityMapping(file="")
+#' dc$communityMapping()
 #'}
 #' \dontrun{
 #' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
@@ -1643,7 +1643,7 @@ nodes <- function(dyncomm,community){
 #'}
 #'
 communityMapping <- function(dyncomm,differential=TRUE, file=""){
-  return(dyncomm$communityMapping(differential,file))
+  return(dyncomm$communityMapping(differential,file=""))
 }
 
 #' @name time
@@ -1673,7 +1673,6 @@ communityMapping <- function(dyncomm,differential=TRUE, file=""){
 #' function call
 #' 
 #' @usage
-#' time()
 #' time(dyncomm)
 #' time(dyncomm,differential)
 #' 

@@ -169,6 +169,8 @@ APIFUNCTIONS <- list(
 #' @param Parameters A two column matrix defining additional parameters. See
 #'   the PARAMETERS section on this page
 #'
+#' @param previous (this optional will probably be deprecated)
+#'
 #' @return \code{DynCommPostProcess} object
 #'
 # @export
