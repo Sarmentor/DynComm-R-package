@@ -158,8 +158,10 @@ APIFUNCTIONS <- list(
 #' 
 #' @docType class
 #' 
-#' @usage DynCommPostProcess(postProcessing, id)
-#' 
+#' @usage 
+#' DynCommPostProcess(postProcessing, id)
+#' DynCommPostProcess(postProcessing, id, previous,Parameters)
+#'
 #' @param Algorithm One of the available ALGORITHM See \code{\link{ALGORITHM}}
 #' 
 #' @param Criterion One of the available CRITERION. See \code{\link{CRITERION}}
