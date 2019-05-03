@@ -27,7 +27,7 @@ dynamic community detection represented in a XXXXXX type of object
 The implementation of eTILES algorithm.
 }
 \examples{
-str_length(letters)
+
 }
 \seealso{
 \code{\link{nchar}} which this function wraps
