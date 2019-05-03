@@ -1626,6 +1626,7 @@ nodes <- function(dyncomm,community){
 #' @usage 
 #' communityMapping(differential)
 #' communityMapping(dyncomm,differential)
+#' communityMapping(dyncomm,differential,file)
 #'
 #' @method DynComm communityMapping
 #'
@@ -1674,6 +1675,7 @@ communityMapping <- function(dyncomm,differential=TRUE, file=""){
 #' @usage
 #' time()
 #' time(dyncomm)
+#' time(dyncomm,differential)
 #' 
 #'
 #' @method DynComm time
