@@ -3,10 +3,9 @@
 \docType{class}
 \name{DynCommPostProcess}
 \alias{DynCommPostProcess}
-\alias{dyncommpostprocess}
 \title{DynCommPostProcess(postProcessing, id, previous, Parameters)}
 \usage{
-DynCommPostProcess(postProcessing, id)
+DynCommPostProcess(postProcessing, id, previous, Parameters)
 }
 \arguments{
 \item{Parameters}{A two column matrix defining additional parameters. See

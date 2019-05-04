@@ -3,13 +3,12 @@
 \docType{methods}
 \name{vertexCount}
 \alias{vertexCount}
-\alias{nodesCount}
+\alias{DynComm.vertexCount}
+\alias{DynComm.nodesCount}
 \title{vertexCount()}
 \usage{
-vertexCount()
-vertexCount(dyncomm)
-nodesCount()
-nodesCount(dyncomm)
+DynComm.vertexCount(dyncomm)
+DynComm.nodesCount(dyncomm)
 }
 \arguments{
 \item{dyncomm}{A DynComm object, if not using the inline version of the 
@@ -19,9 +18,12 @@ function call}
 an unsigned integer with the number of vertices in the graph
 }
 \description{
-Get the total number of vertices after the last iteration. It can be useful 
-since vertices can be added, if an edge being added has vertices that do not 
-exist in the graph, or removed, if they are not part of any edge after 
+Get the total number of vertices from the selected post processing
+algorithm or the main algorithm, after the last iteration.
+}
+\details{
+It can be useful since vertices can be added, if an edge being added has vertices 
+that do not exist in the graph, or removed, if they are not part of any edge after 
 removing an edge.
 }
 \examples{
@@ -34,6 +36,9 @@ dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
 vertexCount(dc)
 }
 
+}
+\seealso{
+\code{\link{DynComm}} , \code{\link{postProcess}}
 }
 \author{
 poltergeist0

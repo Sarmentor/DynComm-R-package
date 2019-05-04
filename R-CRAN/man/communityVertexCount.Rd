@@ -3,13 +3,12 @@
 \docType{methods}
 \name{communityVertexCount}
 \alias{communityVertexCount}
-\alias{communityNodeCount}
+\alias{DynComm.communityVertexCount}
+\alias{DynComm.communityNodeCount}
 \title{communityVertexCount(community)}
 \usage{
-communityVertexCount(community)
-communityVertexCount(dyncomm,community)
-communityNodeCount(community)
-communityNodeCount(dyncomm,community)
+DynComm.communityVertexCount(dyncomm,community)
+DynComm.communityNodeCount(dyncomm,community)
 }
 \arguments{
 \item{dyncomm}{A DynComm object, if not using the inline version of the 
@@ -21,7 +20,8 @@ function call}
 an unsigned integer with the number of vertices in the given community
 }
 \description{
-Get the amount of vertices in the given community after the last iteration.
+Get the amount of vertices in the given community from the selected post 
+processing algorithm or the main algorithm, after the last iteration.
 }
 \examples{
 \dontrun{
@@ -33,6 +33,9 @@ dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
 communityVertexCount(dc,3)
 }
 
+}
+\seealso{
+\code{\link{DynComm}} , \code{\link{postProcess}}
 }
 \author{
 poltergeist0

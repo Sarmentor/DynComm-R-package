@@ -3,10 +3,10 @@
 \docType{methods}
 \name{communityNeighbours}
 \alias{communityNeighbours}
+\alias{DynComm.communityNeighbours}
 \title{communityNeighbours(community)}
 \usage{
-communityNeighbours(community)
-communityNeighbours(dyncomm,community)
+DynComm.communityNeighbours(dyncomm,community)
 }
 \arguments{
 \item{dyncomm}{A DynComm object, if not using the inline version of the 
@@ -19,8 +19,13 @@ a matrix of all communities in the graph that are neighbours of the
 given community and their edge weight
 }
 \description{
-Get all neighbours (community connected through direct edges) of the given 
-community in the graph after the last iteration.
+Get all neighbours (communities connected through direct edges) of the given 
+community in the graph from the selected post processing algorithm or the main 
+algorithm, after the last iteration.
+}
+\details{
+The return value is a matrix with two columns. The first is the neighbour and
+the second is the weight of the edge that connects them.
 }
 \examples{
 \dontrun{
@@ -32,6 +37,9 @@ dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
 communityNeighbours(dc,community)
 }
 
+}
+\seealso{
+\code{\link{DynComm}} , \code{\link{postProcess}}
 }
 \author{
 poltergeist0

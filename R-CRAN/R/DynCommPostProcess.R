@@ -17,7 +17,7 @@ source ("R/DensityOPT2.R")
 
 #' @name POSTPROCESSING
 #'
-#' @aliases POST post postProcessing postprocessing
+# @aliases POST post postProcessing postprocessing
 #' 
 #' @title List of available post processing algorithms.
 #' 
@@ -104,7 +104,7 @@ POSTPROCESSING <- list(
 #'    \item{NEIGHBOURS}{Get the neighbours of the given vertex after the last iteration. See \code{\link{neighbours}}}
 #'    \item{QUALITY}{Get the quality measurement of the graph after the last iteration. See \code{\link{quality}}}
 #'    \item{RESULTS}{Get additional results of the algorithm or the currently selected post processing steps. See \code{\link{results}}}
-#'    \item{TIME}{Get the cumulative time spent on processing after the last iteration. See \code{\link{time}}}
+#    \item{TIME}{Get the cumulative time spent on processing after the last iteration. See \code{\link{time}}}
 #'    \item{VERTEXCOUNT}{Get the total number of vertices after the last iteration. See \code{\link{vertexCount}}}
 #'    \item{VERTICESALL}{Get all vertices in the graph after the last iteration. See \code{\link{verticesAll}}}
 #'    \item{VERTICES}{Get all vertices belonging to the given community after the last iteration. See \code{\link{vertices}}}
@@ -130,7 +130,7 @@ APIFUNCTIONS <- list(
   ,NEIGHBOURS=12L
   ,QUALITY=13L
   ,RESULTS=14L
-  ,TIME=15L
+  # ,TIME=15L #handled by DynCommPostProcess. Less responsability for algorithms
   ,VERTEXCOUNT=16L
   ,VERTICESALL=17L
   ,VERTICES=18L
@@ -140,7 +140,7 @@ APIFUNCTIONS <- list(
 #' 
 #' @keywords internal
 #' 
-#' @aliases dyncommpostprocess
+# @aliases dyncommpostprocess
 #' 
 #' @title DynCommPostProcess(postProcessing, id, previous, Parameters)
 #'
@@ -158,7 +158,7 @@ APIFUNCTIONS <- list(
 #' 
 #' @docType class
 #' 
-#' @usage DynCommPostProcess(postProcessing, id)
+#' @usage DynCommPostProcess(postProcessing, id, previous, Parameters)
 #' 
 #' @param Algorithm One of the available ALGORITHM See \code{\link{ALGORITHM}}
 #' 
@@ -250,7 +250,9 @@ DynCommPostProcess <- function(postProcessing=POSTPROCESSING$NONE, id=1, previou
   }
   
   ########## constructor #############
+  start_time <- floor(as.numeric(Sys.time())*1000000000) #nanoseconds
   alg <- algorithms()  #algorithm selection
+  end_time <- floor(as.numeric(Sys.time())*1000000000) #nanoseconds
 
   ## Create the list used to represent an
   ## object for this class
@@ -680,7 +682,7 @@ DynCommPostProcess <- function(postProcessing=POSTPROCESSING$NONE, id=1, previou
     #' 
     #'   \item{communityMapping()}{Get the community mapping for all communities after the last iteration.See \code{\link{communityMapping}}}
     #'   
-    communityMappingFile = function(differential=TRUE,file="",postProcessing=POSTPROCESSING$NONE,ID=1){
+    communityMappingFile = function(differential=TRUE,file="communityMapping.txt",postProcessing=POSTPROCESSING$NONE,ID=1){
       if((postProcessing==POSTPROCESSING$NONE || (pst==postProcessing && id==ID)) && alg$has(APIFUNCTIONS$COMMUNITYMAPPINGFILE)){
         #this object
         return(alg$communityMappingFile(differential,file))
@@ -733,9 +735,10 @@ DynCommPostProcess <- function(postProcessing=POSTPROCESSING$NONE, id=1, previou
     #'   \item{time()}{Get the cumulative time spent on processing after the last iteration. See \code{\link{time}}}
     #'   
     time=function(differential=FALSE,postProcessing=POSTPROCESSING$NONE,ID=1){
-      if((postProcessing==POSTPROCESSING$NONE || (pst==postProcessing && id==ID)) && alg$has(APIFUNCTIONS$TIME)){
+      if((postProcessing==POSTPROCESSING$NONE || (pst==postProcessing && id==ID))){
         #this object
-        return(alg$time(differential))
+        # return(alg$time(differential))
+        return((end_time-start_time)+prv$time(differential))
       }
       else{ #it is not me (its the one armed man :P )
         #return from the previous object

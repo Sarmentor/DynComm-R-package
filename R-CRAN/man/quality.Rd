@@ -3,10 +3,10 @@
 \docType{methods}
 \name{quality}
 \alias{quality}
+\alias{DynComm.quality}
 \title{quality()}
 \usage{
-quality()
-quality(dyncomm)
+DynComm.quality(dyncomm)
 }
 \arguments{
 \item{dyncomm}{A DynComm object, if not using the inline version of the 
@@ -16,8 +16,8 @@ function call}
 a floating point number
 }
 \description{
-Get the quality measurement of the graph after the last iteration of the 
-algorithm.
+Get the quality measurement of the graph from the selected post processing
+algorithm or the main algorithm, after the last iteration.
 }
 \examples{
 \dontrun{
@@ -29,6 +29,9 @@ dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
 quality(dc)
 }
 
+}
+\seealso{
+\code{\link{DynComm}} , \code{\link{postProcess}}
 }
 \author{
 poltergeist0

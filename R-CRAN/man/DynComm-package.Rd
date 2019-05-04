@@ -3,8 +3,6 @@
 \docType{package}
 \name{DynComm-package}
 \alias{DynComm-package}
-\alias{dyncomm-package}
-\alias{Dyncomm-package}
 \title{DynComm: Dynamic Network Communities Detection}
 \description{
 Bundle of algorithms used for evolving network analysis regarding 

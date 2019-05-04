@@ -69,7 +69,7 @@ algorithm.
   \item{communityMapping()}{Get the community mapping for all communities after the last iteration.See \link{communityMapping}}
   
 
-  \item{time()}{Get the cumulative time spent on processing after the last iteration. See \link{time}}
+  \item{communityMapping()}{Get the community mapping for all communities after the last iteration.See \link{communityMapping}}
   
 
 }

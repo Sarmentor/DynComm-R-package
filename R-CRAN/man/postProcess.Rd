@@ -3,11 +3,10 @@
 \docType{methods}
 \name{postProcess}
 \alias{postProcess}
-\alias{postprocess}
+\alias{DynComm.postProcess}
 \title{postProcess(actions)}
 \usage{
-postProcess(actions)
-postProcess(dyncomm,actions)
+DynComm.postProcess(dyncomm,actions)
 }
 \arguments{
 \item{dyncomm}{A DynComm object, if not using the inline version of the 
@@ -26,7 +25,10 @@ same order they are listed from left to right.
 Several actions of the same type are allowed. They receive an internal ID
 number that starts at one and increments by one unit with each action of the 
 same type. Later, this ID can be used to select the intended action and get 
-results from it
+results from it.
+
+Post processing can be reset (removed) be setting actions to NULL (default 
+value) or passing an empty list.
 
 The format of the actions is a list of action. Each action is a list of the
 action name (see \code{\link{POSTPROCESSING}}) and parameters. The parameters
@@ -42,23 +44,48 @@ This slighty awkward syntax is due to R not supporting matrix of matrices.
 \examples{
 \dontrun{
 dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-dc$postProcess(list(list(POSTPROCESSING$WEIGHTTOP,matrix(data=c("n",10),ncol=2,byrow=TRUE)),list(POSTPROCESSING$DENSOPT),list(POSTPROCESSING$WEIGHTTOP,matrix(data=c("n",3),ncol=2,byrow=TRUE))))
+dc$postProcess(
+  list(
+    list(POSTPROCESSING$WEIGHTTOP,matrix(data=c("n",10),ncol=2,byrow=TRUE))
+    ,list(POSTPROCESSING$DENSOPT)
+    ,list(POSTPROCESSING$WEIGHTTOP,matrix(data=c("n",3),ncol=2,byrow=TRUE))
+  )
+)
 # first POSTPROCESSING$WEIGHTTOP gets ID=1 and second gets ID=2
 # POSTPROCESSING$DENSOPT uses default parameters
 dc$select(POSTPROCESSING$WEIGHTTOP,1)  #selects the results of the first WEIGHTTOP
 dc$select(POSTPROCESSING$WEIGHTTOP,2)  #selects the results of the second WEIGHTTOP
 dc$select(POSTPROCESSING$NONE)  #selects the main algorithm results
+dc$select(POSTPROCESSING$DENSOPT)  #selects the results of densopt
+dc$postProcess(NULL)  #remove post processing
+## or just
+## dc$postProcess()
 }
 \dontrun{
 dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-postProcess(dc,list(list(POSTPROCESSING$WEIGHTTOP,matrix(data=c("n",10),ncol=2,byrow=TRUE)),list(POSTPROCESSING$DENSOPT),list(POSTPROCESSING$WEIGHTTOP,matrix(data=c("n",3),ncol=2,byrow=TRUE))))
+postProcess(dc,
+  list(
+    list(POSTPROCESSING$WEIGHTTOP,matrix(data=c("n",10),ncol=2,byrow=TRUE))
+    ,list(POSTPROCESSING$DENSOPT)
+    ,list(POSTPROCESSING$WEIGHTTOP,matrix(data=c("n",3),ncol=2,byrow=TRUE))
+  )
+)
 # first POSTPROCESSING$WEIGHTTOP gets ID=1 and second gets ID=2
 # POSTPROCESSING$DENSOPT uses default parameters
 select(dc,POSTPROCESSING$WEIGHTTOP,1)  #selects the results of the first WEIGHTTOP
 select(dc,POSTPROCESSING$WEIGHTTOP,2)  #selects the results of the second WEIGHTTOP
 select(dc,POSTPROCESSING$NONE)  #selects the main algorithm results
+select(dc,POSTPROCESSING$DENSOPT)  #selects the results of densopt
+postProcess(dc,NULL)  #remove post processing
+## or just
+## postProcess(dc)
 }
 
+}
+\seealso{
+\code{\link{DynComm}} 
+, \code{\link{select}} 
+, \code{\link{POSTPROCESSING}}
 }
 \author{
 poltergeist0

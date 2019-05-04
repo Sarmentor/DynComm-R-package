@@ -18,7 +18,7 @@
 # # @seealso \code{\link{nchar}} which this function wraps
 # # @export
 # # @examples
-# # 
+# # str_length(letters)
 # tiles <- function(streamfile.edge.removal, init.graph=NULL, ttl=Inf, obs=7, path="", start=NULL, end=NULL){
 # 
 #   #initial networkx graph

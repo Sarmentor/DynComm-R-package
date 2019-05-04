@@ -3,10 +3,10 @@
 \docType{methods}
 \name{select}
 \alias{select}
+\alias{DynComm.select}
 \title{select(postProcessing, id)}
 \usage{
-select(postProcessing, id)
-select(dyncomm,postProcessing, id)
+DynComm.select(dyncomm,postProcessing, id)
 }
 \arguments{
 \item{dyncomm}{A DynComm object, if not using the inline version of the 
@@ -29,13 +29,22 @@ The ID parameter is used to distinguish between several post processing
 algorithms of the same type. It is not required for neither the main 
 algorithm nor any post processing algorithm type that only appears one time.
 
-The main algorithm can be selected with POSTPROCESSING$NONE and the ID is 
-ignored. See \code{\link{POSTPROCESSING}} for other available algorithms.
+The main algorithm can be selected with POSTPROCESSING$NONE (default value) 
+and the ID is ignored. See \code{\link{POSTPROCESSING}} for other available 
+algorithms.
+
+If there are no actions defined for post processing, this function fails.
 }
 \examples{
 \dontrun{
 dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-dc$postProcess(list(list(POSTPROCESSING$WEIGHTTOP,matrix(data=c("n",10),ncol=2,byrow=TRUE)),list(POSTPROCESSING$DENSOPT),list(POSTPROCESSING$WEIGHTTOP,matrix(data=c("n",3),ncol=2,byrow=TRUE))))
+dc$postProcess(
+  list(
+    list(POSTPROCESSING$WEIGHTTOP,matrix(data=c("n",10),ncol=2,byrow=TRUE))
+    ,list(POSTPROCESSING$DENSOPT)
+    ,list(POSTPROCESSING$WEIGHTTOP,matrix(data=c("n",3),ncol=2,byrow=TRUE))
+  )
+)
 # first POSTPROCESSING$WEIGHTTOP gets ID=1 and second gets ID=2
 # POSTPROCESSING$DENSOPT uses default parameters
 dc$select(POSTPROCESSING$WEIGHTTOP,1)  #selects the results of the first WEIGHTTOP
@@ -44,7 +53,13 @@ dc$select(POSTPROCESSING$NONE)  #selects the main algorithm results
 }
 \dontrun{
 dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-postProcess(dc,list(list(POSTPROCESSING$WEIGHTTOP,matrix(data=c("n",10),ncol=2,byrow=TRUE)),list(POSTPROCESSING$DENSOPT),list(POSTPROCESSING$WEIGHTTOP,matrix(data=c("n",3),ncol=2,byrow=TRUE))))
+postProcess(dc,
+  list(
+    list(POSTPROCESSING$WEIGHTTOP,matrix(data=c("n",10),ncol=2,byrow=TRUE))
+    ,list(POSTPROCESSING$DENSOPT)
+    ,list(POSTPROCESSING$WEIGHTTOP,matrix(data=c("n",3),ncol=2,byrow=TRUE))
+  )
+)
 # first POSTPROCESSING$WEIGHTTOP gets ID=1 and second gets ID=2
 # POSTPROCESSING$DENSOPT uses default parameters
 select(dc,POSTPROCESSING$WEIGHTTOP,1)  #selects the results of the first WEIGHTTOP
@@ -52,6 +67,9 @@ select(dc,POSTPROCESSING$WEIGHTTOP,2)  #selects the results of the second WEIGHT
 select(dc,POSTPROCESSING$NONE)  #selects the main algorithm results
 }
 
+}
+\seealso{
+\code{\link{DynComm}} , \code{\link{postProcess}}
 }
 \author{
 poltergeist0

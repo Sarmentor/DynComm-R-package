@@ -3,10 +3,10 @@
 \docType{methods}
 \name{edgeWeight}
 \alias{edgeWeight}
+\alias{DynComm.edgeWeight}
 \title{edgeWeight(source,destination)}
 \usage{
-edgeWeight(source,destination)
-edgeWeight(dyncomm,source,destination)
+DynComm.edgeWeight(dyncomm,source,destination)
 }
 \arguments{
 \item{dyncomm}{A DynComm object, if not using the inline version of the 
@@ -21,7 +21,8 @@ a floating point number with the weight
 }
 \description{
 Get the weight of the edge that goes from source vertex to destination vertex 
-after the last iteration.
+from the selected post processing algorithm or the main algorithm, after the 
+last iteration.
 }
 \examples{
 \dontrun{
@@ -33,6 +34,9 @@ dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
 edgeWeight(dc,12,42)
 }
 
+}
+\seealso{
+\code{\link{DynComm}} , \code{\link{postProcess}}
 }
 \author{
 poltergeist0

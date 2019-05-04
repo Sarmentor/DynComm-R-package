@@ -3,10 +3,10 @@
 \docType{methods}
 \name{neighbours}
 \alias{neighbours}
+\alias{DynComm.neighbours}
 \title{neighbours(vertex)}
 \usage{
-neighbours(vertex)
-neighbours(dyncomm,vertex)
+DynComm.neighbours(dyncomm,vertex)
 }
 \arguments{
 \item{dyncomm}{A DynComm object, if not using the inline version of the 
@@ -20,7 +20,8 @@ given vertex and their edge weight
 }
 \description{
 Get all neighbours (vertices connected through direct edges) of the given 
-vertex in the graph after the last iteration.
+vertex in the graph from the selected post processing algorithm or the main 
+algorithm, after the last iteration.
 }
 \examples{
 \dontrun{
@@ -32,6 +33,9 @@ dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
 neighbours(dc,vertex)
 }
 
+}
+\seealso{
+\code{\link{DynComm}} , \code{\link{postProcess}}
 }
 \author{
 poltergeist0

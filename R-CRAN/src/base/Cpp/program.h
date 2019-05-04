@@ -83,6 +83,88 @@ struct ProgramParameters{
 	std::string directory=".";
 }argumentsDefault;
 
+// void parse_arg(const char * name, const char * value, ProgramParameters & par) {
+// 	switch(name[0]) {
+// 	case 'o':
+// 		par.outfilename = std::string(value);
+// 		break;
+// 	case 'w':
+// 		par.type = LINK_WEIGHT::WEIGHTED;
+// 		par.filename_w = std::string(value);
+// 		break;
+// 	case 'q':
+// 		par.id_qual = (unsigned short)atoi(value);
+// 		break;
+// 	case 'c':
+// 		par.alpha = atof(value);
+// 		break;
+// 	case 'k':
+// 		par.kmin = atoi(value);
+// 		break;
+// 	case 'p':
+// 		par.filename_part = std::string(value);
+// 		break;
+// 	case 'e':
+// 		par.precision = atof(value);
+// 		break;
+// 	case 'l':
+// 		par.display_level = atoi(value);
+// 		break;
+// 	case 's':
+// 		par.directory = std::string(value);
+// 		break;
+// 	case 'v':
+// 		par.verbose = true;
+// 		break;
+// //	case 'h':
+// //		usage(argv[0], "");
+// //		break;
+// 	case 'f':
+// 		if (par.filename=="") par.filename = std::string(value);
+// 		break;
+// 	// default:
+// 		//do nothing
+// //		usage(argv[0], "Unknown option\n");
+// 	}
+// }
+
+void parse_arg(const std::string & name, const std::string & value, ProgramParameters & par) {
+  if(name.compare("o")){
+    par.outfilename = std::string(value);
+  }
+  else if(name.compare("w")){
+    par.type = LINK_WEIGHT::WEIGHTED;
+    par.filename_w = value;
+  }
+  else if(name.compare("q")){
+    par.id_qual = std::stoi(value.c_str());
+  }
+  else if(name.compare("c")){
+    par.alpha = std::stof(value);
+  }
+  else if(name.compare("k")){
+    par.kmin = std::stoi(value);
+  }
+  else if(name.compare("p")){
+    par.filename_part = value;
+  }
+  else if(name.compare("e")){
+    par.precision = std::stof(value);
+  }
+  else if(name.compare("l")){
+    par.display_level = std::stoi(value);
+  }
+  else if(name.compare("s")){
+    par.directory = value;
+  }
+  else if(name.compare("v")){
+    par.verbose = true;
+  }
+  else if(name.compare("f")){
+    if (par.filename=="") par.filename = value;
+  }
+}
+
 void parse_args(int argc, char *argv[], ProgramParameters & par) {
 	if (argc<2)
 		usage(argv[0], "Bad arguments number\n");

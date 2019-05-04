@@ -3,10 +3,10 @@
 \docType{methods}
 \name{communityCount}
 \alias{communityCount}
+\alias{DynComm.communityCount}
 \title{communityCount()}
 \usage{
-communityCount()
-communityCount(dyncomm)
+DynComm.communityCount(dyncomm)
 }
 \arguments{
 \item{dyncomm}{A DynComm object, if not using the inline version of the 
@@ -16,7 +16,8 @@ function call}
 an unsigned integer value with the number of communities
 }
 \description{
-Get the number of communities after the last iteration of the algorithm.
+Get the number of communities from the selected post processing algorithm or 
+the main algorithm, after the last iteration.
 }
 \examples{
 \dontrun{
@@ -28,6 +29,9 @@ dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
 communityCount(dc)
 }
 
+}
+\seealso{
+\code{\link{DynComm}} , \code{\link{postProcess}}
 }
 \author{
 poltergeist0

@@ -3,10 +3,10 @@
 \docType{methods}
 \name{communityMapping}
 \alias{communityMapping}
-\title{communityMapping(differential)}
+\alias{DynComm.communityMapping}
+\title{communityMapping(differential, file)}
 \usage{
-communityMapping(differential)
-communityMapping(dyncomm,differential)
+DynComm.communityMapping(dyncomm,differential, file)
 }
 \arguments{
 \item{dyncomm}{A DynComm object, if not using the inline version of the 
@@ -22,7 +22,8 @@ of the console}
 a matrix with either the community mapping or a boolean value
 }
 \description{
-Get the community mapping for all communities after the last iteration.
+Get the community mapping for all communities from the selected post processing
+algorithm or the main algorithm, after the last iteration.
 }
 \details{
 If file is not given, returns a two column matrix with vertices in 
@@ -41,6 +42,9 @@ dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
 communityMapping(dc)
 }
 
+}
+\seealso{
+\code{\link{DynComm}} , \code{\link{postProcess}}
 }
 \author{
 poltergeist0

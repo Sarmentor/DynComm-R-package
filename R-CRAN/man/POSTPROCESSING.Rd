@@ -3,10 +3,6 @@
 \docType{data}
 \name{POSTPROCESSING}
 \alias{POSTPROCESSING}
-\alias{POST}
-\alias{post}
-\alias{postProcessing}
-\alias{postprocessing}
 \title{List of available post processing algorithms.}
 \format{A named list with the names of the available algorithms:
  \describe{
