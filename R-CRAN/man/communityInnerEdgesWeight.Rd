@@ -3,10 +3,10 @@
 \docType{methods}
 \name{communityInnerEdgesWeight}
 \alias{communityInnerEdgesWeight}
+\alias{DynComm.communityInnerEdgesWeight}
 \title{communityInnerEdgesWeight(community)}
 \usage{
-communityInnerEdgesWeight(community)
-communityInnerEdgesWeight(dyncomm,community)
+DynComm.communityInnerEdgesWeight(dyncomm,community)
 }
 \arguments{
 \item{dyncomm}{A DynComm object, if not using the inline version of the 
@@ -18,8 +18,9 @@ function call}
 a floating point number with the weight
 }
 \description{
-Get the sum of weights of the inner edges of the given community after the 
-last iteration.
+Get the sum of weights of the inner edges of the given community from the 
+selected post processing algorithm or the main algorithm, after the last 
+iteration.
 }
 \examples{
 \dontrun{
@@ -31,6 +32,9 @@ dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
 communityInnerEdgesWeight(dc,1)
 }
 
+}
+\seealso{
+\code{\link{DynComm}} , \code{\link{postProcess}}
 }
 \author{
 poltergeist0

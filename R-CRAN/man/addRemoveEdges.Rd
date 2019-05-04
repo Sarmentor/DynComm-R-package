@@ -3,14 +3,14 @@
 \docType{methods}
 \name{addRemoveEdges}
 \alias{addRemoveEdges}
-\alias{addRemove}
-\alias{add}
+\alias{DynComm.addRemoveEdges}
+\alias{DynComm.addRemove}
+\alias{DynComm.add}
 \title{addRemoveEdges(graphAddRemove)}
 \usage{
-addRemoveEdges(graphAddRemove)
-addRemoveEdges(dyncomm,graphAddRemove)
-addRemove(dyncomm,graphAddRemove)
-add(dyncomm,graphAddRemove)
+DynComm.addRemoveEdges(dyncomm,graphAddRemove)
+DynComm.addRemove(dyncomm,graphAddRemove)
+DynComm.add(dyncomm,graphAddRemove)
 }
 \arguments{
 \item{dyncomm}{A DynComm object, if not using the inline version of the 
@@ -24,12 +24,28 @@ FALSE if any kind of error occurred. Otherwise, TRUE
 }
 \description{
 This method reads edges from either a matrix or a file and adds or removes 
-them from the graph.
+them to/from the graph.
 }
 \details{
-The matrix must have at least two columns with the source and destination
-vertices. Optionally, it can have a third column with the weight of the edge.
+If the weight is exactly zero, the edge is removed from the graph.
 
+If a vertex, mentioned in the source or destination, does not exist it will be 
+added to the graph.
+
+If any post processing algorithm exists, it is automatically calculated after
+the main algorithm.
+
+\describe{
+  \item{Matrix input}{
+The matrix must have at least two columns with the source and destination
+vertices.
+
+If all edges are to be added with the default weight, a third column 
+is optional. 
+
+If any edge is to be removed, the third column is mandatory.
+  }
+  \item{File input}{
 The file must have only one edge per line, with values separated by a white
 space (both SPACE and TAB work in any amount and combination).
 
@@ -39,13 +55,10 @@ and the third is the weight.
 The weight can be ommited if the edge is to be added using the default weight
 of 1 (one), or if the parameter to ignore weights was set.
 
-If the weight is exactly zero, the edge is removed from the graph.
-
-If a vertex, mentioned in the source or destination, does not exist it will be 
-added to the graph.
-
-The method detects automatically if the weight is present on a row by row 
-basis so some rows may have weights defined and others not.
+The method detects automatically if the weight is present on a row by row basis 
+so some rows may have weights defined and others not.
+  }
+}
 }
 \examples{
 \dontrun{
@@ -57,6 +70,9 @@ dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
 addRemoveEdges(dc,"graphAddRemoveFile.txt")
 }
 
+}
+\seealso{
+\code{\link{DynComm}} , \code{\link{postProcess}}
 }
 \author{
 poltergeist0

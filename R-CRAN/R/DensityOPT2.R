@@ -211,8 +211,8 @@ DensOpt <- function(dyncomm, Parameters=NULL)
   prm <- NULL  #parameters for this post processing algorithm
   
   ########## constructor #############
-  end_time<-0
-  start_time <- floor(as.numeric(Sys.time())*1000000000) #nanoseconds
+  # end_time<-0
+  # start_time <- floor(as.numeric(Sys.time())*1000000000) #nanoseconds
   if(is.null(Parameters)){
     #set default parameters
   }
@@ -254,12 +254,12 @@ DensOpt <- function(dyncomm, Parameters=NULL)
   if(!b){
     #failed to process.
     print("TODO... Processing failed.")
-    end_time <- floor(as.numeric(Sys.time())*1000000000) #nanoseconds
+    # end_time <- floor(as.numeric(Sys.time())*1000000000) #nanoseconds
     return(NULL)
   }
   else{
     b<-communityCommunityMapping()
-    end_time <- floor(as.numeric(Sys.time())*1000000000) #nanoseconds
+    # end_time <- floor(as.numeric(Sys.time())*1000000000) #nanoseconds
     if(!b){
       return(NULL)
     }
@@ -273,6 +273,7 @@ DensOpt <- function(dyncomm, Parameters=NULL)
     thisEnv = thisEnv,
     
     has = function(apiFunction){
+      # print(apiFunction)
       if(apiFunction==APIFUNCTIONS$COMMUNITIES){
         return(TRUE)
       }
@@ -315,9 +316,9 @@ DensOpt <- function(dyncomm, Parameters=NULL)
       else if(apiFunction==APIFUNCTIONS$RESULTS){
         return(TRUE)
       }
-      else if(apiFunction==APIFUNCTIONS$TIME){
-        return(TRUE)
-      }
+      # else if(apiFunction==APIFUNCTIONS$TIME){
+      #   return(TRUE)
+      # }
       # else if(apiFunction==APIFUNCTIONS$VERTEXCOUNT){
       #   return(TRUE)
       # }
@@ -430,23 +431,32 @@ DensOpt <- function(dyncomm, Parameters=NULL)
     #' 
     #'   \item{vertices(community)}{Get all vertices belonging to the given community after the last iteration. See \link{vertices}}
     #'   
-    vertices=function(community){#,postProcessing,ID=1){
+    vertices=function(community){
       return(commsNew[commsNew[,2]==community,1])
     },
     
     #' 
     #'   \item{communityMapping()}{Get the community mapping for all communities after the last iteration.See \link{communityMapping}}
     #'   
-    communityMapping = function(differential=TRUE){#postProcessing,ID=1){
+    communityMappingMatrix = function(differential=TRUE){
       return(commsNew)
     },
-    
+
     #' 
-    #'   \item{time()}{Get the cumulative time spent on processing after the last iteration. See \link{time}}
+    #'   \item{communityMapping()}{Get the community mapping for all communities after the last iteration.See \link{communityMapping}}
     #'   
-    time=function(differential=FALSE){#PostProcessing, ID){
-      return((end_time-start_time)+prv$time(differential))
+    communityMappingFile = function(differential=TRUE,file="communityMapping.txt"){
+      write.table(commsNew, file=file, row.names=FALSE, col.names=FALSE, sep = "\t")
+      return(FALSE)
     }
+    
+    #,
+    # #' 
+    # #'   \item{time()}{Get the cumulative time spent on processing after the last iteration. See \link{time}}
+    # #'   
+    # time=function(differential=FALSE){#PostProcessing, ID){
+    #   return((end_time-start_time)+prv$time(differential))
+    # }
   )
   # close methods section of the documentation
   #' 

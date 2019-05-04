@@ -3,13 +3,12 @@
 \docType{methods}
 \name{vertices}
 \alias{vertices}
-\alias{nodes}
+\alias{DynComm.vertices}
+\alias{DynComm.nodes}
 \title{vertices(community)}
 \usage{
-vertices(community)
-vertices(dyncomm,community)
-nodes(community)
-nodes(dyncomm,community)
+DynComm.vertices(dyncomm,community)
+DynComm.nodes(dyncomm,community)
 }
 \arguments{
 \item{dyncomm}{A DynComm object, if not using the inline version of the 
@@ -21,7 +20,8 @@ function call}
 a list of vertices belonging to the given community
 }
 \description{
-Get all vertices belonging to the given community after the last iteration.
+Get all vertices belonging to the given community from the selected post 
+processing algorithm or the main algorithm, after the last iteration.
 }
 \examples{
 \dontrun{
@@ -33,6 +33,9 @@ dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
 vertices(dc,6)
 }
 
+}
+\seealso{
+\code{\link{DynComm}} , \code{\link{postProcess}}
 }
 \author{
 poltergeist0

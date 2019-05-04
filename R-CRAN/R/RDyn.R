@@ -22,7 +22,7 @@
 # # @seealso \code{\link{nchar}} which this function wraps
 # # @export
 # # @examples
-# # 
+# # str_length(letters)
 # rdyn <- function(size=1000, iterations=100, avg_deg=15, sigma=.6,
 #                  lambdad=1, alpha=2.5, paction=1, prenewal=.8,
 #                  quality_threshold=.2, new_node=.0, del_node=.0, max_evts=1){

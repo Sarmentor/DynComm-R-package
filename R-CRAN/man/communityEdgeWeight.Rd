@@ -3,10 +3,10 @@
 \docType{methods}
 \name{communityEdgeWeight}
 \alias{communityEdgeWeight}
+\alias{DynComm.communityEdgeWeight}
 \title{communityEdgeWeight(source,destination)}
 \usage{
-communityEdgeWeight(source,destination)
-communityEdgeWeight(dyncomm,source,destination)
+DynComm.communityEdgeWeight(dyncomm,source,destination)
 }
 \arguments{
 \item{dyncomm}{A DynComm object, if not using the inline version of the 
@@ -22,7 +22,8 @@ a floating point number with the weight
 }
 \description{
 Get the weight of the edge that goes from source community to destination 
-community after the last iteration.
+community from the selected post processing algorithm or the main algorithm, 
+after the last iteration.
 }
 \examples{
 \dontrun{
@@ -34,6 +35,9 @@ dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
 communityEdgeWeight(dc,12,42)
 }
 
+}
+\seealso{
+\code{\link{DynComm}} , \code{\link{postProcess}}
 }
 \author{
 poltergeist0

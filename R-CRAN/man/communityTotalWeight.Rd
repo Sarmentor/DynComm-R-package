@@ -3,10 +3,10 @@
 \docType{methods}
 \name{communityTotalWeight}
 \alias{communityTotalWeight}
+\alias{DynComm.communityTotalWeight}
 \title{communityTotalWeight(community)}
 \usage{
-communityTotalWeight(community)
-communityTotalWeight(dyncomm,community)
+DynComm.communityTotalWeight(dyncomm,community)
 }
 \arguments{
 \item{dyncomm}{A DynComm object, if not using the inline version of the 
@@ -18,8 +18,8 @@ function call}
 a floating point number with the weight
 }
 \description{
-Get the sum of weights of all edges of the given community after the last 
-iteration.
+Get the sum of weights of all edges of the given community from the selected 
+post processing algorithm or the main algorithm, after the last iteration.
 }
 \examples{
 \dontrun{
@@ -31,6 +31,9 @@ dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
 communityTotalWeight(dc,1)
 }
 
+}
+\seealso{
+\code{\link{DynComm}} , \code{\link{postProcess}}
 }
 \author{
 poltergeist0

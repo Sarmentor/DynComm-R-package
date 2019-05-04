@@ -60,12 +60,16 @@ private:
 		  // COUT << i << " c1="<< algorithmParameters(i,0) << " c2="<< algorithmParameters(i,1)<< " \n";
 		  if(algorithmParameters(i,0)=="filename"){
 		    // COUT << i << " filename\n";
-		    char *a[]={"DynCommRcpp",algorithmParameters(i,1)};
-		    parse_args(2,a,p);
+		    // char *a[]={"DynCommRcpp",algorithmParameters(i,1)};
+		    // parse_args(2,a,p);
+		    // const char a='f';//algorithmParameters(i,1);
+		    parse_arg("f",std::string(algorithmParameters(i,1)),p);
 		  }
 		  else{
-			  char *a[]={"DynCommRcpp",algorithmParameters(i,0),algorithmParameters(i,1)};
-			  parse_args(3,a,p);
+			  // char *a[]={"DynCommRcpp",algorithmParameters(i,0),algorithmParameters(i,1)};
+			  // parse_args(3,a,p);
+			  // char *a[]={"DynCommRcpp",,};
+			  parse_arg(std::string(algorithmParameters(i,0)),std::string(algorithmParameters(i,1)),p);
 		  }
 		}
 		return p;

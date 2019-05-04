@@ -3,10 +3,10 @@
 \docType{methods}
 \name{time}
 \alias{time}
+\alias{DynComm.time}
 \title{time(differential=FALSE)}
 \usage{
-time()
-time(dyncomm)
+DynComm.time(dyncomm,differential)
 }
 \arguments{
 \item{dyncomm}{A DynComm object, if not using the inline version of the 
@@ -25,6 +25,9 @@ If the differential parameter is set, the time taken by the last iteration
 will be returned. Otherwise, the default behaviour is to, return the 
 accumulated time spent on processing since the creation of the DynComm 
 object.
+
+If post processing exists, the time returned by this function will include
+the processing time of all post processing algorithms up to the selected one.
 }
 \examples{
 \dontrun{
@@ -38,6 +41,9 @@ time(dc)
 ## 2.3
 }
 
+}
+\seealso{
+\code{\link{DynComm}} , \code{\link{postProcess}}
 }
 \author{
 poltergeist0
