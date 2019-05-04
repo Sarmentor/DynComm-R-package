@@ -1,12 +1,12 @@
 R Package 
 
-R/dyncomm
+R/DynComm
 
-R/dyncomm is an R package for Dynamic Network Community Detection
+R/DynComm is an R package for Dynamic Network Community Detection
 
 - Installation
 
-You can install the stable version of R/dyncomm from CRAN:
+You can install the stable version of R/DynComm from CRAN:
 
 install.packages("DynComm")
 
