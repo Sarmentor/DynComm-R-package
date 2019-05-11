@@ -7,6 +7,14 @@
 # New post processing algorithms should have their name added to the list 
 # POSTPROCESSING and its calls in the if clause of the algorithms function.
 #
+# A template for post processing algorithms is provided as a file named 
+# "TemplateDynCommPostProcess.R" and can be found in the dev folder in the
+# project source page on GitHub.
+#
+# More developer information can be found in the project source page on GitHub at
+# https://github.com/softskillsgroup/DynComm-R-package
+#
+#
 # Author: poltergeist0
 # Date: 2019-01-01
 
@@ -39,11 +47,15 @@ source ("R/DensityOPT2.R")
 #' 
 #' @format A named list with the names of the available algorithms:
 #'  \describe{
-#'    \item{DENSOPT}{Density optimization.
-#'             @references \insertRef{Sarmento2019Apr}{DynComm}
-#'          }
+#'    \item{DENSOPT}{
+#'      Density optimization.\cr
+#'      See \code{\link{DensOpt}}\cr
+#'      @references \insertRef{Sarmento2019Apr}{DynComm}
+#'    }
 #'  }
 #'  
+#' @seealso \code{\link{DynComm}}
+#' 
 #' @examples
 #' POSTPROCESSING$DENSOPT
 #' 
@@ -110,6 +122,8 @@ POSTPROCESSING <- list(
 #'    \item{VERTICES}{Get all vertices belonging to the given community after the last iteration. See \code{\link{vertices}}}
 #'  }
 #'  
+#' @seealso \code{\link{DynComm}}
+#' 
 # @examples
 # APIFUNCTIONS$
 #' 
@@ -156,7 +170,7 @@ APIFUNCTIONS <- list(
 #'
 #' @rdname DynCommPostProcess
 #' 
-#' @docType class
+# @docType class
 #' 
 #' @usage DynCommPostProcess(postProcessing, id, previous, Parameters)
 #' 
@@ -169,6 +183,8 @@ APIFUNCTIONS <- list(
 #'
 #' @return \code{DynCommPostProcess} object
 #'
+#' @seealso \code{\link{DynComm}}
+#' 
 # @export
 #'
 #' @examples
@@ -717,7 +733,7 @@ DynCommPostProcess <- function(postProcessing=POSTPROCESSING$NONE, id=1, previou
         #return from the previous object
         if(is.null(prv)){
           #should never get here. There is always a previous
-          return(matrix(data=c(NA,NA),ncol=2,byrow = TRUE,dimnames = c("name","value")))
+          return(matrix(data=c(NA,NA),ncol=2,byrow=TRUE,dimnames = list(c(),c("vertex","community"))))
         }
         else{# there is a previous
           if(is(prv,"DynCommMain")){ #is main algorithm

@@ -5,12 +5,19 @@
 # Internally, it dispatches calls to objects that implement the API and do the 
 # actual work.
 #
-# There should never be any reason to change it unless the API or the user 
-# interface changes.
+# There should never be any reason to change it unless the API, the user 
+# interface changes or library imports need to be added.
+#
+# Libraries required by algorithms should be listed using roxygen after the 
+# marker that says "List imports here"
 #
 # Main algorithms are handled by the DynCommMain object. Post processing
 # algorithms are handled by the DynCommPostProcess object. Changes should be in
 # those objects. They can be found in the files with the same name as the object.
+#
+# More developer information can be found in the project source page on GitHub at
+# https://github.com/softskillsgroup/DynComm-R-package
+#
 #
 # Author: poltergeist0
 # Date: 2019-01-01
@@ -18,8 +25,6 @@
 
 ########################### Package Documentation ###########################
 #' @name DynComm-package
-#' 
-# @aliases dyncomm-package Dyncomm-package
 #' 
 #' @title DynComm: Dynamic Network Communities Detection
 #' 
@@ -36,7 +41,10 @@
 #' the communities are calculated without recalculating communities for the 
 #' entire graph.
 #' 
+#' @rdname DynComm-package
+#' 
 #' @docType package
+########################### List imports here ###########################
 #' @import Rcpp methods
 #' @importFrom Rdpack reprompt
 #' @importFrom utils write.table
@@ -46,12 +54,132 @@
 #' This package uses the following work as reference material for the 
 #' implementation of the algorithms.
 #' @references
+#' \href{https://github.com/softskillsgroup/DynComm-R-package}{GitHub project source}
 #' \insertRef{cordeiro2016dynamic}{DynComm}
 #' \insertRef{Rossetti:2017:TOA:3127967.3128003}{DynComm}
 #' \insertRef{RG17}{DynComm}
 #' \insertRef{Sarmento2019Apr}{DynComm}
 #' 
-#' @seealso \code{\link{DynComm}}
+#' @seealso \code{\link{DynComm}} , \code{\link{DynComm-package-dev}}
+#' 
+#' 
+NULL
+
+########################### Package Developer Documentation ###########################
+#' @name DynComm-package-dev
+#' 
+#' @title DynComm Documentation for Developers
+#' 
+#' @author poltergeist0
+#' 
+#' @rdname DynComm-package-dev
+#' 
+#' @docType class
+#' 
+#' @description 
+#' Instructs delevopers how to add new algorithms, criterion and post processing
+#' algorithms to the DynComm package.
+#' 
+#' @details 
+#' Implementing new algorithms in new packages is a lot of work.
+#' 
+#' With this package, we try to accomplish two things: make the addition of new 
+#' algorithms easier and concentrate dynamic community detection algorithms in a
+#' single package, no matter the language used to write them.
+#' 
+#' Always read the entirety of the instructions even if they do not seem to apply 
+#' to your case. Care was taken to make the instructions as general as possible, 
+#' mentioning specificities only when they differ from the general case.
+#' 
+#' Most of the instructions described are for algorithms writen in R, since it is 
+#' the language used for the user interface and is the easiest to integrate.
+#' 
+#' Algorithms writen in other languages will also need this information in order 
+#' to know the types of the inputs and outputs of the functions.
+#' 
+#' It is advisable to always read the "Developer Notice" on the beginning of the 
+#' files mentioned in these instructions. It will contain useful information about
+#' the source code on the file and where new code can be added.
+#' 
+#' Whenever "Project", "Project Page" or "Project source" is mentioned, the 
+#' developer should know that it refers to the project source code page on 
+#' GitHub (\href{https://github.com/softskillsgroup/DynComm-R-package}{GitHub project source}).
+#' 
+#' The project source has the following organization:
+#' \describe{
+#'   \item{\strong{Root}}{
+#' This is the root folder of the project source code.
+#' It contains files about the project source code and the folders "dev", "R-CRAN", 
+#' "test" and "standalone".
+#'     \describe{
+#'       \item{\strong{dev}}{
+#' Folder with templates for developers of new main algorithms, new criterion and 
+#' new post processing algorithms. Also contains these instructions in text 
+#' format.
+#'       }
+#'       \item{\strong{R-CRAN}}{
+#' Contains the source code for the actual DynComm package. Internally, has the 
+#' same organization as required by any R package project. The most important 
+#' folders are named "inst", "src" and "R".
+#'         \describe{
+#'           \item{\strong{inst}}{
+#' Contains a file named "REFERENCES.bib" where bibliographic references are 
+#' stored using the bibtex format.
+#'           }
+#'           \item{\strong{src}}{
+#' The root of this folder contains files in other languages that implement an
+#' interaction layer between R and the respective programming language. The actual
+#' source code that implements a certain algorithm is placed inside a sub-folder
+#' named after the programming language inside the folder "base".\cr
+#' As an example, the Dynamic Louvain algorithm used in this package was 
+#' implemented in C++11. There is a file named "DynCommRcpp.cpp" which
+#' implements the interaction layer using Rcpp. This layer only converts data 
+#' types from R to C++, instantiates a Louvain object and redirects calls to 
+#' methods of that object on the C++ source file named "DynCommBase.h".
+#'           }
+#'           \item{\strong{R}}{
+#' This is the folder that contains all R source code files where the architecture 
+#' of the package is implemented, along with some main algorithms and post 
+#' processing algorithms, and all the documentation.\cr
+#' Some of the adaptation layers for some programming languages, like Python, are 
+#' in this folder since they must be implemented inside an R source file, as 
+#' opposed to programming languages like C++ where Rcpp must be inside a C++ 
+#' source code file.
+#'           }
+#'         }
+#'       }
+#'       \item{\strong{test}}{
+#' Folder with a few sample files with data that can be used to run examples and 
+#' test the code.
+#'       }
+#'       \item{\strong{standalone}}{
+#' Contains the standalone (command line) versions of the algorithms, for the 
+#' algorithms that provide them, in case anyone wants to run the algorithms 
+#' outside of the R environment.\cr
+#' Each program is inside a folder with the name of the programming language used
+#' to implement it. As an example, C++ programs are inside a folder named "Cpp".\cr
+#' Not all algorithms may be implemented and some functionality might be slightly
+#' different from the one used in the R environment.
+#' Post processing algorithms are not provided.
+#'       }
+#'     }
+#'   }
+#' }
+#' 
+#' In case of doubt, missing information or if you are implementing in a language 
+#' that is still not supported, contact the maintainer of the package.
+#' 
+#' Follow the instructions of the links below in order to add your main algorithm,
+#' criterion or post processing algorithm, respectively. 
+#' 
+#' @section I am implementing a:
+#' \describe{
+#'   \item{Main algorithm}{See \code{\link{ALGORITHM-dev}}}
+#'   \item{Criterion}{See \code{\link{CRITERION-dev}}}
+#'   \item{Post processing algorithm}{See \code{\link{POSTPROCESSING-dev}}}
+#' }
+#' 
+#' @seealso \code{\link{DynComm}} , \code{\link{DynComm-package}}
 #' 
 #' 
 NULL
@@ -115,12 +243,19 @@ source('R/DynCommPostProcess.R')
 #' ,ncol=2,byrow=TRUE)
 #' )
 #' ## or
-#' ## dc$addRemoveEdgesFile("initial_graph.txt")
+#' ## dc$addRemoveEdges("initial_graph.txt")
 #' dc$communityCount()
-#' ## you can use the non inline version of the functions
+#' ## You can use the non inline version of the functions
 #' DynComm.communities(dc)
-#' dc$communityNodeCount(1)
-#' dc$vertices(1)
+#' ## Several alias have been defined.
+#' ## In this case, communityNodeCount is alias of communityVertexCount
+#' dc$communityNodeCount(10)
+#' dc$communityNeighbours(10)
+#' dc$communityInnerEdgesWeight(10)
+#' dc$communityTotalWeight(10)
+#' dc$communityEdgeWeight(10,40)
+#' dc$community(10) ##this parameter is a vertex not a community. Do not confuse them 
+#' dc$vertices(10)
 #' dc$communityMapping(TRUE)
 #' dc$quality()
 #' dc$time()
@@ -174,19 +309,19 @@ source('R/DynCommPostProcess.R')
 #' The first column names the parameter and the second defines its value.
 #' \describe{
 #'   \item{
-#'   -c
+#'   c
 #'   }{
 #'   Owsinski-Zadrozny quality function parameter. 
 #'   Values [0.0:1.0]. Default: 0.5
 #'   }
 #'   \item{
-#'   -k
+#'   k
 #'   }{
 #'   Shi-Malik quality function kappa_min value. 
 #'   Value > 0 . Default 1
 #'   }
 #'   \item{
-#'   -w
+#'   w
 #'   }{
 #'   Treat graph as weighted. In other words, do not ignore weights for edges 
 #'   that define them when inserting edges in the graph.
@@ -201,7 +336,7 @@ source('R/DynCommPostProcess.R')
 #'   Values TRUE,FALSE. Default FALSE
 #'   }
 #'   \item{
-#'   -e
+#'   e
 #'   }{
 #'   Stops when, on a cycle of the algorithm, the quality is increased by less 
 #'   than the value given in this parameter.
@@ -221,7 +356,16 @@ DynComm <- function(Algorithm=ALGORITHM$LOUVAIN,Criterion=CRITERION$MODULARITY,P
   thisEnv <- environment()
   
   ########## constructor #############
-  alg <- DynCommMain(Algorithm,Criterion,Parameters)  #main algorithm
+  prm <- NULL
+  if(is.null(Parameters) || !is.matrix(Parameters) || ncol(Parameters)!=2){
+    # not a valid parameters matrix. Use default values for all parameters
+    prm<-matrix(c("c",0.5,"k",1,"e","0.000001","w", "FALSE"),ncol=2, byrow=TRUE)
+  }
+  else{
+    # is valid matrix
+    prm<-Parameters
+  }
+  alg <- DynCommMain(Algorithm,Criterion,prm)  #main algorithm
   pst <- POSTPROCESSING$NONE  #post processing flag redirects function calls to post processing object. Set to NONE on add/remove edge
   pstid <- 1
   act <- NULL   #list of actions and their parameters to recreate after adding/removing edges. It is delayed until requested.
@@ -265,19 +409,19 @@ DynComm <- function(Algorithm=ALGORITHM$LOUVAIN,Criterion=CRITERION$MODULARITY,P
         else{#actions exist
           # if there is more than the main algorithm, get biggest id for the current action
           if(!is(prc,"DynCommBase")){
-            q<-prc$exists(cnt,i)
+            q<-prc$exists(cnt[1],i)
             # increment id while a post processing object of the given type exists
             while(q){
               i<-i+1
-              q<-prc$exists(cnt,i)
+              q<-prc$exists(cnt[1],i)
             }
           }
         }
         # select the latest post processing algorithm and id as default for posterior user operations
-        assign("pst", cnt,thisEnv)
+        assign("pst", cnt[1],thisEnv)
         assign("pstid", i,thisEnv)
         # create post processing object and assign it to the end of the queue
-        tmp <- DynCommPostProcess(pst,pstid,prc,NULL) #TODO pass parameters to post processing
+        tmp <- DynCommPostProcess(pst,pstid,prc,cnt[2]) #TODO pass parameters to post processing
         if(is.null(tmp)){
           #TODO improve error message
           print("Invalid post processing")

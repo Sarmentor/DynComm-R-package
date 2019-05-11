@@ -10,8 +10,15 @@
 # New criterion should have their name added to the list of criterion
 # (CRITERION).
 #
+# More developer information can be found in the project source page on GitHub at
+# https://github.com/softskillsgroup/DynComm-R-package
+#
+#
 # Author: poltergeist0
 # Date: 2019-01-01
+
+source("R/ALGORITHM.R")
+source("R/CRITERION.R")
 
 ########################### Include R sources here ###########################
 #source("something.R")
@@ -33,16 +40,20 @@
 #'
 #' @usage ALGORITHM
 #' 
+########## document new algorithms here #############
 #' @format A named list with the names of the available algorithms:
 #'  \describe{
-#'    \item{LOUVAIN}{is a greedy optimization method to extract communities 
-#'             from large networks by optimizing the density of edges 
-#'             inside communities to edges outside communities.
-#'             @references \insertRef{cordeiro2016dynamic}{DynComm}
-#'               
-#'          }
+#'    \item{LOUVAIN}{
+#'      is a greedy optimization method to extract communities from large networks 
+#'      by optimizing the density of edges inside communities to edges outside 
+#'      communities. \cr
+#'      See \code{\link{ALGORITHM_LOUVAIN}}\cr
+#'      @references \insertRef{cordeiro2016dynamic}{DynComm}
+#'    }
 #'  }
 #'  
+#' @seealso \code{\link{DynComm}}
+#' 
 #' @examples
 #' ALGORITHM$LOUVAIN
 # ALGORITHM$TILES
@@ -88,10 +99,15 @@ ALGORITHM <- list(
 #' 
 #' @format A named list with the names of the available CRITERION:
 #' \describe{
-#'   \item{MODULARITY}{Newman-Girvan}
+#'  \item{MODULARITY}{
+#'    Newman-Girvan \cr
+#'    See \code{\link{CRITERION_MODULARITY}}
+#'  }
 #   \item{BALMOD}{Balanced Modularity}
 #'}
 #'  
+#' @seealso \code{\link{DynComm}}
+#' 
 #' @examples
 #' CRITERION$MODULARITY
 # CRITERION$BALMOD
@@ -110,7 +126,7 @@ CRITERION <- list(
 #' 
 #' @keywords internal
 #' 
-#' @aliases Dyncommmain dyncommmain
+# @aliases Dyncommmain dyncommmain
 #' 
 #' @title DynCommMain
 #'
@@ -126,7 +142,7 @@ CRITERION <- list(
 #'
 #' @rdname DynCommMain
 #' 
-#' @docType class
+# @docType class
 #' 
 #' @usage DynCommMain(Algorithm,Criterion,Parameters)
 #' 
@@ -139,6 +155,8 @@ CRITERION <- list(
 #'
 #' @return \code{DynCommMain} object
 #'
+#' @seealso \code{\link{DynComm}}
+#' 
 # @export
 #'
 #' @examples
@@ -518,7 +536,7 @@ DynCommMain <- function(Algorithm,Criterion,Parameters)
         return(dc$communityMappingMatrix(differential))
       }
       else{
-        return(matrix(data=c(NA,NA),ncol=2,byrow=TRUE,dimnames = c("name","value")))
+        return(matrix(data=c(NA,NA),ncol=2,byrow=TRUE,dimnames = list(c(),c("vertex","community"))))
       }
     },
     
@@ -534,7 +552,7 @@ DynCommMain <- function(Algorithm,Criterion,Parameters)
         return(dc$communityMappingFile(differential,file))
       }
       else{
-        return(matrix(data=c(NA,NA),ncol=2,byrow=TRUE,dimnames = c("name","value")))
+        return(matrix(data=c(NA),nrow=1,ncol=1,byrow=TRUE,dimnames = c("reply")))
       }
     },
     

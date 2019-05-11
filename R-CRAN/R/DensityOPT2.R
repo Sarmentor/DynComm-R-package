@@ -8,16 +8,7 @@
 #
 # Date: 2019-01-01
 
-
 # library(igraph) #cannot use library in packages http://r-pkgs.had.co.nz/namespace.html#namespace
-
-#example
-# g <-erdos.renyi.game(135, 5/135, directed = TRUE)
-# summary(g)
-# res.comm <- walktrap.community(g)
-# res.list <- densopt(graph=g, graph.directed = TRUE, comms = res.comm, type.names= "num")
-# write.table(res.list$new.comms)
-
 
 #' @name DensOpt
 #' 
@@ -33,7 +24,7 @@
 #' Implementation of the density optimization algorithm as a post processing
 #' algorithm.
 #' 
-# @details 
+#' @details 
 #' 
 #'
 #' @rdname DensOpt
@@ -49,6 +40,24 @@
 #'
 #' @return \code{DensOpt} object
 #'
+#' @section Performance:
+#' \describe{
+#'   \item{Initialization}{
+#'   Uses a matrix with three columns and a maximum of verticelAll()^2 rows 
+#'   with the edges between vertices and their weight (vertex<->vertex<->weight)
+#'   of the original graph.
+#'   Temporarily stores a copy of the graph to calculate a new community mapping.
+#'   }
+#'   \item{Results}{
+#'   Uses a matrix with two columns and verticesAll() rows with the new community
+#'   mapping (vertex<->community).
+#'   Uses a matrix with three columns and a maximum of 
+#'   communityCount()^2+communityCount() rows with the edges between communities 
+#'   and their weight (community<->community<->weight).
+#'   }
+#' }
+#' 
+# do not export this object. It is only for internal use of the algorithm
 # @export
 #'
 #' @examples
@@ -75,6 +84,12 @@ DensOpt <- function(dyncomm, Parameters=NULL)
   thisEnv <- environment()
   
   densoptInternal <- function(){
+    directed = TRUE
+    names= "num"  # c("num","alfa")
+    mygraph <- igraph::make_empty_graph(prv$vertexCount(), directed)
+    mygraph <- igraph::add_edges(mygraph,edg)
+    igraph::E(mygraph)$weight=as.numeric(we)
+    comms <- igraph::make_clusters(mygraph, membership = igraph::as_membership(cmm), algorithm = "DynComm", merges = NULL, modularity = TRUE)
     
     Density.df.results <- data.frame("meanOld"=c(),"mean"=c(),"modOld"=c(),"mod"=c(),stringsAsFactors = FALSE)
     n.comms <- max(igraph::membership(comms))
@@ -150,12 +165,21 @@ DensOpt <- function(dyncomm, Parameters=NULL)
     assign("mean",mean(optimized.comm.density, na.rm = TRUE),thisEnv)
     assign("modOld",igraph::modularity(mygraph, df.comms.old[,2]),thisEnv)
     assign("mod",igraph::modularity(mygraph, df.comms[,2]),thisEnv)
-    assign("commsNew",df.comms,thisEnv)
+    # assign("commsNew",df.comms,thisEnv)
+    # print(df.comms)
+    # print(matrix(data=df.comms,ncol=2,byrow=TRUE,dimnames = list(c(),c("vertex","community"))))
+    # print(data.matrix(df.comms))
+    commsNew<-data.matrix(df.comms)
+    colnames(commsNew) <-c("vertex","community")
+    assign("commsNew",commsNew,thisEnv)
     
     return(TRUE)
   }
   
   communityCommunityMapping<-function(){
+    edg<-matrix(edg,ncol=2,byrow=TRUE,dimnames = NULL)
+    edg<-cbind(edg,we,deparse.level = 0)
+    we<-NULL
     #unique communities
     uni<-unique(commsNew[,2])
     len<-length(uni)
@@ -182,7 +206,13 @@ DensOpt <- function(dyncomm, Parameters=NULL)
       srcc<-commsNew[commsNew[,1]==src,2]
       dstc<-commsNew[commsNew[,1]==dst,2]
       #get line with entry
-      c<-which(apply(ec, 1, function(x) identical(x[1:2], c(srcc,dstc))))
+      # c<-which(apply(ec, 1, function(x) identical(x[1:2], c(srcc,dstc))))
+      c<-which(apply(ec, 1, function(x){x[1]==srcc && x[2]==dstc}))
+      # print(cnt)
+      # print(edg[cnt,])
+      # print(commsNew[commsNew[,1]==src,])
+      # print(commsNew[commsNew[,1]==dst,])
+      # print(c)
       if(length(c)==0){#still no entry
         ec[i,1]<-srcc
         ec[i,2]<-dstc
@@ -190,8 +220,10 @@ DensOpt <- function(dyncomm, Parameters=NULL)
         i<-i+1
       }
       else{#entry exists
+        # print(ec[c,])
         ec[c,3]<-ec[c,3]+wei #increment weight
       }
+      # print(ec)
     }
     #store community maping
     assign("edgcc",ec,thisEnv)
@@ -201,9 +233,7 @@ DensOpt <- function(dyncomm, Parameters=NULL)
     }
     #assign back to environment
     assign("commsNew",commsNew,thisEnv)
-    #clean unnecessary variables
-    edg<-NULL
-    
+
     return(TRUE)
   }
   
@@ -220,10 +250,8 @@ DensOpt <- function(dyncomm, Parameters=NULL)
     # TODO validate parameters
     assign("prm",Parameters,thisEnv)
   }
+  # TODO check NULL or empty graph
   #inputs to function
-  directed = TRUE
-  names= "num"  # c("num","alfa")
-  mygraph <- igraph::make_empty_graph(prv$vertexCount(), directed)
   edg <- c()
   we<-c()
   cmm <- c()
@@ -236,12 +264,15 @@ DensOpt <- function(dyncomm, Parameters=NULL)
     }
     cmm <- c(cmm, prv$community(n))
   }
-  mygraph <- igraph::add_edges(mygraph,edg)
-  igraph::E(mygraph)$weight=as.numeric(we)
-  comms <- igraph::make_clusters(mygraph, membership = igraph::as_membership(cmm), algorithm = "DynComm", merges = NULL, modularity = TRUE)
-  edg<-matrix(edg,ncol=2,byrow=TRUE,dimnames = NULL)
-  edg<-cbind(edg,we,deparse.level = 0)
-  we<-NULL
+  # directed = TRUE
+  # names= "num"  # c("num","alfa")
+  # mygraph <- igraph::make_empty_graph(prv$vertexCount(), directed)
+  # mygraph <- igraph::add_edges(mygraph,edg)
+  # igraph::E(mygraph)$weight=as.numeric(we)
+  # comms <- igraph::make_clusters(mygraph, membership = igraph::as_membership(cmm), algorithm = "DynComm", merges = NULL, modularity = TRUE)
+  # edg<-matrix(edg,ncol=2,byrow=TRUE,dimnames = NULL)
+  # edg<-cbind(edg,we,deparse.level = 0)
+  # we<-NULL
   #outputs from function
   meanOld <- NULL
   mean <- NULL
@@ -254,16 +285,19 @@ DensOpt <- function(dyncomm, Parameters=NULL)
   if(!b){
     #failed to process.
     print("TODO... Processing failed.")
-    # end_time <- floor(as.numeric(Sys.time())*1000000000) #nanoseconds
     return(NULL)
   }
   else{
     b<-communityCommunityMapping()
-    # end_time <- floor(as.numeric(Sys.time())*1000000000) #nanoseconds
     if(!b){
       return(NULL)
     }
   }
+  #clean unnecessary variables after calculations
+  edg<-NULL
+  cmm<-NULL
+  we<-NULL
+  # TODO: optimize commsNew and edgcc away if the community mapping has not changed
   
   ## Create the list used to represent an object for this class
   me <- list(
@@ -333,11 +367,16 @@ DensOpt <- function(dyncomm, Parameters=NULL)
       }
     },
     
-    #get additional results. Returns 2 column matrix with name of result and value
+    #' 
+    #'   \item{results(differential)}{Get additional results of the algorithm or the currently selected post processing steps. See \code{\link{results}}}
+    #'   
     results = function(){#postProcessing,ID=1){
       return(matrix(data=c("old modularity",modOld,"new modularity",mod,"old mean", meanOld,"new mean", mean),ncol=2,byrow = TRUE))
     },
 
+    #' 
+    #'   \item{quality()}{Get the quality measurement of the graph after the last iteration. See \code{\link{quality}}}
+    #'   
     quality=function(){#postProcessing,ID=1){
       return(mod)
     },
