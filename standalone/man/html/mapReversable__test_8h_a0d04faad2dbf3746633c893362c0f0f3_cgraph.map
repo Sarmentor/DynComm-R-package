@@ -1,0 +1,7 @@
+<map id="mapReversable_test" name="mapReversable_test">
+<area shape="rect" id="node2" href="$classMapReversable.html#a2d4fbdc1aae7e5e53cf58c6bea63b450" title="MapReversable::add" alt="" coords="218,5,361,32"/>
+<area shape="rect" id="node3" href="$classMapReversable.html#aa4338f7c831e5a404758f88e80d13672" title="MapReversable::remove" alt="" coords="207,56,371,83"/>
+<area shape="rect" id="node4" href="$classMapReversable.html#a2d70db0cb1f28dc57a7efe9da6155f63" title="MapReversable::replace" alt="" coords="208,107,371,133"/>
+<area shape="rect" id="node5" href="$classMapReversable.html#a9dd692e3862043c5cc02cfb9e003cf19" title="MapReversable::replaceKey" alt="" coords="196,157,383,184"/>
+<area shape="rect" id="node6" href="$classMapReversable.html#abe3209382ad36fc387e44df42bf47477" title="MapReversable::toString" alt="" coords="206,208,373,235"/>
+</map>

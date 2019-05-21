@@ -1,0 +1,5 @@
+<map id="GraphUndirected::removeEdge" name="GraphUndirected::removeEdge">
+<area shape="rect" id="node2" href="$classEdge.html#ac1389c34d05a890f9fd84dacba3df06b" title="Edge::destination" alt="" coords="255,5,377,32"/>
+<area shape="rect" id="node4" href="$classEdge.html#ad949d0cbd81ca43e8043b066b0d167d3" title="Edge::source" alt="" coords="267,56,365,83"/>
+<area shape="rect" id="node3" href="$classHalfEdge.html#a98c0fb1c54506abbd3c0ac4a1264dac1" title="HalfEdge::destination" alt="" coords="425,5,572,32"/>
+</map>

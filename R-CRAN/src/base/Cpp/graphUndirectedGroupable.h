@@ -1,9 +1,18 @@
-/*
- * GraphGroupable.h
+/************************************************************************
+ ************************* Developer Notice *****************************
+ ************************************************************************
+ * @details
  *
- *  Created on: 19/08/2018
- *      Author: poltergeist0
- */
+ * Groupable Undirected Graph implementation for DynComm implemented in
+ * C++11.
+ *
+ *
+ * @author poltergeist0
+ *
+ * @date 2018-08-19
+ ************************************************************************
+ ************************************************************************
+ ************************************************************************/
 
 #ifndef GRAPHUNDIRECTEDGROUPABLE_H_
 #define GRAPHUNDIRECTEDGROUPABLE_H_
@@ -14,69 +23,168 @@
 #include "graphUndirected.h"
 #include "setUtilities.h"
 
+/**
+ * @brief Data type definition for a single community
+ * @details The community and vertex data types must be interchangeable but this
+ * might change in the future so define as a different data type.
+ */
 typedef typeVertex typeCommunity;
-//typedef long typeCommunity;
 
+/**
+ * @brief Indexed community list by vertex
+ */
 typedef MapReversable<typeVertex,typeCommunity> typeCommunityList;
 
 /**
- * std::map<typeNode,typeCommunity>::const_iterator
+ * @brief Indexed community list constant iterator
+ * @details
+ * Expanded type:
+ * std::map<typeVertex,typeCommunity>::const_iterator
  */
 typedef typeCommunityList::const_iterator typeCommunityListIteratorConst;
 
 /**
- * std::pair<typeNode,typeCommunity>
+ * @brief Indexed community list pair as returned by the iterator
+ * @details
+ * Expanded type:
+ * std::pair<typeVertex,typeCommunity>
  */
 typedef typeCommunityList::typePair typeCommunityListPair;
 
 /**
- * std::multimap<typeCommunity,typeNode>::const_iterator
+ * @brief Indexed community list constant reverse iterator
+ * @details
+ * Expanded type:
+ * std::multimap<typeCommunity,typeVertex>::const_iterator
  */
 typedef typeCommunityList::range_iterator_const typeCommunityListRangeIteratorConst;
 
 /**
- * std::pair<std::multimap<typeCommunity,typeNode>::const_iterator,std::multimap<typeCommunity,typeNode>::const_iterator>
+ * @brief Indexed community list range
+ * @details
+ * Defines a pair with two constant reverse iterators to the beginning and end
+ * of the range.
+ * If the iterators are identical, the list is empty.
+ * The pair can change between calls if the list is modified.
+ * Expanded type:
+ * std::pair<std::multimap<typeCommunity,typeVertex>::const_iterator,std::multimap<typeCommunity,typeVertex>::const_iterator>
  */
 typedef typeCommunityList::typeRange typeCommunityListRange;
 
 /**
- * std::pair<typeCommunity,typeNode>
+ * @brief Indexed community list range pair as returned by the reverse iterator
+ * @details
+ * Expanded type:
+ * std::pair<typeCommunity,typeVertex>
  */
 typedef typeCommunityList::typeRangePair typeCommunityListRangePair;
 
+/**
+ * @brief Indexed community weight list
+ * @details Optimization data type used to store the sum of weights of a community
+ */
 typedef std::map<typeCommunity, typeWeight> typeCommunityEdges;
+
+/**
+ * @brief Indexed community weight list iterator
+ */
 typedef std::map<typeCommunity, typeWeight>::iterator typeCommunityEdgesIterator;
+
+/**
+ * @brief Indexed community weight list pair as returned by the iterator
+ */
 typedef std::pair<typeCommunity, typeWeight> typeCommunityEdgesPair;
+
+/**
+ * @brief Indexed community weight list constant iterator
+ */
 typedef std::map<typeCommunity, typeWeight>::const_iterator typeCommunityEdgesIteratorConst;
+
+/**
+ * @brief Indexed community weight list range
+ * @details
+ * Defines a pair with two iterators to the beginning and end of the range.
+ * If the iterators are identical, the list is empty.
+ * The pair can change between calls if the list is modified.
+ */
 typedef std::pair<typeCommunityEdgesIterator,typeCommunityEdgesIterator> typeCommunityEdgesRange;
+
+/**
+ * @brief Indexed community weight list constant range
+ * @details
+ * Defines a pair with two constant iterators to the beginning and end of the range.
+ * If the iterators are identical, the list is empty.
+ * The pair can change between calls if the list is modified.
+ */
 typedef std::pair<typeCommunityEdgesIteratorConst,typeCommunityEdgesIteratorConst> typeCommunityEdgesRangeConst;
+
+/**
+ * @brief List of communities
+ */
 typedef std::set<typeCommunity> typeCommunities;
 
+/**
+ * special community that indicates NO COMMUNITY
+ */
 const typeCommunity noGroup=std::numeric_limits<typeCommunity>::max();
 
+/**
+ * @brief Groupable Undirected Graph.
+ *
+ * @details
+ * Class that implements a groupable undirected graph.
+ * When an edge is added/removed/modified, its mirror edge is also added/removed/modified.
+ * This means that, if an edge (A,B) is added, the edge (B,A) is also added.
+ * Also, vertices can be individually assigned to groups and, those groups, form
+ * an higher level view of the graph, being itself a graph with edges and
+ * weights where the groups are vertices.
+ *
+ * @section Example of a graph:
+ *   lower level:
+ *     vertices: 1,2,3,4,5,6
+ *     edges: (1,2),(1,3),(2,3),(3,4),(4,5),(4,6),(5,6)
+ *     communities(vertex,community):(1,1),(2,1),(3,1),(4,4),(5,4),(6,4)
+ *   higher level:
+ *     vertices: 1,4
+ *     edges: (1,4)
+ *     communities(vertex,community):(1,1),(4,1)
+ *
+ *
+ * @author poltergeist0
+ *
+ * @date 2018-08-19
+ */
 class GraphUndirectedGroupable: public GraphUndirected{
 private:
-	/**
-	 * map used to keep the relation between the graph nodes and their communities
+	/*
+	 * map used to keep the relation between the graph vertices and their communities
 	 */
-	typeCommunityList n2c; // node to community association used on the first pass of the louvain algorithm
+	typeCommunityList n2c; // vertex to community association used on the first pass of the louvain algorithm
 
-	/**
-	 * number of links inside community
+	/*
+	 * number of edges inside community
 	 */
 	typeCommunityEdges inner;
 
-	/**
+	/*
 	 * optimization
 	 * total number of links of community
 	 */
 	typeCommunityEdges total;
 
-	GraphUndirected cc;//community to community mapping
+	/*
+	 * community to community mapping
+	 */
+	GraphUndirected cc;
 
 
 private:
 
+	/**
+	 *
+	 * @param com
+	 * @return the smallest number used as a vertex in the given community
+	 */
 	typeVertex minimumNode(const typeCommunity & com){
 		typeCommunityListRange p= n2c.keys(com);
 		typeVertex min=noVertex;
@@ -95,25 +203,20 @@ private:
 	}
 
 	/**
+	 * Update the weight of a community
 	 *
-	 * @param ce
-	 * @param com
-	 * @param weight
-	 * @param add
+	 * @param ce is the list of communities
+	 * @param com is the community to update
+	 * @param weight is the weight to add or update
+	 * @param add if true adds the given weight to the existing value. Otherwise, assigns the given weight
 	 * @return true if an update occurred. False if it was erased or does not exist
 	 */
 	bool update(typeCommunityEdges & ce, const typeCommunity & com, const typeWeight & weight, const bool & add=true){
-//		typeWeight ww=2*weight;
 		typeCommunityEdgesIterator it=ce.find(com);
 		if(it!=ce.end()){
-//			const typeCommunityEdgesPair & p=*it;
 			typeWeight w;
-//			if(add) w=2*(it->second/2+weight);
-//			else w=2*(it->second/2-weight);
 			if(add) w=(it->second+weight);
 			else w=(it->second-weight);
-//			if(innerEdge) w-=2*weight;
-//			else w-=*weight;
 			if(w==0){
 				ce.erase(it);
 			}
@@ -125,7 +228,6 @@ private:
 		else{
 			if(add){
 				if(weight!=0){
-//					ce.insert(std::make_pair(com,2*weight));
 					ce.insert(std::make_pair(com,weight));
 				}
 				return true;
@@ -135,10 +237,11 @@ private:
 	}
 
 	/**
+	 * Replace the name of a community
 	 *
-	 * @param ce
-	 * @param old
-	 * @param com
+	 * @param ce is the list of communities
+	 * @param old is the old community name
+	 * @param com is the new community name
 	 * @return true if old community existed and replacement succeeded. False if old community did not exist
 	 */
 	bool replace(typeCommunityEdges & ce, const typeCommunity & old,const typeCommunity & com){
@@ -154,6 +257,15 @@ private:
 
 public:
 
+	/**
+		 * Add an edge
+		 *
+		 * @param source
+		 * @param destination
+		 * @param weight Default value is one
+		 * @param replace if true and link exists, it replaces the weight, otherwise fails. Default value is false
+		 * @return true if the edge was added. False otherwise
+		 */
 	bool addEdge(const typeVertex & source, const typeVertex & destination, const typeWeight & weight=1.0, const bool & replace=false){
 		//get old weight of edge if it exists
 		typeWeight w=GraphUndirected::weight(source,destination);
@@ -179,7 +291,6 @@ public:
 					ww-=w;
 				}
 				if(source==destination) ww=ww/2;
-//				CERR << "graph add edge("<<source<<","<< destination<<"): com("<<cc1<<","<< cc2<<") ; wei="<<2*ww<< "\n";
 				bool b=update(total,cc1,2*ww,true);
 				if(b) update(inner,cc1,2*ww,true);
 				else inner.erase(cc1);
@@ -198,16 +309,24 @@ public:
 				}
 			}
 		}
-//		COUT << "graph post add edge: "<<toString();
 		return b;
 	}
 
+	/**
+	 * Add an edge
+	 *
+	 * @param edge
+	 * @param replace if true and link exists, it replaces the weight, otherwise fails. Default value is false
+	 * @return true if the edge was added. False otherwise
+	 */
 	bool addEdge(const Edge & edge, const bool & replace=false){return addEdge(edge.source(),edge.destination(),edge.weight(),replace);}
 
 	/**
-	 * Replace all occurrences of oldValue by newValue
+	 * Replace all vertex occurrences of oldValue by newValue
+	 *
 	 * @param oldValue
 	 * @param newValue
+	 * @return true if replacement succeeded
 	 */
 	bool replace(const typeVertex & oldValue, const typeVertex & newValue){
 		typeCommunityListIteratorConst a=n2c.value(oldValue);
@@ -227,8 +346,14 @@ public:
 		return GraphUndirected::replace(oldValue,newValue);
 	}
 
+	/**
+	 * remove an edge
+	 *
+	 * @param source
+	 * @param destination
+	 * @return true if the edge existed and was successfully removed
+	 */
 	bool removeEdge(const typeVertex & source, const typeVertex & destination){
-//		COUT << "graph pre remove edge: "<<toString();
 		typeWeight weight=GraphUndirected::weight(source,destination);
 		if(isnan(weight)){
 
@@ -239,7 +364,6 @@ public:
 			if(c1==c2){
 				typeWeight w=weight;
 				if(source==destination) w=weight/2;
-//				CERR << "graph remove edge("<<source<<","<< destination<<"): com("<<c1<<","<< c2<<") ; wei="<<2*w<< "\n";
 				bool b=update(total,c1,2*w,false);
 				if(b) update(inner,c1,2*w,false);
 				else inner.erase(c1);
@@ -254,36 +378,54 @@ public:
 			bool res=GraphUndirected::removeEdge(source,destination);
 			if(neighborsCount(source)==0) n2c.remove(source);
 			if(neighborsCount(destination)==0) n2c.remove(destination);
-//			COUT << "graph post remove edge: "<<toString();
 			return res;
 		}
-//		COUT << "graph post remove edge: "<<toString();
 		return false;
 	}
 
+	/**
+	 * @see{removeEdge(const typeVertex & source, const typeVertex & destination)}
+	 * @param edge
+	 * @return
+	 */
 	bool removeEdge(const Edge & edge){return removeEdge(edge.source(),edge.destination());}
 
+	/**
+	 *
+	 * @param c
+	 * @return the list of vertices of the given community
+	 */
 	typeCommunityListRange vertices(const typeCommunity & c)const{
 		return n2c.keys(c);
 	}
 
+	/**
+	 * @brief Disband the given community
+	 * @details Disbanding takes all vertices of a community and turns them into
+	 * individual communities.
+	 * Since the name of a community will match the name of a vertex, the given
+	 * community becomes a community of a single vertex.
+	 *
+	 * @param c
+	 * @param level
+	 */
 	void disband(const typeCommunity & c,const unsigned int & level=0){
-//		if(level==0){
-			typeCommunityListRange n=n2c.keys(c);
-			std::set<typeVertex> k;//temporary to store nodes. Needed since the iterators returned in the keys range are invalidated on first call to community(node,community)
-			for(typeCommunityListRangeIteratorConst it=n.first;it!=n.second;++it){
-				const typeCommunityListRangePair & p=*it;
-				const typeVertex & node=p.second;
-				k.insert(node);
-			}
-			for(std::set<typeVertex>::const_iterator it=k.cbegin();it!=k.cend();++it){
-				const typeVertex & node=*it;
-				community(node,node);
-			}
-//		}
-//		else
+		typeCommunityListRange n=n2c.keys(c);
+		std::set<typeVertex> k;//temporary to store nodes. Needed since the iterators returned in the keys range are invalidated on first call to community(node,community)
+		for(typeCommunityListRangeIteratorConst it=n.first;it!=n.second;++it){
+			const typeCommunityListRangePair & p=*it;
+			const typeVertex & node=p.second;
+			k.insert(node);
+		}
+		for(std::set<typeVertex>::const_iterator it=k.cbegin();it!=k.cend();++it){
+			const typeVertex & node=*it;
+			community(node,node);
+		}
 	}
 
+	/**
+	 * @return the list of all existing communities
+	 */
 	const typeCommunities communities()const{
 		typeCommunities c(cc.getVertices().begin(),cc.getVertices().end());
 		for(typeCommunityEdgesIteratorConst it=inner.cbegin();it!=inner.cend();++it){
@@ -292,23 +434,27 @@ public:
 		return c;
 	}
 
+	/**
+	 * @return the number of existing communities
+	 */
 	const typeWeight communityCount()const{return cc.vertexCount();}
 
 	/**
 	 *
 	 * @param node
-	 * @return the community of the given node or a special community of zero if the node does not exist
+	 * @return the community of the given vertex or a special community of noGRoup if the vertex does not exist
 	 */
 	const typeCommunity & community(const typeVertex & vertex)const{
 		typeCommunityListIteratorConst it=n2c.find(vertex);
 		if(it!=n2c.cend()){
 			return (*it).second;
 		}
-		return noGroup;//if node does not exist return special community zero
+		return noGroup;//if node does not exist return special group
 	}
 
 	/**
 	 * replace old community by new community on all vertices
+	 *
 	 * @param old is the old community
 	 * @param comm is the new community
 	 * @return true if the replacement succeeded
@@ -337,7 +483,6 @@ public:
 		const typeCommunity c=community(vertex);
 		if(c==noGroup) return false;
 		if(c==com)return true;
-//		COUT << "graph pre community("<<node<<","<< com<<"): "<<toString();
 		typeWeight a1=neighborsCommunityWeight(vertex,com);
 		typeWeight a2=neighborsCommunityWeight(vertex,c);
 		typeWeight w=neighborsWeight(vertex);
@@ -347,17 +492,14 @@ public:
 		update(inner,c,2*a2+in,false);
 		update(total,com,w+in,true);
 		update(total,c,w+in,false);
-//		COUT << "graph community update("<<node<<","<< com<<"): "<<toString();
 		const typeLinksRangeConst & nei=neighbors(vertex);
 		typeLinksIteratorConst it=nei.first;
 		while(it!=nei.second){
 			const typeLinksPair & p=*it;
 			++it;
-//			COUT << "graph community("<<vertex<<","<< com<<"): nei="<<p.first<<"\n";
 			if(p.first!=vertex)break;
 			const HalfEdge & he=p.second;
 			const typeVertex & dest=he.destination();
-//			COUT << "graph community nei("<<vertex<<","<< com<<"): nei("<<p.first<<","<< dest<<"\n";
 			if(dest!=vertex){
 				const typeWeight & wei=he.weight();
 				const typeCommunity & co=community(dest);
@@ -386,7 +528,6 @@ public:
 				}
 			}
 		}
-//		COUT << "graph community n2c\n";
 		bool b=n2c.add(vertex,com,true);
 		if(vertex==c){//node was the minimum of the community
 			typeVertex min=minimumNode(c);//determine new minimum
@@ -403,14 +544,19 @@ public:
 			inner.erase(c);
 			total.erase(c);
 		}
-//		COUT << "graph community min\n";
 		if(vertex<com){//vertex is the new minimum of the destination community
 			replaceCommunity(com,vertex);
 		}
-//	COUT << "graph post community: "<<toString();
 		return b;
 	}
 
+	/**
+	 * Get the sum of the weights of all edges of the given community where both
+	 * vertices of an edge belong to the given community.
+	 *
+	 * @param c
+	 * @return the sum of the weights of all inner edges
+	 */
 	typeWeight innerEdges(const typeCommunity & c)const {
 		typeCommunityEdgesIteratorConst it=inner.find(c);
 		if(it!=inner.cend()){
@@ -420,6 +566,12 @@ public:
 		return 0;
 	}
 
+	/**
+	 * Get the sum of the weights of all edges of the given community.
+	 *
+	 * @param c
+	 * @return the sum of the weights of all edges
+	 */
 	typeWeight totalEdges(const typeCommunity & c)const {
 		typeCommunityEdgesIteratorConst it=total.find(c);
 		if(it!=total.cend()){
@@ -429,18 +581,43 @@ public:
 		return 0;
 	}
 
+	/**
+	 * Get the communities that are neighbors of the given community
+	 *
+	 * @param com
+	 * @return the neighboring communities
+	 */
 	typeLinksRangeConst neighboringCommunities(const typeCommunity & com)const {
 		return cc.neighbors(com);
 	}
 
+	/**
+	 * Get the sum of the weights of the communities that are neighbors of the given community
+	 *
+	 * @param com
+	 * @return the sum of the weights of neighboring communities
+	 */
 	typeWeight neighboringCommunitiesWeight(const typeCommunity & com)const{
 		return cc.neighborsWeight(com);
 	}
 
+	/**
+	 * Get the number of communities that are neighbors of the given community
+	 *
+	 * @param com
+	 * @return the number of neighboring communities
+	 */
 	unsigned int neighboringCommunitiesCount(const typeCommunity & com)const {
 		return cc.neighborsCount(com);
 	}
 
+	/**
+	 * Get the weight of the edge form by two communities
+	 *
+	 * @param source community
+	 * @param destination community
+	 * @return the weight of the edge
+	 */
 	typeWeight weightCommunity(const typeCommunity & source, const typeCommunity & destination)const{
 		if(source==destination){
 			typeCommunityEdgesIteratorConst it=inner.find(source);
@@ -450,6 +627,13 @@ public:
 		return cc.weight(source,destination);
 	}
 
+	/**
+	 * Get the number of neighbors of the given vertex that belong to the same
+	 * community as the vertex
+	 *
+	 * @param vertex
+	 * @return the number of neighbors
+	 */
 	unsigned int neighborsCommunityCount(const typeVertex & vertex)const{
 		const typeCommunity & com=community(vertex);
 		unsigned int cnt=0;
@@ -462,6 +646,14 @@ public:
 		return cnt;
 	}
 
+	/**
+	 * Get the sum of the weight of the neighbors of the given vertex that belong
+	 * to the given community
+	 *
+	 * @param vertex
+	 * @param com is the target community
+	 * @return the sum of the weight of the neighbors
+	 */
 	typeWeight neighborsCommunityWeight(const typeVertex & vertex, const typeCommunity & com)const{
 		typeWeight cnt=0;
 		typeLinksRangeConst a=neighbors(vertex);
@@ -478,14 +670,48 @@ public:
 		return cnt;
 	}
 
+	/**
+	 * Get the sum of the weight of the neighbors of the given vertex that belong
+	 * to the same community as the vertex
+	 *
+	 * @param vertex
+	 * @return the sum of the weight of the neighbors
+	 */
 	typeWeight neighborsCommunityWeight(const typeVertex & vertex)const{
 		const typeCommunity & com=community(vertex);
 		return neighborsCommunityWeight(vertex,com);
 	}
 
 	/**
-	 * populate the graph with the current community to community mapping
-	 * @return
+	 * @brief Populate the graph with the current community to community mapping.
+	 *
+	 * @details
+	 * When vertices (lower level view) are merged into communities (higher level
+	 * view) and there is an interest to save only the higher level view, this
+	 * function can be called to perform that action.
+	 *
+	 * @section Example:
+	 * graph before operation:
+	 *   lower level:
+	 *     vertices: 1,2,3,4,5,6
+	 *     edges: (1,2),(1,3),(2,3),(3,4),(4,5),(4,6),(5,6)
+	 *     communities(vertex,community):(1,1),(2,1),(3,1),(4,4),(5,4),(6,4)
+	 *   higher level:
+	 *     vertices: 1,4
+	 *     edges: (1,4)
+	 *     communities(vertex,community):(1,1),(4,1)
+	 *
+	 * graph after operation:
+	 *   lower level:
+	 *     vertices: 1,4
+	 *     edges: (1,4)
+	 *     communities(vertex,community):(1,1),(4,1)
+	 *   higher level:
+	 *     vertices: 1,4
+	 *     edges: (1,4)
+	 *     communities(vertex,community):(1,1),(4,1)
+	 *
+	 * @return true if operation succeeded. False, otherwise
 	 */
 	bool communitiesToGraph(){
 		typeVertexList nd;
@@ -509,20 +735,20 @@ public:
 			}
 		}
 		//add any links from cc missing
-			typeLinksRangeConst ee=cc.edges();
-			typeLinksIteratorConst it2=ee.first;
-			while(it2!=ee.second){
-				const typeLinksPair & p=*it2;
-				const typeVertex & s=p.first;
-				const typeVertex & d=p.second.destination();
-				const typeWeight & w=cc.weight(s,d);
-				if(!isnan(w)){
-					nd.insert(s);
-					nd.insert(d);
-					GraphUndirected::addEdge(s,d,p.second.weight());//add missing link
-				}
-				++it2;
+		typeLinksRangeConst ee=cc.edges();
+		typeLinksIteratorConst it2=ee.first;
+		while(it2!=ee.second){
+			const typeLinksPair & p=*it2;
+			const typeVertex & s=p.first;
+			const typeVertex & d=p.second.destination();
+			const typeWeight & w=cc.weight(s,d);
+			if(!isnan(w)){
+				nd.insert(s);
+				nd.insert(d);
+				GraphUndirected::addEdge(s,d,p.second.weight());//add missing link
 			}
+			++it2;
+		}
 		//add inner edges
 		typeCommunityEdgesIteratorConst iti=inner.cbegin();
 		while(iti!=inner.cend()){
@@ -550,8 +776,11 @@ public:
 		return true;
 	}
 
-	const std::string toString(const StringFormater & sf=defaultStringFormater)const{
-		StringFormater f=sf;
+	/**
+	 * @return a string representation of this graph
+	 */
+	const std::string toString(const StringFormatter & sf=defaultStringFormatter)const{
+		StringFormatter f=sf;
 		std::stringstream ss;
 		if(!sf.isDefault()){
 			f.build(ss,"");

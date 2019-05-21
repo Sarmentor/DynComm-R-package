@@ -1,0 +1,200 @@
+\hypertarget{classAlgorithmBase}{}\section{Algorithm\+Base Class Reference}
+\label{classAlgorithmBase}\index{Algorithm\+Base@{Algorithm\+Base}}
+
+
+Base class for algorithms.  
+
+
+
+
+{\ttfamily \#include $<$algorithm\+Base.\+h$>$}
+
+
+
+Inheritance diagram for Algorithm\+Base\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=248pt]{classAlgorithmBase__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Algorithm\+Base\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classAlgorithmBase__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classAlgorithmBase_ac498e7949995484bd5a9a3188c599edf}{Algorithm\+Base} ()=delete
+\item 
+virtual \hyperlink{classAlgorithmBase_a01862a2fa8e29b154e6d95c1287a598e}{$\sim$\+Algorithm\+Base} ()
+\item 
+\hyperlink{classAlgorithmBase_aaeeeef264fa7bae05fd3663a5b8c1302}{Algorithm\+Base} (\hyperlink{classGraphUndirectedGroupable}{Graph\+Undirected\+Groupable} \&graph, const \hyperlink{classCriterion}{Criterion} \&quality, const \hyperlink{structProgramParameters}{Program\+Parameters} \&parameters=\hyperlink{program_8h_ae2d819404495f80f31db7676c1329d19}{arguments\+Default})
+\item 
+const std\+::string \hyperlink{classAlgorithmBase_a3041a5aebcf04f8fd8f985fd23525406}{to\+String} (const \hyperlink{classStringFormatter}{String\+Formatter} \&sf=\hyperlink{stringFormatter_8h_abf1349c8e24162d0134072aff288f2a2}{default\+String\+Formatter}) const
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classGraphUndirectedGroupable}{Graph\+Undirected\+Groupable} \& \hyperlink{classAlgorithmBase_a54b71b720b025291d9802e20874c860d}{grph}
+\item 
+const \hyperlink{structProgramParameters}{Program\+Parameters} \& \hyperlink{classAlgorithmBase_a69765034d365e4cab46c25ec626db528}{prmtrs}
+\item 
+const \hyperlink{classCriterion}{Criterion} \& \hyperlink{classAlgorithmBase_aa1e529eb903df296a7a7ef67f06537d8}{qlt}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Base class for algorithms. 
+
+It simply stores references to the graph, quality and program parameters objects.
+
+This class should be extended by all algorithms. It strengths the idea that those objects should not be copied and that the quality and program parameters should not be modified.
+
+\begin{DoxyAuthor}{Author}
+poltergeist0
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019-\/01-\/01 
+\end{DoxyDate}
+
+
+Definition at line 49 of file algorithm\+Base.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classAlgorithmBase_ac498e7949995484bd5a9a3188c599edf}\label{classAlgorithmBase_ac498e7949995484bd5a9a3188c599edf}} 
+\index{Algorithm\+Base@{Algorithm\+Base}!Algorithm\+Base@{Algorithm\+Base}}
+\index{Algorithm\+Base@{Algorithm\+Base}!Algorithm\+Base@{Algorithm\+Base}}
+\subsubsection{\texorpdfstring{Algorithm\+Base()}{AlgorithmBase()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Algorithm\+Base\+::\+Algorithm\+Base (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+Default constructor not acceptable. Must be passed at least the graph, quality and parameters. \mbox{\Hypertarget{classAlgorithmBase_a01862a2fa8e29b154e6d95c1287a598e}\label{classAlgorithmBase_a01862a2fa8e29b154e6d95c1287a598e}} 
+\index{Algorithm\+Base@{Algorithm\+Base}!````~Algorithm\+Base@{$\sim$\+Algorithm\+Base}}
+\index{````~Algorithm\+Base@{$\sim$\+Algorithm\+Base}!Algorithm\+Base@{Algorithm\+Base}}
+\subsubsection{\texorpdfstring{$\sim$\+Algorithm\+Base()}{~AlgorithmBase()}}
+{\footnotesize\ttfamily virtual Algorithm\+Base\+::$\sim$\+Algorithm\+Base (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Destructor 
+
+Definition at line 65 of file algorithm\+Base.\+h.
+
+\mbox{\Hypertarget{classAlgorithmBase_aaeeeef264fa7bae05fd3663a5b8c1302}\label{classAlgorithmBase_aaeeeef264fa7bae05fd3663a5b8c1302}} 
+\index{Algorithm\+Base@{Algorithm\+Base}!Algorithm\+Base@{Algorithm\+Base}}
+\index{Algorithm\+Base@{Algorithm\+Base}!Algorithm\+Base@{Algorithm\+Base}}
+\subsubsection{\texorpdfstring{Algorithm\+Base()}{AlgorithmBase()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Algorithm\+Base\+::\+Algorithm\+Base (\begin{DoxyParamCaption}\item[{\hyperlink{classGraphUndirectedGroupable}{Graph\+Undirected\+Groupable} \&}]{graph,  }\item[{const \hyperlink{classCriterion}{Criterion} \&}]{quality,  }\item[{const \hyperlink{structProgramParameters}{Program\+Parameters} \&}]{parameters = {\ttfamily \hyperlink{program_8h_ae2d819404495f80f31db7676c1329d19}{arguments\+Default}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructor.
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & reference to the graph object \\
+\hline
+{\em quality} & reference to the quality object \\
+\hline
+{\em parameters} & reference to the parameters object \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 74 of file algorithm\+Base.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classAlgorithmBase_a3041a5aebcf04f8fd8f985fd23525406}\label{classAlgorithmBase_a3041a5aebcf04f8fd8f985fd23525406}} 
+\index{Algorithm\+Base@{Algorithm\+Base}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Algorithm\+Base@{Algorithm\+Base}}
+\subsubsection{\texorpdfstring{to\+String()}{toString()}}
+{\footnotesize\ttfamily const std\+::string Algorithm\+Base\+::to\+String (\begin{DoxyParamCaption}\item[{const \hyperlink{classStringFormatter}{String\+Formatter} \&}]{sf = {\ttfamily \hyperlink{stringFormatter_8h_abf1349c8e24162d0134072aff288f2a2}{default\+String\+Formatter}} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Function that converts this object to a string representation. Might be useful for debugging.
+
+
+\begin{DoxyParams}{Parameters}
+{\em sf} & is a String\+Formater object that facilitates formating \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the string representing this object 
+\end{DoxyReturn}
+
+
+Definition at line 92 of file algorithm\+Base.\+h.
+
+
+
+References String\+Formatter\+::build(), String\+Formatter\+::header(), and Graph\+Undirected\+Groupable\+::to\+String().
+
+
+
+Referenced by Algorithm\+Louvain\+::to\+String().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classAlgorithmBase_a3041a5aebcf04f8fd8f985fd23525406_cgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classAlgorithmBase_a54b71b720b025291d9802e20874c860d}\label{classAlgorithmBase_a54b71b720b025291d9802e20874c860d}} 
+\index{Algorithm\+Base@{Algorithm\+Base}!grph@{grph}}
+\index{grph@{grph}!Algorithm\+Base@{Algorithm\+Base}}
+\subsubsection{\texorpdfstring{grph}{grph}}
+{\footnotesize\ttfamily \hyperlink{classGraphUndirectedGroupable}{Graph\+Undirected\+Groupable}\& Algorithm\+Base\+::grph\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 51 of file algorithm\+Base.\+h.
+
+
+
+Referenced by Algorithm\+Louvain\+::add\+Remove\+Edge\+Post(), Algorithm\+Louvain\+::add\+Remove\+Edge\+Pre(), Algorithm\+::add\+Remove\+Edges(), Algorithm\+Louvain\+::community(), Algorithm\+Louvain\+::community\+Count(), Algorithm\+Louvain\+::disband(), Algorithm\+Louvain\+::edge\+Count(), Algorithm\+Louvain\+::edges(), Algorithm\+Louvain\+::get\+Vertices(), Algorithm\+Louvain\+::inner\+Edges(), Algorithm\+Louvain\+::max\+Weight(), Algorithm\+Louvain\+::neighbors(), Algorithm\+Louvain\+::neighbors\+Community\+Count(), Algorithm\+Louvain\+::neighbors\+Community\+Weight(), Algorithm\+Louvain\+::neighbors\+Count(), Algorithm\+Louvain\+::one\+\_\+level(), Algorithm\+Louvain\+::total\+Edges(), Algorithm\+Louvain\+::total\+Weight(), Algorithm\+Louvain\+::vertices(), Algorithm\+Louvain\+::vertices\+Count(), and Algorithm\+Louvain\+::weighted\+\_\+degree().
+
+\mbox{\Hypertarget{classAlgorithmBase_a69765034d365e4cab46c25ec626db528}\label{classAlgorithmBase_a69765034d365e4cab46c25ec626db528}} 
+\index{Algorithm\+Base@{Algorithm\+Base}!prmtrs@{prmtrs}}
+\index{prmtrs@{prmtrs}!Algorithm\+Base@{Algorithm\+Base}}
+\subsubsection{\texorpdfstring{prmtrs}{prmtrs}}
+{\footnotesize\ttfamily const \hyperlink{structProgramParameters}{Program\+Parameters}\& Algorithm\+Base\+::prmtrs\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 52 of file algorithm\+Base.\+h.
+
+
+
+Referenced by Algorithm\+Louvain\+::one\+\_\+level().
+
+\mbox{\Hypertarget{classAlgorithmBase_aa1e529eb903df296a7a7ef67f06537d8}\label{classAlgorithmBase_aa1e529eb903df296a7a7ef67f06537d8}} 
+\index{Algorithm\+Base@{Algorithm\+Base}!qlt@{qlt}}
+\index{qlt@{qlt}!Algorithm\+Base@{Algorithm\+Base}}
+\subsubsection{\texorpdfstring{qlt}{qlt}}
+{\footnotesize\ttfamily const \hyperlink{classCriterion}{Criterion}\& Algorithm\+Base\+::qlt\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 53 of file algorithm\+Base.\+h.
+
+
+
+Referenced by Algorithm\+Louvain\+::gain(), and Algorithm\+Louvain\+::quality().
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+R-\/\+C\+R\+A\+N/src/base/\+Cpp/\hyperlink{algorithmBase_8h}{algorithm\+Base.\+h}\end{DoxyCompactItemize}

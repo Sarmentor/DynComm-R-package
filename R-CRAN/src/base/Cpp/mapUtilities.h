@@ -1,9 +1,17 @@
-/*
- * mapUtilities.h
+/************************************************************************
+ ************************* Developer Notice *****************************
+ ************************************************************************
+ * @details
  *
- *  Created on: 19/08/2018
- *      Author: poltergeist0
- */
+ * Utilities to assist working with std::map implemented in C++11.
+ *
+ *
+ * @author poltergeist0
+ *
+ * @date 2018-08-19
+ ************************************************************************
+ ************************************************************************
+ ************************************************************************/
 
 #ifndef MAPUTILITIES_H_
 #define MAPUTILITIES_H_
@@ -13,7 +21,8 @@
 #include <type_traits>
 #include <string>
 #include <sstream>
-#include "stringFormater.h"
+
+#include "stringFormatter.h"
 
 namespace map {
 
@@ -45,7 +54,14 @@ template<typename T, typename U> std::set<T> values(std::map<T, U> const& m) {
 	return r;
 }
 
-template<typename T, typename U,typename std::enable_if<std::is_fundamental<T>::value && std::is_fundamental<U>::value,T>::type=0 > std::string toString(std::map<T, U> const& m, const StringFormater & formater=defaultStringFormater) {
+/**
+ * Get the string representation of a map using a strigFormater object to assist.
+ *
+ * @param m
+ * @param formater
+ * @return a string
+ */
+template<typename T, typename U,typename std::enable_if<std::is_fundamental<T>::value && std::is_fundamental<U>::value,T>::type=0 > std::string toString(std::map<T, U> const& m, const StringFormatter & formater=defaultStringFormatter) {
 	std::stringstream ss;
 	formater.start(ss,true);
 	for(typename std::map<T,U>::const_iterator it=m.cbegin();it!=m.cend();it++){

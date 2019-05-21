@@ -1,25 +1,48 @@
-/*
- * edge.h
+/************************************************************************
+ ************************* Developer Notice *****************************
+ ************************************************************************
+ * @details
  *
- *  Created on: 19/08/2018
- *      Author: poltergeist0
- */
+ * This file defines the edge and half edge classes used in the graph
+ *
+ * @author poltergeist0
+ *
+ * @date 2018-08-19
+ ************************************************************************
+ ************************************************************************
+ ************************************************************************/
 
 #ifndef EDGE_H_
 #define EDGE_H_
 
-#include "stringFormater.h"
 #include <limits>
+#include "stringFormatter.h"
 
+/**
+ * Data type definition for a single vertex
+ */
 typedef unsigned int typeVertex;
+
+/**
+ * Data type definition for a weight
+ */
 typedef long double typeWeight;
 
 /**
- * Class that encapsulates the destination and weight portion of an edge (link between two nodes)
+ * @brief Half edge class.
+ *
+ * @details
+ * Class that encapsulates the destination vertex and weight portion of an edge
+ * as being a half edge.
+ *
+ *
+ * @author poltergeist0
+ *
+ * @date 2018-08-19
  */
 class HalfEdge{
 private:
-	typeVertex dst;//destination node
+	typeVertex dst;//destination vertex
 	typeWeight wght;//weight of edge
 
 public:
@@ -28,6 +51,7 @@ public:
 	 * @return the destination
 	 */
 	const typeVertex& destination() const {return dst;}
+
 	/**
 	 * Modify the destination
 	 * @param destination
@@ -37,11 +61,13 @@ public:
 		dst=destination;
 		return true;
 	}
+
 	/**
 	 *
 	 * @return the weight of the edge
 	 */
 	const typeWeight& weight() const {return wght;}
+
 	/**
 	 * Modify the weight of the edge
 	 * @param weight
@@ -77,17 +103,18 @@ public:
 	}
 
 	/**
-	 * Comparison operator against node only. Weight is ignored
-	 * @param rhs is the node used to compare to
-	 * @return true if the destination node of this half edge is equal to the given node
+	 * Comparison operator against vertex only. Weight is ignored
+	 * @param rhs is the vertex used to compare to
+	 * @return true if the destination vertex of this half edge is equal to the given vertex
 	 */
 	const bool operator== (const typeVertex & rhs) const {
 		return dst==rhs;
 	}
 
 	/**
-	 * Assignment operator for node only. Weight is ignored
-	 * @return the destination node of this half edge
+	 * Assignment operator to vertex only. Weight is ignored. Assigns the
+	 * destination portion to a vertex.
+	 * @return the destination vertex of this half edge
 	 */
 	operator const typeVertex &() const {return dst;}
 
@@ -95,7 +122,7 @@ public:
 	 *
 	 * @return a string representation of this half edge
 	 */
-	std::string toString(const StringFormater & sf=defaultStringFormater) const{
+	std::string toString(const StringFormatter & sf=defaultStringFormatter) const{
 		std::string s;
 		s.append(std::to_string(dst));
 		s.append(sf.valueSeparator());
@@ -106,7 +133,15 @@ public:
 
 
 /**
- * Class that implements an edge (link between two nodes)
+ * @brief Edge class.
+ *
+ * @details
+ * Class that encapsulates the source vertex and a half edge as being an edge.
+ *
+ *
+ * @author poltergeist0
+ *
+ * @date 2018-08-19
  */
 class Edge: private HalfEdge{
 private:
@@ -189,17 +224,18 @@ public:
 	}
 
 	/**
-	 * Comparison operator against source node only. Weight is ignored
-	 * @param rhs is the node used to compare to
-	 * @return true if the destination node of this half edge is equal to the given node
+	 * Comparison operator against source vertex only. Weight is ignored
+	 * @param rhs is the vertex used to compare to
+	 * @return true if the source vertex of this edge is equal to the given vertex
 	 */
 	const bool operator== (const typeVertex & rhs) const {
 		return src==rhs;
 	}
 
 	/**
-	 * Assignment operator for source node only. Weight is ignored
-	 * @return the source node of this edge
+	 * Assignment operator to source vertex only. Weight is ignored. Assigns the
+	 * source portion to a vertex.
+	 * @return the source vertex of this edge
 	 */
 	operator const typeVertex &() const {return src;}
 
@@ -207,7 +243,7 @@ public:
 	 *
 	 * @return a string representation of this half edge
 	 */
-	std::string toString(const StringFormater & sf=defaultStringFormater) const{
+	std::string toString(const StringFormatter & sf=defaultStringFormatter) const{
 		std::string s;
 		s.append(sf.tupleOpen());
 		s.append(std::to_string(src));
@@ -219,7 +255,7 @@ public:
 };
 
 /**
- * special node that indicates NO VERTEX
+ * special vertex that indicates NO VERTEX
  */
 const typeVertex noVertex=std::numeric_limits<typeVertex>::max();
 

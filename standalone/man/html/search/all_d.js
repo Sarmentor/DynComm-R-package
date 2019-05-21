@@ -1,0 +1,21 @@
+var searchData=
+[
+  ['n2c',['n2c',['../classGraphUndirectedGroupable.html#a882c6d9efd31f3b61df38a2daccc349f',1,'GraphUndirectedGroupable']]],
+  ['nb_5fpass',['nb_pass',['../structProgramParameters.html#a75d7c2a2619daa6e44ba03ae2e6e4c19',1,'ProgramParameters']]],
+  ['neigh_5fcomm',['neigh_comm',['../classAlgorithmLouvain.html#a78dfa81bd96f4036e44c17318501b6b7',1,'AlgorithmLouvain']]],
+  ['neighboringcommunities',['neighboringCommunities',['../classGraphUndirectedGroupable.html#a248d992baca0755467a2eaea96fe3654',1,'GraphUndirectedGroupable']]],
+  ['neighboringcommunitiescount',['neighboringCommunitiesCount',['../classGraphUndirectedGroupable.html#a6f6c8b41ca143f9d2ef7e0f267da6b9e',1,'GraphUndirectedGroupable']]],
+  ['neighboringcommunitiesweight',['neighboringCommunitiesWeight',['../classGraphUndirectedGroupable.html#a29f2ad12ef73c9f0febea63c43b1619b',1,'GraphUndirectedGroupable']]],
+  ['neighbors',['neighbors',['../classAlgorithmLouvain.html#a46c54a194acf1a09debfaf3f67d84f85',1,'AlgorithmLouvain::neighbors()'],['../classGraphInterface.html#afd5cdff5531b27fca35b58904d757db6',1,'GraphInterface::neighbors()'],['../classGraphUndirected.html#ad9058dbbd7e6d2930a6a233e8b6b0547',1,'GraphUndirected::neighbors()']]],
+  ['neighborscommunitycount',['neighborsCommunityCount',['../classAlgorithmLouvain.html#a69439ee5f0cf1180d15a244500bfc663',1,'AlgorithmLouvain::neighborsCommunityCount()'],['../classGraphUndirectedGroupable.html#ae5d9459c76d6104345547eaa3e79a088',1,'GraphUndirectedGroupable::neighborsCommunityCount()']]],
+  ['neighborscommunityweight',['neighborsCommunityWeight',['../classAlgorithmLouvain.html#a133f057d5d84332e347a0f01700101ae',1,'AlgorithmLouvain::neighborsCommunityWeight(const typeVertex &amp;node, const typeCommunity &amp;com)'],['../classAlgorithmLouvain.html#a97fc0efead8492fc78167a3ad4f808fc',1,'AlgorithmLouvain::neighborsCommunityWeight(const typeVertex &amp;node)'],['../classGraphUndirectedGroupable.html#a24c1e8303eefff2635f7462d3cf1c6cf',1,'GraphUndirectedGroupable::neighborsCommunityWeight(const typeVertex &amp;vertex, const typeCommunity &amp;com) const'],['../classGraphUndirectedGroupable.html#ae11062420fb89f450762eb3456b18f8f',1,'GraphUndirectedGroupable::neighborsCommunityWeight(const typeVertex &amp;vertex) const']]],
+  ['neighborscount',['neighborsCount',['../classAlgorithmLouvain.html#a2fb0859e6b2dfdd4285cc865a2b2531f',1,'AlgorithmLouvain::neighborsCount()'],['../classGraphInterface.html#a07f96d04c5481c6f573f478add5f7162',1,'GraphInterface::neighborsCount()'],['../classGraphUndirected.html#a90fdfbabe541262292733703d839812a',1,'GraphUndirected::neighborsCount()']]],
+  ['neighborsweight',['neighborsWeight',['../classGraphInterface.html#a77b93eb2da955cb41b389df023676c1b',1,'GraphInterface::neighborsWeight()'],['../classGraphUndirected.html#a5bc804358a7bc0087953023c597a621b',1,'GraphUndirected::neighborsWeight()']]],
+  ['neighbours',['neighbours',['../classDynCommRcpp.html#abbda8cc950c360c1b89859ebe9233535',1,'DynCommRcpp::neighbours()'],['../classDynCommBase.html#a3500faab82a0547422b2202b79f49718',1,'DynCommBase::neighbours()'],['../classDynCommBaseInterface.html#a9d6f5345d8cdf9e0d70b7a71bff8ade6',1,'DynCommBaseInterface::neighbours()']]],
+  ['newline',['NEWLINE',['../classReaderInterface.html#ac2420ec8d2f60feadf2533d4fa77ec5ea80c8c6b1bcf9ad27b73d5aaa56ed4ff3',1,'ReaderInterface']]],
+  ['next',['next',['../classReaderInterface.html#a3f28e135128822544a09a475d2140094',1,'ReaderInterface::next()'],['../classReaderDummy.html#a235a5bf7df9cf1e4b984c7a350cb055e',1,'ReaderDummy::next()'],['../classReaderFileEdge.html#a97f967287fdf7f4804139ba9d123494c',1,'ReaderFileEdge::next()'],['../classReaderStringEdge.html#a8de930135fa1fbb3a9610da2259e93ce',1,'ReaderStringEdge::next()'],['../classReaderMatrixEdge.html#a98657215956d975c4f81b7e1d6e90b3e',1,'ReaderMatrixEdge::next()']]],
+  ['nexttype',['NEXTTYPE',['../classReaderInterface.html#ac2420ec8d2f60feadf2533d4fa77ec5e',1,'ReaderInterface']]],
+  ['noedge',['noEdge',['../edge_8h.html#a00878182cf0226e97f24050796238d58',1,'edge.h']]],
+  ['nogroup',['noGroup',['../graphUndirectedGroupable_8h.html#ab1a764d79659a7453cce0f4ce4f11b53',1,'graphUndirectedGroupable.h']]],
+  ['novertex',['noVertex',['../edge_8h.html#addeb431aeaf65774e1882d9fcdd811ac',1,'edge.h']]]
+];

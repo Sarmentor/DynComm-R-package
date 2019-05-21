@@ -1,0 +1,21 @@
+<map id="R&#45;CRAN/src/base/Cpp/algorithmLouvain.h" name="R&#45;CRAN/src/base/Cpp/algorithmLouvain.h">
+<area shape="rect" id="node2" href="$algorithmBase_8h.html" title="algorithmBase.h" alt="" coords="279,95,395,121"/>
+<area shape="rect" id="node3" href="$program_8h.html" title="program.h" alt="" coords="244,617,324,644"/>
+<area shape="rect" id="node9" href="$reader_8h.html" title="reader.h" alt="" coords="177,543,247,569"/>
+<area shape="rect" id="node14" href="$algorithmInterface_8h.html" title="algorithmInterface.h" alt="" coords="322,169,459,196"/>
+<area shape="rect" id="node15" href="$criterion_8h.html" title="criterion.h" alt="" coords="483,169,562,196"/>
+<area shape="rect" id="node4" href="$defines_8h.html" title="defines.h" alt="" coords="147,692,221,719"/>
+<area shape="rect" id="node11" href="$edge_8h.html" title="edge.h" alt="" coords="1092,692,1153,719"/>
+<area shape="rect" id="node13" href="$stringFormatter_8h.html" title="stringFormatter.h" alt="" coords="883,767,1005,793"/>
+<area shape="rect" id="node16" href="$criterionBalMod_8h.html" title="criterionBalMod.h" alt="" coords="368,244,491,271"/>
+<area shape="rect" id="node32" href="$criterionModularity_8h.html" title="criterionModularity.h" alt="" coords="515,244,653,271"/>
+<area shape="rect" id="node17" href="$criterionBase_8h.html" title="criterionBase.h" alt="" coords="420,319,529,345"/>
+<area shape="rect" id="node18" href="$criterionInterface_8h.html" title="criterionInterface.h" alt="" coords="363,393,493,420"/>
+<area shape="rect" id="node19" href="$graphUndirectedGroupable_8h.html" title="graphUndirectedGroupable.h" alt="" coords="437,468,624,495"/>
+<area shape="rect" id="node20" href="$mapReversable_8h.html" title="mapReversable.h" alt="" coords="609,617,733,644"/>
+<area shape="rect" id="node29" href="$graphUndirected_8h.html" title="graphUndirected.h" alt="" coords="1031,543,1159,569"/>
+<area shape="rect" id="node31" href="$setUtilities_8h.html" title="setUtilities.h" alt="" coords="347,692,442,719"/>
+<area shape="rect" id="node25" href="$mapUtilities_8h.html" title="mapUtilities.h" alt="" coords="665,692,767,719"/>
+<area shape="rect" id="node27" href="$multimapUtilities_8h.html" title="multimapUtilities.h" alt="" coords="937,692,1068,719"/>
+<area shape="rect" id="node30" href="$graphInterface_8h.html" title="graphInterface.h" alt="" coords="1037,617,1153,644"/>
+</map>

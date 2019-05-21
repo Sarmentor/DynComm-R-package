@@ -1,0 +1,10 @@
+<map id="DynCommRcpp::quality" name="DynCommRcpp::quality">
+<area shape="rect" id="node2" href="$classDynCommBase.html#a316b2c63a025810211d205ef6bf1d06c" title="DynCommBase::quality" alt="" coords="216,97,377,123"/>
+<area shape="rect" id="node3" href="$classCriterion.html#a1f8b3a7bf56b5434b04d5366d754d459" title="Criterion::quality" alt="" coords="425,97,543,123"/>
+<area shape="rect" id="node4" href="$classCriterionBalMod.html#a87c0ccb5e2a851420dc82bd23cc31716" title="CriterionBalMod::quality" alt="" coords="591,67,752,94"/>
+<area shape="rect" id="node9" href="$classCriterionModularity.html#adf9197fd4e5878ca86501447b1fba989" title="CriterionModularity\l::quality" alt="" coords="606,119,737,160"/>
+<area shape="rect" id="node5" href="$classGraphUndirected.html#af2f65109919c878a1fd7637d3bfe0991" title="GraphUndirected::getVertices" alt="" coords="800,122,995,149"/>
+<area shape="rect" id="node6" href="$classGraphUndirectedGroupable.html#a1986c140fd9aba8063774372c971706d" title="GraphUndirectedGroupable\l::innerEdges" alt="" coords="808,173,987,215"/>
+<area shape="rect" id="node7" href="$classGraphUndirectedGroupable.html#a8aa795a6e0ae115d35937508c5aad401" title="GraphUndirectedGroupable\l::totalEdges" alt="" coords="808,5,987,47"/>
+<area shape="rect" id="node8" href="$classGraphUndirected.html#a41ba96531c669461dbc7e11ee35796ab" title="GraphUndirected::totalWeight" alt="" coords="800,71,995,98"/>
+</map>

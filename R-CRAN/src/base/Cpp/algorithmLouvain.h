@@ -1,9 +1,18 @@
-/*
- * louvainAlgorithm.h
+/************************************************************************
+ ************************* Developer Notice *****************************
+ ************************************************************************
+ * @details
  *
- *  Created on: 02/02/2019
- *      Author: poltergeist0
- */
+ * Dynamic Louvain main algorithm implemented in C++11.
+ *
+ * @cite cordeiro2016dynamic
+ *
+ * @author poltergeist0
+ *
+ * @date 2019-01-01
+ ************************************************************************
+ ************************************************************************
+ ************************************************************************/
 
 #ifndef SRC_ALGORITHMLOUVAIN_H_
 #define SRC_ALGORITHMLOUVAIN_H_
@@ -11,24 +20,48 @@
 #include "algorithmBase.h"
 
 /**
- * Dynamic Louvain implementation
+ * @brief Class that implements the Dynamic Louvain algorithm
+ *
+ * @details
+ * The Dynamic Louvain algorithm is a greedy optimization method to extract
+ * communities from large networks by optimizing the density of edges inside
+ * communities to edges outside communities.
+ *
+ * @author poltergeist0
+ *
+ * @date 2019-01-01
  */
-class Louvain: private AlgorithmBase, private QualityInterface{
+class AlgorithmLouvain: private AlgorithmBase{
 private:
-	GraphUndirectedGroupable cg;//community to community graph to use after the first run
-	Quality qltc;//quality for after the first run
+	/*
+	 * Community to community graph to use after the first run.
+	 * Required due to the algorithm performing disband of communities
+	 */
+	GraphUndirectedGroupable cg;
 
-	/**
-	 * On first run use the reference (g) to calculate node grouping into communities.
-	 * On subsequent runs, use the cg having the nodes being the communities found in the reference
+	/*
+	 * Quality object used after the first run
+	 * Required due to the algorithm performing disband of communities and
+	 * because objects of class Quality receive the graph reference used for
+	 * computations on initialization.
+	 */
+	Criterion qltc;
+
+	/*
+	 * On first run use the graph on algorithmBase (reference graph) to calculate
+	 * node grouping into communities.
+	 * On subsequent runs, use the cg having the nodes being the communities found
+	 * in the reference.
 	 */
 	bool firstRun=true;
 
-	/**
-	 *
-	 * @param node
-	 * @return the community of the given node or a special community of zero if the node does not exist
-	 */
+	/* **********************************************************************
+	 ************************************************************************
+	 * NOTE: Defined all function from the graph interface so it is easier and to
+	 * avoid code duplication
+	 ************************************************************************
+	 ************************************************************************/
+
 	const typeCommunity & community(const typeVertex & node)const{
 		if(!firstRun){
 			const typeCommunity & c=cg.community(node);
@@ -37,13 +70,6 @@ private:
 		return grph.community(node);
 	}
 
-	/**
-	 * set the community of a single node or replace old community by new community on all nodes
-	 * @param node is either the node to be assigned a new community or the old community depending whether replaceAll is respectively false or true
-	 * @param community is the new community
-	 * @param replaceAll if true replaces the old community indicated by parameter node by the new community, otherwise replaces the community only for the given node
-	 * @return true if the node exists and insertion succeeded or replacement succeeded
-	 */
 	bool community(const typeVertex & node, const typeCommunity & com){
 		if(firstRun){
 			return grph.community(node,com);
@@ -133,31 +159,50 @@ private:
 		return cg.weighted_degree(vertex);
 	}
 
-	typeQuality gain(const typeVertex & vertex,const typeCommunity & comm)const{
+	/* **********************************************************************
+	 ************************************************************************
+	 * NOTE: Defined all function from the quality interface so it is easier
+	 * and to avoid code duplication
+	 ************************************************************************
+	 ************************************************************************/
+
+	typeCriterion gain(const typeVertex & vertex,const typeCommunity & comm)const{
 		if(firstRun) return qlt.gain(vertex,comm);
 		return qltc.gain(vertex,comm);
 	}
 
-	typeQuality quality()const{
+	typeCriterion quality()const{
 		if(firstRun) return qlt.quality();
 		return qltc.quality();
 	}
 
+	/* **********************************************************************
+	 ************************************************************************
+	 * NOTE: Algorithm functions
+	 ************************************************************************
+	 ************************************************************************/
+
+	/**
+	 * Disband communities belonging to the given edge.
+	 * Source and destination communities must be different.
+	 * It is an algorithm requirement that, when adding edges, the communities
+	 * involved get removed and replaced by their individual vertices, so that
+	 * calculation are only performed over those vertices, making the Louvain
+	 * algorithm dynamic.
+	 * @param c1 the source community of the edge
+	 * @param c2 the destination community of the edge
+	 */
 	void disband(const typeCommunity c1,const typeCommunity c2){
 		//remove affected communities from cg by removing all edges to their respective neighbors
-//		CERR << "disband("<< c1 << ";" << c2 << ")\n";
 		typeLinksRangeConst nc1=cg.neighboringCommunities(c1);
-//		CERR << "disband("<< c1 << ";" << c2 << ")->iterator="<< c1 << ";" << h.destination() << "\n" << toString(defaultStringFormater(1)) << "\n";
 		{
 			typeLinksIteratorConst it=nc1.first;
 			while(it!=nc1.second){
 				const typeLinksPair & p=*it;
 				if(p.first!=c1) break;
 				const HalfEdge & h=p.second;
-//				CERR << "disband("<< c1 << ";" << c2 << ")->before remove edge(c,c)="<< c1 << ";" << h.destination() << "\n" << toString(defaultStringFormater(1)) << "\n";
 				++it;
 				cg.removeEdge(c1,h.destination());
-//				CERR << "disband("<< c1 << ";" << c2 << ")->after remove edge(c,c)="<< c1 << ";" << h.destination() << "\n" << toString(defaultStringFormater(1)) << "\n";
 			}
 		}
 		{
@@ -167,18 +212,13 @@ private:
 				const typeLinksPair & p=*it;
 				if(p.first!=c2) break;
 				const HalfEdge & h=p.second;
-//				CERR << "disband("<< c1 << ";" << c2 << ")->before remove edge(c,c)="<< c2 << ";" << h.destination() << "\n" << toString(defaultStringFormater(1)) << "\n";
 				++it;
 				cg.removeEdge(c2,h.destination());
-//				CERR << "disband("<< c1 << ";" << c2 << ")->after remove edge(c,c)="<< c2 << ";" << h.destination() << "\n" << toString(defaultStringFormater(1)) << "\n";
 			}
 		}
 		//remove inner edges
-//		CERR << "disband("<< c1 << ";" << c2 << ")->before remove inner edge(c)="<< c1 << "\n" << toString(defaultStringFormater(1)) << "\n";
 		cg.removeEdge(c1,c1);
-//		CERR << "disband("<< c1 << ";" << c2 << ")->before remove inner edge(c)="<< c2 << "\n" << toString(defaultStringFormater(1)) << "\n";
 		cg.removeEdge(c2,c2);
-//		CERR << "disband("<< c1 << ";" << c2 << ")->after remove\n" << toString(defaultStringFormater(1)) << "\n";
 		//take nodes of affected communities from g and add them to cg disbanded by adding edges to their neighbors
 		std::set<typeVertex> ns;
 		typeCommunityListRange rc1=grph.vertices(c1);
@@ -205,24 +245,24 @@ private:
 				const typeVertex & nei=h.destination();
 				const typeCommunity & cn=grph.community(nei);
 				if(cn!=c1 && cn!=c2){
-//					CERR << "disband("<< c1 << ";" << c2 << ")->added edge(n,c)="<< n << ";" << cn << "\n";
 					cg.addEdge(n,cn,h.weight());//add edge between community of neighbor and node
 				}
 				else{
-//					CERR << "disband("<< c1 << ";" << c2 << ")->added edge(n,n)="<< n << ";" << nei << "\n";
 					cg.addEdge(n,nei,h.weight());//add edge between neighbor and node
 				}
-//				CERR << "disband("<< c1 << ";" << c2 << ")->after add\n" << toString(defaultStringFormater(1)) << "\n";
 			}
 		}
-		//disband g
-//		CERR << "disband("<< c1 << ";" << c2 << ")->before disband("<< c1 << ")\n" << toString(defaultStringFormater(1)) << "\n";
+		//disband communities on the reference graph
 		grph.disband(c1);
-//		CERR << "disband("<< c1 << ";" << c2 << ")->before disband("<< c2 << ")\n" << toString(defaultStringFormater(1)) << "\n";
 		grph.disband(c2);
-//		CERR << "disband("<< c1 << ";" << c2 << ")->end disband\n" << toString(defaultStringFormater(1)) << "\n";
 	}
 
+	/**
+	 * Get the neighboring communities of the given vertex with edge weight
+	 *
+	 * @param vertex
+	 * @return the neighboring communities of the given vertex
+	 */
 	std::map<typeCommunity, typeWeight> neigh_comm(const typeVertex & vertex)const {
 		std::map<typeCommunity, typeWeight> a;
 		if(vertex==noVertex) return a;
@@ -237,7 +277,6 @@ private:
 			const typeVertex & neigh  = c.destination();
 			const typeCommunity & neigh_comm = community(neigh);
 			const typeWeight & neigh_w = c.weight();
-
 			//if neighbor is not the given vertex
 			if (neigh!=vertex) {
 				//increment weight
@@ -247,9 +286,11 @@ private:
 		return a;
 	}
 
-  /**
-   * Function where the actual algorithm is implemented
-   */
+	/**
+	 * Function where the actual algorithm is implemented
+	 *
+	 * @return true if there was an improvement in quality. False, otherwise
+	 */
     bool one_level(){
 		bool improvement=false ;
 		int nb_moves;
@@ -302,7 +343,6 @@ private:
 		} while (nb_moves>0 && new_qual-cur_qual > prmtrs.precision);
 
 		//sync changed communities back to reference graph
-//		COUT << "start sync\nfirst="<< firstRun << "\n";
 		if(firstRun){
 			typeCommunities coms=grph.communities();//get all found communities
 			for(typeCommunities::const_iterator itc=coms.cbegin();itc!=coms.cend();++itc){
@@ -312,7 +352,6 @@ private:
 				if(in!=0){
 					cg.addEdge(srcc,srcc,in);
 				}
-//				COUT << "outer edges\n";
 				//handle outer edges
 				typeLinksRangeConst neighbors=grph.neighboringCommunities(srcc);
 				for(typeLinksIteratorConst itn=neighbors.first;itn!=neighbors.second;++itn){
@@ -320,7 +359,6 @@ private:
 					const HalfEdge & he=p.second;
 					const typeVertex & destc=he.destination();
 					const typeWeight & weight=he.weight();
-//				COUT << srcc << ";" << destc << ";" << weight << "\n";
 					cg.addEdge(srcc,destc,weight);
 				}
 			}
@@ -331,28 +369,35 @@ private:
 			for(typeVertexListIteratorConst itc=coms.cbegin();itc!=coms.cend();++itc){
 				const typeVertex & n=*itc;
 				const typeCommunity & c=cg.community(n);
-//				COUT << n << ";" << c << "\n";
 				if(n!=c){//community has changed
 					typeCommunityListRange r=grph.vertices(n);
 					for(typeCommunityListRangeIteratorConst itr=r.first;itr!=r.second;){
 						const typeCommunityListRangePair & p=*itr;
 						const typeVertex & nd=p.second;
 						++itr;
-//			            COUT <<"community change ("<< nd << ";" << c << ") start\n";
 						grph.community(nd,c);
-//						COUT <<"community change ("<< nd << ";" << c << ") end\n";
 					}
 				}
 			}
-//			COUT << "communities to graph\n";
 			cg.communitiesToGraph();
 		}
-//		COUT << "end sync\nimprovement="<< improvement<< "\n";
-
 		return improvement;
   }
 
 public:
+	/**
+	 * Function to execute before adding or removing a single edge from the graph.
+	 * It is used internally by the addRemoveEdges function.
+	 * Useful if pre-processing is required, for example, to update some of
+	 * variables before the edge can be added or removed.
+	 * Any edge with a weight different from zero is inserted.
+	 * Any edge with a weight of exactly zero is removed.
+	 *
+	 * @param source source vertex
+	 * @param destination destination vertex
+	 * @param weight optional if adding an edge. Must be exactly zero to remove an edge.
+	 * @return true if all operations succeeded. False, otherwise.
+	 */
 	bool addRemoveEdgePre(const typeVertex & source, const typeVertex & destination, const typeWeight & weight=1.0){
 		if(weight!=0.0){//add edge
 
@@ -377,6 +422,19 @@ public:
 		return true;
 	}
 
+	/**
+	 * Function execute after adding or removing a single edge from the graph.
+	 * It is used internally by the addRemoveEdges function.
+	 * Useful if post-processing is required, for example, to update some of
+	 * variables after the edge has be added or removed.
+	 * Any edge with a weight different from zero is inserted.
+	 * Any edge with a weight of exactly zero is removed.
+	 *
+	 * @param source source vertex
+	 * @param destination destination vertex
+	 * @param weight optional if adding an edge. Must be exactly zero to remove an edge.
+	 * @return true if all operations succeeded. False, otherwise.
+	 */
 	bool addRemoveEdgePost(const typeVertex & source, const typeVertex & destination, const typeWeight & weight=1.0){
 		if(weight!=0.0){//add edge
 			if(!firstRun){
@@ -407,6 +465,12 @@ public:
 		return true;
 	}
 
+	/**
+	 * Function where the actual algorithms are implemented.
+	 * It is called at the end of the addRemoveEdges function.
+	 *
+	 * @return true if all operations succeeded. False, otherwise.
+	 */
 	bool run(){
 			bool improvement = true;
 			int level = 0;
@@ -416,49 +480,58 @@ public:
 				improvement = one_level();
 				//get quality of the new grouping
 				++level;
-//				CERR << "**** post one level ****\n"<< toString();
 			} while(improvement);
-//			CERR << toString()<< "\n";
 			return true;
 	  }
 
 public:
-  /**
-  * Default constructor not acceptable.
-  * Must be passed at least the graph
-  */
-  Louvain()=delete;
+	/**
+	 * Default constructor not acceptable.
+	 * Must be passed at least the chosen algorithm and the graph
+	 */
+	AlgorithmLouvain()=delete;
 
-  /**
-   * Destructor
-   */
-  ~Louvain(){}
+	/**
+	 * Destructor
+	 */
+	~AlgorithmLouvain(){}
 
-  /**
-  * Constructor
-  */
-  Louvain(
-		  GraphUndirectedGroupable & graph
-		  , Quality & quality
-		  , ProgramParameters & algorithmParameters=argumentsDefault)
-    :
-    	AlgorithmBase(graph,quality,algorithmParameters)
-  	  ,qltc(cg,quality.type(),algorithmParameters)
-  {
-  }
+	/**
+	 * Constructor.
+	 *
+	 * @param graph reference to the graph object
+	 * @param quality reference to the quality object
+	 * @param algorithmParameters reference to the parameters object
+	 */
+	AlgorithmLouvain(
+			GraphUndirectedGroupable & graph
+			, const Criterion & quality
+			, const ProgramParameters & algorithmParameters=argumentsDefault)
+	:
+		AlgorithmBase(graph,quality,algorithmParameters)
+	,qltc(cg,quality.type(),algorithmParameters)
+	{
+	}
 
-  const std::string toString(const StringFormater & sf=defaultStringFormater)const{
-  		StringFormater f=sf;
-  		std::stringstream ss;
+	/**
+	 * Function that converts this object to a string representation.
+	 * Might be useful for debugging.
+	 *
+	 * @param sf is a StringFormater object that facilitates formating
+	 * @return the string representing this object
+	 */
+	const std::string toString(const StringFormatter & sf=defaultStringFormatter)const{
+		StringFormatter f=sf;
+		std::stringstream ss;
 		if(!sf.isDefault()){
 			f.build(ss,"");
 			++f;
 		}
-  		ss << AlgorithmBase::toString(sf);
-  		f.header("cg:");
-  		ss << cg.toString(f);
-  		return ss.str();
-  	}
+		ss << AlgorithmBase::toString(sf);
+		f.header("cg:");
+		ss << cg.toString(f);
+		return ss.str();
+	}
 
 };
 

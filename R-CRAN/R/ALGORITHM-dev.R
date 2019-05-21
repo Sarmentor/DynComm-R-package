@@ -109,11 +109,13 @@
 #' algorithm, acceptable parameters and supported criterion.\cr
 #' The thrird file is the "DynCommMain.R" where it says "document new algorithms 
 #' here". This documentation should use the same format used for other algorithms 
-#' with have a very small description of the algorithm, preferably just two lines, 
+#' with a very small description of the algorithm, preferably just two lines, 
 #' with a link to the user friendly documentation and references to publications.
 #'   \item
 #' Add the name of your algorithm to the ALGORITHM list in the "DynCommMain.R" 
-#' file under the marker that says "list new algorithms here"
+#' file under the marker that says "list new algorithms here".\cr
+#' Add your algorithm parameters to the matrix in the "DynComm.R" file under the 
+#' marker that says "add parameters here".
 #'     \describe{
 #'       \item{R}{
 #' Add a source command to the "DynCommMain.R" file under the marker that says 

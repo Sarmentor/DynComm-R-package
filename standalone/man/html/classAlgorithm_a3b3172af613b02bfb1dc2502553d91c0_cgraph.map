@@ -1,0 +1,21 @@
+<map id="Algorithm::toString" name="Algorithm::toString">
+<area shape="rect" id="node2" href="$classAlgorithmLouvain.html#a2df60c50eb63b783ba0e9e77226bebee" title="AlgorithmLouvain::toString" alt="" coords="184,313,359,340"/>
+<area shape="rect" id="node3" href="$classStringFormatter.html#af7fd3924f4db714c3b278ffa3c26a872" title="Build a formatted message. " alt="" coords="855,204,1001,231"/>
+<area shape="rect" id="node7" href="$classAlgorithmBase.html#a3041a5aebcf04f8fd8f985fd23525406" title="AlgorithmBase::toString" alt="" coords="407,288,567,315"/>
+<area shape="rect" id="node8" href="$classStringFormatter.html#ab4fb73dc094c5ee247606a64194136c5" title="StringFormatter::header" alt="" coords="1087,512,1245,539"/>
+<area shape="rect" id="node9" href="$classGraphUndirectedGroupable.html#a615f30036acfdd33e45b82dc47e7d174" title="GraphUndirectedGroupable\l::toString" alt="" coords="615,306,793,347"/>
+<area shape="rect" id="node4" href="$classStringFormatter.html#abfaada84b0472d0a41dcd5a56e534808" title="StringFormatter::start" alt="" coords="1093,56,1239,83"/>
+<area shape="rect" id="node6" href="$classStringFormatter.html#a951e3aff962bfb69cf745c5b05de26cc" title="End writing to string stream. " alt="" coords="1095,5,1237,32"/>
+<area shape="rect" id="node5" href="$classStringFormatter.html#adeedf1dce9545fb00bc070e4caaf30aa" title="StringFormatter::indent" alt="" coords="1317,56,1472,83"/>
+<area shape="rect" id="node10" href="$classGraphUndirected.html#a61604a0840f044d52a2762f44635fa9c" title="GraphUndirected::toString" alt="" coords="841,259,1015,285"/>
+<area shape="rect" id="node19" href="$classMapReversable.html#a840df7e42bccf937f4d369e2006f3c15" title="MapReversable::toString" alt="" coords="845,309,1011,336"/>
+<area shape="rect" id="node20" href="$namespacemap.html#a7df0c3b516d256b69506233979c2d9e5" title="map::toString" alt="" coords="878,360,978,387"/>
+<area shape="rect" id="node11" href="$classGraphUndirected.html#ad9058dbbd7e6d2930a6a233e8b6b0547" title="Get the neighbors of a vertex. " alt="" coords="1074,259,1258,285"/>
+<area shape="rect" id="node12" href="$classStringFormatter.html#a3644daa278010496dd9b9066c2e6718c" title="StringFormatter::tupleOpen" alt="" coords="1077,309,1255,336"/>
+<area shape="rect" id="node13" href="$classStringFormatter.html#a019b766e21b34474a7569d2d12f25d0e" title="StringFormatter::valueSeparator" alt="" coords="1063,360,1269,387"/>
+<area shape="rect" id="node14" href="$classHalfEdge.html#a98c0fb1c54506abbd3c0ac4a1264dac1" title="HalfEdge::destination" alt="" coords="1093,411,1239,437"/>
+<area shape="rect" id="node15" href="$classHalfEdge.html#a89cc13d21ae44a9d9c2ba95f89576090" title="HalfEdge::weight" alt="" coords="1105,461,1227,488"/>
+<area shape="rect" id="node16" href="$classStringFormatter.html#a35e3c3ce024ea3934bad1e26e85a5ae0" title="StringFormatter::tupleClose" alt="" coords="1075,107,1257,133"/>
+<area shape="rect" id="node17" href="$classStringFormatter.html#acfc112049e763b2ced09e1f30c151244" title="StringFormatter::setClose" alt="" coords="1080,157,1252,184"/>
+<area shape="rect" id="node18" href="$classStringFormatter.html#a138f0dfbbbbf629aab40b9816b075900" title="StringFormatter::setOpen" alt="" coords="1081,208,1251,235"/>
+</map>

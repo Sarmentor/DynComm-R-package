@@ -1,0 +1,45 @@
+\hypertarget{timeFunctions_8h}{}\section{R-\/\+C\+R\+A\+N/src/base/\+Cpp/time\+Functions.h File Reference}
+\label{timeFunctions_8h}\index{R-\/\+C\+R\+A\+N/src/base/\+Cpp/time\+Functions.\+h@{R-\/\+C\+R\+A\+N/src/base/\+Cpp/time\+Functions.\+h}}
+{\ttfamily \#include $<$sys/time.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}defines.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}system\+Defines.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$limits$>$}\newline
+Include dependency graph for time\+Functions.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{timeFunctions_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=245pt]{timeFunctions_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classTime_1_1TimeKeeper}{Time\+::\+Time\+Keeper}
+\begin{DoxyCompactList}\small\item\em Simple class used to keep track of elapsed time. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespaceTime}{Time}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{systemDefines_8h_abc0f5bc07737e498f287334775dff2b6}{uint64} \hyperlink{namespaceTime_a57ff57387f9a60589ccdbe9215843ffe}{Time\+::long\+Time} (const timeval \&t)
+\begin{DoxyCompactList}\small\item\em long\+Time Converts a timeval type time to an unsigned 64 bit integer \end{DoxyCompactList}\item 
+\hyperlink{systemDefines_8h_abc0f5bc07737e498f287334775dff2b6}{uint64} \hyperlink{namespaceTime_a17419cc5dad406abf846351b1a75bd48}{Time\+::long\+Time} (const timespec \&t)
+\begin{DoxyCompactList}\small\item\em long\+Time Converts a timespec type time to an unsigned 64 bit integer \end{DoxyCompactList}\item 
+\hyperlink{systemDefines_8h_abc0f5bc07737e498f287334775dff2b6}{uint64} \hyperlink{namespaceTime_ae414566445c9d392bb148cc98fe2cece}{Time\+::current\+Time} ()
+\begin{DoxyCompactList}\small\item\em Get the current system time in nanoseconds as an unsigned 64 bit integer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+Time\+Keeper \hyperlink{namespaceTime_a321ca5eba84577aaaaeb2a79d28806c8}{Time\+::time\+Keep}
+\end{DoxyCompactItemize}

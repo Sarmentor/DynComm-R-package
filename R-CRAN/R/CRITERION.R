@@ -26,7 +26,7 @@
 #' @description 
 #' Newman-Girvan criterion.
 #' 
-#' @details 
+# @details 
 #'
 #' @rdname CRITERION_MODULARITY
 #' 

@@ -1,8 +1,8 @@
-#include "defines.h"
+#include "../../R-CRAN/src/base/Cpp/defines.h"
 
 #ifndef FLAG_RCPP
 
-#include "DynCommBase.h"
+#include "../../R-CRAN/src/base/Cpp/DynCommBase.h"
 //#include "quality.h"
 //#include "reader.h"
 //#include "writer.h"
@@ -35,16 +35,18 @@ int main(int argc, char *argv[]) {
 //	std::string sequences[size];//={"3 6 0\n1 4 1","2 3 0\n5 6 1","1 4 0\n8 9 1","5 6 0\n8 9 0\n2 3 1\n3 6 1"};
 	unsigned int size=4;
 	std::string sequences[size]={"3 6 0\n1 4 1","2 3 0\n5 6 1","1 4 0\n8 9 1","5 6 0\n8 9 0\n2 3 1\n3 6 1"};
-	ReaderStringEdge rd(origin,parameters);
 
 //	bool improvement=true;
 	bool hasAddRemove = false;
 	unsigned int index=0;
 
-	DynCommBase c(&rd,Algorithm::ALGORITHM::LOUVAIN,Quality::QUALITY::MODULARITY,parameters);//call algorithm constructor
+	DynCommBase c(Algorithm::ALGORITHM::LOUVAIN,Criterion::CRITERION::MODULARITY,parameters);//call algorithm constructor
 
 	ProgramParameters p=parameters;//WARNING: workaround. All addRemoveEdges are weighted
 	p.type=LINK_WEIGHT::WEIGHTED;
+
+	ReaderStringEdge rd(origin,parameters);
+	c.addRemoveEdges(&rd);
 
 	do {
 //		c.addRemoveEdges(c,index,has_add_file,has_rem_file);//call addRemoveEdges if there are edges to add or remove
@@ -63,13 +65,14 @@ int main(int argc, char *argv[]) {
 		if(hasAddRemove){
 			COUT << "comm count="<< c.communityCount()<<"\n";
 			COUT << "comms="<< set::toString(c.communities())<<"\n";
-			COUT << "comm 1 node count="<< c.communityNodeCount(1)<<"\n";
-			COUT << "comm 1 nodes="<< set::toString(c.nodes(1))<<"\n";
-			WriterString wr(parameters);
+			COUT << "comm 1 node count="<< c.communityVertexCount(1)<<"\n";
+			COUT << "comm 1 nodes="<< set::toString(c.vertices(1))<<"\n";
+			WriterStream wr(std::cout,parameters);
 			wr.write("snapshot:",WriterInterface::WRITETYPE::LINE);
-			c.results(&wr);
+			c.communityMapping(&wr);
+			COUT << "\n";
 			COUT << c.quality()<<"\n";
-			COUT << c.time()<<"us\n";
+			COUT << c.time()<<"ns\n";
 			ReaderStringEdge rd2(sequences[index],p);
 			c.addRemoveEdges(&rd2);
 		}
@@ -78,13 +81,16 @@ int main(int argc, char *argv[]) {
 	} while(hasAddRemove);
 	COUT << "comm count="<< c.communityCount()<<"\n";
 	COUT << "comms="<< set::toString(c.communities())<<"\n";
-	COUT << "comm 1 node count="<< c.communityNodeCount(1)<<"\n";
-	COUT << "comm 1 nodes="<< set::toString(c.nodes(1))<<"\n";
-	WriterString wr(parameters);
+	COUT << "comm 1 node count="<< c.communityVertexCount(1)<<"\n";
+	COUT << "comm 1 nodes="<< set::toString(c.vertices(1))<<"\n";
+	std::stringstream ss;
+	WriterStream wr(ss,parameters);
 	wr.write("snapshot:",WriterInterface::WRITETYPE::LINE);
-	c.results(&wr);
+	c.communityMapping(&wr,false);
+	COUT << ss.str();
+	COUT << "\n";
 	COUT << c.quality()<<"\n";
-	COUT << c.time()<<"ms\n";
+	COUT << c.time()<<"ns\n";
 	return 0;
 }
 #endif //FLAG_RCPP

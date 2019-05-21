@@ -208,6 +208,15 @@ CRITERION <- list(
 #'   Stops when, on a cycle of the algorithm, the quality is increased by less 
 #'   than the value given in this parameter.
 #'   }
+#'   \item{
+#'   cv
+#'   }{
+#'   Community-Vertex.
+#'   Boolean parameter that indicates if sending community mapping to a file
+#'   prints the community first, if true, or the vertex first, if false. See
+#'   \code{\link{communityMapping}} for details.
+#'   Default TRUE
+#'   }
 #' }
 #' 
 #' @section Methods:
@@ -232,11 +241,11 @@ DynCommMain <- function(Algorithm,Criterion,Parameters)
     # print(dc)
     # TO DO: check for errors
   }
-  else if(alg>=10001 & alg<=20000){
-    # print("Python algorithm")
-    dc <- reticulate::import_from_path("DynCommPython","../src/base/Python")
-    # calls to python should be equal to calls to c++ but may need separate processing of outputs
-  }
+  # else if(alg>=10001 & alg<=20000){
+  #   # print("Python algorithm")
+  #   dc <- reticulate::import_from_path("DynCommPython","../src/base/Python")
+  #   # calls to python should be equal to calls to c++ but may need separate processing of outputs
+  # }
   else{
     dc<-NULL
     print("Unknown algorithm :(")
@@ -258,12 +267,12 @@ DynCommMain <- function(Algorithm,Criterion,Parameters)
       if(alg>=1 & alg<=10000){
         return(dc$results(differential))
       }
-      else if(alg>=10001 & alg<=20000){
-        # print("Python algorithm")
-        return(dc$results(differential))
-      }
+      # else if(alg>=10001 & alg<=20000){
+      #   # print("Python algorithm")
+      #   return(dc$results(differential))
+      # }
       else{
-        return(matrix(data=c(NA,NA),ncol=2,byrow=TRUE,dimnames = c("name","value")))
+        return(matrix(nrow=0,ncol=2,byrow=TRUE,dimnames = list(c(),c("name","value"))))
       }
     },
 
@@ -274,10 +283,10 @@ DynCommMain <- function(Algorithm,Criterion,Parameters)
       if(alg>=1 & alg<=10000){
         return(dc$addRemoveEdgesFile(graphAddRemoveFile))
       }
-      else if(alg>=10001 & alg<=20000){
-        # print("Python algorithm")
-        return(dc$addRemoveEdgesFile(graphAddRemoveFile))
-      }
+      # else if(alg>=10001 & alg<=20000){
+      #   # print("Python algorithm")
+      #   return(dc$addRemoveEdgesFile(graphAddRemoveFile))
+      # }
       else{
         return(FALSE)
       }
@@ -290,10 +299,10 @@ DynCommMain <- function(Algorithm,Criterion,Parameters)
       if(alg>=1 & alg<=10000){
         return(dc$addRemoveEdgesMatrix(graphAddRemoveMatrix))
       }
-      else if(alg>=10001 & alg<=20000){
-        # print("Python algorithm")
-        return(dc$addRemoveEdgesMatrix(graphAddRemoveMatrix))
-      }
+      # else if(alg>=10001 & alg<=20000){
+      #   # print("Python algorithm")
+      #   return(dc$addRemoveEdgesMatrix(graphAddRemoveMatrix))
+      # }
       else{
         return(FALSE)
       }
@@ -306,10 +315,10 @@ DynCommMain <- function(Algorithm,Criterion,Parameters)
         if(alg>=1 & alg<=10000){
           return(dc$quality())
         }
-        else if(alg>=10001 & alg<=20000){
-          # print("Python algorithm")
-          return(dc$quality())
-        }
+        # else if(alg>=10001 & alg<=20000){
+        #   # print("Python algorithm")
+        #   return(dc$quality())
+        # }
         else{
           return(NA)
         }
@@ -322,10 +331,10 @@ DynCommMain <- function(Algorithm,Criterion,Parameters)
         if(alg>=1 & alg<=10000){
           return(dc$communityCount())
         }
-      else if(alg>=10001 & alg<=20000){
-        # print("Python algorithm")
-        return(dc$communityCount())
-      }
+      # else if(alg>=10001 & alg<=20000){
+      #   # print("Python algorithm")
+      #   return(dc$communityCount())
+      # }
       else{
           return(NA)
         }
@@ -338,10 +347,10 @@ DynCommMain <- function(Algorithm,Criterion,Parameters)
         if(alg>=1 & alg<=10000){
           return(dc$communities())
         }
-      else if(alg>=10001 & alg<=20000){
-        # print("Python algorithm")
-        return(dc$communities())
-      }
+      # else if(alg>=10001 & alg<=20000){
+      #   # print("Python algorithm")
+      #   return(dc$communities())
+      # }
       else{
         return(list())
         }
@@ -355,12 +364,12 @@ DynCommMain <- function(Algorithm,Criterion,Parameters)
       if(alg>=1 & alg<=10000){
         return(dc$communityNeighbours(community))
       }
-      else if(alg>=10001 & alg<=20000){
-        # print("Python algorithm")
-        return(dc$communityNeighbours(community))
-      }
+      # else if(alg>=10001 & alg<=20000){
+      #   # print("Python algorithm")
+      #   return(dc$communityNeighbours(community))
+      # }
       else{
-        return(matrix(data=c(NA,NA),ncol=2,byrow=TRUE,dimnames = list(c(),c("neighbour","weight"))))
+        return(matrix(nrow=0,ncol=2,byrow=TRUE,dimnames = list(c(),c("neighbour","weight"))))
       }
     },
     
@@ -368,13 +377,13 @@ DynCommMain <- function(Algorithm,Criterion,Parameters)
     #'   \item{communityInnerEdgesWeight(community)}{Get the sum of weights of the inner edges of the given community after the last iteration. See \code{\link{communityInnerEdgesWeight}}}
     #'   
     communityInnerEdgesWeight=function(community){
-        if(alg>=1 & alg<=10000){
-          return(dc$communityInnerEdgesWeight(community))
-      }
-      else if(alg>=10001 & alg<=20000){
-        # print("Python algorithm")
+      if(alg>=1 & alg<=10000){
         return(dc$communityInnerEdgesWeight(community))
       }
+      # else if(alg>=10001 & alg<=20000){
+      #   # print("Python algorithm")
+      #   return(dc$communityInnerEdgesWeight(community))
+      # }
       else{
         return(NA)
       }
@@ -384,96 +393,96 @@ DynCommMain <- function(Algorithm,Criterion,Parameters)
     #'   \item{communityTotalWeight(community)}{Get the sum of weights of all edges of the given community after the last iteration. See \code{\link{communityTotalWeight}}}
     #'   
     communityTotalWeight=function(community){
-        if(alg>=1 & alg<=10000){
-          return(dc$communityTotalWeight(community))
-        }
-      else if(alg>=10001 & alg<=20000){
-        # print("Python algorithm")
+      if(alg>=1 & alg<=10000){
         return(dc$communityTotalWeight(community))
       }
+      # else if(alg>=10001 & alg<=20000){
+      #   # print("Python algorithm")
+      #   return(dc$communityTotalWeight(community))
+      # }
       else{
         return(NA)
-        }
+      }
     },
 
     #' 
     #'   \item{communityEdgeWeight(source,destination)}{Get the weight of the edge that goes from source to destination after the last iteration. See \code{\link{communityEdgeWeight}}}
     #'   
     communityEdgeWeight=function(source,destination){
-        if(alg>=1 & alg<=10000){
-          return(dc$communityEdgeWeight(source,destination))
-          }
-      else if(alg>=10001 & alg<=20000){
-        # print("Python algorithm")
+      if(alg>=1 & alg<=10000){
         return(dc$communityEdgeWeight(source,destination))
       }
+      # else if(alg>=10001 & alg<=20000){
+      #   # print("Python algorithm")
+      #   return(dc$communityEdgeWeight(source,destination))
+      # }
       else{
         return(NA)
-          }
+      }
     },
         
     #' 
     #'   \item{communityVertexCount(community)}{Get the amount of vertices in the given community after the last iteration. See \code{\link{communityVertexCount}}}
     #'   
     communityVertexCount=function(community){
-        if(alg>=1 & alg<=10000){
-          return(dc$communityVertexCount(community))
-          }
-      else if(alg>=10001 & alg<=20000){
-        # print("Python algorithm")
+      if(alg>=1 & alg<=10000){
         return(dc$communityVertexCount(community))
       }
+      # else if(alg>=10001 & alg<=20000){
+      #   # print("Python algorithm")
+      #   return(dc$communityVertexCount(community))
+      # }
       else{
         return(NA)
-          }
+      }
     },
         
     #' 
     #'   \item{community(vertex)}{Get the community of the given vertex after the last iteration. See \code{\link{community}}}
     #'   
     community=function(vertex){
-        if(alg>=1 & alg<=10000){
-          return(dc$community(vertex))
-          }
-      else if(alg>=10001 & alg<=20000){
-        # print("Python algorithm")
+      if(alg>=1 & alg<=10000){
         return(dc$community(vertex))
       }
+      # else if(alg>=10001 & alg<=20000){
+      #   # print("Python algorithm")
+      #   return(dc$community(vertex))
+      # }
       else{
         return(NA)
-          }
+      }
     },
         
     #' 
     #'   \item{vertexCount()}{Get the total number of vertices after the last iteration. See \code{\link{vertexCount}}}
     #'   
     vertexCount=function(){
-        if(alg>=1 & alg<=10000){
-          return(dc$vertexCount())
-          }
-      else if(alg>=10001 & alg<=20000){
-        # print("Python algorithm")
+      if(alg>=1 & alg<=10000){
         return(dc$vertexCount())
       }
+      # else if(alg>=10001 & alg<=20000){
+      #   # print("Python algorithm")
+      #   return(dc$vertexCount())
+      # }
       else{
         return(NA)
-          }
+      }
     },
 
     #' 
     #'   \item{verticesAll()}{Get all vertices in the graph after the last iteration. See \code{\link{verticesAll}}}
     #'   
     verticesAll=function(){
-        if(alg>=1 & alg<=10000){
-          return(dc$verticesAll())
-          }
-      else if(alg>=10001 & alg<=20000){
-        # print("Python algorithm")
+      if(alg>=1 & alg<=10000){
         return(dc$verticesAll())
       }
+      # else if(alg>=10001 & alg<=20000){
+      #   # print("Python algorithm")
+      #   return(dc$verticesAll())
+      # }
       else{
         return(list())
-          }
+      }
     },
         
     #' 
@@ -483,12 +492,12 @@ DynCommMain <- function(Algorithm,Criterion,Parameters)
       if(alg>=1 & alg<=10000){
         return(dc$neighbours(vertex))
       }
-      else if(alg>=10001 & alg<=20000){
-        # print("Python algorithm")
-        return(dc$neighbours(vertex))
-      }
+      # else if(alg>=10001 & alg<=20000){
+      #   # print("Python algorithm")
+      #   return(dc$neighbours(vertex))
+      # }
       else{
-        return(matrix(data=c(NA,NA),ncol=2,byrow=TRUE,dimnames = list(c(),c("neighbour","weight"))))
+        return(matrix(nrow=0,ncol=2,byrow=TRUE,dimnames = list(c(),c("neighbour","weight"))))
       }
     },
     
@@ -499,10 +508,10 @@ DynCommMain <- function(Algorithm,Criterion,Parameters)
       if(alg>=1 & alg<=10000){
         return(dc$edgeWeight(source,destination))
       }
-      else if(alg>=10001 & alg<=20000){
-        # print("Python algorithm")
-        return(dc$edgeWeight(source,destination))
-      }
+      # else if(alg>=10001 & alg<=20000){
+      #   # print("Python algorithm")
+      #   return(dc$edgeWeight(source,destination))
+      # }
       else{
         return(NA)
       }
@@ -512,31 +521,31 @@ DynCommMain <- function(Algorithm,Criterion,Parameters)
     #'   \item{vertices(community)}{Get all vertices belonging to the given community after the last iteration. See \code{\link{vertices}}}
     #'   
     vertices=function(community){
-        if(alg>=1 & alg<=10000){
-          return(dc$vertices(community))
-            }
-      else if(alg>=10001 & alg<=20000){
-        # print("Python algorithm")
+      if(alg>=1 & alg<=10000){
         return(dc$vertices(community))
       }
+      # else if(alg>=10001 & alg<=20000){
+      #   # print("Python algorithm")
+      #   return(dc$vertices(community))
+      # }
       else{
         return(list())
-            }
+      }
     },
     
     #' 
     #'   \item{communityMapping(differential)}{Get the community mapping for all communities after the last iteration.See \code{\link{communityMapping}}}
     #'   
     communityMappingMatrix = function(differential=TRUE){
-        if(alg>=1 & alg<=10000){
-          return(dc$communityMappingMatrix(differential))
-      }
-      else if(alg>=10001 & alg<=20000){
-        # print("Python algorithm")
+      if(alg>=1 & alg<=10000){
         return(dc$communityMappingMatrix(differential))
       }
+      # else if(alg>=10001 & alg<=20000){
+      #   # print("Python algorithm")
+      #   return(dc$communityMappingMatrix(differential))
+      # }
       else{
-        return(matrix(data=c(NA,NA),ncol=2,byrow=TRUE,dimnames = list(c(),c("vertex","community"))))
+        return(matrix(nrow=0,ncol=2,byrow=TRUE,dimnames = list(c(),c("vertex","community"))))
       }
     },
     
@@ -545,14 +554,14 @@ DynCommMain <- function(Algorithm,Criterion,Parameters)
     #'   
     communityMappingFile = function(differential=TRUE,file=""){
       if(alg>=1 & alg<=10000){
-        return(dc$communityMappingFile(differential,file))
+        return(dc$communityMappingFile(prm[which(prm=="cv"),2], differential,file))
       }
-      else if(alg>=10001 & alg<=20000){
-        # print("Python algorithm")
-        return(dc$communityMappingFile(differential,file))
-      }
+      # else if(alg>=10001 & alg<=20000){
+      #   # print("Python algorithm")
+      #   return(dc$communityMappingFile(prm[which(prm=="cv"),2],differential,file))
+      # }
       else{
-        return(matrix(data=c(NA),nrow=1,ncol=1,byrow=TRUE,dimnames = c("reply")))
+        return(matrix(nrow=0,ncol=1,byrow=TRUE,dimnames = list(c(),c("reply"))))
       }
     },
     
@@ -560,16 +569,16 @@ DynCommMain <- function(Algorithm,Criterion,Parameters)
     #'   \item{time()}{Get the cumulative time spent on processing after the last iteration. See \code{\link{time}}}
     #'   
     time=function(differential=FALSE){
-        if(alg>=1 & alg<=10000){
-          return(dc$time(differential))
-          }
-      else if(alg>=10001 & alg<=20000){
-        # print("Python algorithm")
+      if(alg>=1 & alg<=10000){
         return(dc$time(differential))
       }
+      # else if(alg>=10001 & alg<=20000){
+      #   # print("Python algorithm")
+      #   return(dc$time(differential))
+      # }
       else{
         return(NA)
-          }
+      }
     }
     
   )

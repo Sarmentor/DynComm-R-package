@@ -1,0 +1,8 @@
+<map id="Criterion::quality" name="Criterion::quality">
+<area shape="rect" id="node2" href="$classCriterionBalMod.html#a87c0ccb5e2a851420dc82bd23cc31716" title="CriterionBalMod::quality" alt="" coords="171,78,332,105"/>
+<area shape="rect" id="node7" href="$classCriterionModularity.html#adf9197fd4e5878ca86501447b1fba989" title="CriterionModularity\l::quality" alt="" coords="186,129,317,171"/>
+<area shape="rect" id="node3" href="$classGraphUndirected.html#a41ba96531c669461dbc7e11ee35796ab" title="GraphUndirected::totalWeight" alt="" coords="380,137,575,163"/>
+<area shape="rect" id="node4" href="$classGraphUndirected.html#af2f65109919c878a1fd7637d3bfe0991" title="GraphUndirected::getVertices" alt="" coords="380,187,575,214"/>
+<area shape="rect" id="node5" href="$classGraphUndirectedGroupable.html#a1986c140fd9aba8063774372c971706d" title="GraphUndirectedGroupable\l::innerEdges" alt="" coords="388,5,567,47"/>
+<area shape="rect" id="node6" href="$classGraphUndirectedGroupable.html#a8aa795a6e0ae115d35937508c5aad401" title="GraphUndirectedGroupable\l::totalEdges" alt="" coords="388,71,567,112"/>
+</map>

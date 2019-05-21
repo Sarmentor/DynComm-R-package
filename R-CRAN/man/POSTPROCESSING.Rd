@@ -6,9 +6,12 @@
 \title{List of available post processing algorithms.}
 \format{A named list with the names of the available algorithms:
  \describe{
-   \item{DENSOPT}{Density optimization.
-            @references \insertRef{Sarmento2019Apr}{DynComm}
-         }
+   \item{DENSOPT}{
+     Density optimization is an algorithm that provides a community 
+	structure based on the increase of the average community density.
+     See \code{\link{postProcessDensOpt}}\cr
+     @references \insertRef{Sarmento2019Apr}{DynComm}
+   }
  }}
 \usage{
 POSTPROCESSING
@@ -28,6 +31,9 @@ compact version of them.
 \examples{
 POSTPROCESSING$DENSOPT
 
+}
+\seealso{
+\code{\link{DynComm}}
 }
 \author{
 poltergeist0

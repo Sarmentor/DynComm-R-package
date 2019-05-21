@@ -1,0 +1,27 @@
+<map id="R&#45;CRAN/src/base/Cpp/DynCommBase.h" name="R&#45;CRAN/src/base/Cpp/DynCommBase.h">
+<area shape="rect" id="node2" href="$defines_8h.html" title="defines.h" alt="" coords="325,841,400,868"/>
+<area shape="rect" id="node4" href="$DynCommBaseInterface_8h.html" title="DynCommBaseInterface.h" alt="" coords="321,468,498,495"/>
+<area shape="rect" id="node11" href="$mapReversable_8h.html" title="mapReversable.h" alt="" coords="1014,767,1138,793"/>
+<area shape="rect" id="node32" href="$algorithm_8h.html" title="algorithm.h" alt="" coords="633,95,719,121"/>
+<area shape="rect" id="node36" href="$criterion_8h.html" title="criterion.h" alt="" coords="567,319,646,345"/>
+<area shape="rect" id="node40" href="$timeFunctions_8h.html" title="timeFunctions.h" alt="" coords="175,767,289,793"/>
+<area shape="rect" id="node5" href="$criterionInterface_8h.html" title="criterionInterface.h" alt="" coords="495,543,625,569"/>
+<area shape="rect" id="node26" href="$reader_8h.html" title="reader.h" alt="" coords="645,692,715,719"/>
+<area shape="rect" id="node28" href="$writer_8h.html" title="writer.h" alt="" coords="351,692,417,719"/>
+<area shape="rect" id="node29" href="$systemDefines_8h.html" title="systemDefines.h" alt="" coords="22,841,143,868"/>
+<area shape="rect" id="node6" href="$program_8h.html" title="program.h" alt="" coords="421,767,501,793"/>
+<area shape="rect" id="node10" href="$graphUndirectedGroupable_8h.html" title="graphUndirectedGroupable.h" alt="" coords="809,617,996,644"/>
+<area shape="rect" id="node21" href="$graphUndirected_8h.html" title="graphUndirected.h" alt="" coords="852,692,980,719"/>
+<area shape="rect" id="node25" href="$setUtilities_8h.html" title="setUtilities.h" alt="" coords="1389,841,1483,868"/>
+<area shape="rect" id="node16" href="$mapUtilities_8h.html" title="mapUtilities.h" alt="" coords="1014,841,1117,868"/>
+<area shape="rect" id="node19" href="$multimapUtilities_8h.html" title="multimapUtilities.h" alt="" coords="808,841,939,868"/>
+<area shape="rect" id="node18" href="$stringFormatter_8h.html" title="stringFormatter.h" alt="" coords="715,916,837,943"/>
+<area shape="rect" id="node22" href="$graphInterface_8h.html" title="graphInterface.h" alt="" coords="718,767,834,793"/>
+<area shape="rect" id="node23" href="$edge_8h.html" title="edge.h" alt="" coords="576,841,637,868"/>
+<area shape="rect" id="node33" href="$algorithmInterface_8h.html" title="algorithmInterface.h" alt="" coords="802,319,939,345"/>
+<area shape="rect" id="node34" href="$algorithmLouvain_8h.html" title="algorithmLouvain.h" alt="" coords="647,169,777,196"/>
+<area shape="rect" id="node35" href="$algorithmBase_8h.html" title="algorithmBase.h" alt="" coords="655,244,771,271"/>
+<area shape="rect" id="node37" href="$criterionBalMod_8h.html" title="criterionBalMod.h" alt="" coords="391,393,513,420"/>
+<area shape="rect" id="node39" href="$criterionModularity_8h.html" title="criterionModularity.h" alt="" coords="537,393,676,420"/>
+<area shape="rect" id="node38" href="$criterionBase_8h.html" title="criterionBase.h" alt="" coords="537,468,647,495"/>
+</map>

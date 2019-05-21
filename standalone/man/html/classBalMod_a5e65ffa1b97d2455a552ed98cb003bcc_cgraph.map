@@ -1,0 +1,12 @@
+<map id="BalMod::gain" name="BalMod::gain">
+<area shape="rect" id="node2" href="$classGraphUndirectedGroupable.html#ad40474d566b3f9fbe9d132fbbe562ed5" title="GraphUndirectedGroupable\l::community" alt="" coords="397,23,576,65"/>
+<area shape="rect" id="node5" href="$classGraphUndirectedGroupable.html#a24c1e8303eefff2635f7462d3cf1c6cf" title="GraphUndirectedGroupable\l::neighborsCommunityWeight" alt="" coords="152,82,347,123"/>
+<area shape="rect" id="node9" href="$classGraphUndirectedGroupable.html#a8aa795a6e0ae115d35937508c5aad401" title="GraphUndirectedGroupable\l::totalEdges" alt="" coords="160,213,339,254"/>
+<area shape="rect" id="node10" href="$classGraphUndirected.html#a41ba96531c669461dbc7e11ee35796ab" title="GraphUndirected::totalWeight" alt="" coords="152,279,347,305"/>
+<area shape="rect" id="node11" href="$classGraphUndirected.html#ad2b1cd9a6dded42bd5431134aba26612" title="GraphUndirected::weighted\l_degree" alt="" coords="159,147,339,189"/>
+<area shape="rect" id="node3" href="$classMapReversable.html#a30fd5b0e4e2578d3eaad8926a5d12cb2" title="MapReversable::find" alt="" coords="630,5,773,32"/>
+<area shape="rect" id="node4" href="$classMapReversable.html#acf794209bf91fe8f6026f090ccb7635f" title="MapReversable::cend" alt="" coords="627,56,776,83"/>
+<area shape="rect" id="node6" href="$classGraphUndirected.html#ad9058dbbd7e6d2930a6a233e8b6b0547" title="GraphUndirected::neighbors" alt="" coords="395,140,579,167"/>
+<area shape="rect" id="node7" href="$classHalfEdge.html#a98c0fb1c54506abbd3c0ac4a1264dac1" title="HalfEdge::destination" alt="" coords="413,89,560,116"/>
+<area shape="rect" id="node8" href="$classHalfEdge.html#a89cc13d21ae44a9d9c2ba95f89576090" title="HalfEdge::weight" alt="" coords="425,191,548,217"/>
+</map>

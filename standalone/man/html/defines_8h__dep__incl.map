@@ -1,0 +1,18 @@
+<map id="R&#45;CRAN/src/base/Cpp/defines.h" name="R&#45;CRAN/src/base/Cpp/defines.h">
+<area shape="rect" id="node2" href="$DynCommEXE_8cpp.html" title="standalone/Cpp/DynCommEXE.cpp" alt="" coords="5,102,237,129"/>
+<area shape="rect" id="node3" href="$DynCommRcpp_8cpp.html" title="R&#45;CRAN/src/DynCommRcpp.cpp" alt="" coords="235,899,455,925"/>
+<area shape="rect" id="node4" href="$DynCommBase_8h.html" title="R&#45;CRAN/src/base/Cpp\l/DynCommBase.h" alt="" coords="367,809,524,851"/>
+<area shape="rect" id="node5" href="$program_8h.html" title="R&#45;CRAN/src/base/Cpp\l/program.h" alt="" coords="544,95,701,136"/>
+<area shape="rect" id="node17" href="$timeFunctions_8h.html" title="R&#45;CRAN/src/base/Cpp\l/timeFunctions.h" alt="" coords="957,452,1115,493"/>
+<area shape="rect" id="node6" href="$criterionInterface_8h.html" title="R&#45;CRAN/src/base/Cpp\l/criterionInterface.h" alt="" coords="544,184,701,225"/>
+<area shape="rect" id="node11" href="$algorithmBase_8h.html" title="R&#45;CRAN/src/base/Cpp\l/algorithmBase.h" alt="" coords="745,541,903,583"/>
+<area shape="rect" id="node15" href="$reader_8h.html" title="R&#45;CRAN/src/base/Cpp\l/reader.h" alt="" coords="725,184,883,225"/>
+<area shape="rect" id="node16" href="$writer_8h.html" title="R&#45;CRAN/src/base/Cpp\l/writer.h" alt="" coords="363,184,520,225"/>
+<area shape="rect" id="node7" href="$DynCommBaseInterface_8h.html" title="R&#45;CRAN/src/base/Cpp\l/DynCommBaseInterface.h" alt="" coords="363,273,544,315"/>
+<area shape="rect" id="node8" href="$criterionBase_8h.html" title="R&#45;CRAN/src/base/Cpp\l/criterionBase.h" alt="" coords="568,273,725,315"/>
+<area shape="rect" id="node9" href="$criterionBalMod_8h.html" title="R&#45;CRAN/src/base/Cpp\l/criterionBalMod.h" alt="" coords="457,363,615,404"/>
+<area shape="rect" id="node14" href="$criterionModularity_8h.html" title="R&#45;CRAN/src/base/Cpp\l/criterionModularity.h" alt="" coords="639,363,796,404"/>
+<area shape="rect" id="node10" href="$criterion_8h.html" title="R&#45;CRAN/src/base/Cpp\l/criterion.h" alt="" coords="581,452,739,493"/>
+<area shape="rect" id="node13" href="$algorithm_8h.html" title="R&#45;CRAN/src/base/Cpp\l/algorithm.h" alt="" coords="581,720,739,761"/>
+<area shape="rect" id="node12" href="$algorithmLouvain_8h.html" title="R&#45;CRAN/src/base/Cpp\l/algorithmLouvain.h" alt="" coords="729,631,887,672"/>
+</map>

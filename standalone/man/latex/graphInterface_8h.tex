@@ -1,0 +1,190 @@
+\hypertarget{graphInterface_8h}{}\section{R-\/\+C\+R\+A\+N/src/base/\+Cpp/graph\+Interface.h File Reference}
+\label{graphInterface_8h}\index{R-\/\+C\+R\+A\+N/src/base/\+Cpp/graph\+Interface.\+h@{R-\/\+C\+R\+A\+N/src/base/\+Cpp/graph\+Interface.\+h}}
+{\ttfamily \#include \char`\"{}edge.\+h\char`\"{}}\newline
+Include dependency graph for graph\+Interface.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=242pt]{graphInterface_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{graphInterface_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classGraphInterface}{Graph\+Interface}
+\begin{DoxyCompactList}\small\item\em Interface for graph. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\+::multimap$<$ \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex}, \hyperlink{classHalfEdge}{Half\+Edge} $>$ \hyperlink{graphInterface_8h_a31ca98f3d40433c4c9e20fe8901d4392}{type\+Links}
+\begin{DoxyCompactList}\small\item\em Indexed edge list by source vertex. \end{DoxyCompactList}\item 
+typedef type\+Links\+::iterator \hyperlink{graphInterface_8h_a14e1e9db091b5dad16b731856d9d0535}{type\+Links\+Iterator}
+\begin{DoxyCompactList}\small\item\em Indexed edge list iterator. \end{DoxyCompactList}\item 
+typedef type\+Links\+::const\+\_\+iterator \hyperlink{graphInterface_8h_a3df8ebb872509db28b2c65de5444959a}{type\+Links\+Iterator\+Const}
+\begin{DoxyCompactList}\small\item\em Indexed edge list constant iterator. \end{DoxyCompactList}\item 
+typedef std\+::pair$<$ \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex}, \hyperlink{classHalfEdge}{Half\+Edge} $>$ \hyperlink{graphInterface_8h_ab7c213e5410dd75f7d839ac9191d7e21}{type\+Links\+Pair}
+\begin{DoxyCompactList}\small\item\em Indexed edge list pair as returned by the iterator. \end{DoxyCompactList}\item 
+typedef std\+::pair$<$ \hyperlink{graphInterface_8h_a14e1e9db091b5dad16b731856d9d0535}{type\+Links\+Iterator}, \hyperlink{graphInterface_8h_a14e1e9db091b5dad16b731856d9d0535}{type\+Links\+Iterator} $>$ \hyperlink{graphInterface_8h_a96912fae8a56f9ab539173ae44868aaf}{type\+Links\+Range}
+\begin{DoxyCompactList}\small\item\em Indexed edge list range. \end{DoxyCompactList}\item 
+typedef std\+::pair$<$ \hyperlink{graphInterface_8h_a3df8ebb872509db28b2c65de5444959a}{type\+Links\+Iterator\+Const}, \hyperlink{graphInterface_8h_a3df8ebb872509db28b2c65de5444959a}{type\+Links\+Iterator\+Const} $>$ \hyperlink{graphInterface_8h_ae8d27008f15586bbf419af7ad2e0a48a}{type\+Links\+Range\+Const}
+\begin{DoxyCompactList}\small\item\em Indexed edge list const range. \end{DoxyCompactList}\item 
+typedef std\+::set$<$ \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} $>$ \hyperlink{graphInterface_8h_a21d54d8a139def524d3b0d6f71ec4974}{type\+Vertex\+List}
+\begin{DoxyCompactList}\small\item\em Vertex list. \end{DoxyCompactList}\item 
+typedef const std\+::set$<$ \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} $>$ \hyperlink{graphInterface_8h_af8b2de15935466b45e953ca00acee9e8}{type\+Vertex\+List\+Const}
+\begin{DoxyCompactList}\small\item\em Constant Vertex List. \end{DoxyCompactList}\item 
+typedef std\+::set$<$ \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} $>$\+::iterator \hyperlink{graphInterface_8h_ad03cf19a79f58ee268330fb16f8efaf4}{type\+Vertex\+List\+Iterator}
+\begin{DoxyCompactList}\small\item\em Vertex list iterator. \end{DoxyCompactList}\item 
+typedef std\+::set$<$ \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} $>$\+::const\+\_\+iterator \hyperlink{graphInterface_8h_a823cf2631837ac757cd928ab9a9cc24c}{type\+Vertex\+List\+Iterator\+Const}
+\begin{DoxyCompactList}\small\item\em Vertex list constant iterator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\mbox{\Hypertarget{graphInterface_8h_a31ca98f3d40433c4c9e20fe8901d4392}\label{graphInterface_8h_a31ca98f3d40433c4c9e20fe8901d4392}} 
+\index{graph\+Interface.\+h@{graph\+Interface.\+h}!type\+Links@{type\+Links}}
+\index{type\+Links@{type\+Links}!graph\+Interface.\+h@{graph\+Interface.\+h}}
+\subsubsection{\texorpdfstring{type\+Links}{typeLinks}}
+{\footnotesize\ttfamily typedef std\+::multimap$<$\hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex}, \hyperlink{classHalfEdge}{Half\+Edge}$>$ \hyperlink{graphInterface_8h_a31ca98f3d40433c4c9e20fe8901d4392}{type\+Links}}
+
+
+
+Indexed edge list by source vertex. 
+
+Expanded type\+: std\+::multimap$<$unsigned int, Half\+Edge$>$ 
+
+Definition at line 27 of file graph\+Interface.\+h.
+
+\mbox{\Hypertarget{graphInterface_8h_a14e1e9db091b5dad16b731856d9d0535}\label{graphInterface_8h_a14e1e9db091b5dad16b731856d9d0535}} 
+\index{graph\+Interface.\+h@{graph\+Interface.\+h}!type\+Links\+Iterator@{type\+Links\+Iterator}}
+\index{type\+Links\+Iterator@{type\+Links\+Iterator}!graph\+Interface.\+h@{graph\+Interface.\+h}}
+\subsubsection{\texorpdfstring{type\+Links\+Iterator}{typeLinksIterator}}
+{\footnotesize\ttfamily typedef type\+Links\+::iterator \hyperlink{graphInterface_8h_a14e1e9db091b5dad16b731856d9d0535}{type\+Links\+Iterator}}
+
+
+
+Indexed edge list iterator. 
+
+Expanded type\+: std\+::multimap$<$unsigned int, Half\+Edge$>$\+::iterator 
+
+Definition at line 35 of file graph\+Interface.\+h.
+
+\mbox{\Hypertarget{graphInterface_8h_a3df8ebb872509db28b2c65de5444959a}\label{graphInterface_8h_a3df8ebb872509db28b2c65de5444959a}} 
+\index{graph\+Interface.\+h@{graph\+Interface.\+h}!type\+Links\+Iterator\+Const@{type\+Links\+Iterator\+Const}}
+\index{type\+Links\+Iterator\+Const@{type\+Links\+Iterator\+Const}!graph\+Interface.\+h@{graph\+Interface.\+h}}
+\subsubsection{\texorpdfstring{type\+Links\+Iterator\+Const}{typeLinksIteratorConst}}
+{\footnotesize\ttfamily typedef type\+Links\+::const\+\_\+iterator \hyperlink{graphInterface_8h_a3df8ebb872509db28b2c65de5444959a}{type\+Links\+Iterator\+Const}}
+
+
+
+Indexed edge list constant iterator. 
+
+Expanded type\+: std\+::multimap$<$unsigned int, Half\+Edge$>$\+::const\+\_\+iterator 
+
+Definition at line 43 of file graph\+Interface.\+h.
+
+\mbox{\Hypertarget{graphInterface_8h_ab7c213e5410dd75f7d839ac9191d7e21}\label{graphInterface_8h_ab7c213e5410dd75f7d839ac9191d7e21}} 
+\index{graph\+Interface.\+h@{graph\+Interface.\+h}!type\+Links\+Pair@{type\+Links\+Pair}}
+\index{type\+Links\+Pair@{type\+Links\+Pair}!graph\+Interface.\+h@{graph\+Interface.\+h}}
+\subsubsection{\texorpdfstring{type\+Links\+Pair}{typeLinksPair}}
+{\footnotesize\ttfamily typedef std\+::pair$<$\hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex}, \hyperlink{classHalfEdge}{Half\+Edge}$>$ \hyperlink{graphInterface_8h_ab7c213e5410dd75f7d839ac9191d7e21}{type\+Links\+Pair}}
+
+
+
+Indexed edge list pair as returned by the iterator. 
+
+
+
+Definition at line 48 of file graph\+Interface.\+h.
+
+\mbox{\Hypertarget{graphInterface_8h_a96912fae8a56f9ab539173ae44868aaf}\label{graphInterface_8h_a96912fae8a56f9ab539173ae44868aaf}} 
+\index{graph\+Interface.\+h@{graph\+Interface.\+h}!type\+Links\+Range@{type\+Links\+Range}}
+\index{type\+Links\+Range@{type\+Links\+Range}!graph\+Interface.\+h@{graph\+Interface.\+h}}
+\subsubsection{\texorpdfstring{type\+Links\+Range}{typeLinksRange}}
+{\footnotesize\ttfamily typedef std\+::pair$<$\hyperlink{graphInterface_8h_a14e1e9db091b5dad16b731856d9d0535}{type\+Links\+Iterator}, \hyperlink{graphInterface_8h_a14e1e9db091b5dad16b731856d9d0535}{type\+Links\+Iterator} $>$ \hyperlink{graphInterface_8h_a96912fae8a56f9ab539173ae44868aaf}{type\+Links\+Range}}
+
+
+
+Indexed edge list range. 
+
+Defines a pair with two iterators to the beginning and end of the range. If the iterators are identical, the list is empty. The pair can change between calls if the Indexed edge list is modified. Expanded type\+: std\+::pair$<$std\+::multimap$<$unsigned int, Half\+Edge$>$\+::iterator, std\+::multimap$<$unsigned int, Half\+Edge$>$\+::iterator $>$ 
+
+Definition at line 59 of file graph\+Interface.\+h.
+
+\mbox{\Hypertarget{graphInterface_8h_ae8d27008f15586bbf419af7ad2e0a48a}\label{graphInterface_8h_ae8d27008f15586bbf419af7ad2e0a48a}} 
+\index{graph\+Interface.\+h@{graph\+Interface.\+h}!type\+Links\+Range\+Const@{type\+Links\+Range\+Const}}
+\index{type\+Links\+Range\+Const@{type\+Links\+Range\+Const}!graph\+Interface.\+h@{graph\+Interface.\+h}}
+\subsubsection{\texorpdfstring{type\+Links\+Range\+Const}{typeLinksRangeConst}}
+{\footnotesize\ttfamily typedef std\+::pair$<$\hyperlink{graphInterface_8h_a3df8ebb872509db28b2c65de5444959a}{type\+Links\+Iterator\+Const}, \hyperlink{graphInterface_8h_a3df8ebb872509db28b2c65de5444959a}{type\+Links\+Iterator\+Const} $>$ \hyperlink{graphInterface_8h_ae8d27008f15586bbf419af7ad2e0a48a}{type\+Links\+Range\+Const}}
+
+
+
+Indexed edge list const range. 
+
+Defines a pair with two constant iterators to the beginning and end of the range. If the iterators are identical, the list is empty. The pair can change between calls if the Indexed edge list is modified. Expanded type\+: std\+::pair$<$std\+::multimap$<$unsigned int, Half\+Edge$>$\+::const\+\_\+iterator, std\+::multimap$<$unsigned int, Half\+Edge$>$\+::const\+\_\+iterator $>$ 
+
+Definition at line 71 of file graph\+Interface.\+h.
+
+\mbox{\Hypertarget{graphInterface_8h_a21d54d8a139def524d3b0d6f71ec4974}\label{graphInterface_8h_a21d54d8a139def524d3b0d6f71ec4974}} 
+\index{graph\+Interface.\+h@{graph\+Interface.\+h}!type\+Vertex\+List@{type\+Vertex\+List}}
+\index{type\+Vertex\+List@{type\+Vertex\+List}!graph\+Interface.\+h@{graph\+Interface.\+h}}
+\subsubsection{\texorpdfstring{type\+Vertex\+List}{typeVertexList}}
+{\footnotesize\ttfamily typedef std\+::set$<$\hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex}$>$ \hyperlink{graphInterface_8h_a21d54d8a139def524d3b0d6f71ec4974}{type\+Vertex\+List}}
+
+
+
+Vertex list. 
+
+
+
+Definition at line 76 of file graph\+Interface.\+h.
+
+\mbox{\Hypertarget{graphInterface_8h_af8b2de15935466b45e953ca00acee9e8}\label{graphInterface_8h_af8b2de15935466b45e953ca00acee9e8}} 
+\index{graph\+Interface.\+h@{graph\+Interface.\+h}!type\+Vertex\+List\+Const@{type\+Vertex\+List\+Const}}
+\index{type\+Vertex\+List\+Const@{type\+Vertex\+List\+Const}!graph\+Interface.\+h@{graph\+Interface.\+h}}
+\subsubsection{\texorpdfstring{type\+Vertex\+List\+Const}{typeVertexListConst}}
+{\footnotesize\ttfamily typedef const std\+::set$<$\hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex}$>$ \hyperlink{graphInterface_8h_af8b2de15935466b45e953ca00acee9e8}{type\+Vertex\+List\+Const}}
+
+
+
+Constant Vertex List. 
+
+
+
+Definition at line 81 of file graph\+Interface.\+h.
+
+\mbox{\Hypertarget{graphInterface_8h_ad03cf19a79f58ee268330fb16f8efaf4}\label{graphInterface_8h_ad03cf19a79f58ee268330fb16f8efaf4}} 
+\index{graph\+Interface.\+h@{graph\+Interface.\+h}!type\+Vertex\+List\+Iterator@{type\+Vertex\+List\+Iterator}}
+\index{type\+Vertex\+List\+Iterator@{type\+Vertex\+List\+Iterator}!graph\+Interface.\+h@{graph\+Interface.\+h}}
+\subsubsection{\texorpdfstring{type\+Vertex\+List\+Iterator}{typeVertexListIterator}}
+{\footnotesize\ttfamily typedef std\+::set$<$\hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex}$>$\+::iterator \hyperlink{graphInterface_8h_ad03cf19a79f58ee268330fb16f8efaf4}{type\+Vertex\+List\+Iterator}}
+
+
+
+Vertex list iterator. 
+
+Expanded type\+: std\+::set$<$type\+Vertex$>$\+::iterator 
+
+Definition at line 89 of file graph\+Interface.\+h.
+
+\mbox{\Hypertarget{graphInterface_8h_a823cf2631837ac757cd928ab9a9cc24c}\label{graphInterface_8h_a823cf2631837ac757cd928ab9a9cc24c}} 
+\index{graph\+Interface.\+h@{graph\+Interface.\+h}!type\+Vertex\+List\+Iterator\+Const@{type\+Vertex\+List\+Iterator\+Const}}
+\index{type\+Vertex\+List\+Iterator\+Const@{type\+Vertex\+List\+Iterator\+Const}!graph\+Interface.\+h@{graph\+Interface.\+h}}
+\subsubsection{\texorpdfstring{type\+Vertex\+List\+Iterator\+Const}{typeVertexListIteratorConst}}
+{\footnotesize\ttfamily typedef std\+::set$<$\hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex}$>$\+::const\+\_\+iterator \hyperlink{graphInterface_8h_a823cf2631837ac757cd928ab9a9cc24c}{type\+Vertex\+List\+Iterator\+Const}}
+
+
+
+Vertex list constant iterator. 
+
+Expanded type\+: std\+::set$<$type\+Vertex$>$\+::const\+\_\+iterator 
+
+Definition at line 97 of file graph\+Interface.\+h.
+

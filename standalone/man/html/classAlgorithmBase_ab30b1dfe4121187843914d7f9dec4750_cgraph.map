@@ -1,0 +1,19 @@
+<map id="AlgorithmBase::toString" name="AlgorithmBase::toString">
+<area shape="rect" id="node2" href="$classStringFormater.html#a4cc86d5e84a9d5006d5eb61eafe68690" title="StringFormater::build" alt="" coords="455,5,598,32"/>
+<area shape="rect" id="node6" href="$classStringFormater.html#adebd3114b32c2aa5d1ebc1737a56ca5d" title="StringFormater::header" alt="" coords="685,107,840,133"/>
+<area shape="rect" id="node7" href="$classGraphUndirectedGroupable.html#a9e6c26d47c548dc27abb69c25dcfb71e" title="GraphUndirectedGroupable\l::toString" alt="" coords="213,129,392,170"/>
+<area shape="rect" id="node3" href="$classStringFormater.html#a4eda27368789110bef0e4c3401587efd" title="StringFormater::start" alt="" coords="691,56,834,83"/>
+<area shape="rect" id="node5" href="$classStringFormater.html#a63052da61a599fc14687f26b9d2f005b" title="StringFormater::end" alt="" coords="694,5,831,32"/>
+<area shape="rect" id="node4" href="$classStringFormater.html#a8a4422bdcbe498401aecb283c433d31d" title="StringFormater::indent" alt="" coords="912,56,1063,83"/>
+<area shape="rect" id="node8" href="$classGraphUndirected.html#a3e3c89157a715fc40ad9a3d551518c33" title="GraphUndirected::toString" alt="" coords="440,259,613,285"/>
+<area shape="rect" id="node17" href="$classMapReversable.html#abe3209382ad36fc387e44df42bf47477" title="MapReversable::toString" alt="" coords="443,107,610,133"/>
+<area shape="rect" id="node18" href="$namespacemap.html#a978f042c059dd48599509cbde89427ed" title="map::toString" alt="" coords="477,157,577,184"/>
+<area shape="rect" id="node9" href="$classGraphUndirected.html#ad9058dbbd7e6d2930a6a233e8b6b0547" title="GraphUndirected::neighbors" alt="" coords="671,208,855,235"/>
+<area shape="rect" id="node10" href="$classStringFormater.html#a723672ca8ad990eebc181b051199f4e8" title="StringFormater::tupleOpen" alt="" coords="675,259,850,285"/>
+<area shape="rect" id="node11" href="$classStringFormater.html#a63ed3fb057158b3e96333f5d6761400a" title="StringFormater::valueSeparator" alt="" coords="661,309,864,336"/>
+<area shape="rect" id="node12" href="$classHalfEdge.html#a98c0fb1c54506abbd3c0ac4a1264dac1" title="HalfEdge::destination" alt="" coords="689,360,836,387"/>
+<area shape="rect" id="node13" href="$classHalfEdge.html#a89cc13d21ae44a9d9c2ba95f89576090" title="HalfEdge::weight" alt="" coords="701,411,824,437"/>
+<area shape="rect" id="node14" href="$classStringFormater.html#ae87101d7a35f7317fe0e48023f9033ca" title="StringFormater::tupleClose" alt="" coords="673,461,852,488"/>
+<area shape="rect" id="node15" href="$classStringFormater.html#abe673b8b8b9a588f05a8e7de748189e7" title="StringFormater::setClose" alt="" coords="679,512,847,539"/>
+<area shape="rect" id="node16" href="$classStringFormater.html#a395cdce03292513a02a9622c920478b5" title="StringFormater::setOpen" alt="" coords="680,157,845,184"/>
+</map>

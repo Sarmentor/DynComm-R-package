@@ -1,0 +1,8 @@
+<map id="QualityBase" name="QualityBase">
+<area shape="rect" id="node2" href="$classQualityInterface.html" title="QualityInterface" alt="" coords="5,185,120,212"/>
+<area shape="rect" id="node3" href="$classGraphUndirectedGroupable.html" title="GraphUndirectedGroupable" alt="" coords="144,185,323,212"/>
+<area shape="rect" id="node4" href="$classGraphUndirected.html" title="GraphUndirected" alt="" coords="129,89,249,115"/>
+<area shape="rect" id="node5" href="$classGraphInterface.html" title="GraphInterface" alt="" coords="135,5,243,32"/>
+<area shape="rect" id="node6" href="$classMapReversable.html" title="MapReversable\&lt; typeVertex,\l typeCommunity \&gt;" alt="" coords="273,81,465,123"/>
+<area shape="rect" id="node7" href="$structProgramParameters.html" title="ProgramParameters" alt="" coords="347,185,485,212"/>
+</map>

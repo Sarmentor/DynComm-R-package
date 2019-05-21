@@ -1,0 +1,79 @@
+\hypertarget{namespacemap}{}\section{map Namespace Reference}
+\label{namespacemap}\index{map@{map}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T , typename U $>$ }\\std\+::set$<$ T $>$ \hyperlink{namespacemap_a0933403cc1970f74256fc07fb5ec898f}{keys} (std\+::map$<$ T, U $>$ const \&m)
+\item 
+{\footnotesize template$<$typename T , typename U $>$ }\\std\+::set$<$ T $>$ \hyperlink{namespacemap_a0c7435ff01b38c40e03b70ce95d40bd5}{values} (std\+::map$<$ T, U $>$ const \&m)
+\item 
+{\footnotesize template$<$typename T , typename U , typename std\+::enable\+\_\+if$<$ std\+::is\+\_\+fundamental$<$ T $>$\+::value \&\&std\+::is\+\_\+fundamental$<$ U $>$\+::value, T $>$\+::type  = 0$>$ }\\std\+::string \hyperlink{namespacemap_a7df0c3b516d256b69506233979c2d9e5}{to\+String} (std\+::map$<$ T, U $>$ const \&m, const \hyperlink{classStringFormatter}{String\+Formatter} \&formater=\hyperlink{stringFormatter_8h_abf1349c8e24162d0134072aff288f2a2}{default\+String\+Formatter})
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{namespacemap_a0933403cc1970f74256fc07fb5ec898f}\label{namespacemap_a0933403cc1970f74256fc07fb5ec898f}} 
+\index{map@{map}!keys@{keys}}
+\index{keys@{keys}!map@{map}}
+\subsubsection{\texorpdfstring{keys()}{keys()}}
+{\footnotesize\ttfamily template$<$typename T , typename U $>$ \\
+std\+::set$<$T$>$ map\+::keys (\begin{DoxyParamCaption}\item[{std\+::map$<$ T, U $>$ const \&}]{m }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the unique keys of a map 
+\end{DoxyReturn}
+
+
+Definition at line 34 of file map\+Utilities.\+h.
+
+\mbox{\Hypertarget{namespacemap_a7df0c3b516d256b69506233979c2d9e5}\label{namespacemap_a7df0c3b516d256b69506233979c2d9e5}} 
+\index{map@{map}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!map@{map}}
+\subsubsection{\texorpdfstring{to\+String()}{toString()}}
+{\footnotesize\ttfamily template$<$typename T , typename U , typename std\+::enable\+\_\+if$<$ std\+::is\+\_\+fundamental$<$ T $>$\+::value \&\&std\+::is\+\_\+fundamental$<$ U $>$\+::value, T $>$\+::type  = 0$>$ \\
+std\+::string map\+::to\+String (\begin{DoxyParamCaption}\item[{std\+::map$<$ T, U $>$ const \&}]{m,  }\item[{const \hyperlink{classStringFormatter}{String\+Formatter} \&}]{formater = {\ttfamily \hyperlink{stringFormatter_8h_abf1349c8e24162d0134072aff288f2a2}{default\+String\+Formatter}} }\end{DoxyParamCaption})}
+
+Get the string representation of a map using a strig\+Formater object to assist.
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & \\
+\hline
+{\em formater} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a string 
+\end{DoxyReturn}
+
+
+Definition at line 64 of file map\+Utilities.\+h.
+
+
+
+Referenced by Map\+Reversable$<$ type\+Vertex, type\+Community $>$\+::to\+String(), and Graph\+Undirected\+Groupable\+::to\+String().
+
+\mbox{\Hypertarget{namespacemap_a0c7435ff01b38c40e03b70ce95d40bd5}\label{namespacemap_a0c7435ff01b38c40e03b70ce95d40bd5}} 
+\index{map@{map}!values@{values}}
+\index{values@{values}!map@{map}}
+\subsubsection{\texorpdfstring{values()}{values()}}
+{\footnotesize\ttfamily template$<$typename T , typename U $>$ \\
+std\+::set$<$T$>$ map\+::values (\begin{DoxyParamCaption}\item[{std\+::map$<$ T, U $>$ const \&}]{m }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the unique values of a map 
+\end{DoxyReturn}
+
+
+Definition at line 48 of file map\+Utilities.\+h.
+

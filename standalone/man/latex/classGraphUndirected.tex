@@ -1,0 +1,850 @@
+\hypertarget{classGraphUndirected}{}\section{Graph\+Undirected Class Reference}
+\label{classGraphUndirected}\index{Graph\+Undirected@{Graph\+Undirected}}
+
+
+Graph.  
+
+
+
+
+{\ttfamily \#include $<$graph\+Undirected.\+h$>$}
+
+
+
+Inheritance diagram for Graph\+Undirected\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=214pt]{classGraphUndirected__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Graph\+Undirected\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=170pt]{classGraphUndirected__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classGraphUndirected_a00b1e3fe0aaa6fd6e63b94920e40a0ed}{Graph\+Undirected} ()
+\item 
+\hyperlink{classGraphUndirected_a882c4cec7971177f9eab04319b5b0b62}{Graph\+Undirected} (const \hyperlink{classGraphUndirected}{Graph\+Undirected} \&original)
+\item 
+\hyperlink{graphInterface_8h_ae8d27008f15586bbf419af7ad2e0a48a}{type\+Links\+Range\+Const} \hyperlink{classGraphUndirected_aa6fa3435fb456f1a7e9642b631878431}{edges} () const
+\item 
+bool \hyperlink{classGraphUndirected_a2be69d987f3b4fa1cf547898d30b47d2}{add\+Edge} (const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&source, const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&destination, const \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \&\hyperlink{classGraphUndirected_ae40d431c92d8b4884c7915c44d42f356}{weight}=1.\+0, const bool \&\hyperlink{classGraphUndirected_aee3bc279ffe39f8efb7dd60865279474}{replace}=false)
+\item 
+bool \hyperlink{classGraphUndirected_a366c8b7dbf1cbfe408d5399ad64494dc}{add\+Edge} (const \hyperlink{classEdge}{Edge} \&edge, const bool \&\hyperlink{classGraphUndirected_aee3bc279ffe39f8efb7dd60865279474}{replace}=false)
+\item 
+bool \hyperlink{classGraphUndirected_af4a40541132a66c9b688a20958057751}{remove\+Edge} (const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&source, const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&destination)
+\item 
+bool \hyperlink{classGraphUndirected_ad39275e7a8f7a39734916b8c5400a1d6}{remove\+Edge} (const \hyperlink{classEdge}{Edge} \&edge)
+\item 
+const \hyperlink{graphInterface_8h_a21d54d8a139def524d3b0d6f71ec4974}{type\+Vertex\+List} \& \hyperlink{classGraphUndirected_af2f65109919c878a1fd7637d3bfe0991}{get\+Vertices} () const
+\item 
+\hyperlink{graphInterface_8h_ae8d27008f15586bbf419af7ad2e0a48a}{type\+Links\+Range\+Const} \hyperlink{classGraphUndirected_ad9058dbbd7e6d2930a6a233e8b6b0547}{neighbors} (const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&vertex) const
+\begin{DoxyCompactList}\small\item\em Get the neighbors of a vertex. \end{DoxyCompactList}\item 
+\hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \hyperlink{classGraphUndirected_a5bc804358a7bc0087953023c597a621b}{neighbors\+Weight} (const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&vertex) const
+\begin{DoxyCompactList}\small\item\em Get the sum of the weights of the neighbors of a vertex. \end{DoxyCompactList}\item 
+unsigned int \hyperlink{classGraphUndirected_a90fdfbabe541262292733703d839812a}{neighbors\+Count} (const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&vertex) const
+\begin{DoxyCompactList}\small\item\em Get the number of neighbors of a vertex. \end{DoxyCompactList}\item 
+\hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \hyperlink{classGraphUndirected_ae40d431c92d8b4884c7915c44d42f356}{weight} (const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&source, const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&destination) const
+\item 
+const \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \& \hyperlink{classGraphUndirected_a7c21f40748eef95d1c35be892ab10ce2}{max\+Weight} () const
+\item 
+const \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \hyperlink{classGraphUndirected_a41ba96531c669461dbc7e11ee35796ab}{total\+Weight} () const
+\item 
+const \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \hyperlink{classGraphUndirected_adf50305970536f71586f8f63462dfcdc}{vertex\+Count} () const
+\item 
+const \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \hyperlink{classGraphUndirected_acc533831ee3234a03a1cc0037b017a83}{edge\+Count} () const
+\item 
+\hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \hyperlink{classGraphUndirected_ad2b1cd9a6dded42bd5431134aba26612}{weighted\+\_\+degree} (const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&vertex) const
+\item 
+bool \hyperlink{classGraphUndirected_aee3bc279ffe39f8efb7dd60865279474}{replace} (const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&old\+Value, const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&new\+Value)
+\item 
+const std\+::string \hyperlink{classGraphUndirected_a61604a0840f044d52a2762f44635fa9c}{to\+String} (const \hyperlink{classStringFormatter}{String\+Formatter} \&sf=\hyperlink{stringFormatter_8h_abf1349c8e24162d0134072aff288f2a2}{default\+String\+Formatter}) const
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classGraphUndirected_a99cc719c89bd4afb612cdae920939a00}{max\+Weight} (const \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \&\hyperlink{classGraphUndirected_ae40d431c92d8b4884c7915c44d42f356}{weight})
+\item 
+void \hyperlink{classGraphUndirected_a10582b249617c876bdf298f675285960}{update\+Max\+Weight} ()
+\item 
+void \hyperlink{classGraphUndirected_aba42cbb7de421af5452f50025154ec73}{update\+Weight} (\hyperlink{classHalfEdge}{Half\+Edge} \&he, const \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \&new\+Weight)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{graphInterface_8h_a21d54d8a139def524d3b0d6f71ec4974}{type\+Vertex\+List} \hyperlink{classGraphUndirected_a2b3210c4f2c00e9db131eb051c23f2e0}{vertices}
+\item 
+\hyperlink{graphInterface_8h_a31ca98f3d40433c4c9e20fe8901d4392}{type\+Links} \hyperlink{classGraphUndirected_a9325f02f5d038919f3d5db197da83214}{links}
+\item 
+\hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \hyperlink{classGraphUndirected_a713f460aba5e5ee4d3079f5df25fe14d}{total\+\_\+weight}
+\item 
+\hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \hyperlink{classGraphUndirected_a192e23963095ecfe1b327ba188a26bee}{max\+\_\+weight}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Graph. 
+
+Class that implements an undirected graph. When an edge is added/removed/modified, its mirror edge is also added/removed/modified. This means that, if an edge (A,B) is added, the edge (B,A) is also added.
+
+\begin{DoxyAuthor}{Author}
+poltergeist0
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2018-\/08-\/19 
+\end{DoxyDate}
+
+
+Definition at line 37 of file graph\+Undirected.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classGraphUndirected_a00b1e3fe0aaa6fd6e63b94920e40a0ed}\label{classGraphUndirected_a00b1e3fe0aaa6fd6e63b94920e40a0ed}} 
+\index{Graph\+Undirected@{Graph\+Undirected}!Graph\+Undirected@{Graph\+Undirected}}
+\index{Graph\+Undirected@{Graph\+Undirected}!Graph\+Undirected@{Graph\+Undirected}}
+\subsubsection{\texorpdfstring{Graph\+Undirected()}{GraphUndirected()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Graph\+Undirected\+::\+Graph\+Undirected (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+default constructor 
+
+Definition at line 78 of file graph\+Undirected.\+h.
+
+\mbox{\Hypertarget{classGraphUndirected_a882c4cec7971177f9eab04319b5b0b62}\label{classGraphUndirected_a882c4cec7971177f9eab04319b5b0b62}} 
+\index{Graph\+Undirected@{Graph\+Undirected}!Graph\+Undirected@{Graph\+Undirected}}
+\index{Graph\+Undirected@{Graph\+Undirected}!Graph\+Undirected@{Graph\+Undirected}}
+\subsubsection{\texorpdfstring{Graph\+Undirected()}{GraphUndirected()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Graph\+Undirected\+::\+Graph\+Undirected (\begin{DoxyParamCaption}\item[{const \hyperlink{classGraphUndirected}{Graph\+Undirected} \&}]{original }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Copy constructor 
+
+Definition at line 83 of file graph\+Undirected.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classGraphUndirected_a2be69d987f3b4fa1cf547898d30b47d2}\label{classGraphUndirected_a2be69d987f3b4fa1cf547898d30b47d2}} 
+\index{Graph\+Undirected@{Graph\+Undirected}!add\+Edge@{add\+Edge}}
+\index{add\+Edge@{add\+Edge}!Graph\+Undirected@{Graph\+Undirected}}
+\subsubsection{\texorpdfstring{add\+Edge()}{addEdge()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Graph\+Undirected\+::add\+Edge (\begin{DoxyParamCaption}\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{source,  }\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{destination,  }\item[{const \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \&}]{weight = {\ttfamily 1.0},  }\item[{const bool \&}]{replace = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Add an edge
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & \\
+\hline
+{\em destination} & \\
+\hline
+{\em weight} & Default value is one \\
+\hline
+{\em replace} & if true and link exists, it replaces the weight, otherwise fails. Default value is false \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the edge was added. False otherwise 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classGraphInterface_ad72b49c0585d378b7a6488cf07074586}{Graph\+Interface}.
+
+
+
+Reimplemented in \hyperlink{classGraphUndirectedGroupable_a8c010517bff903a50807e6e8ad8cc6db}{Graph\+Undirected\+Groupable}.
+
+
+
+Definition at line 96 of file graph\+Undirected.\+h.
+
+
+
+References multimap\+::find(), max\+Weight(), no\+Vertex, replace(), update\+Max\+Weight(), update\+Weight(), Half\+Edge\+::weight(), and weight().
+
+
+
+Referenced by Graph\+Undirected\+Groupable\+::add\+Edge(), Graph\+Undirected\+Groupable\+::communities\+To\+Graph(), Graph\+Undirected\+Groupable\+::community(), and Graph\+Undirected\+Groupable\+::remove\+Edge().
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classGraphUndirected_a2be69d987f3b4fa1cf547898d30b47d2_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classGraphUndirected_a366c8b7dbf1cbfe408d5399ad64494dc}\label{classGraphUndirected_a366c8b7dbf1cbfe408d5399ad64494dc}} 
+\index{Graph\+Undirected@{Graph\+Undirected}!add\+Edge@{add\+Edge}}
+\index{add\+Edge@{add\+Edge}!Graph\+Undirected@{Graph\+Undirected}}
+\subsubsection{\texorpdfstring{add\+Edge()}{addEdge()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Graph\+Undirected\+::add\+Edge (\begin{DoxyParamCaption}\item[{const \hyperlink{classEdge}{Edge} \&}]{edge,  }\item[{const bool \&}]{replace = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\begin{DoxySeeAlso}{See also}
+\{\hyperlink{classGraphUndirected_a2be69d987f3b4fa1cf547898d30b47d2}{add\+Edge}(const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \& source, const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \& destination, const \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \& \hyperlink{classGraphUndirected_ae40d431c92d8b4884c7915c44d42f356}{weight}=1.\+0, const bool \& \hyperlink{classGraphUndirected_aee3bc279ffe39f8efb7dd60865279474}{replace}=false)\} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em edge} & \\
+\hline
+{\em replace} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classGraphInterface_ae77357ec21f272f1e3fb4c93c5f99675}{Graph\+Interface}.
+
+
+
+Reimplemented in \hyperlink{classGraphUndirectedGroupable_a2efe963916349ac6615721ab85a93ceb}{Graph\+Undirected\+Groupable}.
+
+
+
+Definition at line 150 of file graph\+Undirected.\+h.
+
+
+
+References add\+Edge(), Edge\+::destination(), Edge\+::source(), and Edge\+::weight().
+
+
+
+Referenced by add\+Edge().
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classGraphUndirected_a366c8b7dbf1cbfe408d5399ad64494dc_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classGraphUndirected_acc533831ee3234a03a1cc0037b017a83}\label{classGraphUndirected_acc533831ee3234a03a1cc0037b017a83}} 
+\index{Graph\+Undirected@{Graph\+Undirected}!edge\+Count@{edge\+Count}}
+\index{edge\+Count@{edge\+Count}!Graph\+Undirected@{Graph\+Undirected}}
+\subsubsection{\texorpdfstring{edge\+Count()}{edgeCount()}}
+{\footnotesize\ttfamily const \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} Graph\+Undirected\+::edge\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+the number of edges in the graph 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classGraphInterface_a057eb801c6d7f594cdedc205a0d081a9}{Graph\+Interface}.
+
+
+
+Definition at line 270 of file graph\+Undirected.\+h.
+
+
+
+Referenced by Algorithm\+Louvain\+::edge\+Count().
+
+\mbox{\Hypertarget{classGraphUndirected_aa6fa3435fb456f1a7e9642b631878431}\label{classGraphUndirected_aa6fa3435fb456f1a7e9642b631878431}} 
+\index{Graph\+Undirected@{Graph\+Undirected}!edges@{edges}}
+\index{edges@{edges}!Graph\+Undirected@{Graph\+Undirected}}
+\subsubsection{\texorpdfstring{edges()}{edges()}}
+{\footnotesize\ttfamily \hyperlink{graphInterface_8h_ae8d27008f15586bbf419af7ad2e0a48a}{type\+Links\+Range\+Const} Graph\+Undirected\+::edges (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+a pair with iterators to the beginning and end of the edge list. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classGraphInterface_a2ac54d73e88516d6793a9a6fc0e434ee}{Graph\+Interface}.
+
+
+
+Definition at line 85 of file graph\+Undirected.\+h.
+
+
+
+Referenced by Graph\+Undirected\+Groupable\+::communities\+To\+Graph(), and Algorithm\+Louvain\+::edges().
+
+\mbox{\Hypertarget{classGraphUndirected_af2f65109919c878a1fd7637d3bfe0991}\label{classGraphUndirected_af2f65109919c878a1fd7637d3bfe0991}} 
+\index{Graph\+Undirected@{Graph\+Undirected}!get\+Vertices@{get\+Vertices}}
+\index{get\+Vertices@{get\+Vertices}!Graph\+Undirected@{Graph\+Undirected}}
+\subsubsection{\texorpdfstring{get\+Vertices()}{getVertices()}}
+{\footnotesize\ttfamily const \hyperlink{graphInterface_8h_a21d54d8a139def524d3b0d6f71ec4974}{type\+Vertex\+List}\& Graph\+Undirected\+::get\+Vertices (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+a constant set with all vertices 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classGraphInterface_a94af429415c22cba42ecf5a97ee6b5c3}{Graph\+Interface}.
+
+
+
+Definition at line 198 of file graph\+Undirected.\+h.
+
+
+
+References vertices.
+
+
+
+Referenced by Dyn\+Comm\+Base\+::add\+Remove\+Edges(), Graph\+Undirected\+Groupable\+::communities(), Dyn\+Comm\+Base\+::community\+Mapping(), Algorithm\+Louvain\+::get\+Vertices(), Algorithm\+Louvain\+::one\+\_\+level(), Criterion\+Bal\+Mod\+::quality(), Criterion\+Modularity\+::quality(), and Dyn\+Comm\+Base\+::vertices().
+
+\mbox{\Hypertarget{classGraphUndirected_a99cc719c89bd4afb612cdae920939a00}\label{classGraphUndirected_a99cc719c89bd4afb612cdae920939a00}} 
+\index{Graph\+Undirected@{Graph\+Undirected}!max\+Weight@{max\+Weight}}
+\index{max\+Weight@{max\+Weight}!Graph\+Undirected@{Graph\+Undirected}}
+\subsubsection{\texorpdfstring{max\+Weight()}{maxWeight()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Graph\+Undirected\+::max\+Weight (\begin{DoxyParamCaption}\item[{const \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \&}]{weight }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Definition at line 49 of file graph\+Undirected.\+h.
+
+
+
+References weight().
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classGraphUndirected_a99cc719c89bd4afb612cdae920939a00_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classGraphUndirected_a7c21f40748eef95d1c35be892ab10ce2}\label{classGraphUndirected_a7c21f40748eef95d1c35be892ab10ce2}} 
+\index{Graph\+Undirected@{Graph\+Undirected}!max\+Weight@{max\+Weight}}
+\index{max\+Weight@{max\+Weight}!Graph\+Undirected@{Graph\+Undirected}}
+\subsubsection{\texorpdfstring{max\+Weight()}{maxWeight()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily const \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight}\& Graph\+Undirected\+::max\+Weight (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+the largest weight of all edges in the graph 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classGraphInterface_a2fb0681f6cda5f8318adf7ee95df3685}{Graph\+Interface}.
+
+
+
+Definition at line 251 of file graph\+Undirected.\+h.
+
+
+
+References max\+\_\+weight.
+
+
+
+Referenced by add\+Edge(), Algorithm\+Louvain\+::max\+Weight(), and update\+Max\+Weight().
+
+\mbox{\Hypertarget{classGraphUndirected_ad9058dbbd7e6d2930a6a233e8b6b0547}\label{classGraphUndirected_ad9058dbbd7e6d2930a6a233e8b6b0547}} 
+\index{Graph\+Undirected@{Graph\+Undirected}!neighbors@{neighbors}}
+\index{neighbors@{neighbors}!Graph\+Undirected@{Graph\+Undirected}}
+\subsubsection{\texorpdfstring{neighbors()}{neighbors()}}
+{\footnotesize\ttfamily \hyperlink{graphInterface_8h_ae8d27008f15586bbf419af7ad2e0a48a}{type\+Links\+Range\+Const} Graph\+Undirected\+::neighbors (\begin{DoxyParamCaption}\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{vertex }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Get the neighbors of a vertex. 
+
+The pair can change between calls if the Indexed edge list is modified. 
+\begin{DoxyParams}{Parameters}
+{\em vertex} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointers to the first and last neighbor of the vertex 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classGraphInterface_afd5cdff5531b27fca35b58904d757db6}{Graph\+Interface}.
+
+
+
+Definition at line 206 of file graph\+Undirected.\+h.
+
+
+
+References no\+Vertex.
+
+
+
+Referenced by Graph\+Undirected\+Groupable\+::community(), Algorithm\+Louvain\+::disband(), Graph\+Undirected\+Groupable\+::neighboring\+Communities(), Algorithm\+Louvain\+::neighbors(), Graph\+Undirected\+Groupable\+::neighbors\+Community\+Count(), Graph\+Undirected\+Groupable\+::neighbors\+Community\+Weight(), neighbors\+Weight(), Dyn\+Comm\+Base\+::neighbours(), to\+String(), and weighted\+\_\+degree().
+
+\mbox{\Hypertarget{classGraphUndirected_a90fdfbabe541262292733703d839812a}\label{classGraphUndirected_a90fdfbabe541262292733703d839812a}} 
+\index{Graph\+Undirected@{Graph\+Undirected}!neighbors\+Count@{neighbors\+Count}}
+\index{neighbors\+Count@{neighbors\+Count}!Graph\+Undirected@{Graph\+Undirected}}
+\subsubsection{\texorpdfstring{neighbors\+Count()}{neighborsCount()}}
+{\footnotesize\ttfamily unsigned int Graph\+Undirected\+::neighbors\+Count (\begin{DoxyParamCaption}\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{vertex }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Get the number of neighbors of a vertex. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vertex} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the number of neighbors of the given vertex 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classGraphInterface_a07f96d04c5481c6f573f478add5f7162}{Graph\+Interface}.
+
+
+
+Definition at line 231 of file graph\+Undirected.\+h.
+
+
+
+References no\+Vertex.
+
+
+
+Referenced by Graph\+Undirected\+Groupable\+::neighboring\+Communities\+Count(), Algorithm\+Louvain\+::neighbors\+Count(), and Graph\+Undirected\+Groupable\+::remove\+Edge().
+
+\mbox{\Hypertarget{classGraphUndirected_a5bc804358a7bc0087953023c597a621b}\label{classGraphUndirected_a5bc804358a7bc0087953023c597a621b}} 
+\index{Graph\+Undirected@{Graph\+Undirected}!neighbors\+Weight@{neighbors\+Weight}}
+\index{neighbors\+Weight@{neighbors\+Weight}!Graph\+Undirected@{Graph\+Undirected}}
+\subsubsection{\texorpdfstring{neighbors\+Weight()}{neighborsWeight()}}
+{\footnotesize\ttfamily \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} Graph\+Undirected\+::neighbors\+Weight (\begin{DoxyParamCaption}\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{vertex }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Get the sum of the weights of the neighbors of a vertex. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vertex} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the sum of the weights of the neighbors of the given vertex 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classGraphInterface_a77b93eb2da955cb41b389df023676c1b}{Graph\+Interface}.
+
+
+
+Definition at line 216 of file graph\+Undirected.\+h.
+
+
+
+References neighbors().
+
+
+
+Referenced by Graph\+Undirected\+Groupable\+::community(), and Graph\+Undirected\+Groupable\+::neighboring\+Communities\+Weight().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classGraphUndirected_a5bc804358a7bc0087953023c597a621b_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classGraphUndirected_af4a40541132a66c9b688a20958057751}\label{classGraphUndirected_af4a40541132a66c9b688a20958057751}} 
+\index{Graph\+Undirected@{Graph\+Undirected}!remove\+Edge@{remove\+Edge}}
+\index{remove\+Edge@{remove\+Edge}!Graph\+Undirected@{Graph\+Undirected}}
+\subsubsection{\texorpdfstring{remove\+Edge()}{removeEdge()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Graph\+Undirected\+::remove\+Edge (\begin{DoxyParamCaption}\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{source,  }\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{destination }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+remove an edge
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & \\
+\hline
+{\em destination} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the edge existed and was successfully removed 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classGraphInterface_a1297fd6d7c9698197b5f570f2a9f3701}{Graph\+Interface}.
+
+
+
+Reimplemented in \hyperlink{classGraphUndirectedGroupable_ad1a488cc292d7e63d289f598aeaaacd6}{Graph\+Undirected\+Groupable}.
+
+
+
+Definition at line 159 of file graph\+Undirected.\+h.
+
+
+
+References multimap\+::find(), and update\+Max\+Weight().
+
+
+
+Referenced by Graph\+Undirected\+Groupable\+::communities\+To\+Graph(), Graph\+Undirected\+Groupable\+::community(), and Graph\+Undirected\+Groupable\+::remove\+Edge().
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classGraphUndirected_af4a40541132a66c9b688a20958057751_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classGraphUndirected_ad39275e7a8f7a39734916b8c5400a1d6}\label{classGraphUndirected_ad39275e7a8f7a39734916b8c5400a1d6}} 
+\index{Graph\+Undirected@{Graph\+Undirected}!remove\+Edge@{remove\+Edge}}
+\index{remove\+Edge@{remove\+Edge}!Graph\+Undirected@{Graph\+Undirected}}
+\subsubsection{\texorpdfstring{remove\+Edge()}{removeEdge()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Graph\+Undirected\+::remove\+Edge (\begin{DoxyParamCaption}\item[{const \hyperlink{classEdge}{Edge} \&}]{edge }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\begin{DoxySeeAlso}{See also}
+\{\hyperlink{classGraphUndirected_af4a40541132a66c9b688a20958057751}{remove\+Edge(const type\+Vertex \& source, const type\+Vertex \& destination)}\} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em edge} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classGraphInterface_a954e2d16f474cce832f02d4495df3092}{Graph\+Interface}.
+
+
+
+Reimplemented in \hyperlink{classGraphUndirectedGroupable_a88e02e4e05f304b289558922f1cb6aa1}{Graph\+Undirected\+Groupable}.
+
+
+
+Definition at line 193 of file graph\+Undirected.\+h.
+
+
+
+References Edge\+::destination(), remove\+Edge(), and Edge\+::source().
+
+
+
+Referenced by remove\+Edge().
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classGraphUndirected_ad39275e7a8f7a39734916b8c5400a1d6_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classGraphUndirected_aee3bc279ffe39f8efb7dd60865279474}\label{classGraphUndirected_aee3bc279ffe39f8efb7dd60865279474}} 
+\index{Graph\+Undirected@{Graph\+Undirected}!replace@{replace}}
+\index{replace@{replace}!Graph\+Undirected@{Graph\+Undirected}}
+\subsubsection{\texorpdfstring{replace()}{replace()}}
+{\footnotesize\ttfamily bool Graph\+Undirected\+::replace (\begin{DoxyParamCaption}\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{old\+Value,  }\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{new\+Value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Replace all vertex occurrences of old\+Value by new\+Value
+
+
+\begin{DoxyParams}{Parameters}
+{\em old\+Value} & \\
+\hline
+{\em new\+Value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if replacement succeeded 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classGraphInterface_a448a3c66fb5650339f84366257d322ee}{Graph\+Interface}.
+
+
+
+Reimplemented in \hyperlink{classGraphUndirectedGroupable_a164600ca9727676ad7b370b9061927d4}{Graph\+Undirected\+Groupable}.
+
+
+
+Definition at line 294 of file graph\+Undirected.\+h.
+
+
+
+References multimap\+::find(), and no\+Vertex.
+
+
+
+Referenced by add\+Edge(), Graph\+Undirected\+Groupable\+::replace(), and Graph\+Undirected\+Groupable\+::replace\+Community().
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=322pt]{classGraphUndirected_aee3bc279ffe39f8efb7dd60865279474_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classGraphUndirected_a61604a0840f044d52a2762f44635fa9c}\label{classGraphUndirected_a61604a0840f044d52a2762f44635fa9c}} 
+\index{Graph\+Undirected@{Graph\+Undirected}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Graph\+Undirected@{Graph\+Undirected}}
+\subsubsection{\texorpdfstring{to\+String()}{toString()}}
+{\footnotesize\ttfamily const std\+::string Graph\+Undirected\+::to\+String (\begin{DoxyParamCaption}\item[{const \hyperlink{classStringFormatter}{String\+Formatter} \&}]{sf = {\ttfamily \hyperlink{stringFormatter_8h_abf1349c8e24162d0134072aff288f2a2}{default\+String\+Formatter}} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+a string representation of this graph 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classGraphInterface_ac6d3da524ca5c95c3ebd80d2b0d5d762}{Graph\+Interface}.
+
+
+
+Reimplemented in \hyperlink{classGraphUndirectedGroupable_a615f30036acfdd33e45b82dc47e7d174}{Graph\+Undirected\+Groupable}.
+
+
+
+Definition at line 342 of file graph\+Undirected.\+h.
+
+
+
+References Half\+Edge\+::destination(), String\+Formatter\+::end(), String\+Formatter\+::header(), neighbors(), String\+Formatter\+::set\+Close(), String\+Formatter\+::set\+Open(), String\+Formatter\+::start(), String\+Formatter\+::tuple\+Close(), String\+Formatter\+::tuple\+Open(), String\+Formatter\+::value\+Separator(), and Half\+Edge\+::weight().
+
+
+
+Referenced by Graph\+Undirected\+Groupable\+::to\+String().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classGraphUndirected_a61604a0840f044d52a2762f44635fa9c_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classGraphUndirected_a41ba96531c669461dbc7e11ee35796ab}\label{classGraphUndirected_a41ba96531c669461dbc7e11ee35796ab}} 
+\index{Graph\+Undirected@{Graph\+Undirected}!total\+Weight@{total\+Weight}}
+\index{total\+Weight@{total\+Weight}!Graph\+Undirected@{Graph\+Undirected}}
+\subsubsection{\texorpdfstring{total\+Weight()}{totalWeight()}}
+{\footnotesize\ttfamily const \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} Graph\+Undirected\+::total\+Weight (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+the sum of the weight of all edges in the graph 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classGraphInterface_a3bf10ae8e4fc3b049b5e7ac23798b89f}{Graph\+Interface}.
+
+
+
+Definition at line 258 of file graph\+Undirected.\+h.
+
+
+
+References total\+\_\+weight.
+
+
+
+Referenced by Criterion\+Bal\+Mod\+::gain(), Criterion\+Modularity\+::gain(), Criterion\+Bal\+Mod\+::quality(), Criterion\+Modularity\+::quality(), and Algorithm\+Louvain\+::total\+Weight().
+
+\mbox{\Hypertarget{classGraphUndirected_a10582b249617c876bdf298f675285960}\label{classGraphUndirected_a10582b249617c876bdf298f675285960}} 
+\index{Graph\+Undirected@{Graph\+Undirected}!update\+Max\+Weight@{update\+Max\+Weight}}
+\index{update\+Max\+Weight@{update\+Max\+Weight}!Graph\+Undirected@{Graph\+Undirected}}
+\subsubsection{\texorpdfstring{update\+Max\+Weight()}{updateMaxWeight()}}
+{\footnotesize\ttfamily void Graph\+Undirected\+::update\+Max\+Weight (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Definition at line 56 of file graph\+Undirected.\+h.
+
+
+
+References max\+Weight(), and Half\+Edge\+::weight().
+
+
+
+Referenced by add\+Edge(), and remove\+Edge().
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classGraphUndirected_a10582b249617c876bdf298f675285960_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classGraphUndirected_aba42cbb7de421af5452f50025154ec73}\label{classGraphUndirected_aba42cbb7de421af5452f50025154ec73}} 
+\index{Graph\+Undirected@{Graph\+Undirected}!update\+Weight@{update\+Weight}}
+\index{update\+Weight@{update\+Weight}!Graph\+Undirected@{Graph\+Undirected}}
+\subsubsection{\texorpdfstring{update\+Weight()}{updateWeight()}}
+{\footnotesize\ttfamily void Graph\+Undirected\+::update\+Weight (\begin{DoxyParamCaption}\item[{\hyperlink{classHalfEdge}{Half\+Edge} \&}]{he,  }\item[{const \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \&}]{new\+Weight }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Definition at line 67 of file graph\+Undirected.\+h.
+
+
+
+References Half\+Edge\+::weight().
+
+
+
+Referenced by add\+Edge().
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classGraphUndirected_aba42cbb7de421af5452f50025154ec73_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classGraphUndirected_adf50305970536f71586f8f63462dfcdc}\label{classGraphUndirected_adf50305970536f71586f8f63462dfcdc}} 
+\index{Graph\+Undirected@{Graph\+Undirected}!vertex\+Count@{vertex\+Count}}
+\index{vertex\+Count@{vertex\+Count}!Graph\+Undirected@{Graph\+Undirected}}
+\subsubsection{\texorpdfstring{vertex\+Count()}{vertexCount()}}
+{\footnotesize\ttfamily const \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} Graph\+Undirected\+::vertex\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+the number of vertices in the graph 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classGraphInterface_a483f64f8d37af2b363f2f4eb37943dfd}{Graph\+Interface}.
+
+
+
+Definition at line 265 of file graph\+Undirected.\+h.
+
+
+
+Referenced by Graph\+Undirected\+Groupable\+::community\+Count(), Dyn\+Comm\+Base\+::community\+Mapping(), Dyn\+Comm\+Base\+::vertex\+Count(), and Algorithm\+Louvain\+::vertices\+Count().
+
+\mbox{\Hypertarget{classGraphUndirected_ae40d431c92d8b4884c7915c44d42f356}\label{classGraphUndirected_ae40d431c92d8b4884c7915c44d42f356}} 
+\index{Graph\+Undirected@{Graph\+Undirected}!weight@{weight}}
+\index{weight@{weight}!Graph\+Undirected@{Graph\+Undirected}}
+\subsubsection{\texorpdfstring{weight()}{weight()}}
+{\footnotesize\ttfamily \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} Graph\+Undirected\+::weight (\begin{DoxyParamCaption}\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{source,  }\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{destination }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+the weight of the edge 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classGraphInterface_a27f350094f566bb4840f22c5bc0695c4}{Graph\+Interface}.
+
+
+
+Definition at line 239 of file graph\+Undirected.\+h.
+
+
+
+References multimap\+::find(), and Half\+Edge\+::weight().
+
+
+
+Referenced by add\+Edge(), Graph\+Undirected\+Groupable\+::add\+Edge(), Algorithm\+Louvain\+::add\+Remove\+Edge\+Post(), Algorithm\+Louvain\+::add\+Remove\+Edge\+Pre(), Graph\+Undirected\+Groupable\+::communities\+To\+Graph(), Graph\+Undirected\+Groupable\+::community(), max\+Weight(), Graph\+Undirected\+Groupable\+::remove\+Edge(), Graph\+Undirected\+Groupable\+::update(), Dyn\+Comm\+Base\+::weight(), and Graph\+Undirected\+Groupable\+::weight\+Community().
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=333pt]{classGraphUndirected_ae40d431c92d8b4884c7915c44d42f356_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classGraphUndirected_ad2b1cd9a6dded42bd5431134aba26612}\label{classGraphUndirected_ad2b1cd9a6dded42bd5431134aba26612}} 
+\index{Graph\+Undirected@{Graph\+Undirected}!weighted\+\_\+degree@{weighted\+\_\+degree}}
+\index{weighted\+\_\+degree@{weighted\+\_\+degree}!Graph\+Undirected@{Graph\+Undirected}}
+\subsubsection{\texorpdfstring{weighted\+\_\+degree()}{weighted\_degree()}}
+{\footnotesize\ttfamily \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} Graph\+Undirected\+::weighted\+\_\+degree (\begin{DoxyParamCaption}\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{vertex }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em vertex} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the weighted degree (sum of weights of the neighbors) of the given vertex 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classGraphInterface_a3a4bd9e37e69a4488a48f781e36ea686}{Graph\+Interface}.
+
+
+
+Definition at line 276 of file graph\+Undirected.\+h.
+
+
+
+References neighbors(), and Half\+Edge\+::weight().
+
+
+
+Referenced by Criterion\+Bal\+Mod\+::gain(), Criterion\+Modularity\+::gain(), and Algorithm\+Louvain\+::weighted\+\_\+degree().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classGraphUndirected_ad2b1cd9a6dded42bd5431134aba26612_cgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classGraphUndirected_a9325f02f5d038919f3d5db197da83214}\label{classGraphUndirected_a9325f02f5d038919f3d5db197da83214}} 
+\index{Graph\+Undirected@{Graph\+Undirected}!links@{links}}
+\index{links@{links}!Graph\+Undirected@{Graph\+Undirected}}
+\subsubsection{\texorpdfstring{links}{links}}
+{\footnotesize\ttfamily \hyperlink{graphInterface_8h_a31ca98f3d40433c4c9e20fe8901d4392}{type\+Links} Graph\+Undirected\+::links\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 40 of file graph\+Undirected.\+h.
+
+\mbox{\Hypertarget{classGraphUndirected_a192e23963095ecfe1b327ba188a26bee}\label{classGraphUndirected_a192e23963095ecfe1b327ba188a26bee}} 
+\index{Graph\+Undirected@{Graph\+Undirected}!max\+\_\+weight@{max\+\_\+weight}}
+\index{max\+\_\+weight@{max\+\_\+weight}!Graph\+Undirected@{Graph\+Undirected}}
+\subsubsection{\texorpdfstring{max\+\_\+weight}{max\_weight}}
+{\footnotesize\ttfamily \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} Graph\+Undirected\+::max\+\_\+weight\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 43 of file graph\+Undirected.\+h.
+
+
+
+Referenced by max\+Weight().
+
+\mbox{\Hypertarget{classGraphUndirected_a713f460aba5e5ee4d3079f5df25fe14d}\label{classGraphUndirected_a713f460aba5e5ee4d3079f5df25fe14d}} 
+\index{Graph\+Undirected@{Graph\+Undirected}!total\+\_\+weight@{total\+\_\+weight}}
+\index{total\+\_\+weight@{total\+\_\+weight}!Graph\+Undirected@{Graph\+Undirected}}
+\subsubsection{\texorpdfstring{total\+\_\+weight}{total\_weight}}
+{\footnotesize\ttfamily \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} Graph\+Undirected\+::total\+\_\+weight\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 42 of file graph\+Undirected.\+h.
+
+
+
+Referenced by total\+Weight().
+
+\mbox{\Hypertarget{classGraphUndirected_a2b3210c4f2c00e9db131eb051c23f2e0}\label{classGraphUndirected_a2b3210c4f2c00e9db131eb051c23f2e0}} 
+\index{Graph\+Undirected@{Graph\+Undirected}!vertices@{vertices}}
+\index{vertices@{vertices}!Graph\+Undirected@{Graph\+Undirected}}
+\subsubsection{\texorpdfstring{vertices}{vertices}}
+{\footnotesize\ttfamily \hyperlink{graphInterface_8h_a21d54d8a139def524d3b0d6f71ec4974}{type\+Vertex\+List} Graph\+Undirected\+::vertices\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 39 of file graph\+Undirected.\+h.
+
+
+
+Referenced by get\+Vertices().
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+R-\/\+C\+R\+A\+N/src/base/\+Cpp/\hyperlink{graphUndirected_8h}{graph\+Undirected.\+h}\end{DoxyCompactItemize}

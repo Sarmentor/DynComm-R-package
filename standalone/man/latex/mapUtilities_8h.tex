@@ -1,0 +1,38 @@
+\hypertarget{mapUtilities_8h}{}\section{R-\/\+C\+R\+A\+N/src/base/\+Cpp/map\+Utilities.h File Reference}
+\label{mapUtilities_8h}\index{R-\/\+C\+R\+A\+N/src/base/\+Cpp/map\+Utilities.\+h@{R-\/\+C\+R\+A\+N/src/base/\+Cpp/map\+Utilities.\+h}}
+{\ttfamily \#include $<$set$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$type\+\_\+traits$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include \char`\"{}string\+Formatter.\+h\char`\"{}}\newline
+Include dependency graph for map\+Utilities.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mapUtilities_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{mapUtilities_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespacemap}{map}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T , typename U $>$ }\\std\+::set$<$ T $>$ \hyperlink{namespacemap_a0933403cc1970f74256fc07fb5ec898f}{map\+::keys} (std\+::map$<$ T, U $>$ const \&m)
+\item 
+{\footnotesize template$<$typename T , typename U $>$ }\\std\+::set$<$ T $>$ \hyperlink{namespacemap_a0c7435ff01b38c40e03b70ce95d40bd5}{map\+::values} (std\+::map$<$ T, U $>$ const \&m)
+\item 
+{\footnotesize template$<$typename T , typename U , typename std\+::enable\+\_\+if$<$ std\+::is\+\_\+fundamental$<$ T $>$\+::value \&\&std\+::is\+\_\+fundamental$<$ U $>$\+::value, T $>$\+::type  = 0$>$ }\\std\+::string \hyperlink{namespacemap_a7df0c3b516d256b69506233979c2d9e5}{map\+::to\+String} (std\+::map$<$ T, U $>$ const \&m, const \hyperlink{classStringFormatter}{String\+Formatter} \&formater=\hyperlink{stringFormatter_8h_abf1349c8e24162d0134072aff288f2a2}{default\+String\+Formatter})
+\end{DoxyCompactItemize}

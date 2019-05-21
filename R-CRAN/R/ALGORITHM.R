@@ -28,7 +28,7 @@
 #' by optimizing the density of edges inside communities to edges outside 
 #' communities.
 #' 
-#' @details 
+# @details 
 #'
 #' @rdname ALGORITHM_LOUVAIN
 #' 

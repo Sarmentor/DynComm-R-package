@@ -1,0 +1,448 @@
+\hypertarget{classMultimapReversable}{}\section{Multimap\+Reversable$<$ T, U $>$ Class Template Reference}
+\label{classMultimapReversable}\index{Multimap\+Reversable$<$ T, U $>$@{Multimap\+Reversable$<$ T, U $>$}}
+
+
+Doubly indexed multimap.  
+
+
+
+
+{\ttfamily \#include $<$multimap\+Reversable.\+h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\+::multimap$<$ T, U $>$\+::\hyperlink{classMultimapReversable_ac747a36aa9a030bec3d2149d97047de5}{const\+\_\+iterator} \hyperlink{classMultimapReversable_ac747a36aa9a030bec3d2149d97047de5}{const\+\_\+iterator}
+\item 
+typedef std\+::multimap$<$ U, T $>$\+::\hyperlink{classMultimapReversable_ac747a36aa9a030bec3d2149d97047de5}{const\+\_\+iterator} \hyperlink{classMultimapReversable_ae87bcf568586e240e0d294050fa248cb}{const\+\_\+range\+\_\+iterator}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classMultimapReversable_aa902fda23c843bd2facbedb10f26bbdf}{Multimap\+Reversable} ()
+\item 
+\hyperlink{classMultimapReversable_a78e8de33381156982ad34802f3b6db8d}{Multimap\+Reversable} (\hyperlink{classMultimapReversable_a73c1b30be5bb8d65b1bcfa5e0958a581}{equal\+Values} e)
+\item 
+\hyperlink{classMultimapReversable_ac747a36aa9a030bec3d2149d97047de5}{const\+\_\+iterator} \hyperlink{classMultimapReversable_a03a9ce69713f3bf4c9b91964cc268e10}{find} (const T \&key) const
+\item 
+std\+::set$<$ T $>$ \hyperlink{classMultimapReversable_a135171aef1cc98eb99df8eb63843e4da}{keys} () const
+\item 
+std\+::pair$<$ \hyperlink{classMultimapReversable_ae87bcf568586e240e0d294050fa248cb}{const\+\_\+range\+\_\+iterator}, \hyperlink{classMultimapReversable_ae87bcf568586e240e0d294050fa248cb}{const\+\_\+range\+\_\+iterator} $>$ \hyperlink{classMultimapReversable_a3bbe5ef69fa9537be66d4cc020a6306e}{keys} (const U \&value) const
+\item 
+std\+::set$<$ T $>$ \hyperlink{classMultimapReversable_a85a6dee36cb566aa874e9d18b5328757}{values} () const
+\item 
+\hyperlink{classMultimapReversable_ac747a36aa9a030bec3d2149d97047de5}{const\+\_\+iterator} \& \hyperlink{classMultimapReversable_a20b261236b6075cd93e16ab0ec0455c4}{cbegin} () const
+\item 
+\hyperlink{classMultimapReversable_ac747a36aa9a030bec3d2149d97047de5}{const\+\_\+iterator} \hyperlink{classMultimapReversable_a61a87bb3d33488b80d46fbbeffa2b91e}{cend} () const
+\item 
+bool \hyperlink{classMultimapReversable_a6e6c514a5fcd3df9fa0c068075064735}{add} (const T \&key, const U \&value, const bool \&\hyperlink{classMultimapReversable_ad3add05f4631934cacf20b258ca97efc}{replace}=false)
+\item 
+bool \hyperlink{classMultimapReversable_a11a0f10468c240813178e0a3f682eef5}{remove} (const T \&first, const U \&second)
+\item 
+void \hyperlink{classMultimapReversable_ad3add05f4631934cacf20b258ca97efc}{replace} (const U \&old\+Value, const U \&new\+Value)
+\item 
+std\+::string \hyperlink{classMultimapReversable_afaf809098df54c5619f06a71507214a4}{to\+String} () const
+\end{DoxyCompactItemize}
+\subsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\+::multimap$<$ T, U $>$\+::\hyperlink{classMultimapReversable_a4a255d95792e4ab19a4d903c27938156}{iterator} \hyperlink{classMultimapReversable_a4a255d95792e4ab19a4d903c27938156}{iterator}
+\item 
+typedef std\+::multimap$<$ U, T $>$\+::\hyperlink{classMultimapReversable_a4a255d95792e4ab19a4d903c27938156}{iterator} \hyperlink{classMultimapReversable_a206be6b005bde9b1a6d3abfa36ca370f}{range\+\_\+iterator}
+\item 
+typedef bool($\ast$ \hyperlink{classMultimapReversable_a73c1b30be5bb8d65b1bcfa5e0958a581}{equal\+Values}) (const U \&, const U \&)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::multimap$<$ T, U $>$ \hyperlink{classMultimapReversable_a35385c8878f1f1a749b99e3a788b2a9d}{f}
+\item 
+std\+::multimap$<$ U, T $>$ \hyperlink{classMultimapReversable_ae8f632be1baa742b2f72a69c49c34f2d}{r}
+\item 
+\hyperlink{classMultimapReversable_a73c1b30be5bb8d65b1bcfa5e0958a581}{equal\+Values} \hyperlink{classMultimapReversable_aca94996435f9aef6866914049a87c303}{eq}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T, typename U$>$\newline
+class Multimap\+Reversable$<$ T, U $>$}
+
+Doubly indexed multimap. 
+
+Class that implements a multimap in which the values are also indexed. Unlike an ordinary std\+::multimap which is indexed by key only, this multimap is also indexed by value.
+
+\begin{DoxyAuthor}{Author}
+poltergeist0
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2018-\/08-\/19 
+\end{DoxyDate}
+
+
+Definition at line 41 of file multimap\+Reversable.\+h.
+
+
+
+\subsection{Member Typedef Documentation}
+\mbox{\Hypertarget{classMultimapReversable_ac747a36aa9a030bec3d2149d97047de5}\label{classMultimapReversable_ac747a36aa9a030bec3d2149d97047de5}} 
+\index{Multimap\+Reversable@{Multimap\+Reversable}!const\+\_\+iterator@{const\+\_\+iterator}}
+\index{const\+\_\+iterator@{const\+\_\+iterator}!Multimap\+Reversable@{Multimap\+Reversable}}
+\subsubsection{\texorpdfstring{const\+\_\+iterator}{const\_iterator}}
+{\footnotesize\ttfamily template$<$typename T , typename U $>$ \\
+typedef std\+::multimap$<$T,U$>$\+::\hyperlink{classMultimapReversable_ac747a36aa9a030bec3d2149d97047de5}{const\+\_\+iterator} \hyperlink{classMultimapReversable}{Multimap\+Reversable}$<$ T, U $>$\+::\hyperlink{classMultimapReversable_ac747a36aa9a030bec3d2149d97047de5}{const\+\_\+iterator}}
+
+
+
+Definition at line 55 of file multimap\+Reversable.\+h.
+
+\mbox{\Hypertarget{classMultimapReversable_ae87bcf568586e240e0d294050fa248cb}\label{classMultimapReversable_ae87bcf568586e240e0d294050fa248cb}} 
+\index{Multimap\+Reversable@{Multimap\+Reversable}!const\+\_\+range\+\_\+iterator@{const\+\_\+range\+\_\+iterator}}
+\index{const\+\_\+range\+\_\+iterator@{const\+\_\+range\+\_\+iterator}!Multimap\+Reversable@{Multimap\+Reversable}}
+\subsubsection{\texorpdfstring{const\+\_\+range\+\_\+iterator}{const\_range\_iterator}}
+{\footnotesize\ttfamily template$<$typename T , typename U $>$ \\
+typedef std\+::multimap$<$U,T$>$\+::\hyperlink{classMultimapReversable_ac747a36aa9a030bec3d2149d97047de5}{const\+\_\+iterator} \hyperlink{classMultimapReversable}{Multimap\+Reversable}$<$ T, U $>$\+::\hyperlink{classMultimapReversable_ae87bcf568586e240e0d294050fa248cb}{const\+\_\+range\+\_\+iterator}}
+
+
+
+Definition at line 56 of file multimap\+Reversable.\+h.
+
+\mbox{\Hypertarget{classMultimapReversable_a73c1b30be5bb8d65b1bcfa5e0958a581}\label{classMultimapReversable_a73c1b30be5bb8d65b1bcfa5e0958a581}} 
+\index{Multimap\+Reversable@{Multimap\+Reversable}!equal\+Values@{equal\+Values}}
+\index{equal\+Values@{equal\+Values}!Multimap\+Reversable@{Multimap\+Reversable}}
+\subsubsection{\texorpdfstring{equal\+Values}{equalValues}}
+{\footnotesize\ttfamily template$<$typename T , typename U $>$ \\
+typedef bool($\ast$ \hyperlink{classMultimapReversable}{Multimap\+Reversable}$<$ T, U $>$\+::equal\+Values) (const U \&, const U \&)\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 49 of file multimap\+Reversable.\+h.
+
+\mbox{\Hypertarget{classMultimapReversable_a4a255d95792e4ab19a4d903c27938156}\label{classMultimapReversable_a4a255d95792e4ab19a4d903c27938156}} 
+\index{Multimap\+Reversable@{Multimap\+Reversable}!iterator@{iterator}}
+\index{iterator@{iterator}!Multimap\+Reversable@{Multimap\+Reversable}}
+\subsubsection{\texorpdfstring{iterator}{iterator}}
+{\footnotesize\ttfamily template$<$typename T , typename U $>$ \\
+typedef std\+::multimap$<$T,U$>$\+::\hyperlink{classMultimapReversable_a4a255d95792e4ab19a4d903c27938156}{iterator} \hyperlink{classMultimapReversable}{Multimap\+Reversable}$<$ T, U $>$\+::\hyperlink{classMultimapReversable_a4a255d95792e4ab19a4d903c27938156}{iterator}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 46 of file multimap\+Reversable.\+h.
+
+\mbox{\Hypertarget{classMultimapReversable_a206be6b005bde9b1a6d3abfa36ca370f}\label{classMultimapReversable_a206be6b005bde9b1a6d3abfa36ca370f}} 
+\index{Multimap\+Reversable@{Multimap\+Reversable}!range\+\_\+iterator@{range\+\_\+iterator}}
+\index{range\+\_\+iterator@{range\+\_\+iterator}!Multimap\+Reversable@{Multimap\+Reversable}}
+\subsubsection{\texorpdfstring{range\+\_\+iterator}{range\_iterator}}
+{\footnotesize\ttfamily template$<$typename T , typename U $>$ \\
+typedef std\+::multimap$<$U,T$>$\+::\hyperlink{classMultimapReversable_a4a255d95792e4ab19a4d903c27938156}{iterator} \hyperlink{classMultimapReversable}{Multimap\+Reversable}$<$ T, U $>$\+::\hyperlink{classMultimapReversable_a206be6b005bde9b1a6d3abfa36ca370f}{range\+\_\+iterator}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 47 of file multimap\+Reversable.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classMultimapReversable_aa902fda23c843bd2facbedb10f26bbdf}\label{classMultimapReversable_aa902fda23c843bd2facbedb10f26bbdf}} 
+\index{Multimap\+Reversable@{Multimap\+Reversable}!Multimap\+Reversable@{Multimap\+Reversable}}
+\index{Multimap\+Reversable@{Multimap\+Reversable}!Multimap\+Reversable@{Multimap\+Reversable}}
+\subsubsection{\texorpdfstring{Multimap\+Reversable()}{MultimapReversable()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T , typename U $>$ \\
+\hyperlink{classMultimapReversable}{Multimap\+Reversable}$<$ T, U $>$\+::\hyperlink{classMultimapReversable}{Multimap\+Reversable} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+default constructor 
+
+Definition at line 61 of file multimap\+Reversable.\+h.
+
+\mbox{\Hypertarget{classMultimapReversable_a78e8de33381156982ad34802f3b6db8d}\label{classMultimapReversable_a78e8de33381156982ad34802f3b6db8d}} 
+\index{Multimap\+Reversable@{Multimap\+Reversable}!Multimap\+Reversable@{Multimap\+Reversable}}
+\index{Multimap\+Reversable@{Multimap\+Reversable}!Multimap\+Reversable@{Multimap\+Reversable}}
+\subsubsection{\texorpdfstring{Multimap\+Reversable()}{MultimapReversable()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T , typename U $>$ \\
+\hyperlink{classMultimapReversable}{Multimap\+Reversable}$<$ T, U $>$\+::\hyperlink{classMultimapReversable}{Multimap\+Reversable} (\begin{DoxyParamCaption}\item[{\hyperlink{classMultimapReversable_a73c1b30be5bb8d65b1bcfa5e0958a581}{equal\+Values}}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 63 of file multimap\+Reversable.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classMultimapReversable_a6e6c514a5fcd3df9fa0c068075064735}\label{classMultimapReversable_a6e6c514a5fcd3df9fa0c068075064735}} 
+\index{Multimap\+Reversable@{Multimap\+Reversable}!add@{add}}
+\index{add@{add}!Multimap\+Reversable@{Multimap\+Reversable}}
+\subsubsection{\texorpdfstring{add()}{add()}}
+{\footnotesize\ttfamily template$<$typename T , typename U $>$ \\
+bool \hyperlink{classMultimapReversable}{Multimap\+Reversable}$<$ T, U $>$\+::add (\begin{DoxyParamCaption}\item[{const T \&}]{key,  }\item[{const U \&}]{value,  }\item[{const bool \&}]{replace = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Add a (key, value) pair to the map 
+\begin{DoxyParams}{Parameters}
+{\em key} & \\
+\hline
+{\em value} & \\
+\hline
+{\em replace,if} & true and key exists, replaces the value otherwise fails. If false and key exists fails. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if insertion succeeds 
+\end{DoxyReturn}
+
+
+Definition at line 110 of file multimap\+Reversable.\+h.
+
+
+
+References multimap\+::find(), and Multimap\+Reversable$<$ T, U $>$\+::replace().
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classMultimapReversable_a6e6c514a5fcd3df9fa0c068075064735_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classMultimapReversable_a20b261236b6075cd93e16ab0ec0455c4}\label{classMultimapReversable_a20b261236b6075cd93e16ab0ec0455c4}} 
+\index{Multimap\+Reversable@{Multimap\+Reversable}!cbegin@{cbegin}}
+\index{cbegin@{cbegin}!Multimap\+Reversable@{Multimap\+Reversable}}
+\subsubsection{\texorpdfstring{cbegin()}{cbegin()}}
+{\footnotesize\ttfamily template$<$typename T , typename U $>$ \\
+\hyperlink{classMultimapReversable_ac747a36aa9a030bec3d2149d97047de5}{const\+\_\+iterator}\& \hyperlink{classMultimapReversable}{Multimap\+Reversable}$<$ T, U $>$\+::cbegin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+a constant iterator to the beginning of the map 
+\end{DoxyReturn}
+
+
+Definition at line 95 of file multimap\+Reversable.\+h.
+
+\mbox{\Hypertarget{classMultimapReversable_a61a87bb3d33488b80d46fbbeffa2b91e}\label{classMultimapReversable_a61a87bb3d33488b80d46fbbeffa2b91e}} 
+\index{Multimap\+Reversable@{Multimap\+Reversable}!cend@{cend}}
+\index{cend@{cend}!Multimap\+Reversable@{Multimap\+Reversable}}
+\subsubsection{\texorpdfstring{cend()}{cend()}}
+{\footnotesize\ttfamily template$<$typename T , typename U $>$ \\
+\hyperlink{classMultimapReversable_ac747a36aa9a030bec3d2149d97047de5}{const\+\_\+iterator} \hyperlink{classMultimapReversable}{Multimap\+Reversable}$<$ T, U $>$\+::cend (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+a constant iterator to the end of the map 
+\end{DoxyReturn}
+
+
+Definition at line 100 of file multimap\+Reversable.\+h.
+
+\mbox{\Hypertarget{classMultimapReversable_a03a9ce69713f3bf4c9b91964cc268e10}\label{classMultimapReversable_a03a9ce69713f3bf4c9b91964cc268e10}} 
+\index{Multimap\+Reversable@{Multimap\+Reversable}!find@{find}}
+\index{find@{find}!Multimap\+Reversable@{Multimap\+Reversable}}
+\subsubsection{\texorpdfstring{find()}{find()}}
+{\footnotesize\ttfamily template$<$typename T , typename U $>$ \\
+\hyperlink{classMultimapReversable_ac747a36aa9a030bec3d2149d97047de5}{const\+\_\+iterator} \hyperlink{classMultimapReversable}{Multimap\+Reversable}$<$ T, U $>$\+::find (\begin{DoxyParamCaption}\item[{const T \&}]{key }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Find the value attributed to a given key 
+\begin{DoxyParams}{Parameters}
+{\em key} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a constant iterator that points to the pair that holds the (key, value) or \hyperlink{classMultimapReversable_a61a87bb3d33488b80d46fbbeffa2b91e}{cend()} if not found 
+\end{DoxyReturn}
+
+
+Definition at line 70 of file multimap\+Reversable.\+h.
+
+\mbox{\Hypertarget{classMultimapReversable_a135171aef1cc98eb99df8eb63843e4da}\label{classMultimapReversable_a135171aef1cc98eb99df8eb63843e4da}} 
+\index{Multimap\+Reversable@{Multimap\+Reversable}!keys@{keys}}
+\index{keys@{keys}!Multimap\+Reversable@{Multimap\+Reversable}}
+\subsubsection{\texorpdfstring{keys()}{keys()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T , typename U $>$ \\
+std\+::set$<$T$>$ \hyperlink{classMultimapReversable}{Multimap\+Reversable}$<$ T, U $>$\+::keys (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Compatibility function with multimap since in a map all keys are unique \begin{DoxyReturn}{Returns}
+all unique keys in the map 
+\end{DoxyReturn}
+
+
+Definition at line 76 of file multimap\+Reversable.\+h.
+
+
+
+References Multimap\+Reversable$<$ T, U $>$\+::keys().
+
+
+
+Referenced by Multimap\+Reversable$<$ T, U $>$\+::keys().
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=186pt]{classMultimapReversable_a135171aef1cc98eb99df8eb63843e4da_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classMultimapReversable_a3bbe5ef69fa9537be66d4cc020a6306e}\label{classMultimapReversable_a3bbe5ef69fa9537be66d4cc020a6306e}} 
+\index{Multimap\+Reversable@{Multimap\+Reversable}!keys@{keys}}
+\index{keys@{keys}!Multimap\+Reversable@{Multimap\+Reversable}}
+\subsubsection{\texorpdfstring{keys()}{keys()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T , typename U $>$ \\
+std\+::pair$<$\hyperlink{classMultimapReversable_ae87bcf568586e240e0d294050fa248cb}{const\+\_\+range\+\_\+iterator},\hyperlink{classMultimapReversable_ae87bcf568586e240e0d294050fa248cb}{const\+\_\+range\+\_\+iterator}$>$ \hyperlink{classMultimapReversable}{Multimap\+Reversable}$<$ T, U $>$\+::keys (\begin{DoxyParamCaption}\item[{const U \&}]{value }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+get all the keys that have a given value 
+\begin{DoxyParams}{Parameters}
+{\em value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a pair of constant range iterators pointing, respectively, to the beginning and to the end of the range of keys that holds the given value 
+\end{DoxyReturn}
+
+
+Definition at line 83 of file multimap\+Reversable.\+h.
+
+\mbox{\Hypertarget{classMultimapReversable_a11a0f10468c240813178e0a3f682eef5}\label{classMultimapReversable_a11a0f10468c240813178e0a3f682eef5}} 
+\index{Multimap\+Reversable@{Multimap\+Reversable}!remove@{remove}}
+\index{remove@{remove}!Multimap\+Reversable@{Multimap\+Reversable}}
+\subsubsection{\texorpdfstring{remove()}{remove()}}
+{\footnotesize\ttfamily template$<$typename T , typename U $>$ \\
+bool \hyperlink{classMultimapReversable}{Multimap\+Reversable}$<$ T, U $>$\+::remove (\begin{DoxyParamCaption}\item[{const T \&}]{first,  }\item[{const U \&}]{second }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+remove a (key,value) pair 
+\begin{DoxyParams}{Parameters}
+{\em first} & \\
+\hline
+{\em second} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the element existed otherwise false 
+\end{DoxyReturn}
+
+
+Definition at line 140 of file multimap\+Reversable.\+h.
+
+
+
+References multimap\+::find().
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=300pt]{classMultimapReversable_a11a0f10468c240813178e0a3f682eef5_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classMultimapReversable_ad3add05f4631934cacf20b258ca97efc}\label{classMultimapReversable_ad3add05f4631934cacf20b258ca97efc}} 
+\index{Multimap\+Reversable@{Multimap\+Reversable}!replace@{replace}}
+\index{replace@{replace}!Multimap\+Reversable@{Multimap\+Reversable}}
+\subsubsection{\texorpdfstring{replace()}{replace()}}
+{\footnotesize\ttfamily template$<$typename T , typename U $>$ \\
+void \hyperlink{classMultimapReversable}{Multimap\+Reversable}$<$ T, U $>$\+::replace (\begin{DoxyParamCaption}\item[{const U \&}]{old\+Value,  }\item[{const U \&}]{new\+Value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Replace all occurrences of old\+Value by new\+Value 
+\begin{DoxyParams}{Parameters}
+{\em old\+Value} & \\
+\hline
+{\em new\+Value} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 158 of file multimap\+Reversable.\+h.
+
+
+
+Referenced by Multimap\+Reversable$<$ T, U $>$\+::add().
+
+\mbox{\Hypertarget{classMultimapReversable_afaf809098df54c5619f06a71507214a4}\label{classMultimapReversable_afaf809098df54c5619f06a71507214a4}} 
+\index{Multimap\+Reversable@{Multimap\+Reversable}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Multimap\+Reversable@{Multimap\+Reversable}}
+\subsubsection{\texorpdfstring{to\+String()}{toString()}}
+{\footnotesize\ttfamily template$<$typename T , typename U $>$ \\
+std\+::string \hyperlink{classMultimapReversable}{Multimap\+Reversable}$<$ T, U $>$\+::to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+a string representation of this map list and reverse list 
+\end{DoxyReturn}
+
+
+Definition at line 175 of file multimap\+Reversable.\+h.
+
+
+
+References multimap\+::to\+String().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=318pt]{classMultimapReversable_afaf809098df54c5619f06a71507214a4_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classMultimapReversable_a85a6dee36cb566aa874e9d18b5328757}\label{classMultimapReversable_a85a6dee36cb566aa874e9d18b5328757}} 
+\index{Multimap\+Reversable@{Multimap\+Reversable}!values@{values}}
+\index{values@{values}!Multimap\+Reversable@{Multimap\+Reversable}}
+\subsubsection{\texorpdfstring{values()}{values()}}
+{\footnotesize\ttfamily template$<$typename T , typename U $>$ \\
+std\+::set$<$T$>$ \hyperlink{classMultimapReversable}{Multimap\+Reversable}$<$ T, U $>$\+::values (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+all unique values in the map 
+\end{DoxyReturn}
+
+
+Definition at line 89 of file multimap\+Reversable.\+h.
+
+
+
+References Multimap\+Reversable$<$ T, U $>$\+::values().
+
+
+
+Referenced by Multimap\+Reversable$<$ T, U $>$\+::values().
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=186pt]{classMultimapReversable_a85a6dee36cb566aa874e9d18b5328757_cgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classMultimapReversable_aca94996435f9aef6866914049a87c303}\label{classMultimapReversable_aca94996435f9aef6866914049a87c303}} 
+\index{Multimap\+Reversable@{Multimap\+Reversable}!eq@{eq}}
+\index{eq@{eq}!Multimap\+Reversable@{Multimap\+Reversable}}
+\subsubsection{\texorpdfstring{eq}{eq}}
+{\footnotesize\ttfamily template$<$typename T , typename U $>$ \\
+\hyperlink{classMultimapReversable_a73c1b30be5bb8d65b1bcfa5e0958a581}{equal\+Values} \hyperlink{classMultimapReversable}{Multimap\+Reversable}$<$ T, U $>$\+::eq\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 51 of file multimap\+Reversable.\+h.
+
+\mbox{\Hypertarget{classMultimapReversable_a35385c8878f1f1a749b99e3a788b2a9d}\label{classMultimapReversable_a35385c8878f1f1a749b99e3a788b2a9d}} 
+\index{Multimap\+Reversable@{Multimap\+Reversable}!f@{f}}
+\index{f@{f}!Multimap\+Reversable@{Multimap\+Reversable}}
+\subsubsection{\texorpdfstring{f}{f}}
+{\footnotesize\ttfamily template$<$typename T , typename U $>$ \\
+std\+::multimap$<$T,U$>$ \hyperlink{classMultimapReversable}{Multimap\+Reversable}$<$ T, U $>$\+::f\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 43 of file multimap\+Reversable.\+h.
+
+\mbox{\Hypertarget{classMultimapReversable_ae8f632be1baa742b2f72a69c49c34f2d}\label{classMultimapReversable_ae8f632be1baa742b2f72a69c49c34f2d}} 
+\index{Multimap\+Reversable@{Multimap\+Reversable}!r@{r}}
+\index{r@{r}!Multimap\+Reversable@{Multimap\+Reversable}}
+\subsubsection{\texorpdfstring{r}{r}}
+{\footnotesize\ttfamily template$<$typename T , typename U $>$ \\
+std\+::multimap$<$U,T$>$ \hyperlink{classMultimapReversable}{Multimap\+Reversable}$<$ T, U $>$\+::r\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 44 of file multimap\+Reversable.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+R-\/\+C\+R\+A\+N/src/base/\+Cpp/\hyperlink{multimapReversable_8h}{multimap\+Reversable.\+h}\end{DoxyCompactItemize}

@@ -169,7 +169,7 @@ TemplateDynCommMain <- function(Algorithm,Criterion,Parameters)
     results = function(differential=TRUE)
     {
       ########## implement #############
-      return(matrix(data=c(NA,NA),ncol=2,byrow=TRUE,dimnames = c("name","value")))
+      return(matrix(nrow=0,ncol=2,byrow=TRUE,dimnames = list(c(),c("name","value"))))
     },
 
     #' 
@@ -221,7 +221,7 @@ TemplateDynCommMain <- function(Algorithm,Criterion,Parameters)
     # community is an unsigned integer
     communityNeighbours=function(community){
       ########## implement #############
-      return(matrix(data=c(NA,NA),ncol=2,byrow=TRUE,dimnames = list(c(),c("neighbour","weight"))))
+      return(matrix(nrow=0,ncol=2,byrow=TRUE,dimnames = list(c(),c("neighbour","weight"))))
     },
     
     #' 
@@ -292,7 +292,7 @@ TemplateDynCommMain <- function(Algorithm,Criterion,Parameters)
     # vertex is an unsigned integer
     neighbours=function(vertex){
       ########## implement #############
-      return(matrix(data=c(NA,NA),ncol=2,byrow=TRUE,dimnames = list(c(),c("neighbour","weight"))))
+      return(matrix(nrow=0,ncol=2,byrow=TRUE,dimnames = list(c(),c("neighbour","weight"))))
     },
     
     #' 
@@ -320,7 +320,7 @@ TemplateDynCommMain <- function(Algorithm,Criterion,Parameters)
     # differential is a boolean
     communityMappingMatrix = function(differential=TRUE){
       ########## implement #############
-      return(matrix(data=c(NA,NA),ncol=2,byrow=TRUE,dimnames = c("name","value")))
+      return(matrix(nrow=0,ncol=2,byrow=TRUE,dimnames = list(c(),c("name","value"))))
     },
     
     #' 
@@ -330,7 +330,7 @@ TemplateDynCommMain <- function(Algorithm,Criterion,Parameters)
     # file is a string representing a file with path to read from. Is never NULL
     communityMappingFile = function(differential=TRUE,file=""){
       ########## implement #############
-      return(matrix(data=c(FALSE),nrow=1,ncol=1,byrow=TRUE,dimnames = c("reply")))
+      return(matrix(data=c(FALSE),nrow=1,ncol=1,byrow=TRUE,dimnames = list(c(),c("reply"))))
     },
     
     #' 

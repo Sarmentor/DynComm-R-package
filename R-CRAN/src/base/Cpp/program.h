@@ -1,9 +1,18 @@
-/*
- * program.h
+/************************************************************************
+ ************************* Developer Notice *****************************
+ ************************************************************************
+ * @details
  *
- *  Created on: 19/08/2018
- *      Author: poltergeist0
- */
+ * This file has the structure used to store program parameters, its
+ * default values and functions used to parse those parameters.
+ *
+ *
+ * @author poltergeist0
+ *
+ * @date 2018-08-19
+ ************************************************************************
+ ************************************************************************
+ ************************************************************************/
 
 #ifndef PROGRAM_H_
 #define PROGRAM_H_
@@ -13,8 +22,18 @@
 #include <iostream>
 #include <sstream>
 
+/**
+ * enumeration used to indicate if the edges being added to a graph are
+ * considered as weighted (must have a weight or a default value is
+ * attributed) or unweighted (if a weight is given it is ignored).
+ */
 enum class LINK_WEIGHT:unsigned int {WEIGHTED=1, UNWEIGHTED};
 
+/**
+ * Usage print for standalone program
+ * @param prog_name is the name of the executable
+ * @param more is a header
+ */
 void usage(const std::string & prog_name, const std::string & more) {
 	std::stringstream ss;
 	ss << more;
@@ -55,15 +74,15 @@ void usage(const std::string & prog_name, const std::string & more) {
 	exit(0);
 }
 
-//#define WEIGHTED   0
-//#define UNWEIGHTED 1
+/**
+ * Program parameters structure with default parameters
+ */
 struct ProgramParameters{
 	std::string filename = "";
 	std::string outfilename = "";
 	std::string filename_w = "";
 	std::string filename_part = "";
 	LINK_WEIGHT type = LINK_WEIGHT::UNWEIGHTED;
-//	CRITERION criterion=CRITERION::MODULARITY;
 
 	int nb_pass = 0;
 	long double precision = 0.000001L;
@@ -81,53 +100,14 @@ struct ProgramParameters{
 	bool verbose = false;
 
 	std::string directory=".";
-}argumentsDefault;
+}argumentsDefault;//variable with default program parameters
 
-// void parse_arg(const char * name, const char * value, ProgramParameters & par) {
-// 	switch(name[0]) {
-// 	case 'o':
-// 		par.outfilename = std::string(value);
-// 		break;
-// 	case 'w':
-// 		par.type = LINK_WEIGHT::WEIGHTED;
-// 		par.filename_w = std::string(value);
-// 		break;
-// 	case 'q':
-// 		par.id_qual = (unsigned short)atoi(value);
-// 		break;
-// 	case 'c':
-// 		par.alpha = atof(value);
-// 		break;
-// 	case 'k':
-// 		par.kmin = atoi(value);
-// 		break;
-// 	case 'p':
-// 		par.filename_part = std::string(value);
-// 		break;
-// 	case 'e':
-// 		par.precision = atof(value);
-// 		break;
-// 	case 'l':
-// 		par.display_level = atoi(value);
-// 		break;
-// 	case 's':
-// 		par.directory = std::string(value);
-// 		break;
-// 	case 'v':
-// 		par.verbose = true;
-// 		break;
-// //	case 'h':
-// //		usage(argv[0], "");
-// //		break;
-// 	case 'f':
-// 		if (par.filename=="") par.filename = std::string(value);
-// 		break;
-// 	// default:
-// 		//do nothing
-// //		usage(argv[0], "Unknown option\n");
-// 	}
-// }
-
+/**
+ * Parsing function for parameters passed to R
+ * @param name
+ * @param value
+ * @param par
+ */
 void parse_arg(const std::string & name, const std::string & value, ProgramParameters & par) {
   if(name.compare("o")){
     par.outfilename = std::string(value);
@@ -165,6 +145,12 @@ void parse_arg(const std::string & name, const std::string & value, ProgramParam
   }
 }
 
+/**
+ * Parsing function for program parameters passed to the standalone program
+ * @param argc
+ * @param argv
+ * @param par
+ */
 void parse_args(int argc, char *argv[], ProgramParameters & par) {
 	if (argc<2)
 		usage(argv[0], "Bad arguments number\n");
@@ -227,16 +213,6 @@ void parse_args(int argc, char *argv[], ProgramParameters & par) {
 			// 	usage(std::string(argv[0]), "More than one filename\n");
 		}
 	}
-	// if (par.filename == "")
-	// 	usage(std::string(argv[0]), "No input file has been provided\n");
 }
-
-//void display_time(const std::string & str) {
-//	time_t rawtime;
-//	time ( &rawtime );
-//	std::stringstream ss;
-//	ss << str << ": " << ctime (&rawtime);
-//	COUT << ss.str();
-//}
 
 #endif /* PROGRAM_H_ */

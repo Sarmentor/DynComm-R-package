@@ -1,0 +1,28 @@
+var classDynCommRcpp =
+[
+    [ "DynCommRcpp", "classDynCommRcpp.html#a65289b1838009023b527237b64c073a2", null ],
+    [ "DynCommRcpp", "classDynCommRcpp.html#a1e3ae3a0be89f2a661dc09d7842a3ac7", null ],
+    [ "addRemoveEdgesFile", "classDynCommRcpp.html#a9080af5a73f77db6eff4d7a41596902a", null ],
+    [ "addRemoveEdgesMatrix", "classDynCommRcpp.html#ae9fb6b69740abb2d52721ec76d744811", null ],
+    [ "communities", "classDynCommRcpp.html#ade6d5c2ebbb13f2efb3988d0d0ac2c1e", null ],
+    [ "community", "classDynCommRcpp.html#ac3c8c1759d2ab106b757557e09834ec5", null ],
+    [ "communityCount", "classDynCommRcpp.html#a67948d5821c2ccffc4dbf47bac6fba70", null ],
+    [ "communityEdgeWeight", "classDynCommRcpp.html#ad74a2abe244e62d9df2b98aeea0d3155", null ],
+    [ "communityInnerEdgesWeight", "classDynCommRcpp.html#aed6b4f1e844956429eb9a15d8d6df7b6", null ],
+    [ "communityMappingFile", "classDynCommRcpp.html#a132aff4ca6f76fd006b2faccbfd01e04", null ],
+    [ "communityMappingMatrix", "classDynCommRcpp.html#aaa996ab5e558887d3bc5394af78a2e95", null ],
+    [ "communityNeighbours", "classDynCommRcpp.html#ad23168e5fa7cf85d5508c646f3e39b9b", null ],
+    [ "communityTotalWeight", "classDynCommRcpp.html#a687e7be3ae84f1a80a3648435bd473a3", null ],
+    [ "communityVertexCount", "classDynCommRcpp.html#ab856335d737d2292df6f86e9cf199d58", null ],
+    [ "convertToParameters", "classDynCommRcpp.html#a52692d421657ffcbe6a97762de9deddc", null ],
+    [ "edgeWeight", "classDynCommRcpp.html#a9a9aaf2512541f308d935e48c583f410", null ],
+    [ "neighbours", "classDynCommRcpp.html#abbda8cc950c360c1b89859ebe9233535", null ],
+    [ "quality", "classDynCommRcpp.html#a3d9d6845d9e67941da187bca511cdfcf", null ],
+    [ "results", "classDynCommRcpp.html#a4120d9f0232611e4ecb497eaf6e4706a", null ],
+    [ "time", "classDynCommRcpp.html#a89773080b66fd210a7e22234ba04a19f", null ],
+    [ "vertexCount", "classDynCommRcpp.html#af7bc0e9dc9a2c1e232b3e28b63388629", null ],
+    [ "vertices", "classDynCommRcpp.html#ad849d8e27c9f8aec2f6cdf89b06b9be4", null ],
+    [ "verticesAll", "classDynCommRcpp.html#aa2aa3fe8c7af4239bd9b3c6a669329ec", null ],
+    [ "dcb", "classDynCommRcpp.html#a29aa77f1324fd9891a67feedea880961", null ],
+    [ "prmtrs", "classDynCommRcpp.html#a686a84dced9c0cd812cb184d48958758", null ]
+];

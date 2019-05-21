@@ -1,0 +1,9 @@
+<map id="AlgorithmLouvain::neighborsCommunityWeight" name="AlgorithmLouvain::neighborsCommunityWeight">
+<area shape="rect" id="node2" href="$classGraphUndirectedGroupable.html#a24c1e8303eefff2635f7462d3cf1c6cf" title="GraphUndirectedGroupable\l::neighborsCommunityWeight" alt="" coords="240,78,435,119"/>
+<area shape="rect" id="node3" href="$classGraphUndirected.html#ad9058dbbd7e6d2930a6a233e8b6b0547" title="Get the neighbors of a vertex. " alt="" coords="483,5,667,32"/>
+<area shape="rect" id="node4" href="$classHalfEdge.html#a98c0fb1c54506abbd3c0ac4a1264dac1" title="HalfEdge::destination" alt="" coords="501,56,648,83"/>
+<area shape="rect" id="node5" href="$classGraphUndirectedGroupable.html#ad40474d566b3f9fbe9d132fbbe562ed5" title="GraphUndirectedGroupable\l::community" alt="" coords="485,107,664,149"/>
+<area shape="rect" id="node8" href="$classHalfEdge.html#a89cc13d21ae44a9d9c2ba95f89576090" title="HalfEdge::weight" alt="" coords="513,173,636,200"/>
+<area shape="rect" id="node6" href="$classMapReversable.html#a30fd5b0e4e2578d3eaad8926a5d12cb2" title="MapReversable::find" alt="" coords="718,89,861,116"/>
+<area shape="rect" id="node7" href="$classMapReversable.html#acf794209bf91fe8f6026f090ccb7635f" title="MapReversable::cend" alt="" coords="715,140,864,167"/>
+</map>

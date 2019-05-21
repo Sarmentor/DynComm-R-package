@@ -134,6 +134,15 @@
 #'   Stops when, on a cycle of the algorithm, the quality is increased by less 
 #'   than the value given in this parameter.
 #'   }
+#'   \item{
+#'   cv
+#'   }{
+#'   Community-Vertex.
+#'   Boolean parameter that indicates if sending community mapping to a file
+#'   prints the community first, if true, or the vertex first, if false. See
+#'   \code{\link{communityMapping}} for details.
+#'   Default TRUE
+#'   }
 #' }
 #' 
 #' @section Methods:
@@ -241,7 +250,7 @@ TemplateDynCommPostProcess <- function(dyncomm, Parameters=NULL)
     results = function(differential=TRUE)
     {
       ########## implement #############
-      return(matrix(data=c(NA,NA),ncol=2,byrow=TRUE,dimnames = c("name","value")))
+      return(matrix(nrow=0,ncol=2,byrow=TRUE,dimnames = list(c(),c("name","value"))))
     },
     
     #' 
@@ -293,7 +302,7 @@ TemplateDynCommPostProcess <- function(dyncomm, Parameters=NULL)
     # community is an unsigned integer
     communityNeighbours=function(community){
       ########## implement #############
-      return(matrix(data=c(NA,NA),ncol=2,byrow=TRUE,dimnames = list(c(),c("neighbour","weight"))))
+      return(matrix(nrow=0,ncol=2,byrow=TRUE,dimnames = list(c(),c("neighbour","weight"))))
     },
     
     #' 
@@ -364,7 +373,7 @@ TemplateDynCommPostProcess <- function(dyncomm, Parameters=NULL)
     # vertex is an unsigned integer
     neighbours=function(vertex){
       ########## implement #############
-      return(matrix(data=c(NA,NA),ncol=2,byrow=TRUE,dimnames = list(c(),c("neighbour","weight"))))
+      return(matrix(nrow=0,ncol=2,byrow=TRUE,dimnames = list(c(),c("neighbour","weight"))))
     },
     
     #' 
@@ -392,7 +401,7 @@ TemplateDynCommPostProcess <- function(dyncomm, Parameters=NULL)
     # differential is a boolean
     communityMappingMatrix = function(differential=TRUE){
       ########## implement #############
-      return(matrix(data=c(NA,NA),ncol=2,byrow=TRUE,dimnames = c("name","value")))
+      return(matrix(nrow=0,ncol=2,byrow=TRUE,dimnames = list(c(),c("name","value"))))
     },
     
     #' 
@@ -402,7 +411,7 @@ TemplateDynCommPostProcess <- function(dyncomm, Parameters=NULL)
     # file is a string representing a file with path to read from. Is never NULL
     communityMappingFile = function(differential=TRUE,file=""){
       ########## implement #############
-      return(matrix(data=c(FALSE),nrow=1,ncol=1,byrow=TRUE,dimnames = c("reply")))
+      return(matrix(data=c(FALSE),nrow=1,ncol=1,byrow=TRUE,dimnames = list(c(),c("reply"))))
     }
     
   )

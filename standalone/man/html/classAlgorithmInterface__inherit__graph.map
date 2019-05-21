@@ -1,0 +1,5 @@
+<map id="AlgorithmInterface" name="AlgorithmInterface">
+<area shape="rect" id="node2" href="$classAlgorithmBase.html" title="Base class for algorithms. " alt="" coords="52,80,159,107"/>
+<area shape="rect" id="node3" href="$classAlgorithm.html" title="Aggregator class for all main algorithms. " alt="" coords="5,155,83,181"/>
+<area shape="rect" id="node4" href="$classAlgorithmLouvain.html" title="Class that implements the Dynamic Louvain algorithm. " alt="" coords="107,155,229,181"/>
+</map>

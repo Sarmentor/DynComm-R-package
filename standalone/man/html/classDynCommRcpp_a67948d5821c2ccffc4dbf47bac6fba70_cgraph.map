@@ -1,0 +1,5 @@
+<map id="DynCommRcpp::communityCount" name="DynCommRcpp::communityCount">
+<area shape="rect" id="node2" href="$classDynCommBase.html#add5d1d59a3f20b4ba039342b31551fb3" title="DynCommBase::communityCount" alt="" coords="276,13,499,39"/>
+<area shape="rect" id="node3" href="$classGraphUndirectedGroupable.html#adf6ebb83c3df6317f122a13650309ac4" title="GraphUndirectedGroupable\l::communityCount" alt="" coords="547,5,725,47"/>
+<area shape="rect" id="node4" href="$classGraphUndirected.html#adf50305970536f71586f8f63462dfcdc" title="GraphUndirected::vertexCount" alt="" coords="773,13,972,39"/>
+</map>

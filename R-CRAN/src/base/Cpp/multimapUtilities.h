@@ -1,9 +1,17 @@
-/*
- * multimapUtilities.h
+/************************************************************************
+ ************************* Developer Notice *****************************
+ ************************************************************************
+ * @details
  *
- *  Created on: 19/08/2018
- *      Author: poltergeist0
- */
+ * Utilities to assist working with std::multimap implemented in C++11.
+ *
+ *
+ * @author poltergeist0
+ *
+ * @date 2018-08-19
+ ************************************************************************
+ ************************************************************************
+ ************************************************************************/
 
 #ifndef MULTIMAPUTILITIES_H_
 #define MULTIMAPUTILITIES_H_
@@ -12,14 +20,15 @@
 #include <type_traits>
 #include <string>
 #include <sstream>
-#include "stringFormater.h"
+
+#include "stringFormatter.h"
 
 namespace multimap {
 
 /**
  *
  * @param m
- * @return the unique keys of a map
+ * @return the unique keys of a multimap
  */
 template<typename T, typename U> std::set<T> keys(std::multimap<T, U> const& m) {
 	std::set<T> r;
@@ -33,7 +42,7 @@ template<typename T, typename U> std::set<T> keys(std::multimap<T, U> const& m) 
 /**
  *
  * @param m
- * @return the unique values of a map
+ * @return the unique values of a multimap
  */
 template<typename T, typename U> std::set<T> values(std::multimap<T, U> const& m) {
 	std::set<T> r;
@@ -139,7 +148,7 @@ template <typename typeMultimapKey, typename typeMultimapValue, typename typeKey
 	return m.cend();
 }
 
-template<typename T, typename U,typename std::enable_if<std::is_fundamental<T>::value && std::is_fundamental<U>::value,T>::type=0 > std::string toString(std::multimap<T, U> const& m, const StringFormater & formater=defaultStringFormater) {
+template<typename T, typename U,typename std::enable_if<std::is_fundamental<T>::value && std::is_fundamental<U>::value,T>::type=0 > std::string toString(std::multimap<T, U> const& m, const StringFormatter & formater=defaultStringFormatter) {
 	std::stringstream ss;
 	formater.start(ss,true);
 	for(typename std::multimap<T,U>::const_iterator it=m.cbegin();it!=m.cend();it++){

@@ -1,9 +1,20 @@
-/*
- * defines.h
+/************************************************************************
+ ************************* Developer Notice *****************************
+ ************************************************************************
+ * @details
  *
- *  Created on: 19/08/2018
- *      Author: poltergeist0
- */
+ * This file defines data types and other system dependent constants to
+ * be used seemingly in the program.
+ * Only in this file one needs to be aware of the system to which the
+ * program is going to be compiled.
+ *
+ *
+ * @author poltergeist0
+ *
+ * @date 2018-08-19
+ ************************************************************************
+ ************************************************************************
+ ************************************************************************/
 
 #ifndef SYSTEMDEFINES_H_
 #define SYSTEMDEFINES_H_
@@ -27,7 +38,11 @@
 /**
  * Non-Windows System Definitions section
  */
-	//TODO differentiate between linux installations (debian, arch,red hat...)
+	/*
+	 * TODO differentiate between linux installations (debian, arch,red hat...)
+	 * since some have things defined in different locations or with different
+	 * names.
+	 */
 	#include <unistd.h>
 	#define getpid() getpid()
 	const char PATH_SEPARATOR ='/';

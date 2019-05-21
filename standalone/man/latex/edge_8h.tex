@@ -1,0 +1,97 @@
+\hypertarget{edge_8h}{}\section{R-\/\+C\+R\+A\+N/src/base/\+Cpp/edge.h File Reference}
+\label{edge_8h}\index{R-\/\+C\+R\+A\+N/src/base/\+Cpp/edge.\+h@{R-\/\+C\+R\+A\+N/src/base/\+Cpp/edge.\+h}}
+{\ttfamily \#include $<$limits$>$}\newline
+{\ttfamily \#include \char`\"{}string\+Formatter.\+h\char`\"{}}\newline
+Include dependency graph for edge.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=242pt]{edge_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{edge_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classHalfEdge}{Half\+Edge}
+\begin{DoxyCompactList}\small\item\em Half edge class. \end{DoxyCompactList}\item 
+class \hyperlink{classEdge}{Edge}
+\begin{DoxyCompactList}\small\item\em \hyperlink{classEdge}{Edge} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef unsigned int \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex}
+\item 
+typedef long double \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+const \hyperlink{classEdge}{Edge} \hyperlink{edge_8h_a00878182cf0226e97f24050796238d58}{no\+Edge} (\hyperlink{edge_8h_addeb431aeaf65774e1882d9fcdd811ac}{no\+Vertex}, \hyperlink{edge_8h_addeb431aeaf65774e1882d9fcdd811ac}{no\+Vertex})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \hyperlink{edge_8h_addeb431aeaf65774e1882d9fcdd811ac}{no\+Vertex} =std\+::numeric\+\_\+limits$<$\hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex}$>$\+::max()
+\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\mbox{\Hypertarget{edge_8h_a5fbd20c46956d479cb10afc9855223f6}\label{edge_8h_a5fbd20c46956d479cb10afc9855223f6}} 
+\index{edge.\+h@{edge.\+h}!type\+Vertex@{type\+Vertex}}
+\index{type\+Vertex@{type\+Vertex}!edge.\+h@{edge.\+h}}
+\subsubsection{\texorpdfstring{type\+Vertex}{typeVertex}}
+{\footnotesize\ttfamily typedef unsigned int \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex}}
+
+Data type definition for a single vertex 
+
+Definition at line 24 of file edge.\+h.
+
+\mbox{\Hypertarget{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}\label{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}} 
+\index{edge.\+h@{edge.\+h}!type\+Weight@{type\+Weight}}
+\index{type\+Weight@{type\+Weight}!edge.\+h@{edge.\+h}}
+\subsubsection{\texorpdfstring{type\+Weight}{typeWeight}}
+{\footnotesize\ttfamily typedef long double \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight}}
+
+Data type definition for a weight 
+
+Definition at line 29 of file edge.\+h.
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{edge_8h_a00878182cf0226e97f24050796238d58}\label{edge_8h_a00878182cf0226e97f24050796238d58}} 
+\index{edge.\+h@{edge.\+h}!no\+Edge@{no\+Edge}}
+\index{no\+Edge@{no\+Edge}!edge.\+h@{edge.\+h}}
+\subsubsection{\texorpdfstring{no\+Edge()}{noEdge()}}
+{\footnotesize\ttfamily const \hyperlink{classEdge}{Edge} no\+Edge (\begin{DoxyParamCaption}\item[{\hyperlink{edge_8h_addeb431aeaf65774e1882d9fcdd811ac}{no\+Vertex}}]{,  }\item[{\hyperlink{edge_8h_addeb431aeaf65774e1882d9fcdd811ac}{no\+Vertex}}]{ }\end{DoxyParamCaption})}
+
+special edge that indicates NO E\+D\+GE 
+
+Referenced by Reader\+File\+Edge\+::next(), Reader\+String\+Edge\+::next(), and Reader\+Matrix\+Edge\+::next().
+
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{edge_8h_addeb431aeaf65774e1882d9fcdd811ac}\label{edge_8h_addeb431aeaf65774e1882d9fcdd811ac}} 
+\index{edge.\+h@{edge.\+h}!no\+Vertex@{no\+Vertex}}
+\index{no\+Vertex@{no\+Vertex}!edge.\+h@{edge.\+h}}
+\subsubsection{\texorpdfstring{no\+Vertex}{noVertex}}
+{\footnotesize\ttfamily const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} no\+Vertex =std\+::numeric\+\_\+limits$<$\hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex}$>$\+::max()}
+
+special vertex that indicates NO V\+E\+R\+T\+EX 
+
+Definition at line 260 of file edge.\+h.
+
+
+
+Referenced by Graph\+Undirected\+::add\+Edge(), Graph\+Undirected\+Groupable\+::community(), Graph\+Undirected\+Groupable\+::minimum\+Node(), Algorithm\+Louvain\+::neigh\+\_\+comm(), Graph\+Undirected\+::neighbors(), Graph\+Undirected\+::neighbors\+Count(), and Graph\+Undirected\+::replace().
+

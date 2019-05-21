@@ -1,0 +1,14 @@
+<map id="Louvain" name="Louvain">
+<area shape="rect" id="node2" href="$classAlgorithmBase.html" title="AlgorithmBase" alt="" coords="252,529,359,556"/>
+<area shape="rect" id="node3" href="$classAlgorithmInterface.html" title="AlgorithmInterface" alt="" coords="141,440,269,467"/>
+<area shape="rect" id="node4" href="$classGraphUndirectedGroupable.html" title="GraphUndirectedGroupable" alt="" coords="15,185,193,212"/>
+<area shape="rect" id="node12" href="$classQualityBase.html" title="QualityBase" alt="" coords="359,275,452,301"/>
+<area shape="rect" id="node5" href="$classGraphUndirected.html" title="GraphUndirected" alt="" coords="5,89,125,115"/>
+<area shape="rect" id="node6" href="$classGraphInterface.html" title="GraphInterface" alt="" coords="11,5,119,32"/>
+<area shape="rect" id="node7" href="$classMapReversable.html" title="MapReversable\&lt; typeVertex,\l typeCommunity \&gt;" alt="" coords="149,81,341,123"/>
+<area shape="rect" id="node8" href="$structProgramParameters.html" title="ProgramParameters" alt="" coords="287,185,425,212"/>
+<area shape="rect" id="node9" href="$classQuality.html" title="Quality" alt="" coords="375,440,438,467"/>
+<area shape="rect" id="node10" href="$classQualityInterface.html" title="QualityInterface" alt="" coords="525,185,640,212"/>
+<area shape="rect" id="node11" href="$classBalMod.html" title="BalMod" alt="" coords="372,351,439,377"/>
+<area shape="rect" id="node13" href="$classModularity.html" title="Modularity" alt="" coords="463,351,545,377"/>
+</map>

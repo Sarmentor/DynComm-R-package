@@ -1,0 +1,361 @@
+\hypertarget{classAlgorithm}{}\section{Algorithm Class Reference}
+\label{classAlgorithm}\index{Algorithm@{Algorithm}}
+
+
+Aggregator class for all main algorithms.  
+
+
+
+
+{\ttfamily \#include $<$algorithm.\+h$>$}
+
+
+
+Inheritance diagram for Algorithm\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=176pt]{classAlgorithm__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Algorithm\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classAlgorithm__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{classAlgorithm_a38e19a8c3dc51b97563a34d9e59a748d}{A\+L\+G\+O\+R\+I\+T\+HM} \+: unsigned int \{ \hyperlink{classAlgorithm_a38e19a8c3dc51b97563a34d9e59a748dab77e66715d6be972cdbf6cc4d990e732}{A\+L\+G\+O\+R\+I\+T\+H\+M\+::\+L\+O\+U\+V\+A\+IN} =1, 
+\hyperlink{classAlgorithm_a38e19a8c3dc51b97563a34d9e59a748da1081b2130037a7b464f64d6cc82b3100}{A\+L\+G\+O\+R\+I\+T\+H\+M\+::\+S\+H\+A\+K\+EN}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classAlgorithm_adb63a5f03ed70abb7e355631799c1ad0}{Algorithm} ()=delete
+\item 
+\hyperlink{classAlgorithm_a1a77fee87ecd410f2fae6db4c246c3ab}{Algorithm} (\hyperlink{classGraphUndirectedGroupable}{Graph\+Undirected\+Groupable} \&\hyperlink{classAlgorithmBase_a54b71b720b025291d9802e20874c860d}{grph}, \hyperlink{classCriterion}{Criterion} \&quality, \hyperlink{classAlgorithm_a38e19a8c3dc51b97563a34d9e59a748d}{A\+L\+G\+O\+R\+I\+T\+HM} algorithm=\hyperlink{classAlgorithm_a38e19a8c3dc51b97563a34d9e59a748dab77e66715d6be972cdbf6cc4d990e732}{A\+L\+G\+O\+R\+I\+T\+H\+M\+::\+L\+O\+U\+V\+A\+IN}, \hyperlink{structProgramParameters}{Program\+Parameters} \&algorithm\+Parameters=\hyperlink{program_8h_ae2d819404495f80f31db7676c1329d19}{arguments\+Default})
+\item 
+bool \hyperlink{classAlgorithm_a8ec65e07ed59a0f8b8491683b95626d2}{add\+Remove\+Edges} (\hyperlink{classReaderInterface}{Reader\+Interface}$<$ \hyperlink{classEdge}{Edge} $>$ $\ast$reader)
+\item 
+const std\+::string \hyperlink{classAlgorithm_a3b3172af613b02bfb1dc2502553d91c0}{to\+String} (const \hyperlink{classStringFormatter}{String\+Formatter} \&sf=\hyperlink{stringFormatter_8h_abf1349c8e24162d0134072aff288f2a2}{default\+String\+Formatter}) const
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classAlgorithm_a5835b23797b9d00f4090b996660af5d4}{add\+Remove\+Edge\+Pre} (const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&source, const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&destination, const \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \&weight=1.\+0)
+\item 
+bool \hyperlink{classAlgorithm_ad78e2c5819da723c373ce6d4a28ac36d}{add\+Remove\+Edge\+Post} (const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&source, const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&destination, const \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \&weight=1.\+0)
+\item 
+bool \hyperlink{classAlgorithm_a10dcb6b63ba40fad0bf11a0fef7b40f5}{run} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const \hyperlink{classAlgorithm_a38e19a8c3dc51b97563a34d9e59a748d}{A\+L\+G\+O\+R\+I\+T\+HM} \hyperlink{classAlgorithm_aaee2fd7b239cc8721ec894716271dcd9}{algrthm}
+\item 
+\hyperlink{classAlgorithmLouvain}{Algorithm\+Louvain} \hyperlink{classAlgorithm_a95ef62342279e55525eacf34e83bc2ca}{algorithm\+Louvain}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Aggregator class for all main algorithms. 
+
+It is a simple class that only instantiates all algorithms and dispatches function calls to the correct one.
+
+\begin{DoxyAuthor}{Author}
+poltergeist0
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019-\/01-\/01 
+\end{DoxyDate}
+
+
+Definition at line 63 of file algorithm.\+h.
+
+
+
+\subsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{classAlgorithm_a38e19a8c3dc51b97563a34d9e59a748d}\label{classAlgorithm_a38e19a8c3dc51b97563a34d9e59a748d}} 
+\index{Algorithm@{Algorithm}!A\+L\+G\+O\+R\+I\+T\+HM@{A\+L\+G\+O\+R\+I\+T\+HM}}
+\index{A\+L\+G\+O\+R\+I\+T\+HM@{A\+L\+G\+O\+R\+I\+T\+HM}!Algorithm@{Algorithm}}
+\subsubsection{\texorpdfstring{A\+L\+G\+O\+R\+I\+T\+HM}{ALGORITHM}}
+{\footnotesize\ttfamily enum \hyperlink{classAlgorithm_a38e19a8c3dc51b97563a34d9e59a748d}{Algorithm\+::\+A\+L\+G\+O\+R\+I\+T\+HM} \+: unsigned int\hspace{0.3cm}{\ttfamily [strong]}}
+
+Enumeration with the list of supported Dynamic Communities algorithms. This enumeration must start at 1 since this code is used in R and R indexing (for arrays, etc) starts at 1 instead of 0. Otherwise C++ would assign the first algorithm a 0. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{L\+O\+U\+V\+A\+IN@{L\+O\+U\+V\+A\+IN}!Algorithm@{Algorithm}}\index{Algorithm@{Algorithm}!L\+O\+U\+V\+A\+IN@{L\+O\+U\+V\+A\+IN}}}\mbox{\Hypertarget{classAlgorithm_a38e19a8c3dc51b97563a34d9e59a748dab77e66715d6be972cdbf6cc4d990e732}\label{classAlgorithm_a38e19a8c3dc51b97563a34d9e59a748dab77e66715d6be972cdbf6cc4d990e732}} 
+L\+O\+U\+V\+A\+IN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\+H\+A\+K\+EN@{S\+H\+A\+K\+EN}!Algorithm@{Algorithm}}\index{Algorithm@{Algorithm}!S\+H\+A\+K\+EN@{S\+H\+A\+K\+EN}}}\mbox{\Hypertarget{classAlgorithm_a38e19a8c3dc51b97563a34d9e59a748da1081b2130037a7b464f64d6cc82b3100}\label{classAlgorithm_a38e19a8c3dc51b97563a34d9e59a748da1081b2130037a7b464f64d6cc82b3100}} 
+S\+H\+A\+K\+EN&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 76 of file algorithm.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classAlgorithm_adb63a5f03ed70abb7e355631799c1ad0}\label{classAlgorithm_adb63a5f03ed70abb7e355631799c1ad0}} 
+\index{Algorithm@{Algorithm}!Algorithm@{Algorithm}}
+\index{Algorithm@{Algorithm}!Algorithm@{Algorithm}}
+\subsubsection{\texorpdfstring{Algorithm()}{Algorithm()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Algorithm\+::\+Algorithm (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+Default constructor not acceptable. Must be passed at least the chosen algorithm and the graph 
+
+Referenced by run().
+
+\mbox{\Hypertarget{classAlgorithm_a1a77fee87ecd410f2fae6db4c246c3ab}\label{classAlgorithm_a1a77fee87ecd410f2fae6db4c246c3ab}} 
+\index{Algorithm@{Algorithm}!Algorithm@{Algorithm}}
+\index{Algorithm@{Algorithm}!Algorithm@{Algorithm}}
+\subsubsection{\texorpdfstring{Algorithm()}{Algorithm()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Algorithm\+::\+Algorithm (\begin{DoxyParamCaption}\item[{\hyperlink{classGraphUndirectedGroupable}{Graph\+Undirected\+Groupable} \&}]{grph,  }\item[{\hyperlink{classCriterion}{Criterion} \&}]{quality,  }\item[{\hyperlink{classAlgorithm_a38e19a8c3dc51b97563a34d9e59a748d}{A\+L\+G\+O\+R\+I\+T\+HM}}]{algorithm = {\ttfamily \hyperlink{classAlgorithm_a38e19a8c3dc51b97563a34d9e59a748dab77e66715d6be972cdbf6cc4d990e732}{A\+L\+G\+O\+R\+I\+T\+H\+M\+::\+L\+O\+U\+V\+A\+IN}},  }\item[{\hyperlink{structProgramParameters}{Program\+Parameters} \&}]{algorithm\+Parameters = {\ttfamily \hyperlink{program_8h_ae2d819404495f80f31db7676c1329d19}{arguments\+Default}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructor.
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & reference to the graph object \\
+\hline
+{\em quality} & reference to the quality object \\
+\hline
+{\em algorithm\+Parameters} & reference to the parameters object \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 196 of file algorithm.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classAlgorithm_ad78e2c5819da723c373ce6d4a28ac36d}\label{classAlgorithm_ad78e2c5819da723c373ce6d4a28ac36d}} 
+\index{Algorithm@{Algorithm}!add\+Remove\+Edge\+Post@{add\+Remove\+Edge\+Post}}
+\index{add\+Remove\+Edge\+Post@{add\+Remove\+Edge\+Post}!Algorithm@{Algorithm}}
+\subsubsection{\texorpdfstring{add\+Remove\+Edge\+Post()}{addRemoveEdgePost()}}
+{\footnotesize\ttfamily bool Algorithm\+::add\+Remove\+Edge\+Post (\begin{DoxyParamCaption}\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{source,  }\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{destination,  }\item[{const \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \&}]{weight = {\ttfamily 1.0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}, {\ttfamily [virtual]}}
+
+Function execute after adding or removing a single edge from the graph. It is used internally by the add\+Remove\+Edges function. Useful if post-\/processing is required, for example, to update some of variables after the edge has be added or removed. Any edge with a weight different from zero is inserted. Any edge with a weight of exactly zero is removed. Redirects call to algorithm variable.
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & source vertex \\
+\hline
+{\em destination} & destination vertex \\
+\hline
+{\em weight} & optional if adding an edge. Must be exactly zero to remove an edge. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if all operations succeeded. False, otherwise. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classAlgorithmInterface_ac97ed4df4fd2b14b16d55c1b3b9749b6}{Algorithm\+Interface}.
+
+
+
+Definition at line 141 of file algorithm.\+h.
+
+
+
+References Algorithm\+Louvain\+::add\+Remove\+Edge\+Post(), and L\+O\+U\+V\+A\+IN.
+
+
+
+Referenced by add\+Remove\+Edges().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classAlgorithm_ad78e2c5819da723c373ce6d4a28ac36d_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classAlgorithm_a5835b23797b9d00f4090b996660af5d4}\label{classAlgorithm_a5835b23797b9d00f4090b996660af5d4}} 
+\index{Algorithm@{Algorithm}!add\+Remove\+Edge\+Pre@{add\+Remove\+Edge\+Pre}}
+\index{add\+Remove\+Edge\+Pre@{add\+Remove\+Edge\+Pre}!Algorithm@{Algorithm}}
+\subsubsection{\texorpdfstring{add\+Remove\+Edge\+Pre()}{addRemoveEdgePre()}}
+{\footnotesize\ttfamily bool Algorithm\+::add\+Remove\+Edge\+Pre (\begin{DoxyParamCaption}\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{source,  }\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{destination,  }\item[{const \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \&}]{weight = {\ttfamily 1.0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}, {\ttfamily [virtual]}}
+
+Function to execute before adding or removing a single edge from the graph. It is used internally by the add\+Remove\+Edges function. Useful if pre-\/processing is required, for example, to update some of variables before the edge can be added or removed. Any edge with a weight different from zero is inserted. Any edge with a weight of exactly zero is removed. Redirects call to algorithm variable.
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & source vertex \\
+\hline
+{\em destination} & destination vertex \\
+\hline
+{\em weight} & optional if adding an edge. Must be exactly zero to remove an edge. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if all operations succeeded. False, otherwise. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classAlgorithmInterface_ae5a6e84b139768dff92a70cacaec7472}{Algorithm\+Interface}.
+
+
+
+Definition at line 110 of file algorithm.\+h.
+
+
+
+References Algorithm\+Louvain\+::add\+Remove\+Edge\+Pre(), and L\+O\+U\+V\+A\+IN.
+
+
+
+Referenced by add\+Remove\+Edges().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classAlgorithm_a5835b23797b9d00f4090b996660af5d4_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classAlgorithm_a8ec65e07ed59a0f8b8491683b95626d2}\label{classAlgorithm_a8ec65e07ed59a0f8b8491683b95626d2}} 
+\index{Algorithm@{Algorithm}!add\+Remove\+Edges@{add\+Remove\+Edges}}
+\index{add\+Remove\+Edges@{add\+Remove\+Edges}!Algorithm@{Algorithm}}
+\subsubsection{\texorpdfstring{add\+Remove\+Edges()}{addRemoveEdges()}}
+{\footnotesize\ttfamily bool Algorithm\+::add\+Remove\+Edges (\begin{DoxyParamCaption}\item[{\hyperlink{classReaderInterface}{Reader\+Interface}$<$ \hyperlink{classEdge}{Edge} $>$ $\ast$}]{reader }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Function to add and remove edges from the graph. Any edge with a weight different from zero is inserted. Any edge with a weight of exactly zero is removed.
+
+
+\begin{DoxyParams}{Parameters}
+{\em reader} & is a Reader object that is responsible for converting the required data from its original format to Edges \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if adding/removing succeeded 
+\end{DoxyReturn}
+
+
+Definition at line 223 of file algorithm.\+h.
+
+
+
+References Graph\+Undirected\+Groupable\+::add\+Edge(), add\+Remove\+Edge\+Post(), add\+Remove\+Edge\+Pre(), Edge\+::destination(), Algorithm\+Base\+::grph, Reader\+Interface$<$ T\+Y\+P\+E\+R\+E\+T\+U\+R\+N $>$\+::has\+Next(), Reader\+Interface$<$ T\+Y\+P\+E\+R\+E\+T\+U\+R\+N $>$\+::next(), Graph\+Undirected\+Groupable\+::remove\+Edge(), run(), Edge\+::source(), and Edge\+::weight().
+
+
+
+Referenced by Dyn\+Comm\+Base\+::add\+Remove\+Edges().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classAlgorithm_a8ec65e07ed59a0f8b8491683b95626d2_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classAlgorithm_a10dcb6b63ba40fad0bf11a0fef7b40f5}\label{classAlgorithm_a10dcb6b63ba40fad0bf11a0fef7b40f5}} 
+\index{Algorithm@{Algorithm}!run@{run}}
+\index{run@{run}!Algorithm@{Algorithm}}
+\subsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily bool Algorithm\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}, {\ttfamily [virtual]}}
+
+Function where the actual algorithms are implemented. It is called at the end of the add\+Remove\+Edges function. Redirects call to algorithm variable.
+
+\begin{DoxyReturn}{Returns}
+true if all operations succeeded. False, otherwise. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classAlgorithmInterface_a0bafcdabd2b5fd45abe97af91e02ca14}{Algorithm\+Interface}.
+
+
+
+Definition at line 165 of file algorithm.\+h.
+
+
+
+References Algorithm(), L\+O\+U\+V\+A\+IN, and Algorithm\+Louvain\+::run().
+
+
+
+Referenced by add\+Remove\+Edges().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classAlgorithm_a10dcb6b63ba40fad0bf11a0fef7b40f5_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classAlgorithm_a3b3172af613b02bfb1dc2502553d91c0}\label{classAlgorithm_a3b3172af613b02bfb1dc2502553d91c0}} 
+\index{Algorithm@{Algorithm}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Algorithm@{Algorithm}}
+\subsubsection{\texorpdfstring{to\+String()}{toString()}}
+{\footnotesize\ttfamily const std\+::string Algorithm\+::to\+String (\begin{DoxyParamCaption}\item[{const \hyperlink{classStringFormatter}{String\+Formatter} \&}]{sf = {\ttfamily \hyperlink{stringFormatter_8h_abf1349c8e24162d0134072aff288f2a2}{default\+String\+Formatter}} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Function that converts this object to a string representation. Might be useful for debugging.
+
+
+\begin{DoxyParams}{Parameters}
+{\em sf} & is a String\+Formater object that facilitates formating \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the string representing this object 
+\end{DoxyReturn}
+
+
+Definition at line 254 of file algorithm.\+h.
+
+
+
+References L\+O\+U\+V\+A\+IN, and Algorithm\+Louvain\+::to\+String().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classAlgorithm_a3b3172af613b02bfb1dc2502553d91c0_cgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classAlgorithm_a95ef62342279e55525eacf34e83bc2ca}\label{classAlgorithm_a95ef62342279e55525eacf34e83bc2ca}} 
+\index{Algorithm@{Algorithm}!algorithm\+Louvain@{algorithm\+Louvain}}
+\index{algorithm\+Louvain@{algorithm\+Louvain}!Algorithm@{Algorithm}}
+\subsubsection{\texorpdfstring{algorithm\+Louvain}{algorithmLouvain}}
+{\footnotesize\ttfamily \hyperlink{classAlgorithmLouvain}{Algorithm\+Louvain} Algorithm\+::algorithm\+Louvain\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 87 of file algorithm.\+h.
+
+\mbox{\Hypertarget{classAlgorithm_aaee2fd7b239cc8721ec894716271dcd9}\label{classAlgorithm_aaee2fd7b239cc8721ec894716271dcd9}} 
+\index{Algorithm@{Algorithm}!algrthm@{algrthm}}
+\index{algrthm@{algrthm}!Algorithm@{Algorithm}}
+\subsubsection{\texorpdfstring{algrthm}{algrthm}}
+{\footnotesize\ttfamily const \hyperlink{classAlgorithm_a38e19a8c3dc51b97563a34d9e59a748d}{A\+L\+G\+O\+R\+I\+T\+HM} Algorithm\+::algrthm\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 82 of file algorithm.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+R-\/\+C\+R\+A\+N/src/base/\+Cpp/\hyperlink{algorithm_8h}{algorithm.\+h}\end{DoxyCompactItemize}

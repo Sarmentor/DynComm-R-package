@@ -1,0 +1,877 @@
+\hypertarget{classStringFormater}{}\section{String\+Formater Class Reference}
+\label{classStringFormater}\index{String\+Formater@{String\+Formater}}
+
+
+{\ttfamily \#include $<$string\+Formater.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classStringFormater_abb1d26793e735b96a408f956daa43361}{String\+Formater} ()
+\item 
+\hyperlink{classStringFormater_a91a7cfa34811723d7b934c1d22def6a8}{String\+Formater} (const \hyperlink{classStringFormater}{String\+Formater} \&copy, const bool \&auto\+Indent=true)
+\item 
+\hyperlink{classStringFormater_a9fd21580941b514287b9ec15ddc665ea}{String\+Formater} (const \hyperlink{classStringFormater}{String\+Formater} \&copy, const int \hyperlink{classStringFormater_a8a4422bdcbe498401aecb283c433d31d}{indent})
+\item 
+\hyperlink{classStringFormater}{String\+Formater} \hyperlink{classStringFormater_a0fe6b7b48c1660c4a009da745c05451c}{operator()} (const int \hyperlink{classStringFormater_a8a4422bdcbe498401aecb283c433d31d}{indent}) const
+\item 
+const std\+::string \& \hyperlink{classStringFormater_adebd3114b32c2aa5d1ebc1737a56ca5d}{header} () const
+\item 
+void \hyperlink{classStringFormater_ac8c0d32e4249aadbcfada138760ac944}{header} (const std\+::string \&header)
+\item 
+const std\+::string \& \hyperlink{classStringFormater_abe673b8b8b9a588f05a8e7de748189e7}{set\+Close} () const
+\item 
+void \hyperlink{classStringFormater_af8e955e219e2666e2072783bcfb54cc6}{set\+Close} (const std\+::string \&set\+Close)
+\item 
+const std\+::string \& \hyperlink{classStringFormater_a395cdce03292513a02a9622c920478b5}{set\+Open} () const
+\item 
+void \hyperlink{classStringFormater_a2b7df7412f7e0993532525aed90ca258}{set\+Open} (const std\+::string \&set\+Open)
+\item 
+const std\+::string \& \hyperlink{classStringFormater_aa28994ecf2e66952f6f4535c9b544d47}{tail} () const
+\item 
+void \hyperlink{classStringFormater_ab92f93d76b0f58560d8a8db124edd3ef}{tail} (const std\+::string \&tail)
+\item 
+const std\+::string \& \hyperlink{classStringFormater_ae87101d7a35f7317fe0e48023f9033ca}{tuple\+Close} () const
+\item 
+void \hyperlink{classStringFormater_ad0760f314079f6af19d09f45a0b77642}{tuple\+Close} (const std\+::string \&tuple\+Close)
+\item 
+const std\+::string \& \hyperlink{classStringFormater_a723672ca8ad990eebc181b051199f4e8}{tuple\+Open} () const
+\item 
+void \hyperlink{classStringFormater_ac9d4c3bfaa5baaf7dc97768a9068128a}{tuple\+Open} (const std\+::string \&tuple\+Open)
+\item 
+const std\+::string \& \hyperlink{classStringFormater_a9c1654f1f4e2f44a3bd8c0eff76f7d8f}{tuple\+Separator} () const
+\item 
+void \hyperlink{classStringFormater_a20c69db03bbd7bfff3154b560ff0106b}{tuple\+Separator} (const std\+::string \&tuple\+Separator)
+\item 
+const std\+::string \& \hyperlink{classStringFormater_a63ed3fb057158b3e96333f5d6761400a}{value\+Separator} () const
+\item 
+void \hyperlink{classStringFormater_aa39006dd16b8c4f2ef55c6898b4561db}{value\+Separator} (const std\+::string \&value\+Separator)
+\item 
+std\+::string \hyperlink{classStringFormater_a8a4422bdcbe498401aecb283c433d31d}{indent} () const
+\item 
+std\+::stringstream \& \hyperlink{classStringFormater_a4eda27368789110bef0e4c3401587efd}{start} (std\+::stringstream \&ss, const bool \&set=false) const
+\item 
+std\+::string \hyperlink{classStringFormater_a4685d33ea6f692029e79fa0e083253fd}{start} (const bool \&set=false) const
+\item 
+std\+::stringstream \& \hyperlink{classStringFormater_a63052da61a599fc14687f26b9d2f005b}{end} (std\+::stringstream \&ss, const bool \&set=false) const
+\item 
+std\+::string \hyperlink{classStringFormater_aae2d087c138d5bcf6bdb917f5a681ef3}{end} (const bool \&set=false) const
+\item 
+std\+::stringstream \& \hyperlink{classStringFormater_a4cc86d5e84a9d5006d5eb61eafe68690}{build} (std\+::stringstream \&ss, const std\+::string \&message)
+\item 
+std\+::string \hyperlink{classStringFormater_a1772b0244f215c077dfd34248c9f0428}{build} (const std\+::string \&message)
+\item 
+\hyperlink{classStringFormater}{String\+Formater} \& \hyperlink{classStringFormater_ab612366361a069eae7a1ebd645b47f62}{operator++} ()
+\item 
+\hyperlink{classStringFormater}{String\+Formater} \& \hyperlink{classStringFormater_a2d42daa669ee9405b94b35ea121a9f95}{operator-\/-\/} ()
+\item 
+bool \hyperlink{classStringFormater_ac16a9d38ab08c90faf1f0d3e2c2a648d}{is\+Default} () const
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+unsigned int \hyperlink{classStringFormater_a6e7f3ad35026161d483da43928ddba01}{indent\+Level} =0
+\item 
+std\+::string \hyperlink{classStringFormater_a9b6627c0ee0fb27f698b2deff50a8497}{hdr} =\char`\"{}\char`\"{}
+\item 
+std\+::string \hyperlink{classStringFormater_a8f78ca87611e1e1e35534100c4aeaccd}{tl} =\char`\"{}\char`\"{}
+\item 
+bool \hyperlink{classStringFormater_afb5df3fdcd0de7289d2a53c9e62dff7c}{ln\+Brk} =true
+\item 
+std\+::string \hyperlink{classStringFormater_a021c71f2e67718053bf9dcc3107cb204}{tpl\+Opn} =\char`\"{}(\char`\"{}
+\item 
+std\+::string \hyperlink{classStringFormater_a334df00dacdd2898052b9b4e70b06e3b}{tpl\+Cls} =\char`\"{})\char`\"{}
+\item 
+std\+::string \hyperlink{classStringFormater_a6749d9c5fe85817f9232bf7987e2a28e}{vl\+Sprtr} =\char`\"{};\char`\"{}
+\item 
+std\+::string \hyperlink{classStringFormater_a10b02d7f29048b2e90d7c59a656ed5db}{tpl\+Sprtr} =\char`\"{}\char`\"{}
+\item 
+std\+::string \hyperlink{classStringFormater_a379be3eaf83aed31e04273af58ac9c06}{st\+Opn} =\char`\"{}\{\char`\"{}
+\item 
+std\+::string \hyperlink{classStringFormater_a16da4f4ac44449b3da5c2c18bfb08ef1}{st\+Cls} =\char`\"{}\}\char`\"{}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 14 of file string\+Formater.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classStringFormater_abb1d26793e735b96a408f956daa43361}\label{classStringFormater_abb1d26793e735b96a408f956daa43361}} 
+\index{String\+Formater@{String\+Formater}!String\+Formater@{String\+Formater}}
+\index{String\+Formater@{String\+Formater}!String\+Formater@{String\+Formater}}
+\subsubsection{\texorpdfstring{String\+Formater()}{StringFormater()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily String\+Formater\+::\+String\+Formater (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 30 of file string\+Formater.\+h.
+
+
+
+Referenced by operator()().
+
+\mbox{\Hypertarget{classStringFormater_a91a7cfa34811723d7b934c1d22def6a8}\label{classStringFormater_a91a7cfa34811723d7b934c1d22def6a8}} 
+\index{String\+Formater@{String\+Formater}!String\+Formater@{String\+Formater}}
+\index{String\+Formater@{String\+Formater}!String\+Formater@{String\+Formater}}
+\subsubsection{\texorpdfstring{String\+Formater()}{StringFormater()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily String\+Formater\+::\+String\+Formater (\begin{DoxyParamCaption}\item[{const \hyperlink{classStringFormater}{String\+Formater} \&}]{copy,  }\item[{const bool \&}]{auto\+Indent = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 36 of file string\+Formater.\+h.
+
+
+
+References is\+Default().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classStringFormater_a91a7cfa34811723d7b934c1d22def6a8_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classStringFormater_a9fd21580941b514287b9ec15ddc665ea}\label{classStringFormater_a9fd21580941b514287b9ec15ddc665ea}} 
+\index{String\+Formater@{String\+Formater}!String\+Formater@{String\+Formater}}
+\index{String\+Formater@{String\+Formater}!String\+Formater@{String\+Formater}}
+\subsubsection{\texorpdfstring{String\+Formater()}{StringFormater()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily String\+Formater\+::\+String\+Formater (\begin{DoxyParamCaption}\item[{const \hyperlink{classStringFormater}{String\+Formater} \&}]{copy,  }\item[{const int}]{indent }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 45 of file string\+Formater.\+h.
+
+
+
+References indent().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classStringFormater_a9fd21580941b514287b9ec15ddc665ea_cgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classStringFormater_a4cc86d5e84a9d5006d5eb61eafe68690}\label{classStringFormater_a4cc86d5e84a9d5006d5eb61eafe68690}} 
+\index{String\+Formater@{String\+Formater}!build@{build}}
+\index{build@{build}!String\+Formater@{String\+Formater}}
+\subsubsection{\texorpdfstring{build()}{build()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::stringstream\& String\+Formater\+::build (\begin{DoxyParamCaption}\item[{std\+::stringstream \&}]{ss,  }\item[{const std\+::string \&}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 127 of file string\+Formater.\+h.
+
+
+
+References end(), and start().
+
+
+
+Referenced by build(), Algorithm\+Base\+::to\+String(), Map\+Reversable$<$ type\+Vertex, type\+Community $>$\+::to\+String(), Louvain\+::to\+String(), and Graph\+Undirected\+Groupable\+::to\+String().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classStringFormater_a4cc86d5e84a9d5006d5eb61eafe68690_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classStringFormater_a1772b0244f215c077dfd34248c9f0428}\label{classStringFormater_a1772b0244f215c077dfd34248c9f0428}} 
+\index{String\+Formater@{String\+Formater}!build@{build}}
+\index{build@{build}!String\+Formater@{String\+Formater}}
+\subsubsection{\texorpdfstring{build()}{build()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::string String\+Formater\+::build (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+build a string with the given message and the currently configured formating elements 
+\begin{DoxyParams}{Parameters}
+{\em message} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 138 of file string\+Formater.\+h.
+
+
+
+References build().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classStringFormater_a1772b0244f215c077dfd34248c9f0428_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classStringFormater_a63052da61a599fc14687f26b9d2f005b}\label{classStringFormater_a63052da61a599fc14687f26b9d2f005b}} 
+\index{String\+Formater@{String\+Formater}!end@{end}}
+\index{end@{end}!String\+Formater@{String\+Formater}}
+\subsubsection{\texorpdfstring{end()}{end()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::stringstream\& String\+Formater\+::end (\begin{DoxyParamCaption}\item[{std\+::stringstream \&}]{ss,  }\item[{const bool \&}]{set = {\ttfamily false} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 112 of file string\+Formater.\+h.
+
+
+
+References st\+Cls, and tl.
+
+
+
+Referenced by build(), end(), and Graph\+Undirected\+::to\+String().
+
+\mbox{\Hypertarget{classStringFormater_aae2d087c138d5bcf6bdb917f5a681ef3}\label{classStringFormater_aae2d087c138d5bcf6bdb917f5a681ef3}} 
+\index{String\+Formater@{String\+Formater}!end@{end}}
+\index{end@{end}!String\+Formater@{String\+Formater}}
+\subsubsection{\texorpdfstring{end()}{end()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::string String\+Formater\+::end (\begin{DoxyParamCaption}\item[{const bool \&}]{set = {\ttfamily false} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 122 of file string\+Formater.\+h.
+
+
+
+References end().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=322pt]{classStringFormater_aae2d087c138d5bcf6bdb917f5a681ef3_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classStringFormater_adebd3114b32c2aa5d1ebc1737a56ca5d}\label{classStringFormater_adebd3114b32c2aa5d1ebc1737a56ca5d}} 
+\index{String\+Formater@{String\+Formater}!header@{header}}
+\index{header@{header}!String\+Formater@{String\+Formater}}
+\subsubsection{\texorpdfstring{header()}{header()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily const std\+::string\& String\+Formater\+::header (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 59 of file string\+Formater.\+h.
+
+
+
+References hdr.
+
+
+
+Referenced by Algorithm\+Base\+::to\+String(), Map\+Reversable$<$ type\+Vertex, type\+Community $>$\+::to\+String(), Graph\+Undirected\+::to\+String(), Louvain\+::to\+String(), and Graph\+Undirected\+Groupable\+::to\+String().
+
+\mbox{\Hypertarget{classStringFormater_ac8c0d32e4249aadbcfada138760ac944}\label{classStringFormater_ac8c0d32e4249aadbcfada138760ac944}} 
+\index{String\+Formater@{String\+Formater}!header@{header}}
+\index{header@{header}!String\+Formater@{String\+Formater}}
+\subsubsection{\texorpdfstring{header()}{header()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void String\+Formater\+::header (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{header }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 61 of file string\+Formater.\+h.
+
+
+
+References header().
+
+
+
+Referenced by header().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=196pt]{classStringFormater_ac8c0d32e4249aadbcfada138760ac944_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classStringFormater_a8a4422bdcbe498401aecb283c433d31d}\label{classStringFormater_a8a4422bdcbe498401aecb283c433d31d}} 
+\index{String\+Formater@{String\+Formater}!indent@{indent}}
+\index{indent@{indent}!String\+Formater@{String\+Formater}}
+\subsubsection{\texorpdfstring{indent()}{indent()}}
+{\footnotesize\ttfamily std\+::string String\+Formater\+::indent (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 91 of file string\+Formater.\+h.
+
+
+
+Referenced by start(), and String\+Formater().
+
+\mbox{\Hypertarget{classStringFormater_ac16a9d38ab08c90faf1f0d3e2c2a648d}\label{classStringFormater_ac16a9d38ab08c90faf1f0d3e2c2a648d}} 
+\index{String\+Formater@{String\+Formater}!is\+Default@{is\+Default}}
+\index{is\+Default@{is\+Default}!String\+Formater@{String\+Formater}}
+\subsubsection{\texorpdfstring{is\+Default()}{isDefault()}}
+{\footnotesize\ttfamily bool String\+Formater\+::is\+Default (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 159 of file string\+Formater.\+h.
+
+
+
+References default\+String\+Formater.
+
+
+
+Referenced by operator-\/-\/(), and String\+Formater().
+
+\mbox{\Hypertarget{classStringFormater_a0fe6b7b48c1660c4a009da745c05451c}\label{classStringFormater_a0fe6b7b48c1660c4a009da745c05451c}} 
+\index{String\+Formater@{String\+Formater}!operator()@{operator()}}
+\index{operator()@{operator()}!String\+Formater@{String\+Formater}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily \hyperlink{classStringFormater}{String\+Formater} String\+Formater\+::operator() (\begin{DoxyParamCaption}\item[{const int}]{indent }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 55 of file string\+Formater.\+h.
+
+
+
+References String\+Formater().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classStringFormater_a0fe6b7b48c1660c4a009da745c05451c_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classStringFormater_ab612366361a069eae7a1ebd645b47f62}\label{classStringFormater_ab612366361a069eae7a1ebd645b47f62}} 
+\index{String\+Formater@{String\+Formater}!operator++@{operator++}}
+\index{operator++@{operator++}!String\+Formater@{String\+Formater}}
+\subsubsection{\texorpdfstring{operator++()}{operator++()}}
+{\footnotesize\ttfamily \hyperlink{classStringFormater}{String\+Formater}\& String\+Formater\+::operator++ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 145 of file string\+Formater.\+h.
+
+\mbox{\Hypertarget{classStringFormater_a2d42daa669ee9405b94b35ea121a9f95}\label{classStringFormater_a2d42daa669ee9405b94b35ea121a9f95}} 
+\index{String\+Formater@{String\+Formater}!operator-\/-\/@{operator-\/-\/}}
+\index{operator-\/-\/@{operator-\/-\/}!String\+Formater@{String\+Formater}}
+\subsubsection{\texorpdfstring{operator-\/-\/()}{operator--()}}
+{\footnotesize\ttfamily \hyperlink{classStringFormater}{String\+Formater}\& String\+Formater\+::operator-\/-\/ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 150 of file string\+Formater.\+h.
+
+
+
+References default\+String\+Formater, and is\+Default().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classStringFormater_a2d42daa669ee9405b94b35ea121a9f95_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classStringFormater_abe673b8b8b9a588f05a8e7de748189e7}\label{classStringFormater_abe673b8b8b9a588f05a8e7de748189e7}} 
+\index{String\+Formater@{String\+Formater}!set\+Close@{set\+Close}}
+\index{set\+Close@{set\+Close}!String\+Formater@{String\+Formater}}
+\subsubsection{\texorpdfstring{set\+Close()}{setClose()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily const std\+::string\& String\+Formater\+::set\+Close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 63 of file string\+Formater.\+h.
+
+
+
+References st\+Cls.
+
+
+
+Referenced by Graph\+Undirected\+::to\+String().
+
+\mbox{\Hypertarget{classStringFormater_af8e955e219e2666e2072783bcfb54cc6}\label{classStringFormater_af8e955e219e2666e2072783bcfb54cc6}} 
+\index{String\+Formater@{String\+Formater}!set\+Close@{set\+Close}}
+\index{set\+Close@{set\+Close}!String\+Formater@{String\+Formater}}
+\subsubsection{\texorpdfstring{set\+Close()}{setClose()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void String\+Formater\+::set\+Close (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{set\+Close }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 65 of file string\+Formater.\+h.
+
+
+
+References set\+Close().
+
+
+
+Referenced by set\+Close().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=206pt]{classStringFormater_af8e955e219e2666e2072783bcfb54cc6_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classStringFormater_a395cdce03292513a02a9622c920478b5}\label{classStringFormater_a395cdce03292513a02a9622c920478b5}} 
+\index{String\+Formater@{String\+Formater}!set\+Open@{set\+Open}}
+\index{set\+Open@{set\+Open}!String\+Formater@{String\+Formater}}
+\subsubsection{\texorpdfstring{set\+Open()}{setOpen()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily const std\+::string\& String\+Formater\+::set\+Open (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 67 of file string\+Formater.\+h.
+
+
+
+References st\+Opn.
+
+
+
+Referenced by Graph\+Undirected\+::to\+String().
+
+\mbox{\Hypertarget{classStringFormater_a2b7df7412f7e0993532525aed90ca258}\label{classStringFormater_a2b7df7412f7e0993532525aed90ca258}} 
+\index{String\+Formater@{String\+Formater}!set\+Open@{set\+Open}}
+\index{set\+Open@{set\+Open}!String\+Formater@{String\+Formater}}
+\subsubsection{\texorpdfstring{set\+Open()}{setOpen()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void String\+Formater\+::set\+Open (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{set\+Open }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 69 of file string\+Formater.\+h.
+
+
+
+References set\+Open().
+
+
+
+Referenced by set\+Open().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=204pt]{classStringFormater_a2b7df7412f7e0993532525aed90ca258_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classStringFormater_a4eda27368789110bef0e4c3401587efd}\label{classStringFormater_a4eda27368789110bef0e4c3401587efd}} 
+\index{String\+Formater@{String\+Formater}!start@{start}}
+\index{start@{start}!String\+Formater@{String\+Formater}}
+\subsubsection{\texorpdfstring{start()}{start()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::stringstream\& String\+Formater\+::start (\begin{DoxyParamCaption}\item[{std\+::stringstream \&}]{ss,  }\item[{const bool \&}]{set = {\ttfamily false} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 95 of file string\+Formater.\+h.
+
+
+
+References hdr, indent(), and st\+Opn.
+
+
+
+Referenced by build(), start(), and Graph\+Undirected\+::to\+String().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{classStringFormater_a4eda27368789110bef0e4c3401587efd_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classStringFormater_a4685d33ea6f692029e79fa0e083253fd}\label{classStringFormater_a4685d33ea6f692029e79fa0e083253fd}} 
+\index{String\+Formater@{String\+Formater}!start@{start}}
+\index{start@{start}!String\+Formater@{String\+Formater}}
+\subsubsection{\texorpdfstring{start()}{start()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::string String\+Formater\+::start (\begin{DoxyParamCaption}\item[{const bool \&}]{set = {\ttfamily false} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 107 of file string\+Formater.\+h.
+
+
+
+References start().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classStringFormater_a4685d33ea6f692029e79fa0e083253fd_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classStringFormater_aa28994ecf2e66952f6f4535c9b544d47}\label{classStringFormater_aa28994ecf2e66952f6f4535c9b544d47}} 
+\index{String\+Formater@{String\+Formater}!tail@{tail}}
+\index{tail@{tail}!String\+Formater@{String\+Formater}}
+\subsubsection{\texorpdfstring{tail()}{tail()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily const std\+::string\& String\+Formater\+::tail (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 71 of file string\+Formater.\+h.
+
+
+
+References tl.
+
+\mbox{\Hypertarget{classStringFormater_ab92f93d76b0f58560d8a8db124edd3ef}\label{classStringFormater_ab92f93d76b0f58560d8a8db124edd3ef}} 
+\index{String\+Formater@{String\+Formater}!tail@{tail}}
+\index{tail@{tail}!String\+Formater@{String\+Formater}}
+\subsubsection{\texorpdfstring{tail()}{tail()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void String\+Formater\+::tail (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{tail }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 73 of file string\+Formater.\+h.
+
+
+
+References tail().
+
+
+
+Referenced by tail().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=180pt]{classStringFormater_ab92f93d76b0f58560d8a8db124edd3ef_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classStringFormater_ae87101d7a35f7317fe0e48023f9033ca}\label{classStringFormater_ae87101d7a35f7317fe0e48023f9033ca}} 
+\index{String\+Formater@{String\+Formater}!tuple\+Close@{tuple\+Close}}
+\index{tuple\+Close@{tuple\+Close}!String\+Formater@{String\+Formater}}
+\subsubsection{\texorpdfstring{tuple\+Close()}{tupleClose()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily const std\+::string\& String\+Formater\+::tuple\+Close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 75 of file string\+Formater.\+h.
+
+
+
+References tpl\+Cls.
+
+
+
+Referenced by Graph\+Undirected\+::to\+String().
+
+\mbox{\Hypertarget{classStringFormater_ad0760f314079f6af19d09f45a0b77642}\label{classStringFormater_ad0760f314079f6af19d09f45a0b77642}} 
+\index{String\+Formater@{String\+Formater}!tuple\+Close@{tuple\+Close}}
+\index{tuple\+Close@{tuple\+Close}!String\+Formater@{String\+Formater}}
+\subsubsection{\texorpdfstring{tuple\+Close()}{tupleClose()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void String\+Formater\+::tuple\+Close (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{tuple\+Close }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 77 of file string\+Formater.\+h.
+
+
+
+References tuple\+Close().
+
+
+
+Referenced by tuple\+Close().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=214pt]{classStringFormater_ad0760f314079f6af19d09f45a0b77642_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classStringFormater_a723672ca8ad990eebc181b051199f4e8}\label{classStringFormater_a723672ca8ad990eebc181b051199f4e8}} 
+\index{String\+Formater@{String\+Formater}!tuple\+Open@{tuple\+Open}}
+\index{tuple\+Open@{tuple\+Open}!String\+Formater@{String\+Formater}}
+\subsubsection{\texorpdfstring{tuple\+Open()}{tupleOpen()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily const std\+::string\& String\+Formater\+::tuple\+Open (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 79 of file string\+Formater.\+h.
+
+
+
+References tpl\+Opn.
+
+
+
+Referenced by Graph\+Undirected\+::to\+String().
+
+\mbox{\Hypertarget{classStringFormater_ac9d4c3bfaa5baaf7dc97768a9068128a}\label{classStringFormater_ac9d4c3bfaa5baaf7dc97768a9068128a}} 
+\index{String\+Formater@{String\+Formater}!tuple\+Open@{tuple\+Open}}
+\index{tuple\+Open@{tuple\+Open}!String\+Formater@{String\+Formater}}
+\subsubsection{\texorpdfstring{tuple\+Open()}{tupleOpen()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void String\+Formater\+::tuple\+Open (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{tuple\+Open }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 81 of file string\+Formater.\+h.
+
+
+
+References tuple\+Open().
+
+
+
+Referenced by tuple\+Open().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{classStringFormater_ac9d4c3bfaa5baaf7dc97768a9068128a_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classStringFormater_a9c1654f1f4e2f44a3bd8c0eff76f7d8f}\label{classStringFormater_a9c1654f1f4e2f44a3bd8c0eff76f7d8f}} 
+\index{String\+Formater@{String\+Formater}!tuple\+Separator@{tuple\+Separator}}
+\index{tuple\+Separator@{tuple\+Separator}!String\+Formater@{String\+Formater}}
+\subsubsection{\texorpdfstring{tuple\+Separator()}{tupleSeparator()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily const std\+::string\& String\+Formater\+::tuple\+Separator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 83 of file string\+Formater.\+h.
+
+
+
+References tpl\+Sprtr.
+
+\mbox{\Hypertarget{classStringFormater_a20c69db03bbd7bfff3154b560ff0106b}\label{classStringFormater_a20c69db03bbd7bfff3154b560ff0106b}} 
+\index{String\+Formater@{String\+Formater}!tuple\+Separator@{tuple\+Separator}}
+\index{tuple\+Separator@{tuple\+Separator}!String\+Formater@{String\+Formater}}
+\subsubsection{\texorpdfstring{tuple\+Separator()}{tupleSeparator()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void String\+Formater\+::tuple\+Separator (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{tuple\+Separator }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 85 of file string\+Formater.\+h.
+
+
+
+References tuple\+Separator().
+
+
+
+Referenced by tuple\+Separator().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=230pt]{classStringFormater_a20c69db03bbd7bfff3154b560ff0106b_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classStringFormater_a63ed3fb057158b3e96333f5d6761400a}\label{classStringFormater_a63ed3fb057158b3e96333f5d6761400a}} 
+\index{String\+Formater@{String\+Formater}!value\+Separator@{value\+Separator}}
+\index{value\+Separator@{value\+Separator}!String\+Formater@{String\+Formater}}
+\subsubsection{\texorpdfstring{value\+Separator()}{valueSeparator()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily const std\+::string\& String\+Formater\+::value\+Separator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 87 of file string\+Formater.\+h.
+
+
+
+References vl\+Sprtr.
+
+
+
+Referenced by Graph\+Undirected\+::to\+String().
+
+\mbox{\Hypertarget{classStringFormater_aa39006dd16b8c4f2ef55c6898b4561db}\label{classStringFormater_aa39006dd16b8c4f2ef55c6898b4561db}} 
+\index{String\+Formater@{String\+Formater}!value\+Separator@{value\+Separator}}
+\index{value\+Separator@{value\+Separator}!String\+Formater@{String\+Formater}}
+\subsubsection{\texorpdfstring{value\+Separator()}{valueSeparator()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void String\+Formater\+::value\+Separator (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{value\+Separator }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 89 of file string\+Formater.\+h.
+
+
+
+References value\+Separator().
+
+
+
+Referenced by value\+Separator().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=232pt]{classStringFormater_aa39006dd16b8c4f2ef55c6898b4561db_cgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classStringFormater_a9b6627c0ee0fb27f698b2deff50a8497}\label{classStringFormater_a9b6627c0ee0fb27f698b2deff50a8497}} 
+\index{String\+Formater@{String\+Formater}!hdr@{hdr}}
+\index{hdr@{hdr}!String\+Formater@{String\+Formater}}
+\subsubsection{\texorpdfstring{hdr}{hdr}}
+{\footnotesize\ttfamily std\+::string String\+Formater\+::hdr =\char`\"{}\char`\"{}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 17 of file string\+Formater.\+h.
+
+
+
+Referenced by header(), and start().
+
+\mbox{\Hypertarget{classStringFormater_a6e7f3ad35026161d483da43928ddba01}\label{classStringFormater_a6e7f3ad35026161d483da43928ddba01}} 
+\index{String\+Formater@{String\+Formater}!indent\+Level@{indent\+Level}}
+\index{indent\+Level@{indent\+Level}!String\+Formater@{String\+Formater}}
+\subsubsection{\texorpdfstring{indent\+Level}{indentLevel}}
+{\footnotesize\ttfamily unsigned int String\+Formater\+::indent\+Level =0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 16 of file string\+Formater.\+h.
+
+\mbox{\Hypertarget{classStringFormater_afb5df3fdcd0de7289d2a53c9e62dff7c}\label{classStringFormater_afb5df3fdcd0de7289d2a53c9e62dff7c}} 
+\index{String\+Formater@{String\+Formater}!ln\+Brk@{ln\+Brk}}
+\index{ln\+Brk@{ln\+Brk}!String\+Formater@{String\+Formater}}
+\subsubsection{\texorpdfstring{ln\+Brk}{lnBrk}}
+{\footnotesize\ttfamily bool String\+Formater\+::ln\+Brk =true\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 19 of file string\+Formater.\+h.
+
+\mbox{\Hypertarget{classStringFormater_a16da4f4ac44449b3da5c2c18bfb08ef1}\label{classStringFormater_a16da4f4ac44449b3da5c2c18bfb08ef1}} 
+\index{String\+Formater@{String\+Formater}!st\+Cls@{st\+Cls}}
+\index{st\+Cls@{st\+Cls}!String\+Formater@{String\+Formater}}
+\subsubsection{\texorpdfstring{st\+Cls}{stCls}}
+{\footnotesize\ttfamily std\+::string String\+Formater\+::st\+Cls =\char`\"{}\}\char`\"{}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 25 of file string\+Formater.\+h.
+
+
+
+Referenced by end(), and set\+Close().
+
+\mbox{\Hypertarget{classStringFormater_a379be3eaf83aed31e04273af58ac9c06}\label{classStringFormater_a379be3eaf83aed31e04273af58ac9c06}} 
+\index{String\+Formater@{String\+Formater}!st\+Opn@{st\+Opn}}
+\index{st\+Opn@{st\+Opn}!String\+Formater@{String\+Formater}}
+\subsubsection{\texorpdfstring{st\+Opn}{stOpn}}
+{\footnotesize\ttfamily std\+::string String\+Formater\+::st\+Opn =\char`\"{}\{\char`\"{}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 24 of file string\+Formater.\+h.
+
+
+
+Referenced by set\+Open(), and start().
+
+\mbox{\Hypertarget{classStringFormater_a8f78ca87611e1e1e35534100c4aeaccd}\label{classStringFormater_a8f78ca87611e1e1e35534100c4aeaccd}} 
+\index{String\+Formater@{String\+Formater}!tl@{tl}}
+\index{tl@{tl}!String\+Formater@{String\+Formater}}
+\subsubsection{\texorpdfstring{tl}{tl}}
+{\footnotesize\ttfamily std\+::string String\+Formater\+::tl =\char`\"{}\char`\"{}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 18 of file string\+Formater.\+h.
+
+
+
+Referenced by end(), and tail().
+
+\mbox{\Hypertarget{classStringFormater_a334df00dacdd2898052b9b4e70b06e3b}\label{classStringFormater_a334df00dacdd2898052b9b4e70b06e3b}} 
+\index{String\+Formater@{String\+Formater}!tpl\+Cls@{tpl\+Cls}}
+\index{tpl\+Cls@{tpl\+Cls}!String\+Formater@{String\+Formater}}
+\subsubsection{\texorpdfstring{tpl\+Cls}{tplCls}}
+{\footnotesize\ttfamily std\+::string String\+Formater\+::tpl\+Cls =\char`\"{})\char`\"{}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 21 of file string\+Formater.\+h.
+
+
+
+Referenced by tuple\+Close().
+
+\mbox{\Hypertarget{classStringFormater_a021c71f2e67718053bf9dcc3107cb204}\label{classStringFormater_a021c71f2e67718053bf9dcc3107cb204}} 
+\index{String\+Formater@{String\+Formater}!tpl\+Opn@{tpl\+Opn}}
+\index{tpl\+Opn@{tpl\+Opn}!String\+Formater@{String\+Formater}}
+\subsubsection{\texorpdfstring{tpl\+Opn}{tplOpn}}
+{\footnotesize\ttfamily std\+::string String\+Formater\+::tpl\+Opn =\char`\"{}(\char`\"{}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 20 of file string\+Formater.\+h.
+
+
+
+Referenced by tuple\+Open().
+
+\mbox{\Hypertarget{classStringFormater_a10b02d7f29048b2e90d7c59a656ed5db}\label{classStringFormater_a10b02d7f29048b2e90d7c59a656ed5db}} 
+\index{String\+Formater@{String\+Formater}!tpl\+Sprtr@{tpl\+Sprtr}}
+\index{tpl\+Sprtr@{tpl\+Sprtr}!String\+Formater@{String\+Formater}}
+\subsubsection{\texorpdfstring{tpl\+Sprtr}{tplSprtr}}
+{\footnotesize\ttfamily std\+::string String\+Formater\+::tpl\+Sprtr =\char`\"{}\char`\"{}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 23 of file string\+Formater.\+h.
+
+
+
+Referenced by tuple\+Separator().
+
+\mbox{\Hypertarget{classStringFormater_a6749d9c5fe85817f9232bf7987e2a28e}\label{classStringFormater_a6749d9c5fe85817f9232bf7987e2a28e}} 
+\index{String\+Formater@{String\+Formater}!vl\+Sprtr@{vl\+Sprtr}}
+\index{vl\+Sprtr@{vl\+Sprtr}!String\+Formater@{String\+Formater}}
+\subsubsection{\texorpdfstring{vl\+Sprtr}{vlSprtr}}
+{\footnotesize\ttfamily std\+::string String\+Formater\+::vl\+Sprtr =\char`\"{};\char`\"{}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 22 of file string\+Formater.\+h.
+
+
+
+Referenced by value\+Separator().
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+R-\/\+C\+R\+A\+N/src/base/\+Cpp/\hyperlink{stringFormater_8h}{string\+Formater.\+h}\end{DoxyCompactItemize}

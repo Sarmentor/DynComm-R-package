@@ -1,0 +1,49 @@
+\hypertarget{multimapUtilities_8h}{}\section{R-\/\+C\+R\+A\+N/src/base/\+Cpp/multimap\+Utilities.h File Reference}
+\label{multimapUtilities_8h}\index{R-\/\+C\+R\+A\+N/src/base/\+Cpp/multimap\+Utilities.\+h@{R-\/\+C\+R\+A\+N/src/base/\+Cpp/multimap\+Utilities.\+h}}
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$type\+\_\+traits$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include \char`\"{}string\+Formatter.\+h\char`\"{}}\newline
+Include dependency graph for multimap\+Utilities.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{multimapUtilities_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{multimapUtilities_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespacemultimap}{multimap}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T , typename U $>$ }\\std\+::set$<$ T $>$ \hyperlink{namespacemultimap_a1d03380ed2365e307412efab3c41731f}{multimap\+::keys} (std\+::multimap$<$ T, U $>$ const \&m)
+\item 
+{\footnotesize template$<$typename T , typename U $>$ }\\std\+::set$<$ T $>$ \hyperlink{namespacemultimap_a0b99e1d5a2730d58caee6e020509da9d}{multimap\+::values} (std\+::multimap$<$ T, U $>$ const \&m)
+\item 
+{\footnotesize template$<$typename type\+Multimap\+Key , typename type\+Multimap\+Value , typename type\+Key , typename type\+Value $>$ }\\std\+::multimap$<$ type\+Multimap\+Key, type\+Multimap\+Value $>$\+::iterator \hyperlink{namespacemultimap_a1824643a35a661af8c8975b16b273142}{multimap\+::find} (std\+::multimap$<$ type\+Multimap\+Key, type\+Multimap\+Value $>$ \&m, const type\+Key \&first, const type\+Value \&second)
+\item 
+{\footnotesize template$<$typename type\+Multimap\+Key , typename type\+Multimap\+Value , typename type\+Key , typename type\+Value $>$ }\\std\+::multimap$<$ type\+Multimap\+Key, type\+Multimap\+Value $>$\+::const\+\_\+iterator \hyperlink{namespacemultimap_a672ee23e88b5c884555bcb6cc8d085b3}{multimap\+::find} (const std\+::multimap$<$ type\+Multimap\+Key, type\+Multimap\+Value $>$ \&m, const type\+Key \&first, const type\+Value \&second)
+\item 
+{\footnotesize template$<$typename T , typename U $>$ }\\bool \hyperlink{namespacemultimap_a68f763c0d3546ccd9cc14f5219559e08}{multimap\+::equal\+Values} (const T \&first, const U \&second)
+\item 
+{\footnotesize template$<$typename type\+Multimap\+Key , typename type\+Multimap\+Value , typename type\+Key , typename type\+Value $>$ }\\std\+::multimap$<$ type\+Multimap\+Key, type\+Multimap\+Value $>$\+::iterator \hyperlink{namespacemultimap_a3c5bc8037151780c38835c7f8a2f0722}{multimap\+::find} (std\+::multimap$<$ type\+Multimap\+Key, type\+Multimap\+Value $>$ \&m, const type\+Key \&first, const type\+Value \&second, bool($\ast$equal\+Values)(const type\+Multimap\+Value \&, const type\+Value \&))
+\item 
+{\footnotesize template$<$typename type\+Multimap\+Key , typename type\+Multimap\+Value , typename type\+Key , typename type\+Value $>$ }\\std\+::multimap$<$ type\+Multimap\+Key, type\+Multimap\+Value $>$\+::const\+\_\+iterator \hyperlink{namespacemultimap_ad8171701d0a623e4623721cb1743196c}{multimap\+::find} (const std\+::multimap$<$ type\+Multimap\+Key, type\+Multimap\+Value $>$ \&m, const type\+Key \&first, const type\+Value \&second, bool($\ast$equal\+Values)(const type\+Multimap\+Value \&, const type\+Value \&))
+\item 
+{\footnotesize template$<$typename T , typename U , typename std\+::enable\+\_\+if$<$ std\+::is\+\_\+fundamental$<$ T $>$\+::value \&\&std\+::is\+\_\+fundamental$<$ U $>$\+::value, T $>$\+::type  = 0$>$ }\\std\+::string \hyperlink{namespacemultimap_aa170f94901a505969ecfa010c24f2877}{multimap\+::to\+String} (std\+::multimap$<$ T, U $>$ const \&m, const \hyperlink{classStringFormatter}{String\+Formatter} \&formater=\hyperlink{stringFormatter_8h_abf1349c8e24162d0134072aff288f2a2}{default\+String\+Formatter})
+\item 
+{\footnotesize template$<$typename T , typename U $>$ }\\std\+::multimap$<$ T, U $>$\+::iterator \& \hyperlink{namespacemultimap_a94c77f5e6ac9c4eaeb34a6c142b6ab0d}{multimap\+::minimum\+Value} (std\+::multimap$<$ T, U $>$ \&m, const T \&key)
+\end{DoxyCompactItemize}

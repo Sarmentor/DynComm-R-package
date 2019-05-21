@@ -1,0 +1,6 @@
+<map id="StringFormatter::build" name="StringFormatter::build">
+<area shape="rect" id="node2" href="$classStringFormatter.html#af7fd3924f4db714c3b278ffa3c26a872" title="Build a formatted message. " alt="" coords="200,31,347,57"/>
+<area shape="rect" id="node3" href="$classStringFormatter.html#a951e3aff962bfb69cf745c5b05de26cc" title="End writing to string stream. " alt="" coords="397,5,539,32"/>
+<area shape="rect" id="node4" href="$classStringFormatter.html#abfaada84b0472d0a41dcd5a56e534808" title="StringFormatter::start" alt="" coords="395,56,541,83"/>
+<area shape="rect" id="node5" href="$classStringFormatter.html#adeedf1dce9545fb00bc070e4caaf30aa" title="StringFormatter::indent" alt="" coords="589,56,744,83"/>
+</map>

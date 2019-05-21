@@ -1,0 +1,117 @@
+\hypertarget{namespaceTime}{}\section{Time Namespace Reference}
+\label{namespaceTime}\index{Time@{Time}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classTime_1_1TimeKeeper}{Time\+Keeper}
+\begin{DoxyCompactList}\small\item\em Simple class used to keep track of elapsed time. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{systemDefines_8h_abc0f5bc07737e498f287334775dff2b6}{uint64} \hyperlink{namespaceTime_a57ff57387f9a60589ccdbe9215843ffe}{long\+Time} (const timeval \&t)
+\begin{DoxyCompactList}\small\item\em long\+Time Converts a timeval type time to an unsigned 64 bit integer \end{DoxyCompactList}\item 
+\hyperlink{systemDefines_8h_abc0f5bc07737e498f287334775dff2b6}{uint64} \hyperlink{namespaceTime_a17419cc5dad406abf846351b1a75bd48}{long\+Time} (const timespec \&t)
+\begin{DoxyCompactList}\small\item\em long\+Time Converts a timespec type time to an unsigned 64 bit integer \end{DoxyCompactList}\item 
+\hyperlink{systemDefines_8h_abc0f5bc07737e498f287334775dff2b6}{uint64} \hyperlink{namespaceTime_ae414566445c9d392bb148cc98fe2cece}{current\+Time} ()
+\begin{DoxyCompactList}\small\item\em Get the current system time in nanoseconds as an unsigned 64 bit integer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classTime_1_1TimeKeeper}{Time\+Keeper} \hyperlink{namespaceTime_a321ca5eba84577aaaaeb2a79d28806c8}{time\+Keep}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{namespaceTime_ae414566445c9d392bb148cc98fe2cece}\label{namespaceTime_ae414566445c9d392bb148cc98fe2cece}} 
+\index{Time@{Time}!current\+Time@{current\+Time}}
+\index{current\+Time@{current\+Time}!Time@{Time}}
+\subsubsection{\texorpdfstring{current\+Time()}{currentTime()}}
+{\footnotesize\ttfamily \hyperlink{systemDefines_8h_abc0f5bc07737e498f287334775dff2b6}{uint64} Time\+::current\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the current system time in nanoseconds as an unsigned 64 bit integer. 
+
+\begin{DoxyReturn}{Returns}
+the current time or epoch (0) if an error occurred 
+\end{DoxyReturn}
+
+
+Definition at line 57 of file time\+Functions.\+h.
+
+
+
+References long\+Time().
+
+
+
+Referenced by Dyn\+Comm\+Base\+::add\+Remove\+Edges(), Time\+::\+Time\+Keeper\+::get(), and Time\+::\+Time\+Keeper\+::set().
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=296pt]{namespaceTime_ae414566445c9d392bb148cc98fe2cece_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceTime_a57ff57387f9a60589ccdbe9215843ffe}\label{namespaceTime_a57ff57387f9a60589ccdbe9215843ffe}} 
+\index{Time@{Time}!long\+Time@{long\+Time}}
+\index{long\+Time@{long\+Time}!Time@{Time}}
+\subsubsection{\texorpdfstring{long\+Time()}{longTime()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \hyperlink{systemDefines_8h_abc0f5bc07737e498f287334775dff2b6}{uint64} Time\+::long\+Time (\begin{DoxyParamCaption}\item[{const timeval \&}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+long\+Time Converts a timeval type time to an unsigned 64 bit integer 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & is the timeval to convert \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+an unsigned 64 bit integer representing time in nanoseconds 
+\end{DoxyReturn}
+
+
+Definition at line 33 of file time\+Functions.\+h.
+
+
+
+Referenced by current\+Time().
+
+\mbox{\Hypertarget{namespaceTime_a17419cc5dad406abf846351b1a75bd48}\label{namespaceTime_a17419cc5dad406abf846351b1a75bd48}} 
+\index{Time@{Time}!long\+Time@{long\+Time}}
+\index{long\+Time@{long\+Time}!Time@{Time}}
+\subsubsection{\texorpdfstring{long\+Time()}{longTime()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \hyperlink{systemDefines_8h_abc0f5bc07737e498f287334775dff2b6}{uint64} Time\+::long\+Time (\begin{DoxyParamCaption}\item[{const timespec \&}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+long\+Time Converts a timespec type time to an unsigned 64 bit integer 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & is the timespec to convert \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+an unsigned 64 bit integer representing time in nanoseconds 
+\end{DoxyReturn}
+
+
+Definition at line 46 of file time\+Functions.\+h.
+
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{namespaceTime_a321ca5eba84577aaaaeb2a79d28806c8}\label{namespaceTime_a321ca5eba84577aaaaeb2a79d28806c8}} 
+\index{Time@{Time}!time\+Keep@{time\+Keep}}
+\index{time\+Keep@{time\+Keep}!Time@{Time}}
+\subsubsection{\texorpdfstring{time\+Keep}{timeKeep}}
+{\footnotesize\ttfamily \hyperlink{classTime_1_1TimeKeeper}{Time\+Keeper} Time\+::time\+Keep}
+
+
+
+Definition at line 146 of file time\+Functions.\+h.
+

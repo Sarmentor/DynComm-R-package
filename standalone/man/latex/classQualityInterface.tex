@@ -1,0 +1,106 @@
+\hypertarget{classQualityInterface}{}\section{Quality\+Interface Class Reference}
+\label{classQualityInterface}\index{Quality\+Interface@{Quality\+Interface}}
+
+
+{\ttfamily \#include $<$quality\+Interface.\+h$>$}
+
+
+
+Inheritance diagram for Quality\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=317pt]{classQualityInterface__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \hyperlink{classQualityInterface_abe41a70c92a0b72dd9ff2a77fc9fdace}{$\sim$\+Quality\+Interface} ()
+\item 
+virtual \hyperlink{qualityInterface_8h_a15a3ec6041e6e02d00d2eff22c20fd94}{type\+Quality} \hyperlink{classQualityInterface_ab6a2e15d118c3945243abb96c7cc0360}{gain} (const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&node, const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \&comm) const =0
+\item 
+virtual \hyperlink{qualityInterface_8h_a15a3ec6041e6e02d00d2eff22c20fd94}{type\+Quality} \hyperlink{classQualityInterface_a1c40b3e5e51d8ed2a4390b3cb0164f0a}{quality} () const =0
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 16 of file quality\+Interface.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classQualityInterface_abe41a70c92a0b72dd9ff2a77fc9fdace}\label{classQualityInterface_abe41a70c92a0b72dd9ff2a77fc9fdace}} 
+\index{Quality\+Interface@{Quality\+Interface}!````~Quality\+Interface@{$\sim$\+Quality\+Interface}}
+\index{````~Quality\+Interface@{$\sim$\+Quality\+Interface}!Quality\+Interface@{Quality\+Interface}}
+\subsubsection{\texorpdfstring{$\sim$\+Quality\+Interface()}{~QualityInterface()}}
+{\footnotesize\ttfamily virtual Quality\+Interface\+::$\sim$\+Quality\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Definition at line 18 of file quality\+Interface.\+h.
+
+
+
+References gain(), and quality().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=328pt]{classQualityInterface_abe41a70c92a0b72dd9ff2a77fc9fdace_cgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classQualityInterface_ab6a2e15d118c3945243abb96c7cc0360}\label{classQualityInterface_ab6a2e15d118c3945243abb96c7cc0360}} 
+\index{Quality\+Interface@{Quality\+Interface}!gain@{gain}}
+\index{gain@{gain}!Quality\+Interface@{Quality\+Interface}}
+\subsubsection{\texorpdfstring{gain()}{gain()}}
+{\footnotesize\ttfamily virtual \hyperlink{qualityInterface_8h_a15a3ec6041e6e02d00d2eff22c20fd94}{type\+Quality} Quality\+Interface\+::gain (\begin{DoxyParamCaption}\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{node,  }\item[{const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \&}]{comm }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+compute the gain in quality by moving the given node from its current community to the given community comm 
+\begin{DoxyParams}{Parameters}
+{\em node} & \\
+\hline
+{\em comm} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the gain in quality, which may be positive or negative 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classLouvain_ac95d6e53e46b6321aa02b80f0c69bd13}{Louvain}, \hyperlink{classQuality_a1754dc190ca3204035d873c4d4b580cd}{Quality}, \hyperlink{classModularity_afb4e750456a0138c2880e679df6d431d}{Modularity}, and \hyperlink{classBalMod_a5e65ffa1b97d2455a552ed98cb003bcc}{Bal\+Mod}.
+
+
+
+Referenced by $\sim$\+Quality\+Interface().
+
+\mbox{\Hypertarget{classQualityInterface_a1c40b3e5e51d8ed2a4390b3cb0164f0a}\label{classQualityInterface_a1c40b3e5e51d8ed2a4390b3cb0164f0a}} 
+\index{Quality\+Interface@{Quality\+Interface}!quality@{quality}}
+\index{quality@{quality}!Quality\+Interface@{Quality\+Interface}}
+\subsubsection{\texorpdfstring{quality()}{quality()}}
+{\footnotesize\ttfamily virtual \hyperlink{qualityInterface_8h_a15a3ec6041e6e02d00d2eff22c20fd94}{type\+Quality} Quality\+Interface\+::quality (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+compute the quality of the current partition scheme \begin{DoxyReturn}{Returns}
+the quality value 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classLouvain_ae328a55f83e485adb14a501bfb704d75}{Louvain}, \hyperlink{classModularity_ab594c2c6ccde0e9467d7548923612c3a}{Modularity}, \hyperlink{classQuality_a9a6141e9247bc85177f9fe662ec4d14a}{Quality}, and \hyperlink{classBalMod_a5cfc9f2446c0734496440aa7fcfc2a9a}{Bal\+Mod}.
+
+
+
+Referenced by $\sim$\+Quality\+Interface().
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+R-\/\+C\+R\+A\+N/src/base/\+Cpp/\hyperlink{qualityInterface_8h}{quality\+Interface.\+h}\end{DoxyCompactItemize}

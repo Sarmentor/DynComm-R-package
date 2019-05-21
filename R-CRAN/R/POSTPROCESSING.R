@@ -27,7 +27,7 @@
 #' Implementation of the density optimization algorithm as a post processing
 #' algorithm.
 #' 
-#' @details 
+# @details 
 #' 
 #'
 #' @rdname POSTPROCESSING_DENSOPT

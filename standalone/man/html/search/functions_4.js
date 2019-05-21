@@ -1,0 +1,7 @@
+var searchData=
+[
+  ['destination',['destination',['../classHalfEdge.html#a98c0fb1c54506abbd3c0ac4a1264dac1',1,'HalfEdge::destination() const'],['../classHalfEdge.html#ac9f0f75077407355bde248e083d98161',1,'HalfEdge::destination(const typeVertex &amp;destination)'],['../classEdge.html#ac1389c34d05a890f9fd84dacba3df06b',1,'Edge::destination() const'],['../classEdge.html#a98a9a06f7ed7da370d809fdb1b4c55ce',1,'Edge::destination(const typeVertex &amp;destination)']]],
+  ['disband',['disband',['../classAlgorithmLouvain.html#a1e38f3c6a2df8b028328131b3dfceb94',1,'AlgorithmLouvain::disband()'],['../classGraphUndirectedGroupable.html#ac82f4c93994c372d05a660b36cdce8f3',1,'GraphUndirectedGroupable::disband()']]],
+  ['dyncommbase',['DynCommBase',['../classDynCommBase.html#a69682c03778e2f5d6b52c8139b26f454',1,'DynCommBase::DynCommBase()=delete'],['../classDynCommBase.html#a3dd8b3480d39f8be793d64a312b4da87',1,'DynCommBase::DynCommBase(Algorithm::ALGORITHM algorithm=Algorithm::ALGORITHM::LOUVAIN, const Criterion::CRITERION &amp;quality=Criterion::CRITERION::MODULARITY, ProgramParameters &amp;algorithmParameters=argumentsDefault)']]],
+  ['dyncommrcpp',['DynCommRcpp',['../classDynCommRcpp.html#a65289b1838009023b527237b64c073a2',1,'DynCommRcpp::DynCommRcpp()=delete'],['../classDynCommRcpp.html#a1e3ae3a0be89f2a661dc09d7842a3ac7',1,'DynCommRcpp::DynCommRcpp(Algorithm::ALGORITHM algorithm=Algorithm::ALGORITHM::LOUVAIN, const Criterion::CRITERION &amp;quality=Criterion::CRITERION::MODULARITY, Rcpp::CharacterMatrix algorithmParameters=Rcpp::CharacterMatrix())']]]
+];

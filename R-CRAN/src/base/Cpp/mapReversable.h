@@ -1,9 +1,20 @@
-/*
- * mapReversable.h
+/************************************************************************
+ ************************* Developer Notice *****************************
+ ************************************************************************
+ * @details
  *
- *  Created on: 19/08/2018
- *      Author: poltergeist0
- */
+ * Doubly indexed map implemented in C++11.
+ *
+ * Unlike an ordinary std::map which is indexed by key only, this map is
+ * also indexed by value.
+ *
+ *
+ * @author poltergeist0
+ *
+ * @date 2018-08-19
+ ************************************************************************
+ ************************************************************************
+ ************************************************************************/
 
 #ifndef MAPREVERSABLE_H_
 #define MAPREVERSABLE_H_
@@ -15,10 +26,20 @@
 #include "mapUtilities.h"
 #include "multimapUtilities.h"
 #include <iostream>
-//#include "defines.h"
 
 /**
- * class that implements a map in which the values are also indexed
+ * @brief Doubly indexed map
+ *
+ * @details
+ * Class that implements a map in which the values are also indexed.
+ * Unlike an ordinary std::map which is indexed by key only, this map is
+ * also indexed by value.
+ * It internally uses a std::multimap to achieve this.
+ *
+ *
+ * @author poltergeist0
+ *
+ * @date 2018-08-19
  */
 template <typename T, typename U> class MapReversable{
 private:
@@ -111,10 +132,6 @@ public:
 		if(it!=m.cend()){//value exists
 			a=it->second;
 		}
-//		else{
-//			a=m[key];//create with default value
-//			r.insert(std::make_pair(a,key));//insert in reverse listing
-//		}
 		return a;
 	}
 
@@ -235,8 +252,8 @@ public:
 	 *
 	 * @return a string representation of this map list and reverse list
 	 */
-	std::string toString(const StringFormater & sf=defaultStringFormater)const{
-		StringFormater f=sf;
+	std::string toString(const StringFormatter & sf=defaultStringFormatter)const{
+		StringFormatter f=sf;
 		std::stringstream ss;
 		if(!sf.isDefault()){
 			f.build(ss,"");

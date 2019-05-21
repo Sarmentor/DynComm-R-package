@@ -48,7 +48,6 @@ class DummyQuality: public DummyEnum{
 class DynCommRcpp{
 private:
 	ProgramParameters prmtrs;
-	ReaderFileEdge rFE;
 	DynCommBase dcb;//dynamic communities base class where all the logic is
 
 	ProgramParameters convertToParameters(Rcpp::CharacterMatrix algorithmParameters=Rcpp::CharacterMatrix()){
@@ -95,13 +94,12 @@ public:
 	 */
 	DynCommRcpp(
 			Algorithm::ALGORITHM algorithm=Algorithm::ALGORITHM::LOUVAIN
-			,const Quality::QUALITY & quality=Quality::QUALITY::MODULARITY
+			,const Criterion::CRITERION & quality=Criterion::CRITERION::MODULARITY
 			,Rcpp::CharacterMatrix algorithmParameters=Rcpp::CharacterMatrix()
 	)
 	:
 		prmtrs(convertToParameters(algorithmParameters))
-	,rFE(prmtrs)
-	,dcb(&rFE, algorithm,quality, prmtrs)
+	,dcb(algorithm,quality, prmtrs)
 	{
 	}
 
@@ -286,12 +284,12 @@ public:
 	 *   - vertex and community are integers between 0 and MAX_INTEGER_VALUE-1
 	 *   - MAX_INTEGER_VALUE depends on the platform being 32bit or 64bit. It is the maximum value of an integer in that platform
 	 */
-	Rcpp::NumericMatrix communityMappingFile(bool differential=true,const std::string & file="communityMapping.txt"){
+	Rcpp::NumericMatrix communityMappingFile(bool communityFirst=true,bool differential=true,const std::string & file="communityMapping.txt"){
 	  Rcpp::NumericMatrix v(1,1);
 	  ProgramParameters p(prmtrs);
 	  p.outfilename=file;
 	  WriterFile w(p);
-	  bool b=dcb.communityMapping(&w);
+	  bool b=dcb.communityMapping(&w,communityFirst);
 	  if(b) v(1,1)=true;
 	  else v(1,1)=false;
 	  return v;
@@ -335,7 +333,7 @@ public:
 
 
 RCPP_EXPOSED_ENUM_NODECL(Algorithm::ALGORITHM)
-RCPP_EXPOSED_ENUM_NODECL(Quality::QUALITY)
+RCPP_EXPOSED_ENUM_NODECL(Criterion::CRITERION)
 
 RCPP_MODULE(DynCommRcppModule) {
 	using namespace Rcpp;
@@ -352,13 +350,13 @@ RCPP_MODULE(DynCommRcppModule) {
     		  .value("LOUVAIN", Algorithm::ALGORITHM::LOUVAIN)
 			  ;
 
-	enum_<Quality::QUALITY, DummyQuality>("TypeOfQuality")
-    		  .value("MODULARITY", Quality::QUALITY::MODULARITY)
-  			  .value("BALMOD", Quality::QUALITY::BALMOD)
+	enum_<Criterion::CRITERION, DummyQuality>("TypeOfQuality")
+    		  .value("MODULARITY", Criterion::CRITERION::MODULARITY)
+  			  .value("BALMOD", Criterion::CRITERION::BALMOD)
 			  ;
 
 	class_<DynCommRcpp>( "DynCommRcpp")
-    		 .constructor< Algorithm::ALGORITHM, Quality::QUALITY, Rcpp::CharacterMatrix>()
+    		 .constructor< Algorithm::ALGORITHM, Criterion::CRITERION, Rcpp::CharacterMatrix>()
 				 .method("addRemoveEdgesMatrix", &DynCommRcpp::addRemoveEdgesMatrix)
 				 .method("addRemoveEdgesFile", &DynCommRcpp::addRemoveEdgesFile)
 				 .method("quality", &DynCommRcpp::quality)

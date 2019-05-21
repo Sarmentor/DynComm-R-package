@@ -5,11 +5,18 @@
 # Internally, it dispatches calls to objects that implement the API and do the 
 # actual work.
 #
-# There should never be any reason to change it unless the API, the user 
-# interface changes or library imports need to be added.
+# There should never be any reason to change it unless the API or the user 
+# interface changes.
+#
+# This file should only be changed at predefined locations to add algorithm 
+# parameters and library imports need by new (main or post processing) algorithms.
 #
 # Libraries required by algorithms should be listed using roxygen after the 
-# marker that says "List imports here"
+# marker that says "List imports here".
+#
+# Algorithm parameters should be added to the matrix after the marker that says 
+# "add parameters here". The first column is the parameter name and the second is 
+# the default value.
 #
 # Main algorithms are handled by the DynCommMain object. Post processing
 # algorithms are handled by the DynCommPostProcess object. Changes should be in
@@ -342,6 +349,15 @@ source('R/DynCommPostProcess.R')
 #'   than the value given in this parameter.
 #'   Value > 0 . Default 0.01
 #'   }
+#'   \item{
+#'   cv
+#'   }{
+#'   Community-Vertex.
+#'   Boolean parameter that indicates if sending community mapping to a file
+#'   prints the community first, if true, or the vertex first, if false. See
+#'   \code{\link{communityMapping}} for details.
+#'   Default TRUE
+#'   }
 #' }
 #' 
 #' @section Methods:
@@ -359,7 +375,17 @@ DynComm <- function(Algorithm=ALGORITHM$LOUVAIN,Criterion=CRITERION$MODULARITY,P
   prm <- NULL
   if(is.null(Parameters) || !is.matrix(Parameters) || ncol(Parameters)!=2){
     # not a valid parameters matrix. Use default values for all parameters
-    prm<-matrix(c("c",0.5,"k",1,"e","0.000001","w", "FALSE"),ncol=2, byrow=TRUE)
+    prm<-matrix(
+      c(
+        "c",0.5
+        ,"k",1
+        ,"e","0.000001"
+        ,"w", "FALSE"
+        ,"cv", "TRUE"
+  ########################### add parameters here ###########################
+        
+      ),ncol=2, byrow=TRUE
+    )
   }
   else{
     # is valid matrix
@@ -1969,6 +1995,12 @@ DynComm.nodes <- function(dyncomm,community){
 #' 
 #' If file is given, returns a single row, single column matrix with TRUE or 
 #' FALSE, depending whether if writing to file succeeded or failed, respectively.
+#' 
+#' When writing to file, if the Community-Vertex program parameter is TRUE, each 
+#' line of the file will have the community first, followed by a list of vertices
+#' that belong to the community. If that parameter is FALSE, each line will have
+#' a single vertex followed by its community. All values are separated by a white
+#' character.
 #' 
 #' @rdname communityMapping
 #'
