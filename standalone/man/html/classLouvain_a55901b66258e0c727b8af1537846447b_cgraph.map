@@ -1,5 +1,0 @@
-<map id="Louvain::weighted_degree" name="Louvain::weighted_degree">
-<area shape="rect" id="node2" href="$classGraphUndirected.html#ad2b1cd9a6dded42bd5431134aba26612" title="GraphUndirected::weighted\l_degree" alt="" coords="227,23,407,65"/>
-<area shape="rect" id="node3" href="$classGraphUndirected.html#ad9058dbbd7e6d2930a6a233e8b6b0547" title="GraphUndirected::neighbors" alt="" coords="455,5,639,32"/>
-<area shape="rect" id="node4" href="$classHalfEdge.html#a89cc13d21ae44a9d9c2ba95f89576090" title="HalfEdge::weight" alt="" coords="485,56,608,83"/>
-</map>

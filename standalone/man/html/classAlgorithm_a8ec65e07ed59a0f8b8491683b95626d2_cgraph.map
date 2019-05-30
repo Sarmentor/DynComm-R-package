@@ -25,13 +25,13 @@
 <area shape="rect" id="node14" href="$classMapReversable.html#acf794209bf91fe8f6026f090ccb7635f" title="MapReversable::cend" alt="" coords="1787,847,1936,874"/>
 <area shape="rect" id="node18" href="$classAlgorithmLouvain.html#a69f296749859441c8a3844753bdd58e5" title="AlgorithmLouvain::addRemove\lEdgePost" alt="" coords="508,869,708,910"/>
 <area shape="rect" id="node19" href="$classAlgorithmLouvain.html#a1e38f3c6a2df8b028328131b3dfceb94" title="AlgorithmLouvain::disband" alt="" coords="771,995,946,1022"/>
-<area shape="rect" id="node20" href="$classGraphUndirectedGroupable.html#a248d992baca0755467a2eaea96fe3654" title="GraphUndirectedGroupable\l::neighboringCommunities" alt="" coords="1019,1290,1198,1332"/>
-<area shape="rect" id="node21" href="$classGraphUndirected.html#ad9058dbbd7e6d2930a6a233e8b6b0547" title="Get the neighbors of a vertex. " alt="" coords="1520,1298,1704,1324"/>
+<area shape="rect" id="node20" href="$classGraphUndirectedGroupable.html#a48823a0162b95a72c22d0ab01a709e1f" title="GraphUndirectedGroupable\l::neighbouringCommunities" alt="" coords="1019,1290,1199,1332"/>
+<area shape="rect" id="node21" href="$classGraphUndirected.html#a5c8c85acc5ea87f43ac0dcbde61f06e0" title="Get the neighbours of a vertex. " alt="" coords="1517,1298,1707,1324"/>
 <area shape="rect" id="node26" href="$classHalfEdge.html#a98c0fb1c54506abbd3c0ac4a1264dac1" title="HalfEdge::destination" alt="" coords="1286,1643,1433,1670"/>
 <area shape="rect" id="node27" href="$classGraphUndirectedGroupable.html#aaa5e7db5ba0b5b87ed6af50ef958b9d7" title="GraphUndirectedGroupable\l::vertices" alt="" coords="1019,1173,1198,1214"/>
 <area shape="rect" id="node28" href="$classGraphUndirectedGroupable.html#ac82f4c93994c372d05a660b36cdce8f3" title="Disband the given community. " alt="" coords="1270,970,1449,1012"/>
 <area shape="rect" id="node23" href="$classGraphUndirected.html#af4a40541132a66c9b688a20958057751" title="GraphUndirected::removeEdge" alt="" coords="1259,447,1460,474"/>
-<area shape="rect" id="node24" href="$classGraphUndirected.html#a90fdfbabe541262292733703d839812a" title="Get the number of neighbors of a vertex. " alt="" coords="1267,113,1451,154"/>
+<area shape="rect" id="node24" href="$classGraphUndirected.html#a6377b3a1a0d05fa1f96abb6e4b4b8792" title="Get the number of neighbours of a vertex. " alt="" coords="1264,113,1455,154"/>
 <area shape="rect" id="node25" href="$classMapReversable.html#aa4338f7c831e5a404758f88e80d13672" title="MapReversable::remove" alt="" coords="1277,244,1441,271"/>
 <area shape="rect" id="node30" href="$classAlgorithmLouvain.html#a883c922bf2f3c3aadb9db4962c0d8dce" title="AlgorithmLouvain::addRemove\lEdgePre" alt="" coords="759,593,959,634"/>
 <area shape="rect" id="node35" href="$classAlgorithmLouvain.html#a0a72b9dda25c69d19996dc7448924c13" title="AlgorithmLouvain::run" alt="" coords="534,1228,682,1255"/>
@@ -43,7 +43,7 @@
 <area shape="rect" id="node39" href="$classGraphUndirected.html#af2f65109919c878a1fd7637d3bfe0991" title="GraphUndirected::getVertices" alt="" coords="1262,1828,1457,1855"/>
 <area shape="rect" id="node40" href="$classAlgorithmLouvain.html#a5f59777e27ab7a3e5accbc1f52b0e51e" title="AlgorithmLouvain::community" alt="" coords="1262,1407,1457,1434"/>
 <area shape="rect" id="node41" href="$classAlgorithmLouvain.html#a78dfa81bd96f4036e44c17318501b6b7" title="AlgorithmLouvain::neigh_comm" alt="" coords="1007,1508,1211,1535"/>
-<area shape="rect" id="node42" href="$classAlgorithmLouvain.html#a46c54a194acf1a09debfaf3f67d84f85" title="AlgorithmLouvain::neighbors" alt="" coords="1266,1458,1453,1484"/>
+<area shape="rect" id="node42" href="$classAlgorithmLouvain.html#ab6206bfc3cf537277c6965bc0da6d695" title="AlgorithmLouvain::neighbours" alt="" coords="1263,1458,1456,1484"/>
 <area shape="rect" id="node43" href="$classAlgorithmLouvain.html#adcd4a8dc566881f9c1b1d9e78730a503" title="AlgorithmLouvain::gain" alt="" coords="1031,1879,1186,1906"/>
 <area shape="rect" id="node44" href="$classGraphUndirectedGroupable.html#a57f8ea4cff0d83b80cca2dc8e8e19ff6" title="GraphUndirectedGroupable\l::communities" alt="" coords="1019,1930,1198,1972"/>
 <area shape="rect" id="node45" href="$classGraphUndirectedGroupable.html#a1986c140fd9aba8063774372c971706d" title="GraphUndirectedGroupable\l::innerEdges" alt="" coords="1019,1610,1198,1652"/>

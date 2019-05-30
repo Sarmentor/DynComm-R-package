@@ -1,4 +1,4 @@
 <map id="DynCommBase::communityNeighbours" name="DynCommBase::communityNeighbours">
-<area shape="rect" id="node2" href="$classGraphUndirectedGroupable.html#a248d992baca0755467a2eaea96fe3654" title="GraphUndirectedGroupable\l::neighboringCommunities" alt="" coords="307,5,485,47"/>
-<area shape="rect" id="node3" href="$classGraphUndirected.html#ad9058dbbd7e6d2930a6a233e8b6b0547" title="Get the neighbors of a vertex. " alt="" coords="533,13,717,39"/>
+<area shape="rect" id="node2" href="$classGraphUndirectedGroupable.html#a48823a0162b95a72c22d0ab01a709e1f" title="GraphUndirectedGroupable\l::neighbouringCommunities" alt="" coords="307,5,487,47"/>
+<area shape="rect" id="node3" href="$classGraphUndirected.html#a5c8c85acc5ea87f43ac0dcbde61f06e0" title="Get the neighbours of a vertex. " alt="" coords="535,13,725,39"/>
 </map>

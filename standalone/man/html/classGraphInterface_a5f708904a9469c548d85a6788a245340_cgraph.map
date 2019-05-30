@@ -4,9 +4,9 @@
 <area shape="rect" id="node4" href="$classGraphInterface.html#a2ac54d73e88516d6793a9a6fc0e434ee" title="GraphInterface::edges" alt="" coords="283,107,434,133"/>
 <area shape="rect" id="node5" href="$classGraphInterface.html#a94af429415c22cba42ecf5a97ee6b5c3" title="GraphInterface::getVertices" alt="" coords="267,157,450,184"/>
 <area shape="rect" id="node6" href="$classGraphInterface.html#a2fb0681f6cda5f8318adf7ee95df3685" title="GraphInterface::maxWeight" alt="" coords="267,208,450,235"/>
-<area shape="rect" id="node7" href="$classGraphInterface.html#afd5cdff5531b27fca35b58904d757db6" title="Get the neighbors of a vertex. " alt="" coords="273,259,445,285"/>
-<area shape="rect" id="node8" href="$classGraphInterface.html#a07f96d04c5481c6f573f478add5f7162" title="Get the number of neighbors of a vertex. " alt="" coords="273,310,445,351"/>
-<area shape="rect" id="node9" href="$classGraphInterface.html#a77b93eb2da955cb41b389df023676c1b" title="Get the sum of the weights of the neighbors of a vertex. " alt="" coords="273,375,445,417"/>
+<area shape="rect" id="node7" href="$classGraphInterface.html#a23e03d032193544c77d04310fe9e4785" title="Get the neighbours of a vertex. " alt="" coords="269,259,448,285"/>
+<area shape="rect" id="node8" href="$classGraphInterface.html#ae9b85226881a84124ce6dbaba498edce" title="Get the number of neighbours of a vertex. " alt="" coords="269,310,448,351"/>
+<area shape="rect" id="node9" href="$classGraphInterface.html#a62e1ed1899155eb63cf7ee82970cd415" title="Get the sum of the weights of the neighbours of a vertex. " alt="" coords="269,375,448,417"/>
 <area shape="rect" id="node10" href="$classGraphInterface.html#a1297fd6d7c9698197b5f570f2a9f3701" title="GraphInterface::removeEdge" alt="" coords="264,441,453,468"/>
 <area shape="rect" id="node11" href="$classGraphInterface.html#a448a3c66fb5650339f84366257d322ee" title="GraphInterface::replace" alt="" coords="279,492,438,519"/>
 <area shape="rect" id="node12" href="$classGraphInterface.html#ac6d3da524ca5c95c3ebd80d2b0d5d762" title="GraphInterface::toString" alt="" coords="278,543,439,569"/>

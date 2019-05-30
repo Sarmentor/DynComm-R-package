@@ -16,6 +16,6 @@
 <area shape="rect" id="node13" href="$classMapReversable.html#a30fd5b0e4e2578d3eaad8926a5d12cb2" title="MapReversable::find" alt="" coords="762,577,905,604"/>
 <area shape="rect" id="node14" href="$classMapReversable.html#acf794209bf91fe8f6026f090ccb7635f" title="MapReversable::cend" alt="" coords="759,628,908,655"/>
 <area shape="rect" id="node18" href="$classGraphUndirected.html#af4a40541132a66c9b688a20958057751" title="GraphUndirected::removeEdge" alt="" coords="480,425,681,452"/>
-<area shape="rect" id="node19" href="$classGraphUndirected.html#a90fdfbabe541262292733703d839812a" title="Get the number of neighbors of a vertex. " alt="" coords="489,542,673,583"/>
+<area shape="rect" id="node19" href="$classGraphUndirected.html#a6377b3a1a0d05fa1f96abb6e4b4b8792" title="Get the number of neighbours of a vertex. " alt="" coords="485,542,676,583"/>
 <area shape="rect" id="node20" href="$classMapReversable.html#aa4338f7c831e5a404758f88e80d13672" title="MapReversable::remove" alt="" coords="499,375,663,401"/>
 </map>

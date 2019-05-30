@@ -163,26 +163,26 @@ public:
 	virtual const typeVertexList & getVertices()const =0;
 
 	/**
-	 * @brief Get the neighbors of a vertex
+	 * @brief Get the neighbours of a vertex
 	 * @details The pair can change between calls if the Indexed edge list is modified.
 	 * @param vertex
-	 * @return pointers to the first and last neighbor of the vertex
+	 * @return pointers to the first and last neighbour of the vertex
 	 */
-	virtual typeLinksRangeConst neighbors(const typeVertex & vertex)const =0;
+	virtual typeLinksRangeConst neighbours(const typeVertex & vertex)const =0;
 
 	/**
-	 * @brief Get the sum of the weights of the neighbors of a vertex
+	 * @brief Get the sum of the weights of the neighbours of a vertex
 	 * @param vertex
-	 * @return the sum of the weights of the neighbors of the given vertex
+	 * @return the sum of the weights of the neighbours of the given vertex
 	 */
-	virtual typeWeight neighborsWeight(const typeVertex & vertex)const=0;
+	virtual typeWeight neighboursWeight(const typeVertex & vertex)const=0;
 
 	/**
-	 * @brief Get the number of neighbors of a vertex
+	 * @brief Get the number of neighbours of a vertex
 	 * @param vertex
-	 * @return the number of neighbors of the given vertex
+	 * @return the number of neighbours of the given vertex
 	 */
-	virtual unsigned int neighborsCount(const typeVertex & vertex)const=0;
+	virtual unsigned int neighboursCount(const typeVertex & vertex)const=0;
 
 	/**
 	 * @return the weight of the edge
@@ -211,7 +211,7 @@ public:
 
 	/**
 	 * @param vertex
-	 * @return the weighted degree (sum of weights of the neighbors) of the given vertex
+	 * @return the weighted degree (sum of weights of the neighbours) of the given vertex
 	 */
 	virtual typeWeight weighted_degree(const typeVertex & node)const=0;
 

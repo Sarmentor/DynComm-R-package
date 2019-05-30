@@ -18,5 +18,7 @@ var searchData=
   ['dyncommbaseinterface_2eh',['DynCommBaseInterface.h',['../DynCommBaseInterface_8h.html',1,'']]],
   ['dyncommexe_2ecpp',['DynCommEXE.cpp',['../DynCommEXE_8cpp.html',1,'']]],
   ['dyncommrcpp',['DynCommRcpp',['../classDynCommRcpp.html',1,'DynCommRcpp'],['../classDynCommRcpp.html#a65289b1838009023b527237b64c073a2',1,'DynCommRcpp::DynCommRcpp()=delete'],['../classDynCommRcpp.html#a1e3ae3a0be89f2a661dc09d7842a3ac7',1,'DynCommRcpp::DynCommRcpp(Algorithm::ALGORITHM algorithm=Algorithm::ALGORITHM::LOUVAIN, const Criterion::CRITERION &amp;quality=Criterion::CRITERION::MODULARITY, Rcpp::CharacterMatrix algorithmParameters=Rcpp::CharacterMatrix())']]],
-  ['dyncommrcpp_2ecpp',['DynCommRcpp.cpp',['../DynCommRcpp_8cpp.html',1,'']]]
+  ['dyncommrcpp_2ecpp',['DynCommRcpp.cpp',['../DynCommRcpp_8cpp.html',1,'']]],
+  ['dyncommreticulate',['DynCommReticulate',['../classDynCommReticulate_1_1DynCommReticulate.html',1,'DynCommReticulate.DynCommReticulate'],['../namespaceDynCommReticulate.html',1,'DynCommReticulate']]],
+  ['dyncommreticulate_2epy',['DynCommReticulate.py',['../DynCommReticulate_8py.html',1,'']]]
 ];

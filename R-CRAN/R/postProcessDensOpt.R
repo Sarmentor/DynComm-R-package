@@ -187,7 +187,7 @@ postProcessDensOpt <- function(dyncomm, Parameters=NULL)
     #unique communities
     uni<-unique(commsNew[,2])
     len<-length(uni)
-    #count neighboring communities of communities
+    #count neighbouring communities of communities
     cntc<-matrix(rep(0,len*len),nrow=len,ncol=len)
     for (cnt in 1:nrow(edg)) {
       src<-edg[cnt,1]

@@ -2,7 +2,7 @@
 <area shape="rect" id="node2" href="$classGraphUndirected.html#a2be69d987f3b4fa1cf547898d30b47d2" title="GraphUndirected::addEdge" alt="" coords="243,197,422,224"/>
 <area shape="rect" id="node9" href="$classGraphUndirected.html#ae40d431c92d8b4884c7915c44d42f356" title="GraphUndirected::weight" alt="" coords="502,5,669,32"/>
 <area shape="rect" id="node10" href="$classGraphUndirectedGroupable.html#ad40474d566b3f9fbe9d132fbbe562ed5" title="GraphUndirectedGroupable\l::community" alt="" coords="243,361,422,402"/>
-<area shape="rect" id="node13" href="$classGraphUndirected.html#a90fdfbabe541262292733703d839812a" title="Get the number of neighbors of a vertex. " alt="" coords="241,426,425,467"/>
+<area shape="rect" id="node13" href="$classGraphUndirected.html#a6377b3a1a0d05fa1f96abb6e4b4b8792" title="Get the number of neighbours of a vertex. " alt="" coords="237,426,428,467"/>
 <area shape="rect" id="node14" href="$classMapReversable.html#aa4338f7c831e5a404758f88e80d13672" title="MapReversable::remove" alt="" coords="251,492,415,519"/>
 <area shape="rect" id="node15" href="$classGraphUndirected.html#af4a40541132a66c9b688a20958057751" title="GraphUndirected::removeEdge" alt="" coords="232,309,433,336"/>
 <area shape="rect" id="node16" href="$classGraphUndirectedGroupable.html#a7a0503e8cd7a84b7f4cd76e22ca5270a" title="GraphUndirectedGroupable\l::update" alt="" coords="243,89,422,130"/>

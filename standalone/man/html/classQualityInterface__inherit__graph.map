@@ -1,7 +1,0 @@
-<map id="QualityInterface" name="QualityInterface">
-<area shape="rect" id="node2" href="$classLouvain.html" title="Louvain" alt="" coords="5,80,72,107"/>
-<area shape="rect" id="node3" href="$classQuality.html" title="Quality" alt="" coords="97,80,159,107"/>
-<area shape="rect" id="node4" href="$classQualityBase.html" title="QualityBase" alt="" coords="184,80,277,107"/>
-<area shape="rect" id="node5" href="$classBalMod.html" title="BalMod" alt="" coords="148,155,215,181"/>
-<area shape="rect" id="node6" href="$classModularity.html" title="Modularity" alt="" coords="239,155,321,181"/>
-</map>

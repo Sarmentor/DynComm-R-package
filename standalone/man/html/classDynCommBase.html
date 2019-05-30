@@ -158,7 +158,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a75ed5e0546d756a3b327f41e292620b2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynCommBase.html#a75ed5e0546d756a3b327f41e292620b2">communityMapping</a> (<a class="el" href="classWriterInterface.html">WriterInterface</a> *writer, bool communityFirst=true, bool differential=true) const</td></tr>
 <tr class="separator:a75ed5e0546d756a3b327f41e292620b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3500faab82a0547422b2202b79f49718"><td class="memItemLeft" align="right" valign="top"><a class="el" href="graphInterface_8h.html#ae8d27008f15586bbf419af7ad2e0a48a">typeLinksRangeConst</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynCommBase.html#a3500faab82a0547422b2202b79f49718">neighbours</a> (<a class="el" href="edge_8h.html#a5fbd20c46956d479cb10afc9855223f6">typeVertex</a> vertex) const</td></tr>
-<tr class="memdesc:a3500faab82a0547422b2202b79f49718"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the neighbors of a vertex.  <a href="#a3500faab82a0547422b2202b79f49718">More...</a><br /></td></tr>
+<tr class="memdesc:a3500faab82a0547422b2202b79f49718"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the neighbours of a vertex.  <a href="#a3500faab82a0547422b2202b79f49718">More...</a><br /></td></tr>
 <tr class="separator:a3500faab82a0547422b2202b79f49718"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae48a572da3c7b375429e96e717b15787"><td class="memItemLeft" align="right" valign="top"><a class="el" href="edge_8h.html#a2e7ea3be891ac8b52f749ec73fee6dd2">typeWeight</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynCommBase.html#ae48a572da3c7b375429e96e717b15787">weight</a> (const <a class="el" href="edge_8h.html#a5fbd20c46956d479cb10afc9855223f6">typeVertex</a> &amp;source, const <a class="el" href="edge_8h.html#a5fbd20c46956d479cb10afc9855223f6">typeVertex</a> &amp;destination) const</td></tr>
 <tr class="separator:ae48a572da3c7b375429e96e717b15787"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -338,11 +338,11 @@ Here is the call graph for this function:</div>
 <area shape="rect" id="node20" href="classAlgorithmLouvain.html#a1e38f3c6a2df8b028328131b3dfceb94" title="AlgorithmLouvain::disband" alt="" coords="1050,789,1225,816"/>
 <area shape="rect" id="node21" href="classHalfEdge.html#a98c0fb1c54506abbd3c0ac4a1264dac1" title="HalfEdge::destination" alt="" coords="1310,963,1457,989"/>
 <area shape="rect" id="node22" href="classGraphUndirectedGroupable.html#ac82f4c93994c372d05a660b36cdce8f3" title="Disband the given community. " alt="" coords="1294,795,1473,837"/>
-<area shape="rect" id="node23" href="classGraphUndirectedGroupable.html#a248d992baca0755467a2eaea96fe3654" title="GraphUndirectedGroupable\l::neighboringCommunities" alt="" coords="1294,1079,1473,1121"/>
-<area shape="rect" id="node24" href="classGraphUndirected.html#ad9058dbbd7e6d2930a6a233e8b6b0547" title="Get the neighbors of a vertex. " alt="" coords="1538,999,1722,1025"/>
+<area shape="rect" id="node23" href="classGraphUndirectedGroupable.html#a48823a0162b95a72c22d0ab01a709e1f" title="GraphUndirectedGroupable\l::neighbouringCommunities" alt="" coords="1293,1079,1473,1121"/>
+<area shape="rect" id="node24" href="classGraphUndirected.html#a5c8c85acc5ea87f43ac0dcbde61f06e0" title="Get the neighbours of a vertex. " alt="" coords="1535,999,1725,1025"/>
 <area shape="rect" id="node29" href="classGraphUndirectedGroupable.html#aaa5e7db5ba0b5b87ed6af50ef958b9d7" title="GraphUndirectedGroupable\l::vertices" alt="" coords="1294,1014,1473,1055"/>
 <area shape="rect" id="node26" href="classGraphUndirected.html#af4a40541132a66c9b688a20958057751" title="GraphUndirected::removeEdge" alt="" coords="1529,647,1731,673"/>
-<area shape="rect" id="node27" href="classGraphUndirected.html#a90fdfbabe541262292733703d839812a" title="Get the number of neighbors of a vertex. " alt="" coords="1538,479,1722,521"/>
+<area shape="rect" id="node27" href="classGraphUndirected.html#a6377b3a1a0d05fa1f96abb6e4b4b8792" title="Get the number of neighbours of a vertex. " alt="" coords="1535,479,1725,521"/>
 <area shape="rect" id="node28" href="classMapReversable.html#aa4338f7c831e5a404758f88e80d13672" title="MapReversable::remove" alt="" coords="1548,697,1712,724"/>
 <area shape="rect" id="node31" href="classAlgorithmLouvain.html#a883c922bf2f3c3aadb9db4962c0d8dce" title="AlgorithmLouvain::addRemove\lEdgePre" alt="" coords="1037,518,1237,559"/>
 <area shape="rect" id="node36" href="classAlgorithm.html#adb63a5f03ed70abb7e355631799c1ad0" title="Algorithm::Algorithm" alt="" coords="817,981,957,1008"/>
@@ -713,20 +713,20 @@ Here is the call graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Get the communities that are neighbors of the given community</p>
+<p>Get the communities that are neighbours of the given community</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">com</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>the neighboring communities </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the neighbouring communities </dd></dl>
 
 <p>Implements <a class="el" href="classDynCommBaseInterface.html#afbae10b36098f57576378255d9c09faf">DynCommBaseInterface</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="DynCommBase_8h_source.html#l00145">145</a> of file <a class="el" href="DynCommBase_8h_source.html">DynCommBase.h</a>.</p>
 
-<p class="reference">References <a class="el" href="graphUndirectedGroupable_8h_source.html#l00590">GraphUndirectedGroupable::neighboringCommunities()</a>.</p>
+<p class="reference">References <a class="el" href="graphUndirectedGroupable_8h_source.html#l00590">GraphUndirectedGroupable::neighbouringCommunities()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="DynCommRcpp_8cpp_source.html#l00185">DynCommRcpp::communityNeighbours()</a>.</p>
 <div class="dynheader">
@@ -734,8 +734,8 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classDynCommBase_aba6f1f0fdd67a1d7f546d63706a60cde_cgraph.png" border="0" usemap="#classDynCommBase_aba6f1f0fdd67a1d7f546d63706a60cde_cgraph" alt=""/></div>
 <map name="classDynCommBase_aba6f1f0fdd67a1d7f546d63706a60cde_cgraph" id="classDynCommBase_aba6f1f0fdd67a1d7f546d63706a60cde_cgraph">
-<area shape="rect" id="node2" href="classGraphUndirectedGroupable.html#a248d992baca0755467a2eaea96fe3654" title="GraphUndirectedGroupable\l::neighboringCommunities" alt="" coords="307,5,485,47"/>
-<area shape="rect" id="node3" href="classGraphUndirected.html#ad9058dbbd7e6d2930a6a233e8b6b0547" title="Get the neighbors of a vertex. " alt="" coords="533,13,717,39"/>
+<area shape="rect" id="node2" href="classGraphUndirectedGroupable.html#a48823a0162b95a72c22d0ab01a709e1f" title="GraphUndirectedGroupable\l::neighbouringCommunities" alt="" coords="307,5,487,47"/>
+<area shape="rect" id="node3" href="classGraphUndirected.html#a5c8c85acc5ea87f43ac0dcbde61f06e0" title="Get the neighbours of a vertex. " alt="" coords="535,13,725,39"/>
 </map>
 </div>
 
@@ -866,20 +866,20 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Get the neighbors of a vertex. </p>
+<p>Get the neighbours of a vertex. </p>
 <p>The pair can change between calls if the Indexed edge list is modified. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">vertex</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>pointers to the first and last neighbor of the vertex </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>pointers to the first and last neighbour of the vertex </dd></dl>
 
 <p>Implements <a class="el" href="classDynCommBaseInterface.html#a9d6f5345d8cdf9e0d70b7a71bff8ade6">DynCommBaseInterface</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="DynCommBase_8h_source.html#l00376">376</a> of file <a class="el" href="DynCommBase_8h_source.html">DynCommBase.h</a>.</p>
 
-<p class="reference">References <a class="el" href="graphUndirected_8h_source.html#l00206">GraphUndirected::neighbors()</a>.</p>
+<p class="reference">References <a class="el" href="graphUndirected_8h_source.html#l00206">GraphUndirected::neighbours()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="DynCommRcpp_8cpp_source.html#l00308">DynCommRcpp::neighbours()</a>.</p>
 <div class="dynheader">
@@ -887,7 +887,7 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classDynCommBase_a3500faab82a0547422b2202b79f49718_cgraph.png" border="0" usemap="#classDynCommBase_a3500faab82a0547422b2202b79f49718_cgraph" alt=""/></div>
 <map name="classDynCommBase_a3500faab82a0547422b2202b79f49718_cgraph" id="classDynCommBase_a3500faab82a0547422b2202b79f49718_cgraph">
-<area shape="rect" id="node2" href="classGraphUndirected.html#ad9058dbbd7e6d2930a6a233e8b6b0547" title="Get the neighbors of a vertex. " alt="" coords="240,5,424,32"/>
+<area shape="rect" id="node2" href="classGraphUndirected.html#a5c8c85acc5ea87f43ac0dcbde61f06e0" title="Get the neighbours of a vertex. " alt="" coords="240,5,431,32"/>
 </map>
 </div>
 

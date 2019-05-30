@@ -1,7 +1,0 @@
-<map id="DynCommRcpp::communityMappingFile" name="DynCommRcpp::communityMappingFile">
-<area shape="rect" id="node2" href="$classDynCommBase.html#a9d4d3b5562cb65d3faa8f18f477cb660" title="DynCommBase::communityMapping" alt="" coords="312,71,548,98"/>
-<area shape="rect" id="node3" href="$classGraphUndirectedGroupable.html#a57f8ea4cff0d83b80cca2dc8e8e19ff6" title="GraphUndirectedGroupable\l::communities" alt="" coords="596,5,775,47"/>
-<area shape="rect" id="node5" href="$classDynCommBase.html#ae240fba572935f26a72f73e39e115169" title="DynCommBase::vertices" alt="" coords="601,71,770,98"/>
-<area shape="rect" id="node6" href="$classWriterInterface.html#a2f756ac0b3299f4dbadececad4055424" title="WriterInterface::write" alt="" coords="613,122,757,149"/>
-<area shape="rect" id="node4" href="$classGraphUndirected.html#af2f65109919c878a1fd7637d3bfe0991" title="GraphUndirected::getVertices" alt="" coords="823,42,1017,69"/>
-</map>

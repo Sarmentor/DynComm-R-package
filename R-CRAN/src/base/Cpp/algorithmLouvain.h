@@ -104,29 +104,29 @@ private:
 		return cg.vertices(c);
 	}
 
-	typeLinksRangeConst neighbors(const typeVertex & node)const {
-		if(firstRun) return grph.neighbors(node);
-		return cg.neighbors(node);
+	typeLinksRangeConst neighbours(const typeVertex & node)const {
+		if(firstRun) return grph.neighbours(node);
+		return cg.neighbours(node);
 	}
 
-	unsigned int neighborsCount(const typeVertex & node)const{
-		if(firstRun) return grph.neighborsCount(node);
-		return cg.neighborsCount(node);
+	unsigned int neighboursCount(const typeVertex & node)const{
+		if(firstRun) return grph.neighboursCount(node);
+		return cg.neighboursCount(node);
 	}
 
-	unsigned int neighborsCommunityCount(const typeVertex & node)const{
-		if(firstRun)return grph.neighborsCommunityCount(node);
-		return cg.neighborsCommunityCount(node);
+	unsigned int neighboursCommunityCount(const typeVertex & node)const{
+		if(firstRun)return grph.neighboursCommunityCount(node);
+		return cg.neighboursCommunityCount(node);
 	}
 
-	typeWeight neighborsCommunityWeight(const typeVertex & node, const typeCommunity & com){
-		if(firstRun)return grph.neighborsCommunityWeight(node,com);
-		return cg.neighborsCommunityWeight(node,com);
+	typeWeight neighboursCommunityWeight(const typeVertex & node, const typeCommunity & com){
+		if(firstRun)return grph.neighboursCommunityWeight(node,com);
+		return cg.neighboursCommunityWeight(node,com);
 	}
 
-	typeWeight neighborsCommunityWeight(const typeVertex & node){
-		if(firstRun)return grph.neighborsCommunityWeight(node);
-		return cg.neighborsCommunityWeight(node);
+	typeWeight neighboursCommunityWeight(const typeVertex & node){
+		if(firstRun)return grph.neighboursCommunityWeight(node);
+		return cg.neighboursCommunityWeight(node);
 	}
 
 	const typeWeight & maxWeight()const{
@@ -193,8 +193,8 @@ private:
 	 * @param c2 the destination community of the edge
 	 */
 	void disband(const typeCommunity c1,const typeCommunity c2){
-		//remove affected communities from cg by removing all edges to their respective neighbors
-		typeLinksRangeConst nc1=cg.neighboringCommunities(c1);
+		//remove affected communities from cg by removing all edges to their respective neighbours
+		typeLinksRangeConst nc1=cg.neighbouringCommunities(c1);
 		{
 			typeLinksIteratorConst it=nc1.first;
 			while(it!=nc1.second){
@@ -206,7 +206,7 @@ private:
 			}
 		}
 		{
-			typeLinksRangeConst nc2=cg.neighboringCommunities(c2);
+			typeLinksRangeConst nc2=cg.neighbouringCommunities(c2);
 			typeLinksIteratorConst it=nc2.first;
 			while(it!=nc2.second){
 				const typeLinksPair & p=*it;
@@ -219,7 +219,7 @@ private:
 		//remove inner edges
 		cg.removeEdge(c1,c1);
 		cg.removeEdge(c2,c2);
-		//take nodes of affected communities from g and add them to cg disbanded by adding edges to their neighbors
+		//take nodes of affected communities from g and add them to cg disbanded by adding edges to their neighbours
 		std::set<typeVertex> ns;
 		typeCommunityListRange rc1=grph.vertices(c1);
 		for(typeCommunityListRangeIteratorConst it=rc1.first;it!=rc1.second;++it){
@@ -235,7 +235,7 @@ private:
 		}
 		for(std::set<typeVertex>::const_iterator it=ns.cbegin();it!=ns.cend();++it){
 			const typeVertex & n=*it;
-			typeLinksRangeConst r=grph.neighbors(n);
+			typeLinksRangeConst r=grph.neighbours(n);
 			typeLinksIteratorConst itn=r.first;
 			while(itn!=r.second){
 				const typeLinksPair & p=*itn;
@@ -245,10 +245,10 @@ private:
 				const typeVertex & nei=h.destination();
 				const typeCommunity & cn=grph.community(nei);
 				if(cn!=c1 && cn!=c2){
-					cg.addEdge(n,cn,h.weight());//add edge between community of neighbor and node
+					cg.addEdge(n,cn,h.weight());//add edge between community of neighbour and node
 				}
 				else{
-					cg.addEdge(n,nei,h.weight());//add edge between neighbor and node
+					cg.addEdge(n,nei,h.weight());//add edge between neighbour and node
 				}
 			}
 		}
@@ -258,26 +258,26 @@ private:
 	}
 
 	/**
-	 * Get the neighboring communities of the given vertex with edge weight
+	 * Get the neighbouring communities of the given vertex with edge weight
 	 *
 	 * @param vertex
-	 * @return the neighboring communities of the given vertex
+	 * @return the neighbouring communities of the given vertex
 	 */
 	std::map<typeCommunity, typeWeight> neigh_comm(const typeVertex & vertex)const {
 		std::map<typeCommunity, typeWeight> a;
 		if(vertex==noVertex) return a;
 		a[community(vertex)]=0;
-		//get neighbors of vertex
-		typeLinksRangeConst p = neighbors(vertex);
-		//for all neighbors of vertex
+		//get neighbours of vertex
+		typeLinksRangeConst p = neighbours(vertex);
+		//for all neighbours of vertex
 		for (typeLinksIteratorConst it=p.first ; it!=p.second ; it++){
-			//get neighbor, community and weight
+			//get neighbour, community and weight
 			const typeLinksPair & b=*it;
 			const HalfEdge & c=b.second;
 			const typeVertex & neigh  = c.destination();
 			const typeCommunity & neigh_comm = community(neigh);
 			const typeWeight & neigh_w = c.weight();
-			//if neighbor is not the given vertex
+			//if neighbour is not the given vertex
 			if (neigh!=vertex) {
 				//increment weight
 				a[neigh_comm]+=neigh_w;
@@ -311,17 +311,17 @@ private:
 				const typeVertex & vertex = *node_tmp;
 				typeCommunity node_comm = community(vertex);
 
-				// computation of all neighbor node communities of current node
+				// computation of all neighbour node communities of current node
 				std::map<typeCommunity, typeWeight> nc=neigh_comm(vertex);
 
 				// compute the nearest community for node
 				// default choice for future insertion is the former community
 				typeCommunity best_comm = node_comm;
 				typeWeight best_increase = 0.0L;
-				//for all neighbors
+				//for all neighbours
 				for (std::map<typeCommunity, typeWeight>::iterator it=nc.begin() ; it!=nc.end() ; it++){
 					const std::pair<typeCommunity, typeWeight> & p=*it;
-					//calculate gain in quality by inserting the given node in the community of the neighbor
+					//calculate gain in quality by inserting the given node in the community of the neighbour
 					typeWeight increase=gain(vertex,p.first);
 					if (increase>best_increase) {
 						best_comm = p.first;
@@ -353,8 +353,8 @@ private:
 					cg.addEdge(srcc,srcc,in);
 				}
 				//handle outer edges
-				typeLinksRangeConst neighbors=grph.neighboringCommunities(srcc);
-				for(typeLinksIteratorConst itn=neighbors.first;itn!=neighbors.second;++itn){
+				typeLinksRangeConst neighbours=grph.neighbouringCommunities(srcc);
+				for(typeLinksIteratorConst itn=neighbours.first;itn!=neighbours.second;++itn){
 					const typeLinksPair & p=*itn;
 					const HalfEdge & he=p.second;
 					const typeVertex & destc=he.destination();

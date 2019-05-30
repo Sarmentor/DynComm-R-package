@@ -7,9 +7,9 @@
 <area shape="rect" id="node14" href="$classHalfEdge.html#a98c0fb1c54506abbd3c0ac4a1264dac1" title="HalfEdge::destination" alt="" coords="512,712,659,739"/>
 <area shape="rect" id="node15" href="$classMapReversable.html#a9587d6d95127e6941407af03584d3e00" title="MapReversable::keys" alt="" coords="511,909,660,936"/>
 <area shape="rect" id="node16" href="$classGraphUndirectedGroupable.html#a0ce165b4c68150f60ccd1977b83f3eb3" title="GraphUndirectedGroupable\l::minimumNode" alt="" coords="243,931,422,973"/>
-<area shape="rect" id="node17" href="$classGraphUndirected.html#ad9058dbbd7e6d2930a6a233e8b6b0547" title="Get the neighbors of a vertex. " alt="" coords="493,763,677,789"/>
-<area shape="rect" id="node18" href="$classGraphUndirectedGroupable.html#a24c1e8303eefff2635f7462d3cf1c6cf" title="GraphUndirectedGroupable\l::neighborsCommunityWeight" alt="" coords="235,646,430,687"/>
-<area shape="rect" id="node19" href="$classGraphUndirected.html#a5bc804358a7bc0087953023c597a621b" title="Get the sum of the weights of the neighbors of a vertex. " alt="" coords="241,814,425,855"/>
+<area shape="rect" id="node17" href="$classGraphUndirected.html#a5c8c85acc5ea87f43ac0dcbde61f06e0" title="Get the neighbours of a vertex. " alt="" coords="490,763,681,789"/>
+<area shape="rect" id="node18" href="$classGraphUndirectedGroupable.html#a23551b49c2cbf1b533e300af5c1f20da" title="GraphUndirectedGroupable\l::neighboursCommunityWeight" alt="" coords="232,646,433,687"/>
+<area shape="rect" id="node19" href="$classGraphUndirected.html#aa6c4a4b19efb152de6cdc21d67ac5eed" title="Get the sum of the weights of the neighbours of a vertex. " alt="" coords="237,814,428,855"/>
 <area shape="rect" id="node20" href="$classGraphUndirected.html#af4a40541132a66c9b688a20958057751" title="GraphUndirected::removeEdge" alt="" coords="232,341,433,368"/>
 <area shape="rect" id="node21" href="$classGraphUndirectedGroupable.html#af29e653d9578b955e47288e075ebf47f" title="GraphUndirectedGroupable\l::replaceCommunity" alt="" coords="243,115,422,157"/>
 <area shape="rect" id="node24" href="$classGraphUndirectedGroupable.html#a7a0503e8cd7a84b7f4cd76e22ca5270a" title="GraphUndirectedGroupable\l::update" alt="" coords="243,275,422,317"/>

@@ -11,8 +11,8 @@
 <area shape="rect" id="node36" href="$classAlgorithmLouvain.html#a627618ba516be4f4906143b6b0ff1c77" title="AlgorithmLouvain::getVertices" alt="" coords="204,1505,400,1531"/>
 <area shape="rect" id="node37" href="$classGraphUndirectedGroupable.html#a1986c140fd9aba8063774372c971706d" title="GraphUndirectedGroupable\l::innerEdges" alt="" coords="941,1447,1120,1488"/>
 <area shape="rect" id="node38" href="$classAlgorithmLouvain.html#a78dfa81bd96f4036e44c17318501b6b7" title="AlgorithmLouvain::neigh_comm" alt="" coords="675,943,879,970"/>
-<area shape="rect" id="node39" href="$classAlgorithmLouvain.html#a46c54a194acf1a09debfaf3f67d84f85" title="AlgorithmLouvain::neighbors" alt="" coords="937,1227,1124,1254"/>
-<area shape="rect" id="node40" href="$classGraphUndirectedGroupable.html#a248d992baca0755467a2eaea96fe3654" title="GraphUndirectedGroupable\l::neighboringCommunities" alt="" coords="213,1279,391,1320"/>
+<area shape="rect" id="node39" href="$classAlgorithmLouvain.html#ab6206bfc3cf537277c6965bc0da6d695" title="AlgorithmLouvain::neighbours" alt="" coords="934,1227,1127,1254"/>
+<area shape="rect" id="node40" href="$classGraphUndirectedGroupable.html#a48823a0162b95a72c22d0ab01a709e1f" title="GraphUndirectedGroupable\l::neighbouringCommunities" alt="" coords="212,1279,392,1320"/>
 <area shape="rect" id="node41" href="$classAlgorithmLouvain.html#a8c9b7694fff17eb5d8044cd26d7914e7" title="AlgorithmLouvain::quality" alt="" coords="218,1345,386,1371"/>
 <area shape="rect" id="node45" href="$classGraphUndirectedGroupable.html#aaa5e7db5ba0b5b87ed6af50ef958b9d7" title="GraphUndirectedGroupable\l::vertices" alt="" coords="213,1663,391,1704"/>
 <area shape="rect" id="node3" href="$classGraphUndirected.html#ae40d431c92d8b4884c7915c44d42f356" title="GraphUndirected::weight" alt="" coords="947,117,1114,143"/>
@@ -38,8 +38,8 @@
 <area shape="rect" id="node30" href="$classGraphUndirected.html#ad2b1cd9a6dded42bd5431134aba26612" title="GraphUndirected::weighted\l_degree" alt="" coords="941,1060,1121,1101"/>
 <area shape="rect" id="node32" href="$classGraphUndirectedGroupable.html#a8aa795a6e0ae115d35937508c5aad401" title="GraphUndirectedGroupable\l::totalEdges" alt="" coords="941,1329,1120,1371"/>
 <area shape="rect" id="node33" href="$classGraphUndirected.html#a41ba96531c669461dbc7e11ee35796ab" title="GraphUndirected::totalWeight" alt="" coords="933,1395,1128,1422"/>
-<area shape="rect" id="node34" href="$classGraphUndirectedGroupable.html#a24c1e8303eefff2635f7462d3cf1c6cf" title="GraphUndirectedGroupable\l::neighborsCommunityWeight" alt="" coords="933,995,1128,1036"/>
-<area shape="rect" id="node31" href="$classGraphUndirected.html#ad9058dbbd7e6d2930a6a233e8b6b0547" title="Get the neighbors of a vertex. " alt="" coords="1188,1147,1372,1174"/>
+<area shape="rect" id="node34" href="$classGraphUndirectedGroupable.html#a23551b49c2cbf1b533e300af5c1f20da" title="GraphUndirectedGroupable\l::neighboursCommunityWeight" alt="" coords="930,995,1131,1036"/>
+<area shape="rect" id="node31" href="$classGraphUndirected.html#a5c8c85acc5ea87f43ac0dcbde61f06e0" title="Get the neighbours of a vertex. " alt="" coords="1185,1147,1375,1174"/>
 <area shape="rect" id="node42" href="$classCriterion.html#a1f8b3a7bf56b5434b04d5366d754d459" title="Criterion::quality" alt="" coords="479,1345,596,1371"/>
 <area shape="rect" id="node43" href="$classCriterionModularity.html#adf9197fd4e5878ca86501447b1fba989" title="CriterionModularity\l::quality" alt="" coords="711,1388,842,1429"/>
 <area shape="rect" id="node44" href="$classCriterionBalMod.html#a87c0ccb5e2a851420dc82bd23cc31716" title="CriterionBalMod::quality" alt="" coords="696,1337,857,1363"/>

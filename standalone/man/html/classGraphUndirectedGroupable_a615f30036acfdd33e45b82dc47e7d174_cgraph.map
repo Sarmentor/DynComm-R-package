@@ -8,7 +8,7 @@
 <area shape="rect" id="node5" href="$classStringFormatter.html#a951e3aff962bfb69cf745c5b05de26cc" title="End writing to string stream. " alt="" coords="486,5,627,32"/>
 <area shape="rect" id="node4" href="$classStringFormatter.html#adeedf1dce9545fb00bc070e4caaf30aa" title="StringFormatter::indent" alt="" coords="708,56,863,83"/>
 <area shape="rect" id="node10" href="$classHalfEdge.html#a98c0fb1c54506abbd3c0ac4a1264dac1" title="HalfEdge::destination" alt="" coords="483,208,630,235"/>
-<area shape="rect" id="node11" href="$classGraphUndirected.html#ad9058dbbd7e6d2930a6a233e8b6b0547" title="Get the neighbors of a vertex. " alt="" coords="465,259,649,285"/>
+<area shape="rect" id="node11" href="$classGraphUndirected.html#a5c8c85acc5ea87f43ac0dcbde61f06e0" title="Get the neighbours of a vertex. " alt="" coords="461,259,652,285"/>
 <area shape="rect" id="node12" href="$classStringFormatter.html#acfc112049e763b2ced09e1f30c151244" title="StringFormatter::setClose" alt="" coords="471,309,643,336"/>
 <area shape="rect" id="node13" href="$classStringFormatter.html#a138f0dfbbbbf629aab40b9816b075900" title="StringFormatter::setOpen" alt="" coords="472,360,641,387"/>
 <area shape="rect" id="node14" href="$classStringFormatter.html#a35e3c3ce024ea3934bad1e26e85a5ae0" title="StringFormatter::tupleClose" alt="" coords="465,411,648,437"/>

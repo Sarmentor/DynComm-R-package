@@ -2,7 +2,7 @@ var searchData=
 [
   ['t',['t',['../classTime_1_1TimeKeeper.html#abc07fe9dfb0c61ed901eef1bbf4a994b',1,'Time::TimeKeeper']]],
   ['tail',['tail',['../classStringFormatter.html#af87d5cdd41e7a3d30893ae2d4cc99a99',1,'StringFormatter::tail() const'],['../classStringFormatter.html#ad7a18b6b3c5d10addf6055dd910695c2',1,'StringFormatter::tail(const std::string &amp;tail)']]],
-  ['time',['Time',['../namespaceTime.html',1,'Time'],['../classDynCommRcpp.html#a89773080b66fd210a7e22234ba04a19f',1,'DynCommRcpp::time()'],['../classDynCommBase.html#a5b40eb14cef877fde1db8b6476f6a2ce',1,'DynCommBase::time()'],['../classDynCommBaseInterface.html#a6fb483ffc71baf6f0d4f6a0371e34ca9',1,'DynCommBaseInterface::time()']]],
+  ['time',['Time',['../namespaceTime.html',1,'Time'],['../classDynCommRcpp.html#a89773080b66fd210a7e22234ba04a19f',1,'DynCommRcpp::time()'],['../classDynCommReticulate_1_1DynCommReticulate.html#aab6a6a4ffde47f3c143de304a2116584',1,'DynCommReticulate.DynCommReticulate.time()'],['../classDynCommBase.html#a5b40eb14cef877fde1db8b6476f6a2ce',1,'DynCommBase::time()'],['../classDynCommBaseInterface.html#a6fb483ffc71baf6f0d4f6a0371e34ca9',1,'DynCommBaseInterface::time()']]],
   ['timefunctions_2eh',['timeFunctions.h',['../timeFunctions_8h.html',1,'']]],
   ['timekeep',['timeKeep',['../namespaceTime.html#a321ca5eba84577aaaaeb2a79d28806c8',1,'Time']]],
   ['timekeeper',['TimeKeeper',['../classTime_1_1TimeKeeper.html',1,'Time::TimeKeeper'],['../classTime_1_1TimeKeeper.html#a578a506c1bf462e199a259442380a16c',1,'Time::TimeKeeper::TimeKeeper()']]],

@@ -137,13 +137,13 @@ public:
 	}
 
 	/**
-	 * Get the communities that are neighbors of the given community
+	 * Get the communities that are neighbours of the given community
 	 *
 	 * @param com
-	 * @return the neighboring communities
+	 * @return the neighbouring communities
 	 */
 	typeLinksRangeConst communityNeighbours(typeCommunity community)const {
-		return grph.neighboringCommunities(community);
+		return grph.neighbouringCommunities(community);
 	}
 
 	/**
@@ -368,13 +368,13 @@ public:
 	}
 
 	/**
-	 * @brief Get the neighbors of a vertex
+	 * @brief Get the neighbours of a vertex
 	 * @details The pair can change between calls if the Indexed edge list is modified.
 	 * @param vertex
-	 * @return pointers to the first and last neighbor of the vertex
+	 * @return pointers to the first and last neighbour of the vertex
 	 */
 	typeLinksRangeConst neighbours(typeVertex vertex)const {
-		return grph.neighbors(vertex);
+		return grph.neighbours(vertex);
 	}
 
 	/**

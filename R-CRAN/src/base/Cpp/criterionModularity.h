@@ -63,7 +63,7 @@ public:
 			totc=totc-g.weighted_degree(vertex);
 		}
 		const typeWeight & m2   = g.totalWeight();
-		return (g.neighborsCommunityWeight(vertex,comm) - totc*w_degree/m2);
+		return (g.neighboursCommunityWeight(vertex,comm) - totc*w_degree/m2);
 	}
 
 	/**

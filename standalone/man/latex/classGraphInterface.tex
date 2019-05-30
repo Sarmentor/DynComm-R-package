@@ -36,12 +36,12 @@ virtual bool \hyperlink{classGraphInterface_a954e2d16f474cce832f02d4495df3092}{r
 \item 
 virtual const \hyperlink{graphInterface_8h_a21d54d8a139def524d3b0d6f71ec4974}{type\+Vertex\+List} \& \hyperlink{classGraphInterface_a94af429415c22cba42ecf5a97ee6b5c3}{get\+Vertices} () const =0
 \item 
-virtual \hyperlink{graphInterface_8h_ae8d27008f15586bbf419af7ad2e0a48a}{type\+Links\+Range\+Const} \hyperlink{classGraphInterface_afd5cdff5531b27fca35b58904d757db6}{neighbors} (const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&vertex) const =0
-\begin{DoxyCompactList}\small\item\em Get the neighbors of a vertex. \end{DoxyCompactList}\item 
-virtual \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \hyperlink{classGraphInterface_a77b93eb2da955cb41b389df023676c1b}{neighbors\+Weight} (const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&vertex) const =0
-\begin{DoxyCompactList}\small\item\em Get the sum of the weights of the neighbors of a vertex. \end{DoxyCompactList}\item 
-virtual unsigned int \hyperlink{classGraphInterface_a07f96d04c5481c6f573f478add5f7162}{neighbors\+Count} (const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&vertex) const =0
-\begin{DoxyCompactList}\small\item\em Get the number of neighbors of a vertex. \end{DoxyCompactList}\item 
+virtual \hyperlink{graphInterface_8h_ae8d27008f15586bbf419af7ad2e0a48a}{type\+Links\+Range\+Const} \hyperlink{classGraphInterface_a23e03d032193544c77d04310fe9e4785}{neighbours} (const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&vertex) const =0
+\begin{DoxyCompactList}\small\item\em Get the neighbours of a vertex. \end{DoxyCompactList}\item 
+virtual \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \hyperlink{classGraphInterface_a62e1ed1899155eb63cf7ee82970cd415}{neighbours\+Weight} (const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&vertex) const =0
+\begin{DoxyCompactList}\small\item\em Get the sum of the weights of the neighbours of a vertex. \end{DoxyCompactList}\item 
+virtual unsigned int \hyperlink{classGraphInterface_ae9b85226881a84124ce6dbaba498edce}{neighbours\+Count} (const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&vertex) const =0
+\begin{DoxyCompactList}\small\item\em Get the number of neighbours of a vertex. \end{DoxyCompactList}\item 
 virtual \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \hyperlink{classGraphInterface_a27f350094f566bb4840f22c5bc0695c4}{weight} (const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&source, const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&destination) const =0
 \item 
 virtual const \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \& \hyperlink{classGraphInterface_a2fb0681f6cda5f8318adf7ee95df3685}{max\+Weight} () const =0
@@ -90,7 +90,7 @@ Definition at line 117 of file graph\+Interface.\+h.
 
 
 
-References add\+Edge(), default\+String\+Formatter, edge\+Count(), edges(), get\+Vertices(), max\+Weight(), neighbors(), neighbors\+Count(), neighbors\+Weight(), remove\+Edge(), replace(), to\+String(), total\+Weight(), vertex\+Count(), weight(), and weighted\+\_\+degree().
+References add\+Edge(), default\+String\+Formatter, edge\+Count(), edges(), get\+Vertices(), max\+Weight(), neighbours(), neighbours\+Count(), neighbours\+Weight(), remove\+Edge(), replace(), to\+String(), total\+Weight(), vertex\+Count(), weight(), and weighted\+\_\+degree().
 
 Here is the call graph for this function\+:
 \nopagebreak
@@ -223,15 +223,15 @@ Implemented in \hyperlink{classGraphUndirected_a7c21f40748eef95d1c35be892ab10ce2
 
 Referenced by $\sim$\+Graph\+Interface().
 
-\mbox{\Hypertarget{classGraphInterface_afd5cdff5531b27fca35b58904d757db6}\label{classGraphInterface_afd5cdff5531b27fca35b58904d757db6}} 
-\index{Graph\+Interface@{Graph\+Interface}!neighbors@{neighbors}}
-\index{neighbors@{neighbors}!Graph\+Interface@{Graph\+Interface}}
-\subsubsection{\texorpdfstring{neighbors()}{neighbors()}}
-{\footnotesize\ttfamily virtual \hyperlink{graphInterface_8h_ae8d27008f15586bbf419af7ad2e0a48a}{type\+Links\+Range\+Const} Graph\+Interface\+::neighbors (\begin{DoxyParamCaption}\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{vertex }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+\mbox{\Hypertarget{classGraphInterface_a23e03d032193544c77d04310fe9e4785}\label{classGraphInterface_a23e03d032193544c77d04310fe9e4785}} 
+\index{Graph\+Interface@{Graph\+Interface}!neighbours@{neighbours}}
+\index{neighbours@{neighbours}!Graph\+Interface@{Graph\+Interface}}
+\subsubsection{\texorpdfstring{neighbours()}{neighbours()}}
+{\footnotesize\ttfamily virtual \hyperlink{graphInterface_8h_ae8d27008f15586bbf419af7ad2e0a48a}{type\+Links\+Range\+Const} Graph\+Interface\+::neighbours (\begin{DoxyParamCaption}\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{vertex }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
 
-Get the neighbors of a vertex. 
+Get the neighbours of a vertex. 
 
 The pair can change between calls if the Indexed edge list is modified. 
 \begin{DoxyParams}{Parameters}
@@ -239,25 +239,25 @@ The pair can change between calls if the Indexed edge list is modified.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-pointers to the first and last neighbor of the vertex 
+pointers to the first and last neighbour of the vertex 
 \end{DoxyReturn}
 
 
-Implemented in \hyperlink{classGraphUndirected_ad9058dbbd7e6d2930a6a233e8b6b0547}{Graph\+Undirected}.
+Implemented in \hyperlink{classGraphUndirected_a5c8c85acc5ea87f43ac0dcbde61f06e0}{Graph\+Undirected}.
 
 
 
 Referenced by $\sim$\+Graph\+Interface().
 
-\mbox{\Hypertarget{classGraphInterface_a07f96d04c5481c6f573f478add5f7162}\label{classGraphInterface_a07f96d04c5481c6f573f478add5f7162}} 
-\index{Graph\+Interface@{Graph\+Interface}!neighbors\+Count@{neighbors\+Count}}
-\index{neighbors\+Count@{neighbors\+Count}!Graph\+Interface@{Graph\+Interface}}
-\subsubsection{\texorpdfstring{neighbors\+Count()}{neighborsCount()}}
-{\footnotesize\ttfamily virtual unsigned int Graph\+Interface\+::neighbors\+Count (\begin{DoxyParamCaption}\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{vertex }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+\mbox{\Hypertarget{classGraphInterface_ae9b85226881a84124ce6dbaba498edce}\label{classGraphInterface_ae9b85226881a84124ce6dbaba498edce}} 
+\index{Graph\+Interface@{Graph\+Interface}!neighbours\+Count@{neighbours\+Count}}
+\index{neighbours\+Count@{neighbours\+Count}!Graph\+Interface@{Graph\+Interface}}
+\subsubsection{\texorpdfstring{neighbours\+Count()}{neighboursCount()}}
+{\footnotesize\ttfamily virtual unsigned int Graph\+Interface\+::neighbours\+Count (\begin{DoxyParamCaption}\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{vertex }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
 
-Get the number of neighbors of a vertex. 
+Get the number of neighbours of a vertex. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -265,25 +265,25 @@ Get the number of neighbors of a vertex.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-the number of neighbors of the given vertex 
+the number of neighbours of the given vertex 
 \end{DoxyReturn}
 
 
-Implemented in \hyperlink{classGraphUndirected_a90fdfbabe541262292733703d839812a}{Graph\+Undirected}.
+Implemented in \hyperlink{classGraphUndirected_a6377b3a1a0d05fa1f96abb6e4b4b8792}{Graph\+Undirected}.
 
 
 
 Referenced by $\sim$\+Graph\+Interface().
 
-\mbox{\Hypertarget{classGraphInterface_a77b93eb2da955cb41b389df023676c1b}\label{classGraphInterface_a77b93eb2da955cb41b389df023676c1b}} 
-\index{Graph\+Interface@{Graph\+Interface}!neighbors\+Weight@{neighbors\+Weight}}
-\index{neighbors\+Weight@{neighbors\+Weight}!Graph\+Interface@{Graph\+Interface}}
-\subsubsection{\texorpdfstring{neighbors\+Weight()}{neighborsWeight()}}
-{\footnotesize\ttfamily virtual \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} Graph\+Interface\+::neighbors\+Weight (\begin{DoxyParamCaption}\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{vertex }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+\mbox{\Hypertarget{classGraphInterface_a62e1ed1899155eb63cf7ee82970cd415}\label{classGraphInterface_a62e1ed1899155eb63cf7ee82970cd415}} 
+\index{Graph\+Interface@{Graph\+Interface}!neighbours\+Weight@{neighbours\+Weight}}
+\index{neighbours\+Weight@{neighbours\+Weight}!Graph\+Interface@{Graph\+Interface}}
+\subsubsection{\texorpdfstring{neighbours\+Weight()}{neighboursWeight()}}
+{\footnotesize\ttfamily virtual \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} Graph\+Interface\+::neighbours\+Weight (\begin{DoxyParamCaption}\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{vertex }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
 
-Get the sum of the weights of the neighbors of a vertex. 
+Get the sum of the weights of the neighbours of a vertex. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -291,11 +291,11 @@ Get the sum of the weights of the neighbors of a vertex.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-the sum of the weights of the neighbors of the given vertex 
+the sum of the weights of the neighbours of the given vertex 
 \end{DoxyReturn}
 
 
-Implemented in \hyperlink{classGraphUndirected_a5bc804358a7bc0087953023c597a621b}{Graph\+Undirected}.
+Implemented in \hyperlink{classGraphUndirected_aa6c4a4b19efb152de6cdc21d67ac5eed}{Graph\+Undirected}.
 
 
 
@@ -454,7 +454,7 @@ Referenced by $\sim$\+Graph\+Interface().
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-the weighted degree (sum of weights of the neighbors) of the given vertex 
+the weighted degree (sum of weights of the neighbours) of the given vertex 
 \end{DoxyReturn}
 
 

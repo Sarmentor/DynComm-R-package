@@ -74,7 +74,7 @@ public:
 	/**
 	 *
 	 * @param community
-	 * @return the neighboring communities of the given community
+	 * @return the neighbouring communities of the given community
 	 */
 	virtual typeLinksRangeConst communityNeighbours(typeCommunity community)const=0;
 
@@ -150,7 +150,7 @@ public:
 	virtual bool communityMapping(WriterInterface * writer,bool communityFirst=true,bool differential=true)const=0;
 
 	/**
-	 * @return pointers to the first and last neighbor of the vertex
+	 * @return pointers to the first and last neighbour of the vertex
 	 */
 	virtual typeLinksRangeConst neighbours(typeVertex vertex)const=0;
 

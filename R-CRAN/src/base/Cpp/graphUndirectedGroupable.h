@@ -376,8 +376,8 @@ public:
 				else cc.removeEdge(c1,c2);
 			}
 			bool res=GraphUndirected::removeEdge(source,destination);
-			if(neighborsCount(source)==0) n2c.remove(source);
-			if(neighborsCount(destination)==0) n2c.remove(destination);
+			if(neighboursCount(source)==0) n2c.remove(source);
+			if(neighboursCount(destination)==0) n2c.remove(destination);
 			return res;
 		}
 		return false;
@@ -483,16 +483,16 @@ public:
 		const typeCommunity c=community(vertex);
 		if(c==noGroup) return false;
 		if(c==com)return true;
-		typeWeight a1=neighborsCommunityWeight(vertex,com);
-		typeWeight a2=neighborsCommunityWeight(vertex,c);
-		typeWeight w=neighborsWeight(vertex);
+		typeWeight a1=neighboursCommunityWeight(vertex,com);
+		typeWeight a2=neighboursCommunityWeight(vertex,c);
+		typeWeight w=neighboursWeight(vertex);
 		typeWeight in=weight(vertex,vertex);
 		if(isnan(in))in=0;
 		update(inner,com,2*a1+in,true);
 		update(inner,c,2*a2+in,false);
 		update(total,com,w+in,true);
 		update(total,c,w+in,false);
-		const typeLinksRangeConst & nei=neighbors(vertex);
+		const typeLinksRangeConst & nei=neighbours(vertex);
 		typeLinksIteratorConst it=nei.first;
 		while(it!=nei.second){
 			const typeLinksPair & p=*it;
@@ -582,33 +582,33 @@ public:
 	}
 
 	/**
-	 * Get the communities that are neighbors of the given community
+	 * Get the communities that are neighbours of the given community
 	 *
 	 * @param com
-	 * @return the neighboring communities
+	 * @return the neighbouring communities
 	 */
-	typeLinksRangeConst neighboringCommunities(const typeCommunity & com)const {
-		return cc.neighbors(com);
+	typeLinksRangeConst neighbouringCommunities(const typeCommunity & com)const {
+		return cc.neighbours(com);
 	}
 
 	/**
-	 * Get the sum of the weights of the communities that are neighbors of the given community
+	 * Get the sum of the weights of the communities that are neighbours of the given community
 	 *
 	 * @param com
-	 * @return the sum of the weights of neighboring communities
+	 * @return the sum of the weights of neighbouring communities
 	 */
-	typeWeight neighboringCommunitiesWeight(const typeCommunity & com)const{
-		return cc.neighborsWeight(com);
+	typeWeight neighbouringCommunitiesWeight(const typeCommunity & com)const{
+		return cc.neighboursWeight(com);
 	}
 
 	/**
-	 * Get the number of communities that are neighbors of the given community
+	 * Get the number of communities that are neighbours of the given community
 	 *
 	 * @param com
-	 * @return the number of neighboring communities
+	 * @return the number of neighbouring communities
 	 */
-	unsigned int neighboringCommunitiesCount(const typeCommunity & com)const {
-		return cc.neighborsCount(com);
+	unsigned int neighbouringCommunitiesCount(const typeCommunity & com)const {
+		return cc.neighboursCount(com);
 	}
 
 	/**
@@ -628,16 +628,16 @@ public:
 	}
 
 	/**
-	 * Get the number of neighbors of the given vertex that belong to the same
+	 * Get the number of neighbours of the given vertex that belong to the same
 	 * community as the vertex
 	 *
 	 * @param vertex
-	 * @return the number of neighbors
+	 * @return the number of neighbours
 	 */
-	unsigned int neighborsCommunityCount(const typeVertex & vertex)const{
+	unsigned int neighboursCommunityCount(const typeVertex & vertex)const{
 		const typeCommunity & com=community(vertex);
 		unsigned int cnt=0;
-		typeLinksRangeConst a=neighbors(vertex);
+		typeLinksRangeConst a=neighbours(vertex);
 		for(typeLinksIteratorConst it=a.first;it!=a.second;++it){
 			const typeLinksPair & b=*it;
 			const HalfEdge & c=b.second;
@@ -647,16 +647,16 @@ public:
 	}
 
 	/**
-	 * Get the sum of the weight of the neighbors of the given vertex that belong
+	 * Get the sum of the weight of the neighbours of the given vertex that belong
 	 * to the given community
 	 *
 	 * @param vertex
 	 * @param com is the target community
-	 * @return the sum of the weight of the neighbors
+	 * @return the sum of the weight of the neighbours
 	 */
-	typeWeight neighborsCommunityWeight(const typeVertex & vertex, const typeCommunity & com)const{
+	typeWeight neighboursCommunityWeight(const typeVertex & vertex, const typeCommunity & com)const{
 		typeWeight cnt=0;
-		typeLinksRangeConst a=neighbors(vertex);
+		typeLinksRangeConst a=neighbours(vertex);
 		for(typeLinksIteratorConst it=a.first;it!=a.second;++it){
 			const typeLinksPair & b=*it;
 			const HalfEdge & c=b.second;
@@ -671,15 +671,15 @@ public:
 	}
 
 	/**
-	 * Get the sum of the weight of the neighbors of the given vertex that belong
+	 * Get the sum of the weight of the neighbours of the given vertex that belong
 	 * to the same community as the vertex
 	 *
 	 * @param vertex
-	 * @return the sum of the weight of the neighbors
+	 * @return the sum of the weight of the neighbours
 	 */
-	typeWeight neighborsCommunityWeight(const typeVertex & vertex)const{
+	typeWeight neighboursCommunityWeight(const typeVertex & vertex)const{
 		const typeCommunity & com=community(vertex);
-		return neighborsCommunityWeight(vertex,com);
+		return neighboursCommunityWeight(vertex,com);
 	}
 
 	/**

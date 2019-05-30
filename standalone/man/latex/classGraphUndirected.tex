@@ -48,12 +48,12 @@ bool \hyperlink{classGraphUndirected_ad39275e7a8f7a39734916b8c5400a1d6}{remove\+
 \item 
 const \hyperlink{graphInterface_8h_a21d54d8a139def524d3b0d6f71ec4974}{type\+Vertex\+List} \& \hyperlink{classGraphUndirected_af2f65109919c878a1fd7637d3bfe0991}{get\+Vertices} () const
 \item 
-\hyperlink{graphInterface_8h_ae8d27008f15586bbf419af7ad2e0a48a}{type\+Links\+Range\+Const} \hyperlink{classGraphUndirected_ad9058dbbd7e6d2930a6a233e8b6b0547}{neighbors} (const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&vertex) const
-\begin{DoxyCompactList}\small\item\em Get the neighbors of a vertex. \end{DoxyCompactList}\item 
-\hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \hyperlink{classGraphUndirected_a5bc804358a7bc0087953023c597a621b}{neighbors\+Weight} (const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&vertex) const
-\begin{DoxyCompactList}\small\item\em Get the sum of the weights of the neighbors of a vertex. \end{DoxyCompactList}\item 
-unsigned int \hyperlink{classGraphUndirected_a90fdfbabe541262292733703d839812a}{neighbors\+Count} (const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&vertex) const
-\begin{DoxyCompactList}\small\item\em Get the number of neighbors of a vertex. \end{DoxyCompactList}\item 
+\hyperlink{graphInterface_8h_ae8d27008f15586bbf419af7ad2e0a48a}{type\+Links\+Range\+Const} \hyperlink{classGraphUndirected_a5c8c85acc5ea87f43ac0dcbde61f06e0}{neighbours} (const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&vertex) const
+\begin{DoxyCompactList}\small\item\em Get the neighbours of a vertex. \end{DoxyCompactList}\item 
+\hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \hyperlink{classGraphUndirected_aa6c4a4b19efb152de6cdc21d67ac5eed}{neighbours\+Weight} (const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&vertex) const
+\begin{DoxyCompactList}\small\item\em Get the sum of the weights of the neighbours of a vertex. \end{DoxyCompactList}\item 
+unsigned int \hyperlink{classGraphUndirected_a6377b3a1a0d05fa1f96abb6e4b4b8792}{neighbours\+Count} (const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&vertex) const
+\begin{DoxyCompactList}\small\item\em Get the number of neighbours of a vertex. \end{DoxyCompactList}\item 
 \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \hyperlink{classGraphUndirected_ae40d431c92d8b4884c7915c44d42f356}{weight} (const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&source, const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&destination) const
 \item 
 const \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \& \hyperlink{classGraphUndirected_a7c21f40748eef95d1c35be892ab10ce2}{max\+Weight} () const
@@ -175,7 +175,8 @@ References multimap\+::find(), max\+Weight(), no\+Vertex, replace(), update\+Max
 
 Referenced by Graph\+Undirected\+Groupable\+::add\+Edge(), Graph\+Undirected\+Groupable\+::communities\+To\+Graph(), Graph\+Undirected\+Groupable\+::community(), and Graph\+Undirected\+Groupable\+::remove\+Edge().
 
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -221,7 +222,8 @@ References add\+Edge(), Edge\+::destination(), Edge\+::source(), and Edge\+::wei
 
 Referenced by add\+Edge().
 
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -309,7 +311,8 @@ Definition at line 49 of file graph\+Undirected.\+h.
 
 References weight().
 
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -341,15 +344,15 @@ References max\+\_\+weight.
 
 Referenced by add\+Edge(), Algorithm\+Louvain\+::max\+Weight(), and update\+Max\+Weight().
 
-\mbox{\Hypertarget{classGraphUndirected_ad9058dbbd7e6d2930a6a233e8b6b0547}\label{classGraphUndirected_ad9058dbbd7e6d2930a6a233e8b6b0547}} 
-\index{Graph\+Undirected@{Graph\+Undirected}!neighbors@{neighbors}}
-\index{neighbors@{neighbors}!Graph\+Undirected@{Graph\+Undirected}}
-\subsubsection{\texorpdfstring{neighbors()}{neighbors()}}
-{\footnotesize\ttfamily \hyperlink{graphInterface_8h_ae8d27008f15586bbf419af7ad2e0a48a}{type\+Links\+Range\+Const} Graph\+Undirected\+::neighbors (\begin{DoxyParamCaption}\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{vertex }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+\mbox{\Hypertarget{classGraphUndirected_a5c8c85acc5ea87f43ac0dcbde61f06e0}\label{classGraphUndirected_a5c8c85acc5ea87f43ac0dcbde61f06e0}} 
+\index{Graph\+Undirected@{Graph\+Undirected}!neighbours@{neighbours}}
+\index{neighbours@{neighbours}!Graph\+Undirected@{Graph\+Undirected}}
+\subsubsection{\texorpdfstring{neighbours()}{neighbours()}}
+{\footnotesize\ttfamily \hyperlink{graphInterface_8h_ae8d27008f15586bbf419af7ad2e0a48a}{type\+Links\+Range\+Const} Graph\+Undirected\+::neighbours (\begin{DoxyParamCaption}\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{vertex }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
 
 
 
-Get the neighbors of a vertex. 
+Get the neighbours of a vertex. 
 
 The pair can change between calls if the Indexed edge list is modified. 
 \begin{DoxyParams}{Parameters}
@@ -357,11 +360,11 @@ The pair can change between calls if the Indexed edge list is modified.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-pointers to the first and last neighbor of the vertex 
+pointers to the first and last neighbour of the vertex 
 \end{DoxyReturn}
 
 
-Implements \hyperlink{classGraphInterface_afd5cdff5531b27fca35b58904d757db6}{Graph\+Interface}.
+Implements \hyperlink{classGraphInterface_a23e03d032193544c77d04310fe9e4785}{Graph\+Interface}.
 
 
 
@@ -373,17 +376,17 @@ References no\+Vertex.
 
 
 
-Referenced by Graph\+Undirected\+Groupable\+::community(), Algorithm\+Louvain\+::disband(), Graph\+Undirected\+Groupable\+::neighboring\+Communities(), Algorithm\+Louvain\+::neighbors(), Graph\+Undirected\+Groupable\+::neighbors\+Community\+Count(), Graph\+Undirected\+Groupable\+::neighbors\+Community\+Weight(), neighbors\+Weight(), Dyn\+Comm\+Base\+::neighbours(), to\+String(), and weighted\+\_\+degree().
+Referenced by Graph\+Undirected\+Groupable\+::community(), Algorithm\+Louvain\+::disband(), Graph\+Undirected\+Groupable\+::neighbouring\+Communities(), Algorithm\+Louvain\+::neighbours(), Dyn\+Comm\+Base\+::neighbours(), Graph\+Undirected\+Groupable\+::neighbours\+Community\+Count(), Graph\+Undirected\+Groupable\+::neighbours\+Community\+Weight(), neighbours\+Weight(), to\+String(), and weighted\+\_\+degree().
 
-\mbox{\Hypertarget{classGraphUndirected_a90fdfbabe541262292733703d839812a}\label{classGraphUndirected_a90fdfbabe541262292733703d839812a}} 
-\index{Graph\+Undirected@{Graph\+Undirected}!neighbors\+Count@{neighbors\+Count}}
-\index{neighbors\+Count@{neighbors\+Count}!Graph\+Undirected@{Graph\+Undirected}}
-\subsubsection{\texorpdfstring{neighbors\+Count()}{neighborsCount()}}
-{\footnotesize\ttfamily unsigned int Graph\+Undirected\+::neighbors\+Count (\begin{DoxyParamCaption}\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{vertex }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+\mbox{\Hypertarget{classGraphUndirected_a6377b3a1a0d05fa1f96abb6e4b4b8792}\label{classGraphUndirected_a6377b3a1a0d05fa1f96abb6e4b4b8792}} 
+\index{Graph\+Undirected@{Graph\+Undirected}!neighbours\+Count@{neighbours\+Count}}
+\index{neighbours\+Count@{neighbours\+Count}!Graph\+Undirected@{Graph\+Undirected}}
+\subsubsection{\texorpdfstring{neighbours\+Count()}{neighboursCount()}}
+{\footnotesize\ttfamily unsigned int Graph\+Undirected\+::neighbours\+Count (\begin{DoxyParamCaption}\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{vertex }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
 
 
 
-Get the number of neighbors of a vertex. 
+Get the number of neighbours of a vertex. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -391,11 +394,11 @@ Get the number of neighbors of a vertex.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-the number of neighbors of the given vertex 
+the number of neighbours of the given vertex 
 \end{DoxyReturn}
 
 
-Implements \hyperlink{classGraphInterface_a07f96d04c5481c6f573f478add5f7162}{Graph\+Interface}.
+Implements \hyperlink{classGraphInterface_ae9b85226881a84124ce6dbaba498edce}{Graph\+Interface}.
 
 
 
@@ -407,17 +410,17 @@ References no\+Vertex.
 
 
 
-Referenced by Graph\+Undirected\+Groupable\+::neighboring\+Communities\+Count(), Algorithm\+Louvain\+::neighbors\+Count(), and Graph\+Undirected\+Groupable\+::remove\+Edge().
+Referenced by Graph\+Undirected\+Groupable\+::neighbouring\+Communities\+Count(), Algorithm\+Louvain\+::neighbours\+Count(), and Graph\+Undirected\+Groupable\+::remove\+Edge().
 
-\mbox{\Hypertarget{classGraphUndirected_a5bc804358a7bc0087953023c597a621b}\label{classGraphUndirected_a5bc804358a7bc0087953023c597a621b}} 
-\index{Graph\+Undirected@{Graph\+Undirected}!neighbors\+Weight@{neighbors\+Weight}}
-\index{neighbors\+Weight@{neighbors\+Weight}!Graph\+Undirected@{Graph\+Undirected}}
-\subsubsection{\texorpdfstring{neighbors\+Weight()}{neighborsWeight()}}
-{\footnotesize\ttfamily \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} Graph\+Undirected\+::neighbors\+Weight (\begin{DoxyParamCaption}\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{vertex }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+\mbox{\Hypertarget{classGraphUndirected_aa6c4a4b19efb152de6cdc21d67ac5eed}\label{classGraphUndirected_aa6c4a4b19efb152de6cdc21d67ac5eed}} 
+\index{Graph\+Undirected@{Graph\+Undirected}!neighbours\+Weight@{neighbours\+Weight}}
+\index{neighbours\+Weight@{neighbours\+Weight}!Graph\+Undirected@{Graph\+Undirected}}
+\subsubsection{\texorpdfstring{neighbours\+Weight()}{neighboursWeight()}}
+{\footnotesize\ttfamily \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} Graph\+Undirected\+::neighbours\+Weight (\begin{DoxyParamCaption}\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{vertex }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
 
 
 
-Get the sum of the weights of the neighbors of a vertex. 
+Get the sum of the weights of the neighbours of a vertex. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -425,11 +428,11 @@ Get the sum of the weights of the neighbors of a vertex.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-the sum of the weights of the neighbors of the given vertex 
+the sum of the weights of the neighbours of the given vertex 
 \end{DoxyReturn}
 
 
-Implements \hyperlink{classGraphInterface_a77b93eb2da955cb41b389df023676c1b}{Graph\+Interface}.
+Implements \hyperlink{classGraphInterface_a62e1ed1899155eb63cf7ee82970cd415}{Graph\+Interface}.
 
 
 
@@ -437,18 +440,18 @@ Definition at line 216 of file graph\+Undirected.\+h.
 
 
 
-References neighbors().
+References neighbours().
 
 
 
-Referenced by Graph\+Undirected\+Groupable\+::community(), and Graph\+Undirected\+Groupable\+::neighboring\+Communities\+Weight().
+Referenced by Graph\+Undirected\+Groupable\+::community(), and Graph\+Undirected\+Groupable\+::neighbouring\+Communities\+Weight().
 
 Here is the call graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{classGraphUndirected_a5bc804358a7bc0087953023c597a621b_cgraph}
+\includegraphics[width=350pt]{classGraphUndirected_aa6c4a4b19efb152de6cdc21d67ac5eed_cgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{classGraphUndirected_af4a40541132a66c9b688a20958057751}\label{classGraphUndirected_af4a40541132a66c9b688a20958057751}} 
@@ -489,7 +492,8 @@ References multimap\+::find(), and update\+Max\+Weight().
 
 Referenced by Graph\+Undirected\+Groupable\+::communities\+To\+Graph(), Graph\+Undirected\+Groupable\+::community(), and Graph\+Undirected\+Groupable\+::remove\+Edge().
 
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -533,7 +537,8 @@ References Edge\+::destination(), remove\+Edge(), and Edge\+::source().
 
 Referenced by remove\+Edge().
 
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -578,7 +583,8 @@ References multimap\+::find(), and no\+Vertex.
 
 Referenced by add\+Edge(), Graph\+Undirected\+Groupable\+::replace(), and Graph\+Undirected\+Groupable\+::replace\+Community().
 
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -608,7 +614,7 @@ Definition at line 342 of file graph\+Undirected.\+h.
 
 
 
-References Half\+Edge\+::destination(), String\+Formatter\+::end(), String\+Formatter\+::header(), neighbors(), String\+Formatter\+::set\+Close(), String\+Formatter\+::set\+Open(), String\+Formatter\+::start(), String\+Formatter\+::tuple\+Close(), String\+Formatter\+::tuple\+Open(), String\+Formatter\+::value\+Separator(), and Half\+Edge\+::weight().
+References Half\+Edge\+::destination(), String\+Formatter\+::end(), String\+Formatter\+::header(), neighbours(), String\+Formatter\+::set\+Close(), String\+Formatter\+::set\+Open(), String\+Formatter\+::start(), String\+Formatter\+::tuple\+Close(), String\+Formatter\+::tuple\+Open(), String\+Formatter\+::value\+Separator(), and Half\+Edge\+::weight().
 
 
 
@@ -665,7 +671,8 @@ References max\+Weight(), and Half\+Edge\+::weight().
 
 Referenced by add\+Edge(), and remove\+Edge().
 
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -690,7 +697,8 @@ References Half\+Edge\+::weight().
 
 Referenced by add\+Edge().
 
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -743,7 +751,8 @@ References multimap\+::find(), and Half\+Edge\+::weight().
 
 Referenced by add\+Edge(), Graph\+Undirected\+Groupable\+::add\+Edge(), Algorithm\+Louvain\+::add\+Remove\+Edge\+Post(), Algorithm\+Louvain\+::add\+Remove\+Edge\+Pre(), Graph\+Undirected\+Groupable\+::communities\+To\+Graph(), Graph\+Undirected\+Groupable\+::community(), max\+Weight(), Graph\+Undirected\+Groupable\+::remove\+Edge(), Graph\+Undirected\+Groupable\+::update(), Dyn\+Comm\+Base\+::weight(), and Graph\+Undirected\+Groupable\+::weight\+Community().
 
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -762,7 +771,7 @@ Here is the call graph for this function\+:\nopagebreak
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-the weighted degree (sum of weights of the neighbors) of the given vertex 
+the weighted degree (sum of weights of the neighbours) of the given vertex 
 \end{DoxyReturn}
 
 
@@ -774,7 +783,7 @@ Definition at line 276 of file graph\+Undirected.\+h.
 
 
 
-References neighbors(), and Half\+Edge\+::weight().
+References neighbours(), and Half\+Edge\+::weight().
 
 
 

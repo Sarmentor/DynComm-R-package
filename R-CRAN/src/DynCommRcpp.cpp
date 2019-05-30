@@ -180,7 +180,7 @@ public:
 	}
 
 	/**
-	 * @return a matrix of neighboring communities of the given community and the weight of their edge
+	 * @return a matrix of neighbouring communities of the given community and the weight of their edge
 	 */
 	Rcpp::NumericMatrix communityNeighbours(typeCommunity community)const{
 		typeLinksRangeConst c=dcb.communityNeighbours(community);
@@ -303,7 +303,7 @@ public:
 	}
 
 	/**
-	 * @return a list of neighboring communities of the given community
+	 * @return a list of neighbouring communities of the given community
 	 */
 	Rcpp::NumericMatrix neighbours(typeVertex vertex)const{
 		typeLinksRangeConst c=dcb.neighbours(vertex);

@@ -1,0 +1,9 @@
+<map id="GraphUndirectedGroupable::neighboursCommunityWeight" name="GraphUndirectedGroupable::neighboursCommunityWeight">
+<area shape="rect" id="node2" href="$classGraphUndirectedGroupable.html#ad40474d566b3f9fbe9d132fbbe562ed5" title="GraphUndirectedGroupable\l::community" alt="" coords="510,23,689,65"/>
+<area shape="rect" id="node5" href="$classGraphUndirectedGroupable.html#a23551b49c2cbf1b533e300af5c1f20da" title="GraphUndirectedGroupable\l::neighboursCommunityWeight" alt="" coords="255,82,456,123"/>
+<area shape="rect" id="node3" href="$classMapReversable.html#acf794209bf91fe8f6026f090ccb7635f" title="MapReversable::cend" alt="" coords="743,5,892,32"/>
+<area shape="rect" id="node4" href="$classMapReversable.html#a30fd5b0e4e2578d3eaad8926a5d12cb2" title="MapReversable::find" alt="" coords="746,56,889,83"/>
+<area shape="rect" id="node6" href="$classHalfEdge.html#a98c0fb1c54506abbd3c0ac4a1264dac1" title="HalfEdge::destination" alt="" coords="526,89,673,116"/>
+<area shape="rect" id="node7" href="$classGraphUndirected.html#a5c8c85acc5ea87f43ac0dcbde61f06e0" title="Get the neighbours of a vertex. " alt="" coords="504,140,695,167"/>
+<area shape="rect" id="node8" href="$classHalfEdge.html#a89cc13d21ae44a9d9c2ba95f89576090" title="HalfEdge::weight" alt="" coords="538,191,661,217"/>
+</map>

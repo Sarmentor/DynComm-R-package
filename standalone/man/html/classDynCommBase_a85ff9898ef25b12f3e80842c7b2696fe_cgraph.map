@@ -30,11 +30,11 @@
 <area shape="rect" id="node20" href="$classAlgorithmLouvain.html#a1e38f3c6a2df8b028328131b3dfceb94" title="AlgorithmLouvain::disband" alt="" coords="1050,789,1225,816"/>
 <area shape="rect" id="node21" href="$classHalfEdge.html#a98c0fb1c54506abbd3c0ac4a1264dac1" title="HalfEdge::destination" alt="" coords="1310,963,1457,989"/>
 <area shape="rect" id="node22" href="$classGraphUndirectedGroupable.html#ac82f4c93994c372d05a660b36cdce8f3" title="Disband the given community. " alt="" coords="1294,795,1473,837"/>
-<area shape="rect" id="node23" href="$classGraphUndirectedGroupable.html#a248d992baca0755467a2eaea96fe3654" title="GraphUndirectedGroupable\l::neighboringCommunities" alt="" coords="1294,1079,1473,1121"/>
-<area shape="rect" id="node24" href="$classGraphUndirected.html#ad9058dbbd7e6d2930a6a233e8b6b0547" title="Get the neighbors of a vertex. " alt="" coords="1538,999,1722,1025"/>
+<area shape="rect" id="node23" href="$classGraphUndirectedGroupable.html#a48823a0162b95a72c22d0ab01a709e1f" title="GraphUndirectedGroupable\l::neighbouringCommunities" alt="" coords="1293,1079,1473,1121"/>
+<area shape="rect" id="node24" href="$classGraphUndirected.html#a5c8c85acc5ea87f43ac0dcbde61f06e0" title="Get the neighbours of a vertex. " alt="" coords="1535,999,1725,1025"/>
 <area shape="rect" id="node29" href="$classGraphUndirectedGroupable.html#aaa5e7db5ba0b5b87ed6af50ef958b9d7" title="GraphUndirectedGroupable\l::vertices" alt="" coords="1294,1014,1473,1055"/>
 <area shape="rect" id="node26" href="$classGraphUndirected.html#af4a40541132a66c9b688a20958057751" title="GraphUndirected::removeEdge" alt="" coords="1529,647,1731,673"/>
-<area shape="rect" id="node27" href="$classGraphUndirected.html#a90fdfbabe541262292733703d839812a" title="Get the number of neighbors of a vertex. " alt="" coords="1538,479,1722,521"/>
+<area shape="rect" id="node27" href="$classGraphUndirected.html#a6377b3a1a0d05fa1f96abb6e4b4b8792" title="Get the number of neighbours of a vertex. " alt="" coords="1535,479,1725,521"/>
 <area shape="rect" id="node28" href="$classMapReversable.html#aa4338f7c831e5a404758f88e80d13672" title="MapReversable::remove" alt="" coords="1548,697,1712,724"/>
 <area shape="rect" id="node31" href="$classAlgorithmLouvain.html#a883c922bf2f3c3aadb9db4962c0d8dce" title="AlgorithmLouvain::addRemove\lEdgePre" alt="" coords="1037,518,1237,559"/>
 <area shape="rect" id="node36" href="$classAlgorithm.html#adb63a5f03ed70abb7e355631799c1ad0" title="Algorithm::Algorithm" alt="" coords="817,981,957,1008"/>

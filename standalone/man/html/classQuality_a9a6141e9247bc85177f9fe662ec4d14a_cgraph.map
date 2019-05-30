@@ -1,8 +1,0 @@
-<map id="Quality::quality" name="Quality::quality">
-<area shape="rect" id="node2" href="$classBalMod.html#a5cfc9f2446c0734496440aa7fcfc2a9a" title="BalMod::quality" alt="" coords="171,71,283,98"/>
-<area shape="rect" id="node7" href="$classModularity.html#ab594c2c6ccde0e9467d7548923612c3a" title="Modularity::quality" alt="" coords="163,122,291,149"/>
-<area shape="rect" id="node3" href="$classGraphUndirected.html#af2f65109919c878a1fd7637d3bfe0991" title="GraphUndirected::getVertices" alt="" coords="339,122,533,149"/>
-<area shape="rect" id="node4" href="$classGraphUndirectedGroupable.html#a1986c140fd9aba8063774372c971706d" title="GraphUndirectedGroupable\l::innerEdges" alt="" coords="347,173,525,215"/>
-<area shape="rect" id="node5" href="$classGraphUndirectedGroupable.html#a8aa795a6e0ae115d35937508c5aad401" title="GraphUndirectedGroupable\l::totalEdges" alt="" coords="347,5,525,47"/>
-<area shape="rect" id="node6" href="$classGraphUndirected.html#a41ba96531c669461dbc7e11ee35796ab" title="GraphUndirected::totalWeight" alt="" coords="339,71,533,98"/>
-</map>

@@ -1,27 +1,27 @@
 <map id="AlgorithmLouvain::disband" name="AlgorithmLouvain::disband">
-<area shape="rect" id="node2" href="$classGraphUndirectedGroupable.html#a8c010517bff903a50807e6e8ad8cc6db" title="GraphUndirectedGroupable\l::addEdge" alt="" coords="228,457,407,498"/>
-<area shape="rect" id="node5" href="$classHalfEdge.html#a89cc13d21ae44a9d9c2ba95f89576090" title="HalfEdge::weight" alt="" coords="996,187,1119,214"/>
-<area shape="rect" id="node12" href="$classGraphUndirectedGroupable.html#ad40474d566b3f9fbe9d132fbbe562ed5" title="GraphUndirectedGroupable\l::community" alt="" coords="466,581,645,622"/>
-<area shape="rect" id="node17" href="$classHalfEdge.html#a98c0fb1c54506abbd3c0ac4a1264dac1" title="HalfEdge::destination" alt="" coords="244,706,391,732"/>
-<area shape="rect" id="node18" href="$classGraphUndirectedGroupable.html#ac82f4c93994c372d05a660b36cdce8f3" title="Disband the given community. " alt="" coords="228,574,407,616"/>
-<area shape="rect" id="node20" href="$classGraphUndirectedGroupable.html#a248d992baca0755467a2eaea96fe3654" title="GraphUndirectedGroupable\l::neighboringCommunities" alt="" coords="228,757,407,798"/>
-<area shape="rect" id="node21" href="$classGraphUndirected.html#ad9058dbbd7e6d2930a6a233e8b6b0547" title="Get the neighbors of a vertex. " alt="" coords="463,794,647,820"/>
-<area shape="rect" id="node22" href="$classGraphUndirectedGroupable.html#ad1a488cc292d7e63d289f598aeaaacd6" title="GraphUndirectedGroupable\l::removeEdge" alt="" coords="228,264,407,305"/>
-<area shape="rect" id="node26" href="$classGraphUndirectedGroupable.html#aaa5e7db5ba0b5b87ed6af50ef958b9d7" title="GraphUndirectedGroupable\l::vertices" alt="" coords="228,640,407,681"/>
-<area shape="rect" id="node3" href="$classGraphUndirected.html#ae40d431c92d8b4884c7915c44d42f356" title="GraphUndirected::weight" alt="" coords="725,390,891,416"/>
-<area shape="rect" id="node6" href="$classGraphUndirected.html#a2be69d987f3b4fa1cf547898d30b47d2" title="GraphUndirected::addEdge" alt="" coords="466,246,645,272"/>
-<area shape="rect" id="node11" href="$classGraphUndirectedGroupable.html#ad2685678f448028f17c7627634659f7c" title="GraphUndirectedGroupable\l::replace" alt="" coords="466,516,645,557"/>
-<area shape="rect" id="node15" href="$classMapReversable.html#a2d4fbdc1aae7e5e53cf58c6bea63b450" title="MapReversable::add" alt="" coords="484,464,627,491"/>
-<area shape="rect" id="node16" href="$classGraphUndirectedGroupable.html#a7a0503e8cd7a84b7f4cd76e22ca5270a" title="GraphUndirectedGroupable\l::update" alt="" coords="466,348,645,389"/>
-<area shape="rect" id="node4" href="$namespacemultimap.html#a1824643a35a661af8c8975b16b273142" title="multimap::find" alt="" coords="1005,314,1109,340"/>
-<area shape="rect" id="node7" href="$classGraphUndirected.html#aee3bc279ffe39f8efb7dd60865279474" title="GraphUndirected::replace" alt="" coords="723,288,893,315"/>
-<area shape="rect" id="node8" href="$classGraphUndirected.html#aba42cbb7de421af5452f50025154ec73" title="GraphUndirected::updateWeight" alt="" coords="704,238,912,264"/>
-<area shape="rect" id="node9" href="$classGraphUndirected.html#a7c21f40748eef95d1c35be892ab10ce2" title="GraphUndirected::maxWeight" alt="" coords="960,48,1155,75"/>
-<area shape="rect" id="node10" href="$classGraphUndirected.html#a10582b249617c876bdf298f675285960" title="GraphUndirected::updateMax\lWeight" alt="" coords="712,70,904,112"/>
-<area shape="rect" id="node13" href="$classMapReversable.html#a30fd5b0e4e2578d3eaad8926a5d12cb2" title="MapReversable::find" alt="" coords="737,614,879,640"/>
-<area shape="rect" id="node14" href="$classMapReversable.html#acf794209bf91fe8f6026f090ccb7635f" title="MapReversable::cend" alt="" coords="733,563,883,590"/>
-<area shape="rect" id="node19" href="$classMapReversable.html#a9587d6d95127e6941407af03584d3e00" title="MapReversable::keys" alt="" coords="481,647,630,674"/>
-<area shape="rect" id="node23" href="$classGraphUndirected.html#af4a40541132a66c9b688a20958057751" title="GraphUndirected::removeEdge" alt="" coords="455,78,656,104"/>
-<area shape="rect" id="node24" href="$classGraphUndirected.html#a90fdfbabe541262292733703d839812a" title="Get the number of neighbors of a vertex. " alt="" coords="463,180,647,221"/>
-<area shape="rect" id="node25" href="$classMapReversable.html#aa4338f7c831e5a404758f88e80d13672" title="MapReversable::remove" alt="" coords="473,128,637,155"/>
+<area shape="rect" id="node2" href="$classGraphUndirectedGroupable.html#a8c010517bff903a50807e6e8ad8cc6db" title="GraphUndirectedGroupable\l::addEdge" alt="" coords="229,457,407,498"/>
+<area shape="rect" id="node5" href="$classHalfEdge.html#a89cc13d21ae44a9d9c2ba95f89576090" title="HalfEdge::weight" alt="" coords="997,187,1120,214"/>
+<area shape="rect" id="node12" href="$classGraphUndirectedGroupable.html#ad40474d566b3f9fbe9d132fbbe562ed5" title="GraphUndirectedGroupable\l::community" alt="" coords="467,581,646,622"/>
+<area shape="rect" id="node17" href="$classHalfEdge.html#a98c0fb1c54506abbd3c0ac4a1264dac1" title="HalfEdge::destination" alt="" coords="245,706,391,732"/>
+<area shape="rect" id="node18" href="$classGraphUndirectedGroupable.html#ac82f4c93994c372d05a660b36cdce8f3" title="Disband the given community. " alt="" coords="229,574,407,616"/>
+<area shape="rect" id="node20" href="$classGraphUndirectedGroupable.html#a48823a0162b95a72c22d0ab01a709e1f" title="GraphUndirectedGroupable\l::neighbouringCommunities" alt="" coords="228,757,408,798"/>
+<area shape="rect" id="node21" href="$classGraphUndirected.html#a5c8c85acc5ea87f43ac0dcbde61f06e0" title="Get the neighbours of a vertex. " alt="" coords="461,794,652,820"/>
+<area shape="rect" id="node22" href="$classGraphUndirectedGroupable.html#ad1a488cc292d7e63d289f598aeaaacd6" title="GraphUndirectedGroupable\l::removeEdge" alt="" coords="229,264,407,305"/>
+<area shape="rect" id="node26" href="$classGraphUndirectedGroupable.html#aaa5e7db5ba0b5b87ed6af50ef958b9d7" title="GraphUndirectedGroupable\l::vertices" alt="" coords="229,640,407,681"/>
+<area shape="rect" id="node3" href="$classGraphUndirected.html#ae40d431c92d8b4884c7915c44d42f356" title="GraphUndirected::weight" alt="" coords="726,390,893,416"/>
+<area shape="rect" id="node6" href="$classGraphUndirected.html#a2be69d987f3b4fa1cf547898d30b47d2" title="GraphUndirected::addEdge" alt="" coords="467,246,646,272"/>
+<area shape="rect" id="node11" href="$classGraphUndirectedGroupable.html#ad2685678f448028f17c7627634659f7c" title="GraphUndirectedGroupable\l::replace" alt="" coords="467,516,646,557"/>
+<area shape="rect" id="node15" href="$classMapReversable.html#a2d4fbdc1aae7e5e53cf58c6bea63b450" title="MapReversable::add" alt="" coords="485,464,628,491"/>
+<area shape="rect" id="node16" href="$classGraphUndirectedGroupable.html#a7a0503e8cd7a84b7f4cd76e22ca5270a" title="GraphUndirectedGroupable\l::update" alt="" coords="467,348,646,389"/>
+<area shape="rect" id="node4" href="$namespacemultimap.html#a1824643a35a661af8c8975b16b273142" title="multimap::find" alt="" coords="1007,314,1111,340"/>
+<area shape="rect" id="node7" href="$classGraphUndirected.html#aee3bc279ffe39f8efb7dd60865279474" title="GraphUndirected::replace" alt="" coords="724,288,895,315"/>
+<area shape="rect" id="node8" href="$classGraphUndirected.html#aba42cbb7de421af5452f50025154ec73" title="GraphUndirected::updateWeight" alt="" coords="705,238,913,264"/>
+<area shape="rect" id="node9" href="$classGraphUndirected.html#a7c21f40748eef95d1c35be892ab10ce2" title="GraphUndirected::maxWeight" alt="" coords="961,48,1156,75"/>
+<area shape="rect" id="node10" href="$classGraphUndirected.html#a10582b249617c876bdf298f675285960" title="GraphUndirected::updateMax\lWeight" alt="" coords="713,70,905,112"/>
+<area shape="rect" id="node13" href="$classMapReversable.html#a30fd5b0e4e2578d3eaad8926a5d12cb2" title="MapReversable::find" alt="" coords="738,614,881,640"/>
+<area shape="rect" id="node14" href="$classMapReversable.html#acf794209bf91fe8f6026f090ccb7635f" title="MapReversable::cend" alt="" coords="735,563,884,590"/>
+<area shape="rect" id="node19" href="$classMapReversable.html#a9587d6d95127e6941407af03584d3e00" title="MapReversable::keys" alt="" coords="482,647,631,674"/>
+<area shape="rect" id="node23" href="$classGraphUndirected.html#af4a40541132a66c9b688a20958057751" title="GraphUndirected::removeEdge" alt="" coords="456,78,657,104"/>
+<area shape="rect" id="node24" href="$classGraphUndirected.html#a6377b3a1a0d05fa1f96abb6e4b4b8792" title="Get the number of neighbours of a vertex. " alt="" coords="461,180,652,221"/>
+<area shape="rect" id="node25" href="$classMapReversable.html#aa4338f7c831e5a404758f88e80d13672" title="MapReversable::remove" alt="" coords="475,128,639,155"/>
 </map>

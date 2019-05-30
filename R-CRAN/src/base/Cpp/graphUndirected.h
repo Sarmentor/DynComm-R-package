@@ -198,24 +198,24 @@ public:
 	const typeVertexList & getVertices()const {return vertices;}
 
 	/**
-	 * @brief Get the neighbors of a vertex
+	 * @brief Get the neighbours of a vertex
 	 * @details The pair can change between calls if the Indexed edge list is modified.
 	 * @param vertex
-	 * @return pointers to the first and last neighbor of the vertex
+	 * @return pointers to the first and last neighbour of the vertex
 	 */
-	typeLinksRangeConst neighbors(const typeVertex & vertex)const {
+	typeLinksRangeConst neighbours(const typeVertex & vertex)const {
 		if(vertex==noVertex) return std::make_pair(links.cbegin(),links.cend());
 		return links.equal_range(vertex);
 	}
 
 	/**
-	 * @brief Get the sum of the weights of the neighbors of a vertex
+	 * @brief Get the sum of the weights of the neighbours of a vertex
 	 * @param vertex
-	 * @return the sum of the weights of the neighbors of the given vertex
+	 * @return the sum of the weights of the neighbours of the given vertex
 	 */
-	typeWeight neighborsWeight(const typeVertex & vertex)const{
+	typeWeight neighboursWeight(const typeVertex & vertex)const{
 		typeWeight w=0;
-		typeLinksRangeConst r=neighbors(vertex);
+		typeLinksRangeConst r=neighbours(vertex);
 		for(typeLinksIteratorConst it=r.first;it!=r.second;++it){
 			const typeLinksPair & p=*it;
 			if(vertex!=p.second.destination()) w+=p.second.weight();
@@ -224,11 +224,11 @@ public:
 	}
 
 	/**
-	 * @brief Get the number of neighbors of a vertex
+	 * @brief Get the number of neighbours of a vertex
 	 * @param vertex
-	 * @return the number of neighbors of the given vertex
+	 * @return the number of neighbours of the given vertex
 	 */
-	unsigned int neighborsCount(const typeVertex & vertex)const {
+	unsigned int neighboursCount(const typeVertex & vertex)const {
 		if (vertex==noVertex) return links.size();
 		return links.count(vertex);
 	}
@@ -271,10 +271,10 @@ public:
 
 	/**
 	 * @param vertex
-	 * @return the weighted degree (sum of weights of the neighbors) of the given vertex
+	 * @return the weighted degree (sum of weights of the neighbours) of the given vertex
 	 */
 	typeWeight weighted_degree(const typeVertex & vertex)const {
-		typeLinksRangeConst p = neighbors(vertex);
+		typeLinksRangeConst p = neighbours(vertex);
 		typeWeight res = 0.0L;
 		for (typeLinksIteratorConst it=p.first ; it!=p.second ; ++it) {
 			const typeLinksPair & a=*it;
@@ -348,7 +348,7 @@ public:
 		f.start(ss,true);
 		for(typeVertexListIterator itn=vertices.begin();itn!=vertices.end();++itn){
 			typeVertex vertex=*itn;
-			typeLinksRangeConst p=neighbors(vertex);
+			typeLinksRangeConst p=neighbours(vertex);
 			for (typeLinksIteratorConst it=p.first ; it!=p.second ; ++it){
 				const typeLinksPair & a=*it;
 				const HalfEdge & e=a.second;

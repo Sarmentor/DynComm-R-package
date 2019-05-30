@@ -21,6 +21,7 @@ var hierarchy =
       [ "DynCommBase", "classDynCommBase.html", null ]
     ] ],
     [ "DynCommRcpp", "classDynCommRcpp.html", null ],
+    [ "DynCommReticulate.DynCommReticulate", "classDynCommReticulate_1_1DynCommReticulate.html", null ],
     [ "GraphInterface", "classGraphInterface.html", [
       [ "GraphUndirected", "classGraphUndirected.html", [
         [ "GraphUndirectedGroupable", "classGraphUndirectedGroupable.html", null ]

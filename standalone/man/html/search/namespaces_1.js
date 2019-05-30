@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['set',['set',['../namespaceset.html',1,'']]]
+  ['map',['map',['../namespacemap.html',1,'']]],
+  ['multimap',['multimap',['../namespacemultimap.html',1,'']]]
 ];
