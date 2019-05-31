@@ -1,0 +1,128 @@
+\hypertarget{classCriterionBase}{}\section{Criterion\+Base Class Reference}
+\label{classCriterionBase}\index{Criterion\+Base@{Criterion\+Base}}
+
+
+Base class for criterion.  
+
+
+
+
+{\ttfamily \#include $<$criterion\+Base.\+h$>$}
+
+
+
+Inheritance diagram for Criterion\+Base\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{classCriterionBase__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Criterion\+Base\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCriterionBase__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classCriterionBase_a23370b412ce1e656415f77126e55f194}{Criterion\+Base} (const \hyperlink{classGraphUndirectedGroupable}{Graph\+Undirected\+Groupable} \&graph, const \hyperlink{structProgramParameters}{Program\+Parameters} \&parameters=\hyperlink{program_8h_ae2d819404495f80f31db7676c1329d19}{arguments\+Default})
+\item 
+virtual \hyperlink{classCriterionBase_a6787dc90e0ac605e3115949cb19f0867}{$\sim$\+Criterion\+Base} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const \hyperlink{classGraphUndirectedGroupable}{Graph\+Undirected\+Groupable} \& \hyperlink{classCriterionBase_a610fe9f207de420117ad25550c185f97}{g}
+\item 
+const \hyperlink{structProgramParameters}{Program\+Parameters} \& \hyperlink{classCriterionBase_a4253d177fc6e27cf675d541b116a1534}{prmtrs}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Base class for criterion. 
+
+It simply stores references to the graph and program parameters objects.
+
+This class should be extended by all criterion. It strengths the idea that those objects should not be copied and that the graph and program parameters should not be modified.
+
+\begin{DoxyAuthor}{Author}
+poltergeist0
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2018-\/08-\/19 
+\end{DoxyDate}
+
+
+Definition at line 45 of file criterion\+Base.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classCriterionBase_a23370b412ce1e656415f77126e55f194}\label{classCriterionBase_a23370b412ce1e656415f77126e55f194}} 
+\index{Criterion\+Base@{Criterion\+Base}!Criterion\+Base@{Criterion\+Base}}
+\index{Criterion\+Base@{Criterion\+Base}!Criterion\+Base@{Criterion\+Base}}
+\subsubsection{\texorpdfstring{Criterion\+Base()}{CriterionBase()}}
+{\footnotesize\ttfamily Criterion\+Base\+::\+Criterion\+Base (\begin{DoxyParamCaption}\item[{const \hyperlink{classGraphUndirectedGroupable}{Graph\+Undirected\+Groupable} \&}]{graph,  }\item[{const \hyperlink{structProgramParameters}{Program\+Parameters} \&}]{parameters = {\ttfamily \hyperlink{program_8h_ae2d819404495f80f31db7676c1329d19}{arguments\+Default}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructor.
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & reference to the graph object \\
+\hline
+{\em parameters} & reference to the parameters object \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 58 of file criterion\+Base.\+h.
+
+\mbox{\Hypertarget{classCriterionBase_a6787dc90e0ac605e3115949cb19f0867}\label{classCriterionBase_a6787dc90e0ac605e3115949cb19f0867}} 
+\index{Criterion\+Base@{Criterion\+Base}!````~Criterion\+Base@{$\sim$\+Criterion\+Base}}
+\index{````~Criterion\+Base@{$\sim$\+Criterion\+Base}!Criterion\+Base@{Criterion\+Base}}
+\subsubsection{\texorpdfstring{$\sim$\+Criterion\+Base()}{~CriterionBase()}}
+{\footnotesize\ttfamily virtual Criterion\+Base\+::$\sim$\+Criterion\+Base (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Destructor 
+
+Definition at line 69 of file criterion\+Base.\+h.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classCriterionBase_a610fe9f207de420117ad25550c185f97}\label{classCriterionBase_a610fe9f207de420117ad25550c185f97}} 
+\index{Criterion\+Base@{Criterion\+Base}!g@{g}}
+\index{g@{g}!Criterion\+Base@{Criterion\+Base}}
+\subsubsection{\texorpdfstring{g}{g}}
+{\footnotesize\ttfamily const \hyperlink{classGraphUndirectedGroupable}{Graph\+Undirected\+Groupable}\& Criterion\+Base\+::g\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 47 of file criterion\+Base.\+h.
+
+
+
+Referenced by Criterion\+Bal\+Mod\+::gain(), Criterion\+Modularity\+::gain(), Criterion\+Bal\+Mod\+::quality(), and Criterion\+Modularity\+::quality().
+
+\mbox{\Hypertarget{classCriterionBase_a4253d177fc6e27cf675d541b116a1534}\label{classCriterionBase_a4253d177fc6e27cf675d541b116a1534}} 
+\index{Criterion\+Base@{Criterion\+Base}!prmtrs@{prmtrs}}
+\index{prmtrs@{prmtrs}!Criterion\+Base@{Criterion\+Base}}
+\subsubsection{\texorpdfstring{prmtrs}{prmtrs}}
+{\footnotesize\ttfamily const \hyperlink{structProgramParameters}{Program\+Parameters}\& Criterion\+Base\+::prmtrs\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 48 of file criterion\+Base.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+R-\/\+C\+R\+A\+N/src/base/\+Cpp/\hyperlink{criterionBase_8h}{criterion\+Base.\+h}\end{DoxyCompactItemize}

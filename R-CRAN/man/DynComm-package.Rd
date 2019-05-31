@@ -22,13 +22,14 @@ implementation of the algorithms.
 }
 
 \references{
+\href{https://github.com/softskillsgroup/DynComm-R-package}{GitHub project source}
 \insertRef{cordeiro2016dynamic}{DynComm}
 \insertRef{Rossetti:2017:TOA:3127967.3128003}{DynComm}
 \insertRef{RG17}{DynComm}
 \insertRef{Sarmento2019Apr}{DynComm}
 }
 \seealso{
-\code{\link{DynComm}}
+\code{\link{DynComm}} , \code{\link{DynComm-package-dev}}
 }
 \author{
 poltergeist0

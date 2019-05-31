@@ -1,0 +1,6 @@
+<map id="CriterionBalMod::quality" name="CriterionBalMod::quality">
+<area shape="rect" id="node2" href="$classGraphUndirected.html#af2f65109919c878a1fd7637d3bfe0991" title="GraphUndirected::getVertices" alt="" coords="215,5,409,32"/>
+<area shape="rect" id="node3" href="$classGraphUndirectedGroupable.html#a1986c140fd9aba8063774372c971706d" title="GraphUndirectedGroupable\l::innerEdges" alt="" coords="223,57,401,98"/>
+<area shape="rect" id="node4" href="$classGraphUndirectedGroupable.html#a8aa795a6e0ae115d35937508c5aad401" title="GraphUndirectedGroupable\l::totalEdges" alt="" coords="223,122,401,163"/>
+<area shape="rect" id="node5" href="$classGraphUndirected.html#a41ba96531c669461dbc7e11ee35796ab" title="GraphUndirected::totalWeight" alt="" coords="215,188,409,215"/>
+</map>

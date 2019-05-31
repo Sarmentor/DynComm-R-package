@@ -7,11 +7,19 @@
 # New post processing algorithms should have their name added to the list 
 # POSTPROCESSING and its calls in the if clause of the algorithms function.
 #
+# A template for post processing algorithms is provided as a file named 
+# "TemplateDynCommPostProcess.R" and can be found in the dev folder in the
+# project source page on GitHub.
+#
+# More developer information can be found in the project source page on GitHub at
+# https://github.com/softskillsgroup/DynComm-R-package
+#
+#
 # Author: poltergeist0
 # Date: 2019-01-01
 
 ########################### Include R sources here ###########################
-source ("R/DensityOPT2.R")
+source ("R/postProcessDensOpt.R")
 
 ########################### API Documentation ###########################
 
@@ -39,11 +47,16 @@ source ("R/DensityOPT2.R")
 #' 
 #' @format A named list with the names of the available algorithms:
 #'  \describe{
-#'    \item{DENSOPT}{Density optimization.
-#'             @references \insertRef{Sarmento2019Apr}{DynComm}
-#'          }
+#'    \item{DENSOPT}{
+#'      Density optimization is an algorithm that provides a community 
+#'		structure based on the increase of the average community density.
+#'      See \code{\link{postProcessDensOpt}}\cr
+#'      @references \insertRef{Sarmento2019Apr}{DynComm}
+#'    }
 #'  }
 #'  
+#' @seealso \code{\link{DynComm}}
+#' 
 #' @examples
 #' POSTPROCESSING$DENSOPT
 #' 
@@ -110,6 +123,8 @@ POSTPROCESSING <- list(
 #'    \item{VERTICES}{Get all vertices belonging to the given community after the last iteration. See \code{\link{vertices}}}
 #'  }
 #'  
+#' @seealso \code{\link{DynComm}}
+#' 
 # @examples
 # APIFUNCTIONS$
 #' 
@@ -156,7 +171,7 @@ APIFUNCTIONS <- list(
 #'
 #' @rdname DynCommPostProcess
 #' 
-#' @docType class
+# @docType class
 #' 
 #' @usage DynCommPostProcess(postProcessing, id, previous, Parameters)
 #' 
@@ -169,6 +184,8 @@ APIFUNCTIONS <- list(
 #'
 #' @return \code{DynCommPostProcess} object
 #'
+#' @seealso \code{\link{DynComm}}
+#' 
 # @export
 #'
 #' @examples
@@ -220,6 +237,15 @@ APIFUNCTIONS <- list(
 #'   Stops when, on a cycle of the algorithm, the quality is increased by less 
 #'   than the value given in this parameter.
 #'   }
+#'   \item{
+#'   cv
+#'   }{
+#'   Community-Vertex.
+#'   Boolean parameter that indicates if sending community mapping to a file
+#'   prints the community first, if true, or the vertex first, if false. See
+#'   \code{\link{communityMapping}} for details.
+#'   Default TRUE
+#'   }
 #' }
 #' 
 #' @section Methods:
@@ -244,7 +270,7 @@ DynCommPostProcess <- function(postProcessing=POSTPROCESSING$NONE, id=1, previou
     # print(postProcessing)
     if(postProcessing==POSTPROCESSING$DENSOPT){
       assign("pst",POSTPROCESSING$DENSOPT,thisEnv)
-      return(DensOpt(prv,prm))
+      return(postProcessDensOpt(prv,prm))
     }
     return(NULL)
   }
@@ -299,7 +325,7 @@ DynCommPostProcess <- function(postProcessing=POSTPROCESSING$NONE, id=1, previou
         #return from the previous object
         if(is.null(prv)){
           #should never get here. There is always a previous
-          return(matrix(data=c(NA,NA),ncol=2,byrow = TRUE,dimnames = c("name","value")))
+          return(matrix(nrow=0,ncol=2,byrow = TRUE,dimnames = list(c(),c("name","value"))))
         }
         else{# there is a previous
           if(is(prv,"DynCommMain")){ #is main algorithm
@@ -404,7 +430,7 @@ DynCommPostProcess <- function(postProcessing=POSTPROCESSING$NONE, id=1, previou
         #return from the previous object
         if(is.null(prv)){
           #should never get here. There is always a previous
-          return(matrix(data=c(NA,NA),ncol=2,byrow=TRUE,dimnames = list(c(),c("neighbour","weight"))))
+          return(matrix(nrow=0,ncol=2,byrow=TRUE,dimnames = list(c(),c("neighbour","weight"))))
         }
         else{# there is a previous
           if(is(prv,"DynCommMain")){ #is main algorithm
@@ -613,7 +639,7 @@ DynCommPostProcess <- function(postProcessing=POSTPROCESSING$NONE, id=1, previou
         #return from the previous object
         if(is.null(prv)){
           #should never get here. There is always a previous
-          return(matrix(data=c(NA,NA),ncol=2,byrow=TRUE,dimnames = list(c(),c("neighbour","weight"))))
+          return(matrix(nrow=0,ncol=2,byrow=TRUE,dimnames = list(c(),c("neighbour","weight"))))
         }
         else{# there is a previous
           if(is(prv,"DynCommMain")){ #is main algorithm
@@ -691,7 +717,7 @@ DynCommPostProcess <- function(postProcessing=POSTPROCESSING$NONE, id=1, previou
         #return from the previous object
         if(is.null(prv)){
           #should never get here. There is always a previous
-          return(matrix(data=c(NA,NA),ncol=2,byrow = TRUE,dimnames = c("name","value")))
+          return(matrix(nrow=0,ncol=2,byrow = TRUE,dimnames = list(c(),c("name","value"))))
         }
         else{# there is a previous
           if(is(prv,"DynCommMain")){ #is main algorithm
@@ -717,7 +743,7 @@ DynCommPostProcess <- function(postProcessing=POSTPROCESSING$NONE, id=1, previou
         #return from the previous object
         if(is.null(prv)){
           #should never get here. There is always a previous
-          return(matrix(data=c(NA,NA),ncol=2,byrow = TRUE,dimnames = c("name","value")))
+          return(matrix(nrow=0,ncol=2,byrow=TRUE,dimnames = list(c(),c("vertex","community"))))
         }
         else{# there is a previous
           if(is(prv,"DynCommMain")){ #is main algorithm

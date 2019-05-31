@@ -1,0 +1,1072 @@
+\hypertarget{classGraphUndirectedGroupable}{}\section{Graph\+Undirected\+Groupable Class Reference}
+\label{classGraphUndirectedGroupable}\index{Graph\+Undirected\+Groupable@{Graph\+Undirected\+Groupable}}
+
+
+Groupable Undirected Graph.  
+
+
+
+
+{\ttfamily \#include $<$graph\+Undirected\+Groupable.\+h$>$}
+
+
+
+Inheritance diagram for Graph\+Undirected\+Groupable\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=214pt]{classGraphUndirectedGroupable__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Graph\+Undirected\+Groupable\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=332pt]{classGraphUndirectedGroupable__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classGraphUndirectedGroupable_a8c010517bff903a50807e6e8ad8cc6db}{add\+Edge} (const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&source, const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&destination, const \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \&\hyperlink{classGraphUndirected_ae40d431c92d8b4884c7915c44d42f356}{weight}=1.\+0, const bool \&\hyperlink{classGraphUndirectedGroupable_ad2685678f448028f17c7627634659f7c}{replace}=false)
+\item 
+bool \hyperlink{classGraphUndirectedGroupable_a2efe963916349ac6615721ab85a93ceb}{add\+Edge} (const \hyperlink{classEdge}{Edge} \&edge, const bool \&\hyperlink{classGraphUndirectedGroupable_ad2685678f448028f17c7627634659f7c}{replace}=false)
+\item 
+bool \hyperlink{classGraphUndirectedGroupable_a164600ca9727676ad7b370b9061927d4}{replace} (const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&old\+Value, const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&new\+Value)
+\item 
+bool \hyperlink{classGraphUndirectedGroupable_ad1a488cc292d7e63d289f598aeaaacd6}{remove\+Edge} (const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&source, const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&destination)
+\item 
+bool \hyperlink{classGraphUndirectedGroupable_a88e02e4e05f304b289558922f1cb6aa1}{remove\+Edge} (const \hyperlink{classEdge}{Edge} \&edge)
+\item 
+\hyperlink{graphUndirectedGroupable_8h_ad440de7f8b59665f0705cc6f745aab09}{type\+Community\+List\+Range} \hyperlink{classGraphUndirectedGroupable_aaa5e7db5ba0b5b87ed6af50ef958b9d7}{vertices} (const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \&c) const
+\item 
+void \hyperlink{classGraphUndirectedGroupable_ac82f4c93994c372d05a660b36cdce8f3}{disband} (const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \&c, const unsigned int \&level=0)
+\begin{DoxyCompactList}\small\item\em Disband the given community. \end{DoxyCompactList}\item 
+const \hyperlink{graphUndirectedGroupable_8h_ab79c7252155ca17cb49aa0b1fea30116}{type\+Communities} \hyperlink{classGraphUndirectedGroupable_a57f8ea4cff0d83b80cca2dc8e8e19ff6}{communities} () const
+\item 
+const \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \hyperlink{classGraphUndirectedGroupable_adf6ebb83c3df6317f122a13650309ac4}{community\+Count} () const
+\item 
+const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \& \hyperlink{classGraphUndirectedGroupable_ad40474d566b3f9fbe9d132fbbe562ed5}{community} (const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&vertex) const
+\item 
+bool \hyperlink{classGraphUndirectedGroupable_af29e653d9578b955e47288e075ebf47f}{replace\+Community} (const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \&old, const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \&com)
+\item 
+bool \hyperlink{classGraphUndirectedGroupable_a7a9642a50ac522d9020afb9df211702f}{community} (const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&vertex, const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \&com)
+\item 
+\hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \hyperlink{classGraphUndirectedGroupable_a1986c140fd9aba8063774372c971706d}{inner\+Edges} (const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \&c) const
+\item 
+\hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \hyperlink{classGraphUndirectedGroupable_a8aa795a6e0ae115d35937508c5aad401}{total\+Edges} (const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \&c) const
+\item 
+\hyperlink{graphInterface_8h_ae8d27008f15586bbf419af7ad2e0a48a}{type\+Links\+Range\+Const} \hyperlink{classGraphUndirectedGroupable_a48823a0162b95a72c22d0ab01a709e1f}{neighbouring\+Communities} (const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \&com) const
+\item 
+\hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \hyperlink{classGraphUndirectedGroupable_ae8d5d8cea2c1dfba0b4e7110100f2973}{neighbouring\+Communities\+Weight} (const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \&com) const
+\item 
+unsigned int \hyperlink{classGraphUndirectedGroupable_aaf488071a0e3b6cf96b29ae1af8df02f}{neighbouring\+Communities\+Count} (const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \&com) const
+\item 
+\hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \hyperlink{classGraphUndirectedGroupable_a2884361f00176ac8f16afca6feb3e404}{weight\+Community} (const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \&source, const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \&destination) const
+\item 
+unsigned int \hyperlink{classGraphUndirectedGroupable_ae70ef901c94e0d117abbaa5cd64a63e6}{neighbours\+Community\+Count} (const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&vertex) const
+\item 
+\hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \hyperlink{classGraphUndirectedGroupable_a23551b49c2cbf1b533e300af5c1f20da}{neighbours\+Community\+Weight} (const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&vertex, const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \&com) const
+\item 
+\hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \hyperlink{classGraphUndirectedGroupable_a41c4955a6238924a861fe18e8d7a9ee9}{neighbours\+Community\+Weight} (const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&vertex) const
+\item 
+bool \hyperlink{classGraphUndirectedGroupable_af6fc2c9e8aad7c6bce37d30eeaf184a8}{communities\+To\+Graph} ()
+\begin{DoxyCompactList}\small\item\em Populate the graph with the current community to community mapping. \end{DoxyCompactList}\item 
+const std\+::string \hyperlink{classGraphUndirectedGroupable_a615f30036acfdd33e45b82dc47e7d174}{to\+String} (const \hyperlink{classStringFormatter}{String\+Formatter} \&sf=\hyperlink{stringFormatter_8h_abf1349c8e24162d0134072aff288f2a2}{default\+String\+Formatter}) const
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \hyperlink{classGraphUndirectedGroupable_a0ce165b4c68150f60ccd1977b83f3eb3}{minimum\+Node} (const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \&com)
+\item 
+bool \hyperlink{classGraphUndirectedGroupable_a7a0503e8cd7a84b7f4cd76e22ca5270a}{update} (\hyperlink{graphUndirectedGroupable_8h_abd93e760650a385346e55346b8c4bbb2}{type\+Community\+Edges} \&ce, const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \&com, const \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \&\hyperlink{classGraphUndirected_ae40d431c92d8b4884c7915c44d42f356}{weight}, const bool \&add=true)
+\item 
+bool \hyperlink{classGraphUndirectedGroupable_ad2685678f448028f17c7627634659f7c}{replace} (\hyperlink{graphUndirectedGroupable_8h_abd93e760650a385346e55346b8c4bbb2}{type\+Community\+Edges} \&ce, const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \&old, const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \&com)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{graphUndirectedGroupable_8h_a8d8ff0ef0315e7cd3b62e467487cd0e1}{type\+Community\+List} \hyperlink{classGraphUndirectedGroupable_a882c6d9efd31f3b61df38a2daccc349f}{n2c}
+\item 
+\hyperlink{graphUndirectedGroupable_8h_abd93e760650a385346e55346b8c4bbb2}{type\+Community\+Edges} \hyperlink{classGraphUndirectedGroupable_a5c8f0f0af49f33dbdbdcafe582a4e3ab}{inner}
+\item 
+\hyperlink{graphUndirectedGroupable_8h_abd93e760650a385346e55346b8c4bbb2}{type\+Community\+Edges} \hyperlink{classGraphUndirectedGroupable_a0f7cf3e9679f92d817efc208ae5710c4}{total}
+\item 
+\hyperlink{classGraphUndirected}{Graph\+Undirected} \hyperlink{classGraphUndirectedGroupable_aa76c119ec662942ae958b0463764a919}{cc}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Groupable Undirected Graph. 
+
+Class that implements a groupable undirected graph. When an edge is added/removed/modified, its mirror edge is also added/removed/modified. This means that, if an edge (A,B) is added, the edge (B,A) is also added. Also, vertices can be individually assigned to groups and, those groups, form an higher level view of the graph, being itself a graph with edges and weights where the groups are vertices.\hypertarget{classGraphUndirectedGroupable_Example}{}\subsection{of a graph\+:}\label{classGraphUndirectedGroupable_Example}
+lower level\+: vertices\+: 1,2,3,4,5,6 edges\+: (1,2),(1,3),(2,3),(3,4),(4,5),(4,6),(5,6) communities(vertex,community)\+:(1,1),(2,1),(3,1),(4,4),(5,4),(6,4) higher level\+: vertices\+: 1,4 edges\+: (1,4) communities(vertex,community)\+:(1,1),(4,1)
+
+\begin{DoxyAuthor}{Author}
+poltergeist0
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2018-\/08-\/19 
+\end{DoxyDate}
+
+
+Definition at line 157 of file graph\+Undirected\+Groupable.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classGraphUndirectedGroupable_a8c010517bff903a50807e6e8ad8cc6db}\label{classGraphUndirectedGroupable_a8c010517bff903a50807e6e8ad8cc6db}} 
+\index{Graph\+Undirected\+Groupable@{Graph\+Undirected\+Groupable}!add\+Edge@{add\+Edge}}
+\index{add\+Edge@{add\+Edge}!Graph\+Undirected\+Groupable@{Graph\+Undirected\+Groupable}}
+\subsubsection{\texorpdfstring{add\+Edge()}{addEdge()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Graph\+Undirected\+Groupable\+::add\+Edge (\begin{DoxyParamCaption}\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{source,  }\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{destination,  }\item[{const \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \&}]{weight = {\ttfamily 1.0},  }\item[{const bool \&}]{replace = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Add an edge
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & \\
+\hline
+{\em destination} & \\
+\hline
+{\em weight} & Default value is one \\
+\hline
+{\em replace} & if true and link exists, it replaces the weight, otherwise fails. Default value is false \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the edge was added. False otherwise 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{classGraphUndirected_a2be69d987f3b4fa1cf547898d30b47d2}{Graph\+Undirected}.
+
+
+
+Definition at line 269 of file graph\+Undirected\+Groupable.\+h.
+
+
+
+References Map\+Reversable$<$ T, U $>$\+::add(), Graph\+Undirected\+::add\+Edge(), community(), no\+Group, replace(), update(), and Graph\+Undirected\+::weight().
+
+
+
+Referenced by Algorithm\+Louvain\+::add\+Remove\+Edge\+Post(), Algorithm\+Louvain\+::add\+Remove\+Edge\+Pre(), Algorithm\+::add\+Remove\+Edges(), Algorithm\+Louvain\+::disband(), and Algorithm\+Louvain\+::one\+\_\+level().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classGraphUndirectedGroupable_a8c010517bff903a50807e6e8ad8cc6db_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classGraphUndirectedGroupable_a2efe963916349ac6615721ab85a93ceb}\label{classGraphUndirectedGroupable_a2efe963916349ac6615721ab85a93ceb}} 
+\index{Graph\+Undirected\+Groupable@{Graph\+Undirected\+Groupable}!add\+Edge@{add\+Edge}}
+\index{add\+Edge@{add\+Edge}!Graph\+Undirected\+Groupable@{Graph\+Undirected\+Groupable}}
+\subsubsection{\texorpdfstring{add\+Edge()}{addEdge()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Graph\+Undirected\+Groupable\+::add\+Edge (\begin{DoxyParamCaption}\item[{const \hyperlink{classEdge}{Edge} \&}]{edge,  }\item[{const bool \&}]{replace = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Add an edge
+
+
+\begin{DoxyParams}{Parameters}
+{\em edge} & \\
+\hline
+{\em replace} & if true and link exists, it replaces the weight, otherwise fails. Default value is false \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the edge was added. False otherwise 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{classGraphUndirected_a366c8b7dbf1cbfe408d5399ad64494dc}{Graph\+Undirected}.
+
+
+
+Definition at line 322 of file graph\+Undirected\+Groupable.\+h.
+
+
+
+References add\+Edge(), Edge\+::destination(), replace(), Edge\+::source(), and Edge\+::weight().
+
+
+
+Referenced by add\+Edge().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classGraphUndirectedGroupable_a2efe963916349ac6615721ab85a93ceb_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classGraphUndirectedGroupable_a57f8ea4cff0d83b80cca2dc8e8e19ff6}\label{classGraphUndirectedGroupable_a57f8ea4cff0d83b80cca2dc8e8e19ff6}} 
+\index{Graph\+Undirected\+Groupable@{Graph\+Undirected\+Groupable}!communities@{communities}}
+\index{communities@{communities}!Graph\+Undirected\+Groupable@{Graph\+Undirected\+Groupable}}
+\subsubsection{\texorpdfstring{communities()}{communities()}}
+{\footnotesize\ttfamily const \hyperlink{graphUndirectedGroupable_8h_ab79c7252155ca17cb49aa0b1fea30116}{type\+Communities} Graph\+Undirected\+Groupable\+::communities (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+the list of all existing communities 
+\end{DoxyReturn}
+
+
+Definition at line 429 of file graph\+Undirected\+Groupable.\+h.
+
+
+
+References Graph\+Undirected\+::get\+Vertices().
+
+
+
+Referenced by Dyn\+Comm\+Base\+::communities(), Dyn\+Comm\+Base\+::community\+Mapping(), and Algorithm\+Louvain\+::one\+\_\+level().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classGraphUndirectedGroupable_a57f8ea4cff0d83b80cca2dc8e8e19ff6_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classGraphUndirectedGroupable_af6fc2c9e8aad7c6bce37d30eeaf184a8}\label{classGraphUndirectedGroupable_af6fc2c9e8aad7c6bce37d30eeaf184a8}} 
+\index{Graph\+Undirected\+Groupable@{Graph\+Undirected\+Groupable}!communities\+To\+Graph@{communities\+To\+Graph}}
+\index{communities\+To\+Graph@{communities\+To\+Graph}!Graph\+Undirected\+Groupable@{Graph\+Undirected\+Groupable}}
+\subsubsection{\texorpdfstring{communities\+To\+Graph()}{communitiesToGraph()}}
+{\footnotesize\ttfamily bool Graph\+Undirected\+Groupable\+::communities\+To\+Graph (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Populate the graph with the current community to community mapping. 
+
+When vertices (lower level view) are merged into communities (higher level view) and there is an interest to save only the higher level view, this function can be called to perform that action.
+
+Definition at line 716 of file graph\+Undirected\+Groupable.\+h.
+
+
+
+References Graph\+Undirected\+::add\+Edge(), Map\+Reversable$<$ T, U $>$\+::cbegin(), Map\+Reversable$<$ T, U $>$\+::cend(), community(), Graph\+Undirected\+::edges(), Map\+Reversable$<$ T, U $>$\+::remove(), Graph\+Undirected\+::remove\+Edge(), Graph\+Undirected\+::weight(), and weight\+Community().
+
+
+
+Referenced by Algorithm\+Louvain\+::one\+\_\+level().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classGraphUndirectedGroupable_af6fc2c9e8aad7c6bce37d30eeaf184a8_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classGraphUndirectedGroupable_ad40474d566b3f9fbe9d132fbbe562ed5}\label{classGraphUndirectedGroupable_ad40474d566b3f9fbe9d132fbbe562ed5}} 
+\index{Graph\+Undirected\+Groupable@{Graph\+Undirected\+Groupable}!community@{community}}
+\index{community@{community}!Graph\+Undirected\+Groupable@{Graph\+Undirected\+Groupable}}
+\subsubsection{\texorpdfstring{community()}{community()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community}\& Graph\+Undirected\+Groupable\+::community (\begin{DoxyParamCaption}\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{vertex }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the community of the given vertex or a special community of no\+G\+Roup if the vertex does not exist 
+\end{DoxyReturn}
+
+
+Definition at line 447 of file graph\+Undirected\+Groupable.\+h.
+
+
+
+References Map\+Reversable$<$ T, U $>$\+::cend(), Map\+Reversable$<$ T, U $>$\+::find(), and no\+Group.
+
+
+
+Referenced by add\+Edge(), Algorithm\+Louvain\+::add\+Remove\+Edge\+Post(), Algorithm\+Louvain\+::add\+Remove\+Edge\+Pre(), Dyn\+Comm\+Base\+::add\+Remove\+Edges(), communities\+To\+Graph(), Algorithm\+Louvain\+::community(), Dyn\+Comm\+Base\+::community(), community(), Dyn\+Comm\+Base\+::community\+Mapping(), Algorithm\+Louvain\+::disband(), disband(), Criterion\+Bal\+Mod\+::gain(), Criterion\+Modularity\+::gain(), neighbours\+Community\+Count(), neighbours\+Community\+Weight(), Algorithm\+Louvain\+::one\+\_\+level(), and remove\+Edge().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classGraphUndirectedGroupable_ad40474d566b3f9fbe9d132fbbe562ed5_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classGraphUndirectedGroupable_a7a9642a50ac522d9020afb9df211702f}\label{classGraphUndirectedGroupable_a7a9642a50ac522d9020afb9df211702f}} 
+\index{Graph\+Undirected\+Groupable@{Graph\+Undirected\+Groupable}!community@{community}}
+\index{community@{community}!Graph\+Undirected\+Groupable@{Graph\+Undirected\+Groupable}}
+\subsubsection{\texorpdfstring{community()}{community()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Graph\+Undirected\+Groupable\+::community (\begin{DoxyParamCaption}\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{vertex,  }\item[{const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \&}]{com }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+set the community of a single vertex 
+\begin{DoxyParams}{Parameters}
+{\em vertex} & is the vertex to be assigned a new community \\
+\hline
+{\em community} & is the new community \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the node was already in the requested community or, the node exists and insertion succeeded 
+\end{DoxyReturn}
+
+
+Definition at line 481 of file graph\+Undirected\+Groupable.\+h.
+
+
+
+References Map\+Reversable$<$ T, U $>$\+::add(), Graph\+Undirected\+::add\+Edge(), community(), Half\+Edge\+::destination(), Map\+Reversable$<$ T, U $>$\+::keys(), minimum\+Node(), Graph\+Undirected\+::neighbours(), neighbours\+Community\+Weight(), Graph\+Undirected\+::neighbours\+Weight(), no\+Group, no\+Vertex, Graph\+Undirected\+::remove\+Edge(), replace\+Community(), update(), Half\+Edge\+::weight(), and Graph\+Undirected\+::weight().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classGraphUndirectedGroupable_a7a9642a50ac522d9020afb9df211702f_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classGraphUndirectedGroupable_adf6ebb83c3df6317f122a13650309ac4}\label{classGraphUndirectedGroupable_adf6ebb83c3df6317f122a13650309ac4}} 
+\index{Graph\+Undirected\+Groupable@{Graph\+Undirected\+Groupable}!community\+Count@{community\+Count}}
+\index{community\+Count@{community\+Count}!Graph\+Undirected\+Groupable@{Graph\+Undirected\+Groupable}}
+\subsubsection{\texorpdfstring{community\+Count()}{communityCount()}}
+{\footnotesize\ttfamily const \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} Graph\+Undirected\+Groupable\+::community\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+the number of existing communities 
+\end{DoxyReturn}
+
+
+Definition at line 440 of file graph\+Undirected\+Groupable.\+h.
+
+
+
+References Graph\+Undirected\+::vertex\+Count().
+
+
+
+Referenced by Dyn\+Comm\+Base\+::community\+Count(), and Algorithm\+Louvain\+::community\+Count().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classGraphUndirectedGroupable_adf6ebb83c3df6317f122a13650309ac4_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classGraphUndirectedGroupable_ac82f4c93994c372d05a660b36cdce8f3}\label{classGraphUndirectedGroupable_ac82f4c93994c372d05a660b36cdce8f3}} 
+\index{Graph\+Undirected\+Groupable@{Graph\+Undirected\+Groupable}!disband@{disband}}
+\index{disband@{disband}!Graph\+Undirected\+Groupable@{Graph\+Undirected\+Groupable}}
+\subsubsection{\texorpdfstring{disband()}{disband()}}
+{\footnotesize\ttfamily void Graph\+Undirected\+Groupable\+::disband (\begin{DoxyParamCaption}\item[{const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \&}]{c,  }\item[{const unsigned int \&}]{level = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Disband the given community. 
+
+Disbanding takes all vertices of a community and turns them into individual communities. Since the name of a community will match the name of a vertex, the given community becomes a community of a single vertex.
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & \\
+\hline
+{\em level} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 412 of file graph\+Undirected\+Groupable.\+h.
+
+
+
+References community(), and Map\+Reversable$<$ T, U $>$\+::keys().
+
+
+
+Referenced by Algorithm\+Louvain\+::disband().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classGraphUndirectedGroupable_ac82f4c93994c372d05a660b36cdce8f3_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classGraphUndirectedGroupable_a1986c140fd9aba8063774372c971706d}\label{classGraphUndirectedGroupable_a1986c140fd9aba8063774372c971706d}} 
+\index{Graph\+Undirected\+Groupable@{Graph\+Undirected\+Groupable}!inner\+Edges@{inner\+Edges}}
+\index{inner\+Edges@{inner\+Edges}!Graph\+Undirected\+Groupable@{Graph\+Undirected\+Groupable}}
+\subsubsection{\texorpdfstring{inner\+Edges()}{innerEdges()}}
+{\footnotesize\ttfamily \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} Graph\+Undirected\+Groupable\+::inner\+Edges (\begin{DoxyParamCaption}\item[{const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \&}]{c }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get the sum of the weights of all edges of the given community where both vertices of an edge belong to the given community.
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the sum of the weights of all inner edges 
+\end{DoxyReturn}
+
+
+Definition at line 560 of file graph\+Undirected\+Groupable.\+h.
+
+
+
+Referenced by Dyn\+Comm\+Base\+::community\+Inner\+Edges\+Weight(), Algorithm\+Louvain\+::inner\+Edges(), Algorithm\+Louvain\+::one\+\_\+level(), Criterion\+Bal\+Mod\+::quality(), and Criterion\+Modularity\+::quality().
+
+\mbox{\Hypertarget{classGraphUndirectedGroupable_a0ce165b4c68150f60ccd1977b83f3eb3}\label{classGraphUndirectedGroupable_a0ce165b4c68150f60ccd1977b83f3eb3}} 
+\index{Graph\+Undirected\+Groupable@{Graph\+Undirected\+Groupable}!minimum\+Node@{minimum\+Node}}
+\index{minimum\+Node@{minimum\+Node}!Graph\+Undirected\+Groupable@{Graph\+Undirected\+Groupable}}
+\subsubsection{\texorpdfstring{minimum\+Node()}{minimumNode()}}
+{\footnotesize\ttfamily \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} Graph\+Undirected\+Groupable\+::minimum\+Node (\begin{DoxyParamCaption}\item[{const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \&}]{com }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em com} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the smallest number used as a vertex in the given community 
+\end{DoxyReturn}
+
+
+Definition at line 188 of file graph\+Undirected\+Groupable.\+h.
+
+
+
+References Map\+Reversable$<$ T, U $>$\+::keys(), and no\+Vertex.
+
+
+
+Referenced by community().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classGraphUndirectedGroupable_a0ce165b4c68150f60ccd1977b83f3eb3_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classGraphUndirectedGroupable_a48823a0162b95a72c22d0ab01a709e1f}\label{classGraphUndirectedGroupable_a48823a0162b95a72c22d0ab01a709e1f}} 
+\index{Graph\+Undirected\+Groupable@{Graph\+Undirected\+Groupable}!neighbouring\+Communities@{neighbouring\+Communities}}
+\index{neighbouring\+Communities@{neighbouring\+Communities}!Graph\+Undirected\+Groupable@{Graph\+Undirected\+Groupable}}
+\subsubsection{\texorpdfstring{neighbouring\+Communities()}{neighbouringCommunities()}}
+{\footnotesize\ttfamily \hyperlink{graphInterface_8h_ae8d27008f15586bbf419af7ad2e0a48a}{type\+Links\+Range\+Const} Graph\+Undirected\+Groupable\+::neighbouring\+Communities (\begin{DoxyParamCaption}\item[{const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \&}]{com }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get the communities that are neighbours of the given community
+
+
+\begin{DoxyParams}{Parameters}
+{\em com} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the neighbouring communities 
+\end{DoxyReturn}
+
+
+Definition at line 590 of file graph\+Undirected\+Groupable.\+h.
+
+
+
+References Graph\+Undirected\+::neighbours().
+
+
+
+Referenced by Dyn\+Comm\+Base\+::community\+Neighbours(), Algorithm\+Louvain\+::disband(), and Algorithm\+Louvain\+::one\+\_\+level().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classGraphUndirectedGroupable_a48823a0162b95a72c22d0ab01a709e1f_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classGraphUndirectedGroupable_aaf488071a0e3b6cf96b29ae1af8df02f}\label{classGraphUndirectedGroupable_aaf488071a0e3b6cf96b29ae1af8df02f}} 
+\index{Graph\+Undirected\+Groupable@{Graph\+Undirected\+Groupable}!neighbouring\+Communities\+Count@{neighbouring\+Communities\+Count}}
+\index{neighbouring\+Communities\+Count@{neighbouring\+Communities\+Count}!Graph\+Undirected\+Groupable@{Graph\+Undirected\+Groupable}}
+\subsubsection{\texorpdfstring{neighbouring\+Communities\+Count()}{neighbouringCommunitiesCount()}}
+{\footnotesize\ttfamily unsigned int Graph\+Undirected\+Groupable\+::neighbouring\+Communities\+Count (\begin{DoxyParamCaption}\item[{const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \&}]{com }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get the number of communities that are neighbours of the given community
+
+
+\begin{DoxyParams}{Parameters}
+{\em com} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the number of neighbouring communities 
+\end{DoxyReturn}
+
+
+Definition at line 610 of file graph\+Undirected\+Groupable.\+h.
+
+
+
+References Graph\+Undirected\+::neighbours\+Count().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classGraphUndirectedGroupable_aaf488071a0e3b6cf96b29ae1af8df02f_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classGraphUndirectedGroupable_ae8d5d8cea2c1dfba0b4e7110100f2973}\label{classGraphUndirectedGroupable_ae8d5d8cea2c1dfba0b4e7110100f2973}} 
+\index{Graph\+Undirected\+Groupable@{Graph\+Undirected\+Groupable}!neighbouring\+Communities\+Weight@{neighbouring\+Communities\+Weight}}
+\index{neighbouring\+Communities\+Weight@{neighbouring\+Communities\+Weight}!Graph\+Undirected\+Groupable@{Graph\+Undirected\+Groupable}}
+\subsubsection{\texorpdfstring{neighbouring\+Communities\+Weight()}{neighbouringCommunitiesWeight()}}
+{\footnotesize\ttfamily \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} Graph\+Undirected\+Groupable\+::neighbouring\+Communities\+Weight (\begin{DoxyParamCaption}\item[{const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \&}]{com }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get the sum of the weights of the communities that are neighbours of the given community
+
+
+\begin{DoxyParams}{Parameters}
+{\em com} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the sum of the weights of neighbouring communities 
+\end{DoxyReturn}
+
+
+Definition at line 600 of file graph\+Undirected\+Groupable.\+h.
+
+
+
+References Graph\+Undirected\+::neighbours\+Weight().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classGraphUndirectedGroupable_ae8d5d8cea2c1dfba0b4e7110100f2973_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classGraphUndirectedGroupable_ae70ef901c94e0d117abbaa5cd64a63e6}\label{classGraphUndirectedGroupable_ae70ef901c94e0d117abbaa5cd64a63e6}} 
+\index{Graph\+Undirected\+Groupable@{Graph\+Undirected\+Groupable}!neighbours\+Community\+Count@{neighbours\+Community\+Count}}
+\index{neighbours\+Community\+Count@{neighbours\+Community\+Count}!Graph\+Undirected\+Groupable@{Graph\+Undirected\+Groupable}}
+\subsubsection{\texorpdfstring{neighbours\+Community\+Count()}{neighboursCommunityCount()}}
+{\footnotesize\ttfamily unsigned int Graph\+Undirected\+Groupable\+::neighbours\+Community\+Count (\begin{DoxyParamCaption}\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{vertex }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get the number of neighbours of the given vertex that belong to the same community as the vertex
+
+
+\begin{DoxyParams}{Parameters}
+{\em vertex} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the number of neighbours 
+\end{DoxyReturn}
+
+
+Definition at line 637 of file graph\+Undirected\+Groupable.\+h.
+
+
+
+References community(), Half\+Edge\+::destination(), and Graph\+Undirected\+::neighbours().
+
+
+
+Referenced by Algorithm\+Louvain\+::neighbours\+Community\+Count().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classGraphUndirectedGroupable_ae70ef901c94e0d117abbaa5cd64a63e6_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classGraphUndirectedGroupable_a23551b49c2cbf1b533e300af5c1f20da}\label{classGraphUndirectedGroupable_a23551b49c2cbf1b533e300af5c1f20da}} 
+\index{Graph\+Undirected\+Groupable@{Graph\+Undirected\+Groupable}!neighbours\+Community\+Weight@{neighbours\+Community\+Weight}}
+\index{neighbours\+Community\+Weight@{neighbours\+Community\+Weight}!Graph\+Undirected\+Groupable@{Graph\+Undirected\+Groupable}}
+\subsubsection{\texorpdfstring{neighbours\+Community\+Weight()}{neighboursCommunityWeight()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} Graph\+Undirected\+Groupable\+::neighbours\+Community\+Weight (\begin{DoxyParamCaption}\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{vertex,  }\item[{const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \&}]{com }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get the sum of the weight of the neighbours of the given vertex that belong to the given community
+
+
+\begin{DoxyParams}{Parameters}
+{\em vertex} & \\
+\hline
+{\em com} & is the target community \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the sum of the weight of the neighbours 
+\end{DoxyReturn}
+
+
+Definition at line 657 of file graph\+Undirected\+Groupable.\+h.
+
+
+
+References community(), Half\+Edge\+::destination(), Graph\+Undirected\+::neighbours(), and Half\+Edge\+::weight().
+
+
+
+Referenced by community(), Criterion\+Bal\+Mod\+::gain(), Criterion\+Modularity\+::gain(), Algorithm\+Louvain\+::neighbours\+Community\+Weight(), and neighbours\+Community\+Weight().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classGraphUndirectedGroupable_a23551b49c2cbf1b533e300af5c1f20da_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classGraphUndirectedGroupable_a41c4955a6238924a861fe18e8d7a9ee9}\label{classGraphUndirectedGroupable_a41c4955a6238924a861fe18e8d7a9ee9}} 
+\index{Graph\+Undirected\+Groupable@{Graph\+Undirected\+Groupable}!neighbours\+Community\+Weight@{neighbours\+Community\+Weight}}
+\index{neighbours\+Community\+Weight@{neighbours\+Community\+Weight}!Graph\+Undirected\+Groupable@{Graph\+Undirected\+Groupable}}
+\subsubsection{\texorpdfstring{neighbours\+Community\+Weight()}{neighboursCommunityWeight()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} Graph\+Undirected\+Groupable\+::neighbours\+Community\+Weight (\begin{DoxyParamCaption}\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{vertex }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get the sum of the weight of the neighbours of the given vertex that belong to the same community as the vertex
+
+
+\begin{DoxyParams}{Parameters}
+{\em vertex} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the sum of the weight of the neighbours 
+\end{DoxyReturn}
+
+
+Definition at line 680 of file graph\+Undirected\+Groupable.\+h.
+
+
+
+References community(), and neighbours\+Community\+Weight().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classGraphUndirectedGroupable_a41c4955a6238924a861fe18e8d7a9ee9_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classGraphUndirectedGroupable_ad1a488cc292d7e63d289f598aeaaacd6}\label{classGraphUndirectedGroupable_ad1a488cc292d7e63d289f598aeaaacd6}} 
+\index{Graph\+Undirected\+Groupable@{Graph\+Undirected\+Groupable}!remove\+Edge@{remove\+Edge}}
+\index{remove\+Edge@{remove\+Edge}!Graph\+Undirected\+Groupable@{Graph\+Undirected\+Groupable}}
+\subsubsection{\texorpdfstring{remove\+Edge()}{removeEdge()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Graph\+Undirected\+Groupable\+::remove\+Edge (\begin{DoxyParamCaption}\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{source,  }\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{destination }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+remove an edge
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & \\
+\hline
+{\em destination} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the edge existed and was successfully removed 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{classGraphUndirected_af4a40541132a66c9b688a20958057751}{Graph\+Undirected}.
+
+
+
+Definition at line 356 of file graph\+Undirected\+Groupable.\+h.
+
+
+
+References Graph\+Undirected\+::add\+Edge(), community(), Graph\+Undirected\+::neighbours\+Count(), Map\+Reversable$<$ T, U $>$\+::remove(), Graph\+Undirected\+::remove\+Edge(), update(), and Graph\+Undirected\+::weight().
+
+
+
+Referenced by Algorithm\+Louvain\+::add\+Remove\+Edge\+Pre(), Algorithm\+::add\+Remove\+Edges(), and Algorithm\+Louvain\+::disband().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classGraphUndirectedGroupable_ad1a488cc292d7e63d289f598aeaaacd6_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classGraphUndirectedGroupable_a88e02e4e05f304b289558922f1cb6aa1}\label{classGraphUndirectedGroupable_a88e02e4e05f304b289558922f1cb6aa1}} 
+\index{Graph\+Undirected\+Groupable@{Graph\+Undirected\+Groupable}!remove\+Edge@{remove\+Edge}}
+\index{remove\+Edge@{remove\+Edge}!Graph\+Undirected\+Groupable@{Graph\+Undirected\+Groupable}}
+\subsubsection{\texorpdfstring{remove\+Edge()}{removeEdge()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Graph\+Undirected\+Groupable\+::remove\+Edge (\begin{DoxyParamCaption}\item[{const \hyperlink{classEdge}{Edge} \&}]{edge }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\begin{DoxySeeAlso}{See also}
+\{\hyperlink{classGraphUndirectedGroupable_ad1a488cc292d7e63d289f598aeaaacd6}{remove\+Edge(const type\+Vertex \& source, const type\+Vertex \& destination)}\} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em edge} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{classGraphUndirected_ad39275e7a8f7a39734916b8c5400a1d6}{Graph\+Undirected}.
+
+
+
+Definition at line 391 of file graph\+Undirected\+Groupable.\+h.
+
+
+
+References Edge\+::destination(), remove\+Edge(), and Edge\+::source().
+
+
+
+Referenced by remove\+Edge().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classGraphUndirectedGroupable_a88e02e4e05f304b289558922f1cb6aa1_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classGraphUndirectedGroupable_ad2685678f448028f17c7627634659f7c}\label{classGraphUndirectedGroupable_ad2685678f448028f17c7627634659f7c}} 
+\index{Graph\+Undirected\+Groupable@{Graph\+Undirected\+Groupable}!replace@{replace}}
+\index{replace@{replace}!Graph\+Undirected\+Groupable@{Graph\+Undirected\+Groupable}}
+\subsubsection{\texorpdfstring{replace()}{replace()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Graph\+Undirected\+Groupable\+::replace (\begin{DoxyParamCaption}\item[{\hyperlink{graphUndirectedGroupable_8h_abd93e760650a385346e55346b8c4bbb2}{type\+Community\+Edges} \&}]{ce,  }\item[{const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \&}]{old,  }\item[{const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \&}]{com }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Replace the name of a community
+
+
+\begin{DoxyParams}{Parameters}
+{\em ce} & is the list of communities \\
+\hline
+{\em old} & is the old community name \\
+\hline
+{\em com} & is the new community name \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if old community existed and replacement succeeded. False if old community did not exist 
+\end{DoxyReturn}
+
+
+Definition at line 247 of file graph\+Undirected\+Groupable.\+h.
+
+
+
+Referenced by add\+Edge(), and replace\+Community().
+
+\mbox{\Hypertarget{classGraphUndirectedGroupable_a164600ca9727676ad7b370b9061927d4}\label{classGraphUndirectedGroupable_a164600ca9727676ad7b370b9061927d4}} 
+\index{Graph\+Undirected\+Groupable@{Graph\+Undirected\+Groupable}!replace@{replace}}
+\index{replace@{replace}!Graph\+Undirected\+Groupable@{Graph\+Undirected\+Groupable}}
+\subsubsection{\texorpdfstring{replace()}{replace()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Graph\+Undirected\+Groupable\+::replace (\begin{DoxyParamCaption}\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{old\+Value,  }\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{new\+Value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Replace all vertex occurrences of old\+Value by new\+Value
+
+
+\begin{DoxyParams}{Parameters}
+{\em old\+Value} & \\
+\hline
+{\em new\+Value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if replacement succeeded 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{classGraphUndirected_aee3bc279ffe39f8efb7dd60865279474}{Graph\+Undirected}.
+
+
+
+Definition at line 331 of file graph\+Undirected\+Groupable.\+h.
+
+
+
+References Map\+Reversable$<$ T, U $>$\+::cend(), Map\+Reversable$<$ T, U $>$\+::replace(), Graph\+Undirected\+::replace(), Map\+Reversable$<$ T, U $>$\+::replace\+Key(), and Map\+Reversable$<$ T, U $>$\+::value().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classGraphUndirectedGroupable_a164600ca9727676ad7b370b9061927d4_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classGraphUndirectedGroupable_af29e653d9578b955e47288e075ebf47f}\label{classGraphUndirectedGroupable_af29e653d9578b955e47288e075ebf47f}} 
+\index{Graph\+Undirected\+Groupable@{Graph\+Undirected\+Groupable}!replace\+Community@{replace\+Community}}
+\index{replace\+Community@{replace\+Community}!Graph\+Undirected\+Groupable@{Graph\+Undirected\+Groupable}}
+\subsubsection{\texorpdfstring{replace\+Community()}{replaceCommunity()}}
+{\footnotesize\ttfamily bool Graph\+Undirected\+Groupable\+::replace\+Community (\begin{DoxyParamCaption}\item[{const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \&}]{old,  }\item[{const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \&}]{com }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+replace old community by new community on all vertices
+
+
+\begin{DoxyParams}{Parameters}
+{\em old} & is the old community \\
+\hline
+{\em comm} & is the new community \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the replacement succeeded 
+\end{DoxyReturn}
+
+
+Definition at line 462 of file graph\+Undirected\+Groupable.\+h.
+
+
+
+References no\+Group, Map\+Reversable$<$ T, U $>$\+::replace(), replace(), and Graph\+Undirected\+::replace().
+
+
+
+Referenced by community().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classGraphUndirectedGroupable_af29e653d9578b955e47288e075ebf47f_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classGraphUndirectedGroupable_a615f30036acfdd33e45b82dc47e7d174}\label{classGraphUndirectedGroupable_a615f30036acfdd33e45b82dc47e7d174}} 
+\index{Graph\+Undirected\+Groupable@{Graph\+Undirected\+Groupable}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Graph\+Undirected\+Groupable@{Graph\+Undirected\+Groupable}}
+\subsubsection{\texorpdfstring{to\+String()}{toString()}}
+{\footnotesize\ttfamily const std\+::string Graph\+Undirected\+Groupable\+::to\+String (\begin{DoxyParamCaption}\item[{const \hyperlink{classStringFormatter}{String\+Formatter} \&}]{sf = {\ttfamily \hyperlink{stringFormatter_8h_abf1349c8e24162d0134072aff288f2a2}{default\+String\+Formatter}} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+a string representation of this graph 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{classGraphUndirected_a61604a0840f044d52a2762f44635fa9c}{Graph\+Undirected}.
+
+
+
+Definition at line 782 of file graph\+Undirected\+Groupable.\+h.
+
+
+
+References String\+Formatter\+::build(), String\+Formatter\+::header(), map\+::to\+String(), Map\+Reversable$<$ T, U $>$\+::to\+String(), and Graph\+Undirected\+::to\+String().
+
+
+
+Referenced by Algorithm\+Base\+::to\+String(), and Algorithm\+Louvain\+::to\+String().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classGraphUndirectedGroupable_a615f30036acfdd33e45b82dc47e7d174_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classGraphUndirectedGroupable_a8aa795a6e0ae115d35937508c5aad401}\label{classGraphUndirectedGroupable_a8aa795a6e0ae115d35937508c5aad401}} 
+\index{Graph\+Undirected\+Groupable@{Graph\+Undirected\+Groupable}!total\+Edges@{total\+Edges}}
+\index{total\+Edges@{total\+Edges}!Graph\+Undirected\+Groupable@{Graph\+Undirected\+Groupable}}
+\subsubsection{\texorpdfstring{total\+Edges()}{totalEdges()}}
+{\footnotesize\ttfamily \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} Graph\+Undirected\+Groupable\+::total\+Edges (\begin{DoxyParamCaption}\item[{const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \&}]{c }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get the sum of the weights of all edges of the given community.
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the sum of the weights of all edges 
+\end{DoxyReturn}
+
+
+Definition at line 575 of file graph\+Undirected\+Groupable.\+h.
+
+
+
+Referenced by Dyn\+Comm\+Base\+::community\+Total\+Weight(), Criterion\+Bal\+Mod\+::gain(), Criterion\+Modularity\+::gain(), Criterion\+Bal\+Mod\+::quality(), Criterion\+Modularity\+::quality(), and Algorithm\+Louvain\+::total\+Edges().
+
+\mbox{\Hypertarget{classGraphUndirectedGroupable_a7a0503e8cd7a84b7f4cd76e22ca5270a}\label{classGraphUndirectedGroupable_a7a0503e8cd7a84b7f4cd76e22ca5270a}} 
+\index{Graph\+Undirected\+Groupable@{Graph\+Undirected\+Groupable}!update@{update}}
+\index{update@{update}!Graph\+Undirected\+Groupable@{Graph\+Undirected\+Groupable}}
+\subsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily bool Graph\+Undirected\+Groupable\+::update (\begin{DoxyParamCaption}\item[{\hyperlink{graphUndirectedGroupable_8h_abd93e760650a385346e55346b8c4bbb2}{type\+Community\+Edges} \&}]{ce,  }\item[{const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \&}]{com,  }\item[{const \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \&}]{weight,  }\item[{const bool \&}]{add = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Update the weight of a community
+
+
+\begin{DoxyParams}{Parameters}
+{\em ce} & is the list of communities \\
+\hline
+{\em com} & is the community to update \\
+\hline
+{\em weight} & is the weight to add or update \\
+\hline
+{\em add} & if true adds the given weight to the existing value. Otherwise, assigns the given weight \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if an update occurred. False if it was erased or does not exist 
+\end{DoxyReturn}
+
+
+Definition at line 214 of file graph\+Undirected\+Groupable.\+h.
+
+
+
+References Graph\+Undirected\+::weight().
+
+
+
+Referenced by add\+Edge(), community(), and remove\+Edge().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classGraphUndirectedGroupable_a7a0503e8cd7a84b7f4cd76e22ca5270a_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classGraphUndirectedGroupable_aaa5e7db5ba0b5b87ed6af50ef958b9d7}\label{classGraphUndirectedGroupable_aaa5e7db5ba0b5b87ed6af50ef958b9d7}} 
+\index{Graph\+Undirected\+Groupable@{Graph\+Undirected\+Groupable}!vertices@{vertices}}
+\index{vertices@{vertices}!Graph\+Undirected\+Groupable@{Graph\+Undirected\+Groupable}}
+\subsubsection{\texorpdfstring{vertices()}{vertices()}}
+{\footnotesize\ttfamily \hyperlink{graphUndirectedGroupable_8h_ad440de7f8b59665f0705cc6f745aab09}{type\+Community\+List\+Range} Graph\+Undirected\+Groupable\+::vertices (\begin{DoxyParamCaption}\item[{const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \&}]{c }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the list of vertices of the given community 
+\end{DoxyReturn}
+
+
+Definition at line 398 of file graph\+Undirected\+Groupable.\+h.
+
+
+
+References Map\+Reversable$<$ T, U $>$\+::keys().
+
+
+
+Referenced by Dyn\+Comm\+Base\+::community\+Vertex\+Count(), Algorithm\+Louvain\+::disband(), Algorithm\+Louvain\+::one\+\_\+level(), Algorithm\+Louvain\+::vertices(), and Dyn\+Comm\+Base\+::vertices().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classGraphUndirectedGroupable_aaa5e7db5ba0b5b87ed6af50ef958b9d7_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classGraphUndirectedGroupable_a2884361f00176ac8f16afca6feb3e404}\label{classGraphUndirectedGroupable_a2884361f00176ac8f16afca6feb3e404}} 
+\index{Graph\+Undirected\+Groupable@{Graph\+Undirected\+Groupable}!weight\+Community@{weight\+Community}}
+\index{weight\+Community@{weight\+Community}!Graph\+Undirected\+Groupable@{Graph\+Undirected\+Groupable}}
+\subsubsection{\texorpdfstring{weight\+Community()}{weightCommunity()}}
+{\footnotesize\ttfamily \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} Graph\+Undirected\+Groupable\+::weight\+Community (\begin{DoxyParamCaption}\item[{const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \&}]{source,  }\item[{const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \&}]{destination }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get the weight of the edge form by two communities
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & community \\
+\hline
+{\em destination} & community \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the weight of the edge 
+\end{DoxyReturn}
+
+
+Definition at line 621 of file graph\+Undirected\+Groupable.\+h.
+
+
+
+References Graph\+Undirected\+::weight().
+
+
+
+Referenced by communities\+To\+Graph(), and Dyn\+Comm\+Base\+::community\+Edge\+Weight().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classGraphUndirectedGroupable_a2884361f00176ac8f16afca6feb3e404_cgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classGraphUndirectedGroupable_aa76c119ec662942ae958b0463764a919}\label{classGraphUndirectedGroupable_aa76c119ec662942ae958b0463764a919}} 
+\index{Graph\+Undirected\+Groupable@{Graph\+Undirected\+Groupable}!cc@{cc}}
+\index{cc@{cc}!Graph\+Undirected\+Groupable@{Graph\+Undirected\+Groupable}}
+\subsubsection{\texorpdfstring{cc}{cc}}
+{\footnotesize\ttfamily \hyperlink{classGraphUndirected}{Graph\+Undirected} Graph\+Undirected\+Groupable\+::cc\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 178 of file graph\+Undirected\+Groupable.\+h.
+
+\mbox{\Hypertarget{classGraphUndirectedGroupable_a5c8f0f0af49f33dbdbdcafe582a4e3ab}\label{classGraphUndirectedGroupable_a5c8f0f0af49f33dbdbdcafe582a4e3ab}} 
+\index{Graph\+Undirected\+Groupable@{Graph\+Undirected\+Groupable}!inner@{inner}}
+\index{inner@{inner}!Graph\+Undirected\+Groupable@{Graph\+Undirected\+Groupable}}
+\subsubsection{\texorpdfstring{inner}{inner}}
+{\footnotesize\ttfamily \hyperlink{graphUndirectedGroupable_8h_abd93e760650a385346e55346b8c4bbb2}{type\+Community\+Edges} Graph\+Undirected\+Groupable\+::inner\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 167 of file graph\+Undirected\+Groupable.\+h.
+
+\mbox{\Hypertarget{classGraphUndirectedGroupable_a882c6d9efd31f3b61df38a2daccc349f}\label{classGraphUndirectedGroupable_a882c6d9efd31f3b61df38a2daccc349f}} 
+\index{Graph\+Undirected\+Groupable@{Graph\+Undirected\+Groupable}!n2c@{n2c}}
+\index{n2c@{n2c}!Graph\+Undirected\+Groupable@{Graph\+Undirected\+Groupable}}
+\subsubsection{\texorpdfstring{n2c}{n2c}}
+{\footnotesize\ttfamily \hyperlink{graphUndirectedGroupable_8h_a8d8ff0ef0315e7cd3b62e467487cd0e1}{type\+Community\+List} Graph\+Undirected\+Groupable\+::n2c\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 162 of file graph\+Undirected\+Groupable.\+h.
+
+\mbox{\Hypertarget{classGraphUndirectedGroupable_a0f7cf3e9679f92d817efc208ae5710c4}\label{classGraphUndirectedGroupable_a0f7cf3e9679f92d817efc208ae5710c4}} 
+\index{Graph\+Undirected\+Groupable@{Graph\+Undirected\+Groupable}!total@{total}}
+\index{total@{total}!Graph\+Undirected\+Groupable@{Graph\+Undirected\+Groupable}}
+\subsubsection{\texorpdfstring{total}{total}}
+{\footnotesize\ttfamily \hyperlink{graphUndirectedGroupable_8h_abd93e760650a385346e55346b8c4bbb2}{type\+Community\+Edges} Graph\+Undirected\+Groupable\+::total\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 173 of file graph\+Undirected\+Groupable.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+R-\/\+C\+R\+A\+N/src/base/\+Cpp/\hyperlink{graphUndirectedGroupable_8h}{graph\+Undirected\+Groupable.\+h}\end{DoxyCompactItemize}

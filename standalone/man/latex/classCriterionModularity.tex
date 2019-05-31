@@ -1,0 +1,175 @@
+\hypertarget{classCriterionModularity}{}\section{Criterion\+Modularity Class Reference}
+\label{classCriterionModularity}\index{Criterion\+Modularity@{Criterion\+Modularity}}
+
+
+Newman-\/\+Girvan criterion.  
+
+
+
+
+{\ttfamily \#include $<$criterion\+Modularity.\+h$>$}
+
+
+
+Inheritance diagram for Criterion\+Modularity\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=178pt]{classCriterionModularity__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Criterion\+Modularity\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCriterionModularity__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classCriterionModularity_a10cef5036f6748045aa87295c4b9ab6c}{Criterion\+Modularity} (const \hyperlink{classGraphUndirectedGroupable}{Graph\+Undirected\+Groupable} \&graph, const \hyperlink{structProgramParameters}{Program\+Parameters} \&parameters=\hyperlink{program_8h_ae2d819404495f80f31db7676c1329d19}{arguments\+Default})
+\item 
+\hyperlink{classCriterionModularity_a37d3f5ffcf397ec89e63c24705860496}{$\sim$\+Criterion\+Modularity} ()
+\item 
+\hyperlink{criterionInterface_8h_af71ff22f6355fd69a4a62104bfd59a83}{type\+Criterion} \hyperlink{classCriterionModularity_a181617050bab1eeaaf38b2ad30dcfc43}{gain} (const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&vertex, const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \&comm) const
+\item 
+\hyperlink{criterionInterface_8h_af71ff22f6355fd69a4a62104bfd59a83}{type\+Criterion} \hyperlink{classCriterionModularity_adf9197fd4e5878ca86501447b1fba989}{quality} () const
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Newman-\/\+Girvan criterion. 
+
+\begin{DoxyAuthor}{Author}
+poltergeist0
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2018-\/08-\/20 
+\end{DoxyDate}
+
+
+Definition at line 31 of file criterion\+Modularity.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classCriterionModularity_a10cef5036f6748045aa87295c4b9ab6c}\label{classCriterionModularity_a10cef5036f6748045aa87295c4b9ab6c}} 
+\index{Criterion\+Modularity@{Criterion\+Modularity}!Criterion\+Modularity@{Criterion\+Modularity}}
+\index{Criterion\+Modularity@{Criterion\+Modularity}!Criterion\+Modularity@{Criterion\+Modularity}}
+\subsubsection{\texorpdfstring{Criterion\+Modularity()}{CriterionModularity()}}
+{\footnotesize\ttfamily Criterion\+Modularity\+::\+Criterion\+Modularity (\begin{DoxyParamCaption}\item[{const \hyperlink{classGraphUndirectedGroupable}{Graph\+Undirected\+Groupable} \&}]{graph,  }\item[{const \hyperlink{structProgramParameters}{Program\+Parameters} \&}]{parameters = {\ttfamily \hyperlink{program_8h_ae2d819404495f80f31db7676c1329d19}{arguments\+Default}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructor.
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & reference to the graph object \\
+\hline
+{\em parameters} & reference to the parameters object \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 41 of file criterion\+Modularity.\+h.
+
+\mbox{\Hypertarget{classCriterionModularity_a37d3f5ffcf397ec89e63c24705860496}\label{classCriterionModularity_a37d3f5ffcf397ec89e63c24705860496}} 
+\index{Criterion\+Modularity@{Criterion\+Modularity}!````~Criterion\+Modularity@{$\sim$\+Criterion\+Modularity}}
+\index{````~Criterion\+Modularity@{$\sim$\+Criterion\+Modularity}!Criterion\+Modularity@{Criterion\+Modularity}}
+\subsubsection{\texorpdfstring{$\sim$\+Criterion\+Modularity()}{~CriterionModularity()}}
+{\footnotesize\ttfamily Criterion\+Modularity\+::$\sim$\+Criterion\+Modularity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Destructor 
+
+Definition at line 46 of file criterion\+Modularity.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classCriterionModularity_a181617050bab1eeaaf38b2ad30dcfc43}\label{classCriterionModularity_a181617050bab1eeaaf38b2ad30dcfc43}} 
+\index{Criterion\+Modularity@{Criterion\+Modularity}!gain@{gain}}
+\index{gain@{gain}!Criterion\+Modularity@{Criterion\+Modularity}}
+\subsubsection{\texorpdfstring{gain()}{gain()}}
+{\footnotesize\ttfamily \hyperlink{criterionInterface_8h_af71ff22f6355fd69a4a62104bfd59a83}{type\+Criterion} Criterion\+Modularity\+::gain (\begin{DoxyParamCaption}\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{vertex,  }\item[{const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \&}]{comm }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+compute the quality obtained if the given vertex was moved from its current community to the given community
+
+
+\begin{DoxyParams}{Parameters}
+{\em vertex} & \\
+\hline
+{\em comm} & new potential community for given vertex \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the quality, which may be positive or negative 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classCriterionInterface_aa0beec8287cd70e16c057e7995d0caca}{Criterion\+Interface}.
+
+
+
+Definition at line 57 of file criterion\+Modularity.\+h.
+
+
+
+References Graph\+Undirected\+Groupable\+::community(), Criterion\+Base\+::g, Graph\+Undirected\+Groupable\+::neighbours\+Community\+Weight(), Graph\+Undirected\+Groupable\+::total\+Edges(), Graph\+Undirected\+::total\+Weight(), and Graph\+Undirected\+::weighted\+\_\+degree().
+
+
+
+Referenced by Criterion\+::gain().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCriterionModularity_a181617050bab1eeaaf38b2ad30dcfc43_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classCriterionModularity_adf9197fd4e5878ca86501447b1fba989}\label{classCriterionModularity_adf9197fd4e5878ca86501447b1fba989}} 
+\index{Criterion\+Modularity@{Criterion\+Modularity}!quality@{quality}}
+\index{quality@{quality}!Criterion\+Modularity@{Criterion\+Modularity}}
+\subsubsection{\texorpdfstring{quality()}{quality()}}
+{\footnotesize\ttfamily \hyperlink{criterionInterface_8h_af71ff22f6355fd69a4a62104bfd59a83}{type\+Criterion} Criterion\+Modularity\+::quality (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+compute the quality of the current partition scheme
+
+\begin{DoxyReturn}{Returns}
+the quality value 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classCriterionInterface_a5d287dc7755f7ce7d6a3d91f0d8fa5de}{Criterion\+Interface}.
+
+
+
+Definition at line 74 of file criterion\+Modularity.\+h.
+
+
+
+References Criterion\+Base\+::g, Graph\+Undirected\+::get\+Vertices(), Graph\+Undirected\+Groupable\+::inner\+Edges(), Graph\+Undirected\+Groupable\+::total\+Edges(), and Graph\+Undirected\+::total\+Weight().
+
+
+
+Referenced by Criterion\+::quality().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCriterionModularity_adf9197fd4e5878ca86501447b1fba989_cgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+R-\/\+C\+R\+A\+N/src/base/\+Cpp/\hyperlink{criterionModularity_8h}{criterion\+Modularity.\+h}\end{DoxyCompactItemize}

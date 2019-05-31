@@ -1,0 +1,397 @@
+\hypertarget{classEdge}{}\section{Edge Class Reference}
+\label{classEdge}\index{Edge@{Edge}}
+
+
+\hyperlink{classEdge}{Edge} class.  
+
+
+
+
+{\ttfamily \#include $<$edge.\+h$>$}
+
+
+
+Inheritance diagram for Edge\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=137pt]{classEdge__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Edge\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=137pt]{classEdge__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classEdge_a2fabe9d380a34f8127308d4f578872fd}{Edge} (const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&\hyperlink{classEdge_ad949d0cbd81ca43e8043b066b0d167d3}{source}, const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&\hyperlink{classEdge_ac1389c34d05a890f9fd84dacba3df06b}{destination}, const \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \&\hyperlink{classEdge_a9d5634336c89578f1bbbfce20c3938a7}{weight}=0)
+\item 
+const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \& \hyperlink{classEdge_ad949d0cbd81ca43e8043b066b0d167d3}{source} () const
+\item 
+const bool \hyperlink{classEdge_a2e5c29247138f730c3ca13cc0220b97c}{source} (const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&source)
+\item 
+const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \& \hyperlink{classEdge_ac1389c34d05a890f9fd84dacba3df06b}{destination} () const
+\item 
+const bool \hyperlink{classEdge_a98a9a06f7ed7da370d809fdb1b4c55ce}{destination} (const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&destination)
+\item 
+const \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \& \hyperlink{classEdge_a9d5634336c89578f1bbbfce20c3938a7}{weight} () const
+\item 
+const bool \hyperlink{classEdge_abaf02f474e1cdc61f3baf06875b4f38c}{weight} (const \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \&weight)
+\item 
+const bool \hyperlink{classEdge_a97799770a75ae0d09208203bdeb6cfee}{operator$<$} (const \hyperlink{classEdge}{Edge} \&rhs) const
+\item 
+const bool \hyperlink{classEdge_abe84b58ced477ebeef5078e4cb48b49f}{operator==} (const \hyperlink{classEdge}{Edge} \&rhs) const
+\item 
+const bool \hyperlink{classEdge_aa05a0ee020bc6c31ed604c2d4bed8319}{operator==} (const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&rhs) const
+\item 
+\hyperlink{classEdge_ac7e484c142c7453bed01a18b03053998}{operator const type\+Vertex \&} () const
+\item 
+std\+::string \hyperlink{classEdge_a06b741951595a14e27691999ff82957e}{to\+String} (const \hyperlink{classStringFormatter}{String\+Formatter} \&sf=\hyperlink{stringFormatter_8h_abf1349c8e24162d0134072aff288f2a2}{default\+String\+Formatter}) const
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \hyperlink{classEdge_ac5a2d838052e08bc14c4741465f690e6}{src}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\hyperlink{classEdge}{Edge} class. 
+
+Class that encapsulates the source vertex and a half edge as being an edge.
+
+\begin{DoxyAuthor}{Author}
+poltergeist0
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2018-\/08-\/19 
+\end{DoxyDate}
+
+
+Definition at line 146 of file edge.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classEdge_a2fabe9d380a34f8127308d4f578872fd}\label{classEdge_a2fabe9d380a34f8127308d4f578872fd}} 
+\index{Edge@{Edge}!Edge@{Edge}}
+\index{Edge@{Edge}!Edge@{Edge}}
+\subsubsection{\texorpdfstring{Edge()}{Edge()}}
+{\footnotesize\ttfamily Edge\+::\+Edge (\begin{DoxyParamCaption}\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{source,  }\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{destination,  }\item[{const \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \&}]{weight = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructor with a weight of zero as default 
+\begin{DoxyParams}{Parameters}
+{\em source} & \\
+\hline
+{\em destination} & \\
+\hline
+{\em weight} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 157 of file edge.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classEdge_ac1389c34d05a890f9fd84dacba3df06b}\label{classEdge_ac1389c34d05a890f9fd84dacba3df06b}} 
+\index{Edge@{Edge}!destination@{destination}}
+\index{destination@{destination}!Edge@{Edge}}
+\subsubsection{\texorpdfstring{destination()}{destination()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex}\& Edge\+::destination (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+the destination 
+\end{DoxyReturn}
+
+
+Definition at line 177 of file edge.\+h.
+
+
+
+References Half\+Edge\+::destination().
+
+
+
+Referenced by Graph\+Undirected\+::add\+Edge(), Graph\+Undirected\+Groupable\+::add\+Edge(), Algorithm\+::add\+Remove\+Edges(), Graph\+Undirected\+::remove\+Edge(), and Graph\+Undirected\+Groupable\+::remove\+Edge().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=318pt]{classEdge_ac1389c34d05a890f9fd84dacba3df06b_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classEdge_a98a9a06f7ed7da370d809fdb1b4c55ce}\label{classEdge_a98a9a06f7ed7da370d809fdb1b4c55ce}} 
+\index{Edge@{Edge}!destination@{destination}}
+\index{destination@{destination}!Edge@{Edge}}
+\subsubsection{\texorpdfstring{destination()}{destination()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily const bool Edge\+::destination (\begin{DoxyParamCaption}\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{destination }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Modify the destination 
+\begin{DoxyParams}{Parameters}
+{\em destination} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the value was modified successfully 
+\end{DoxyReturn}
+
+
+Definition at line 183 of file edge.\+h.
+
+
+
+References Half\+Edge\+::destination().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=318pt]{classEdge_a98a9a06f7ed7da370d809fdb1b4c55ce_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classEdge_ac7e484c142c7453bed01a18b03053998}\label{classEdge_ac7e484c142c7453bed01a18b03053998}} 
+\index{Edge@{Edge}!operator const type\+Vertex \&@{operator const type\+Vertex \&}}
+\index{operator const type\+Vertex \&@{operator const type\+Vertex \&}!Edge@{Edge}}
+\subsubsection{\texorpdfstring{operator const type\+Vertex \&()}{operator const typeVertex \&()}}
+{\footnotesize\ttfamily Edge\+::operator const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \& (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Assignment operator to source vertex only. Weight is ignored. Assigns the source portion to a vertex. \begin{DoxyReturn}{Returns}
+the source vertex of this edge 
+\end{DoxyReturn}
+
+
+Definition at line 240 of file edge.\+h.
+
+\mbox{\Hypertarget{classEdge_a97799770a75ae0d09208203bdeb6cfee}\label{classEdge_a97799770a75ae0d09208203bdeb6cfee}} 
+\index{Edge@{Edge}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!Edge@{Edge}}
+\subsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily const bool Edge\+::operator$<$ (\begin{DoxyParamCaption}\item[{const \hyperlink{classEdge}{Edge} \&}]{rhs }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Weak comparator for ordering. Weight is ignored 
+\begin{DoxyParams}{Parameters}
+{\em rhs} & is another edge to compare to \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if this edge (first source then destination) is smaller than the given (rhs) edge (first source then destination) 
+\end{DoxyReturn}
+
+
+Definition at line 207 of file edge.\+h.
+
+
+
+References Half\+Edge\+::operator$<$(), and src.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=306pt]{classEdge_a97799770a75ae0d09208203bdeb6cfee_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classEdge_abe84b58ced477ebeef5078e4cb48b49f}\label{classEdge_abe84b58ced477ebeef5078e4cb48b49f}} 
+\index{Edge@{Edge}!operator==@{operator==}}
+\index{operator==@{operator==}!Edge@{Edge}}
+\subsubsection{\texorpdfstring{operator==()}{operator==()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily const bool Edge\+::operator== (\begin{DoxyParamCaption}\item[{const \hyperlink{classEdge}{Edge} \&}]{rhs }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Comparison operator. Weight is ignored 
+\begin{DoxyParams}{Parameters}
+{\em rhs} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if this edge (first source then destination) is equal to the given (rhs) edge (first source then destination) 
+\end{DoxyReturn}
+
+
+Definition at line 221 of file edge.\+h.
+
+
+
+References Half\+Edge\+::operator==(), and src.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=318pt]{classEdge_abe84b58ced477ebeef5078e4cb48b49f_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classEdge_aa05a0ee020bc6c31ed604c2d4bed8319}\label{classEdge_aa05a0ee020bc6c31ed604c2d4bed8319}} 
+\index{Edge@{Edge}!operator==@{operator==}}
+\index{operator==@{operator==}!Edge@{Edge}}
+\subsubsection{\texorpdfstring{operator==()}{operator==()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily const bool Edge\+::operator== (\begin{DoxyParamCaption}\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{rhs }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Comparison operator against source vertex only. Weight is ignored 
+\begin{DoxyParams}{Parameters}
+{\em rhs} & is the vertex used to compare to \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the source vertex of this edge is equal to the given vertex 
+\end{DoxyReturn}
+
+
+Definition at line 231 of file edge.\+h.
+
+\mbox{\Hypertarget{classEdge_ad949d0cbd81ca43e8043b066b0d167d3}\label{classEdge_ad949d0cbd81ca43e8043b066b0d167d3}} 
+\index{Edge@{Edge}!source@{source}}
+\index{source@{source}!Edge@{Edge}}
+\subsubsection{\texorpdfstring{source()}{source()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex}\& Edge\+::source (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+the source 
+\end{DoxyReturn}
+
+
+Definition at line 163 of file edge.\+h.
+
+
+
+Referenced by Graph\+Undirected\+::add\+Edge(), Graph\+Undirected\+Groupable\+::add\+Edge(), Algorithm\+::add\+Remove\+Edges(), Graph\+Undirected\+::remove\+Edge(), and Graph\+Undirected\+Groupable\+::remove\+Edge().
+
+\mbox{\Hypertarget{classEdge_a2e5c29247138f730c3ca13cc0220b97c}\label{classEdge_a2e5c29247138f730c3ca13cc0220b97c}} 
+\index{Edge@{Edge}!source@{source}}
+\index{source@{source}!Edge@{Edge}}
+\subsubsection{\texorpdfstring{source()}{source()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily const bool Edge\+::source (\begin{DoxyParamCaption}\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{source }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Modify the source 
+\begin{DoxyParams}{Parameters}
+{\em source} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the value was modified successfully 
+\end{DoxyReturn}
+
+
+Definition at line 169 of file edge.\+h.
+
+\mbox{\Hypertarget{classEdge_a06b741951595a14e27691999ff82957e}\label{classEdge_a06b741951595a14e27691999ff82957e}} 
+\index{Edge@{Edge}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Edge@{Edge}}
+\subsubsection{\texorpdfstring{to\+String()}{toString()}}
+{\footnotesize\ttfamily std\+::string Edge\+::to\+String (\begin{DoxyParamCaption}\item[{const \hyperlink{classStringFormatter}{String\+Formatter} \&}]{sf = {\ttfamily \hyperlink{stringFormatter_8h_abf1349c8e24162d0134072aff288f2a2}{default\+String\+Formatter}} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+a string representation of this half edge 
+\end{DoxyReturn}
+
+
+Definition at line 246 of file edge.\+h.
+
+
+
+References Half\+Edge\+::to\+String().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=292pt]{classEdge_a06b741951595a14e27691999ff82957e_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classEdge_a9d5634336c89578f1bbbfce20c3938a7}\label{classEdge_a9d5634336c89578f1bbbfce20c3938a7}} 
+\index{Edge@{Edge}!weight@{weight}}
+\index{weight@{weight}!Edge@{Edge}}
+\subsubsection{\texorpdfstring{weight()}{weight()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily const \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight}\& Edge\+::weight (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+the weight of the edge 
+\end{DoxyReturn}
+
+
+Definition at line 191 of file edge.\+h.
+
+
+
+References Half\+Edge\+::weight().
+
+
+
+Referenced by Graph\+Undirected\+::add\+Edge(), Graph\+Undirected\+Groupable\+::add\+Edge(), and Algorithm\+::add\+Remove\+Edges().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{classEdge_a9d5634336c89578f1bbbfce20c3938a7_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classEdge_abaf02f474e1cdc61f3baf06875b4f38c}\label{classEdge_abaf02f474e1cdc61f3baf06875b4f38c}} 
+\index{Edge@{Edge}!weight@{weight}}
+\index{weight@{weight}!Edge@{Edge}}
+\subsubsection{\texorpdfstring{weight()}{weight()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily const bool Edge\+::weight (\begin{DoxyParamCaption}\item[{const \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \&}]{weight }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Modify the weight of the edge 
+\begin{DoxyParams}{Parameters}
+{\em weight} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the value was modified successfully 
+\end{DoxyReturn}
+
+
+Definition at line 197 of file edge.\+h.
+
+
+
+References Half\+Edge\+::weight().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{classEdge_abaf02f474e1cdc61f3baf06875b4f38c_cgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classEdge_ac5a2d838052e08bc14c4741465f690e6}\label{classEdge_ac5a2d838052e08bc14c4741465f690e6}} 
+\index{Edge@{Edge}!src@{src}}
+\index{src@{src}!Edge@{Edge}}
+\subsubsection{\texorpdfstring{src}{src}}
+{\footnotesize\ttfamily \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} Edge\+::src\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 148 of file edge.\+h.
+
+
+
+Referenced by operator$<$(), and operator==().
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+R-\/\+C\+R\+A\+N/src/base/\+Cpp/\hyperlink{edge_8h}{edge.\+h}\end{DoxyCompactItemize}

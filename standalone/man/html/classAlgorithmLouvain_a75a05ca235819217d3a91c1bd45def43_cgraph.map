@@ -1,0 +1,5 @@
+<map id="AlgorithmLouvain::weighted_degree" name="AlgorithmLouvain::weighted_degree">
+<area shape="rect" id="node2" href="$classGraphUndirected.html#ad2b1cd9a6dded42bd5431134aba26612" title="GraphUndirected::weighted\l_degree" alt="" coords="236,23,416,65"/>
+<area shape="rect" id="node3" href="$classGraphUndirected.html#a5c8c85acc5ea87f43ac0dcbde61f06e0" title="Get the neighbours of a vertex. " alt="" coords="464,5,655,32"/>
+<area shape="rect" id="node4" href="$classHalfEdge.html#a89cc13d21ae44a9d9c2ba95f89576090" title="HalfEdge::weight" alt="" coords="498,56,621,83"/>
+</map>

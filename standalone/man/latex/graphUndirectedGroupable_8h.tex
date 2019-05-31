@@ -1,0 +1,279 @@
+\hypertarget{graphUndirectedGroupable_8h}{}\section{R-\/\+C\+R\+A\+N/src/base/\+Cpp/graph\+Undirected\+Groupable.h File Reference}
+\label{graphUndirectedGroupable_8h}\index{R-\/\+C\+R\+A\+N/src/base/\+Cpp/graph\+Undirected\+Groupable.\+h@{R-\/\+C\+R\+A\+N/src/base/\+Cpp/graph\+Undirected\+Groupable.\+h}}
+{\ttfamily \#include \char`\"{}map\+Reversable.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}graph\+Undirected.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}set\+Utilities.\+h\char`\"{}}\newline
+Include dependency graph for graph\+Undirected\+Groupable.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{graphUndirectedGroupable_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{graphUndirectedGroupable_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classGraphUndirectedGroupable}{Graph\+Undirected\+Groupable}
+\begin{DoxyCompactList}\small\item\em Groupable Undirected Graph. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community}
+\begin{DoxyCompactList}\small\item\em Data type definition for a single community. \end{DoxyCompactList}\item 
+typedef \hyperlink{classMapReversable}{Map\+Reversable}$<$ \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex}, \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} $>$ \hyperlink{graphUndirectedGroupable_8h_a8d8ff0ef0315e7cd3b62e467487cd0e1}{type\+Community\+List}
+\begin{DoxyCompactList}\small\item\em Indexed community list by vertex. \end{DoxyCompactList}\item 
+typedef \hyperlink{classMapReversable_a7a41e7d60ba284a59e7bf76c8c53e9c2}{type\+Community\+List\+::const\+\_\+iterator} \hyperlink{graphUndirectedGroupable_8h_a8c366562b4bc4e2b6e2fbead8f1cda4c}{type\+Community\+List\+Iterator\+Const}
+\begin{DoxyCompactList}\small\item\em Indexed community list constant iterator. \end{DoxyCompactList}\item 
+typedef \hyperlink{classMapReversable_a44d0737d4172eafced8eccc56ae06b8f}{type\+Community\+List\+::type\+Pair} \hyperlink{graphUndirectedGroupable_8h_a7b6e7f4247511405fcd6b3390f6e451b}{type\+Community\+List\+Pair}
+\begin{DoxyCompactList}\small\item\em Indexed community list pair as returned by the iterator. \end{DoxyCompactList}\item 
+typedef \hyperlink{classMapReversable_aed8c3cc9e7a8601664db79d56d117adf}{type\+Community\+List\+::range\+\_\+iterator\+\_\+const} \hyperlink{graphUndirectedGroupable_8h_a5914c1191ec81b5f1ef4704b81d30d1f}{type\+Community\+List\+Range\+Iterator\+Const}
+\begin{DoxyCompactList}\small\item\em Indexed community list constant reverse iterator. \end{DoxyCompactList}\item 
+typedef \hyperlink{classMapReversable_a00452d0ddb300578955ed93560508ad0}{type\+Community\+List\+::type\+Range} \hyperlink{graphUndirectedGroupable_8h_ad440de7f8b59665f0705cc6f745aab09}{type\+Community\+List\+Range}
+\begin{DoxyCompactList}\small\item\em Indexed community list range. \end{DoxyCompactList}\item 
+typedef \hyperlink{classMapReversable_a1e0d482abfd4a66490f667a8fe64be88}{type\+Community\+List\+::type\+Range\+Pair} \hyperlink{graphUndirectedGroupable_8h_aeb1b35bb372b583dfb1b6a8ec400b61a}{type\+Community\+List\+Range\+Pair}
+\begin{DoxyCompactList}\small\item\em Indexed community list range pair as returned by the reverse iterator. \end{DoxyCompactList}\item 
+typedef std\+::map$<$ \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community}, \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} $>$ \hyperlink{graphUndirectedGroupable_8h_abd93e760650a385346e55346b8c4bbb2}{type\+Community\+Edges}
+\begin{DoxyCompactList}\small\item\em Indexed community weight list. \end{DoxyCompactList}\item 
+typedef std\+::map$<$ \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community}, \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} $>$\+::iterator \hyperlink{graphUndirectedGroupable_8h_a666b0da5392da93c2fc73e81bfb74364}{type\+Community\+Edges\+Iterator}
+\begin{DoxyCompactList}\small\item\em Indexed community weight list iterator. \end{DoxyCompactList}\item 
+typedef std\+::pair$<$ \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community}, \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} $>$ \hyperlink{graphUndirectedGroupable_8h_a5d658cc494cf481c7b6bd17662e37866}{type\+Community\+Edges\+Pair}
+\begin{DoxyCompactList}\small\item\em Indexed community weight list pair as returned by the iterator. \end{DoxyCompactList}\item 
+typedef std\+::map$<$ \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community}, \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} $>$\+::const\+\_\+iterator \hyperlink{graphUndirectedGroupable_8h_a3571866ceb20879f85f47a425f34d668}{type\+Community\+Edges\+Iterator\+Const}
+\begin{DoxyCompactList}\small\item\em Indexed community weight list constant iterator. \end{DoxyCompactList}\item 
+typedef std\+::pair$<$ \hyperlink{graphUndirectedGroupable_8h_a666b0da5392da93c2fc73e81bfb74364}{type\+Community\+Edges\+Iterator}, \hyperlink{graphUndirectedGroupable_8h_a666b0da5392da93c2fc73e81bfb74364}{type\+Community\+Edges\+Iterator} $>$ \hyperlink{graphUndirectedGroupable_8h_a1fa924f496424b34354794c78ad04aab}{type\+Community\+Edges\+Range}
+\begin{DoxyCompactList}\small\item\em Indexed community weight list range. \end{DoxyCompactList}\item 
+typedef std\+::pair$<$ \hyperlink{graphUndirectedGroupable_8h_a3571866ceb20879f85f47a425f34d668}{type\+Community\+Edges\+Iterator\+Const}, \hyperlink{graphUndirectedGroupable_8h_a3571866ceb20879f85f47a425f34d668}{type\+Community\+Edges\+Iterator\+Const} $>$ \hyperlink{graphUndirectedGroupable_8h_a0de10b14aa7062b6fa53a3ab370cb532}{type\+Community\+Edges\+Range\+Const}
+\begin{DoxyCompactList}\small\item\em Indexed community weight list constant range. \end{DoxyCompactList}\item 
+typedef std\+::set$<$ \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} $>$ \hyperlink{graphUndirectedGroupable_8h_ab79c7252155ca17cb49aa0b1fea30116}{type\+Communities}
+\begin{DoxyCompactList}\small\item\em List of communities. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \hyperlink{graphUndirectedGroupable_8h_ab1a764d79659a7453cce0f4ce4f11b53}{no\+Group} =std\+::numeric\+\_\+limits$<$\hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community}$>$\+::max()
+\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\mbox{\Hypertarget{graphUndirectedGroupable_8h_ab79c7252155ca17cb49aa0b1fea30116}\label{graphUndirectedGroupable_8h_ab79c7252155ca17cb49aa0b1fea30116}} 
+\index{graph\+Undirected\+Groupable.\+h@{graph\+Undirected\+Groupable.\+h}!type\+Communities@{type\+Communities}}
+\index{type\+Communities@{type\+Communities}!graph\+Undirected\+Groupable.\+h@{graph\+Undirected\+Groupable.\+h}}
+\subsubsection{\texorpdfstring{type\+Communities}{typeCommunities}}
+{\footnotesize\ttfamily typedef std\+::set$<$\hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community}$>$ \hyperlink{graphUndirectedGroupable_8h_ab79c7252155ca17cb49aa0b1fea30116}{type\+Communities}}
+
+
+
+List of communities. 
+
+
+
+Definition at line 124 of file graph\+Undirected\+Groupable.\+h.
+
+\mbox{\Hypertarget{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}\label{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}} 
+\index{graph\+Undirected\+Groupable.\+h@{graph\+Undirected\+Groupable.\+h}!type\+Community@{type\+Community}}
+\index{type\+Community@{type\+Community}!graph\+Undirected\+Groupable.\+h@{graph\+Undirected\+Groupable.\+h}}
+\subsubsection{\texorpdfstring{type\+Community}{typeCommunity}}
+{\footnotesize\ttfamily typedef \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community}}
+
+
+
+Data type definition for a single community. 
+
+The community and vertex data types must be interchangeable but this might change in the future so define as a different data type. 
+
+Definition at line 31 of file graph\+Undirected\+Groupable.\+h.
+
+\mbox{\Hypertarget{graphUndirectedGroupable_8h_abd93e760650a385346e55346b8c4bbb2}\label{graphUndirectedGroupable_8h_abd93e760650a385346e55346b8c4bbb2}} 
+\index{graph\+Undirected\+Groupable.\+h@{graph\+Undirected\+Groupable.\+h}!type\+Community\+Edges@{type\+Community\+Edges}}
+\index{type\+Community\+Edges@{type\+Community\+Edges}!graph\+Undirected\+Groupable.\+h@{graph\+Undirected\+Groupable.\+h}}
+\subsubsection{\texorpdfstring{type\+Community\+Edges}{typeCommunityEdges}}
+{\footnotesize\ttfamily typedef std\+::map$<$\hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community}, \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight}$>$ \hyperlink{graphUndirectedGroupable_8h_abd93e760650a385346e55346b8c4bbb2}{type\+Community\+Edges}}
+
+
+
+Indexed community weight list. 
+
+Optimization data type used to store the sum of weights of a community 
+
+Definition at line 86 of file graph\+Undirected\+Groupable.\+h.
+
+\mbox{\Hypertarget{graphUndirectedGroupable_8h_a666b0da5392da93c2fc73e81bfb74364}\label{graphUndirectedGroupable_8h_a666b0da5392da93c2fc73e81bfb74364}} 
+\index{graph\+Undirected\+Groupable.\+h@{graph\+Undirected\+Groupable.\+h}!type\+Community\+Edges\+Iterator@{type\+Community\+Edges\+Iterator}}
+\index{type\+Community\+Edges\+Iterator@{type\+Community\+Edges\+Iterator}!graph\+Undirected\+Groupable.\+h@{graph\+Undirected\+Groupable.\+h}}
+\subsubsection{\texorpdfstring{type\+Community\+Edges\+Iterator}{typeCommunityEdgesIterator}}
+{\footnotesize\ttfamily typedef std\+::map$<$\hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community}, \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight}$>$\+::iterator \hyperlink{graphUndirectedGroupable_8h_a666b0da5392da93c2fc73e81bfb74364}{type\+Community\+Edges\+Iterator}}
+
+
+
+Indexed community weight list iterator. 
+
+
+
+Definition at line 91 of file graph\+Undirected\+Groupable.\+h.
+
+\mbox{\Hypertarget{graphUndirectedGroupable_8h_a3571866ceb20879f85f47a425f34d668}\label{graphUndirectedGroupable_8h_a3571866ceb20879f85f47a425f34d668}} 
+\index{graph\+Undirected\+Groupable.\+h@{graph\+Undirected\+Groupable.\+h}!type\+Community\+Edges\+Iterator\+Const@{type\+Community\+Edges\+Iterator\+Const}}
+\index{type\+Community\+Edges\+Iterator\+Const@{type\+Community\+Edges\+Iterator\+Const}!graph\+Undirected\+Groupable.\+h@{graph\+Undirected\+Groupable.\+h}}
+\subsubsection{\texorpdfstring{type\+Community\+Edges\+Iterator\+Const}{typeCommunityEdgesIteratorConst}}
+{\footnotesize\ttfamily typedef std\+::map$<$\hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community}, \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight}$>$\+::const\+\_\+iterator \hyperlink{graphUndirectedGroupable_8h_a3571866ceb20879f85f47a425f34d668}{type\+Community\+Edges\+Iterator\+Const}}
+
+
+
+Indexed community weight list constant iterator. 
+
+
+
+Definition at line 101 of file graph\+Undirected\+Groupable.\+h.
+
+\mbox{\Hypertarget{graphUndirectedGroupable_8h_a5d658cc494cf481c7b6bd17662e37866}\label{graphUndirectedGroupable_8h_a5d658cc494cf481c7b6bd17662e37866}} 
+\index{graph\+Undirected\+Groupable.\+h@{graph\+Undirected\+Groupable.\+h}!type\+Community\+Edges\+Pair@{type\+Community\+Edges\+Pair}}
+\index{type\+Community\+Edges\+Pair@{type\+Community\+Edges\+Pair}!graph\+Undirected\+Groupable.\+h@{graph\+Undirected\+Groupable.\+h}}
+\subsubsection{\texorpdfstring{type\+Community\+Edges\+Pair}{typeCommunityEdgesPair}}
+{\footnotesize\ttfamily typedef std\+::pair$<$\hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community}, \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight}$>$ \hyperlink{graphUndirectedGroupable_8h_a5d658cc494cf481c7b6bd17662e37866}{type\+Community\+Edges\+Pair}}
+
+
+
+Indexed community weight list pair as returned by the iterator. 
+
+
+
+Definition at line 96 of file graph\+Undirected\+Groupable.\+h.
+
+\mbox{\Hypertarget{graphUndirectedGroupable_8h_a1fa924f496424b34354794c78ad04aab}\label{graphUndirectedGroupable_8h_a1fa924f496424b34354794c78ad04aab}} 
+\index{graph\+Undirected\+Groupable.\+h@{graph\+Undirected\+Groupable.\+h}!type\+Community\+Edges\+Range@{type\+Community\+Edges\+Range}}
+\index{type\+Community\+Edges\+Range@{type\+Community\+Edges\+Range}!graph\+Undirected\+Groupable.\+h@{graph\+Undirected\+Groupable.\+h}}
+\subsubsection{\texorpdfstring{type\+Community\+Edges\+Range}{typeCommunityEdgesRange}}
+{\footnotesize\ttfamily typedef std\+::pair$<$\hyperlink{graphUndirectedGroupable_8h_a666b0da5392da93c2fc73e81bfb74364}{type\+Community\+Edges\+Iterator},\hyperlink{graphUndirectedGroupable_8h_a666b0da5392da93c2fc73e81bfb74364}{type\+Community\+Edges\+Iterator}$>$ \hyperlink{graphUndirectedGroupable_8h_a1fa924f496424b34354794c78ad04aab}{type\+Community\+Edges\+Range}}
+
+
+
+Indexed community weight list range. 
+
+Defines a pair with two iterators to the beginning and end of the range. If the iterators are identical, the list is empty. The pair can change between calls if the list is modified. 
+
+Definition at line 110 of file graph\+Undirected\+Groupable.\+h.
+
+\mbox{\Hypertarget{graphUndirectedGroupable_8h_a0de10b14aa7062b6fa53a3ab370cb532}\label{graphUndirectedGroupable_8h_a0de10b14aa7062b6fa53a3ab370cb532}} 
+\index{graph\+Undirected\+Groupable.\+h@{graph\+Undirected\+Groupable.\+h}!type\+Community\+Edges\+Range\+Const@{type\+Community\+Edges\+Range\+Const}}
+\index{type\+Community\+Edges\+Range\+Const@{type\+Community\+Edges\+Range\+Const}!graph\+Undirected\+Groupable.\+h@{graph\+Undirected\+Groupable.\+h}}
+\subsubsection{\texorpdfstring{type\+Community\+Edges\+Range\+Const}{typeCommunityEdgesRangeConst}}
+{\footnotesize\ttfamily typedef std\+::pair$<$\hyperlink{graphUndirectedGroupable_8h_a3571866ceb20879f85f47a425f34d668}{type\+Community\+Edges\+Iterator\+Const},\hyperlink{graphUndirectedGroupable_8h_a3571866ceb20879f85f47a425f34d668}{type\+Community\+Edges\+Iterator\+Const}$>$ \hyperlink{graphUndirectedGroupable_8h_a0de10b14aa7062b6fa53a3ab370cb532}{type\+Community\+Edges\+Range\+Const}}
+
+
+
+Indexed community weight list constant range. 
+
+Defines a pair with two constant iterators to the beginning and end of the range. If the iterators are identical, the list is empty. The pair can change between calls if the list is modified. 
+
+Definition at line 119 of file graph\+Undirected\+Groupable.\+h.
+
+\mbox{\Hypertarget{graphUndirectedGroupable_8h_a8d8ff0ef0315e7cd3b62e467487cd0e1}\label{graphUndirectedGroupable_8h_a8d8ff0ef0315e7cd3b62e467487cd0e1}} 
+\index{graph\+Undirected\+Groupable.\+h@{graph\+Undirected\+Groupable.\+h}!type\+Community\+List@{type\+Community\+List}}
+\index{type\+Community\+List@{type\+Community\+List}!graph\+Undirected\+Groupable.\+h@{graph\+Undirected\+Groupable.\+h}}
+\subsubsection{\texorpdfstring{type\+Community\+List}{typeCommunityList}}
+{\footnotesize\ttfamily typedef \hyperlink{classMapReversable}{Map\+Reversable}$<$\hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex},\hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community}$>$ \hyperlink{graphUndirectedGroupable_8h_a8d8ff0ef0315e7cd3b62e467487cd0e1}{type\+Community\+List}}
+
+
+
+Indexed community list by vertex. 
+
+
+
+Definition at line 36 of file graph\+Undirected\+Groupable.\+h.
+
+\mbox{\Hypertarget{graphUndirectedGroupable_8h_a8c366562b4bc4e2b6e2fbead8f1cda4c}\label{graphUndirectedGroupable_8h_a8c366562b4bc4e2b6e2fbead8f1cda4c}} 
+\index{graph\+Undirected\+Groupable.\+h@{graph\+Undirected\+Groupable.\+h}!type\+Community\+List\+Iterator\+Const@{type\+Community\+List\+Iterator\+Const}}
+\index{type\+Community\+List\+Iterator\+Const@{type\+Community\+List\+Iterator\+Const}!graph\+Undirected\+Groupable.\+h@{graph\+Undirected\+Groupable.\+h}}
+\subsubsection{\texorpdfstring{type\+Community\+List\+Iterator\+Const}{typeCommunityListIteratorConst}}
+{\footnotesize\ttfamily typedef \hyperlink{classMapReversable_a7a41e7d60ba284a59e7bf76c8c53e9c2}{type\+Community\+List\+::const\+\_\+iterator} \hyperlink{graphUndirectedGroupable_8h_a8c366562b4bc4e2b6e2fbead8f1cda4c}{type\+Community\+List\+Iterator\+Const}}
+
+
+
+Indexed community list constant iterator. 
+
+Expanded type\+: std\+::map$<$type\+Vertex,type\+Community$>$\+::const\+\_\+iterator 
+
+Definition at line 44 of file graph\+Undirected\+Groupable.\+h.
+
+\mbox{\Hypertarget{graphUndirectedGroupable_8h_a7b6e7f4247511405fcd6b3390f6e451b}\label{graphUndirectedGroupable_8h_a7b6e7f4247511405fcd6b3390f6e451b}} 
+\index{graph\+Undirected\+Groupable.\+h@{graph\+Undirected\+Groupable.\+h}!type\+Community\+List\+Pair@{type\+Community\+List\+Pair}}
+\index{type\+Community\+List\+Pair@{type\+Community\+List\+Pair}!graph\+Undirected\+Groupable.\+h@{graph\+Undirected\+Groupable.\+h}}
+\subsubsection{\texorpdfstring{type\+Community\+List\+Pair}{typeCommunityListPair}}
+{\footnotesize\ttfamily typedef \hyperlink{classMapReversable_a44d0737d4172eafced8eccc56ae06b8f}{type\+Community\+List\+::type\+Pair} \hyperlink{graphUndirectedGroupable_8h_a7b6e7f4247511405fcd6b3390f6e451b}{type\+Community\+List\+Pair}}
+
+
+
+Indexed community list pair as returned by the iterator. 
+
+Expanded type\+: std\+::pair$<$type\+Vertex,type\+Community$>$ 
+
+Definition at line 52 of file graph\+Undirected\+Groupable.\+h.
+
+\mbox{\Hypertarget{graphUndirectedGroupable_8h_ad440de7f8b59665f0705cc6f745aab09}\label{graphUndirectedGroupable_8h_ad440de7f8b59665f0705cc6f745aab09}} 
+\index{graph\+Undirected\+Groupable.\+h@{graph\+Undirected\+Groupable.\+h}!type\+Community\+List\+Range@{type\+Community\+List\+Range}}
+\index{type\+Community\+List\+Range@{type\+Community\+List\+Range}!graph\+Undirected\+Groupable.\+h@{graph\+Undirected\+Groupable.\+h}}
+\subsubsection{\texorpdfstring{type\+Community\+List\+Range}{typeCommunityListRange}}
+{\footnotesize\ttfamily typedef \hyperlink{classMapReversable_a00452d0ddb300578955ed93560508ad0}{type\+Community\+List\+::type\+Range} \hyperlink{graphUndirectedGroupable_8h_ad440de7f8b59665f0705cc6f745aab09}{type\+Community\+List\+Range}}
+
+
+
+Indexed community list range. 
+
+Defines a pair with two constant reverse iterators to the beginning and end of the range. If the iterators are identical, the list is empty. The pair can change between calls if the list is modified. Expanded type\+: std\+::pair$<$std\+::multimap$<$type\+Community,type\+Vertex$>$\+::const\+\_\+iterator,std\+::multimap$<$type\+Community,type\+Vertex$>$\+::const\+\_\+iterator$>$ 
+
+Definition at line 72 of file graph\+Undirected\+Groupable.\+h.
+
+\mbox{\Hypertarget{graphUndirectedGroupable_8h_a5914c1191ec81b5f1ef4704b81d30d1f}\label{graphUndirectedGroupable_8h_a5914c1191ec81b5f1ef4704b81d30d1f}} 
+\index{graph\+Undirected\+Groupable.\+h@{graph\+Undirected\+Groupable.\+h}!type\+Community\+List\+Range\+Iterator\+Const@{type\+Community\+List\+Range\+Iterator\+Const}}
+\index{type\+Community\+List\+Range\+Iterator\+Const@{type\+Community\+List\+Range\+Iterator\+Const}!graph\+Undirected\+Groupable.\+h@{graph\+Undirected\+Groupable.\+h}}
+\subsubsection{\texorpdfstring{type\+Community\+List\+Range\+Iterator\+Const}{typeCommunityListRangeIteratorConst}}
+{\footnotesize\ttfamily typedef \hyperlink{classMapReversable_aed8c3cc9e7a8601664db79d56d117adf}{type\+Community\+List\+::range\+\_\+iterator\+\_\+const} \hyperlink{graphUndirectedGroupable_8h_a5914c1191ec81b5f1ef4704b81d30d1f}{type\+Community\+List\+Range\+Iterator\+Const}}
+
+
+
+Indexed community list constant reverse iterator. 
+
+Expanded type\+: std\+::multimap$<$type\+Community,type\+Vertex$>$\+::const\+\_\+iterator 
+
+Definition at line 60 of file graph\+Undirected\+Groupable.\+h.
+
+\mbox{\Hypertarget{graphUndirectedGroupable_8h_aeb1b35bb372b583dfb1b6a8ec400b61a}\label{graphUndirectedGroupable_8h_aeb1b35bb372b583dfb1b6a8ec400b61a}} 
+\index{graph\+Undirected\+Groupable.\+h@{graph\+Undirected\+Groupable.\+h}!type\+Community\+List\+Range\+Pair@{type\+Community\+List\+Range\+Pair}}
+\index{type\+Community\+List\+Range\+Pair@{type\+Community\+List\+Range\+Pair}!graph\+Undirected\+Groupable.\+h@{graph\+Undirected\+Groupable.\+h}}
+\subsubsection{\texorpdfstring{type\+Community\+List\+Range\+Pair}{typeCommunityListRangePair}}
+{\footnotesize\ttfamily typedef \hyperlink{classMapReversable_a1e0d482abfd4a66490f667a8fe64be88}{type\+Community\+List\+::type\+Range\+Pair} \hyperlink{graphUndirectedGroupable_8h_aeb1b35bb372b583dfb1b6a8ec400b61a}{type\+Community\+List\+Range\+Pair}}
+
+
+
+Indexed community list range pair as returned by the reverse iterator. 
+
+Expanded type\+: std\+::pair$<$type\+Community,type\+Vertex$>$ 
+
+Definition at line 80 of file graph\+Undirected\+Groupable.\+h.
+
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{graphUndirectedGroupable_8h_ab1a764d79659a7453cce0f4ce4f11b53}\label{graphUndirectedGroupable_8h_ab1a764d79659a7453cce0f4ce4f11b53}} 
+\index{graph\+Undirected\+Groupable.\+h@{graph\+Undirected\+Groupable.\+h}!no\+Group@{no\+Group}}
+\index{no\+Group@{no\+Group}!graph\+Undirected\+Groupable.\+h@{graph\+Undirected\+Groupable.\+h}}
+\subsubsection{\texorpdfstring{no\+Group}{noGroup}}
+{\footnotesize\ttfamily const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} no\+Group =std\+::numeric\+\_\+limits$<$\hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community}$>$\+::max()}
+
+special community that indicates NO C\+O\+M\+M\+U\+N\+I\+TY 
+
+Definition at line 129 of file graph\+Undirected\+Groupable.\+h.
+
+
+
+Referenced by Graph\+Undirected\+Groupable\+::add\+Edge(), Algorithm\+Louvain\+::community(), Graph\+Undirected\+Groupable\+::community(), and Graph\+Undirected\+Groupable\+::replace\+Community().
+

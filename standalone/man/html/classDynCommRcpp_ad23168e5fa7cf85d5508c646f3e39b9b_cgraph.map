@@ -1,0 +1,5 @@
+<map id="DynCommRcpp::communityNeighbours" name="DynCommRcpp::communityNeighbours">
+<area shape="rect" id="node2" href="$classDynCommBase.html#aba6f1f0fdd67a1d7f546d63706a60cde" title="DynCommBase::communityNeighbours" alt="" coords="308,13,561,39"/>
+<area shape="rect" id="node3" href="$classGraphUndirectedGroupable.html#a48823a0162b95a72c22d0ab01a709e1f" title="GraphUndirectedGroupable\l::neighbouringCommunities" alt="" coords="609,5,789,47"/>
+<area shape="rect" id="node4" href="$classGraphUndirected.html#a5c8c85acc5ea87f43ac0dcbde61f06e0" title="Get the neighbours of a vertex. " alt="" coords="837,13,1028,39"/>
+</map>

@@ -1,0 +1,449 @@
+\hypertarget{classDynCommBaseInterface}{}\section{Dyn\+Comm\+Base\+Interface Class Reference}
+\label{classDynCommBaseInterface}\index{Dyn\+Comm\+Base\+Interface@{Dyn\+Comm\+Base\+Interface}}
+
+
+Interface for Dyn\+Comm.  
+
+
+
+
+{\ttfamily \#include $<$Dyn\+Comm\+Base\+Interface.\+h$>$}
+
+
+
+Inheritance diagram for Dyn\+Comm\+Base\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=205pt]{classDynCommBaseInterface__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \hyperlink{classDynCommBaseInterface_a1bc41ad0bdef6a4d8370ba640a271b33}{$\sim$\+Dyn\+Comm\+Base\+Interface} ()
+\item 
+virtual bool \hyperlink{classDynCommBaseInterface_a08720be341a0e75c3535749219f7377b}{add\+Remove\+Edges} (\hyperlink{DynCommBaseInterface_8h_a78c081a2dec12142bd4225d9ee662d82}{Reader\+Edge\+Base} $\ast$reader)=0
+\item 
+virtual \hyperlink{criterionInterface_8h_af71ff22f6355fd69a4a62104bfd59a83}{type\+Criterion} \hyperlink{classDynCommBaseInterface_a42863260fe57e0982be227255d4f8464}{quality} () const =0
+\item 
+virtual int \hyperlink{classDynCommBaseInterface_aa61588ce385fd66855e17747cf188a85}{community\+Count} () const =0
+\item 
+virtual \hyperlink{graphUndirectedGroupable_8h_ab79c7252155ca17cb49aa0b1fea30116}{type\+Communities} \hyperlink{classDynCommBaseInterface_aedba7e43ae301ab910340f1d766d1698}{communities} () const =0
+\item 
+virtual \hyperlink{graphInterface_8h_ae8d27008f15586bbf419af7ad2e0a48a}{type\+Links\+Range\+Const} \hyperlink{classDynCommBaseInterface_afbae10b36098f57576378255d9c09faf}{community\+Neighbours} (\hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \hyperlink{classDynCommBaseInterface_a9453a177580033aa1d4d9f165350ceba}{community}) const =0
+\item 
+virtual \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \hyperlink{classDynCommBaseInterface_a0e68dcfcc55385ce60b000d76ccd2d86}{community\+Inner\+Edges\+Weight} (\hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \hyperlink{classDynCommBaseInterface_a9453a177580033aa1d4d9f165350ceba}{community}) const =0
+\item 
+virtual \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \hyperlink{classDynCommBaseInterface_a06e0b8a06e9c1067e12f574458db3eb0}{community\+Total\+Weight} (\hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \hyperlink{classDynCommBaseInterface_a9453a177580033aa1d4d9f165350ceba}{community}) const =0
+\item 
+virtual \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \hyperlink{classDynCommBaseInterface_a17c322600ba39050005153845dfd3021}{community\+Edge\+Weight} (\hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} source, \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} destination) const =0
+\item 
+virtual int \hyperlink{classDynCommBaseInterface_a2b4c4a130a2de5eb6cd79af88969ef3c}{community\+Vertex\+Count} (\hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \hyperlink{classDynCommBaseInterface_a9453a177580033aa1d4d9f165350ceba}{community}) const =0
+\item 
+virtual \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \hyperlink{classDynCommBaseInterface_a9453a177580033aa1d4d9f165350ceba}{community} (\hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} vertex) const =0
+\item 
+virtual unsigned int \hyperlink{classDynCommBaseInterface_a792b9c74e55abbc48fbc078bc5fead0c}{vertex\+Count} () const =0
+\item 
+virtual \hyperlink{graphInterface_8h_a21d54d8a139def524d3b0d6f71ec4974}{type\+Vertex\+List} \hyperlink{classDynCommBaseInterface_af5023d7b81f4413cc8052df01067f71f}{vertices} () const =0
+\item 
+virtual \hyperlink{graphInterface_8h_a21d54d8a139def524d3b0d6f71ec4974}{type\+Vertex\+List} \hyperlink{classDynCommBaseInterface_ab178106e07cf3ad86ce2deb17dd5666e}{vertices} (\hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \hyperlink{classDynCommBaseInterface_a9453a177580033aa1d4d9f165350ceba}{community}) const =0
+\item 
+virtual bool \hyperlink{classDynCommBaseInterface_a0985625f987f7f428d76f3baac54e398}{community\+Mapping} (\hyperlink{classWriterInterface}{Writer\+Interface} $\ast$writer, bool community\+First=true, bool differential=true) const =0
+\item 
+virtual \hyperlink{graphInterface_8h_ae8d27008f15586bbf419af7ad2e0a48a}{type\+Links\+Range\+Const} \hyperlink{classDynCommBaseInterface_a9d6f5345d8cdf9e0d70b7a71bff8ade6}{neighbours} (\hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} vertex) const =0
+\item 
+virtual \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \hyperlink{classDynCommBaseInterface_a31514affa49ac05ccf3318b3558cf0b2}{weight} (const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&source, const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&destination) const =0
+\item 
+virtual \hyperlink{systemDefines_8h_abc0f5bc07737e498f287334775dff2b6}{uint64} \hyperlink{classDynCommBaseInterface_a6fb483ffc71baf6f0d4f6a0371e34ca9}{time} (bool accumulated=true) const =0
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Interface for Dyn\+Comm. 
+
+Class that defines the interface for Dyn\+Comm as seen by the user.
+
+It has as base the interface of classes graph, criterion and algorithm.
+
+\begin{DoxyAuthor}{Author}
+poltergeist0
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019-\/01-\/01 
+\end{DoxyDate}
+
+
+Definition at line 39 of file Dyn\+Comm\+Base\+Interface.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classDynCommBaseInterface_a1bc41ad0bdef6a4d8370ba640a271b33}\label{classDynCommBaseInterface_a1bc41ad0bdef6a4d8370ba640a271b33}} 
+\index{Dyn\+Comm\+Base\+Interface@{Dyn\+Comm\+Base\+Interface}!````~Dyn\+Comm\+Base\+Interface@{$\sim$\+Dyn\+Comm\+Base\+Interface}}
+\index{````~Dyn\+Comm\+Base\+Interface@{$\sim$\+Dyn\+Comm\+Base\+Interface}!Dyn\+Comm\+Base\+Interface@{Dyn\+Comm\+Base\+Interface}}
+\subsubsection{\texorpdfstring{$\sim$\+Dyn\+Comm\+Base\+Interface()}{~DynCommBaseInterface()}}
+{\footnotesize\ttfamily virtual Dyn\+Comm\+Base\+Interface\+::$\sim$\+Dyn\+Comm\+Base\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Destructor 
+
+Definition at line 44 of file Dyn\+Comm\+Base\+Interface.\+h.
+
+
+
+References add\+Remove\+Edges(), communities(), community(), community\+Count(), community\+Edge\+Weight(), community\+Inner\+Edges\+Weight(), community\+Mapping(), community\+Neighbours(), community\+Total\+Weight(), community\+Vertex\+Count(), neighbours(), quality(), time(), vertex\+Count(), vertices(), and weight().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classDynCommBaseInterface_a1bc41ad0bdef6a4d8370ba640a271b33_cgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classDynCommBaseInterface_a08720be341a0e75c3535749219f7377b}\label{classDynCommBaseInterface_a08720be341a0e75c3535749219f7377b}} 
+\index{Dyn\+Comm\+Base\+Interface@{Dyn\+Comm\+Base\+Interface}!add\+Remove\+Edges@{add\+Remove\+Edges}}
+\index{add\+Remove\+Edges@{add\+Remove\+Edges}!Dyn\+Comm\+Base\+Interface@{Dyn\+Comm\+Base\+Interface}}
+\subsubsection{\texorpdfstring{add\+Remove\+Edges()}{addRemoveEdges()}}
+{\footnotesize\ttfamily virtual bool Dyn\+Comm\+Base\+Interface\+::add\+Remove\+Edges (\begin{DoxyParamCaption}\item[{\hyperlink{DynCommBaseInterface_8h_a78c081a2dec12142bd4225d9ee662d82}{Reader\+Edge\+Base} $\ast$}]{reader }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Function to add and remove edges from the graph. Any edge with a weight different from zero is inserted. Any edge with a weight of exactly zero is removed.
+
+
+\begin{DoxyParams}{Parameters}
+{\em reader} & is a Reader object that is responsible for converting the required data from its original format to Edges \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if adding/removing succeeded 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classDynCommBase_a85ff9898ef25b12f3e80842c7b2696fe}{Dyn\+Comm\+Base}.
+
+
+
+Referenced by $\sim$\+Dyn\+Comm\+Base\+Interface().
+
+\mbox{\Hypertarget{classDynCommBaseInterface_aedba7e43ae301ab910340f1d766d1698}\label{classDynCommBaseInterface_aedba7e43ae301ab910340f1d766d1698}} 
+\index{Dyn\+Comm\+Base\+Interface@{Dyn\+Comm\+Base\+Interface}!communities@{communities}}
+\index{communities@{communities}!Dyn\+Comm\+Base\+Interface@{Dyn\+Comm\+Base\+Interface}}
+\subsubsection{\texorpdfstring{communities()}{communities()}}
+{\footnotesize\ttfamily virtual \hyperlink{graphUndirectedGroupable_8h_ab79c7252155ca17cb49aa0b1fea30116}{type\+Communities} Dyn\+Comm\+Base\+Interface\+::communities (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\begin{DoxyReturn}{Returns}
+the list of all existing communities without any further information 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classDynCommBase_a064d9909a91cfe25acf05e6bd1fc967d}{Dyn\+Comm\+Base}.
+
+
+
+Referenced by $\sim$\+Dyn\+Comm\+Base\+Interface().
+
+\mbox{\Hypertarget{classDynCommBaseInterface_a9453a177580033aa1d4d9f165350ceba}\label{classDynCommBaseInterface_a9453a177580033aa1d4d9f165350ceba}} 
+\index{Dyn\+Comm\+Base\+Interface@{Dyn\+Comm\+Base\+Interface}!community@{community}}
+\index{community@{community}!Dyn\+Comm\+Base\+Interface@{Dyn\+Comm\+Base\+Interface}}
+\subsubsection{\texorpdfstring{community()}{community()}}
+{\footnotesize\ttfamily virtual \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} Dyn\+Comm\+Base\+Interface\+::community (\begin{DoxyParamCaption}\item[{\hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex}}]{vertex }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em vertex} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the community of a given vertex 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classDynCommBase_a651753518a2de4ea52caea518e74d878}{Dyn\+Comm\+Base}.
+
+
+
+Referenced by $\sim$\+Dyn\+Comm\+Base\+Interface().
+
+\mbox{\Hypertarget{classDynCommBaseInterface_aa61588ce385fd66855e17747cf188a85}\label{classDynCommBaseInterface_aa61588ce385fd66855e17747cf188a85}} 
+\index{Dyn\+Comm\+Base\+Interface@{Dyn\+Comm\+Base\+Interface}!community\+Count@{community\+Count}}
+\index{community\+Count@{community\+Count}!Dyn\+Comm\+Base\+Interface@{Dyn\+Comm\+Base\+Interface}}
+\subsubsection{\texorpdfstring{community\+Count()}{communityCount()}}
+{\footnotesize\ttfamily virtual int Dyn\+Comm\+Base\+Interface\+::community\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\begin{DoxyReturn}{Returns}
+the number of communities 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classDynCommBase_add5d1d59a3f20b4ba039342b31551fb3}{Dyn\+Comm\+Base}.
+
+
+
+Referenced by $\sim$\+Dyn\+Comm\+Base\+Interface().
+
+\mbox{\Hypertarget{classDynCommBaseInterface_a17c322600ba39050005153845dfd3021}\label{classDynCommBaseInterface_a17c322600ba39050005153845dfd3021}} 
+\index{Dyn\+Comm\+Base\+Interface@{Dyn\+Comm\+Base\+Interface}!community\+Edge\+Weight@{community\+Edge\+Weight}}
+\index{community\+Edge\+Weight@{community\+Edge\+Weight}!Dyn\+Comm\+Base\+Interface@{Dyn\+Comm\+Base\+Interface}}
+\subsubsection{\texorpdfstring{community\+Edge\+Weight()}{communityEdgeWeight()}}
+{\footnotesize\ttfamily virtual \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} Dyn\+Comm\+Base\+Interface\+::community\+Edge\+Weight (\begin{DoxyParamCaption}\item[{\hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community}}]{source,  }\item[{\hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community}}]{destination }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & \\
+\hline
+{\em destination} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the weight of the edge that connects two given communities 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classDynCommBase_a1ef408ec71d82b008fc0229416c77b61}{Dyn\+Comm\+Base}.
+
+
+
+Referenced by $\sim$\+Dyn\+Comm\+Base\+Interface().
+
+\mbox{\Hypertarget{classDynCommBaseInterface_a0e68dcfcc55385ce60b000d76ccd2d86}\label{classDynCommBaseInterface_a0e68dcfcc55385ce60b000d76ccd2d86}} 
+\index{Dyn\+Comm\+Base\+Interface@{Dyn\+Comm\+Base\+Interface}!community\+Inner\+Edges\+Weight@{community\+Inner\+Edges\+Weight}}
+\index{community\+Inner\+Edges\+Weight@{community\+Inner\+Edges\+Weight}!Dyn\+Comm\+Base\+Interface@{Dyn\+Comm\+Base\+Interface}}
+\subsubsection{\texorpdfstring{community\+Inner\+Edges\+Weight()}{communityInnerEdgesWeight()}}
+{\footnotesize\ttfamily virtual \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} Dyn\+Comm\+Base\+Interface\+::community\+Inner\+Edges\+Weight (\begin{DoxyParamCaption}\item[{\hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community}}]{community }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em community} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the sum of the weights of all inner edges of the selected community 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classDynCommBase_ada91e7e914eb8be7f8c25f4c0c81156a}{Dyn\+Comm\+Base}.
+
+
+
+Referenced by $\sim$\+Dyn\+Comm\+Base\+Interface().
+
+\mbox{\Hypertarget{classDynCommBaseInterface_a0985625f987f7f428d76f3baac54e398}\label{classDynCommBaseInterface_a0985625f987f7f428d76f3baac54e398}} 
+\index{Dyn\+Comm\+Base\+Interface@{Dyn\+Comm\+Base\+Interface}!community\+Mapping@{community\+Mapping}}
+\index{community\+Mapping@{community\+Mapping}!Dyn\+Comm\+Base\+Interface@{Dyn\+Comm\+Base\+Interface}}
+\subsubsection{\texorpdfstring{community\+Mapping()}{communityMapping()}}
+{\footnotesize\ttfamily virtual bool Dyn\+Comm\+Base\+Interface\+::community\+Mapping (\begin{DoxyParamCaption}\item[{\hyperlink{classWriterInterface}{Writer\+Interface} $\ast$}]{writer,  }\item[{bool}]{community\+First = {\ttfamily true},  }\item[{bool}]{differential = {\ttfamily true} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Get a snapshot of the current community mapping. If community\+First is true the result will be one community per line with each line being a community followed by a list of vertices. If false, the result will be a vertex per line with each line being a single vertex and a single community. The differential parameter will probably be moved inside the writer as a parameter
+
+
+\begin{DoxyParams}{Parameters}
+{\em writer} & \\
+\hline
+{\em community\+First} & if true returns a community followed by a list of vertices, otherwise a vertex and its community \\
+\hline
+{\em differential} & return only what changed in the last iteration of the algorithm \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the operation succeeded 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classDynCommBase_a75ed5e0546d756a3b327f41e292620b2}{Dyn\+Comm\+Base}.
+
+
+
+Referenced by $\sim$\+Dyn\+Comm\+Base\+Interface().
+
+\mbox{\Hypertarget{classDynCommBaseInterface_afbae10b36098f57576378255d9c09faf}\label{classDynCommBaseInterface_afbae10b36098f57576378255d9c09faf}} 
+\index{Dyn\+Comm\+Base\+Interface@{Dyn\+Comm\+Base\+Interface}!community\+Neighbours@{community\+Neighbours}}
+\index{community\+Neighbours@{community\+Neighbours}!Dyn\+Comm\+Base\+Interface@{Dyn\+Comm\+Base\+Interface}}
+\subsubsection{\texorpdfstring{community\+Neighbours()}{communityNeighbours()}}
+{\footnotesize\ttfamily virtual \hyperlink{graphInterface_8h_ae8d27008f15586bbf419af7ad2e0a48a}{type\+Links\+Range\+Const} Dyn\+Comm\+Base\+Interface\+::community\+Neighbours (\begin{DoxyParamCaption}\item[{\hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community}}]{community }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em community} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the neighbouring communities of the given community 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classDynCommBase_aba6f1f0fdd67a1d7f546d63706a60cde}{Dyn\+Comm\+Base}.
+
+
+
+Referenced by $\sim$\+Dyn\+Comm\+Base\+Interface().
+
+\mbox{\Hypertarget{classDynCommBaseInterface_a06e0b8a06e9c1067e12f574458db3eb0}\label{classDynCommBaseInterface_a06e0b8a06e9c1067e12f574458db3eb0}} 
+\index{Dyn\+Comm\+Base\+Interface@{Dyn\+Comm\+Base\+Interface}!community\+Total\+Weight@{community\+Total\+Weight}}
+\index{community\+Total\+Weight@{community\+Total\+Weight}!Dyn\+Comm\+Base\+Interface@{Dyn\+Comm\+Base\+Interface}}
+\subsubsection{\texorpdfstring{community\+Total\+Weight()}{communityTotalWeight()}}
+{\footnotesize\ttfamily virtual \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} Dyn\+Comm\+Base\+Interface\+::community\+Total\+Weight (\begin{DoxyParamCaption}\item[{\hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community}}]{community }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em community} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the sum of the weights of all edges of the selected community 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classDynCommBase_a9e7f2493dd9f2381dbfbe94b91ac49f4}{Dyn\+Comm\+Base}.
+
+
+
+Referenced by $\sim$\+Dyn\+Comm\+Base\+Interface().
+
+\mbox{\Hypertarget{classDynCommBaseInterface_a2b4c4a130a2de5eb6cd79af88969ef3c}\label{classDynCommBaseInterface_a2b4c4a130a2de5eb6cd79af88969ef3c}} 
+\index{Dyn\+Comm\+Base\+Interface@{Dyn\+Comm\+Base\+Interface}!community\+Vertex\+Count@{community\+Vertex\+Count}}
+\index{community\+Vertex\+Count@{community\+Vertex\+Count}!Dyn\+Comm\+Base\+Interface@{Dyn\+Comm\+Base\+Interface}}
+\subsubsection{\texorpdfstring{community\+Vertex\+Count()}{communityVertexCount()}}
+{\footnotesize\ttfamily virtual int Dyn\+Comm\+Base\+Interface\+::community\+Vertex\+Count (\begin{DoxyParamCaption}\item[{\hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community}}]{community }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em community} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the amount of vertices in the selected community 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classDynCommBase_ad02f1853b63e1ceaf24b05cfdbcf7a49}{Dyn\+Comm\+Base}.
+
+
+
+Referenced by $\sim$\+Dyn\+Comm\+Base\+Interface().
+
+\mbox{\Hypertarget{classDynCommBaseInterface_a9d6f5345d8cdf9e0d70b7a71bff8ade6}\label{classDynCommBaseInterface_a9d6f5345d8cdf9e0d70b7a71bff8ade6}} 
+\index{Dyn\+Comm\+Base\+Interface@{Dyn\+Comm\+Base\+Interface}!neighbours@{neighbours}}
+\index{neighbours@{neighbours}!Dyn\+Comm\+Base\+Interface@{Dyn\+Comm\+Base\+Interface}}
+\subsubsection{\texorpdfstring{neighbours()}{neighbours()}}
+{\footnotesize\ttfamily virtual \hyperlink{graphInterface_8h_ae8d27008f15586bbf419af7ad2e0a48a}{type\+Links\+Range\+Const} Dyn\+Comm\+Base\+Interface\+::neighbours (\begin{DoxyParamCaption}\item[{\hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex}}]{vertex }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\begin{DoxyReturn}{Returns}
+pointers to the first and last neighbour of the vertex 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classDynCommBase_a3500faab82a0547422b2202b79f49718}{Dyn\+Comm\+Base}.
+
+
+
+Referenced by $\sim$\+Dyn\+Comm\+Base\+Interface().
+
+\mbox{\Hypertarget{classDynCommBaseInterface_a42863260fe57e0982be227255d4f8464}\label{classDynCommBaseInterface_a42863260fe57e0982be227255d4f8464}} 
+\index{Dyn\+Comm\+Base\+Interface@{Dyn\+Comm\+Base\+Interface}!quality@{quality}}
+\index{quality@{quality}!Dyn\+Comm\+Base\+Interface@{Dyn\+Comm\+Base\+Interface}}
+\subsubsection{\texorpdfstring{quality()}{quality()}}
+{\footnotesize\ttfamily virtual \hyperlink{criterionInterface_8h_af71ff22f6355fd69a4a62104bfd59a83}{type\+Criterion} Dyn\+Comm\+Base\+Interface\+::quality (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+compute the quality of the current partition scheme
+
+\begin{DoxyReturn}{Returns}
+the quality value 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classDynCommBase_a316b2c63a025810211d205ef6bf1d06c}{Dyn\+Comm\+Base}.
+
+
+
+Referenced by $\sim$\+Dyn\+Comm\+Base\+Interface().
+
+\mbox{\Hypertarget{classDynCommBaseInterface_a6fb483ffc71baf6f0d4f6a0371e34ca9}\label{classDynCommBaseInterface_a6fb483ffc71baf6f0d4f6a0371e34ca9}} 
+\index{Dyn\+Comm\+Base\+Interface@{Dyn\+Comm\+Base\+Interface}!time@{time}}
+\index{time@{time}!Dyn\+Comm\+Base\+Interface@{Dyn\+Comm\+Base\+Interface}}
+\subsubsection{\texorpdfstring{time()}{time()}}
+{\footnotesize\ttfamily virtual \hyperlink{systemDefines_8h_abc0f5bc07737e498f287334775dff2b6}{uint64} Dyn\+Comm\+Base\+Interface\+::time (\begin{DoxyParamCaption}\item[{bool}]{accumulated = {\ttfamily true} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\begin{DoxyReturn}{Returns}
+the time spent on processing 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classDynCommBase_a5b40eb14cef877fde1db8b6476f6a2ce}{Dyn\+Comm\+Base}.
+
+
+
+Referenced by $\sim$\+Dyn\+Comm\+Base\+Interface().
+
+\mbox{\Hypertarget{classDynCommBaseInterface_a792b9c74e55abbc48fbc078bc5fead0c}\label{classDynCommBaseInterface_a792b9c74e55abbc48fbc078bc5fead0c}} 
+\index{Dyn\+Comm\+Base\+Interface@{Dyn\+Comm\+Base\+Interface}!vertex\+Count@{vertex\+Count}}
+\index{vertex\+Count@{vertex\+Count}!Dyn\+Comm\+Base\+Interface@{Dyn\+Comm\+Base\+Interface}}
+\subsubsection{\texorpdfstring{vertex\+Count()}{vertexCount()}}
+{\footnotesize\ttfamily virtual unsigned int Dyn\+Comm\+Base\+Interface\+::vertex\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\begin{DoxyReturn}{Returns}
+the number of existing vertices 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classDynCommBase_ae415f1a7792158845f69d6850b762d87}{Dyn\+Comm\+Base}.
+
+
+
+Referenced by $\sim$\+Dyn\+Comm\+Base\+Interface().
+
+\mbox{\Hypertarget{classDynCommBaseInterface_af5023d7b81f4413cc8052df01067f71f}\label{classDynCommBaseInterface_af5023d7b81f4413cc8052df01067f71f}} 
+\index{Dyn\+Comm\+Base\+Interface@{Dyn\+Comm\+Base\+Interface}!vertices@{vertices}}
+\index{vertices@{vertices}!Dyn\+Comm\+Base\+Interface@{Dyn\+Comm\+Base\+Interface}}
+\subsubsection{\texorpdfstring{vertices()}{vertices()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual \hyperlink{graphInterface_8h_a21d54d8a139def524d3b0d6f71ec4974}{type\+Vertex\+List} Dyn\+Comm\+Base\+Interface\+::vertices (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\begin{DoxyReturn}{Returns}
+the list of all existing vertices 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classDynCommBase_ae240fba572935f26a72f73e39e115169}{Dyn\+Comm\+Base}.
+
+
+
+Referenced by $\sim$\+Dyn\+Comm\+Base\+Interface().
+
+\mbox{\Hypertarget{classDynCommBaseInterface_ab178106e07cf3ad86ce2deb17dd5666e}\label{classDynCommBaseInterface_ab178106e07cf3ad86ce2deb17dd5666e}} 
+\index{Dyn\+Comm\+Base\+Interface@{Dyn\+Comm\+Base\+Interface}!vertices@{vertices}}
+\index{vertices@{vertices}!Dyn\+Comm\+Base\+Interface@{Dyn\+Comm\+Base\+Interface}}
+\subsubsection{\texorpdfstring{vertices()}{vertices()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual \hyperlink{graphInterface_8h_a21d54d8a139def524d3b0d6f71ec4974}{type\+Vertex\+List} Dyn\+Comm\+Base\+Interface\+::vertices (\begin{DoxyParamCaption}\item[{\hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community}}]{community }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\begin{DoxyReturn}{Returns}
+a list of all vertices belonging to the given community 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classDynCommBase_ae56cd1fc5a69fcd4d0e0a073f3f2e36b}{Dyn\+Comm\+Base}.
+
+\mbox{\Hypertarget{classDynCommBaseInterface_a31514affa49ac05ccf3318b3558cf0b2}\label{classDynCommBaseInterface_a31514affa49ac05ccf3318b3558cf0b2}} 
+\index{Dyn\+Comm\+Base\+Interface@{Dyn\+Comm\+Base\+Interface}!weight@{weight}}
+\index{weight@{weight}!Dyn\+Comm\+Base\+Interface@{Dyn\+Comm\+Base\+Interface}}
+\subsubsection{\texorpdfstring{weight()}{weight()}}
+{\footnotesize\ttfamily virtual \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} Dyn\+Comm\+Base\+Interface\+::weight (\begin{DoxyParamCaption}\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{source,  }\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{destination }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\begin{DoxyReturn}{Returns}
+the weight of an edge 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classDynCommBase_ae48a572da3c7b375429e96e717b15787}{Dyn\+Comm\+Base}.
+
+
+
+Referenced by $\sim$\+Dyn\+Comm\+Base\+Interface().
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+R-\/\+C\+R\+A\+N/src/base/\+Cpp/\hyperlink{DynCommBaseInterface_8h}{Dyn\+Comm\+Base\+Interface.\+h}\end{DoxyCompactItemize}

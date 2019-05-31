@@ -36,6 +36,9 @@ implement, in a has() function. If the post processing algorithm implements
 a certain API function, the has() function must return TRUE when questioned 
 about that API function. Otherwise, it must return FALSE.
 }
+\seealso{
+\code{\link{DynComm}}
+}
 \author{
 poltergeist0
 }

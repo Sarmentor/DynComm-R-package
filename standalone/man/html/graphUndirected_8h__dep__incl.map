@@ -1,0 +1,14 @@
+<map id="R&#45;CRAN/src/base/Cpp/graphUndirected.h" name="R&#45;CRAN/src/base/Cpp/graphUndirected.h">
+<area shape="rect" id="node2" href="$graphUndirectedGroupable_8h.html" title="R&#45;CRAN/src/base/Cpp\l/graphUndirectedGroupable.h" alt="" coords="58,95,249,136"/>
+<area shape="rect" id="node3" href="$criterionInterface_8h.html" title="R&#45;CRAN/src/base/Cpp\l/criterionInterface.h" alt="" coords="17,184,175,225"/>
+<area shape="rect" id="node7" href="$criterionBase_8h.html" title="R&#45;CRAN/src/base/Cpp\l/criterionBase.h" alt="" coords="133,273,291,315"/>
+<area shape="rect" id="node4" href="$DynCommBaseInterface_8h.html" title="R&#45;CRAN/src/base/Cpp\l/DynCommBaseInterface.h" alt="" coords="5,452,187,493"/>
+<area shape="rect" id="node5" href="$DynCommBase_8h.html" title="R&#45;CRAN/src/base/Cpp\l/DynCommBase.h" alt="" coords="88,809,245,851"/>
+<area shape="rect" id="node6" href="$DynCommRcpp_8cpp.html" title="R&#45;CRAN/src/DynCommRcpp.cpp" alt="" coords="57,899,277,925"/>
+<area shape="rect" id="node8" href="$criterionBalMod_8h.html" title="R&#45;CRAN/src/base/Cpp\l/criterionBalMod.h" alt="" coords="133,363,291,404"/>
+<area shape="rect" id="node13" href="$criterionModularity_8h.html" title="R&#45;CRAN/src/base/Cpp\l/criterionModularity.h" alt="" coords="315,363,472,404"/>
+<area shape="rect" id="node9" href="$criterion_8h.html" title="R&#45;CRAN/src/base/Cpp\l/criterion.h" alt="" coords="211,452,368,493"/>
+<area shape="rect" id="node10" href="$algorithmBase_8h.html" title="R&#45;CRAN/src/base/Cpp\l/algorithmBase.h" alt="" coords="204,541,361,583"/>
+<area shape="rect" id="node12" href="$algorithm_8h.html" title="R&#45;CRAN/src/base/Cpp\l/algorithm.h" alt="" coords="204,720,361,761"/>
+<area shape="rect" id="node11" href="$algorithmLouvain_8h.html" title="R&#45;CRAN/src/base/Cpp\l/algorithmLouvain.h" alt="" coords="204,631,361,672"/>
+</map>

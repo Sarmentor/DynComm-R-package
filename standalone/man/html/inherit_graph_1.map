@@ -1,0 +1,7 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classCriterionInterface.html" title="Criterion interface. " alt="" coords="5,31,128,57"/>
+<area shape="rect" id="node2" href="$classCriterion.html" title="Aggregator class for all criterion. " alt="" coords="191,5,262,32"/>
+<area shape="rect" id="node3" href="$classCriterionBase.html" title="Base class for criterion. " alt="" coords="176,56,277,83"/>
+<area shape="rect" id="node4" href="$classCriterionBalMod.html" title="Balanced Modularity criterion. " alt="" coords="333,31,448,57"/>
+<area shape="rect" id="node5" href="$classCriterionModularity.html" title="Newman&#45;Girvan criterion. " alt="" coords="325,81,456,108"/>
+</map>

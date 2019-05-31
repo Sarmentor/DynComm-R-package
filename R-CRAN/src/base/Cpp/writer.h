@@ -1,9 +1,21 @@
-/*
- * reader.h
+/************************************************************************
+ ************************* Developer Notice *****************************
+ ************************************************************************
+ * @details
  *
- *  Created on: 06/02/2019
- *      Author: poltergeist0
- */
+ * This file defines the writer class interface and classes to write to
+ * stream.
+ *
+ * There should never be any reason to change it unless to add more
+ * writers.
+ *
+ *
+ * @author poltergeist0
+ *
+ * @date 2019-02-06
+ ************************************************************************
+ ************************************************************************
+ ************************************************************************/
 
 #ifndef SRC_WRITER_H_
 #define SRC_WRITER_H_
@@ -13,14 +25,20 @@
 #include "edge.h"
 
 /**
- * Interface for a simple stream writer.
- * It can only append to the end.
+ * @brief Interface for a simple stream forward writer.
+ *
+ * @details
+ * Writers that implement this interface can not write backwards, only append
+ * to the end.
+ *
+ * @author poltergeist0
+ *
+ * @date 2019-02-06
  */
-//template<typename TYPEOBJECT>
 class WriterInterface{
 public:
 	/**
-	 * Enumeration of the types of objects that can be read
+	 * Enumeration of the types of objects that can be written
 	 */
 	enum class WRITETYPE: unsigned int {LINE=1,VALUE,COMMENT};
 
@@ -46,93 +64,28 @@ public:
 	virtual std::string status()=0;
 };
 
-class WriterFile: public WriterInterface{
+/**
+ * @brief Writer to generic output stream.
+ *
+ * @details
+ * This writer can not write backwards, only append to the end.
+ *
+ * @author poltergeist0
+ *
+ * @date 2019-02-06
+ */
+class WriterStream: public WriterInterface{
 private:
-	std::string stts;
-	const ProgramParameters & par;
-	std::ofstream foutput;
-	unsigned int lineNumber=1;
-	int state=0;//=0 error; =1 write object; =2 write comment; = 3 ready/waiting/start of line
-
-public:
-	WriterFile(const ProgramParameters & parameters):stts("Ok"),par(parameters),lineNumber(1){
-		foutput.open(par.outfilename,std::fstream::out);
-		if(foutput.is_open()) state=3;
-		else{
-			std::stringstream ss;
-			ss << "The file " << par.outfilename << " does not exist\n";
-			stts=ss.str();
-			state=0;
-		}
-	}
-
-	~WriterFile(){
-		foutput.close();
-	}
-
-	bool isReady(){
-		if (state==5) return true;
-		return false;
-	}
-	/**
-	 *
-	 * @param type is currently ignored
-	 * @return true if writing succeeded
-	 */
-	bool write(const std::string & object,const WRITETYPE & type=WRITETYPE::VALUE){
-		switch(state){
-		case 1://previously wrote object
-			switch(type){
-			case WRITETYPE::COMMENT://requesting write comment. Must write new line before
-				foutput << "\n# "<< object<<"\n";
-				state=3;
-				break;
-			case WRITETYPE::LINE://requesting write new line after value
-				foutput << " "<< object<<"\n";
-				state=3;
-				break;
-			case WRITETYPE::VALUE://requesting write another value. Must insert separator before
-				foutput << " "<< object;
-				state=1;
-				break;
-			}
-			return true;
-			break;
-		case 3://ready/waiting/start of line
-			switch(type){
-			case WRITETYPE::COMMENT://requesting write comment
-				foutput << "# "<< object<<"\n";
-				state=3;
-				break;
-			case WRITETYPE::LINE://requesting write new line after value
-				foutput << object<<"\n";
-				state=3;
-				break;
-			case WRITETYPE::VALUE://requesting write value
-				foutput << object;
-				state=1;
-				break;
-			}
-			break;
-		}
-		return false;
-	}
-
-	std::string status(){return stts;}
-};
-
-class WriterStringStream: public WriterInterface{
-private:
-	std::stringstream & str;
+	std::ostream & str;
 	std::string stts;
 	const ProgramParameters & par;
 	unsigned int lineNumber=1;
 	int state=0;//=0 error; =1 write object; =2 write comment; = 3 ready/waiting/start of line
 
 public:
-	WriterStringStream(std::stringstream & stream,const ProgramParameters & parameters):str(stream),stts("Ok"),par(parameters),lineNumber(1),state(3){}
+	WriterStream(std::ostream & stream,const ProgramParameters & parameters):str(stream),stts("Ok"),par(parameters),lineNumber(1),state(3){}
 
-	~WriterStringStream(){}
+	~WriterStream(){}
 
 	bool isReady(){
 		if (state==5) return true;
@@ -140,8 +93,13 @@ public:
 	}
 
 	/**
+	 * @brief Write a certain type of object to stream
+	 * @details
+	 * The type parameter defines the type of object being written. This is used
+	 * to automatically add carriage returns, value separators and prepare writing
+	 * of the next object type.
 	 *
-	 * @param type is currently ignored
+	 * @param type defines what is being written
 	 * @return true if writing succeeded
 	 */
 	bool write(const std::string & object, const WRITETYPE & type=WRITETYPE::VALUE){
@@ -184,6 +142,64 @@ public:
 	}
 
 	std::string status(){return stts;}
+};
+
+/**
+ * @brief Writer to file output stream.
+ *
+ * @details
+ * This writer can not write backwards, only append to the end.
+ *
+ * @author poltergeist0
+ *
+ * @date 2019-02-06
+ */
+class WriterFile: public WriterInterface{
+private:
+	std::ofstream foutput;
+	WriterStream f;
+
+public:
+	WriterFile(const ProgramParameters & parameters):f(foutput,parameters){
+		foutput.open(parameters.outfilename,std::fstream::out);
+	}
+
+	~WriterFile(){
+		if(foutput.is_open()){
+			foutput.close();
+		}
+	}
+
+	bool isReady(){
+		if(!foutput.is_open()){
+			return false;
+		}
+		return f.isReady();
+	}
+
+	/**
+	 * @brief Write a certain type of object to file stream
+	 * @details
+	 * The type parameter defines the type of object being written. This is used
+	 * to automatically add carriage returns, value separators and prepare writing
+	 * of the next object type.
+	 *
+	 * @param type defines what is being written
+	 * @return true if writing succeeded
+	 */
+	bool write(const std::string & object,const WRITETYPE & type=WRITETYPE::VALUE){
+		if(!foutput.is_open()){
+			return false;
+		}
+		return f.write(object,type);
+	}
+
+	std::string status(){
+		if(!foutput.is_open()){
+			return "The file does not exist\n";
+		}
+		return f.status();
+	}
 };
 
 

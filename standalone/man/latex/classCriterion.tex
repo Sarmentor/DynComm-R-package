@@ -1,0 +1,273 @@
+\hypertarget{classCriterion}{}\section{Criterion Class Reference}
+\label{classCriterion}\index{Criterion@{Criterion}}
+
+
+Aggregator class for all criterion.  
+
+
+
+
+{\ttfamily \#include $<$criterion.\+h$>$}
+
+
+
+Inheritance diagram for Criterion\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=172pt]{classCriterion__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Criterion\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCriterion__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{classCriterion_a55594c223ce0837b8319c46c66cb648f}{C\+R\+I\+T\+E\+R\+I\+ON} \+: unsigned int \{ \hyperlink{classCriterion_a55594c223ce0837b8319c46c66cb648fa2a7d416fbe43baf234420601ea73d946}{C\+R\+I\+T\+E\+R\+I\+O\+N\+::\+M\+O\+D\+U\+L\+A\+R\+I\+TY} =1, 
+\hyperlink{classCriterion_a55594c223ce0837b8319c46c66cb648fa2ca6c7acaa036f0d3b18d83b688b2df9}{C\+R\+I\+T\+E\+R\+I\+O\+N\+::\+B\+A\+L\+M\+OD}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classCriterion_ac880ed791be9ad5cf41fe8561bdec35f}{Criterion} (const \hyperlink{classGraphUndirectedGroupable}{Graph\+Undirected\+Groupable} \&graph, const \hyperlink{classCriterion_a55594c223ce0837b8319c46c66cb648f}{C\+R\+I\+T\+E\+R\+I\+ON} \&criterion, const \hyperlink{structProgramParameters}{Program\+Parameters} \&parameters=\hyperlink{program_8h_ae2d819404495f80f31db7676c1329d19}{arguments\+Default})
+\item 
+\hyperlink{classCriterion_ae66e2b8131ae4a5e7945d9fdc1b2dcc2}{$\sim$\+Criterion} ()
+\item 
+\hyperlink{criterionInterface_8h_af71ff22f6355fd69a4a62104bfd59a83}{type\+Criterion} \hyperlink{classCriterion_a99e23ddc517ca3f2ea4766a5b4be0e3e}{gain} (const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&vertex, const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \&comm) const
+\item 
+\hyperlink{criterionInterface_8h_af71ff22f6355fd69a4a62104bfd59a83}{type\+Criterion} \hyperlink{classCriterion_a1f8b3a7bf56b5434b04d5366d754d459}{quality} () const
+\item 
+\hyperlink{classCriterion_a55594c223ce0837b8319c46c66cb648f}{C\+R\+I\+T\+E\+R\+I\+ON} \hyperlink{classCriterion_a023f88034d2712af46160f1842388b0d}{type} () const
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const \hyperlink{classCriterion_a55594c223ce0837b8319c46c66cb648f}{C\+R\+I\+T\+E\+R\+I\+ON} \hyperlink{classCriterion_af38092427520b56e2301f14e7fc71dbb}{crtrn}
+\item 
+\hyperlink{classCriterionModularity}{Criterion\+Modularity} \hyperlink{classCriterion_ae3432ace13d3191c7f6f33c833eb3b82}{criterion\+Modularity}
+\item 
+\hyperlink{classCriterionBalMod}{Criterion\+Bal\+Mod} \hyperlink{classCriterion_a164dd99a6707997bb916a1516e1cd327}{criterion\+Bal\+Mod}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Aggregator class for all criterion. 
+
+It is a simple class that only instantiates all criterion and dispatches function calls to the correct one.
+
+\begin{DoxyAuthor}{Author}
+poltergeist0
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2018-\/08-\/19 
+\end{DoxyDate}
+
+
+Definition at line 46 of file criterion.\+h.
+
+
+
+\subsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{classCriterion_a55594c223ce0837b8319c46c66cb648f}\label{classCriterion_a55594c223ce0837b8319c46c66cb648f}} 
+\index{Criterion@{Criterion}!C\+R\+I\+T\+E\+R\+I\+ON@{C\+R\+I\+T\+E\+R\+I\+ON}}
+\index{C\+R\+I\+T\+E\+R\+I\+ON@{C\+R\+I\+T\+E\+R\+I\+ON}!Criterion@{Criterion}}
+\subsubsection{\texorpdfstring{C\+R\+I\+T\+E\+R\+I\+ON}{CRITERION}}
+{\footnotesize\ttfamily enum \hyperlink{classCriterion_a55594c223ce0837b8319c46c66cb648f}{Criterion\+::\+C\+R\+I\+T\+E\+R\+I\+ON} \+: unsigned int\hspace{0.3cm}{\ttfamily [strong]}}
+
+Enumeration with the list of supported criterion for algorithms implemented in C++. This enumeration must start at 1 since this code is used in R and R indexing (for arrays, etc) starts at 1 instead of 0. Otherwise C++ would assign the first criterion a 0. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{M\+O\+D\+U\+L\+A\+R\+I\+TY@{M\+O\+D\+U\+L\+A\+R\+I\+TY}!Criterion@{Criterion}}\index{Criterion@{Criterion}!M\+O\+D\+U\+L\+A\+R\+I\+TY@{M\+O\+D\+U\+L\+A\+R\+I\+TY}}}\mbox{\Hypertarget{classCriterion_a55594c223ce0837b8319c46c66cb648fa2a7d416fbe43baf234420601ea73d946}\label{classCriterion_a55594c223ce0837b8319c46c66cb648fa2a7d416fbe43baf234420601ea73d946}} 
+M\+O\+D\+U\+L\+A\+R\+I\+TY&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{B\+A\+L\+M\+OD@{B\+A\+L\+M\+OD}!Criterion@{Criterion}}\index{Criterion@{Criterion}!B\+A\+L\+M\+OD@{B\+A\+L\+M\+OD}}}\mbox{\Hypertarget{classCriterion_a55594c223ce0837b8319c46c66cb648fa2ca6c7acaa036f0d3b18d83b688b2df9}\label{classCriterion_a55594c223ce0837b8319c46c66cb648fa2ca6c7acaa036f0d3b18d83b688b2df9}} 
+B\+A\+L\+M\+OD&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 60 of file criterion.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classCriterion_ac880ed791be9ad5cf41fe8561bdec35f}\label{classCriterion_ac880ed791be9ad5cf41fe8561bdec35f}} 
+\index{Criterion@{Criterion}!Criterion@{Criterion}}
+\index{Criterion@{Criterion}!Criterion@{Criterion}}
+\subsubsection{\texorpdfstring{Criterion()}{Criterion()}}
+{\footnotesize\ttfamily Criterion\+::\+Criterion (\begin{DoxyParamCaption}\item[{const \hyperlink{classGraphUndirectedGroupable}{Graph\+Undirected\+Groupable} \&}]{graph,  }\item[{const \hyperlink{classCriterion_a55594c223ce0837b8319c46c66cb648f}{C\+R\+I\+T\+E\+R\+I\+ON} \&}]{criterion,  }\item[{const \hyperlink{structProgramParameters}{Program\+Parameters} \&}]{parameters = {\ttfamily \hyperlink{program_8h_ae2d819404495f80f31db7676c1329d19}{arguments\+Default}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructor
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & \\
+\hline
+{\em criterion} & \\
+\hline
+{\em parameters} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 90 of file criterion.\+h.
+
+\mbox{\Hypertarget{classCriterion_ae66e2b8131ae4a5e7945d9fdc1b2dcc2}\label{classCriterion_ae66e2b8131ae4a5e7945d9fdc1b2dcc2}} 
+\index{Criterion@{Criterion}!````~Criterion@{$\sim$\+Criterion}}
+\index{````~Criterion@{$\sim$\+Criterion}!Criterion@{Criterion}}
+\subsubsection{\texorpdfstring{$\sim$\+Criterion()}{~Criterion()}}
+{\footnotesize\ttfamily Criterion\+::$\sim$\+Criterion (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Destructor 
+
+Definition at line 108 of file criterion.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classCriterion_a99e23ddc517ca3f2ea4766a5b4be0e3e}\label{classCriterion_a99e23ddc517ca3f2ea4766a5b4be0e3e}} 
+\index{Criterion@{Criterion}!gain@{gain}}
+\index{gain@{gain}!Criterion@{Criterion}}
+\subsubsection{\texorpdfstring{gain()}{gain()}}
+{\footnotesize\ttfamily \hyperlink{criterionInterface_8h_af71ff22f6355fd69a4a62104bfd59a83}{type\+Criterion} Criterion\+::gain (\begin{DoxyParamCaption}\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{vertex,  }\item[{const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \&}]{comm }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+compute the quality obtained if the given vertex was moved from its current community to the given community
+
+
+\begin{DoxyParams}{Parameters}
+{\em vertex} & \\
+\hline
+{\em comm} & new potential community for given vertex \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the quality, which may be positive or negative 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classCriterionInterface_aa0beec8287cd70e16c057e7995d0caca}{Criterion\+Interface}.
+
+
+
+Definition at line 118 of file criterion.\+h.
+
+
+
+References B\+A\+L\+M\+OD, Criterion\+Bal\+Mod\+::gain(), Criterion\+Modularity\+::gain(), and M\+O\+D\+U\+L\+A\+R\+I\+TY.
+
+
+
+Referenced by Algorithm\+Louvain\+::gain().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCriterion_a99e23ddc517ca3f2ea4766a5b4be0e3e_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classCriterion_a1f8b3a7bf56b5434b04d5366d754d459}\label{classCriterion_a1f8b3a7bf56b5434b04d5366d754d459}} 
+\index{Criterion@{Criterion}!quality@{quality}}
+\index{quality@{quality}!Criterion@{Criterion}}
+\subsubsection{\texorpdfstring{quality()}{quality()}}
+{\footnotesize\ttfamily \hyperlink{criterionInterface_8h_af71ff22f6355fd69a4a62104bfd59a83}{type\+Criterion} Criterion\+::quality (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+compute the quality of the current partition scheme
+
+\begin{DoxyReturn}{Returns}
+the quality value 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classCriterionInterface_a5d287dc7755f7ce7d6a3d91f0d8fa5de}{Criterion\+Interface}.
+
+
+
+Definition at line 136 of file criterion.\+h.
+
+
+
+References B\+A\+L\+M\+OD, M\+O\+D\+U\+L\+A\+R\+I\+TY, Criterion\+Bal\+Mod\+::quality(), and Criterion\+Modularity\+::quality().
+
+
+
+Referenced by Dyn\+Comm\+Base\+::quality(), and Algorithm\+Louvain\+::quality().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCriterion_a1f8b3a7bf56b5434b04d5366d754d459_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classCriterion_a023f88034d2712af46160f1842388b0d}\label{classCriterion_a023f88034d2712af46160f1842388b0d}} 
+\index{Criterion@{Criterion}!type@{type}}
+\index{type@{type}!Criterion@{Criterion}}
+\subsubsection{\texorpdfstring{type()}{type()}}
+{\footnotesize\ttfamily \hyperlink{classCriterion_a55594c223ce0837b8319c46c66cb648f}{C\+R\+I\+T\+E\+R\+I\+ON} Criterion\+::type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+the chosen criterion 
+\end{DoxyReturn}
+
+
+Definition at line 153 of file criterion.\+h.
+
+
+
+References crtrn.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classCriterion_a164dd99a6707997bb916a1516e1cd327}\label{classCriterion_a164dd99a6707997bb916a1516e1cd327}} 
+\index{Criterion@{Criterion}!criterion\+Bal\+Mod@{criterion\+Bal\+Mod}}
+\index{criterion\+Bal\+Mod@{criterion\+Bal\+Mod}!Criterion@{Criterion}}
+\subsubsection{\texorpdfstring{criterion\+Bal\+Mod}{criterionBalMod}}
+{\footnotesize\ttfamily \hyperlink{classCriterionBalMod}{Criterion\+Bal\+Mod} Criterion\+::criterion\+Bal\+Mod\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 73 of file criterion.\+h.
+
+\mbox{\Hypertarget{classCriterion_ae3432ace13d3191c7f6f33c833eb3b82}\label{classCriterion_ae3432ace13d3191c7f6f33c833eb3b82}} 
+\index{Criterion@{Criterion}!criterion\+Modularity@{criterion\+Modularity}}
+\index{criterion\+Modularity@{criterion\+Modularity}!Criterion@{Criterion}}
+\subsubsection{\texorpdfstring{criterion\+Modularity}{criterionModularity}}
+{\footnotesize\ttfamily \hyperlink{classCriterionModularity}{Criterion\+Modularity} Criterion\+::criterion\+Modularity\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 72 of file criterion.\+h.
+
+\mbox{\Hypertarget{classCriterion_af38092427520b56e2301f14e7fc71dbb}\label{classCriterion_af38092427520b56e2301f14e7fc71dbb}} 
+\index{Criterion@{Criterion}!crtrn@{crtrn}}
+\index{crtrn@{crtrn}!Criterion@{Criterion}}
+\subsubsection{\texorpdfstring{crtrn}{crtrn}}
+{\footnotesize\ttfamily const \hyperlink{classCriterion_a55594c223ce0837b8319c46c66cb648f}{C\+R\+I\+T\+E\+R\+I\+ON} Criterion\+::crtrn\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 67 of file criterion.\+h.
+
+
+
+Referenced by type().
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+R-\/\+C\+R\+A\+N/src/base/\+Cpp/\hyperlink{criterion_8h}{criterion.\+h}\end{DoxyCompactItemize}

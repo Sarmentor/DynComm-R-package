@@ -1,0 +1,6 @@
+<map id="GraphUndirected::removeEdge" name="GraphUndirected::removeEdge">
+<area shape="rect" id="node2" href="$namespacemultimap.html#a1824643a35a661af8c8975b16b273142" title="multimap::find" alt="" coords="299,5,403,32"/>
+<area shape="rect" id="node3" href="$classGraphUndirected.html#a10582b249617c876bdf298f675285960" title="GraphUndirected::updateMax\lWeight" alt="" coords="255,57,447,98"/>
+<area shape="rect" id="node4" href="$classGraphUndirected.html#a7c21f40748eef95d1c35be892ab10ce2" title="GraphUndirected::maxWeight" alt="" coords="495,39,689,65"/>
+<area shape="rect" id="node5" href="$classHalfEdge.html#a89cc13d21ae44a9d9c2ba95f89576090" title="HalfEdge::weight" alt="" coords="531,89,653,116"/>
+</map>

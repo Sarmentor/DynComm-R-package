@@ -1,0 +1,17 @@
+<map id="GraphInterface::~GraphInterface" name="GraphInterface::~GraphInterface">
+<area shape="rect" id="node2" href="$classGraphInterface.html#ad72b49c0585d378b7a6488cf07074586" title="GraphInterface::addEdge" alt="" coords="275,5,442,32"/>
+<area shape="rect" id="node3" href="$classGraphInterface.html#a057eb801c6d7f594cdedc205a0d081a9" title="GraphInterface::edgeCount" alt="" coords="269,56,448,83"/>
+<area shape="rect" id="node4" href="$classGraphInterface.html#a2ac54d73e88516d6793a9a6fc0e434ee" title="GraphInterface::edges" alt="" coords="283,107,434,133"/>
+<area shape="rect" id="node5" href="$classGraphInterface.html#a94af429415c22cba42ecf5a97ee6b5c3" title="GraphInterface::getVertices" alt="" coords="267,157,450,184"/>
+<area shape="rect" id="node6" href="$classGraphInterface.html#a2fb0681f6cda5f8318adf7ee95df3685" title="GraphInterface::maxWeight" alt="" coords="267,208,450,235"/>
+<area shape="rect" id="node7" href="$classGraphInterface.html#a23e03d032193544c77d04310fe9e4785" title="Get the neighbours of a vertex. " alt="" coords="269,259,448,285"/>
+<area shape="rect" id="node8" href="$classGraphInterface.html#ae9b85226881a84124ce6dbaba498edce" title="Get the number of neighbours of a vertex. " alt="" coords="269,310,448,351"/>
+<area shape="rect" id="node9" href="$classGraphInterface.html#a62e1ed1899155eb63cf7ee82970cd415" title="Get the sum of the weights of the neighbours of a vertex. " alt="" coords="269,375,448,417"/>
+<area shape="rect" id="node10" href="$classGraphInterface.html#a1297fd6d7c9698197b5f570f2a9f3701" title="GraphInterface::removeEdge" alt="" coords="264,441,453,468"/>
+<area shape="rect" id="node11" href="$classGraphInterface.html#a448a3c66fb5650339f84366257d322ee" title="GraphInterface::replace" alt="" coords="279,492,438,519"/>
+<area shape="rect" id="node12" href="$classGraphInterface.html#ac6d3da524ca5c95c3ebd80d2b0d5d762" title="GraphInterface::toString" alt="" coords="278,543,439,569"/>
+<area shape="rect" id="node13" href="$classGraphInterface.html#a3bf10ae8e4fc3b049b5e7ac23798b89f" title="GraphInterface::totalWeight" alt="" coords="267,593,450,620"/>
+<area shape="rect" id="node14" href="$classGraphInterface.html#a483f64f8d37af2b363f2f4eb37943dfd" title="GraphInterface::vertexCount" alt="" coords="265,644,452,671"/>
+<area shape="rect" id="node15" href="$classGraphInterface.html#a27f350094f566bb4840f22c5bc0695c4" title="GraphInterface::weight" alt="" coords="281,695,436,721"/>
+<area shape="rect" id="node16" href="$classGraphInterface.html#a3a4bd9e37e69a4488a48f781e36ea686" title="GraphInterface::weighted\l_degree" alt="" coords="275,746,443,787"/>
+</map>

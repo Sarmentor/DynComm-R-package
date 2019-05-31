@@ -8,7 +8,10 @@
 \title{List of available CRITERION (quality measurement functions).}
 \format{A named list with the names of the available CRITERION:
 \describe{
-  \item{MODULARITY}{Newman-Girvan}
+ \item{MODULARITY}{
+   Newman-Girvan \cr
+   See \code{\link{CRITERION_MODULARITY}}
+ }
 }}
 \usage{
 CRITERION
@@ -33,6 +36,9 @@ help to find which criterion is supported
 \examples{
 CRITERION$MODULARITY
 
+}
+\seealso{
+\code{\link{DynComm}}
 }
 \author{
 poltergeist0

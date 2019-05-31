@@ -1,0 +1,185 @@
+\hypertarget{classTime_1_1TimeKeeper}{}\section{Time\+:\+:Time\+Keeper Class Reference}
+\label{classTime_1_1TimeKeeper}\index{Time\+::\+Time\+Keeper@{Time\+::\+Time\+Keeper}}
+
+
+Simple class used to keep track of elapsed time.  
+
+
+
+
+{\ttfamily \#include $<$time\+Functions.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classTime_1_1TimeKeeper_a578a506c1bf462e199a259442380a16c}{Time\+Keeper} (\hyperlink{systemDefines_8h_abc0f5bc07737e498f287334775dff2b6}{uint64} time=0)
+\item 
+\hyperlink{systemDefines_8h_abc0f5bc07737e498f287334775dff2b6}{uint64} \hyperlink{classTime_1_1TimeKeeper_a3495ee4c92a5c4540a6a223c0cc6eeed}{set} (\hyperlink{systemDefines_8h_abc0f5bc07737e498f287334775dff2b6}{uint64} time=0, bool update=true)
+\item 
+\hyperlink{systemDefines_8h_abc0f5bc07737e498f287334775dff2b6}{uint64} \hyperlink{classTime_1_1TimeKeeper_a1cb3ff75c82149d1d8fc19bd91d0dec7}{get} (const \hyperlink{systemDefines_8h_abc0f5bc07737e498f287334775dff2b6}{uint64} \&time=0) const
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{systemDefines_8h_abc0f5bc07737e498f287334775dff2b6}{uint64} \hyperlink{classTime_1_1TimeKeeper_a033210ff55b364ea2cb409506b988bc2}{validate\+Base\+Time} (const \hyperlink{systemDefines_8h_abc0f5bc07737e498f287334775dff2b6}{uint64} \&time) const
+\item 
+\hyperlink{systemDefines_8h_abc0f5bc07737e498f287334775dff2b6}{uint64} \hyperlink{classTime_1_1TimeKeeper_a83b58d0e6cbeae53fadf2b1cdf6dfa5d}{validate\+Time} (const \hyperlink{systemDefines_8h_abc0f5bc07737e498f287334775dff2b6}{uint64} \&time) const
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{systemDefines_8h_abc0f5bc07737e498f287334775dff2b6}{uint64} \hyperlink{classTime_1_1TimeKeeper_ac464f5009a83136c7b864abf8aff0951}{r}
+\item 
+\hyperlink{systemDefines_8h_abc0f5bc07737e498f287334775dff2b6}{uint64} \hyperlink{classTime_1_1TimeKeeper_abc07fe9dfb0c61ed901eef1bbf4a994b}{t}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Simple class used to keep track of elapsed time. 
+
+keeps track of elapsed time since given time or epoch, if time=0
+
+\begin{DoxyAuthor}{Author}
+poltergeist0
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2018-\/11-\/12 
+\end{DoxyDate}
+
+
+Definition at line 77 of file time\+Functions.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classTime_1_1TimeKeeper_a578a506c1bf462e199a259442380a16c}\label{classTime_1_1TimeKeeper_a578a506c1bf462e199a259442380a16c}} 
+\index{Time\+::\+Time\+Keeper@{Time\+::\+Time\+Keeper}!Time\+Keeper@{Time\+Keeper}}
+\index{Time\+Keeper@{Time\+Keeper}!Time\+::\+Time\+Keeper@{Time\+::\+Time\+Keeper}}
+\subsubsection{\texorpdfstring{Time\+Keeper()}{TimeKeeper()}}
+{\footnotesize\ttfamily Time\+::\+Time\+Keeper\+::\+Time\+Keeper (\begin{DoxyParamCaption}\item[{\hyperlink{systemDefines_8h_abc0f5bc07737e498f287334775dff2b6}{uint64}}]{time = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 102 of file time\+Functions.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classTime_1_1TimeKeeper_a1cb3ff75c82149d1d8fc19bd91d0dec7}\label{classTime_1_1TimeKeeper_a1cb3ff75c82149d1d8fc19bd91d0dec7}} 
+\index{Time\+::\+Time\+Keeper@{Time\+::\+Time\+Keeper}!get@{get}}
+\index{get@{get}!Time\+::\+Time\+Keeper@{Time\+::\+Time\+Keeper}}
+\subsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily \hyperlink{systemDefines_8h_abc0f5bc07737e498f287334775dff2b6}{uint64} Time\+::\+Time\+Keeper\+::get (\begin{DoxyParamCaption}\item[{const \hyperlink{systemDefines_8h_abc0f5bc07737e498f287334775dff2b6}{uint64} \&}]{time = {\ttfamily 0} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+get current time or the elapsed time regarding the saved reference time or translate a time to the configured time referential If there is no base time and the given time is zero, return the current time (time since epoch) If there is no base time and the given time is not zero, return the elapsed time since the last call to set or the constructor If there is base time and the given time is zero, return the elapsed time since reference time in regard to the configured base time If there is base time and the given time is not zero, return the time difference of the given time compared to the reference time in regard to the configured base time
+
+
+\begin{DoxyParams}{Parameters}
+{\em time} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 124 of file time\+Functions.\+h.
+
+
+
+References Time\+::current\+Time(), r, t, and validate\+Time().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classTime_1_1TimeKeeper_a1cb3ff75c82149d1d8fc19bd91d0dec7_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classTime_1_1TimeKeeper_a3495ee4c92a5c4540a6a223c0cc6eeed}\label{classTime_1_1TimeKeeper_a3495ee4c92a5c4540a6a223c0cc6eeed}} 
+\index{Time\+::\+Time\+Keeper@{Time\+::\+Time\+Keeper}!set@{set}}
+\index{set@{set}!Time\+::\+Time\+Keeper@{Time\+::\+Time\+Keeper}}
+\subsubsection{\texorpdfstring{set()}{set()}}
+{\footnotesize\ttfamily \hyperlink{systemDefines_8h_abc0f5bc07737e498f287334775dff2b6}{uint64} Time\+::\+Time\+Keeper\+::set (\begin{DoxyParamCaption}\item[{\hyperlink{systemDefines_8h_abc0f5bc07737e498f287334775dff2b6}{uint64}}]{time = {\ttfamily 0},  }\item[{bool}]{update = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+set base (intended) time and possibly update the reference time 
+
+Definition at line 106 of file time\+Functions.\+h.
+
+
+
+References Time\+::current\+Time(), and validate\+Base\+Time().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classTime_1_1TimeKeeper_a3495ee4c92a5c4540a6a223c0cc6eeed_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classTime_1_1TimeKeeper_a033210ff55b364ea2cb409506b988bc2}\label{classTime_1_1TimeKeeper_a033210ff55b364ea2cb409506b988bc2}} 
+\index{Time\+::\+Time\+Keeper@{Time\+::\+Time\+Keeper}!validate\+Base\+Time@{validate\+Base\+Time}}
+\index{validate\+Base\+Time@{validate\+Base\+Time}!Time\+::\+Time\+Keeper@{Time\+::\+Time\+Keeper}}
+\subsubsection{\texorpdfstring{validate\+Base\+Time()}{validateBaseTime()}}
+{\footnotesize\ttfamily \hyperlink{systemDefines_8h_abc0f5bc07737e498f287334775dff2b6}{uint64} Time\+::\+Time\+Keeper\+::validate\+Base\+Time (\begin{DoxyParamCaption}\item[{const \hyperlink{systemDefines_8h_abc0f5bc07737e498f287334775dff2b6}{uint64} \&}]{time }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Definition at line 89 of file time\+Functions.\+h.
+
+
+
+Referenced by set().
+
+\mbox{\Hypertarget{classTime_1_1TimeKeeper_a83b58d0e6cbeae53fadf2b1cdf6dfa5d}\label{classTime_1_1TimeKeeper_a83b58d0e6cbeae53fadf2b1cdf6dfa5d}} 
+\index{Time\+::\+Time\+Keeper@{Time\+::\+Time\+Keeper}!validate\+Time@{validate\+Time}}
+\index{validate\+Time@{validate\+Time}!Time\+::\+Time\+Keeper@{Time\+::\+Time\+Keeper}}
+\subsubsection{\texorpdfstring{validate\+Time()}{validateTime()}}
+{\footnotesize\ttfamily \hyperlink{systemDefines_8h_abc0f5bc07737e498f287334775dff2b6}{uint64} Time\+::\+Time\+Keeper\+::validate\+Time (\begin{DoxyParamCaption}\item[{const \hyperlink{systemDefines_8h_abc0f5bc07737e498f287334775dff2b6}{uint64} \&}]{time }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Definition at line 95 of file time\+Functions.\+h.
+
+
+
+Referenced by get().
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classTime_1_1TimeKeeper_ac464f5009a83136c7b864abf8aff0951}\label{classTime_1_1TimeKeeper_ac464f5009a83136c7b864abf8aff0951}} 
+\index{Time\+::\+Time\+Keeper@{Time\+::\+Time\+Keeper}!r@{r}}
+\index{r@{r}!Time\+::\+Time\+Keeper@{Time\+::\+Time\+Keeper}}
+\subsubsection{\texorpdfstring{r}{r}}
+{\footnotesize\ttfamily \hyperlink{systemDefines_8h_abc0f5bc07737e498f287334775dff2b6}{uint64} Time\+::\+Time\+Keeper\+::r\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 82 of file time\+Functions.\+h.
+
+
+
+Referenced by get().
+
+\mbox{\Hypertarget{classTime_1_1TimeKeeper_abc07fe9dfb0c61ed901eef1bbf4a994b}\label{classTime_1_1TimeKeeper_abc07fe9dfb0c61ed901eef1bbf4a994b}} 
+\index{Time\+::\+Time\+Keeper@{Time\+::\+Time\+Keeper}!t@{t}}
+\index{t@{t}!Time\+::\+Time\+Keeper@{Time\+::\+Time\+Keeper}}
+\subsubsection{\texorpdfstring{t}{t}}
+{\footnotesize\ttfamily \hyperlink{systemDefines_8h_abc0f5bc07737e498f287334775dff2b6}{uint64} Time\+::\+Time\+Keeper\+::t\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 87 of file time\+Functions.\+h.
+
+
+
+Referenced by get().
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+R-\/\+C\+R\+A\+N/src/base/\+Cpp/\hyperlink{timeFunctions_8h}{time\+Functions.\+h}\end{DoxyCompactItemize}

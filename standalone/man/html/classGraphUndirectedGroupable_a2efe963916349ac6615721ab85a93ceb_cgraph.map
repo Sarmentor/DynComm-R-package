@@ -1,0 +1,8 @@
+<map id="GraphUndirectedGroupable::addEdge" name="GraphUndirectedGroupable::addEdge">
+<area shape="rect" id="node2" href="$classEdge.html#ac1389c34d05a890f9fd84dacba3df06b" title="Edge::destination" alt="" coords="260,5,383,32"/>
+<area shape="rect" id="node4" href="$classGraphUndirectedGroupable.html#ad2685678f448028f17c7627634659f7c" title="GraphUndirectedGroupable\l::replace" alt="" coords="232,57,411,98"/>
+<area shape="rect" id="node5" href="$classEdge.html#ad949d0cbd81ca43e8043b066b0d167d3" title="Edge::source" alt="" coords="272,123,371,149"/>
+<area shape="rect" id="node6" href="$classEdge.html#a9d5634336c89578f1bbbfce20c3938a7" title="Edge::weight" alt="" coords="272,173,371,200"/>
+<area shape="rect" id="node3" href="$classHalfEdge.html#a98c0fb1c54506abbd3c0ac4a1264dac1" title="HalfEdge::destination" alt="" coords="459,5,605,32"/>
+<area shape="rect" id="node7" href="$classHalfEdge.html#a89cc13d21ae44a9d9c2ba95f89576090" title="HalfEdge::weight" alt="" coords="471,173,593,200"/>
+</map>

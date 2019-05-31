@@ -1,0 +1,175 @@
+\hypertarget{classWriterInterface}{}\section{Writer\+Interface Class Reference}
+\label{classWriterInterface}\index{Writer\+Interface@{Writer\+Interface}}
+
+
+Interface for a simple stream forward writer.  
+
+
+
+
+{\ttfamily \#include $<$writer.\+h$>$}
+
+
+
+Inheritance diagram for Writer\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=232pt]{classWriterInterface__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{classWriterInterface_af35706b761b016972144a9333637d93d}{W\+R\+I\+T\+E\+T\+Y\+PE} \+: unsigned int \{ \hyperlink{classWriterInterface_af35706b761b016972144a9333637d93da17b8ef2c330f1430e00c9de5469fc7e7}{W\+R\+I\+T\+E\+T\+Y\+P\+E\+::\+L\+I\+NE} =1, 
+\hyperlink{classWriterInterface_af35706b761b016972144a9333637d93daecc2e9c313faddb07e7da223c1dc5c3f}{W\+R\+I\+T\+E\+T\+Y\+P\+E\+::\+V\+A\+L\+UE}, 
+\hyperlink{classWriterInterface_af35706b761b016972144a9333637d93daf2cd320b55767434dd48d81b165ea956}{W\+R\+I\+T\+E\+T\+Y\+P\+E\+::\+C\+O\+M\+M\+E\+NT}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \hyperlink{classWriterInterface_a4d53c1a520fca583d94ead3d656d5fc3}{$\sim$\+Writer\+Interface} ()
+\item 
+virtual bool \hyperlink{classWriterInterface_ada0c58dbea3bc216a1a687b070f2a924}{is\+Ready} ()=0
+\item 
+virtual bool \hyperlink{classWriterInterface_a2f756ac0b3299f4dbadececad4055424}{write} (const std\+::string \&object, const \hyperlink{classWriterInterface_af35706b761b016972144a9333637d93d}{W\+R\+I\+T\+E\+T\+Y\+PE} \&type=\hyperlink{classWriterInterface_af35706b761b016972144a9333637d93daecc2e9c313faddb07e7da223c1dc5c3f}{W\+R\+I\+T\+E\+T\+Y\+P\+E\+::\+V\+A\+L\+UE})=0
+\item 
+virtual std\+::string \hyperlink{classWriterInterface_a8865a526bb8c67ff4c96f25fc8217c81}{status} ()=0
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Interface for a simple stream forward writer. 
+
+Writers that implement this interface can not write backwards, only append to the end.
+
+\begin{DoxyAuthor}{Author}
+poltergeist0
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019-\/02-\/06 
+\end{DoxyDate}
+
+
+Definition at line 38 of file writer.\+h.
+
+
+
+\subsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{classWriterInterface_af35706b761b016972144a9333637d93d}\label{classWriterInterface_af35706b761b016972144a9333637d93d}} 
+\index{Writer\+Interface@{Writer\+Interface}!W\+R\+I\+T\+E\+T\+Y\+PE@{W\+R\+I\+T\+E\+T\+Y\+PE}}
+\index{W\+R\+I\+T\+E\+T\+Y\+PE@{W\+R\+I\+T\+E\+T\+Y\+PE}!Writer\+Interface@{Writer\+Interface}}
+\subsubsection{\texorpdfstring{W\+R\+I\+T\+E\+T\+Y\+PE}{WRITETYPE}}
+{\footnotesize\ttfamily enum \hyperlink{classWriterInterface_af35706b761b016972144a9333637d93d}{Writer\+Interface\+::\+W\+R\+I\+T\+E\+T\+Y\+PE} \+: unsigned int\hspace{0.3cm}{\ttfamily [strong]}}
+
+Enumeration of the types of objects that can be written \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{L\+I\+NE@{L\+I\+NE}!Writer\+Interface@{Writer\+Interface}}\index{Writer\+Interface@{Writer\+Interface}!L\+I\+NE@{L\+I\+NE}}}\mbox{\Hypertarget{classWriterInterface_af35706b761b016972144a9333637d93da17b8ef2c330f1430e00c9de5469fc7e7}\label{classWriterInterface_af35706b761b016972144a9333637d93da17b8ef2c330f1430e00c9de5469fc7e7}} 
+L\+I\+NE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{V\+A\+L\+UE@{V\+A\+L\+UE}!Writer\+Interface@{Writer\+Interface}}\index{Writer\+Interface@{Writer\+Interface}!V\+A\+L\+UE@{V\+A\+L\+UE}}}\mbox{\Hypertarget{classWriterInterface_af35706b761b016972144a9333637d93daecc2e9c313faddb07e7da223c1dc5c3f}\label{classWriterInterface_af35706b761b016972144a9333637d93daecc2e9c313faddb07e7da223c1dc5c3f}} 
+V\+A\+L\+UE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+O\+M\+M\+E\+NT@{C\+O\+M\+M\+E\+NT}!Writer\+Interface@{Writer\+Interface}}\index{Writer\+Interface@{Writer\+Interface}!C\+O\+M\+M\+E\+NT@{C\+O\+M\+M\+E\+NT}}}\mbox{\Hypertarget{classWriterInterface_af35706b761b016972144a9333637d93daf2cd320b55767434dd48d81b165ea956}\label{classWriterInterface_af35706b761b016972144a9333637d93daf2cd320b55767434dd48d81b165ea956}} 
+C\+O\+M\+M\+E\+NT&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 43 of file writer.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classWriterInterface_a4d53c1a520fca583d94ead3d656d5fc3}\label{classWriterInterface_a4d53c1a520fca583d94ead3d656d5fc3}} 
+\index{Writer\+Interface@{Writer\+Interface}!````~Writer\+Interface@{$\sim$\+Writer\+Interface}}
+\index{````~Writer\+Interface@{$\sim$\+Writer\+Interface}!Writer\+Interface@{Writer\+Interface}}
+\subsubsection{\texorpdfstring{$\sim$\+Writer\+Interface()}{~WriterInterface()}}
+{\footnotesize\ttfamily virtual Writer\+Interface\+::$\sim$\+Writer\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Definition at line 45 of file writer.\+h.
+
+
+
+References is\+Ready(), status(), V\+A\+L\+UE, and write().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classWriterInterface_a4d53c1a520fca583d94ead3d656d5fc3_cgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classWriterInterface_ada0c58dbea3bc216a1a687b070f2a924}\label{classWriterInterface_ada0c58dbea3bc216a1a687b070f2a924}} 
+\index{Writer\+Interface@{Writer\+Interface}!is\+Ready@{is\+Ready}}
+\index{is\+Ready@{is\+Ready}!Writer\+Interface@{Writer\+Interface}}
+\subsubsection{\texorpdfstring{is\+Ready()}{isReady()}}
+{\footnotesize\ttfamily virtual bool Writer\+Interface\+::is\+Ready (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\begin{DoxyReturn}{Returns}
+true if the sink is ready to be written 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classWriterFile_aaa16229f58daf8b74fbe8a59c9b1b166}{Writer\+File}, and \hyperlink{classWriterStream_a32e6913d45c7e67e60c0787c7a3e9467}{Writer\+Stream}.
+
+
+
+Referenced by $\sim$\+Writer\+Interface().
+
+\mbox{\Hypertarget{classWriterInterface_a8865a526bb8c67ff4c96f25fc8217c81}\label{classWriterInterface_a8865a526bb8c67ff4c96f25fc8217c81}} 
+\index{Writer\+Interface@{Writer\+Interface}!status@{status}}
+\index{status@{status}!Writer\+Interface@{Writer\+Interface}}
+\subsubsection{\texorpdfstring{status()}{status()}}
+{\footnotesize\ttfamily virtual std\+::string Writer\+Interface\+::status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\begin{DoxyReturn}{Returns}
+either an ok message or an error message 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classWriterFile_a538dd7bd3be5c0f3b930f215bf9f6ca7}{Writer\+File}, and \hyperlink{classWriterStream_ac5da94332707b311cb43b06c9356afce}{Writer\+Stream}.
+
+
+
+Referenced by $\sim$\+Writer\+Interface().
+
+\mbox{\Hypertarget{classWriterInterface_a2f756ac0b3299f4dbadececad4055424}\label{classWriterInterface_a2f756ac0b3299f4dbadececad4055424}} 
+\index{Writer\+Interface@{Writer\+Interface}!write@{write}}
+\index{write@{write}!Writer\+Interface@{Writer\+Interface}}
+\subsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily virtual bool Writer\+Interface\+::write (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{object,  }\item[{const \hyperlink{classWriterInterface_af35706b761b016972144a9333637d93d}{W\+R\+I\+T\+E\+T\+Y\+PE} \&}]{type = {\ttfamily \hyperlink{classWriterInterface_af35706b761b016972144a9333637d93daecc2e9c313faddb07e7da223c1dc5c3f}{W\+R\+I\+T\+E\+T\+Y\+P\+E\+::\+V\+A\+L\+UE}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em object} & \\
+\hline
+{\em type} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classWriterFile_ac540d18943353e011428124a5afcc393}{Writer\+File}, and \hyperlink{classWriterStream_aae19a7c01c19fe723a7a3223a53550c0}{Writer\+Stream}.
+
+
+
+Referenced by Dyn\+Comm\+Base\+::community\+Mapping(), and $\sim$\+Writer\+Interface().
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+R-\/\+C\+R\+A\+N/src/base/\+Cpp/\hyperlink{writer_8h}{writer.\+h}\end{DoxyCompactItemize}

@@ -1,0 +1,5 @@
+<map id="Time::TimeKeeper::set" name="Time::TimeKeeper::set">
+<area shape="rect" id="node2" href="$namespaceTime.html#ae414566445c9d392bb148cc98fe2cece" title="Get the current system time in nanoseconds as an unsigned 64 bit integer. " alt="" coords="235,5,363,32"/>
+<area shape="rect" id="node4" href="$classTime_1_1TimeKeeper.html#a033210ff55b364ea2cb409506b988bc2" title="Time::TimeKeeper::validate\lBaseTime" alt="" coords="208,57,391,98"/>
+<area shape="rect" id="node3" href="$namespaceTime.html#a57ff57387f9a60589ccdbe9215843ffe" title="longTime Converts a timeval type time to an unsigned 64 bit integer " alt="" coords="439,5,551,32"/>
+</map>

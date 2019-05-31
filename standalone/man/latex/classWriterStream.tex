@@ -1,0 +1,237 @@
+\hypertarget{classWriterStream}{}\section{Writer\+Stream Class Reference}
+\label{classWriterStream}\index{Writer\+Stream@{Writer\+Stream}}
+
+
+Writer to generic output stream.  
+
+
+
+
+{\ttfamily \#include $<$writer.\+h$>$}
+
+
+
+Inheritance diagram for Writer\+Stream\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=161pt]{classWriterStream__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Writer\+Stream\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=284pt]{classWriterStream__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classWriterStream_a55d7efb73214dc0e537b7f2960920571}{Writer\+Stream} (std\+::ostream \&stream, const \hyperlink{structProgramParameters}{Program\+Parameters} \&parameters)
+\item 
+\hyperlink{classWriterStream_aca4ddce14ac1b23a2f5db8cce0af4cfd}{$\sim$\+Writer\+Stream} ()
+\item 
+bool \hyperlink{classWriterStream_a32e6913d45c7e67e60c0787c7a3e9467}{is\+Ready} ()
+\item 
+bool \hyperlink{classWriterStream_aae19a7c01c19fe723a7a3223a53550c0}{write} (const std\+::string \&object, const \hyperlink{classWriterInterface_af35706b761b016972144a9333637d93d}{W\+R\+I\+T\+E\+T\+Y\+PE} \&type=\hyperlink{classWriterInterface_af35706b761b016972144a9333637d93daecc2e9c313faddb07e7da223c1dc5c3f}{W\+R\+I\+T\+E\+T\+Y\+P\+E\+::\+V\+A\+L\+UE})
+\begin{DoxyCompactList}\small\item\em Write a certain type of object to stream. \end{DoxyCompactList}\item 
+std\+::string \hyperlink{classWriterStream_ac5da94332707b311cb43b06c9356afce}{status} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \hyperlink{classWriterStream_ac2546b4b790c718a1904e5e5163cabb6}{str}
+\item 
+std\+::string \hyperlink{classWriterStream_abc306418fe983c47cc843316f737df00}{stts}
+\item 
+const \hyperlink{structProgramParameters}{Program\+Parameters} \& \hyperlink{classWriterStream_ae5f1b2651b7d7a6376cfa849f973c484}{par}
+\item 
+unsigned int \hyperlink{classWriterStream_a513c49b4983a63adf95256219b015fee}{line\+Number} =1
+\item 
+int \hyperlink{classWriterStream_a1e6370b32d8e15098300567b38580399}{state} =0
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Writer to generic output stream. 
+
+This writer can not write backwards, only append to the end.
+
+\begin{DoxyAuthor}{Author}
+poltergeist0
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019-\/02-\/06 
+\end{DoxyDate}
+
+
+Definition at line 77 of file writer.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classWriterStream_a55d7efb73214dc0e537b7f2960920571}\label{classWriterStream_a55d7efb73214dc0e537b7f2960920571}} 
+\index{Writer\+Stream@{Writer\+Stream}!Writer\+Stream@{Writer\+Stream}}
+\index{Writer\+Stream@{Writer\+Stream}!Writer\+Stream@{Writer\+Stream}}
+\subsubsection{\texorpdfstring{Writer\+Stream()}{WriterStream()}}
+{\footnotesize\ttfamily Writer\+Stream\+::\+Writer\+Stream (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{stream,  }\item[{const \hyperlink{structProgramParameters}{Program\+Parameters} \&}]{parameters }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 86 of file writer.\+h.
+
+\mbox{\Hypertarget{classWriterStream_aca4ddce14ac1b23a2f5db8cce0af4cfd}\label{classWriterStream_aca4ddce14ac1b23a2f5db8cce0af4cfd}} 
+\index{Writer\+Stream@{Writer\+Stream}!````~Writer\+Stream@{$\sim$\+Writer\+Stream}}
+\index{````~Writer\+Stream@{$\sim$\+Writer\+Stream}!Writer\+Stream@{Writer\+Stream}}
+\subsubsection{\texorpdfstring{$\sim$\+Writer\+Stream()}{~WriterStream()}}
+{\footnotesize\ttfamily Writer\+Stream\+::$\sim$\+Writer\+Stream (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 88 of file writer.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classWriterStream_a32e6913d45c7e67e60c0787c7a3e9467}\label{classWriterStream_a32e6913d45c7e67e60c0787c7a3e9467}} 
+\index{Writer\+Stream@{Writer\+Stream}!is\+Ready@{is\+Ready}}
+\index{is\+Ready@{is\+Ready}!Writer\+Stream@{Writer\+Stream}}
+\subsubsection{\texorpdfstring{is\+Ready()}{isReady()}}
+{\footnotesize\ttfamily bool Writer\+Stream\+::is\+Ready (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+true if the sink is ready to be written 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classWriterInterface_ada0c58dbea3bc216a1a687b070f2a924}{Writer\+Interface}.
+
+
+
+Definition at line 90 of file writer.\+h.
+
+
+
+Referenced by Writer\+File\+::is\+Ready().
+
+\mbox{\Hypertarget{classWriterStream_ac5da94332707b311cb43b06c9356afce}\label{classWriterStream_ac5da94332707b311cb43b06c9356afce}} 
+\index{Writer\+Stream@{Writer\+Stream}!status@{status}}
+\index{status@{status}!Writer\+Stream@{Writer\+Stream}}
+\subsubsection{\texorpdfstring{status()}{status()}}
+{\footnotesize\ttfamily std\+::string Writer\+Stream\+::status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+either an ok message or an error message 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classWriterInterface_a8865a526bb8c67ff4c96f25fc8217c81}{Writer\+Interface}.
+
+
+
+Definition at line 144 of file writer.\+h.
+
+
+
+Referenced by Writer\+File\+::status().
+
+\mbox{\Hypertarget{classWriterStream_aae19a7c01c19fe723a7a3223a53550c0}\label{classWriterStream_aae19a7c01c19fe723a7a3223a53550c0}} 
+\index{Writer\+Stream@{Writer\+Stream}!write@{write}}
+\index{write@{write}!Writer\+Stream@{Writer\+Stream}}
+\subsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily bool Writer\+Stream\+::write (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{object,  }\item[{const \hyperlink{classWriterInterface_af35706b761b016972144a9333637d93d}{W\+R\+I\+T\+E\+T\+Y\+PE} \&}]{type = {\ttfamily \hyperlink{classWriterInterface_af35706b761b016972144a9333637d93daecc2e9c313faddb07e7da223c1dc5c3f}{W\+R\+I\+T\+E\+T\+Y\+P\+E\+::\+V\+A\+L\+UE}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Write a certain type of object to stream. 
+
+The type parameter defines the type of object being written. This is used to automatically add carriage returns, value separators and prepare writing of the next object type.
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & defines what is being written \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if writing succeeded 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classWriterInterface_a2f756ac0b3299f4dbadececad4055424}{Writer\+Interface}.
+
+
+
+Definition at line 105 of file writer.\+h.
+
+
+
+References Writer\+Interface\+::\+C\+O\+M\+M\+E\+NT, Writer\+Interface\+::\+L\+I\+NE, and Writer\+Interface\+::\+V\+A\+L\+UE.
+
+
+
+Referenced by Writer\+File\+::write().
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classWriterStream_a513c49b4983a63adf95256219b015fee}\label{classWriterStream_a513c49b4983a63adf95256219b015fee}} 
+\index{Writer\+Stream@{Writer\+Stream}!line\+Number@{line\+Number}}
+\index{line\+Number@{line\+Number}!Writer\+Stream@{Writer\+Stream}}
+\subsubsection{\texorpdfstring{line\+Number}{lineNumber}}
+{\footnotesize\ttfamily unsigned int Writer\+Stream\+::line\+Number =1\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 82 of file writer.\+h.
+
+\mbox{\Hypertarget{classWriterStream_ae5f1b2651b7d7a6376cfa849f973c484}\label{classWriterStream_ae5f1b2651b7d7a6376cfa849f973c484}} 
+\index{Writer\+Stream@{Writer\+Stream}!par@{par}}
+\index{par@{par}!Writer\+Stream@{Writer\+Stream}}
+\subsubsection{\texorpdfstring{par}{par}}
+{\footnotesize\ttfamily const \hyperlink{structProgramParameters}{Program\+Parameters}\& Writer\+Stream\+::par\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 81 of file writer.\+h.
+
+\mbox{\Hypertarget{classWriterStream_a1e6370b32d8e15098300567b38580399}\label{classWriterStream_a1e6370b32d8e15098300567b38580399}} 
+\index{Writer\+Stream@{Writer\+Stream}!state@{state}}
+\index{state@{state}!Writer\+Stream@{Writer\+Stream}}
+\subsubsection{\texorpdfstring{state}{state}}
+{\footnotesize\ttfamily int Writer\+Stream\+::state =0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 83 of file writer.\+h.
+
+\mbox{\Hypertarget{classWriterStream_ac2546b4b790c718a1904e5e5163cabb6}\label{classWriterStream_ac2546b4b790c718a1904e5e5163cabb6}} 
+\index{Writer\+Stream@{Writer\+Stream}!str@{str}}
+\index{str@{str}!Writer\+Stream@{Writer\+Stream}}
+\subsubsection{\texorpdfstring{str}{str}}
+{\footnotesize\ttfamily std\+::ostream\& Writer\+Stream\+::str\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 79 of file writer.\+h.
+
+\mbox{\Hypertarget{classWriterStream_abc306418fe983c47cc843316f737df00}\label{classWriterStream_abc306418fe983c47cc843316f737df00}} 
+\index{Writer\+Stream@{Writer\+Stream}!stts@{stts}}
+\index{stts@{stts}!Writer\+Stream@{Writer\+Stream}}
+\subsubsection{\texorpdfstring{stts}{stts}}
+{\footnotesize\ttfamily std\+::string Writer\+Stream\+::stts\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 80 of file writer.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+R-\/\+C\+R\+A\+N/src/base/\+Cpp/\hyperlink{writer_8h}{writer.\+h}\end{DoxyCompactItemize}

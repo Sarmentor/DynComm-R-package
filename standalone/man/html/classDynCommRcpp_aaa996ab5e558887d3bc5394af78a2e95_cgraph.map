@@ -1,0 +1,10 @@
+<map id="DynCommRcpp::communityMappingMatrix" name="DynCommRcpp::communityMappingMatrix">
+<area shape="rect" id="node2" href="$classDynCommBase.html#a651753518a2de4ea52caea518e74d878" title="DynCommBase::community" alt="" coords="295,35,481,61"/>
+<area shape="rect" id="node6" href="$classDynCommBase.html#ae415f1a7792158845f69d6850b762d87" title="DynCommBase::vertexCount" alt="" coords="291,89,485,116"/>
+<area shape="rect" id="node8" href="$classDynCommBase.html#ae240fba572935f26a72f73e39e115169" title="DynCommBase::vertices" alt="" coords="303,140,473,167"/>
+<area shape="rect" id="node3" href="$classGraphUndirectedGroupable.html#ad40474d566b3f9fbe9d132fbbe562ed5" title="GraphUndirectedGroupable\l::community" alt="" coords="543,23,722,65"/>
+<area shape="rect" id="node4" href="$classMapReversable.html#a30fd5b0e4e2578d3eaad8926a5d12cb2" title="MapReversable::find" alt="" coords="783,5,926,32"/>
+<area shape="rect" id="node5" href="$classMapReversable.html#acf794209bf91fe8f6026f090ccb7635f" title="MapReversable::cend" alt="" coords="780,56,929,83"/>
+<area shape="rect" id="node7" href="$classGraphUndirected.html#adf50305970536f71586f8f63462dfcdc" title="GraphUndirected::vertexCount" alt="" coords="533,89,732,116"/>
+<area shape="rect" id="node9" href="$classGraphUndirected.html#af2f65109919c878a1fd7637d3bfe0991" title="GraphUndirected::getVertices" alt="" coords="535,140,730,167"/>
+</map>

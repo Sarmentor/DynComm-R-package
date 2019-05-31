@@ -1,0 +1,136 @@
+\hypertarget{classAlgorithmInterface}{}\section{Algorithm\+Interface Class Reference}
+\label{classAlgorithmInterface}\index{Algorithm\+Interface@{Algorithm\+Interface}}
+
+
+Algorithms A\+PI.  
+
+
+
+
+{\ttfamily \#include $<$algorithm\+Interface.\+h$>$}
+
+
+
+Inheritance diagram for Algorithm\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=248pt]{classAlgorithmInterface__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \hyperlink{classAlgorithmInterface_a240e65a4c0c5bdca207abf39733fe3fc}{$\sim$\+Algorithm\+Interface} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \hyperlink{classAlgorithmInterface_ae5a6e84b139768dff92a70cacaec7472}{add\+Remove\+Edge\+Pre} (const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&source, const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&destination, const \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \&weight=1.\+0)=0
+\item 
+virtual bool \hyperlink{classAlgorithmInterface_ac97ed4df4fd2b14b16d55c1b3b9749b6}{add\+Remove\+Edge\+Post} (const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&source, const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&destination, const \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \&weight=1.\+0)=0
+\item 
+virtual bool \hyperlink{classAlgorithmInterface_a0bafcdabd2b5fd45abe97af91e02ca14}{run} ()=0
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Algorithms A\+PI. 
+
+All algorithms must implement the functions defined in this class.
+
+Also, at the end of this class, there are two comments with the skeletons of two constructors that must be defined in classes that implement this interface.
+
+The first is the deletion of the default constructor which should not exist. Calling a constructor without the graph, quality and program parameters is not permitted.
+
+The second constructor is the one that must be called and that receives the graph, quality and program parameters.
+
+\begin{DoxyAuthor}{Author}
+poltergeist0
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019-\/01-\/01 
+\end{DoxyDate}
+
+
+Definition at line 76 of file algorithm\+Interface.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classAlgorithmInterface_a240e65a4c0c5bdca207abf39733fe3fc}\label{classAlgorithmInterface_a240e65a4c0c5bdca207abf39733fe3fc}} 
+\index{Algorithm\+Interface@{Algorithm\+Interface}!````~Algorithm\+Interface@{$\sim$\+Algorithm\+Interface}}
+\index{````~Algorithm\+Interface@{$\sim$\+Algorithm\+Interface}!Algorithm\+Interface@{Algorithm\+Interface}}
+\subsubsection{\texorpdfstring{$\sim$\+Algorithm\+Interface()}{~AlgorithmInterface()}}
+{\footnotesize\ttfamily virtual Algorithm\+Interface\+::$\sim$\+Algorithm\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Destructor 
+
+Definition at line 117 of file algorithm\+Interface.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classAlgorithmInterface_ac97ed4df4fd2b14b16d55c1b3b9749b6}\label{classAlgorithmInterface_ac97ed4df4fd2b14b16d55c1b3b9749b6}} 
+\index{Algorithm\+Interface@{Algorithm\+Interface}!add\+Remove\+Edge\+Post@{add\+Remove\+Edge\+Post}}
+\index{add\+Remove\+Edge\+Post@{add\+Remove\+Edge\+Post}!Algorithm\+Interface@{Algorithm\+Interface}}
+\subsubsection{\texorpdfstring{add\+Remove\+Edge\+Post()}{addRemoveEdgePost()}}
+{\footnotesize\ttfamily virtual bool Algorithm\+Interface\+::add\+Remove\+Edge\+Post (\begin{DoxyParamCaption}\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{source,  }\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{destination,  }\item[{const \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \&}]{weight = {\ttfamily 1.0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+Function execute after adding or removing a single edge from the graph. It is used internally by the add\+Remove\+Edges function of class \char`\"{}\+Algorithm\char`\"{}. Useful if post-\/processing is required, for example, to update some of variables after the edge has be added or removed. Any edge with a weight different from zero is inserted. Any edge with a weight of exactly zero is removed. 
+\begin{DoxyParams}{Parameters}
+{\em source} & source vertex \\
+\hline
+{\em destination} & destination vertex \\
+\hline
+{\em weight} & optional if adding an edge. Must be exactly zero to remove an edge. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if all operations succeeded. False, otherwise. 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classAlgorithmLouvain_a69f296749859441c8a3844753bdd58e5}{Algorithm\+Louvain}, and \hyperlink{classAlgorithm_ad78e2c5819da723c373ce6d4a28ac36d}{Algorithm}.
+
+\mbox{\Hypertarget{classAlgorithmInterface_ae5a6e84b139768dff92a70cacaec7472}\label{classAlgorithmInterface_ae5a6e84b139768dff92a70cacaec7472}} 
+\index{Algorithm\+Interface@{Algorithm\+Interface}!add\+Remove\+Edge\+Pre@{add\+Remove\+Edge\+Pre}}
+\index{add\+Remove\+Edge\+Pre@{add\+Remove\+Edge\+Pre}!Algorithm\+Interface@{Algorithm\+Interface}}
+\subsubsection{\texorpdfstring{add\+Remove\+Edge\+Pre()}{addRemoveEdgePre()}}
+{\footnotesize\ttfamily virtual bool Algorithm\+Interface\+::add\+Remove\+Edge\+Pre (\begin{DoxyParamCaption}\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{source,  }\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{destination,  }\item[{const \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \&}]{weight = {\ttfamily 1.0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+Function to execute before adding or removing a single edge from the graph. It is used internally by the add\+Remove\+Edges function of class \char`\"{}\+Algorithm\char`\"{}. Useful if pre-\/processing is required, for example, to update some of variables before the edge can be added or removed. Any edge with a weight different from zero is inserted. Any edge with a weight of exactly zero is removed. 
+\begin{DoxyParams}{Parameters}
+{\em source} & source vertex \\
+\hline
+{\em destination} & destination vertex \\
+\hline
+{\em weight} & optional if adding an edge. Must be exactly zero to remove an edge. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if all operations succeeded. False, otherwise. 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classAlgorithmLouvain_a883c922bf2f3c3aadb9db4962c0d8dce}{Algorithm\+Louvain}, and \hyperlink{classAlgorithm_a5835b23797b9d00f4090b996660af5d4}{Algorithm}.
+
+\mbox{\Hypertarget{classAlgorithmInterface_a0bafcdabd2b5fd45abe97af91e02ca14}\label{classAlgorithmInterface_a0bafcdabd2b5fd45abe97af91e02ca14}} 
+\index{Algorithm\+Interface@{Algorithm\+Interface}!run@{run}}
+\index{run@{run}!Algorithm\+Interface@{Algorithm\+Interface}}
+\subsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily virtual bool Algorithm\+Interface\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+Function where the actual algorithm is implemented It is called at the end of the add\+Remove\+Edges function of class \char`\"{}\+Algorithm\char`\"{}. \begin{DoxyReturn}{Returns}
+true if all operations succeeded. False, otherwise. 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classAlgorithmLouvain_a0a72b9dda25c69d19996dc7448924c13}{Algorithm\+Louvain}, and \hyperlink{classAlgorithm_a10dcb6b63ba40fad0bf11a0fef7b40f5}{Algorithm}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+R-\/\+C\+R\+A\+N/src/base/\+Cpp/\hyperlink{algorithmInterface_8h}{algorithm\+Interface.\+h}\end{DoxyCompactItemize}

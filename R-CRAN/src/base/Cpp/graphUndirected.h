@@ -1,9 +1,17 @@
-/*
- * graph.h
+/************************************************************************
+ ************************* Developer Notice *****************************
+ ************************************************************************
+ * @details
  *
- *  Created on: 19/08/2018
- *      Author: poltergeist0
- */
+ * Undirected Graph implementation for DynComm implemented in C++11.
+ *
+ *
+ * @author poltergeist0
+ *
+ * @date 2018-08-19
+ ************************************************************************
+ ************************************************************************
+ ************************************************************************/
 
 #ifndef GRAPHUNDIRECTED_H_
 #define GRAPHUNDIRECTED_H_
@@ -13,6 +21,19 @@
 #include <sstream>
 #include <limits>
 
+/**
+ * @brief Graph.
+ *
+ * @details
+ * Class that implements an undirected graph.
+ * When an edge is added/removed/modified, its mirror edge is also added/removed/modified.
+ * This means that, if an edge (A,B) is added, the edge (B,A) is also added.
+ *
+ *
+ * @author poltergeist0
+ *
+ * @date 2018-08-19
+ */
 class GraphUndirected: public GraphInterface {
 private:
 	typeVertexList vertices;
@@ -21,7 +42,7 @@ private:
 	typeWeight total_weight;
 	typeWeight max_weight;
 
-	/**
+	/*
 	 * update max weight if a given weight is larger
 	 * @param weight
 	 */
@@ -29,7 +50,7 @@ private:
 		if(max_weight<weight)max_weight=weight;
 	}
 
-	/**
+	/*
 	 * go through all edges and update max weight
 	 */
 	void updateMaxWeight(){
@@ -40,7 +61,7 @@ private:
 		}
 	}
 
-	/**
+	/*
 	 * update weight
 	 */
 	void updateWeight(HalfEdge & he,const typeWeight & newWeight){
@@ -64,12 +85,13 @@ public:
 	typeLinksRangeConst edges()const {return std::make_pair(links.cbegin(),links.cend());}
 
 	/**
-	 * add a new edge or update the weight of an existing one
+	 * Add an edge
+	 *
 	 * @param source
 	 * @param destination
-	 * @param weight
-	 * @param replace if true and the edge exists, replaces the weight
-	 * @return true if either the edge was successfully added or replaced. False if the edge exists and either replace parameter was false or the given weight is zero ( since a weight of zero would cause the removal of the edge)
+	 * @param weight Default value is one
+	 * @param replace if true and link exists, it replaces the weight, otherwise fails. Default value is false
+	 * @return true if the edge was added. False otherwise
 	 */
 	bool addEdge(const typeVertex & source, const typeVertex & destination, const typeWeight & weight=1.0, const bool & replace=false){
 		if(source==noVertex || destination==noVertex) return false;
@@ -120,7 +142,7 @@ public:
 	}
 
 	/**
-	 * @see{addEdge(const typeNode & source, const typeNode & destination, const typeWeight & weight=1.0, const bool & replace=false)}
+	 * @see{addEdge(const typeVertex & source, const typeVertex & destination, const typeWeight & weight=1.0, const bool & replace=false)}
 	 * @param edge
 	 * @param replace
 	 * @return
@@ -128,7 +150,8 @@ public:
 	bool addEdge(const Edge & edge, const bool & replace=false){return addEdge(edge.source(),edge.destination(),edge.weight());}
 
 	/**
-	 * remove edge
+	 * remove an edge
+	 *
 	 * @param source
 	 * @param destination
 	 * @return true if the edge existed and was successfully removed
@@ -162,27 +185,37 @@ public:
 		return result;
 	}
 
+	/**
+	 * @see{removeEdge(const typeVertex & source, const typeVertex & destination)}
+	 * @param edge
+	 * @return
+	 */
 	bool removeEdge(const Edge & edge){return removeEdge(edge.source(),edge.destination());}
 
 	/**
-	 *
-	 * @return a constant set with all nodes
+	 * @return a constant set with all vertices
 	 */
 	const typeVertexList & getVertices()const {return vertices;}
 
 	/**
-	 * Get the neighbors of a node
-	 * @param node
-	 * @return a pair of iterators pointing to the beginning and the end of the edges that start with the given node
+	 * @brief Get the neighbours of a vertex
+	 * @details The pair can change between calls if the Indexed edge list is modified.
+	 * @param vertex
+	 * @return pointers to the first and last neighbour of the vertex
 	 */
-	typeLinksRangeConst neighbors(const typeVertex & vertex)const {
+	typeLinksRangeConst neighbours(const typeVertex & vertex)const {
 		if(vertex==noVertex) return std::make_pair(links.cbegin(),links.cend());
 		return links.equal_range(vertex);
 	}
 
-	typeWeight neighborsWeight(const typeVertex & vertex)const{
+	/**
+	 * @brief Get the sum of the weights of the neighbours of a vertex
+	 * @param vertex
+	 * @return the sum of the weights of the neighbours of the given vertex
+	 */
+	typeWeight neighboursWeight(const typeVertex & vertex)const{
 		typeWeight w=0;
-		typeLinksRangeConst r=neighbors(vertex);
+		typeLinksRangeConst r=neighbours(vertex);
 		for(typeLinksIteratorConst it=r.first;it!=r.second;++it){
 			const typeLinksPair & p=*it;
 			if(vertex!=p.second.destination()) w+=p.second.weight();
@@ -190,11 +223,19 @@ public:
 		return w;
 	}
 
-	unsigned int neighborsCount(const typeVertex & vertex)const {
+	/**
+	 * @brief Get the number of neighbours of a vertex
+	 * @param vertex
+	 * @return the number of neighbours of the given vertex
+	 */
+	unsigned int neighboursCount(const typeVertex & vertex)const {
 		if (vertex==noVertex) return links.size();
 		return links.count(vertex);
 	}
 
+	/**
+	 * @return the weight of the edge
+	 */
 	typeWeight weight(const typeVertex & source, const typeVertex & destination) const {
 		typeLinksIteratorConst it=multimap::find(links,source,destination);
 		if(it!=links.end()){
@@ -204,20 +245,36 @@ public:
 		return std::numeric_limits<typeWeight>::quiet_NaN();
 	}
 
+	/**
+	 * @return the largest weight of all edges in the graph
+	 */
 	const typeWeight & maxWeight()const {
 		return max_weight;
 	}
 
+	/**
+	 * @return the sum of the weight of all edges in the graph
+	 */
 	const typeWeight totalWeight()const {
 		return total_weight;
 	}
 
+	/**
+	 * @return the number of vertices in the graph
+	 */
 	const typeWeight vertexCount()const{return vertices.size();}
 
+	/**
+	 * @return the number of edges in the graph
+	 */
 	const typeWeight edgeCount()const{return links.size();}
 
+	/**
+	 * @param vertex
+	 * @return the weighted degree (sum of weights of the neighbours) of the given vertex
+	 */
 	typeWeight weighted_degree(const typeVertex & vertex)const {
-		typeLinksRangeConst p = neighbors(vertex);
+		typeLinksRangeConst p = neighbours(vertex);
 		typeWeight res = 0.0L;
 		for (typeLinksIteratorConst it=p.first ; it!=p.second ; ++it) {
 			const typeLinksPair & a=*it;
@@ -229,9 +286,10 @@ public:
 
 	/**
 	 * Replace all vertex occurrences of oldValue by newValue
+	 *
 	 * @param oldValue
 	 * @param newValue
-	 * @return
+	 * @return true if replacement succeeded
 	 */
 	bool replace(const typeVertex & oldValue, const typeVertex & newValue){
 		if(oldValue==noVertex || newValue==noVertex) return false;
@@ -278,16 +336,19 @@ public:
 		return result;
 	}
 
-	const std::string toString(const StringFormater & sf=defaultStringFormater)const {
+	/**
+	 * @return a string representation of this graph
+	 */
+	const std::string toString(const StringFormatter & sf=defaultStringFormatter)const {
 		std::stringstream ss;
-		StringFormater f=sf;
+		StringFormatter f=sf;
 		if(sf.isDefault()){
 			f.header("Graph={(source ; destination ; weight)(...)...}(total weight ; max weight)=");
 		}
 		f.start(ss,true);
 		for(typeVertexListIterator itn=vertices.begin();itn!=vertices.end();++itn){
 			typeVertex vertex=*itn;
-			typeLinksRangeConst p=neighbors(vertex);
+			typeLinksRangeConst p=neighbours(vertex);
 			for (typeLinksIteratorConst it=p.first ; it!=p.second ; ++it){
 				const typeLinksPair & a=*it;
 				const HalfEdge & e=a.second;

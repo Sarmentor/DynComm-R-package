@@ -1,0 +1,5 @@
+<map id="CriterionBase" name="CriterionBase">
+<area shape="rect" id="node3" href="$classCriterionBalMod.html" title="Balanced Modularity criterion. " alt="" coords="5,155,120,181"/>
+<area shape="rect" id="node4" href="$classCriterionModularity.html" title="Newman&#45;Girvan criterion. " alt="" coords="144,155,275,181"/>
+<area shape="rect" id="node2" href="$classCriterionInterface.html" title="Criterion interface. " alt="" coords="75,5,197,32"/>
+</map>

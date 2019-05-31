@@ -1,0 +1,51 @@
+<map id="Algorithm::run" name="Algorithm::run">
+<area shape="rect" id="node2" href="$classAlgorithm.html#adb63a5f03ed70abb7e355631799c1ad0" title="Algorithm::Algorithm" alt="" coords="160,561,300,587"/>
+<area shape="rect" id="node3" href="$classAlgorithmLouvain.html#a0a72b9dda25c69d19996dc7448924c13" title="AlgorithmLouvain::run" alt="" coords="156,611,304,638"/>
+<area shape="rect" id="node4" href="$classAlgorithmLouvain.html#a5370c76e777b7cbfddd1dccd865d9356" title="AlgorithmLouvain::one\l_level" alt="" coords="369,571,520,612"/>
+<area shape="rect" id="node50" href="$classAlgorithmLouvain.html#ada8cb9a0c018ca6d5162b1b533ad400c" title="AlgorithmLouvain::Algorithm\lLouvain" alt="" coords="352,636,537,677"/>
+<area shape="rect" id="node5" href="$classAlgorithmLouvain.html#a8c9b7694fff17eb5d8044cd26d7914e7" title="AlgorithmLouvain::quality" alt="" coords="591,321,759,347"/>
+<area shape="rect" id="node9" href="$classGraphUndirected.html#af2f65109919c878a1fd7637d3bfe0991" title="GraphUndirected::getVertices" alt="" coords="1316,115,1511,142"/>
+<area shape="rect" id="node10" href="$classGraphUndirectedGroupable.html#a1986c140fd9aba8063774372c971706d" title="GraphUndirectedGroupable\l::innerEdges" alt="" coords="1324,167,1503,208"/>
+<area shape="rect" id="node13" href="$classAlgorithmLouvain.html#a627618ba516be4f4906143b6b0ff1c77" title="AlgorithmLouvain::getVertices" alt="" coords="813,122,1009,149"/>
+<area shape="rect" id="node14" href="$classAlgorithmLouvain.html#a5f59777e27ab7a3e5accbc1f52b0e51e" title="AlgorithmLouvain::community" alt="" coords="1316,734,1511,761"/>
+<area shape="rect" id="node15" href="$classGraphUndirectedGroupable.html#ad40474d566b3f9fbe9d132fbbe562ed5" title="GraphUndirectedGroupable\l::community" alt="" coords="1573,519,1752,560"/>
+<area shape="rect" id="node18" href="$classAlgorithmLouvain.html#a78dfa81bd96f4036e44c17318501b6b7" title="AlgorithmLouvain::neigh_comm" alt="" coords="1057,798,1261,825"/>
+<area shape="rect" id="node19" href="$classAlgorithmLouvain.html#ab6206bfc3cf537277c6965bc0da6d695" title="AlgorithmLouvain::neighbours" alt="" coords="1317,835,1510,862"/>
+<area shape="rect" id="node21" href="$classHalfEdge.html#a98c0fb1c54506abbd3c0ac4a1264dac1" title="HalfEdge::destination" alt="" coords="1589,886,1736,913"/>
+<area shape="rect" id="node22" href="$classHalfEdge.html#a89cc13d21ae44a9d9c2ba95f89576090" title="HalfEdge::weight" alt="" coords="1601,1082,1724,1109"/>
+<area shape="rect" id="node23" href="$classAlgorithmLouvain.html#adcd4a8dc566881f9c1b1d9e78730a503" title="AlgorithmLouvain::gain" alt="" coords="598,403,753,430"/>
+<area shape="rect" id="node29" href="$classGraphUndirectedGroupable.html#a57f8ea4cff0d83b80cca2dc8e8e19ff6" title="GraphUndirectedGroupable\l::communities" alt="" coords="586,5,765,47"/>
+<area shape="rect" id="node30" href="$classGraphUndirectedGroupable.html#a8c010517bff903a50807e6e8ad8cc6db" title="GraphUndirectedGroupable\l::addEdge" alt="" coords="822,1009,1001,1051"/>
+<area shape="rect" id="node41" href="$classGraphUndirectedGroupable.html#a48823a0162b95a72c22d0ab01a709e1f" title="GraphUndirectedGroupable\l::neighbouringCommunities" alt="" coords="585,639,765,680"/>
+<area shape="rect" id="node42" href="$classGraphUndirectedGroupable.html#aaa5e7db5ba0b5b87ed6af50ef958b9d7" title="GraphUndirectedGroupable\l::vertices" alt="" coords="586,1236,765,1277"/>
+<area shape="rect" id="node44" href="$classGraphUndirectedGroupable.html#af6fc2c9e8aad7c6bce37d30eeaf184a8" title="Populate the graph with the current community to community mapping. " alt="" coords="822,1293,1001,1335"/>
+<area shape="rect" id="node6" href="$classCriterion.html#a1f8b3a7bf56b5434b04d5366d754d459" title="Criterion::quality" alt="" coords="853,290,970,317"/>
+<area shape="rect" id="node7" href="$classCriterionModularity.html#adf9197fd4e5878ca86501447b1fba989" title="CriterionModularity\l::quality" alt="" coords="1094,224,1225,265"/>
+<area shape="rect" id="node12" href="$classCriterionBalMod.html#a87c0ccb5e2a851420dc82bd23cc31716" title="CriterionBalMod::quality" alt="" coords="1079,290,1240,317"/>
+<area shape="rect" id="node8" href="$classGraphUndirected.html#a41ba96531c669461dbc7e11ee35796ab" title="GraphUndirected::totalWeight" alt="" coords="1316,298,1511,325"/>
+<area shape="rect" id="node11" href="$classGraphUndirectedGroupable.html#a8aa795a6e0ae115d35937508c5aad401" title="GraphUndirectedGroupable\l::totalEdges" alt="" coords="1324,232,1503,273"/>
+<area shape="rect" id="node16" href="$classMapReversable.html#a30fd5b0e4e2578d3eaad8926a5d12cb2" title="MapReversable::find" alt="" coords="1811,526,1954,553"/>
+<area shape="rect" id="node17" href="$classMapReversable.html#acf794209bf91fe8f6026f090ccb7635f" title="MapReversable::cend" alt="" coords="1808,1034,1957,1061"/>
+<area shape="rect" id="node20" href="$classGraphUndirected.html#a5c8c85acc5ea87f43ac0dcbde61f06e0" title="Get the neighbours of a vertex. " alt="" coords="1567,730,1758,757"/>
+<area shape="rect" id="node24" href="$classCriterion.html#a99e23ddc517ca3f2ea4766a5b4be0e3e" title="Criterion::gain" alt="" coords="860,399,963,426"/>
+<area shape="rect" id="node25" href="$classCriterionModularity.html#a181617050bab1eeaaf38b2ad30dcfc43" title="CriterionModularity\l::gain" alt="" coords="1094,392,1225,433"/>
+<area shape="rect" id="node28" href="$classCriterionBalMod.html#acf5001622eb8c495a5d5e8f044c22395" title="CriterionBalMod::gain" alt="" coords="1086,341,1233,367"/>
+<area shape="rect" id="node26" href="$classGraphUndirected.html#ad2b1cd9a6dded42bd5431134aba26612" title="GraphUndirected::weighted\l_degree" alt="" coords="1323,668,1503,709"/>
+<area shape="rect" id="node27" href="$classGraphUndirectedGroupable.html#a23551b49c2cbf1b533e300af5c1f20da" title="GraphUndirectedGroupable\l::neighboursCommunityWeight" alt="" coords="1313,603,1514,644"/>
+<area shape="rect" id="node31" href="$classGraphUndirected.html#ae40d431c92d8b4884c7915c44d42f356" title="GraphUndirected::weight" alt="" coords="1330,1126,1497,1153"/>
+<area shape="rect" id="node33" href="$classGraphUndirected.html#a2be69d987f3b4fa1cf547898d30b47d2" title="GraphUndirected::addEdge" alt="" coords="1070,1301,1249,1327"/>
+<area shape="rect" id="node38" href="$classGraphUndirectedGroupable.html#ad2685678f448028f17c7627634659f7c" title="GraphUndirectedGroupable\l::replace" alt="" coords="1070,951,1249,992"/>
+<area shape="rect" id="node39" href="$classMapReversable.html#a2d4fbdc1aae7e5e53cf58c6bea63b450" title="MapReversable::add" alt="" coords="1088,1017,1231,1043"/>
+<area shape="rect" id="node40" href="$classGraphUndirectedGroupable.html#a7a0503e8cd7a84b7f4cd76e22ca5270a" title="GraphUndirectedGroupable\l::update" alt="" coords="1070,1119,1249,1160"/>
+<area shape="rect" id="node32" href="$namespacemultimap.html#a1824643a35a661af8c8975b16b273142" title="multimap::find" alt="" coords="1611,1303,1715,1330"/>
+<area shape="rect" id="node34" href="$classGraphUndirected.html#aee3bc279ffe39f8efb7dd60865279474" title="GraphUndirected::replace" alt="" coords="1328,1329,1499,1355"/>
+<area shape="rect" id="node35" href="$classGraphUndirected.html#aba42cbb7de421af5452f50025154ec73" title="GraphUndirected::updateWeight" alt="" coords="1309,1227,1517,1254"/>
+<area shape="rect" id="node36" href="$classGraphUndirected.html#a7c21f40748eef95d1c35be892ab10ce2" title="GraphUndirected::maxWeight" alt="" coords="1565,1417,1760,1443"/>
+<area shape="rect" id="node37" href="$classGraphUndirected.html#a10582b249617c876bdf298f675285960" title="GraphUndirected::updateMax\lWeight" alt="" coords="1317,1380,1509,1421"/>
+<area shape="rect" id="node43" href="$classMapReversable.html#a9587d6d95127e6941407af03584d3e00" title="MapReversable::keys" alt="" coords="837,1359,986,1386"/>
+<area shape="rect" id="node45" href="$classGraphUndirected.html#aa6fa3435fb456f1a7e9642b631878431" title="GraphUndirected::edges" alt="" coords="1078,1402,1241,1429"/>
+<area shape="rect" id="node46" href="$classGraphUndirected.html#af4a40541132a66c9b688a20958057751" title="GraphUndirected::removeEdge" alt="" coords="1059,1503,1260,1530"/>
+<area shape="rect" id="node47" href="$classGraphUndirectedGroupable.html#a2884361f00176ac8f16afca6feb3e404" title="GraphUndirectedGroupable\l::weightCommunity" alt="" coords="1070,1184,1249,1225"/>
+<area shape="rect" id="node48" href="$classMapReversable.html#adf9c6326f843154f1da642003aa77396" title="MapReversable::cbegin" alt="" coords="1080,1453,1239,1479"/>
+<area shape="rect" id="node49" href="$classMapReversable.html#aa4338f7c831e5a404758f88e80d13672" title="MapReversable::remove" alt="" coords="1077,1351,1241,1378"/>
+</map>

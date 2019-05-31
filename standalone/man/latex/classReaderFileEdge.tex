@@ -1,0 +1,255 @@
+\hypertarget{classReaderFileEdge}{}\section{Reader\+File\+Edge Class Reference}
+\label{classReaderFileEdge}\index{Reader\+File\+Edge@{Reader\+File\+Edge}}
+
+
+Reader for edges from file.  
+
+
+
+
+{\ttfamily \#include $<$reader.\+h$>$}
+
+
+
+Inheritance diagram for Reader\+File\+Edge\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=207pt]{classReaderFileEdge__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Reader\+File\+Edge\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classReaderFileEdge__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classReaderFileEdge_a519fd6f5c53a07c2019a36519ca68ea7}{Reader\+File\+Edge} (const \hyperlink{structProgramParameters}{Program\+Parameters} \&parameters)
+\item 
+\hyperlink{classReaderFileEdge_aa4560a4109cd547de863f2efd2eeb779}{$\sim$\+Reader\+File\+Edge} ()
+\item 
+\hyperlink{classReaderInterface_ac2420ec8d2f60feadf2533d4fa77ec5e}{N\+E\+X\+T\+T\+Y\+PE} \hyperlink{classReaderFileEdge_a319f75e4d3ff14a4270e9da8ade89a3b}{has\+Next} ()
+\item 
+\hyperlink{classEdge}{Edge} \hyperlink{classReaderFileEdge_a97f967287fdf7f4804139ba9d123494c}{next} (\hyperlink{classReaderInterface_a1e3610c289ae058a246de41154d8a266}{R\+E\+A\+D\+T\+Y\+PE} type=R\+E\+A\+D\+T\+Y\+P\+E\+::\+V\+A\+L\+UE)
+\item 
+std\+::string \hyperlink{classReaderFileEdge_a05205d129f4f59c5cbd4e7a2dcb3d0c1}{status} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \hyperlink{classReaderFileEdge_ad530588bc2c71763272396a695e93a8e}{stts}
+\item 
+const \hyperlink{structProgramParameters}{Program\+Parameters} \& \hyperlink{classReaderFileEdge_a9a956337d362be53e70c6fdbe827b818}{par}
+\item 
+std\+::ifstream \hyperlink{classReaderFileEdge_a8ccb004737f00ed157d72d59bf005136}{finput}
+\item 
+unsigned int \hyperlink{classReaderFileEdge_a18237693728b8b807c7ed035f80f96ca}{line\+Number} =1
+\item 
+\hyperlink{classEdge}{Edge} \hyperlink{classReaderFileEdge_a0880f77cf8a5d28e6cea35e30abb3388}{ed}
+\item 
+int \hyperlink{classReaderFileEdge_ac1fdd420eec23e7a50bb73c456c6695b}{state} =0
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Reader for edges from file. 
+
+Format is one edge per line, with values separated by any white space (space or tab) in any amount. This Reader can not read backwards.
+
+\begin{DoxyAuthor}{Author}
+poltergeist0
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019-\/02-\/06 
+\end{DoxyDate}
+
+
+Definition at line 120 of file reader.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classReaderFileEdge_a519fd6f5c53a07c2019a36519ca68ea7}\label{classReaderFileEdge_a519fd6f5c53a07c2019a36519ca68ea7}} 
+\index{Reader\+File\+Edge@{Reader\+File\+Edge}!Reader\+File\+Edge@{Reader\+File\+Edge}}
+\index{Reader\+File\+Edge@{Reader\+File\+Edge}!Reader\+File\+Edge@{Reader\+File\+Edge}}
+\subsubsection{\texorpdfstring{Reader\+File\+Edge()}{ReaderFileEdge()}}
+{\footnotesize\ttfamily Reader\+File\+Edge\+::\+Reader\+File\+Edge (\begin{DoxyParamCaption}\item[{const \hyperlink{structProgramParameters}{Program\+Parameters} \&}]{parameters }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 130 of file reader.\+h.
+
+
+
+References Program\+Parameters\+::filename, and Reader\+Interface$<$ T\+Y\+P\+E\+R\+E\+T\+U\+R\+N $>$\+::next().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classReaderFileEdge_a519fd6f5c53a07c2019a36519ca68ea7_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classReaderFileEdge_aa4560a4109cd547de863f2efd2eeb779}\label{classReaderFileEdge_aa4560a4109cd547de863f2efd2eeb779}} 
+\index{Reader\+File\+Edge@{Reader\+File\+Edge}!````~Reader\+File\+Edge@{$\sim$\+Reader\+File\+Edge}}
+\index{````~Reader\+File\+Edge@{$\sim$\+Reader\+File\+Edge}!Reader\+File\+Edge@{Reader\+File\+Edge}}
+\subsubsection{\texorpdfstring{$\sim$\+Reader\+File\+Edge()}{~ReaderFileEdge()}}
+{\footnotesize\ttfamily Reader\+File\+Edge\+::$\sim$\+Reader\+File\+Edge (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 135 of file reader.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classReaderFileEdge_a319f75e4d3ff14a4270e9da8ade89a3b}\label{classReaderFileEdge_a319f75e4d3ff14a4270e9da8ade89a3b}} 
+\index{Reader\+File\+Edge@{Reader\+File\+Edge}!has\+Next@{has\+Next}}
+\index{has\+Next@{has\+Next}!Reader\+File\+Edge@{Reader\+File\+Edge}}
+\subsubsection{\texorpdfstring{has\+Next()}{hasNext()}}
+{\footnotesize\ttfamily \hyperlink{classReaderInterface_ac2420ec8d2f60feadf2533d4fa77ec5e}{N\+E\+X\+T\+T\+Y\+PE} Reader\+File\+Edge\+::has\+Next (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+the type of the next object or error condition 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classReaderInterface_aeb39a897efaaeb0c4ada7fce47f06f83}{Reader\+Interface$<$ Edge $>$}.
+
+
+
+Definition at line 143 of file reader.\+h.
+
+
+
+References Reader\+Interface$<$ T\+Y\+P\+E\+R\+E\+T\+U\+R\+N $>$\+::\+C\+A\+N\+N\+O\+T\+O\+P\+EN, Reader\+Interface$<$ T\+Y\+P\+E\+R\+E\+T\+U\+R\+N $>$\+::\+E\+N\+D\+O\+F\+F\+I\+LE, Reader\+Interface$<$ T\+Y\+P\+E\+R\+E\+T\+U\+R\+N $>$\+::\+N\+E\+W\+L\+I\+NE, and Reader\+Interface$<$ T\+Y\+P\+E\+R\+E\+T\+U\+R\+N $>$\+::\+V\+A\+L\+UE.
+
+\mbox{\Hypertarget{classReaderFileEdge_a97f967287fdf7f4804139ba9d123494c}\label{classReaderFileEdge_a97f967287fdf7f4804139ba9d123494c}} 
+\index{Reader\+File\+Edge@{Reader\+File\+Edge}!next@{next}}
+\index{next@{next}!Reader\+File\+Edge@{Reader\+File\+Edge}}
+\subsubsection{\texorpdfstring{next()}{next()}}
+{\footnotesize\ttfamily \hyperlink{classEdge}{Edge} Reader\+File\+Edge\+::next (\begin{DoxyParamCaption}\item[{\hyperlink{classReaderInterface_a1e3610c289ae058a246de41154d8a266}{R\+E\+A\+D\+T\+Y\+PE}}]{type = {\ttfamily READTYPE\+:\+:VALUE} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & is currently ignored \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the next object of the requested type or the error message as indicated by \hyperlink{classReaderFileEdge_a319f75e4d3ff14a4270e9da8ade89a3b}{has\+Next()} 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classReaderInterface_a3f28e135128822544a09a475d2140094}{Reader\+Interface$<$ Edge $>$}.
+
+
+
+Definition at line 159 of file reader.\+h.
+
+
+
+References Program\+Parameters\+::filename, no\+Edge(), Program\+Parameters\+::type, and U\+N\+W\+E\+I\+G\+H\+T\+ED.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=277pt]{classReaderFileEdge_a97f967287fdf7f4804139ba9d123494c_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classReaderFileEdge_a05205d129f4f59c5cbd4e7a2dcb3d0c1}\label{classReaderFileEdge_a05205d129f4f59c5cbd4e7a2dcb3d0c1}} 
+\index{Reader\+File\+Edge@{Reader\+File\+Edge}!status@{status}}
+\index{status@{status}!Reader\+File\+Edge@{Reader\+File\+Edge}}
+\subsubsection{\texorpdfstring{status()}{status()}}
+{\footnotesize\ttfamily std\+::string Reader\+File\+Edge\+::status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+either an ok message or an error message 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classReaderInterface_a5f86ed49eac808ed0a912f7d670c4042}{Reader\+Interface$<$ Edge $>$}.
+
+
+
+Definition at line 235 of file reader.\+h.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classReaderFileEdge_a0880f77cf8a5d28e6cea35e30abb3388}\label{classReaderFileEdge_a0880f77cf8a5d28e6cea35e30abb3388}} 
+\index{Reader\+File\+Edge@{Reader\+File\+Edge}!ed@{ed}}
+\index{ed@{ed}!Reader\+File\+Edge@{Reader\+File\+Edge}}
+\subsubsection{\texorpdfstring{ed}{ed}}
+{\footnotesize\ttfamily \hyperlink{classEdge}{Edge} Reader\+File\+Edge\+::ed\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 126 of file reader.\+h.
+
+\mbox{\Hypertarget{classReaderFileEdge_a8ccb004737f00ed157d72d59bf005136}\label{classReaderFileEdge_a8ccb004737f00ed157d72d59bf005136}} 
+\index{Reader\+File\+Edge@{Reader\+File\+Edge}!finput@{finput}}
+\index{finput@{finput}!Reader\+File\+Edge@{Reader\+File\+Edge}}
+\subsubsection{\texorpdfstring{finput}{finput}}
+{\footnotesize\ttfamily std\+::ifstream Reader\+File\+Edge\+::finput\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 124 of file reader.\+h.
+
+\mbox{\Hypertarget{classReaderFileEdge_a18237693728b8b807c7ed035f80f96ca}\label{classReaderFileEdge_a18237693728b8b807c7ed035f80f96ca}} 
+\index{Reader\+File\+Edge@{Reader\+File\+Edge}!line\+Number@{line\+Number}}
+\index{line\+Number@{line\+Number}!Reader\+File\+Edge@{Reader\+File\+Edge}}
+\subsubsection{\texorpdfstring{line\+Number}{lineNumber}}
+{\footnotesize\ttfamily unsigned int Reader\+File\+Edge\+::line\+Number =1\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 125 of file reader.\+h.
+
+\mbox{\Hypertarget{classReaderFileEdge_a9a956337d362be53e70c6fdbe827b818}\label{classReaderFileEdge_a9a956337d362be53e70c6fdbe827b818}} 
+\index{Reader\+File\+Edge@{Reader\+File\+Edge}!par@{par}}
+\index{par@{par}!Reader\+File\+Edge@{Reader\+File\+Edge}}
+\subsubsection{\texorpdfstring{par}{par}}
+{\footnotesize\ttfamily const \hyperlink{structProgramParameters}{Program\+Parameters}\& Reader\+File\+Edge\+::par\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 123 of file reader.\+h.
+
+\mbox{\Hypertarget{classReaderFileEdge_ac1fdd420eec23e7a50bb73c456c6695b}\label{classReaderFileEdge_ac1fdd420eec23e7a50bb73c456c6695b}} 
+\index{Reader\+File\+Edge@{Reader\+File\+Edge}!state@{state}}
+\index{state@{state}!Reader\+File\+Edge@{Reader\+File\+Edge}}
+\subsubsection{\texorpdfstring{state}{state}}
+{\footnotesize\ttfamily int Reader\+File\+Edge\+::state =0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 127 of file reader.\+h.
+
+\mbox{\Hypertarget{classReaderFileEdge_ad530588bc2c71763272396a695e93a8e}\label{classReaderFileEdge_ad530588bc2c71763272396a695e93a8e}} 
+\index{Reader\+File\+Edge@{Reader\+File\+Edge}!stts@{stts}}
+\index{stts@{stts}!Reader\+File\+Edge@{Reader\+File\+Edge}}
+\subsubsection{\texorpdfstring{stts}{stts}}
+{\footnotesize\ttfamily std\+::string Reader\+File\+Edge\+::stts\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 122 of file reader.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+R-\/\+C\+R\+A\+N/src/base/\+Cpp/\hyperlink{reader_8h}{reader.\+h}\end{DoxyCompactItemize}

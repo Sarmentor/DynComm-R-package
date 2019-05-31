@@ -1,0 +1,166 @@
+\hypertarget{program_8h}{}\section{R-\/\+C\+R\+A\+N/src/base/\+Cpp/program.h File Reference}
+\label{program_8h}\index{R-\/\+C\+R\+A\+N/src/base/\+Cpp/program.\+h@{R-\/\+C\+R\+A\+N/src/base/\+Cpp/program.\+h}}
+{\ttfamily \#include \char`\"{}defines.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+Include dependency graph for program.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=338pt]{program_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{program_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structProgramParameters}{Program\+Parameters}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{program_8h_ae6ceb3d65141eae67f722c4c39a3a2df}{L\+I\+N\+K\+\_\+\+W\+E\+I\+G\+HT} \+: unsigned int \{ \hyperlink{program_8h_ae6ceb3d65141eae67f722c4c39a3a2dfae9d8ebf89324671ee286fa7bf1a2c16c}{L\+I\+N\+K\+\_\+\+W\+E\+I\+G\+H\+T\+::\+W\+E\+I\+G\+H\+T\+ED} =1, 
+\hyperlink{program_8h_ae6ceb3d65141eae67f722c4c39a3a2dfa52d154e24f499de7f8d658277a292f97}{L\+I\+N\+K\+\_\+\+W\+E\+I\+G\+H\+T\+::\+U\+N\+W\+E\+I\+G\+H\+T\+ED}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{program_8h_a83d3c1f2b28e76b81213401d47866fb2}{usage} (const std\+::string \&prog\+\_\+name, const std\+::string \&more)
+\item 
+void \hyperlink{program_8h_a4c5b62613a8e51dd81c52faa1471f2d4}{parse\+\_\+arg} (const std\+::string \&name, const std\+::string \&value, \hyperlink{structProgramParameters}{Program\+Parameters} \&par)
+\item 
+void \hyperlink{program_8h_a8c9152c0b927a5e47f48b7d220984b5a}{parse\+\_\+args} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]}, \hyperlink{structProgramParameters}{Program\+Parameters} \&par)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structProgramParameters}{Program\+Parameters} \hyperlink{program_8h_ae2d819404495f80f31db7676c1329d19}{arguments\+Default}
+\end{DoxyCompactItemize}
+
+
+\subsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{program_8h_ae6ceb3d65141eae67f722c4c39a3a2df}\label{program_8h_ae6ceb3d65141eae67f722c4c39a3a2df}} 
+\index{program.\+h@{program.\+h}!L\+I\+N\+K\+\_\+\+W\+E\+I\+G\+HT@{L\+I\+N\+K\+\_\+\+W\+E\+I\+G\+HT}}
+\index{L\+I\+N\+K\+\_\+\+W\+E\+I\+G\+HT@{L\+I\+N\+K\+\_\+\+W\+E\+I\+G\+HT}!program.\+h@{program.\+h}}
+\subsubsection{\texorpdfstring{L\+I\+N\+K\+\_\+\+W\+E\+I\+G\+HT}{LINK\_WEIGHT}}
+{\footnotesize\ttfamily enum \hyperlink{program_8h_ae6ceb3d65141eae67f722c4c39a3a2df}{L\+I\+N\+K\+\_\+\+W\+E\+I\+G\+HT} \+: unsigned int\hspace{0.3cm}{\ttfamily [strong]}}
+
+enumeration used to indicate if the edges being added to a graph are considered as weighted (must have a weight or a default value is attributed) or unweighted (if a weight is given it is ignored). \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{W\+E\+I\+G\+H\+T\+ED@{W\+E\+I\+G\+H\+T\+ED}!program.\+h@{program.\+h}}\index{program.\+h@{program.\+h}!W\+E\+I\+G\+H\+T\+ED@{W\+E\+I\+G\+H\+T\+ED}}}\mbox{\Hypertarget{program_8h_ae6ceb3d65141eae67f722c4c39a3a2dfae9d8ebf89324671ee286fa7bf1a2c16c}\label{program_8h_ae6ceb3d65141eae67f722c4c39a3a2dfae9d8ebf89324671ee286fa7bf1a2c16c}} 
+W\+E\+I\+G\+H\+T\+ED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+N\+W\+E\+I\+G\+H\+T\+ED@{U\+N\+W\+E\+I\+G\+H\+T\+ED}!program.\+h@{program.\+h}}\index{program.\+h@{program.\+h}!U\+N\+W\+E\+I\+G\+H\+T\+ED@{U\+N\+W\+E\+I\+G\+H\+T\+ED}}}\mbox{\Hypertarget{program_8h_ae6ceb3d65141eae67f722c4c39a3a2dfa52d154e24f499de7f8d658277a292f97}\label{program_8h_ae6ceb3d65141eae67f722c4c39a3a2dfa52d154e24f499de7f8d658277a292f97}} 
+U\+N\+W\+E\+I\+G\+H\+T\+ED&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 30 of file program.\+h.
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{program_8h_a4c5b62613a8e51dd81c52faa1471f2d4}\label{program_8h_a4c5b62613a8e51dd81c52faa1471f2d4}} 
+\index{program.\+h@{program.\+h}!parse\+\_\+arg@{parse\+\_\+arg}}
+\index{parse\+\_\+arg@{parse\+\_\+arg}!program.\+h@{program.\+h}}
+\subsubsection{\texorpdfstring{parse\+\_\+arg()}{parse\_arg()}}
+{\footnotesize\ttfamily void parse\+\_\+arg (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{const std\+::string \&}]{value,  }\item[{\hyperlink{structProgramParameters}{Program\+Parameters} \&}]{par }\end{DoxyParamCaption})}
+
+Parsing function for parameters passed to R 
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+{\em value} & \\
+\hline
+{\em par} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 111 of file program.\+h.
+
+
+
+References Program\+Parameters\+::alpha, Program\+Parameters\+::directory, Program\+Parameters\+::display\+\_\+level, Program\+Parameters\+::filename, Program\+Parameters\+::filename\+\_\+part, Program\+Parameters\+::filename\+\_\+w, Program\+Parameters\+::id\+\_\+qual, Program\+Parameters\+::kmin, Program\+Parameters\+::outfilename, Program\+Parameters\+::precision, Program\+Parameters\+::type, Program\+Parameters\+::verbose, and W\+E\+I\+G\+H\+T\+ED.
+
+
+
+Referenced by Dyn\+Comm\+Rcpp\+::convert\+To\+Parameters().
+
+\mbox{\Hypertarget{program_8h_a8c9152c0b927a5e47f48b7d220984b5a}\label{program_8h_a8c9152c0b927a5e47f48b7d220984b5a}} 
+\index{program.\+h@{program.\+h}!parse\+\_\+args@{parse\+\_\+args}}
+\index{parse\+\_\+args@{parse\+\_\+args}!program.\+h@{program.\+h}}
+\subsubsection{\texorpdfstring{parse\+\_\+args()}{parse\_args()}}
+{\footnotesize\ttfamily void parse\+\_\+args (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]},  }\item[{\hyperlink{structProgramParameters}{Program\+Parameters} \&}]{par }\end{DoxyParamCaption})}
+
+Parsing function for program parameters passed to the standalone program 
+\begin{DoxyParams}{Parameters}
+{\em argc} & \\
+\hline
+{\em argv} & \\
+\hline
+{\em par} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 154 of file program.\+h.
+
+
+
+References Program\+Parameters\+::alpha, Program\+Parameters\+::directory, Program\+Parameters\+::display\+\_\+level, Program\+Parameters\+::filename, Program\+Parameters\+::filename\+\_\+part, Program\+Parameters\+::filename\+\_\+w, Program\+Parameters\+::id\+\_\+qual, Program\+Parameters\+::kmin, Program\+Parameters\+::outfilename, Program\+Parameters\+::precision, Program\+Parameters\+::type, usage(), Program\+Parameters\+::verbose, and W\+E\+I\+G\+H\+T\+ED.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=224pt]{program_8h_a8c9152c0b927a5e47f48b7d220984b5a_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{program_8h_a83d3c1f2b28e76b81213401d47866fb2}\label{program_8h_a83d3c1f2b28e76b81213401d47866fb2}} 
+\index{program.\+h@{program.\+h}!usage@{usage}}
+\index{usage@{usage}!program.\+h@{program.\+h}}
+\subsubsection{\texorpdfstring{usage()}{usage()}}
+{\footnotesize\ttfamily void usage (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{prog\+\_\+name,  }\item[{const std\+::string \&}]{more }\end{DoxyParamCaption})}
+
+Usage print for standalone program 
+\begin{DoxyParams}{Parameters}
+{\em prog\+\_\+name} & is the name of the executable \\
+\hline
+{\em more} & is a header \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 37 of file program.\+h.
+
+
+
+References C\+O\+UT, and exit.
+
+
+
+Referenced by parse\+\_\+args().
+
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{program_8h_ae2d819404495f80f31db7676c1329d19}\label{program_8h_ae2d819404495f80f31db7676c1329d19}} 
+\index{program.\+h@{program.\+h}!arguments\+Default@{arguments\+Default}}
+\index{arguments\+Default@{arguments\+Default}!program.\+h@{program.\+h}}
+\subsubsection{\texorpdfstring{arguments\+Default}{argumentsDefault}}
+{\footnotesize\ttfamily struct \hyperlink{structProgramParameters}{Program\+Parameters} arguments\+Default}
+

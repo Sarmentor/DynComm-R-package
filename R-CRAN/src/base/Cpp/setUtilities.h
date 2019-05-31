@@ -1,9 +1,17 @@
-/*
- * mapUtilities.h
+/************************************************************************
+ ************************* Developer Notice *****************************
+ ************************************************************************
+ * @details
  *
- *  Created on: 19/08/2018
- *      Author: poltergeist0
- */
+ * Utilities to assist working with std::set implemented in C++11.
+ *
+ *
+ * @author poltergeist0
+ *
+ * @date 2018-08-19
+ ************************************************************************
+ ************************************************************************
+ ************************************************************************/
 
 #ifndef SETUTILITIES_H_
 #define SETUTILITIES_H_
@@ -16,6 +24,12 @@
 
 namespace set {
 
+/**
+ * Get the string representation of a set.
+ *
+ * @param m
+ * @return a string
+ */
 template<typename T, typename std::enable_if<std::is_fundamental<T>::value,T>::type=0 > std::string toString(std::set<T> const& m) {
 	std::stringstream ss;
 	bool first=true;

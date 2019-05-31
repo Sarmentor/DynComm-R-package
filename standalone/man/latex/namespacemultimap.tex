@@ -1,0 +1,245 @@
+\hypertarget{namespacemultimap}{}\section{multimap Namespace Reference}
+\label{namespacemultimap}\index{multimap@{multimap}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T , typename U $>$ }\\std\+::set$<$ T $>$ \hyperlink{namespacemultimap_a1d03380ed2365e307412efab3c41731f}{keys} (std\+::multimap$<$ T, U $>$ const \&m)
+\item 
+{\footnotesize template$<$typename T , typename U $>$ }\\std\+::set$<$ T $>$ \hyperlink{namespacemultimap_a0b99e1d5a2730d58caee6e020509da9d}{values} (std\+::multimap$<$ T, U $>$ const \&m)
+\item 
+{\footnotesize template$<$typename type\+Multimap\+Key , typename type\+Multimap\+Value , typename type\+Key , typename type\+Value $>$ }\\std\+::multimap$<$ type\+Multimap\+Key, type\+Multimap\+Value $>$\+::iterator \hyperlink{namespacemultimap_a1824643a35a661af8c8975b16b273142}{find} (std\+::multimap$<$ type\+Multimap\+Key, type\+Multimap\+Value $>$ \&m, const type\+Key \&first, const type\+Value \&second)
+\item 
+{\footnotesize template$<$typename type\+Multimap\+Key , typename type\+Multimap\+Value , typename type\+Key , typename type\+Value $>$ }\\std\+::multimap$<$ type\+Multimap\+Key, type\+Multimap\+Value $>$\+::const\+\_\+iterator \hyperlink{namespacemultimap_a672ee23e88b5c884555bcb6cc8d085b3}{find} (const std\+::multimap$<$ type\+Multimap\+Key, type\+Multimap\+Value $>$ \&m, const type\+Key \&first, const type\+Value \&second)
+\item 
+{\footnotesize template$<$typename T , typename U $>$ }\\bool \hyperlink{namespacemultimap_a68f763c0d3546ccd9cc14f5219559e08}{equal\+Values} (const T \&first, const U \&second)
+\item 
+{\footnotesize template$<$typename type\+Multimap\+Key , typename type\+Multimap\+Value , typename type\+Key , typename type\+Value $>$ }\\std\+::multimap$<$ type\+Multimap\+Key, type\+Multimap\+Value $>$\+::iterator \hyperlink{namespacemultimap_a3c5bc8037151780c38835c7f8a2f0722}{find} (std\+::multimap$<$ type\+Multimap\+Key, type\+Multimap\+Value $>$ \&m, const type\+Key \&first, const type\+Value \&second, bool($\ast$\hyperlink{namespacemultimap_a68f763c0d3546ccd9cc14f5219559e08}{equal\+Values})(const type\+Multimap\+Value \&, const type\+Value \&))
+\item 
+{\footnotesize template$<$typename type\+Multimap\+Key , typename type\+Multimap\+Value , typename type\+Key , typename type\+Value $>$ }\\std\+::multimap$<$ type\+Multimap\+Key, type\+Multimap\+Value $>$\+::const\+\_\+iterator \hyperlink{namespacemultimap_ad8171701d0a623e4623721cb1743196c}{find} (const std\+::multimap$<$ type\+Multimap\+Key, type\+Multimap\+Value $>$ \&m, const type\+Key \&first, const type\+Value \&second, bool($\ast$\hyperlink{namespacemultimap_a68f763c0d3546ccd9cc14f5219559e08}{equal\+Values})(const type\+Multimap\+Value \&, const type\+Value \&))
+\item 
+{\footnotesize template$<$typename T , typename U , typename std\+::enable\+\_\+if$<$ std\+::is\+\_\+fundamental$<$ T $>$\+::value \&\&std\+::is\+\_\+fundamental$<$ U $>$\+::value, T $>$\+::type  = 0$>$ }\\std\+::string \hyperlink{namespacemultimap_aa170f94901a505969ecfa010c24f2877}{to\+String} (std\+::multimap$<$ T, U $>$ const \&m, const \hyperlink{classStringFormatter}{String\+Formatter} \&formater=\hyperlink{stringFormatter_8h_abf1349c8e24162d0134072aff288f2a2}{default\+String\+Formatter})
+\item 
+{\footnotesize template$<$typename T , typename U $>$ }\\std\+::multimap$<$ T, U $>$\+::iterator \& \hyperlink{namespacemultimap_a94c77f5e6ac9c4eaeb34a6c142b6ab0d}{minimum\+Value} (std\+::multimap$<$ T, U $>$ \&m, const T \&key)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{namespacemultimap_a68f763c0d3546ccd9cc14f5219559e08}\label{namespacemultimap_a68f763c0d3546ccd9cc14f5219559e08}} 
+\index{multimap@{multimap}!equal\+Values@{equal\+Values}}
+\index{equal\+Values@{equal\+Values}!multimap@{multimap}}
+\subsubsection{\texorpdfstring{equal\+Values()}{equalValues()}}
+{\footnotesize\ttfamily template$<$typename T , typename U $>$ \\
+bool multimap\+::equal\+Values (\begin{DoxyParamCaption}\item[{const T \&}]{first,  }\item[{const U \&}]{second }\end{DoxyParamCaption})}
+
+Default equal\+Values function used by the find method declared next 
+\begin{DoxyParams}{Parameters}
+{\em first} & \\
+\hline
+{\em second} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 105 of file multimap\+Utilities.\+h.
+
+
+
+Referenced by find().
+
+\mbox{\Hypertarget{namespacemultimap_a1824643a35a661af8c8975b16b273142}\label{namespacemultimap_a1824643a35a661af8c8975b16b273142}} 
+\index{multimap@{multimap}!find@{find}}
+\index{find@{find}!multimap@{multimap}}
+\subsubsection{\texorpdfstring{find()}{find()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily template$<$typename type\+Multimap\+Key , typename type\+Multimap\+Value , typename type\+Key , typename type\+Value $>$ \\
+std\+::multimap$<$type\+Multimap\+Key,type\+Multimap\+Value$>$\+::iterator multimap\+::find (\begin{DoxyParamCaption}\item[{std\+::multimap$<$ type\+Multimap\+Key, type\+Multimap\+Value $>$ \&}]{m,  }\item[{const type\+Key \&}]{first,  }\item[{const type\+Value \&}]{second }\end{DoxyParamCaption})}
+
+Find exact (key,value) pair in a multimap There must be an implicit type conversion between type\+Multimap\+Key and type\+Key There must be an implicit type conversion between type\+Multimap\+Value and type\+Value 
+\begin{DoxyParams}{Parameters}
+{\em m} & \\
+\hline
+{\em first} & \\
+\hline
+{\em second} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+an iterator to the first pair found or multimap\+::end() if not found 
+\end{DoxyReturn}
+
+
+Definition at line 65 of file multimap\+Utilities.\+h.
+
+
+
+Referenced by Multimap\+Reversable$<$ T, U $>$\+::add(), Map\+Reversable$<$ type\+Vertex, type\+Community $>$\+::add(), Graph\+Undirected\+::add\+Edge(), Multimap\+Reversable$<$ T, U $>$\+::remove(), Map\+Reversable$<$ type\+Vertex, type\+Community $>$\+::remove(), Graph\+Undirected\+::remove\+Edge(), Graph\+Undirected\+::replace(), Map\+Reversable$<$ type\+Vertex, type\+Community $>$\+::replace\+Key(), and Graph\+Undirected\+::weight().
+
+\mbox{\Hypertarget{namespacemultimap_a672ee23e88b5c884555bcb6cc8d085b3}\label{namespacemultimap_a672ee23e88b5c884555bcb6cc8d085b3}} 
+\index{multimap@{multimap}!find@{find}}
+\index{find@{find}!multimap@{multimap}}
+\subsubsection{\texorpdfstring{find()}{find()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily template$<$typename type\+Multimap\+Key , typename type\+Multimap\+Value , typename type\+Key , typename type\+Value $>$ \\
+std\+::multimap$<$type\+Multimap\+Key,type\+Multimap\+Value$>$\+::const\+\_\+iterator multimap\+::find (\begin{DoxyParamCaption}\item[{const std\+::multimap$<$ type\+Multimap\+Key, type\+Multimap\+Value $>$ \&}]{m,  }\item[{const type\+Key \&}]{first,  }\item[{const type\+Value \&}]{second }\end{DoxyParamCaption})}
+
+Find exact (key,value) pair in a multimap Const version There must be an implicit type conversion between type\+Multimap\+Key and type\+Key There must be an implicit type conversion between type\+Multimap\+Value and type\+Value 
+\begin{DoxyParams}{Parameters}
+{\em m} & \\
+\hline
+{\em first} & \\
+\hline
+{\em second} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+an iterator to the first pair found or multimap\+::end() if not found 
+\end{DoxyReturn}
+
+
+Definition at line 87 of file multimap\+Utilities.\+h.
+
+\mbox{\Hypertarget{namespacemultimap_a3c5bc8037151780c38835c7f8a2f0722}\label{namespacemultimap_a3c5bc8037151780c38835c7f8a2f0722}} 
+\index{multimap@{multimap}!find@{find}}
+\index{find@{find}!multimap@{multimap}}
+\subsubsection{\texorpdfstring{find()}{find()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily template$<$typename type\+Multimap\+Key , typename type\+Multimap\+Value , typename type\+Key , typename type\+Value $>$ \\
+std\+::multimap$<$type\+Multimap\+Key,type\+Multimap\+Value$>$\+::iterator multimap\+::find (\begin{DoxyParamCaption}\item[{std\+::multimap$<$ type\+Multimap\+Key, type\+Multimap\+Value $>$ \&}]{m,  }\item[{const type\+Key \&}]{first,  }\item[{const type\+Value \&}]{second,  }\item[{bool($\ast$)(const type\+Multimap\+Value \&, const type\+Value \&)}]{equal\+Values }\end{DoxyParamCaption})}
+
+Find exact (key,value) pair in a multimap using comparator There must be an implicit type conversion between type\+Multimap\+Key and type\+Key There must be an implicit type conversion between type\+Multimap\+Value and type\+Value if using the default comparator 
+\begin{DoxyParams}{Parameters}
+{\em m} & \\
+\hline
+{\em first} & \\
+\hline
+{\em second} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+an iterator to the first pair found or multimap\+::end() if not found 
+\end{DoxyReturn}
+
+
+Definition at line 118 of file multimap\+Utilities.\+h.
+
+
+
+References equal\+Values().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=310pt]{namespacemultimap_a3c5bc8037151780c38835c7f8a2f0722_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacemultimap_ad8171701d0a623e4623721cb1743196c}\label{namespacemultimap_ad8171701d0a623e4623721cb1743196c}} 
+\index{multimap@{multimap}!find@{find}}
+\index{find@{find}!multimap@{multimap}}
+\subsubsection{\texorpdfstring{find()}{find()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily template$<$typename type\+Multimap\+Key , typename type\+Multimap\+Value , typename type\+Key , typename type\+Value $>$ \\
+std\+::multimap$<$type\+Multimap\+Key,type\+Multimap\+Value$>$\+::const\+\_\+iterator multimap\+::find (\begin{DoxyParamCaption}\item[{const std\+::multimap$<$ type\+Multimap\+Key, type\+Multimap\+Value $>$ \&}]{m,  }\item[{const type\+Key \&}]{first,  }\item[{const type\+Value \&}]{second,  }\item[{bool($\ast$)(const type\+Multimap\+Value \&, const type\+Value \&)}]{equal\+Values }\end{DoxyParamCaption})}
+
+Find exact (key,value) pair in a multimap using comparator There must be an implicit type conversion between type\+Multimap\+Key and type\+Key There must be an implicit type conversion between type\+Multimap\+Value and type\+Value if using the default comparator 
+\begin{DoxyParams}{Parameters}
+{\em m} & \\
+\hline
+{\em first} & \\
+\hline
+{\em second} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+an iterator to the first pair found or multimap\+::end() if not found 
+\end{DoxyReturn}
+
+
+Definition at line 139 of file multimap\+Utilities.\+h.
+
+
+
+References equal\+Values().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=310pt]{namespacemultimap_ad8171701d0a623e4623721cb1743196c_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacemultimap_a1d03380ed2365e307412efab3c41731f}\label{namespacemultimap_a1d03380ed2365e307412efab3c41731f}} 
+\index{multimap@{multimap}!keys@{keys}}
+\index{keys@{keys}!multimap@{multimap}}
+\subsubsection{\texorpdfstring{keys()}{keys()}}
+{\footnotesize\ttfamily template$<$typename T , typename U $>$ \\
+std\+::set$<$T$>$ multimap\+::keys (\begin{DoxyParamCaption}\item[{std\+::multimap$<$ T, U $>$ const \&}]{m }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the unique keys of a multimap 
+\end{DoxyReturn}
+
+
+Definition at line 33 of file multimap\+Utilities.\+h.
+
+\mbox{\Hypertarget{namespacemultimap_a94c77f5e6ac9c4eaeb34a6c142b6ab0d}\label{namespacemultimap_a94c77f5e6ac9c4eaeb34a6c142b6ab0d}} 
+\index{multimap@{multimap}!minimum\+Value@{minimum\+Value}}
+\index{minimum\+Value@{minimum\+Value}!multimap@{multimap}}
+\subsubsection{\texorpdfstring{minimum\+Value()}{minimumValue()}}
+{\footnotesize\ttfamily template$<$typename T , typename U $>$ \\
+std\+::multimap$<$T,U$>$\+::iterator\& multimap\+::minimum\+Value (\begin{DoxyParamCaption}\item[{std\+::multimap$<$ T, U $>$ \&}]{m,  }\item[{const T \&}]{key }\end{DoxyParamCaption})}
+
+get the minimum value attributed to a given key 
+\begin{DoxyParams}{Parameters}
+{\em map} & \\
+\hline
+{\em key} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+an iterator to the pair containing the minimum value or multimap\+::end() if not found 
+\end{DoxyReturn}
+
+
+Definition at line 168 of file multimap\+Utilities.\+h.
+
+\mbox{\Hypertarget{namespacemultimap_aa170f94901a505969ecfa010c24f2877}\label{namespacemultimap_aa170f94901a505969ecfa010c24f2877}} 
+\index{multimap@{multimap}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!multimap@{multimap}}
+\subsubsection{\texorpdfstring{to\+String()}{toString()}}
+{\footnotesize\ttfamily template$<$typename T , typename U , typename std\+::enable\+\_\+if$<$ std\+::is\+\_\+fundamental$<$ T $>$\+::value \&\&std\+::is\+\_\+fundamental$<$ U $>$\+::value, T $>$\+::type  = 0$>$ \\
+std\+::string multimap\+::to\+String (\begin{DoxyParamCaption}\item[{std\+::multimap$<$ T, U $>$ const \&}]{m,  }\item[{const \hyperlink{classStringFormatter}{String\+Formatter} \&}]{formater = {\ttfamily \hyperlink{stringFormatter_8h_abf1349c8e24162d0134072aff288f2a2}{default\+String\+Formatter}} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 151 of file multimap\+Utilities.\+h.
+
+
+
+Referenced by Multimap\+Reversable$<$ T, U $>$\+::to\+String(), and Map\+Reversable$<$ type\+Vertex, type\+Community $>$\+::to\+String().
+
+\mbox{\Hypertarget{namespacemultimap_a0b99e1d5a2730d58caee6e020509da9d}\label{namespacemultimap_a0b99e1d5a2730d58caee6e020509da9d}} 
+\index{multimap@{multimap}!values@{values}}
+\index{values@{values}!multimap@{multimap}}
+\subsubsection{\texorpdfstring{values()}{values()}}
+{\footnotesize\ttfamily template$<$typename T , typename U $>$ \\
+std\+::set$<$T$>$ multimap\+::values (\begin{DoxyParamCaption}\item[{std\+::multimap$<$ T, U $>$ const \&}]{m }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the unique values of a multimap 
+\end{DoxyReturn}
+
+
+Definition at line 47 of file multimap\+Utilities.\+h.
+

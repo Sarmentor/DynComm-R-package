@@ -1,0 +1,255 @@
+\hypertarget{classReaderMatrixEdge}{}\section{Reader\+Matrix\+Edge Class Reference}
+\label{classReaderMatrixEdge}\index{Reader\+Matrix\+Edge@{Reader\+Matrix\+Edge}}
+
+
+Reader for edges from R Matrix.  
+
+
+
+
+{\ttfamily \#include $<$reader.\+h$>$}
+
+
+
+Inheritance diagram for Reader\+Matrix\+Edge\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=207pt]{classReaderMatrixEdge__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Reader\+Matrix\+Edge\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classReaderMatrixEdge__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classReaderMatrixEdge_a8bb3d1f9b91410abcfc2bc1c3becea5c}{Reader\+Matrix\+Edge} (const Rcpp\+::\+Numeric\+Matrix \&data, const \hyperlink{structProgramParameters}{Program\+Parameters} \&parameters)
+\item 
+\hyperlink{classReaderMatrixEdge_ae6a8f85585a25e38164c2bf8ec18c9b8}{$\sim$\+Reader\+Matrix\+Edge} ()
+\item 
+\hyperlink{classReaderInterface_ac2420ec8d2f60feadf2533d4fa77ec5e}{N\+E\+X\+T\+T\+Y\+PE} \hyperlink{classReaderMatrixEdge_a61598aded2eab7ef2024636a5381423b}{has\+Next} ()
+\item 
+\hyperlink{classEdge}{Edge} \hyperlink{classReaderMatrixEdge_a98657215956d975c4f81b7e1d6e90b3e}{next} (\hyperlink{classReaderInterface_a1e3610c289ae058a246de41154d8a266}{R\+E\+A\+D\+T\+Y\+PE} type=R\+E\+A\+D\+T\+Y\+P\+E\+::\+V\+A\+L\+UE)
+\item 
+std\+::string \hyperlink{classReaderMatrixEdge_a14cfd06f703e6a24d007514e5dee24ff}{status} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \hyperlink{classReaderMatrixEdge_aabdc3b2ee9060a35c7e6b04afcebf9f9}{stts}
+\item 
+const \hyperlink{structProgramParameters}{Program\+Parameters} \& \hyperlink{classReaderMatrixEdge_a6bca38a1fa952962db149712f9468aec}{par}
+\item 
+const Rcpp\+::\+Numeric\+Matrix \& \hyperlink{classReaderMatrixEdge_ab8d64c5359cb60152b277b735616f3fd}{dt}
+\item 
+unsigned int \hyperlink{classReaderMatrixEdge_a07bbdbe9f633b2ca36e630a0eeba4010}{line\+Number} =0
+\item 
+\hyperlink{classEdge}{Edge} \hyperlink{classReaderMatrixEdge_a64e36f8be27ab6fd91be7b7213f748c5}{ed}
+\item 
+int \hyperlink{classReaderMatrixEdge_aa2c426f8207b7317ed84941d712ed0f0}{state} =0
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Reader for edges from R Matrix. 
+
+Format is one edge per line. This Reader can not read backwards.
+
+\begin{DoxyAuthor}{Author}
+poltergeist0
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019-\/02-\/06 
+\end{DoxyDate}
+
+
+Definition at line 375 of file reader.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classReaderMatrixEdge_a8bb3d1f9b91410abcfc2bc1c3becea5c}\label{classReaderMatrixEdge_a8bb3d1f9b91410abcfc2bc1c3becea5c}} 
+\index{Reader\+Matrix\+Edge@{Reader\+Matrix\+Edge}!Reader\+Matrix\+Edge@{Reader\+Matrix\+Edge}}
+\index{Reader\+Matrix\+Edge@{Reader\+Matrix\+Edge}!Reader\+Matrix\+Edge@{Reader\+Matrix\+Edge}}
+\subsubsection{\texorpdfstring{Reader\+Matrix\+Edge()}{ReaderMatrixEdge()}}
+{\footnotesize\ttfamily Reader\+Matrix\+Edge\+::\+Reader\+Matrix\+Edge (\begin{DoxyParamCaption}\item[{const Rcpp\+::\+Numeric\+Matrix \&}]{data,  }\item[{const \hyperlink{structProgramParameters}{Program\+Parameters} \&}]{parameters }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 385 of file reader.\+h.
+
+
+
+References Reader\+Interface$<$ T\+Y\+P\+E\+R\+E\+T\+U\+R\+N $>$\+::next().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classReaderMatrixEdge_a8bb3d1f9b91410abcfc2bc1c3becea5c_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classReaderMatrixEdge_ae6a8f85585a25e38164c2bf8ec18c9b8}\label{classReaderMatrixEdge_ae6a8f85585a25e38164c2bf8ec18c9b8}} 
+\index{Reader\+Matrix\+Edge@{Reader\+Matrix\+Edge}!````~Reader\+Matrix\+Edge@{$\sim$\+Reader\+Matrix\+Edge}}
+\index{````~Reader\+Matrix\+Edge@{$\sim$\+Reader\+Matrix\+Edge}!Reader\+Matrix\+Edge@{Reader\+Matrix\+Edge}}
+\subsubsection{\texorpdfstring{$\sim$\+Reader\+Matrix\+Edge()}{~ReaderMatrixEdge()}}
+{\footnotesize\ttfamily Reader\+Matrix\+Edge\+::$\sim$\+Reader\+Matrix\+Edge (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 389 of file reader.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classReaderMatrixEdge_a61598aded2eab7ef2024636a5381423b}\label{classReaderMatrixEdge_a61598aded2eab7ef2024636a5381423b}} 
+\index{Reader\+Matrix\+Edge@{Reader\+Matrix\+Edge}!has\+Next@{has\+Next}}
+\index{has\+Next@{has\+Next}!Reader\+Matrix\+Edge@{Reader\+Matrix\+Edge}}
+\subsubsection{\texorpdfstring{has\+Next()}{hasNext()}}
+{\footnotesize\ttfamily \hyperlink{classReaderInterface_ac2420ec8d2f60feadf2533d4fa77ec5e}{N\+E\+X\+T\+T\+Y\+PE} Reader\+Matrix\+Edge\+::has\+Next (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+the type of the next object or error condition 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classReaderInterface_aeb39a897efaaeb0c4ada7fce47f06f83}{Reader\+Interface$<$ Edge $>$}.
+
+
+
+Definition at line 396 of file reader.\+h.
+
+
+
+References Reader\+Interface$<$ T\+Y\+P\+E\+R\+E\+T\+U\+R\+N $>$\+::\+C\+A\+N\+N\+O\+T\+O\+P\+EN, Reader\+Interface$<$ T\+Y\+P\+E\+R\+E\+T\+U\+R\+N $>$\+::\+E\+N\+D\+O\+F\+F\+I\+LE, Reader\+Interface$<$ T\+Y\+P\+E\+R\+E\+T\+U\+R\+N $>$\+::\+N\+E\+W\+L\+I\+NE, and Reader\+Interface$<$ T\+Y\+P\+E\+R\+E\+T\+U\+R\+N $>$\+::\+V\+A\+L\+UE.
+
+\mbox{\Hypertarget{classReaderMatrixEdge_a98657215956d975c4f81b7e1d6e90b3e}\label{classReaderMatrixEdge_a98657215956d975c4f81b7e1d6e90b3e}} 
+\index{Reader\+Matrix\+Edge@{Reader\+Matrix\+Edge}!next@{next}}
+\index{next@{next}!Reader\+Matrix\+Edge@{Reader\+Matrix\+Edge}}
+\subsubsection{\texorpdfstring{next()}{next()}}
+{\footnotesize\ttfamily \hyperlink{classEdge}{Edge} Reader\+Matrix\+Edge\+::next (\begin{DoxyParamCaption}\item[{\hyperlink{classReaderInterface_a1e3610c289ae058a246de41154d8a266}{R\+E\+A\+D\+T\+Y\+PE}}]{type = {\ttfamily READTYPE\+:\+:VALUE} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & is currently ignored \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the next object of the requested type or the error message as indicated by \hyperlink{classReaderMatrixEdge_a61598aded2eab7ef2024636a5381423b}{has\+Next()} 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classReaderInterface_a3f28e135128822544a09a475d2140094}{Reader\+Interface$<$ Edge $>$}.
+
+
+
+Definition at line 412 of file reader.\+h.
+
+
+
+References no\+Edge(), Program\+Parameters\+::type, and U\+N\+W\+E\+I\+G\+H\+T\+ED.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=288pt]{classReaderMatrixEdge_a98657215956d975c4f81b7e1d6e90b3e_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classReaderMatrixEdge_a14cfd06f703e6a24d007514e5dee24ff}\label{classReaderMatrixEdge_a14cfd06f703e6a24d007514e5dee24ff}} 
+\index{Reader\+Matrix\+Edge@{Reader\+Matrix\+Edge}!status@{status}}
+\index{status@{status}!Reader\+Matrix\+Edge@{Reader\+Matrix\+Edge}}
+\subsubsection{\texorpdfstring{status()}{status()}}
+{\footnotesize\ttfamily std\+::string Reader\+Matrix\+Edge\+::status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+either an ok message or an error message 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classReaderInterface_a5f86ed49eac808ed0a912f7d670c4042}{Reader\+Interface$<$ Edge $>$}.
+
+
+
+Definition at line 460 of file reader.\+h.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classReaderMatrixEdge_ab8d64c5359cb60152b277b735616f3fd}\label{classReaderMatrixEdge_ab8d64c5359cb60152b277b735616f3fd}} 
+\index{Reader\+Matrix\+Edge@{Reader\+Matrix\+Edge}!dt@{dt}}
+\index{dt@{dt}!Reader\+Matrix\+Edge@{Reader\+Matrix\+Edge}}
+\subsubsection{\texorpdfstring{dt}{dt}}
+{\footnotesize\ttfamily const Rcpp\+::\+Numeric\+Matrix\& Reader\+Matrix\+Edge\+::dt\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 379 of file reader.\+h.
+
+\mbox{\Hypertarget{classReaderMatrixEdge_a64e36f8be27ab6fd91be7b7213f748c5}\label{classReaderMatrixEdge_a64e36f8be27ab6fd91be7b7213f748c5}} 
+\index{Reader\+Matrix\+Edge@{Reader\+Matrix\+Edge}!ed@{ed}}
+\index{ed@{ed}!Reader\+Matrix\+Edge@{Reader\+Matrix\+Edge}}
+\subsubsection{\texorpdfstring{ed}{ed}}
+{\footnotesize\ttfamily \hyperlink{classEdge}{Edge} Reader\+Matrix\+Edge\+::ed\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 381 of file reader.\+h.
+
+\mbox{\Hypertarget{classReaderMatrixEdge_a07bbdbe9f633b2ca36e630a0eeba4010}\label{classReaderMatrixEdge_a07bbdbe9f633b2ca36e630a0eeba4010}} 
+\index{Reader\+Matrix\+Edge@{Reader\+Matrix\+Edge}!line\+Number@{line\+Number}}
+\index{line\+Number@{line\+Number}!Reader\+Matrix\+Edge@{Reader\+Matrix\+Edge}}
+\subsubsection{\texorpdfstring{line\+Number}{lineNumber}}
+{\footnotesize\ttfamily unsigned int Reader\+Matrix\+Edge\+::line\+Number =0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 380 of file reader.\+h.
+
+\mbox{\Hypertarget{classReaderMatrixEdge_a6bca38a1fa952962db149712f9468aec}\label{classReaderMatrixEdge_a6bca38a1fa952962db149712f9468aec}} 
+\index{Reader\+Matrix\+Edge@{Reader\+Matrix\+Edge}!par@{par}}
+\index{par@{par}!Reader\+Matrix\+Edge@{Reader\+Matrix\+Edge}}
+\subsubsection{\texorpdfstring{par}{par}}
+{\footnotesize\ttfamily const \hyperlink{structProgramParameters}{Program\+Parameters}\& Reader\+Matrix\+Edge\+::par\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 378 of file reader.\+h.
+
+\mbox{\Hypertarget{classReaderMatrixEdge_aa2c426f8207b7317ed84941d712ed0f0}\label{classReaderMatrixEdge_aa2c426f8207b7317ed84941d712ed0f0}} 
+\index{Reader\+Matrix\+Edge@{Reader\+Matrix\+Edge}!state@{state}}
+\index{state@{state}!Reader\+Matrix\+Edge@{Reader\+Matrix\+Edge}}
+\subsubsection{\texorpdfstring{state}{state}}
+{\footnotesize\ttfamily int Reader\+Matrix\+Edge\+::state =0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 382 of file reader.\+h.
+
+\mbox{\Hypertarget{classReaderMatrixEdge_aabdc3b2ee9060a35c7e6b04afcebf9f9}\label{classReaderMatrixEdge_aabdc3b2ee9060a35c7e6b04afcebf9f9}} 
+\index{Reader\+Matrix\+Edge@{Reader\+Matrix\+Edge}!stts@{stts}}
+\index{stts@{stts}!Reader\+Matrix\+Edge@{Reader\+Matrix\+Edge}}
+\subsubsection{\texorpdfstring{stts}{stts}}
+{\footnotesize\ttfamily std\+::string Reader\+Matrix\+Edge\+::stts\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 377 of file reader.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+R-\/\+C\+R\+A\+N/src/base/\+Cpp/\hyperlink{reader_8h}{reader.\+h}\end{DoxyCompactItemize}

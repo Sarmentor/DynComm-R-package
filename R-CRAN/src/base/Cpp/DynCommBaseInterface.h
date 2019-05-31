@@ -1,14 +1,22 @@
-/*
- * algorithmInterface.h
+/************************************************************************
+ ************************* Developer Notice *****************************
+ ************************************************************************
+ * @details
  *
- *  Created on: 02/02/2019
- *      Author: poltergeist0
- */
+ * Interface for DynComm implemented in C++11.
+ *
+ *
+ * @author poltergeist0
+ *
+ * @date 2019-01-01
+ ************************************************************************
+ ************************************************************************
+ ************************************************************************/
 
 #ifndef SRC_DYNCOMMBASEINTERFACE_H_
 #define SRC_DYNCOMMBASEINTERFACE_H_
 
-#include "qualityInterface.h"
+#include "criterionInterface.h"
 #include "reader.h"
 #include "writer.h"
 #include "systemDefines.h"
@@ -16,7 +24,17 @@
 typedef ReaderInterface<Edge> ReaderEdgeBase;
 
 /**
- * Dynamic Communities class API.
+ * @brief Interface for DynComm.
+ *
+ * @details
+ * Class that defines the interface for DynComm as seen by the user.
+ *
+ * It has as base the interface of classes graph, criterion and algorithm.
+ *
+ *
+ * @author poltergeist0
+ *
+ * @date 2019-01-01
  */
 class DynCommBaseInterface {
 public:
@@ -29,6 +47,7 @@ public:
 	 * Function to add and remove edges from the graph.
 	 * Any edge with a weight different from zero is inserted.
 	 * Any edge with a weight of exactly zero is removed.
+	 *
 	 * @param reader is a Reader object that is responsible for converting the required data from its original format to Edges
 	 * @return true if adding/removing succeeded
 	 */
@@ -36,9 +55,11 @@ public:
 
 
 	/**
-	 * @return the current quality measure of the community mapping on the graph
+	 * compute the quality of the current partition scheme
+	 *
+	 * @return the quality value
 	 */
-	virtual typeQuality quality()const=0;
+	virtual typeCriterion quality()const=0;
 
 	/**
 	 * @return the number of communities
@@ -53,7 +74,7 @@ public:
 	/**
 	 *
 	 * @param community
-	 * @return the neighboring communities of the given community
+	 * @return the neighbouring communities of the given community
 	 */
 	virtual typeLinksRangeConst communityNeighbours(typeCommunity community)const=0;
 
@@ -114,16 +135,33 @@ public:
 	virtual typeVertexList vertices(typeCommunity community)const=0;
 
 	/**
-	 * Get a snapshot of the current community mapping
-	 * The differential parameter will probably be moved inside the writer as a parameter in the next version of the source code
+	 * Get a snapshot of the current community mapping.
+	 * If communityFirst is true the result will be one community per line with
+	 * each line being a community followed by a list of vertices. If false, the
+	 * result will be a vertex per line with each line being a single vertex and
+	 * a single community.
+	 * The differential parameter will probably be moved inside the writer as a parameter
+	 *
+	 * @param writer
+	 * @param communityFirst if true returns a community followed by a list of vertices, otherwise a vertex and its community
+	 * @param differential return only what changed in the last iteration of the algorithm
 	 * @return true if the operation succeeded
 	 */
-	virtual bool communityMapping(WriterInterface * writer,bool differential=true)const=0;
+	virtual bool communityMapping(WriterInterface * writer,bool communityFirst=true,bool differential=true)const=0;
 
+	/**
+	 * @return pointers to the first and last neighbour of the vertex
+	 */
 	virtual typeLinksRangeConst neighbours(typeVertex vertex)const=0;
 
+	/**
+	 * @return the weight of an edge
+	 */
 	virtual typeWeight weight(const typeVertex & source, const typeVertex & destination) const =0;
 
+	/**
+	 * @return the time spent on processing
+	 */
 	virtual uint64 time(bool accumulated=true)const=0;
 
 };

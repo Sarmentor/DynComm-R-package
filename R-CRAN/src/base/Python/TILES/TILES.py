@@ -150,8 +150,8 @@ class TILES(object):
                 self.g.add_edge(u, v)
                 self.g.adj[u][v]["weight"] = e['weight']
 
-            u_n = list(self.g.neighbors(u))
-            v_n = list(self.g.neighbors(v))
+            u_n = list(self.g.neighbours(u))
+            v_n = list(self.g.neighbours(v))
 
             #############################################
             #               Evolution                   #
@@ -159,8 +159,8 @@ class TILES(object):
 
             # new community of peripheral nodes (new nodes)
             if len(u_n) > 1 and len(v_n) > 1:
-                common_neighbors = set(u_n) & set(v_n)
-                self.common_neighbors_analysis(u, v, common_neighbors)
+                common_neighbours = set(u_n) & set(v_n)
+                self.common_neighbours_analysis(u, v, common_neighbours)
 
             count += 1
 
@@ -229,27 +229,27 @@ class TILES(object):
 
                         else:
                             # u and v shared communities
-                            if len(list(self.g.neighbors(u))) > 1 and len(list(self.g.neighbors(v))) > 1:
+                            if len(list(self.g.neighbours(u))) > 1 and len(list(self.g.neighbours(v))) > 1:
                                 coms = set(self.g.node[u]['c_coms'].keys()) & set(self.g.node[v]['c_coms'].keys())
 
                                 for c in coms:
                                     if c not in coms_to_change:
-                                        cn = set(self.g.neighbors(u)) & set(self.g.neighbors(v))
+                                        cn = set(self.g.neighbours(u)) & set(self.g.neighbours(v))
                                         coms_to_change[c] = [u, v]
                                         coms_to_change[c].extend(list(cn))
                                     else:
-                                        cn = set(self.g.neighbors(u)) & set(self.g.neighbors(v))
+                                        cn = set(self.g.neighbours(u)) & set(self.g.neighbours(v))
                                         coms_to_change[c].extend(list(cn))
                                         coms_to_change[c].extend([u, v])
                                         ctc = set(coms_to_change[c])
                                         coms_to_change[c] = list(ctc)
                             else:
-                                if len(list(self.g.neighbors(u))) < 2:
+                                if len(list(self.g.neighbours(u))) < 2:
                                     coms_u = [x for x in self.g.node[u]['c_coms'].keys()]
                                     for cid in coms_u:
                                         self.remove_from_community(u, cid)
 
-                                if len(list(self.g.neighbors(v))) < 2:
+                                if len(list(self.g.neighbours(v))) < 2:
                                     coms_v = [x for x in self.g.node[v]['c_coms'].keys()]
                                     for cid in coms_v:
                                         self.remove_from_community(v, cid)
@@ -343,16 +343,16 @@ class TILES(object):
             for n in not_central:
                 self.remove_from_community(n, c)
 
-    def common_neighbors_analysis(self, u, v, common_neighbors):
+    def common_neighbours_analysis(self, u, v, common_neighbours):
         """
             General case in which both the nodes are already present in the net.
             :param u: a node
             :param v: a node
-            :param common_neighbors: common neighbors of the two nodes
+            :param common_neighbours: common neighbours of the two nodes
         """
 
-        # no shared neighbors
-        if len(common_neighbors) < 1:
+        # no shared neighbours
+        if len(common_neighbours) < 1:
             return
 
         else:
@@ -364,7 +364,7 @@ class TILES(object):
             # community propagation: a community is propagated iff at least two of [u, v, z] are central
             propagated = False
 
-            for z in common_neighbors:
+            for z in common_neighbours:
                 for c in self.g.node[z]['c_coms'].keys():
                     if c in only_v:
                         self.add_to_community(u, c)
@@ -386,7 +386,7 @@ class TILES(object):
                     self.add_to_community(u, actual_cid)
                     self.add_to_community(v, actual_cid)
 
-                    for z in common_neighbors:
+                    for z in common_neighbours:
                         self.add_to_community(z, actual_cid)
 
     def print_communities(self):
@@ -516,15 +516,15 @@ class TILES(object):
         for u in subgraph.nodes():
             if u not in central:
                 cflag = False
-                neighbors_u = set(self.g.neighbors(u))
-                if len(neighbors_u) > 1:
-                    for v in neighbors_u:
+                neighbours_u = set(self.g.neighbours(u))
+                if len(neighbours_u) > 1:
+                    for v in neighbours_u:
                         if u > v:
                             if cflag:
                                 break
                             else:
-                                neighbors_v = set(self.g.neighbors(v))
-                                cn = neighbors_v & neighbors_v
+                                neighbours_v = set(self.g.neighbours(v))
+                                cn = neighbours_v & neighbours_v
                                 if len(cn) > 0:
                                     central[u] = None
                                     central[v] = None

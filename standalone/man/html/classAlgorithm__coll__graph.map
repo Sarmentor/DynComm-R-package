@@ -1,0 +1,15 @@
+<map id="Algorithm" name="Algorithm">
+<area shape="rect" id="node2" href="$classAlgorithmBase.html" title="Base class for algorithms. " alt="" coords="1331,135,1437,161"/>
+<area shape="rect" id="node14" href="$classAlgorithmLouvain.html" title="Class that implements the Dynamic Louvain algorithm. " alt="" coords="1487,109,1609,136"/>
+<area shape="rect" id="node3" href="$classAlgorithmInterface.html" title="Algorithms API. " alt="" coords="1136,57,1264,84"/>
+<area shape="rect" id="node4" href="$classGraphUndirectedGroupable.html" title="Groupable Undirected Graph. " alt="" coords="428,99,607,125"/>
+<area shape="rect" id="node12" href="$classCriterionBase.html" title="Base class for criterion. " alt="" coords="696,223,797,249"/>
+<area shape="rect" id="node5" href="$classGraphUndirected.html" title="Graph. " alt="" coords="199,75,319,101"/>
+<area shape="rect" id="node6" href="$classGraphInterface.html" title="Interface for graph. " alt="" coords="5,75,113,101"/>
+<area shape="rect" id="node7" href="$classMapReversable.html" title="MapReversable\&lt; typeVertex,\l typeCommunity \&gt;" alt="" coords="163,137,355,178"/>
+<area shape="rect" id="node8" href="$structProgramParameters.html" title="ProgramParameters" alt="" coords="448,197,587,224"/>
+<area shape="rect" id="node9" href="$classCriterion.html" title="Aggregator class for all criterion. " alt="" coords="1165,240,1235,267"/>
+<area shape="rect" id="node10" href="$classCriterionInterface.html" title="Criterion interface. " alt="" coords="456,301,579,328"/>
+<area shape="rect" id="node11" href="$classCriterionBalMod.html" title="Balanced Modularity criterion. " alt="" coords="855,223,969,249"/>
+<area shape="rect" id="node13" href="$classCriterionModularity.html" title="Newman&#45;Girvan criterion. " alt="" coords="847,273,977,300"/>
+</map>

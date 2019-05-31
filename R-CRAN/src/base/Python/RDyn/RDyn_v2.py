@@ -163,7 +163,7 @@ class RDynV2(object):
 
     def __new_intra_community_edge(self, s, n):
 
-        n_neigh = set(s.neighbors(n))
+        n_neigh = set(s.neighbours(n))
 
         random.shuffle(list(n_neigh))
         target = None
@@ -308,7 +308,7 @@ class RDynV2(object):
                 self.communities_involved = list(set(self.communities_involved))
 
                 for i in community.nodes():
-                    nn = list(self.graph.neighbors(i))
+                    nn = list(self.graph.neighbours(i))
                     for j in nn:
                         if j not in community.nodes():
                             self.count += 1
@@ -468,9 +468,9 @@ class RDynV2(object):
 
     def __get_vanished_edges(self, n):
         removal = []
-        node_neighbors = nx.all_neighbors(self.graph, n)
+        node_neighbours = nx.all_neighbours(self.graph, n)
         if len(self.communities) >= nx.number_connected_components(self.graph):
-            for n1 in node_neighbors:
+            for n1 in node_neighbours:
                 delay = self.graph.get_edge_data(n, n1)['d']
                 if delay == self.it:
                     removal.append(n1)

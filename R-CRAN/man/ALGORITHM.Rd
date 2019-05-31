@@ -8,12 +8,13 @@
 \title{List of available algorithms.}
 \format{A named list with the names of the available algorithms:
  \describe{
-   \item{LOUVAIN}{is a greedy optimization method to extract communities 
-            from large networks by optimizing the density of edges 
-            inside communities to edges outside communities.
-            @references \insertRef{cordeiro2016dynamic}{DynComm}
-              
-         }
+   \item{LOUVAIN}{
+     is a greedy optimization method to extract communities from large networks 
+     by optimizing the density of edges inside communities to edges outside 
+     communities. \cr
+     See \code{\link{ALGORITHM_LOUVAIN}}\cr
+     @references \insertRef{cordeiro2016dynamic}{DynComm}
+   }
  }}
 \usage{
 ALGORITHM
@@ -26,6 +27,9 @@ to the communities depending on the value of the quality obtained.
 \examples{
 ALGORITHM$LOUVAIN
 
+}
+\seealso{
+\code{\link{DynComm}}
 }
 \author{
 poltergeist0

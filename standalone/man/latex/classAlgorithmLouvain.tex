@@ -1,0 +1,927 @@
+\hypertarget{classAlgorithmLouvain}{}\section{Algorithm\+Louvain Class Reference}
+\label{classAlgorithmLouvain}\index{Algorithm\+Louvain@{Algorithm\+Louvain}}
+
+
+Class that implements the Dynamic Louvain algorithm.  
+
+
+
+
+{\ttfamily \#include $<$algorithm\+Louvain.\+h$>$}
+
+
+
+Inheritance diagram for Algorithm\+Louvain\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=176pt]{classAlgorithmLouvain__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Algorithm\+Louvain\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classAlgorithmLouvain__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classAlgorithmLouvain_a883c922bf2f3c3aadb9db4962c0d8dce}{add\+Remove\+Edge\+Pre} (const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&source, const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&destination, const \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \&weight=1.\+0)
+\item 
+bool \hyperlink{classAlgorithmLouvain_a69f296749859441c8a3844753bdd58e5}{add\+Remove\+Edge\+Post} (const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&source, const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&destination, const \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \&weight=1.\+0)
+\item 
+bool \hyperlink{classAlgorithmLouvain_a0a72b9dda25c69d19996dc7448924c13}{run} ()
+\item 
+\hyperlink{classAlgorithmLouvain_ada8cb9a0c018ca6d5162b1b533ad400c}{Algorithm\+Louvain} ()=delete
+\item 
+\hyperlink{classAlgorithmLouvain_af39d19eff13dc68f4f5ef3a113c361e1}{$\sim$\+Algorithm\+Louvain} ()
+\item 
+\hyperlink{classAlgorithmLouvain_a44cd235ecff85b3896fe5d30e0b5da9a}{Algorithm\+Louvain} (\hyperlink{classGraphUndirectedGroupable}{Graph\+Undirected\+Groupable} \&graph, const \hyperlink{classCriterion}{Criterion} \&\hyperlink{classAlgorithmLouvain_a8c9b7694fff17eb5d8044cd26d7914e7}{quality}, const \hyperlink{structProgramParameters}{Program\+Parameters} \&algorithm\+Parameters=\hyperlink{program_8h_ae2d819404495f80f31db7676c1329d19}{arguments\+Default})
+\item 
+const std\+::string \hyperlink{classAlgorithmLouvain_a2df60c50eb63b783ba0e9e77226bebee}{to\+String} (const \hyperlink{classStringFormatter}{String\+Formatter} \&sf=\hyperlink{stringFormatter_8h_abf1349c8e24162d0134072aff288f2a2}{default\+String\+Formatter}) const
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \& \hyperlink{classAlgorithmLouvain_a5f59777e27ab7a3e5accbc1f52b0e51e}{community} (const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&node) const
+\item 
+bool \hyperlink{classAlgorithmLouvain_a12549c842a87a6f9380ee8226ac58cf8}{community} (const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&node, const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \&com)
+\item 
+\hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \hyperlink{classAlgorithmLouvain_a066612d0b1d64d8f5c7d84f20bbf70c4}{inner\+Edges} (const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \&c) const
+\item 
+\hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \hyperlink{classAlgorithmLouvain_a36a6536611d7c97d16f93245e2271867}{total\+Edges} (const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \&c) const
+\item 
+\hyperlink{graphInterface_8h_ae8d27008f15586bbf419af7ad2e0a48a}{type\+Links\+Range\+Const} \hyperlink{classAlgorithmLouvain_a6d5f1cfcbe2581bbe7bbe285392e0bdf}{edges} () const
+\item 
+const \hyperlink{graphInterface_8h_a21d54d8a139def524d3b0d6f71ec4974}{type\+Vertex\+List} \& \hyperlink{classAlgorithmLouvain_a627618ba516be4f4906143b6b0ff1c77}{get\+Vertices} () const
+\item 
+\hyperlink{graphUndirectedGroupable_8h_ad440de7f8b59665f0705cc6f745aab09}{type\+Community\+List\+Range} \hyperlink{classAlgorithmLouvain_a24c9f6d44d422eee2307c55540a8273c}{vertices} (const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \&c)
+\item 
+\hyperlink{graphInterface_8h_ae8d27008f15586bbf419af7ad2e0a48a}{type\+Links\+Range\+Const} \hyperlink{classAlgorithmLouvain_ab6206bfc3cf537277c6965bc0da6d695}{neighbours} (const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&node) const
+\item 
+unsigned int \hyperlink{classAlgorithmLouvain_ae0355167afc6ba8296f213469f6da4b0}{neighbours\+Count} (const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&node) const
+\item 
+unsigned int \hyperlink{classAlgorithmLouvain_a1d8b2b22ab5f49b08141696712baf337}{neighbours\+Community\+Count} (const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&node) const
+\item 
+\hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \hyperlink{classAlgorithmLouvain_a4f1160234f469ddc9205e4d1217478ac}{neighbours\+Community\+Weight} (const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&node, const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \&com)
+\item 
+\hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \hyperlink{classAlgorithmLouvain_afc30a152fabdd874d45a0728ada4ec6e}{neighbours\+Community\+Weight} (const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&node)
+\item 
+const \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \& \hyperlink{classAlgorithmLouvain_a0b2ef33d5d1bf8b9aa2f8c73921844ac}{max\+Weight} () const
+\item 
+const \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \hyperlink{classAlgorithmLouvain_a6b38d3b1af94bb426b953473aa5647a4}{total\+Weight} () const
+\item 
+const \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \hyperlink{classAlgorithmLouvain_ab132e4f38f353713dc8c0c89b3bde576}{vertices\+Count} () const
+\item 
+const \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \hyperlink{classAlgorithmLouvain_aa4b25143d94b4fabc830ea053b76dd7d}{edge\+Count} () const
+\item 
+const \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \hyperlink{classAlgorithmLouvain_a8a8af8c837dd1a24a6be7904121edbbd}{community\+Count} () const
+\item 
+\hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \hyperlink{classAlgorithmLouvain_a75a05ca235819217d3a91c1bd45def43}{weighted\+\_\+degree} (const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&vertex) const
+\item 
+\hyperlink{criterionInterface_8h_af71ff22f6355fd69a4a62104bfd59a83}{type\+Criterion} \hyperlink{classAlgorithmLouvain_adcd4a8dc566881f9c1b1d9e78730a503}{gain} (const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&vertex, const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \&comm) const
+\item 
+\hyperlink{criterionInterface_8h_af71ff22f6355fd69a4a62104bfd59a83}{type\+Criterion} \hyperlink{classAlgorithmLouvain_a8c9b7694fff17eb5d8044cd26d7914e7}{quality} () const
+\item 
+void \hyperlink{classAlgorithmLouvain_a1e38f3c6a2df8b028328131b3dfceb94}{disband} (const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} c1, const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} c2)
+\item 
+std\+::map$<$ \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community}, \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} $>$ \hyperlink{classAlgorithmLouvain_a78dfa81bd96f4036e44c17318501b6b7}{neigh\+\_\+comm} (const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&vertex) const
+\item 
+bool \hyperlink{classAlgorithmLouvain_a5370c76e777b7cbfddd1dccd865d9356}{one\+\_\+level} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classGraphUndirectedGroupable}{Graph\+Undirected\+Groupable} \hyperlink{classAlgorithmLouvain_aa98d18e2734216898993b4269f84ac7b}{cg}
+\item 
+\hyperlink{classCriterion}{Criterion} \hyperlink{classAlgorithmLouvain_ab3b6b2b7f256ca9962d685d6507fad90}{qltc}
+\item 
+bool \hyperlink{classAlgorithmLouvain_a193c2370556007f36b44e03e2df47c2f}{first\+Run} =true
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class that implements the Dynamic Louvain algorithm. 
+
+The Dynamic Louvain algorithm is a greedy optimization method to extract communities from large networks by optimizing the density of edges inside communities to edges outside communities.
+
+\begin{DoxyAuthor}{Author}
+poltergeist0
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019-\/01-\/01 
+\end{DoxyDate}
+
+
+Definition at line 34 of file algorithm\+Louvain.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classAlgorithmLouvain_ada8cb9a0c018ca6d5162b1b533ad400c}\label{classAlgorithmLouvain_ada8cb9a0c018ca6d5162b1b533ad400c}} 
+\index{Algorithm\+Louvain@{Algorithm\+Louvain}!Algorithm\+Louvain@{Algorithm\+Louvain}}
+\index{Algorithm\+Louvain@{Algorithm\+Louvain}!Algorithm\+Louvain@{Algorithm\+Louvain}}
+\subsubsection{\texorpdfstring{Algorithm\+Louvain()}{AlgorithmLouvain()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Algorithm\+Louvain\+::\+Algorithm\+Louvain (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+Default constructor not acceptable. Must be passed at least the chosen algorithm and the graph 
+
+Referenced by run().
+
+\mbox{\Hypertarget{classAlgorithmLouvain_af39d19eff13dc68f4f5ef3a113c361e1}\label{classAlgorithmLouvain_af39d19eff13dc68f4f5ef3a113c361e1}} 
+\index{Algorithm\+Louvain@{Algorithm\+Louvain}!````~Algorithm\+Louvain@{$\sim$\+Algorithm\+Louvain}}
+\index{````~Algorithm\+Louvain@{$\sim$\+Algorithm\+Louvain}!Algorithm\+Louvain@{Algorithm\+Louvain}}
+\subsubsection{\texorpdfstring{$\sim$\+Algorithm\+Louvain()}{~AlgorithmLouvain()}}
+{\footnotesize\ttfamily Algorithm\+Louvain\+::$\sim$\+Algorithm\+Louvain (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Destructor 
+
+Definition at line 497 of file algorithm\+Louvain.\+h.
+
+\mbox{\Hypertarget{classAlgorithmLouvain_a44cd235ecff85b3896fe5d30e0b5da9a}\label{classAlgorithmLouvain_a44cd235ecff85b3896fe5d30e0b5da9a}} 
+\index{Algorithm\+Louvain@{Algorithm\+Louvain}!Algorithm\+Louvain@{Algorithm\+Louvain}}
+\index{Algorithm\+Louvain@{Algorithm\+Louvain}!Algorithm\+Louvain@{Algorithm\+Louvain}}
+\subsubsection{\texorpdfstring{Algorithm\+Louvain()}{AlgorithmLouvain()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Algorithm\+Louvain\+::\+Algorithm\+Louvain (\begin{DoxyParamCaption}\item[{\hyperlink{classGraphUndirectedGroupable}{Graph\+Undirected\+Groupable} \&}]{graph,  }\item[{const \hyperlink{classCriterion}{Criterion} \&}]{quality,  }\item[{const \hyperlink{structProgramParameters}{Program\+Parameters} \&}]{algorithm\+Parameters = {\ttfamily \hyperlink{program_8h_ae2d819404495f80f31db7676c1329d19}{arguments\+Default}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructor.
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & reference to the graph object \\
+\hline
+{\em quality} & reference to the quality object \\
+\hline
+{\em algorithm\+Parameters} & reference to the parameters object \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 506 of file algorithm\+Louvain.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classAlgorithmLouvain_a69f296749859441c8a3844753bdd58e5}\label{classAlgorithmLouvain_a69f296749859441c8a3844753bdd58e5}} 
+\index{Algorithm\+Louvain@{Algorithm\+Louvain}!add\+Remove\+Edge\+Post@{add\+Remove\+Edge\+Post}}
+\index{add\+Remove\+Edge\+Post@{add\+Remove\+Edge\+Post}!Algorithm\+Louvain@{Algorithm\+Louvain}}
+\subsubsection{\texorpdfstring{add\+Remove\+Edge\+Post()}{addRemoveEdgePost()}}
+{\footnotesize\ttfamily bool Algorithm\+Louvain\+::add\+Remove\+Edge\+Post (\begin{DoxyParamCaption}\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{source,  }\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{destination,  }\item[{const \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \&}]{weight = {\ttfamily 1.0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Function execute after adding or removing a single edge from the graph. It is used internally by the add\+Remove\+Edges function. Useful if post-\/processing is required, for example, to update some of variables after the edge has be added or removed. Any edge with a weight different from zero is inserted. Any edge with a weight of exactly zero is removed.
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & source vertex \\
+\hline
+{\em destination} & destination vertex \\
+\hline
+{\em weight} & optional if adding an edge. Must be exactly zero to remove an edge. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if all operations succeeded. False, otherwise. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classAlgorithmInterface_ac97ed4df4fd2b14b16d55c1b3b9749b6}{Algorithm\+Interface}.
+
+
+
+Definition at line 438 of file algorithm\+Louvain.\+h.
+
+
+
+References Graph\+Undirected\+Groupable\+::add\+Edge(), Graph\+Undirected\+Groupable\+::community(), disband(), Algorithm\+Base\+::grph, and Graph\+Undirected\+::weight().
+
+
+
+Referenced by Algorithm\+::add\+Remove\+Edge\+Post().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classAlgorithmLouvain_a69f296749859441c8a3844753bdd58e5_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classAlgorithmLouvain_a883c922bf2f3c3aadb9db4962c0d8dce}\label{classAlgorithmLouvain_a883c922bf2f3c3aadb9db4962c0d8dce}} 
+\index{Algorithm\+Louvain@{Algorithm\+Louvain}!add\+Remove\+Edge\+Pre@{add\+Remove\+Edge\+Pre}}
+\index{add\+Remove\+Edge\+Pre@{add\+Remove\+Edge\+Pre}!Algorithm\+Louvain@{Algorithm\+Louvain}}
+\subsubsection{\texorpdfstring{add\+Remove\+Edge\+Pre()}{addRemoveEdgePre()}}
+{\footnotesize\ttfamily bool Algorithm\+Louvain\+::add\+Remove\+Edge\+Pre (\begin{DoxyParamCaption}\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{source,  }\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{destination,  }\item[{const \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \&}]{weight = {\ttfamily 1.0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Function to execute before adding or removing a single edge from the graph. It is used internally by the add\+Remove\+Edges function. Useful if pre-\/processing is required, for example, to update some of variables before the edge can be added or removed. Any edge with a weight different from zero is inserted. Any edge with a weight of exactly zero is removed.
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & source vertex \\
+\hline
+{\em destination} & destination vertex \\
+\hline
+{\em weight} & optional if adding an edge. Must be exactly zero to remove an edge. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if all operations succeeded. False, otherwise. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classAlgorithmInterface_ae5a6e84b139768dff92a70cacaec7472}{Algorithm\+Interface}.
+
+
+
+Definition at line 401 of file algorithm\+Louvain.\+h.
+
+
+
+References Graph\+Undirected\+Groupable\+::add\+Edge(), Graph\+Undirected\+Groupable\+::community(), Algorithm\+Base\+::grph, Graph\+Undirected\+Groupable\+::remove\+Edge(), and Graph\+Undirected\+::weight().
+
+
+
+Referenced by Algorithm\+::add\+Remove\+Edge\+Pre().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classAlgorithmLouvain_a883c922bf2f3c3aadb9db4962c0d8dce_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classAlgorithmLouvain_a5f59777e27ab7a3e5accbc1f52b0e51e}\label{classAlgorithmLouvain_a5f59777e27ab7a3e5accbc1f52b0e51e}} 
+\index{Algorithm\+Louvain@{Algorithm\+Louvain}!community@{community}}
+\index{community@{community}!Algorithm\+Louvain@{Algorithm\+Louvain}}
+\subsubsection{\texorpdfstring{community()}{community()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community}\& Algorithm\+Louvain\+::community (\begin{DoxyParamCaption}\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{node }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Definition at line 65 of file algorithm\+Louvain.\+h.
+
+
+
+References Graph\+Undirected\+Groupable\+::community(), Algorithm\+Base\+::grph, and no\+Group.
+
+
+
+Referenced by neigh\+\_\+comm(), and one\+\_\+level().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classAlgorithmLouvain_a5f59777e27ab7a3e5accbc1f52b0e51e_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classAlgorithmLouvain_a12549c842a87a6f9380ee8226ac58cf8}\label{classAlgorithmLouvain_a12549c842a87a6f9380ee8226ac58cf8}} 
+\index{Algorithm\+Louvain@{Algorithm\+Louvain}!community@{community}}
+\index{community@{community}!Algorithm\+Louvain@{Algorithm\+Louvain}}
+\subsubsection{\texorpdfstring{community()}{community()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Algorithm\+Louvain\+::community (\begin{DoxyParamCaption}\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{node,  }\item[{const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \&}]{com }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Definition at line 73 of file algorithm\+Louvain.\+h.
+
+
+
+References Graph\+Undirected\+Groupable\+::community(), and Algorithm\+Base\+::grph.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classAlgorithmLouvain_a12549c842a87a6f9380ee8226ac58cf8_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classAlgorithmLouvain_a8a8af8c837dd1a24a6be7904121edbbd}\label{classAlgorithmLouvain_a8a8af8c837dd1a24a6be7904121edbbd}} 
+\index{Algorithm\+Louvain@{Algorithm\+Louvain}!community\+Count@{community\+Count}}
+\index{community\+Count@{community\+Count}!Algorithm\+Louvain@{Algorithm\+Louvain}}
+\subsubsection{\texorpdfstring{community\+Count()}{communityCount()}}
+{\footnotesize\ttfamily const \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} Algorithm\+Louvain\+::community\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Definition at line 152 of file algorithm\+Louvain.\+h.
+
+
+
+References Graph\+Undirected\+Groupable\+::community\+Count(), and Algorithm\+Base\+::grph.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classAlgorithmLouvain_a8a8af8c837dd1a24a6be7904121edbbd_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classAlgorithmLouvain_a1e38f3c6a2df8b028328131b3dfceb94}\label{classAlgorithmLouvain_a1e38f3c6a2df8b028328131b3dfceb94}} 
+\index{Algorithm\+Louvain@{Algorithm\+Louvain}!disband@{disband}}
+\index{disband@{disband}!Algorithm\+Louvain@{Algorithm\+Louvain}}
+\subsubsection{\texorpdfstring{disband()}{disband()}}
+{\footnotesize\ttfamily void Algorithm\+Louvain\+::disband (\begin{DoxyParamCaption}\item[{const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community}}]{c1,  }\item[{const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community}}]{c2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Disband communities belonging to the given edge. Source and destination communities must be different. It is an algorithm requirement that, when adding edges, the communities involved get removed and replaced by their individual vertices, so that calculation are only performed over those vertices, making the Louvain algorithm dynamic. 
+\begin{DoxyParams}{Parameters}
+{\em c1} & the source community of the edge \\
+\hline
+{\em c2} & the destination community of the edge \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 195 of file algorithm\+Louvain.\+h.
+
+
+
+References Graph\+Undirected\+Groupable\+::add\+Edge(), Graph\+Undirected\+Groupable\+::community(), Half\+Edge\+::destination(), Graph\+Undirected\+Groupable\+::disband(), Algorithm\+Base\+::grph, Graph\+Undirected\+Groupable\+::neighbouring\+Communities(), Graph\+Undirected\+::neighbours(), Graph\+Undirected\+Groupable\+::remove\+Edge(), Graph\+Undirected\+Groupable\+::vertices(), and Half\+Edge\+::weight().
+
+
+
+Referenced by add\+Remove\+Edge\+Post().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classAlgorithmLouvain_a1e38f3c6a2df8b028328131b3dfceb94_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classAlgorithmLouvain_aa4b25143d94b4fabc830ea053b76dd7d}\label{classAlgorithmLouvain_aa4b25143d94b4fabc830ea053b76dd7d}} 
+\index{Algorithm\+Louvain@{Algorithm\+Louvain}!edge\+Count@{edge\+Count}}
+\index{edge\+Count@{edge\+Count}!Algorithm\+Louvain@{Algorithm\+Louvain}}
+\subsubsection{\texorpdfstring{edge\+Count()}{edgeCount()}}
+{\footnotesize\ttfamily const \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} Algorithm\+Louvain\+::edge\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Definition at line 147 of file algorithm\+Louvain.\+h.
+
+
+
+References Graph\+Undirected\+::edge\+Count(), and Algorithm\+Base\+::grph.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classAlgorithmLouvain_aa4b25143d94b4fabc830ea053b76dd7d_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classAlgorithmLouvain_a6d5f1cfcbe2581bbe7bbe285392e0bdf}\label{classAlgorithmLouvain_a6d5f1cfcbe2581bbe7bbe285392e0bdf}} 
+\index{Algorithm\+Louvain@{Algorithm\+Louvain}!edges@{edges}}
+\index{edges@{edges}!Algorithm\+Louvain@{Algorithm\+Louvain}}
+\subsubsection{\texorpdfstring{edges()}{edges()}}
+{\footnotesize\ttfamily \hyperlink{graphInterface_8h_ae8d27008f15586bbf419af7ad2e0a48a}{type\+Links\+Range\+Const} Algorithm\+Louvain\+::edges (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Definition at line 92 of file algorithm\+Louvain.\+h.
+
+
+
+References Graph\+Undirected\+::edges(), and Algorithm\+Base\+::grph.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classAlgorithmLouvain_a6d5f1cfcbe2581bbe7bbe285392e0bdf_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classAlgorithmLouvain_adcd4a8dc566881f9c1b1d9e78730a503}\label{classAlgorithmLouvain_adcd4a8dc566881f9c1b1d9e78730a503}} 
+\index{Algorithm\+Louvain@{Algorithm\+Louvain}!gain@{gain}}
+\index{gain@{gain}!Algorithm\+Louvain@{Algorithm\+Louvain}}
+\subsubsection{\texorpdfstring{gain()}{gain()}}
+{\footnotesize\ttfamily \hyperlink{criterionInterface_8h_af71ff22f6355fd69a4a62104bfd59a83}{type\+Criterion} Algorithm\+Louvain\+::gain (\begin{DoxyParamCaption}\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{vertex,  }\item[{const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \&}]{comm }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Definition at line 169 of file algorithm\+Louvain.\+h.
+
+
+
+References Criterion\+::gain(), and Algorithm\+Base\+::qlt.
+
+
+
+Referenced by one\+\_\+level().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classAlgorithmLouvain_adcd4a8dc566881f9c1b1d9e78730a503_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classAlgorithmLouvain_a627618ba516be4f4906143b6b0ff1c77}\label{classAlgorithmLouvain_a627618ba516be4f4906143b6b0ff1c77}} 
+\index{Algorithm\+Louvain@{Algorithm\+Louvain}!get\+Vertices@{get\+Vertices}}
+\index{get\+Vertices@{get\+Vertices}!Algorithm\+Louvain@{Algorithm\+Louvain}}
+\subsubsection{\texorpdfstring{get\+Vertices()}{getVertices()}}
+{\footnotesize\ttfamily const \hyperlink{graphInterface_8h_a21d54d8a139def524d3b0d6f71ec4974}{type\+Vertex\+List}\& Algorithm\+Louvain\+::get\+Vertices (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Definition at line 97 of file algorithm\+Louvain.\+h.
+
+
+
+References Graph\+Undirected\+::get\+Vertices(), and Algorithm\+Base\+::grph.
+
+
+
+Referenced by one\+\_\+level().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classAlgorithmLouvain_a627618ba516be4f4906143b6b0ff1c77_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classAlgorithmLouvain_a066612d0b1d64d8f5c7d84f20bbf70c4}\label{classAlgorithmLouvain_a066612d0b1d64d8f5c7d84f20bbf70c4}} 
+\index{Algorithm\+Louvain@{Algorithm\+Louvain}!inner\+Edges@{inner\+Edges}}
+\index{inner\+Edges@{inner\+Edges}!Algorithm\+Louvain@{Algorithm\+Louvain}}
+\subsubsection{\texorpdfstring{inner\+Edges()}{innerEdges()}}
+{\footnotesize\ttfamily \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} Algorithm\+Louvain\+::inner\+Edges (\begin{DoxyParamCaption}\item[{const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \&}]{c }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Definition at line 82 of file algorithm\+Louvain.\+h.
+
+
+
+References Algorithm\+Base\+::grph, and Graph\+Undirected\+Groupable\+::inner\+Edges().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classAlgorithmLouvain_a066612d0b1d64d8f5c7d84f20bbf70c4_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classAlgorithmLouvain_a0b2ef33d5d1bf8b9aa2f8c73921844ac}\label{classAlgorithmLouvain_a0b2ef33d5d1bf8b9aa2f8c73921844ac}} 
+\index{Algorithm\+Louvain@{Algorithm\+Louvain}!max\+Weight@{max\+Weight}}
+\index{max\+Weight@{max\+Weight}!Algorithm\+Louvain@{Algorithm\+Louvain}}
+\subsubsection{\texorpdfstring{max\+Weight()}{maxWeight()}}
+{\footnotesize\ttfamily const \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight}\& Algorithm\+Louvain\+::max\+Weight (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Definition at line 132 of file algorithm\+Louvain.\+h.
+
+
+
+References Algorithm\+Base\+::grph, and Graph\+Undirected\+::max\+Weight().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classAlgorithmLouvain_a0b2ef33d5d1bf8b9aa2f8c73921844ac_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classAlgorithmLouvain_a78dfa81bd96f4036e44c17318501b6b7}\label{classAlgorithmLouvain_a78dfa81bd96f4036e44c17318501b6b7}} 
+\index{Algorithm\+Louvain@{Algorithm\+Louvain}!neigh\+\_\+comm@{neigh\+\_\+comm}}
+\index{neigh\+\_\+comm@{neigh\+\_\+comm}!Algorithm\+Louvain@{Algorithm\+Louvain}}
+\subsubsection{\texorpdfstring{neigh\+\_\+comm()}{neigh\_comm()}}
+{\footnotesize\ttfamily std\+::map$<$\hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community}, \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight}$>$ Algorithm\+Louvain\+::neigh\+\_\+comm (\begin{DoxyParamCaption}\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{vertex }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Get the neighbouring communities of the given vertex with edge weight
+
+
+\begin{DoxyParams}{Parameters}
+{\em vertex} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the neighbouring communities of the given vertex 
+\end{DoxyReturn}
+
+
+Definition at line 266 of file algorithm\+Louvain.\+h.
+
+
+
+References community(), Half\+Edge\+::destination(), neighbours(), no\+Vertex, and Half\+Edge\+::weight().
+
+
+
+Referenced by one\+\_\+level().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classAlgorithmLouvain_a78dfa81bd96f4036e44c17318501b6b7_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classAlgorithmLouvain_ab6206bfc3cf537277c6965bc0da6d695}\label{classAlgorithmLouvain_ab6206bfc3cf537277c6965bc0da6d695}} 
+\index{Algorithm\+Louvain@{Algorithm\+Louvain}!neighbours@{neighbours}}
+\index{neighbours@{neighbours}!Algorithm\+Louvain@{Algorithm\+Louvain}}
+\subsubsection{\texorpdfstring{neighbours()}{neighbours()}}
+{\footnotesize\ttfamily \hyperlink{graphInterface_8h_ae8d27008f15586bbf419af7ad2e0a48a}{type\+Links\+Range\+Const} Algorithm\+Louvain\+::neighbours (\begin{DoxyParamCaption}\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{node }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Definition at line 107 of file algorithm\+Louvain.\+h.
+
+
+
+References Algorithm\+Base\+::grph, and Graph\+Undirected\+::neighbours().
+
+
+
+Referenced by neigh\+\_\+comm(), and one\+\_\+level().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classAlgorithmLouvain_ab6206bfc3cf537277c6965bc0da6d695_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classAlgorithmLouvain_a1d8b2b22ab5f49b08141696712baf337}\label{classAlgorithmLouvain_a1d8b2b22ab5f49b08141696712baf337}} 
+\index{Algorithm\+Louvain@{Algorithm\+Louvain}!neighbours\+Community\+Count@{neighbours\+Community\+Count}}
+\index{neighbours\+Community\+Count@{neighbours\+Community\+Count}!Algorithm\+Louvain@{Algorithm\+Louvain}}
+\subsubsection{\texorpdfstring{neighbours\+Community\+Count()}{neighboursCommunityCount()}}
+{\footnotesize\ttfamily unsigned int Algorithm\+Louvain\+::neighbours\+Community\+Count (\begin{DoxyParamCaption}\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{node }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Definition at line 117 of file algorithm\+Louvain.\+h.
+
+
+
+References Algorithm\+Base\+::grph, and Graph\+Undirected\+Groupable\+::neighbours\+Community\+Count().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classAlgorithmLouvain_a1d8b2b22ab5f49b08141696712baf337_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classAlgorithmLouvain_a4f1160234f469ddc9205e4d1217478ac}\label{classAlgorithmLouvain_a4f1160234f469ddc9205e4d1217478ac}} 
+\index{Algorithm\+Louvain@{Algorithm\+Louvain}!neighbours\+Community\+Weight@{neighbours\+Community\+Weight}}
+\index{neighbours\+Community\+Weight@{neighbours\+Community\+Weight}!Algorithm\+Louvain@{Algorithm\+Louvain}}
+\subsubsection{\texorpdfstring{neighbours\+Community\+Weight()}{neighboursCommunityWeight()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} Algorithm\+Louvain\+::neighbours\+Community\+Weight (\begin{DoxyParamCaption}\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{node,  }\item[{const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \&}]{com }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Definition at line 122 of file algorithm\+Louvain.\+h.
+
+
+
+References Algorithm\+Base\+::grph, and Graph\+Undirected\+Groupable\+::neighbours\+Community\+Weight().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classAlgorithmLouvain_a4f1160234f469ddc9205e4d1217478ac_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classAlgorithmLouvain_afc30a152fabdd874d45a0728ada4ec6e}\label{classAlgorithmLouvain_afc30a152fabdd874d45a0728ada4ec6e}} 
+\index{Algorithm\+Louvain@{Algorithm\+Louvain}!neighbours\+Community\+Weight@{neighbours\+Community\+Weight}}
+\index{neighbours\+Community\+Weight@{neighbours\+Community\+Weight}!Algorithm\+Louvain@{Algorithm\+Louvain}}
+\subsubsection{\texorpdfstring{neighbours\+Community\+Weight()}{neighboursCommunityWeight()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} Algorithm\+Louvain\+::neighbours\+Community\+Weight (\begin{DoxyParamCaption}\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Definition at line 127 of file algorithm\+Louvain.\+h.
+
+
+
+References Algorithm\+Base\+::grph, and Graph\+Undirected\+Groupable\+::neighbours\+Community\+Weight().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classAlgorithmLouvain_afc30a152fabdd874d45a0728ada4ec6e_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classAlgorithmLouvain_ae0355167afc6ba8296f213469f6da4b0}\label{classAlgorithmLouvain_ae0355167afc6ba8296f213469f6da4b0}} 
+\index{Algorithm\+Louvain@{Algorithm\+Louvain}!neighbours\+Count@{neighbours\+Count}}
+\index{neighbours\+Count@{neighbours\+Count}!Algorithm\+Louvain@{Algorithm\+Louvain}}
+\subsubsection{\texorpdfstring{neighbours\+Count()}{neighboursCount()}}
+{\footnotesize\ttfamily unsigned int Algorithm\+Louvain\+::neighbours\+Count (\begin{DoxyParamCaption}\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{node }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Definition at line 112 of file algorithm\+Louvain.\+h.
+
+
+
+References Algorithm\+Base\+::grph, and Graph\+Undirected\+::neighbours\+Count().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classAlgorithmLouvain_ae0355167afc6ba8296f213469f6da4b0_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classAlgorithmLouvain_a5370c76e777b7cbfddd1dccd865d9356}\label{classAlgorithmLouvain_a5370c76e777b7cbfddd1dccd865d9356}} 
+\index{Algorithm\+Louvain@{Algorithm\+Louvain}!one\+\_\+level@{one\+\_\+level}}
+\index{one\+\_\+level@{one\+\_\+level}!Algorithm\+Louvain@{Algorithm\+Louvain}}
+\subsubsection{\texorpdfstring{one\+\_\+level()}{one\_level()}}
+{\footnotesize\ttfamily bool Algorithm\+Louvain\+::one\+\_\+level (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Function where the actual algorithm is implemented
+
+\begin{DoxyReturn}{Returns}
+true if there was an improvement in quality. False, otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 294 of file algorithm\+Louvain.\+h.
+
+
+
+References Graph\+Undirected\+Groupable\+::add\+Edge(), Graph\+Undirected\+Groupable\+::communities(), Graph\+Undirected\+Groupable\+::communities\+To\+Graph(), community(), Graph\+Undirected\+Groupable\+::community(), Half\+Edge\+::destination(), gain(), get\+Vertices(), Graph\+Undirected\+::get\+Vertices(), Algorithm\+Base\+::grph, Graph\+Undirected\+Groupable\+::inner\+Edges(), neigh\+\_\+comm(), Graph\+Undirected\+Groupable\+::neighbouring\+Communities(), neighbours(), Program\+Parameters\+::precision, Algorithm\+Base\+::prmtrs, quality(), Graph\+Undirected\+Groupable\+::vertices(), and Half\+Edge\+::weight().
+
+
+
+Referenced by run().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classAlgorithmLouvain_a5370c76e777b7cbfddd1dccd865d9356_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classAlgorithmLouvain_a8c9b7694fff17eb5d8044cd26d7914e7}\label{classAlgorithmLouvain_a8c9b7694fff17eb5d8044cd26d7914e7}} 
+\index{Algorithm\+Louvain@{Algorithm\+Louvain}!quality@{quality}}
+\index{quality@{quality}!Algorithm\+Louvain@{Algorithm\+Louvain}}
+\subsubsection{\texorpdfstring{quality()}{quality()}}
+{\footnotesize\ttfamily \hyperlink{criterionInterface_8h_af71ff22f6355fd69a4a62104bfd59a83}{type\+Criterion} Algorithm\+Louvain\+::quality (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Definition at line 174 of file algorithm\+Louvain.\+h.
+
+
+
+References Algorithm\+Base\+::qlt, and Criterion\+::quality().
+
+
+
+Referenced by one\+\_\+level().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classAlgorithmLouvain_a8c9b7694fff17eb5d8044cd26d7914e7_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classAlgorithmLouvain_a0a72b9dda25c69d19996dc7448924c13}\label{classAlgorithmLouvain_a0a72b9dda25c69d19996dc7448924c13}} 
+\index{Algorithm\+Louvain@{Algorithm\+Louvain}!run@{run}}
+\index{run@{run}!Algorithm\+Louvain@{Algorithm\+Louvain}}
+\subsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily bool Algorithm\+Louvain\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Function where the actual algorithms are implemented. It is called at the end of the add\+Remove\+Edges function.
+
+\begin{DoxyReturn}{Returns}
+true if all operations succeeded. False, otherwise. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classAlgorithmInterface_a0bafcdabd2b5fd45abe97af91e02ca14}{Algorithm\+Interface}.
+
+
+
+Definition at line 474 of file algorithm\+Louvain.\+h.
+
+
+
+References Algorithm\+Louvain(), and one\+\_\+level().
+
+
+
+Referenced by Algorithm\+::run().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classAlgorithmLouvain_a0a72b9dda25c69d19996dc7448924c13_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classAlgorithmLouvain_a2df60c50eb63b783ba0e9e77226bebee}\label{classAlgorithmLouvain_a2df60c50eb63b783ba0e9e77226bebee}} 
+\index{Algorithm\+Louvain@{Algorithm\+Louvain}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Algorithm\+Louvain@{Algorithm\+Louvain}}
+\subsubsection{\texorpdfstring{to\+String()}{toString()}}
+{\footnotesize\ttfamily const std\+::string Algorithm\+Louvain\+::to\+String (\begin{DoxyParamCaption}\item[{const \hyperlink{classStringFormatter}{String\+Formatter} \&}]{sf = {\ttfamily \hyperlink{stringFormatter_8h_abf1349c8e24162d0134072aff288f2a2}{default\+String\+Formatter}} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Function that converts this object to a string representation. Might be useful for debugging.
+
+
+\begin{DoxyParams}{Parameters}
+{\em sf} & is a String\+Formater object that facilitates formating \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the string representing this object 
+\end{DoxyReturn}
+
+
+Definition at line 523 of file algorithm\+Louvain.\+h.
+
+
+
+References String\+Formatter\+::build(), String\+Formatter\+::header(), Algorithm\+Base\+::to\+String(), and Graph\+Undirected\+Groupable\+::to\+String().
+
+
+
+Referenced by Algorithm\+::to\+String().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classAlgorithmLouvain_a2df60c50eb63b783ba0e9e77226bebee_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classAlgorithmLouvain_a36a6536611d7c97d16f93245e2271867}\label{classAlgorithmLouvain_a36a6536611d7c97d16f93245e2271867}} 
+\index{Algorithm\+Louvain@{Algorithm\+Louvain}!total\+Edges@{total\+Edges}}
+\index{total\+Edges@{total\+Edges}!Algorithm\+Louvain@{Algorithm\+Louvain}}
+\subsubsection{\texorpdfstring{total\+Edges()}{totalEdges()}}
+{\footnotesize\ttfamily \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} Algorithm\+Louvain\+::total\+Edges (\begin{DoxyParamCaption}\item[{const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \&}]{c }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Definition at line 87 of file algorithm\+Louvain.\+h.
+
+
+
+References Algorithm\+Base\+::grph, and Graph\+Undirected\+Groupable\+::total\+Edges().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classAlgorithmLouvain_a36a6536611d7c97d16f93245e2271867_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classAlgorithmLouvain_a6b38d3b1af94bb426b953473aa5647a4}\label{classAlgorithmLouvain_a6b38d3b1af94bb426b953473aa5647a4}} 
+\index{Algorithm\+Louvain@{Algorithm\+Louvain}!total\+Weight@{total\+Weight}}
+\index{total\+Weight@{total\+Weight}!Algorithm\+Louvain@{Algorithm\+Louvain}}
+\subsubsection{\texorpdfstring{total\+Weight()}{totalWeight()}}
+{\footnotesize\ttfamily const \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} Algorithm\+Louvain\+::total\+Weight (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Definition at line 137 of file algorithm\+Louvain.\+h.
+
+
+
+References Algorithm\+Base\+::grph, and Graph\+Undirected\+::total\+Weight().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classAlgorithmLouvain_a6b38d3b1af94bb426b953473aa5647a4_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classAlgorithmLouvain_a24c9f6d44d422eee2307c55540a8273c}\label{classAlgorithmLouvain_a24c9f6d44d422eee2307c55540a8273c}} 
+\index{Algorithm\+Louvain@{Algorithm\+Louvain}!vertices@{vertices}}
+\index{vertices@{vertices}!Algorithm\+Louvain@{Algorithm\+Louvain}}
+\subsubsection{\texorpdfstring{vertices()}{vertices()}}
+{\footnotesize\ttfamily \hyperlink{graphUndirectedGroupable_8h_ad440de7f8b59665f0705cc6f745aab09}{type\+Community\+List\+Range} Algorithm\+Louvain\+::vertices (\begin{DoxyParamCaption}\item[{const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \&}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Definition at line 102 of file algorithm\+Louvain.\+h.
+
+
+
+References Algorithm\+Base\+::grph, and Graph\+Undirected\+Groupable\+::vertices().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classAlgorithmLouvain_a24c9f6d44d422eee2307c55540a8273c_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classAlgorithmLouvain_ab132e4f38f353713dc8c0c89b3bde576}\label{classAlgorithmLouvain_ab132e4f38f353713dc8c0c89b3bde576}} 
+\index{Algorithm\+Louvain@{Algorithm\+Louvain}!vertices\+Count@{vertices\+Count}}
+\index{vertices\+Count@{vertices\+Count}!Algorithm\+Louvain@{Algorithm\+Louvain}}
+\subsubsection{\texorpdfstring{vertices\+Count()}{verticesCount()}}
+{\footnotesize\ttfamily const \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} Algorithm\+Louvain\+::vertices\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Definition at line 142 of file algorithm\+Louvain.\+h.
+
+
+
+References Algorithm\+Base\+::grph, and Graph\+Undirected\+::vertex\+Count().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classAlgorithmLouvain_ab132e4f38f353713dc8c0c89b3bde576_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classAlgorithmLouvain_a75a05ca235819217d3a91c1bd45def43}\label{classAlgorithmLouvain_a75a05ca235819217d3a91c1bd45def43}} 
+\index{Algorithm\+Louvain@{Algorithm\+Louvain}!weighted\+\_\+degree@{weighted\+\_\+degree}}
+\index{weighted\+\_\+degree@{weighted\+\_\+degree}!Algorithm\+Louvain@{Algorithm\+Louvain}}
+\subsubsection{\texorpdfstring{weighted\+\_\+degree()}{weighted\_degree()}}
+{\footnotesize\ttfamily \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} Algorithm\+Louvain\+::weighted\+\_\+degree (\begin{DoxyParamCaption}\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{vertex }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Definition at line 157 of file algorithm\+Louvain.\+h.
+
+
+
+References Algorithm\+Base\+::grph, and Graph\+Undirected\+::weighted\+\_\+degree().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classAlgorithmLouvain_a75a05ca235819217d3a91c1bd45def43_cgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classAlgorithmLouvain_aa98d18e2734216898993b4269f84ac7b}\label{classAlgorithmLouvain_aa98d18e2734216898993b4269f84ac7b}} 
+\index{Algorithm\+Louvain@{Algorithm\+Louvain}!cg@{cg}}
+\index{cg@{cg}!Algorithm\+Louvain@{Algorithm\+Louvain}}
+\subsubsection{\texorpdfstring{cg}{cg}}
+{\footnotesize\ttfamily \hyperlink{classGraphUndirectedGroupable}{Graph\+Undirected\+Groupable} Algorithm\+Louvain\+::cg\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 40 of file algorithm\+Louvain.\+h.
+
+\mbox{\Hypertarget{classAlgorithmLouvain_a193c2370556007f36b44e03e2df47c2f}\label{classAlgorithmLouvain_a193c2370556007f36b44e03e2df47c2f}} 
+\index{Algorithm\+Louvain@{Algorithm\+Louvain}!first\+Run@{first\+Run}}
+\index{first\+Run@{first\+Run}!Algorithm\+Louvain@{Algorithm\+Louvain}}
+\subsubsection{\texorpdfstring{first\+Run}{firstRun}}
+{\footnotesize\ttfamily bool Algorithm\+Louvain\+::first\+Run =true\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 56 of file algorithm\+Louvain.\+h.
+
+\mbox{\Hypertarget{classAlgorithmLouvain_ab3b6b2b7f256ca9962d685d6507fad90}\label{classAlgorithmLouvain_ab3b6b2b7f256ca9962d685d6507fad90}} 
+\index{Algorithm\+Louvain@{Algorithm\+Louvain}!qltc@{qltc}}
+\index{qltc@{qltc}!Algorithm\+Louvain@{Algorithm\+Louvain}}
+\subsubsection{\texorpdfstring{qltc}{qltc}}
+{\footnotesize\ttfamily \hyperlink{classCriterion}{Criterion} Algorithm\+Louvain\+::qltc\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 48 of file algorithm\+Louvain.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+R-\/\+C\+R\+A\+N/src/base/\+Cpp/\hyperlink{algorithmLouvain_8h}{algorithm\+Louvain.\+h}\end{DoxyCompactItemize}

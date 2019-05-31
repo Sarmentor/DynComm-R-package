@@ -1,0 +1,201 @@
+\hypertarget{classReaderInterface}{}\section{Reader\+Interface$<$ T\+Y\+P\+E\+R\+E\+T\+U\+RN $>$ Class Template Reference}
+\label{classReaderInterface}\index{Reader\+Interface$<$ T\+Y\+P\+E\+R\+E\+T\+U\+R\+N $>$@{Reader\+Interface$<$ T\+Y\+P\+E\+R\+E\+T\+U\+R\+N $>$}}
+
+
+Interface for a simple stream forward reader.  
+
+
+
+
+{\ttfamily \#include $<$reader.\+h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{classReaderInterface_a1e3610c289ae058a246de41154d8a266}{R\+E\+A\+D\+T\+Y\+PE} \+: unsigned int \{ \hyperlink{classReaderInterface_a1e3610c289ae058a246de41154d8a266a17b8ef2c330f1430e00c9de5469fc7e7}{R\+E\+A\+D\+T\+Y\+P\+E\+::\+L\+I\+NE} =1, 
+\hyperlink{classReaderInterface_a1e3610c289ae058a246de41154d8a266aecc2e9c313faddb07e7da223c1dc5c3f}{R\+E\+A\+D\+T\+Y\+P\+E\+::\+V\+A\+L\+UE}, 
+\hyperlink{classReaderInterface_a1e3610c289ae058a246de41154d8a266af2cd320b55767434dd48d81b165ea956}{R\+E\+A\+D\+T\+Y\+P\+E\+::\+C\+O\+M\+M\+E\+NT}
+ \}
+\item 
+enum \hyperlink{classReaderInterface_ac2420ec8d2f60feadf2533d4fa77ec5e}{N\+E\+X\+T\+T\+Y\+PE} \+: unsigned int \{ \newline
+\hyperlink{classReaderInterface_ac2420ec8d2f60feadf2533d4fa77ec5ea8ab6f4178d635d263f25ffd1059bf3f8}{N\+E\+X\+T\+T\+Y\+P\+E\+::\+C\+A\+N\+N\+O\+T\+O\+P\+EN} =1, 
+\hyperlink{classReaderInterface_ac2420ec8d2f60feadf2533d4fa77ec5ea055b05aa58eadd86120b994017873064}{N\+E\+X\+T\+T\+Y\+P\+E\+::\+E\+N\+D\+O\+F\+F\+I\+LE}, 
+\hyperlink{classReaderInterface_ac2420ec8d2f60feadf2533d4fa77ec5ea80c8c6b1bcf9ad27b73d5aaa56ed4ff3}{N\+E\+X\+T\+T\+Y\+P\+E\+::\+N\+E\+W\+L\+I\+NE}, 
+\hyperlink{classReaderInterface_ac2420ec8d2f60feadf2533d4fa77ec5eaecc2e9c313faddb07e7da223c1dc5c3f}{N\+E\+X\+T\+T\+Y\+P\+E\+::\+V\+A\+L\+UE}, 
+\newline
+\hyperlink{classReaderInterface_ac2420ec8d2f60feadf2533d4fa77ec5eaf2cd320b55767434dd48d81b165ea956}{N\+E\+X\+T\+T\+Y\+P\+E\+::\+C\+O\+M\+M\+E\+NT}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \hyperlink{classReaderInterface_a76b0a42faf97cb747ca81f2fee307ef4}{$\sim$\+Reader\+Interface} ()
+\item 
+virtual \hyperlink{classReaderInterface_ac2420ec8d2f60feadf2533d4fa77ec5e}{N\+E\+X\+T\+T\+Y\+PE} \hyperlink{classReaderInterface_aeb39a897efaaeb0c4ada7fce47f06f83}{has\+Next} ()=0
+\item 
+virtual T\+Y\+P\+E\+R\+E\+T\+U\+RN \hyperlink{classReaderInterface_a3f28e135128822544a09a475d2140094}{next} (\hyperlink{classReaderInterface_a1e3610c289ae058a246de41154d8a266}{R\+E\+A\+D\+T\+Y\+PE} type=\hyperlink{classReaderInterface_a1e3610c289ae058a246de41154d8a266aecc2e9c313faddb07e7da223c1dc5c3f}{R\+E\+A\+D\+T\+Y\+P\+E\+::\+V\+A\+L\+UE})=0
+\item 
+virtual std\+::string \hyperlink{classReaderInterface_a5f86ed49eac808ed0a912f7d670c4042}{status} ()=0
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T\+Y\+P\+E\+R\+E\+T\+U\+RN$>$\newline
+class Reader\+Interface$<$ T\+Y\+P\+E\+R\+E\+T\+U\+R\+N $>$}
+
+Interface for a simple stream forward reader. 
+
+Format is one set of values per line, with values separated by any white space (space or tab) in any amount. Readers that implement this interface can not read backwards.
+
+\begin{DoxyAuthor}{Author}
+poltergeist0
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019-\/02-\/06 
+\end{DoxyDate}
+
+
+Definition at line 41 of file reader.\+h.
+
+
+
+\subsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{classReaderInterface_ac2420ec8d2f60feadf2533d4fa77ec5e}\label{classReaderInterface_ac2420ec8d2f60feadf2533d4fa77ec5e}} 
+\index{Reader\+Interface@{Reader\+Interface}!N\+E\+X\+T\+T\+Y\+PE@{N\+E\+X\+T\+T\+Y\+PE}}
+\index{N\+E\+X\+T\+T\+Y\+PE@{N\+E\+X\+T\+T\+Y\+PE}!Reader\+Interface@{Reader\+Interface}}
+\subsubsection{\texorpdfstring{N\+E\+X\+T\+T\+Y\+PE}{NEXTTYPE}}
+{\footnotesize\ttfamily template$<$typename T\+Y\+P\+E\+R\+E\+T\+U\+RN$>$ \\
+enum \hyperlink{classReaderInterface_ac2420ec8d2f60feadf2533d4fa77ec5e}{Reader\+Interface\+::\+N\+E\+X\+T\+T\+Y\+PE} \+: unsigned int\hspace{0.3cm}{\ttfamily [strong]}}
+
+Enumeration of the type of object that is next is line for reading \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+A\+N\+N\+O\+T\+O\+P\+EN@{C\+A\+N\+N\+O\+T\+O\+P\+EN}!Reader\+Interface@{Reader\+Interface}}\index{Reader\+Interface@{Reader\+Interface}!C\+A\+N\+N\+O\+T\+O\+P\+EN@{C\+A\+N\+N\+O\+T\+O\+P\+EN}}}\mbox{\Hypertarget{classReaderInterface_ac2420ec8d2f60feadf2533d4fa77ec5ea8ab6f4178d635d263f25ffd1059bf3f8}\label{classReaderInterface_ac2420ec8d2f60feadf2533d4fa77ec5ea8ab6f4178d635d263f25ffd1059bf3f8}} 
+C\+A\+N\+N\+O\+T\+O\+P\+EN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{E\+N\+D\+O\+F\+F\+I\+LE@{E\+N\+D\+O\+F\+F\+I\+LE}!Reader\+Interface@{Reader\+Interface}}\index{Reader\+Interface@{Reader\+Interface}!E\+N\+D\+O\+F\+F\+I\+LE@{E\+N\+D\+O\+F\+F\+I\+LE}}}\mbox{\Hypertarget{classReaderInterface_ac2420ec8d2f60feadf2533d4fa77ec5ea055b05aa58eadd86120b994017873064}\label{classReaderInterface_ac2420ec8d2f60feadf2533d4fa77ec5ea055b05aa58eadd86120b994017873064}} 
+E\+N\+D\+O\+F\+F\+I\+LE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{N\+E\+W\+L\+I\+NE@{N\+E\+W\+L\+I\+NE}!Reader\+Interface@{Reader\+Interface}}\index{Reader\+Interface@{Reader\+Interface}!N\+E\+W\+L\+I\+NE@{N\+E\+W\+L\+I\+NE}}}\mbox{\Hypertarget{classReaderInterface_ac2420ec8d2f60feadf2533d4fa77ec5ea80c8c6b1bcf9ad27b73d5aaa56ed4ff3}\label{classReaderInterface_ac2420ec8d2f60feadf2533d4fa77ec5ea80c8c6b1bcf9ad27b73d5aaa56ed4ff3}} 
+N\+E\+W\+L\+I\+NE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{V\+A\+L\+UE@{V\+A\+L\+UE}!Reader\+Interface@{Reader\+Interface}}\index{Reader\+Interface@{Reader\+Interface}!V\+A\+L\+UE@{V\+A\+L\+UE}}}\mbox{\Hypertarget{classReaderInterface_ac2420ec8d2f60feadf2533d4fa77ec5eaecc2e9c313faddb07e7da223c1dc5c3f}\label{classReaderInterface_ac2420ec8d2f60feadf2533d4fa77ec5eaecc2e9c313faddb07e7da223c1dc5c3f}} 
+V\+A\+L\+UE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+O\+M\+M\+E\+NT@{C\+O\+M\+M\+E\+NT}!Reader\+Interface@{Reader\+Interface}}\index{Reader\+Interface@{Reader\+Interface}!C\+O\+M\+M\+E\+NT@{C\+O\+M\+M\+E\+NT}}}\mbox{\Hypertarget{classReaderInterface_ac2420ec8d2f60feadf2533d4fa77ec5eaf2cd320b55767434dd48d81b165ea956}\label{classReaderInterface_ac2420ec8d2f60feadf2533d4fa77ec5eaf2cd320b55767434dd48d81b165ea956}} 
+C\+O\+M\+M\+E\+NT&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 51 of file reader.\+h.
+
+\mbox{\Hypertarget{classReaderInterface_a1e3610c289ae058a246de41154d8a266}\label{classReaderInterface_a1e3610c289ae058a246de41154d8a266}} 
+\index{Reader\+Interface@{Reader\+Interface}!R\+E\+A\+D\+T\+Y\+PE@{R\+E\+A\+D\+T\+Y\+PE}}
+\index{R\+E\+A\+D\+T\+Y\+PE@{R\+E\+A\+D\+T\+Y\+PE}!Reader\+Interface@{Reader\+Interface}}
+\subsubsection{\texorpdfstring{R\+E\+A\+D\+T\+Y\+PE}{READTYPE}}
+{\footnotesize\ttfamily template$<$typename T\+Y\+P\+E\+R\+E\+T\+U\+RN$>$ \\
+enum \hyperlink{classReaderInterface_a1e3610c289ae058a246de41154d8a266}{Reader\+Interface\+::\+R\+E\+A\+D\+T\+Y\+PE} \+: unsigned int\hspace{0.3cm}{\ttfamily [strong]}}
+
+Enumeration of the types of objects that can be read \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{L\+I\+NE@{L\+I\+NE}!Reader\+Interface@{Reader\+Interface}}\index{Reader\+Interface@{Reader\+Interface}!L\+I\+NE@{L\+I\+NE}}}\mbox{\Hypertarget{classReaderInterface_a1e3610c289ae058a246de41154d8a266a17b8ef2c330f1430e00c9de5469fc7e7}\label{classReaderInterface_a1e3610c289ae058a246de41154d8a266a17b8ef2c330f1430e00c9de5469fc7e7}} 
+L\+I\+NE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{V\+A\+L\+UE@{V\+A\+L\+UE}!Reader\+Interface@{Reader\+Interface}}\index{Reader\+Interface@{Reader\+Interface}!V\+A\+L\+UE@{V\+A\+L\+UE}}}\mbox{\Hypertarget{classReaderInterface_a1e3610c289ae058a246de41154d8a266aecc2e9c313faddb07e7da223c1dc5c3f}\label{classReaderInterface_a1e3610c289ae058a246de41154d8a266aecc2e9c313faddb07e7da223c1dc5c3f}} 
+V\+A\+L\+UE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+O\+M\+M\+E\+NT@{C\+O\+M\+M\+E\+NT}!Reader\+Interface@{Reader\+Interface}}\index{Reader\+Interface@{Reader\+Interface}!C\+O\+M\+M\+E\+NT@{C\+O\+M\+M\+E\+NT}}}\mbox{\Hypertarget{classReaderInterface_a1e3610c289ae058a246de41154d8a266af2cd320b55767434dd48d81b165ea956}\label{classReaderInterface_a1e3610c289ae058a246de41154d8a266af2cd320b55767434dd48d81b165ea956}} 
+C\+O\+M\+M\+E\+NT&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 46 of file reader.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classReaderInterface_a76b0a42faf97cb747ca81f2fee307ef4}\label{classReaderInterface_a76b0a42faf97cb747ca81f2fee307ef4}} 
+\index{Reader\+Interface@{Reader\+Interface}!````~Reader\+Interface@{$\sim$\+Reader\+Interface}}
+\index{````~Reader\+Interface@{$\sim$\+Reader\+Interface}!Reader\+Interface@{Reader\+Interface}}
+\subsubsection{\texorpdfstring{$\sim$\+Reader\+Interface()}{~ReaderInterface()}}
+{\footnotesize\ttfamily template$<$typename T\+Y\+P\+E\+R\+E\+T\+U\+RN$>$ \\
+virtual \hyperlink{classReaderInterface}{Reader\+Interface}$<$ T\+Y\+P\+E\+R\+E\+T\+U\+RN $>$\+::$\sim$\hyperlink{classReaderInterface}{Reader\+Interface} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Definition at line 53 of file reader.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classReaderInterface_aeb39a897efaaeb0c4ada7fce47f06f83}\label{classReaderInterface_aeb39a897efaaeb0c4ada7fce47f06f83}} 
+\index{Reader\+Interface@{Reader\+Interface}!has\+Next@{has\+Next}}
+\index{has\+Next@{has\+Next}!Reader\+Interface@{Reader\+Interface}}
+\subsubsection{\texorpdfstring{has\+Next()}{hasNext()}}
+{\footnotesize\ttfamily template$<$typename T\+Y\+P\+E\+R\+E\+T\+U\+RN$>$ \\
+virtual \hyperlink{classReaderInterface_ac2420ec8d2f60feadf2533d4fa77ec5e}{N\+E\+X\+T\+T\+Y\+PE} \hyperlink{classReaderInterface}{Reader\+Interface}$<$ T\+Y\+P\+E\+R\+E\+T\+U\+RN $>$\+::has\+Next (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\begin{DoxyReturn}{Returns}
+the type of the next object that can be read 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classReaderMatrixEdge_a61598aded2eab7ef2024636a5381423b}{Reader\+Matrix\+Edge}, \hyperlink{classReaderStringEdge_a7c43108413f8f867d5ee2cb35d777cd3}{Reader\+String\+Edge}, \hyperlink{classReaderFileEdge_a319f75e4d3ff14a4270e9da8ade89a3b}{Reader\+File\+Edge}, and \hyperlink{classReaderDummy_aac648da900b0602ea67b84521de5114c}{Reader\+Dummy}.
+
+
+
+Referenced by Algorithm\+::add\+Remove\+Edges(), and Reader\+Interface$<$ Edge $>$\+::$\sim$\+Reader\+Interface().
+
+\mbox{\Hypertarget{classReaderInterface_a3f28e135128822544a09a475d2140094}\label{classReaderInterface_a3f28e135128822544a09a475d2140094}} 
+\index{Reader\+Interface@{Reader\+Interface}!next@{next}}
+\index{next@{next}!Reader\+Interface@{Reader\+Interface}}
+\subsubsection{\texorpdfstring{next()}{next()}}
+{\footnotesize\ttfamily template$<$typename T\+Y\+P\+E\+R\+E\+T\+U\+RN$>$ \\
+virtual T\+Y\+P\+E\+R\+E\+T\+U\+RN \hyperlink{classReaderInterface}{Reader\+Interface}$<$ T\+Y\+P\+E\+R\+E\+T\+U\+RN $>$\+::next (\begin{DoxyParamCaption}\item[{\hyperlink{classReaderInterface_a1e3610c289ae058a246de41154d8a266}{R\+E\+A\+D\+T\+Y\+PE}}]{type = {\ttfamily \hyperlink{classReaderInterface_a1e3610c289ae058a246de41154d8a266aecc2e9c313faddb07e7da223c1dc5c3f}{R\+E\+A\+D\+T\+Y\+P\+E\+::\+V\+A\+L\+UE}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the next object of the given type ignoring any other type 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classReaderMatrixEdge_a98657215956d975c4f81b7e1d6e90b3e}{Reader\+Matrix\+Edge}, \hyperlink{classReaderStringEdge_a8de930135fa1fbb3a9610da2259e93ce}{Reader\+String\+Edge}, \hyperlink{classReaderFileEdge_a97f967287fdf7f4804139ba9d123494c}{Reader\+File\+Edge}, and \hyperlink{classReaderDummy_a235a5bf7df9cf1e4b984c7a350cb055e}{Reader\+Dummy}.
+
+
+
+Referenced by Algorithm\+::add\+Remove\+Edges(), Reader\+File\+Edge\+::\+Reader\+File\+Edge(), Reader\+Matrix\+Edge\+::\+Reader\+Matrix\+Edge(), Reader\+String\+Edge\+::\+Reader\+String\+Edge(), and Reader\+Interface$<$ Edge $>$\+::$\sim$\+Reader\+Interface().
+
+\mbox{\Hypertarget{classReaderInterface_a5f86ed49eac808ed0a912f7d670c4042}\label{classReaderInterface_a5f86ed49eac808ed0a912f7d670c4042}} 
+\index{Reader\+Interface@{Reader\+Interface}!status@{status}}
+\index{status@{status}!Reader\+Interface@{Reader\+Interface}}
+\subsubsection{\texorpdfstring{status()}{status()}}
+{\footnotesize\ttfamily template$<$typename T\+Y\+P\+E\+R\+E\+T\+U\+RN$>$ \\
+virtual std\+::string \hyperlink{classReaderInterface}{Reader\+Interface}$<$ T\+Y\+P\+E\+R\+E\+T\+U\+RN $>$\+::status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\begin{DoxyReturn}{Returns}
+either an ok message or an error message 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classReaderMatrixEdge_a14cfd06f703e6a24d007514e5dee24ff}{Reader\+Matrix\+Edge}, \hyperlink{classReaderStringEdge_a11fe073e85d07a48d0f0549b51af36b6}{Reader\+String\+Edge}, \hyperlink{classReaderFileEdge_a05205d129f4f59c5cbd4e7a2dcb3d0c1}{Reader\+File\+Edge}, and \hyperlink{classReaderDummy_a7d7fc03e8d3427c6c63262f2ff53ec84}{Reader\+Dummy}.
+
+
+
+Referenced by Reader\+Interface$<$ Edge $>$\+::$\sim$\+Reader\+Interface().
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+R-\/\+C\+R\+A\+N/src/base/\+Cpp/\hyperlink{reader_8h}{reader.\+h}\end{DoxyCompactItemize}

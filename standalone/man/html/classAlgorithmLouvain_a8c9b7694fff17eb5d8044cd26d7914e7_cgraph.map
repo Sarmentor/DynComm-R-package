@@ -1,0 +1,9 @@
+<map id="AlgorithmLouvain::quality" name="AlgorithmLouvain::quality">
+<area shape="rect" id="node2" href="$classCriterion.html#a1f8b3a7bf56b5434b04d5366d754d459" title="Criterion::quality" alt="" coords="221,107,339,134"/>
+<area shape="rect" id="node3" href="$classCriterionModularity.html#adf9197fd4e5878ca86501447b1fba989" title="CriterionModularity\l::quality" alt="" coords="402,71,533,112"/>
+<area shape="rect" id="node8" href="$classCriterionBalMod.html#a87c0ccb5e2a851420dc82bd23cc31716" title="CriterionBalMod::quality" alt="" coords="387,137,548,163"/>
+<area shape="rect" id="node4" href="$classGraphUndirected.html#a41ba96531c669461dbc7e11ee35796ab" title="GraphUndirected::totalWeight" alt="" coords="596,137,791,163"/>
+<area shape="rect" id="node5" href="$classGraphUndirected.html#af2f65109919c878a1fd7637d3bfe0991" title="GraphUndirected::getVertices" alt="" coords="596,187,791,214"/>
+<area shape="rect" id="node6" href="$classGraphUndirectedGroupable.html#a1986c140fd9aba8063774372c971706d" title="GraphUndirectedGroupable\l::innerEdges" alt="" coords="604,5,783,47"/>
+<area shape="rect" id="node7" href="$classGraphUndirectedGroupable.html#a8aa795a6e0ae115d35937508c5aad401" title="GraphUndirectedGroupable\l::totalEdges" alt="" coords="604,71,783,112"/>
+</map>

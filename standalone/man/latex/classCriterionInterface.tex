@@ -1,0 +1,127 @@
+\hypertarget{classCriterionInterface}{}\section{Criterion\+Interface Class Reference}
+\label{classCriterionInterface}\index{Criterion\+Interface@{Criterion\+Interface}}
+
+
+\hyperlink{classCriterion}{Criterion} interface.  
+
+
+
+
+{\ttfamily \#include $<$criterion\+Interface.\+h$>$}
+
+
+
+Inheritance diagram for Criterion\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=294pt]{classCriterionInterface__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \hyperlink{classCriterionInterface_afe9cbd3c6f58b5c54828cbfdd6d9d48d}{$\sim$\+Criterion\+Interface} ()
+\item 
+virtual \hyperlink{criterionInterface_8h_af71ff22f6355fd69a4a62104bfd59a83}{type\+Criterion} \hyperlink{classCriterionInterface_aa0beec8287cd70e16c057e7995d0caca}{gain} (const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&vertex, const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \&comm) const =0
+\item 
+virtual \hyperlink{criterionInterface_8h_af71ff22f6355fd69a4a62104bfd59a83}{type\+Criterion} \hyperlink{classCriterionInterface_a5d287dc7755f7ce7d6a3d91f0d8fa5de}{quality} () const =0
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classCriterion}{Criterion} interface. 
+
+All criterion must implement the functions defined in this class.
+
+Also, at the end of this class, there is a comment with the skeleton of a constructor that must be defined in classes that implement this interface.
+
+\begin{DoxyAuthor}{Author}
+poltergeist0
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2018-\/08-\/19 
+\end{DoxyDate}
+
+
+Definition at line 57 of file criterion\+Interface.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classCriterionInterface_afe9cbd3c6f58b5c54828cbfdd6d9d48d}\label{classCriterionInterface_afe9cbd3c6f58b5c54828cbfdd6d9d48d}} 
+\index{Criterion\+Interface@{Criterion\+Interface}!````~Criterion\+Interface@{$\sim$\+Criterion\+Interface}}
+\index{````~Criterion\+Interface@{$\sim$\+Criterion\+Interface}!Criterion\+Interface@{Criterion\+Interface}}
+\subsubsection{\texorpdfstring{$\sim$\+Criterion\+Interface()}{~CriterionInterface()}}
+{\footnotesize\ttfamily virtual Criterion\+Interface\+::$\sim$\+Criterion\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Definition at line 59 of file criterion\+Interface.\+h.
+
+
+
+References gain(), and quality().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=312pt]{classCriterionInterface_afe9cbd3c6f58b5c54828cbfdd6d9d48d_cgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classCriterionInterface_aa0beec8287cd70e16c057e7995d0caca}\label{classCriterionInterface_aa0beec8287cd70e16c057e7995d0caca}} 
+\index{Criterion\+Interface@{Criterion\+Interface}!gain@{gain}}
+\index{gain@{gain}!Criterion\+Interface@{Criterion\+Interface}}
+\subsubsection{\texorpdfstring{gain()}{gain()}}
+{\footnotesize\ttfamily virtual \hyperlink{criterionInterface_8h_af71ff22f6355fd69a4a62104bfd59a83}{type\+Criterion} Criterion\+Interface\+::gain (\begin{DoxyParamCaption}\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{vertex,  }\item[{const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \&}]{comm }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+compute the quality obtained if the given vertex was moved from its current community to the given community
+
+
+\begin{DoxyParams}{Parameters}
+{\em vertex} & \\
+\hline
+{\em comm} & new potential community for given vertex \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the quality, which may be positive or negative 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classCriterion_a99e23ddc517ca3f2ea4766a5b4be0e3e}{Criterion}, \hyperlink{classCriterionModularity_a181617050bab1eeaaf38b2ad30dcfc43}{Criterion\+Modularity}, and \hyperlink{classCriterionBalMod_acf5001622eb8c495a5d5e8f044c22395}{Criterion\+Bal\+Mod}.
+
+
+
+Referenced by $\sim$\+Criterion\+Interface().
+
+\mbox{\Hypertarget{classCriterionInterface_a5d287dc7755f7ce7d6a3d91f0d8fa5de}\label{classCriterionInterface_a5d287dc7755f7ce7d6a3d91f0d8fa5de}} 
+\index{Criterion\+Interface@{Criterion\+Interface}!quality@{quality}}
+\index{quality@{quality}!Criterion\+Interface@{Criterion\+Interface}}
+\subsubsection{\texorpdfstring{quality()}{quality()}}
+{\footnotesize\ttfamily virtual \hyperlink{criterionInterface_8h_af71ff22f6355fd69a4a62104bfd59a83}{type\+Criterion} Criterion\+Interface\+::quality (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+compute the quality of the current partition scheme
+
+\begin{DoxyReturn}{Returns}
+the quality value 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classCriterion_a1f8b3a7bf56b5434b04d5366d754d459}{Criterion}, \hyperlink{classCriterionModularity_adf9197fd4e5878ca86501447b1fba989}{Criterion\+Modularity}, and \hyperlink{classCriterionBalMod_a87c0ccb5e2a851420dc82bd23cc31716}{Criterion\+Bal\+Mod}.
+
+
+
+Referenced by $\sim$\+Criterion\+Interface().
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+R-\/\+C\+R\+A\+N/src/base/\+Cpp/\hyperlink{criterionInterface_8h}{criterion\+Interface.\+h}\end{DoxyCompactItemize}

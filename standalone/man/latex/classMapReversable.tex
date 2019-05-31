@@ -1,0 +1,575 @@
+\hypertarget{classMapReversable}{}\section{Map\+Reversable$<$ T, U $>$ Class Template Reference}
+\label{classMapReversable}\index{Map\+Reversable$<$ T, U $>$@{Map\+Reversable$<$ T, U $>$}}
+
+
+Doubly indexed map.  
+
+
+
+
+{\ttfamily \#include $<$map\+Reversable.\+h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\+::map$<$ T, U $>$\+::\hyperlink{classMapReversable_a7a41e7d60ba284a59e7bf76c8c53e9c2}{const\+\_\+iterator} \hyperlink{classMapReversable_a7a41e7d60ba284a59e7bf76c8c53e9c2}{const\+\_\+iterator}
+\item 
+typedef std\+::pair$<$ T, U $>$ \hyperlink{classMapReversable_a44d0737d4172eafced8eccc56ae06b8f}{type\+Pair}
+\item 
+typedef std\+::multimap$<$ U, T $>$\+::\hyperlink{classMapReversable_a7a41e7d60ba284a59e7bf76c8c53e9c2}{const\+\_\+iterator} \hyperlink{classMapReversable_aed8c3cc9e7a8601664db79d56d117adf}{range\+\_\+iterator\+\_\+const}
+\item 
+typedef std\+::pair$<$ U, T $>$ \hyperlink{classMapReversable_a1e0d482abfd4a66490f667a8fe64be88}{type\+Range\+Pair}
+\item 
+typedef std\+::pair$<$ \hyperlink{classMapReversable_aed8c3cc9e7a8601664db79d56d117adf}{range\+\_\+iterator\+\_\+const}, \hyperlink{classMapReversable_aed8c3cc9e7a8601664db79d56d117adf}{range\+\_\+iterator\+\_\+const} $>$ \hyperlink{classMapReversable_a00452d0ddb300578955ed93560508ad0}{type\+Range}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classMapReversable_a70324d8f15d693e1de7e15a1293ddde2}{Map\+Reversable} ()
+\item 
+const size\+\_\+t \hyperlink{classMapReversable_aa21253c86298f61a18c215c7d4e8c048}{size} () const
+\item 
+\hyperlink{classMapReversable_a7a41e7d60ba284a59e7bf76c8c53e9c2}{const\+\_\+iterator} \hyperlink{classMapReversable_a30fd5b0e4e2578d3eaad8926a5d12cb2}{find} (const T \&\hyperlink{classMapReversable_a96492535f9aa469ffd75f28620b8ead4}{key}) const
+\item 
+std\+::set$<$ T $>$ \hyperlink{classMapReversable_a9587d6d95127e6941407af03584d3e00}{keys} () const
+\item 
+\hyperlink{classMapReversable_aed8c3cc9e7a8601664db79d56d117adf}{range\+\_\+iterator\+\_\+const} \hyperlink{classMapReversable_a96492535f9aa469ffd75f28620b8ead4}{key} (const U \&\hyperlink{classMapReversable_ad4b84d263ee939c25f45a0503f3b3c21}{value}) const
+\item 
+\hyperlink{classMapReversable_a00452d0ddb300578955ed93560508ad0}{type\+Range} \hyperlink{classMapReversable_aeeaeddaca58315c4a1c7f310f999694a}{keys} (const U \&\hyperlink{classMapReversable_ad4b84d263ee939c25f45a0503f3b3c21}{value}) const
+\item 
+std\+::set$<$ T $>$ \hyperlink{classMapReversable_a3c56d581fed9f1e05b5b6db86858ac6b}{values} () const
+\item 
+\hyperlink{classMapReversable_a7a41e7d60ba284a59e7bf76c8c53e9c2}{const\+\_\+iterator} \hyperlink{classMapReversable_ad4b84d263ee939c25f45a0503f3b3c21}{value} (const T \&\hyperlink{classMapReversable_a96492535f9aa469ffd75f28620b8ead4}{key}) const
+\item 
+\hyperlink{classMapReversable_a7a41e7d60ba284a59e7bf76c8c53e9c2}{const\+\_\+iterator} \hyperlink{classMapReversable_adf9c6326f843154f1da642003aa77396}{cbegin} () const
+\item 
+\hyperlink{classMapReversable_a7a41e7d60ba284a59e7bf76c8c53e9c2}{const\+\_\+iterator} \hyperlink{classMapReversable_acf794209bf91fe8f6026f090ccb7635f}{cend} () const
+\item 
+\hyperlink{classMapReversable_aed8c3cc9e7a8601664db79d56d117adf}{range\+\_\+iterator\+\_\+const} \hyperlink{classMapReversable_a12bfd506dad7f95bcbc7c9eb948e3464}{cbeginr} () const
+\item 
+\hyperlink{classMapReversable_aed8c3cc9e7a8601664db79d56d117adf}{range\+\_\+iterator\+\_\+const} \hyperlink{classMapReversable_ada3c47662db8789525f572dabe378244}{cendr} () const
+\item 
+U \hyperlink{classMapReversable_a71cb9601304a81fa70fff861ce25180a}{operator\mbox{[}$\,$\mbox{]}} (const T \&\hyperlink{classMapReversable_a96492535f9aa469ffd75f28620b8ead4}{key}) const
+\item 
+bool \hyperlink{classMapReversable_a2d4fbdc1aae7e5e53cf58c6bea63b450}{add} (const T \&\hyperlink{classMapReversable_a96492535f9aa469ffd75f28620b8ead4}{key}, const U \&\hyperlink{classMapReversable_ad4b84d263ee939c25f45a0503f3b3c21}{value}, const bool \&\hyperlink{classMapReversable_a2d70db0cb1f28dc57a7efe9da6155f63}{replace}=false)
+\item 
+bool \hyperlink{classMapReversable_aa4338f7c831e5a404758f88e80d13672}{remove} (const T \&first, const U \&second)
+\item 
+bool \hyperlink{classMapReversable_a4568cc0ec74160de575382d48b4d6636}{remove} (const T \&first)
+\item 
+bool \hyperlink{classMapReversable_a2d70db0cb1f28dc57a7efe9da6155f63}{replace} (const U \&old\+Value, const U \&new\+Value)
+\item 
+bool \hyperlink{classMapReversable_a9dd692e3862043c5cc02cfb9e003cf19}{replace\+Key} (const T \&old\+Key, const T \&new\+Key)
+\item 
+std\+::string \hyperlink{classMapReversable_a840df7e42bccf937f4d369e2006f3c15}{to\+String} (const \hyperlink{classStringFormatter}{String\+Formatter} \&sf=\hyperlink{stringFormatter_8h_abf1349c8e24162d0134072aff288f2a2}{default\+String\+Formatter}) const
+\end{DoxyCompactItemize}
+\subsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\+::map$<$ T, U $>$\+::\hyperlink{classMapReversable_af0fbc4d04214f278af7094f5db9133f3}{iterator} \hyperlink{classMapReversable_af0fbc4d04214f278af7094f5db9133f3}{iterator}
+\item 
+typedef std\+::multimap$<$ U, T $>$\+::\hyperlink{classMapReversable_af0fbc4d04214f278af7094f5db9133f3}{iterator} \hyperlink{classMapReversable_a1c18ca6fe9f9890e5ad63aedf3eca6d7}{range\+\_\+iterator}
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::map$<$ T, U $>$ \hyperlink{classMapReversable_afdf022d06bd77580fe8c0c4309114f83}{m}
+\item 
+std\+::multimap$<$ U, T $>$ \hyperlink{classMapReversable_a301493c801719dbfef40db1cdc7a5ebe}{r}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T, typename U$>$\newline
+class Map\+Reversable$<$ T, U $>$}
+
+Doubly indexed map. 
+
+Class that implements a map in which the values are also indexed. Unlike an ordinary std\+::map which is indexed by key only, this map is also indexed by value. It internally uses a std\+::multimap to achieve this.
+
+\begin{DoxyAuthor}{Author}
+poltergeist0
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2018-\/08-\/19 
+\end{DoxyDate}
+
+
+Definition at line 44 of file map\+Reversable.\+h.
+
+
+
+\subsection{Member Typedef Documentation}
+\mbox{\Hypertarget{classMapReversable_a7a41e7d60ba284a59e7bf76c8c53e9c2}\label{classMapReversable_a7a41e7d60ba284a59e7bf76c8c53e9c2}} 
+\index{Map\+Reversable@{Map\+Reversable}!const\+\_\+iterator@{const\+\_\+iterator}}
+\index{const\+\_\+iterator@{const\+\_\+iterator}!Map\+Reversable@{Map\+Reversable}}
+\subsubsection{\texorpdfstring{const\+\_\+iterator}{const\_iterator}}
+{\footnotesize\ttfamily template$<$typename T, typename U$>$ \\
+typedef std\+::map$<$T,U$>$\+::\hyperlink{classMapReversable_a7a41e7d60ba284a59e7bf76c8c53e9c2}{const\+\_\+iterator} \hyperlink{classMapReversable}{Map\+Reversable}$<$ T, U $>$\+::\hyperlink{classMapReversable_a7a41e7d60ba284a59e7bf76c8c53e9c2}{const\+\_\+iterator}}
+
+
+
+Definition at line 54 of file map\+Reversable.\+h.
+
+\mbox{\Hypertarget{classMapReversable_af0fbc4d04214f278af7094f5db9133f3}\label{classMapReversable_af0fbc4d04214f278af7094f5db9133f3}} 
+\index{Map\+Reversable@{Map\+Reversable}!iterator@{iterator}}
+\index{iterator@{iterator}!Map\+Reversable@{Map\+Reversable}}
+\subsubsection{\texorpdfstring{iterator}{iterator}}
+{\footnotesize\ttfamily template$<$typename T, typename U$>$ \\
+typedef std\+::map$<$T,U$>$\+::\hyperlink{classMapReversable_af0fbc4d04214f278af7094f5db9133f3}{iterator} \hyperlink{classMapReversable}{Map\+Reversable}$<$ T, U $>$\+::\hyperlink{classMapReversable_af0fbc4d04214f278af7094f5db9133f3}{iterator}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 49 of file map\+Reversable.\+h.
+
+\mbox{\Hypertarget{classMapReversable_a1c18ca6fe9f9890e5ad63aedf3eca6d7}\label{classMapReversable_a1c18ca6fe9f9890e5ad63aedf3eca6d7}} 
+\index{Map\+Reversable@{Map\+Reversable}!range\+\_\+iterator@{range\+\_\+iterator}}
+\index{range\+\_\+iterator@{range\+\_\+iterator}!Map\+Reversable@{Map\+Reversable}}
+\subsubsection{\texorpdfstring{range\+\_\+iterator}{range\_iterator}}
+{\footnotesize\ttfamily template$<$typename T, typename U$>$ \\
+typedef std\+::multimap$<$U,T$>$\+::\hyperlink{classMapReversable_af0fbc4d04214f278af7094f5db9133f3}{iterator} \hyperlink{classMapReversable}{Map\+Reversable}$<$ T, U $>$\+::\hyperlink{classMapReversable_a1c18ca6fe9f9890e5ad63aedf3eca6d7}{range\+\_\+iterator}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 50 of file map\+Reversable.\+h.
+
+\mbox{\Hypertarget{classMapReversable_aed8c3cc9e7a8601664db79d56d117adf}\label{classMapReversable_aed8c3cc9e7a8601664db79d56d117adf}} 
+\index{Map\+Reversable@{Map\+Reversable}!range\+\_\+iterator\+\_\+const@{range\+\_\+iterator\+\_\+const}}
+\index{range\+\_\+iterator\+\_\+const@{range\+\_\+iterator\+\_\+const}!Map\+Reversable@{Map\+Reversable}}
+\subsubsection{\texorpdfstring{range\+\_\+iterator\+\_\+const}{range\_iterator\_const}}
+{\footnotesize\ttfamily template$<$typename T, typename U$>$ \\
+typedef std\+::multimap$<$U,T$>$\+::\hyperlink{classMapReversable_a7a41e7d60ba284a59e7bf76c8c53e9c2}{const\+\_\+iterator} \hyperlink{classMapReversable}{Map\+Reversable}$<$ T, U $>$\+::\hyperlink{classMapReversable_aed8c3cc9e7a8601664db79d56d117adf}{range\+\_\+iterator\+\_\+const}}
+
+
+
+Definition at line 56 of file map\+Reversable.\+h.
+
+\mbox{\Hypertarget{classMapReversable_a44d0737d4172eafced8eccc56ae06b8f}\label{classMapReversable_a44d0737d4172eafced8eccc56ae06b8f}} 
+\index{Map\+Reversable@{Map\+Reversable}!type\+Pair@{type\+Pair}}
+\index{type\+Pair@{type\+Pair}!Map\+Reversable@{Map\+Reversable}}
+\subsubsection{\texorpdfstring{type\+Pair}{typePair}}
+{\footnotesize\ttfamily template$<$typename T, typename U$>$ \\
+typedef std\+::pair$<$T,U$>$ \hyperlink{classMapReversable}{Map\+Reversable}$<$ T, U $>$\+::\hyperlink{classMapReversable_a44d0737d4172eafced8eccc56ae06b8f}{type\+Pair}}
+
+
+
+Definition at line 55 of file map\+Reversable.\+h.
+
+\mbox{\Hypertarget{classMapReversable_a00452d0ddb300578955ed93560508ad0}\label{classMapReversable_a00452d0ddb300578955ed93560508ad0}} 
+\index{Map\+Reversable@{Map\+Reversable}!type\+Range@{type\+Range}}
+\index{type\+Range@{type\+Range}!Map\+Reversable@{Map\+Reversable}}
+\subsubsection{\texorpdfstring{type\+Range}{typeRange}}
+{\footnotesize\ttfamily template$<$typename T, typename U$>$ \\
+typedef std\+::pair$<$\hyperlink{classMapReversable_aed8c3cc9e7a8601664db79d56d117adf}{range\+\_\+iterator\+\_\+const},\hyperlink{classMapReversable_aed8c3cc9e7a8601664db79d56d117adf}{range\+\_\+iterator\+\_\+const}$>$ \hyperlink{classMapReversable}{Map\+Reversable}$<$ T, U $>$\+::\hyperlink{classMapReversable_a00452d0ddb300578955ed93560508ad0}{type\+Range}}
+
+
+
+Definition at line 58 of file map\+Reversable.\+h.
+
+\mbox{\Hypertarget{classMapReversable_a1e0d482abfd4a66490f667a8fe64be88}\label{classMapReversable_a1e0d482abfd4a66490f667a8fe64be88}} 
+\index{Map\+Reversable@{Map\+Reversable}!type\+Range\+Pair@{type\+Range\+Pair}}
+\index{type\+Range\+Pair@{type\+Range\+Pair}!Map\+Reversable@{Map\+Reversable}}
+\subsubsection{\texorpdfstring{type\+Range\+Pair}{typeRangePair}}
+{\footnotesize\ttfamily template$<$typename T, typename U$>$ \\
+typedef std\+::pair$<$U,T$>$ \hyperlink{classMapReversable}{Map\+Reversable}$<$ T, U $>$\+::\hyperlink{classMapReversable_a1e0d482abfd4a66490f667a8fe64be88}{type\+Range\+Pair}}
+
+
+
+Definition at line 57 of file map\+Reversable.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classMapReversable_a70324d8f15d693e1de7e15a1293ddde2}\label{classMapReversable_a70324d8f15d693e1de7e15a1293ddde2}} 
+\index{Map\+Reversable@{Map\+Reversable}!Map\+Reversable@{Map\+Reversable}}
+\index{Map\+Reversable@{Map\+Reversable}!Map\+Reversable@{Map\+Reversable}}
+\subsubsection{\texorpdfstring{Map\+Reversable()}{MapReversable()}}
+{\footnotesize\ttfamily template$<$typename T, typename U$>$ \\
+\hyperlink{classMapReversable}{Map\+Reversable}$<$ T, U $>$\+::\hyperlink{classMapReversable}{Map\+Reversable} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+default constructor 
+
+Definition at line 63 of file map\+Reversable.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classMapReversable_a2d4fbdc1aae7e5e53cf58c6bea63b450}\label{classMapReversable_a2d4fbdc1aae7e5e53cf58c6bea63b450}} 
+\index{Map\+Reversable@{Map\+Reversable}!add@{add}}
+\index{add@{add}!Map\+Reversable@{Map\+Reversable}}
+\subsubsection{\texorpdfstring{add()}{add()}}
+{\footnotesize\ttfamily template$<$typename T, typename U$>$ \\
+bool \hyperlink{classMapReversable}{Map\+Reversable}$<$ T, U $>$\+::add (\begin{DoxyParamCaption}\item[{const T \&}]{key,  }\item[{const U \&}]{value,  }\item[{const bool \&}]{replace = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Add a (key, value) pair to the map 
+\begin{DoxyParams}{Parameters}
+{\em key} & \\
+\hline
+{\em value} & \\
+\hline
+{\em replace,if} & true and key exists, replaces the value otherwise fails. If false and key exists fails. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if insertion succeeds 
+\end{DoxyReturn}
+
+
+Definition at line 145 of file map\+Reversable.\+h.
+
+
+
+Referenced by Graph\+Undirected\+Groupable\+::add\+Edge(), Dyn\+Comm\+Base\+::add\+Remove\+Edges(), and Graph\+Undirected\+Groupable\+::community().
+
+\mbox{\Hypertarget{classMapReversable_adf9c6326f843154f1da642003aa77396}\label{classMapReversable_adf9c6326f843154f1da642003aa77396}} 
+\index{Map\+Reversable@{Map\+Reversable}!cbegin@{cbegin}}
+\index{cbegin@{cbegin}!Map\+Reversable@{Map\+Reversable}}
+\subsubsection{\texorpdfstring{cbegin()}{cbegin()}}
+{\footnotesize\ttfamily template$<$typename T, typename U$>$ \\
+\hyperlink{classMapReversable_a7a41e7d60ba284a59e7bf76c8c53e9c2}{const\+\_\+iterator} \hyperlink{classMapReversable}{Map\+Reversable}$<$ T, U $>$\+::cbegin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+a constant iterator to the beginning of the map 
+\end{DoxyReturn}
+
+
+Definition at line 106 of file map\+Reversable.\+h.
+
+
+
+Referenced by Graph\+Undirected\+Groupable\+::communities\+To\+Graph(), and Dyn\+Comm\+Base\+::community\+Mapping().
+
+\mbox{\Hypertarget{classMapReversable_a12bfd506dad7f95bcbc7c9eb948e3464}\label{classMapReversable_a12bfd506dad7f95bcbc7c9eb948e3464}} 
+\index{Map\+Reversable@{Map\+Reversable}!cbeginr@{cbeginr}}
+\index{cbeginr@{cbeginr}!Map\+Reversable@{Map\+Reversable}}
+\subsubsection{\texorpdfstring{cbeginr()}{cbeginr()}}
+{\footnotesize\ttfamily template$<$typename T, typename U$>$ \\
+\hyperlink{classMapReversable_aed8c3cc9e7a8601664db79d56d117adf}{range\+\_\+iterator\+\_\+const} \hyperlink{classMapReversable}{Map\+Reversable}$<$ T, U $>$\+::cbeginr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+a constant iterator to the beginning of the multimap 
+\end{DoxyReturn}
+
+
+Definition at line 117 of file map\+Reversable.\+h.
+
+\mbox{\Hypertarget{classMapReversable_acf794209bf91fe8f6026f090ccb7635f}\label{classMapReversable_acf794209bf91fe8f6026f090ccb7635f}} 
+\index{Map\+Reversable@{Map\+Reversable}!cend@{cend}}
+\index{cend@{cend}!Map\+Reversable@{Map\+Reversable}}
+\subsubsection{\texorpdfstring{cend()}{cend()}}
+{\footnotesize\ttfamily template$<$typename T, typename U$>$ \\
+\hyperlink{classMapReversable_a7a41e7d60ba284a59e7bf76c8c53e9c2}{const\+\_\+iterator} \hyperlink{classMapReversable}{Map\+Reversable}$<$ T, U $>$\+::cend (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+a constant iterator to the end of the map 
+\end{DoxyReturn}
+
+
+Definition at line 111 of file map\+Reversable.\+h.
+
+
+
+Referenced by Graph\+Undirected\+Groupable\+::communities\+To\+Graph(), Graph\+Undirected\+Groupable\+::community(), Dyn\+Comm\+Base\+::community\+Mapping(), and Graph\+Undirected\+Groupable\+::replace().
+
+\mbox{\Hypertarget{classMapReversable_ada3c47662db8789525f572dabe378244}\label{classMapReversable_ada3c47662db8789525f572dabe378244}} 
+\index{Map\+Reversable@{Map\+Reversable}!cendr@{cendr}}
+\index{cendr@{cendr}!Map\+Reversable@{Map\+Reversable}}
+\subsubsection{\texorpdfstring{cendr()}{cendr()}}
+{\footnotesize\ttfamily template$<$typename T, typename U$>$ \\
+\hyperlink{classMapReversable_aed8c3cc9e7a8601664db79d56d117adf}{range\+\_\+iterator\+\_\+const} \hyperlink{classMapReversable}{Map\+Reversable}$<$ T, U $>$\+::cendr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+a constant iterator to the end of the multimap 
+\end{DoxyReturn}
+
+
+Definition at line 122 of file map\+Reversable.\+h.
+
+\mbox{\Hypertarget{classMapReversable_a30fd5b0e4e2578d3eaad8926a5d12cb2}\label{classMapReversable_a30fd5b0e4e2578d3eaad8926a5d12cb2}} 
+\index{Map\+Reversable@{Map\+Reversable}!find@{find}}
+\index{find@{find}!Map\+Reversable@{Map\+Reversable}}
+\subsubsection{\texorpdfstring{find()}{find()}}
+{\footnotesize\ttfamily template$<$typename T, typename U$>$ \\
+\hyperlink{classMapReversable_a7a41e7d60ba284a59e7bf76c8c53e9c2}{const\+\_\+iterator} \hyperlink{classMapReversable}{Map\+Reversable}$<$ T, U $>$\+::find (\begin{DoxyParamCaption}\item[{const T \&}]{key }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Find the value attributed to a given key 
+\begin{DoxyParams}{Parameters}
+{\em key} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a constant iterator that points to the pair that holds the (key, value) or \hyperlink{classMapReversable_acf794209bf91fe8f6026f090ccb7635f}{cend()} if not found 
+\end{DoxyReturn}
+
+
+Definition at line 72 of file map\+Reversable.\+h.
+
+
+
+Referenced by Graph\+Undirected\+Groupable\+::community(), and Map\+Reversable$<$ type\+Vertex, type\+Community $>$\+::value().
+
+\mbox{\Hypertarget{classMapReversable_a96492535f9aa469ffd75f28620b8ead4}\label{classMapReversable_a96492535f9aa469ffd75f28620b8ead4}} 
+\index{Map\+Reversable@{Map\+Reversable}!key@{key}}
+\index{key@{key}!Map\+Reversable@{Map\+Reversable}}
+\subsubsection{\texorpdfstring{key()}{key()}}
+{\footnotesize\ttfamily template$<$typename T, typename U$>$ \\
+\hyperlink{classMapReversable_aed8c3cc9e7a8601664db79d56d117adf}{range\+\_\+iterator\+\_\+const} \hyperlink{classMapReversable}{Map\+Reversable}$<$ T, U $>$\+::key (\begin{DoxyParamCaption}\item[{const U \&}]{value }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+get all the keys that have a given value 
+\begin{DoxyParams}{Parameters}
+{\em value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a pair of constant range iterators pointing, respectively, to the beginning and to the end of the range of keys that holds the given value 
+\end{DoxyReturn}
+
+
+Definition at line 85 of file map\+Reversable.\+h.
+
+\mbox{\Hypertarget{classMapReversable_a9587d6d95127e6941407af03584d3e00}\label{classMapReversable_a9587d6d95127e6941407af03584d3e00}} 
+\index{Map\+Reversable@{Map\+Reversable}!keys@{keys}}
+\index{keys@{keys}!Map\+Reversable@{Map\+Reversable}}
+\subsubsection{\texorpdfstring{keys()}{keys()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T, typename U$>$ \\
+std\+::set$<$T$>$ \hyperlink{classMapReversable}{Map\+Reversable}$<$ T, U $>$\+::keys (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Compatibility function with multimap since in a map all keys are unique \begin{DoxyReturn}{Returns}
+all unique keys in the map 
+\end{DoxyReturn}
+
+
+Definition at line 78 of file map\+Reversable.\+h.
+
+
+
+Referenced by Graph\+Undirected\+Groupable\+::community(), Graph\+Undirected\+Groupable\+::disband(), Map\+Reversable$<$ type\+Vertex, type\+Community $>$\+::keys(), Graph\+Undirected\+Groupable\+::minimum\+Node(), and Graph\+Undirected\+Groupable\+::vertices().
+
+\mbox{\Hypertarget{classMapReversable_aeeaeddaca58315c4a1c7f310f999694a}\label{classMapReversable_aeeaeddaca58315c4a1c7f310f999694a}} 
+\index{Map\+Reversable@{Map\+Reversable}!keys@{keys}}
+\index{keys@{keys}!Map\+Reversable@{Map\+Reversable}}
+\subsubsection{\texorpdfstring{keys()}{keys()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T, typename U$>$ \\
+\hyperlink{classMapReversable_a00452d0ddb300578955ed93560508ad0}{type\+Range} \hyperlink{classMapReversable}{Map\+Reversable}$<$ T, U $>$\+::keys (\begin{DoxyParamCaption}\item[{const U \&}]{value }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+get all the keys that have a given value 
+\begin{DoxyParams}{Parameters}
+{\em value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a pair of constant range iterators pointing, respectively, to the beginning and to the end of the range of keys that holds the given value 
+\end{DoxyReturn}
+
+
+Definition at line 92 of file map\+Reversable.\+h.
+
+\mbox{\Hypertarget{classMapReversable_a71cb9601304a81fa70fff861ce25180a}\label{classMapReversable_a71cb9601304a81fa70fff861ce25180a}} 
+\index{Map\+Reversable@{Map\+Reversable}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!Map\+Reversable@{Map\+Reversable}}
+\subsubsection{\texorpdfstring{operator[]()}{operator[]()}}
+{\footnotesize\ttfamily template$<$typename T, typename U$>$ \\
+U \hyperlink{classMapReversable}{Map\+Reversable}$<$ T, U $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const T \&}]{key }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get value associated with key. If the key entry does not exists it is created with the default value 
+\begin{DoxyParams}{Parameters}
+{\em key} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+either the existing value or the newly created value 
+\end{DoxyReturn}
+
+
+Definition at line 129 of file map\+Reversable.\+h.
+
+\mbox{\Hypertarget{classMapReversable_aa4338f7c831e5a404758f88e80d13672}\label{classMapReversable_aa4338f7c831e5a404758f88e80d13672}} 
+\index{Map\+Reversable@{Map\+Reversable}!remove@{remove}}
+\index{remove@{remove}!Map\+Reversable@{Map\+Reversable}}
+\subsubsection{\texorpdfstring{remove()}{remove()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T, typename U$>$ \\
+bool \hyperlink{classMapReversable}{Map\+Reversable}$<$ T, U $>$\+::remove (\begin{DoxyParamCaption}\item[{const T \&}]{first,  }\item[{const U \&}]{second }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+remove a (key,value) pair 
+\begin{DoxyParams}{Parameters}
+{\em first} & \\
+\hline
+{\em second} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the element existed otherwise false 
+\end{DoxyReturn}
+
+
+Definition at line 175 of file map\+Reversable.\+h.
+
+
+
+Referenced by Graph\+Undirected\+Groupable\+::communities\+To\+Graph(), and Graph\+Undirected\+Groupable\+::remove\+Edge().
+
+\mbox{\Hypertarget{classMapReversable_a4568cc0ec74160de575382d48b4d6636}\label{classMapReversable_a4568cc0ec74160de575382d48b4d6636}} 
+\index{Map\+Reversable@{Map\+Reversable}!remove@{remove}}
+\index{remove@{remove}!Map\+Reversable@{Map\+Reversable}}
+\subsubsection{\texorpdfstring{remove()}{remove()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T, typename U$>$ \\
+bool \hyperlink{classMapReversable}{Map\+Reversable}$<$ T, U $>$\+::remove (\begin{DoxyParamCaption}\item[{const T \&}]{first }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+remove a (key,value) pair 
+\begin{DoxyParams}{Parameters}
+{\em first} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the element existed otherwise false 
+\end{DoxyReturn}
+
+
+Definition at line 194 of file map\+Reversable.\+h.
+
+\mbox{\Hypertarget{classMapReversable_a2d70db0cb1f28dc57a7efe9da6155f63}\label{classMapReversable_a2d70db0cb1f28dc57a7efe9da6155f63}} 
+\index{Map\+Reversable@{Map\+Reversable}!replace@{replace}}
+\index{replace@{replace}!Map\+Reversable@{Map\+Reversable}}
+\subsubsection{\texorpdfstring{replace()}{replace()}}
+{\footnotesize\ttfamily template$<$typename T, typename U$>$ \\
+bool \hyperlink{classMapReversable}{Map\+Reversable}$<$ T, U $>$\+::replace (\begin{DoxyParamCaption}\item[{const U \&}]{old\+Value,  }\item[{const U \&}]{new\+Value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Replace all occurrences of old\+Value by new\+Value 
+\begin{DoxyParams}{Parameters}
+{\em old\+Value} & \\
+\hline
+{\em new\+Value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if replacement succeeded 
+\end{DoxyReturn}
+
+
+Definition at line 214 of file map\+Reversable.\+h.
+
+
+
+Referenced by Map\+Reversable$<$ type\+Vertex, type\+Community $>$\+::add(), Graph\+Undirected\+Groupable\+::replace(), and Graph\+Undirected\+Groupable\+::replace\+Community().
+
+\mbox{\Hypertarget{classMapReversable_a9dd692e3862043c5cc02cfb9e003cf19}\label{classMapReversable_a9dd692e3862043c5cc02cfb9e003cf19}} 
+\index{Map\+Reversable@{Map\+Reversable}!replace\+Key@{replace\+Key}}
+\index{replace\+Key@{replace\+Key}!Map\+Reversable@{Map\+Reversable}}
+\subsubsection{\texorpdfstring{replace\+Key()}{replaceKey()}}
+{\footnotesize\ttfamily template$<$typename T, typename U$>$ \\
+bool \hyperlink{classMapReversable}{Map\+Reversable}$<$ T, U $>$\+::replace\+Key (\begin{DoxyParamCaption}\item[{const T \&}]{old\+Key,  }\item[{const T \&}]{new\+Key }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Replace all occurrences of old\+Key by new\+Key 
+\begin{DoxyParams}{Parameters}
+{\em old\+Key} & \\
+\hline
+{\em new\+Key} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if replacement succeeded 
+\end{DoxyReturn}
+
+
+Definition at line 239 of file map\+Reversable.\+h.
+
+
+
+Referenced by Graph\+Undirected\+Groupable\+::replace().
+
+\mbox{\Hypertarget{classMapReversable_aa21253c86298f61a18c215c7d4e8c048}\label{classMapReversable_aa21253c86298f61a18c215c7d4e8c048}} 
+\index{Map\+Reversable@{Map\+Reversable}!size@{size}}
+\index{size@{size}!Map\+Reversable@{Map\+Reversable}}
+\subsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily template$<$typename T, typename U$>$ \\
+const size\+\_\+t \hyperlink{classMapReversable}{Map\+Reversable}$<$ T, U $>$\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 65 of file map\+Reversable.\+h.
+
+
+
+Referenced by Dyn\+Comm\+Base\+::community\+Mapping().
+
+\mbox{\Hypertarget{classMapReversable_a840df7e42bccf937f4d369e2006f3c15}\label{classMapReversable_a840df7e42bccf937f4d369e2006f3c15}} 
+\index{Map\+Reversable@{Map\+Reversable}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Map\+Reversable@{Map\+Reversable}}
+\subsubsection{\texorpdfstring{to\+String()}{toString()}}
+{\footnotesize\ttfamily template$<$typename T, typename U$>$ \\
+std\+::string \hyperlink{classMapReversable}{Map\+Reversable}$<$ T, U $>$\+::to\+String (\begin{DoxyParamCaption}\item[{const \hyperlink{classStringFormatter}{String\+Formatter} \&}]{sf = {\ttfamily \hyperlink{stringFormatter_8h_abf1349c8e24162d0134072aff288f2a2}{default\+String\+Formatter}} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+a string representation of this map list and reverse list 
+\end{DoxyReturn}
+
+
+Definition at line 255 of file map\+Reversable.\+h.
+
+
+
+Referenced by Graph\+Undirected\+Groupable\+::to\+String().
+
+\mbox{\Hypertarget{classMapReversable_ad4b84d263ee939c25f45a0503f3b3c21}\label{classMapReversable_ad4b84d263ee939c25f45a0503f3b3c21}} 
+\index{Map\+Reversable@{Map\+Reversable}!value@{value}}
+\index{value@{value}!Map\+Reversable@{Map\+Reversable}}
+\subsubsection{\texorpdfstring{value()}{value()}}
+{\footnotesize\ttfamily template$<$typename T, typename U$>$ \\
+\hyperlink{classMapReversable_a7a41e7d60ba284a59e7bf76c8c53e9c2}{const\+\_\+iterator} \hyperlink{classMapReversable}{Map\+Reversable}$<$ T, U $>$\+::value (\begin{DoxyParamCaption}\item[{const T \&}]{key }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 100 of file map\+Reversable.\+h.
+
+
+
+Referenced by Dyn\+Comm\+Base\+::community\+Mapping(), and Graph\+Undirected\+Groupable\+::replace().
+
+\mbox{\Hypertarget{classMapReversable_a3c56d581fed9f1e05b5b6db86858ac6b}\label{classMapReversable_a3c56d581fed9f1e05b5b6db86858ac6b}} 
+\index{Map\+Reversable@{Map\+Reversable}!values@{values}}
+\index{values@{values}!Map\+Reversable@{Map\+Reversable}}
+\subsubsection{\texorpdfstring{values()}{values()}}
+{\footnotesize\ttfamily template$<$typename T, typename U$>$ \\
+std\+::set$<$T$>$ \hyperlink{classMapReversable}{Map\+Reversable}$<$ T, U $>$\+::values (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+all unique values in the map 
+\end{DoxyReturn}
+
+
+Definition at line 98 of file map\+Reversable.\+h.
+
+
+
+Referenced by Map\+Reversable$<$ type\+Vertex, type\+Community $>$\+::values().
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classMapReversable_afdf022d06bd77580fe8c0c4309114f83}\label{classMapReversable_afdf022d06bd77580fe8c0c4309114f83}} 
+\index{Map\+Reversable@{Map\+Reversable}!m@{m}}
+\index{m@{m}!Map\+Reversable@{Map\+Reversable}}
+\subsubsection{\texorpdfstring{m}{m}}
+{\footnotesize\ttfamily template$<$typename T, typename U$>$ \\
+std\+::map$<$T,U$>$ \hyperlink{classMapReversable}{Map\+Reversable}$<$ T, U $>$\+::m\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 46 of file map\+Reversable.\+h.
+
+\mbox{\Hypertarget{classMapReversable_a301493c801719dbfef40db1cdc7a5ebe}\label{classMapReversable_a301493c801719dbfef40db1cdc7a5ebe}} 
+\index{Map\+Reversable@{Map\+Reversable}!r@{r}}
+\index{r@{r}!Map\+Reversable@{Map\+Reversable}}
+\subsubsection{\texorpdfstring{r}{r}}
+{\footnotesize\ttfamily template$<$typename T, typename U$>$ \\
+std\+::multimap$<$U,T$>$ \hyperlink{classMapReversable}{Map\+Reversable}$<$ T, U $>$\+::r\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 47 of file map\+Reversable.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+R-\/\+C\+R\+A\+N/src/base/\+Cpp/\hyperlink{mapReversable_8h}{map\+Reversable.\+h}\end{DoxyCompactItemize}

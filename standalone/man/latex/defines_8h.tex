@@ -1,0 +1,117 @@
+\hypertarget{defines_8h}{}\section{R-\/\+C\+R\+A\+N/src/base/\+Cpp/defines.h File Reference}
+\label{defines_8h}\index{R-\/\+C\+R\+A\+N/src/base/\+Cpp/defines.\+h@{R-\/\+C\+R\+A\+N/src/base/\+Cpp/defines.\+h}}
+{\ttfamily \#include $<$Rcpp.\+h$>$}\newline
+Include dependency graph for defines.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=198pt]{defines_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{defines_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{defines_8h_a6521e7fd6056a714eba6a55a90df24b8}{F\+L\+A\+G\+\_\+\+R\+C\+PP}
+\item 
+\#define \hyperlink{defines_8h_a8c54b10b84183429bcbcbc82c92fcca9}{C\+O\+UT}~Rcpp\+::\+Rcout
+\item 
+\#define \hyperlink{defines_8h_a176c0577baa96c686397bca42f7ee6ff}{C\+E\+RR}~Rcpp\+::\+Rcerr
+\item 
+\#define \hyperlink{defines_8h_abef0fff3f763b036d41d9026fb713d32}{exit}(code)~Rcpp\+::stop(std\+::to\+\_\+string(code));
+\item 
+\#define \hyperlink{defines_8h_a025f111e6e78281f1a9ab90eb096a30b}{T\+R\+AP}(x)~\char`\"{}Can not use \char`\"{}\#\#x
+\item 
+\#define \hyperlink{defines_8h_a101fd144d7d407e15633eba37102f1ed}{cout}~\hyperlink{defines_8h_a025f111e6e78281f1a9ab90eb096a30b}{T\+R\+AP}(\char`\"{}std\+::cout\char`\"{})
+\item 
+\#define \hyperlink{defines_8h_a9491bf8e7bb5eff702f2f7912ab7bbc7}{cerr}~\hyperlink{defines_8h_a025f111e6e78281f1a9ab90eb096a30b}{T\+R\+AP}(\char`\"{}std\+::cerr\char`\"{})
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{defines_8h_a176c0577baa96c686397bca42f7ee6ff}\label{defines_8h_a176c0577baa96c686397bca42f7ee6ff}} 
+\index{defines.\+h@{defines.\+h}!C\+E\+RR@{C\+E\+RR}}
+\index{C\+E\+RR@{C\+E\+RR}!defines.\+h@{defines.\+h}}
+\subsubsection{\texorpdfstring{C\+E\+RR}{CERR}}
+{\footnotesize\ttfamily \#define C\+E\+RR~Rcpp\+::\+Rcerr}
+
+
+
+Definition at line 39 of file defines.\+h.
+
+\mbox{\Hypertarget{defines_8h_a9491bf8e7bb5eff702f2f7912ab7bbc7}\label{defines_8h_a9491bf8e7bb5eff702f2f7912ab7bbc7}} 
+\index{defines.\+h@{defines.\+h}!cerr@{cerr}}
+\index{cerr@{cerr}!defines.\+h@{defines.\+h}}
+\subsubsection{\texorpdfstring{cerr}{cerr}}
+{\footnotesize\ttfamily \#define cerr~\hyperlink{defines_8h_a025f111e6e78281f1a9ab90eb096a30b}{T\+R\+AP}(\char`\"{}std\+::cerr\char`\"{})}
+
+
+
+Definition at line 55 of file defines.\+h.
+
+\mbox{\Hypertarget{defines_8h_a8c54b10b84183429bcbcbc82c92fcca9}\label{defines_8h_a8c54b10b84183429bcbcbc82c92fcca9}} 
+\index{defines.\+h@{defines.\+h}!C\+O\+UT@{C\+O\+UT}}
+\index{C\+O\+UT@{C\+O\+UT}!defines.\+h@{defines.\+h}}
+\subsubsection{\texorpdfstring{C\+O\+UT}{COUT}}
+{\footnotesize\ttfamily \#define C\+O\+UT~Rcpp\+::\+Rcout}
+
+
+
+Definition at line 38 of file defines.\+h.
+
+
+
+Referenced by usage().
+
+\mbox{\Hypertarget{defines_8h_a101fd144d7d407e15633eba37102f1ed}\label{defines_8h_a101fd144d7d407e15633eba37102f1ed}} 
+\index{defines.\+h@{defines.\+h}!cout@{cout}}
+\index{cout@{cout}!defines.\+h@{defines.\+h}}
+\subsubsection{\texorpdfstring{cout}{cout}}
+{\footnotesize\ttfamily \#define cout~\hyperlink{defines_8h_a025f111e6e78281f1a9ab90eb096a30b}{T\+R\+AP}(\char`\"{}std\+::cout\char`\"{})}
+
+
+
+Definition at line 50 of file defines.\+h.
+
+\mbox{\Hypertarget{defines_8h_abef0fff3f763b036d41d9026fb713d32}\label{defines_8h_abef0fff3f763b036d41d9026fb713d32}} 
+\index{defines.\+h@{defines.\+h}!exit@{exit}}
+\index{exit@{exit}!defines.\+h@{defines.\+h}}
+\subsubsection{\texorpdfstring{exit}{exit}}
+{\footnotesize\ttfamily \#define exit(\begin{DoxyParamCaption}\item[{}]{code }\end{DoxyParamCaption})~Rcpp\+::stop(std\+::to\+\_\+string(code));}
+
+
+
+Definition at line 40 of file defines.\+h.
+
+
+
+Referenced by usage().
+
+\mbox{\Hypertarget{defines_8h_a6521e7fd6056a714eba6a55a90df24b8}\label{defines_8h_a6521e7fd6056a714eba6a55a90df24b8}} 
+\index{defines.\+h@{defines.\+h}!F\+L\+A\+G\+\_\+\+R\+C\+PP@{F\+L\+A\+G\+\_\+\+R\+C\+PP}}
+\index{F\+L\+A\+G\+\_\+\+R\+C\+PP@{F\+L\+A\+G\+\_\+\+R\+C\+PP}!defines.\+h@{defines.\+h}}
+\subsubsection{\texorpdfstring{F\+L\+A\+G\+\_\+\+R\+C\+PP}{FLAG\_RCPP}}
+{\footnotesize\ttfamily \#define F\+L\+A\+G\+\_\+\+R\+C\+PP}
+
+Define the following flag if compiling for R C\+R\+AN. Otherwise, code is compiled to be standalone 
+
+Definition at line 24 of file defines.\+h.
+
+\mbox{\Hypertarget{defines_8h_a025f111e6e78281f1a9ab90eb096a30b}\label{defines_8h_a025f111e6e78281f1a9ab90eb096a30b}} 
+\index{defines.\+h@{defines.\+h}!T\+R\+AP@{T\+R\+AP}}
+\index{T\+R\+AP@{T\+R\+AP}!defines.\+h@{defines.\+h}}
+\subsubsection{\texorpdfstring{T\+R\+AP}{TRAP}}
+{\footnotesize\ttfamily \#define T\+R\+AP(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~\char`\"{}Can not use \char`\"{}\#\#x}
+
+
+
+Definition at line 45 of file defines.\+h.
+

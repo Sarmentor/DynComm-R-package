@@ -131,8 +131,8 @@ class eTILES(TILES):
             else:
                 self.g.add_edge(u, v, weight=e['weight'])
 
-            u_n = list(self.g.neighbors(u))
-            v_n = list(self.g.neighbors(v))
+            u_n = list(self.g.neighbours(u))
+            v_n = list(self.g.neighbours(v))
 
             #############################################
             #               Evolution                   #
@@ -140,8 +140,8 @@ class eTILES(TILES):
 
             # new community of peripheral nodes (new nodes)
             if len(u_n) > 1 and len(v_n) > 1:
-                common_neighbors = set(u_n) & set(v_n)
-                self.common_neighbors_analysis(u, v, common_neighbors)
+                common_neighbours = set(u_n) & set(v_n)
+                self.common_neighbours_analysis(u, v, common_neighbours)
 
             count += 1
 
@@ -174,27 +174,27 @@ class eTILES(TILES):
         if self.g.has_edge(u, v):
 
             # u and v shared communities
-            if len(list(self.g.neighbors(u))) > 1 and len(list(self.g.neighbors(v))) > 1:
+            if len(list(self.g.neighbours(u))) > 1 and len(list(self.g.neighbours(v))) > 1:
                 coms = set(self.g.node[u]['c_coms'].keys()) & set(self.g.node[v]['c_coms'].keys())
 
                 for c in coms:
                     if c not in coms_to_change:
-                        cn = set(self.g.neighbors(u)) & set(self.g.neighbors(v))
+                        cn = set(self.g.neighbours(u)) & set(self.g.neighbours(v))
                         coms_to_change[c] = [u, v]
                         coms_to_change[c].extend(list(cn))
                     else:
-                        cn = set(self.g.neighbors(u)) & set(self.g.neighbors(v))
+                        cn = set(self.g.neighbours(u)) & set(self.g.neighbours(v))
                         coms_to_change[c].extend(list(cn))
                         coms_to_change[c].extend([u, v])
                         ctc = set(coms_to_change[c])
                         coms_to_change[c] = list(ctc)
             else:
-                if len(list(self.g.neighbors(u))) < 2:
+                if len(list(self.g.neighbours(u))) < 2:
                     coms_u = copy.copy(list(self.g.node[u]['c_coms'].keys()))
                     for cid in coms_u:
                         self.remove_from_community(u, cid)
 
-                if len(list(self.g.neighbors(v))) < 2:
+                if len(list(self.g.neighbours(v))) < 2:
                     coms_v = copy.copy(list(self.g.node[v]['c_coms'].keys()))
                     for cid in coms_v:
                         self.remove_from_community(v, cid)

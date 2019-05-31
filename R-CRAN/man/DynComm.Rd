@@ -43,19 +43,19 @@ selected ALGORITHM and CRITERION.
 The first column names the parameter and the second defines its value.
 \describe{
   \item{
-  -c
+  c
   }{
   Owsinski-Zadrozny quality function parameter. 
   Values [0.0:1.0]. Default: 0.5
   }
   \item{
-  -k
+  k
   }{
   Shi-Malik quality function kappa_min value. 
   Value > 0 . Default 1
   }
   \item{
-  -w
+  w
   }{
   Treat graph as weighted. In other words, do not ignore weights for edges 
   that define them when inserting edges in the graph.
@@ -70,11 +70,20 @@ The first column names the parameter and the second defines its value.
   Values TRUE,FALSE. Default FALSE
   }
   \item{
-  -e
+  e
   }{
   Stops when, on a cycle of the algorithm, the quality is increased by less 
   than the value given in this parameter.
   Value > 0 . Default 0.01
+  }
+  \item{
+  cv
+  }{
+  Community-Vertex.
+  Boolean parameter that indicates if sending community mapping to a file
+  prints the community first, if true, or the vertex first, if false. See
+  \code{\link{communityMapping}} for details.
+  Default TRUE
   }
 }
 }
@@ -228,12 +237,19 @@ c(10,20,10,30,20,30,30,60,40,60,40,50,50,70,60,70)
 ,ncol=2,byrow=TRUE)
 )
 ## or
-## dc$addRemoveEdgesFile("initial_graph.txt")
+## dc$addRemoveEdges("initial_graph.txt")
 dc$communityCount()
-## you can use the non inline version of the functions
+## You can use the non inline version of the functions
 DynComm.communities(dc)
-dc$communityNodeCount(1)
-dc$vertices(1)
+## Several alias have been defined.
+## In this case, communityNodeCount is alias of communityVertexCount
+dc$communityNodeCount(10)
+dc$communityNeighbours(10)
+dc$communityInnerEdgesWeight(10)
+dc$communityTotalWeight(10)
+dc$communityEdgeWeight(10,40)
+dc$community(10) ##this parameter is a vertex not a community. Do not confuse them 
+dc$vertices(10)
 dc$communityMapping(TRUE)
 dc$quality()
 dc$time()

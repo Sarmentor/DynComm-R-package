@@ -1,9 +1,21 @@
-/*
- * reader.h
+/************************************************************************
+ ************************* Developer Notice *****************************
+ ************************************************************************
+ * @details
  *
- *  Created on: 06/02/2019
- *      Author: poltergeist0
- */
+ * This file defines the reader class interface, a dummy reader class and
+ * classes to read edges from string and file.
+ *
+ * There should never be any reason to change it unless to add more
+ * readers.
+ *
+ *
+ * @author poltergeist0
+ *
+ * @date 2019-02-06
+ ************************************************************************
+ ************************************************************************
+ ************************************************************************/
 
 #ifndef SRC_READER_H_
 #define SRC_READER_H_
@@ -14,8 +26,16 @@
 #include "edge.h"
 
 /**
- * Interface for a simple stream forward reader.
- * It can not read backwards.
+ * @brief Interface for a simple stream forward reader.
+ *
+ * @details
+ * Format is one set of values per line, with values separated by any white
+ * space (space or tab) in any amount.
+ * Readers that implement this interface can not read backwards.
+ *
+ * @author poltergeist0
+ *
+ * @date 2019-02-06
  */
 template<typename TYPERETURN>
 class ReaderInterface{
@@ -53,7 +73,16 @@ public:
 };
 
 /**
- * Dummy Reader
+ * @brief Dummy Reader.
+ *
+ * @details
+ *
+ * Can be used when a reader is not going to be used but is required, like when
+ * randomly generating edges, or returned when failing to create a reader.
+ *
+ * @author poltergeist0
+ *
+ * @date 2019-02-06
  */
 class ReaderDummy: public ReaderInterface<std::string>{
 public:
@@ -77,7 +106,16 @@ public:
 
 
 /**
- * Reader for files
+ * @brief Reader for edges from file.
+ *
+ * @details
+ * Format is one edge per line, with values separated by any white
+ * space (space or tab) in any amount.
+ * This Reader can not read backwards.
+ *
+ * @author poltergeist0
+ *
+ * @date 2019-02-06
  */
 class ReaderFileEdge: public ReaderInterface<Edge>{
 private:
@@ -197,6 +235,19 @@ public:
 	std::string status(){return stts;}
 };
 
+/**
+ * @brief Reader for edges from string
+ *
+ * @details
+ * Format is one edge per line, with values separated by any white
+ * space (space or tab) in any amount.
+ * This Reader can not read backwards.
+ * Example valid string: "1 2\n#comment\n\n1 3\n2 3\n3 6\n4 6\n4 5\n5 7\n6 7"
+ *
+ * @author poltergeist0
+ *
+ * @date 2019-02-06
+ */
 class ReaderStringEdge: public ReaderInterface<Edge>{
 private:
 	std::string stts;
@@ -311,7 +362,15 @@ public:
 #ifdef FLAG_RCPP
 
 /**
- * Reader for R Matrix
+ * @brief Reader for edges from R Matrix.
+ *
+ * @details
+ * Format is one edge per line.
+ * This Reader can not read backwards.
+ *
+ * @author poltergeist0
+ *
+ * @date 2019-02-06
  */
 class ReaderMatrixEdge: public ReaderInterface<Edge>{
 private:

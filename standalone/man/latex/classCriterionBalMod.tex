@@ -1,0 +1,175 @@
+\hypertarget{classCriterionBalMod}{}\section{Criterion\+Bal\+Mod Class Reference}
+\label{classCriterionBalMod}\index{Criterion\+Bal\+Mod@{Criterion\+Bal\+Mod}}
+
+
+Balanced Modularity criterion.  
+
+
+
+
+{\ttfamily \#include $<$criterion\+Bal\+Mod.\+h$>$}
+
+
+
+Inheritance diagram for Criterion\+Bal\+Mod\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=172pt]{classCriterionBalMod__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Criterion\+Bal\+Mod\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCriterionBalMod__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classCriterionBalMod_a2ac41e4b98142642daaeff16f87fd1b8}{Criterion\+Bal\+Mod} (const \hyperlink{classGraphUndirectedGroupable}{Graph\+Undirected\+Groupable} \&graph, const \hyperlink{structProgramParameters}{Program\+Parameters} \&parameters=\hyperlink{program_8h_ae2d819404495f80f31db7676c1329d19}{arguments\+Default})
+\item 
+\hyperlink{classCriterionBalMod_a7b436498c68a76ecd7adecc9280900d0}{$\sim$\+Criterion\+Bal\+Mod} ()
+\item 
+\hyperlink{criterionInterface_8h_af71ff22f6355fd69a4a62104bfd59a83}{type\+Criterion} \hyperlink{classCriterionBalMod_acf5001622eb8c495a5d5e8f044c22395}{gain} (const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&vertex, const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \&comm) const
+\item 
+\hyperlink{criterionInterface_8h_af71ff22f6355fd69a4a62104bfd59a83}{type\+Criterion} \hyperlink{classCriterionBalMod_a87c0ccb5e2a851420dc82bd23cc31716}{quality} () const
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Balanced Modularity criterion. 
+
+\begin{DoxyAuthor}{Author}
+poltergeist0
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2018-\/08-\/20 
+\end{DoxyDate}
+
+
+Definition at line 29 of file criterion\+Bal\+Mod.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classCriterionBalMod_a2ac41e4b98142642daaeff16f87fd1b8}\label{classCriterionBalMod_a2ac41e4b98142642daaeff16f87fd1b8}} 
+\index{Criterion\+Bal\+Mod@{Criterion\+Bal\+Mod}!Criterion\+Bal\+Mod@{Criterion\+Bal\+Mod}}
+\index{Criterion\+Bal\+Mod@{Criterion\+Bal\+Mod}!Criterion\+Bal\+Mod@{Criterion\+Bal\+Mod}}
+\subsubsection{\texorpdfstring{Criterion\+Bal\+Mod()}{CriterionBalMod()}}
+{\footnotesize\ttfamily Criterion\+Bal\+Mod\+::\+Criterion\+Bal\+Mod (\begin{DoxyParamCaption}\item[{const \hyperlink{classGraphUndirectedGroupable}{Graph\+Undirected\+Groupable} \&}]{graph,  }\item[{const \hyperlink{structProgramParameters}{Program\+Parameters} \&}]{parameters = {\ttfamily \hyperlink{program_8h_ae2d819404495f80f31db7676c1329d19}{arguments\+Default}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructor.
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & reference to the graph object \\
+\hline
+{\em parameters} & reference to the parameters object \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 39 of file criterion\+Bal\+Mod.\+h.
+
+\mbox{\Hypertarget{classCriterionBalMod_a7b436498c68a76ecd7adecc9280900d0}\label{classCriterionBalMod_a7b436498c68a76ecd7adecc9280900d0}} 
+\index{Criterion\+Bal\+Mod@{Criterion\+Bal\+Mod}!````~Criterion\+Bal\+Mod@{$\sim$\+Criterion\+Bal\+Mod}}
+\index{````~Criterion\+Bal\+Mod@{$\sim$\+Criterion\+Bal\+Mod}!Criterion\+Bal\+Mod@{Criterion\+Bal\+Mod}}
+\subsubsection{\texorpdfstring{$\sim$\+Criterion\+Bal\+Mod()}{~CriterionBalMod()}}
+{\footnotesize\ttfamily Criterion\+Bal\+Mod\+::$\sim$\+Criterion\+Bal\+Mod (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Destructor 
+
+Definition at line 44 of file criterion\+Bal\+Mod.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classCriterionBalMod_acf5001622eb8c495a5d5e8f044c22395}\label{classCriterionBalMod_acf5001622eb8c495a5d5e8f044c22395}} 
+\index{Criterion\+Bal\+Mod@{Criterion\+Bal\+Mod}!gain@{gain}}
+\index{gain@{gain}!Criterion\+Bal\+Mod@{Criterion\+Bal\+Mod}}
+\subsubsection{\texorpdfstring{gain()}{gain()}}
+{\footnotesize\ttfamily \hyperlink{criterionInterface_8h_af71ff22f6355fd69a4a62104bfd59a83}{type\+Criterion} Criterion\+Bal\+Mod\+::gain (\begin{DoxyParamCaption}\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{vertex,  }\item[{const \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \&}]{comm }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+compute the quality obtained if the given vertex was moved from its current community to the given community
+
+
+\begin{DoxyParams}{Parameters}
+{\em vertex} & \\
+\hline
+{\em comm} & new potential community for given vertex \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the quality, which may be positive or negative 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classCriterionInterface_aa0beec8287cd70e16c057e7995d0caca}{Criterion\+Interface}.
+
+
+
+Definition at line 54 of file criterion\+Bal\+Mod.\+h.
+
+
+
+References Graph\+Undirected\+Groupable\+::community(), Criterion\+Base\+::g, Graph\+Undirected\+Groupable\+::neighbours\+Community\+Weight(), Graph\+Undirected\+Groupable\+::total\+Edges(), Graph\+Undirected\+::total\+Weight(), and Graph\+Undirected\+::weighted\+\_\+degree().
+
+
+
+Referenced by Criterion\+::gain().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCriterionBalMod_acf5001622eb8c495a5d5e8f044c22395_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classCriterionBalMod_a87c0ccb5e2a851420dc82bd23cc31716}\label{classCriterionBalMod_a87c0ccb5e2a851420dc82bd23cc31716}} 
+\index{Criterion\+Bal\+Mod@{Criterion\+Bal\+Mod}!quality@{quality}}
+\index{quality@{quality}!Criterion\+Bal\+Mod@{Criterion\+Bal\+Mod}}
+\subsubsection{\texorpdfstring{quality()}{quality()}}
+{\footnotesize\ttfamily \hyperlink{criterionInterface_8h_af71ff22f6355fd69a4a62104bfd59a83}{type\+Criterion} Criterion\+Bal\+Mod\+::quality (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+compute the quality of the current partition scheme
+
+\begin{DoxyReturn}{Returns}
+the quality value 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classCriterionInterface_a5d287dc7755f7ce7d6a3d91f0d8fa5de}{Criterion\+Interface}.
+
+
+
+Definition at line 70 of file criterion\+Bal\+Mod.\+h.
+
+
+
+References Criterion\+Base\+::g, Graph\+Undirected\+::get\+Vertices(), Graph\+Undirected\+Groupable\+::inner\+Edges(), Graph\+Undirected\+Groupable\+::total\+Edges(), and Graph\+Undirected\+::total\+Weight().
+
+
+
+Referenced by Criterion\+::quality().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCriterionBalMod_a87c0ccb5e2a851420dc82bd23cc31716_cgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+R-\/\+C\+R\+A\+N/src/base/\+Cpp/\hyperlink{criterionBalMod_8h}{criterion\+Bal\+Mod.\+h}\end{DoxyCompactItemize}

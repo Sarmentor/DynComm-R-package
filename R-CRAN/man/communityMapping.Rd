@@ -31,6 +31,12 @@ the first column and the communities in the second.
 
 If file is given, returns a single row, single column matrix with TRUE or 
 FALSE, depending whether if writing to file succeeded or failed, respectively.
+
+When writing to file, if the Community-Vertex program parameter is TRUE, each 
+line of the file will have the community first, followed by a list of vertices
+that belong to the community. If that parameter is FALSE, each line will have
+a single vertex followed by its community. All values are separated by a white
+character.
 }
 \examples{
 \dontrun{
