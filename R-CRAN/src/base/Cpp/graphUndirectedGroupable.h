@@ -549,6 +549,12 @@ public:
 		}
 		return b;
 	}
+	/**
+	 * Get the edge count of all community to community edges
+	 *
+	 * @return the edge count
+	 */
+	const typeWeight communitiesEdgeCount()const{return cc.edgeCount()+inner.size();}
 
 	/**
 	 * Get the sum of the weights of all edges of the given community where both

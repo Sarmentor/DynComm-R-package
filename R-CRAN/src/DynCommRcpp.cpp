@@ -180,6 +180,15 @@ public:
 	}
 
 	/**
+	 * Get the number of community to community edges in the graph
+	 *
+	 * @return the number of edges
+	 */
+	typeWeight communitiesEdgeCount()const {
+		return dcb.communitiesEdgeCount();
+	}
+
+	/**
 	 * @return a matrix of neighbouring communities of the given community and the weight of their edge
 	 */
 	Rcpp::NumericMatrix communityNeighbours(typeCommunity community)const{
@@ -255,6 +264,15 @@ public:
 		return v;
 	}
 
+	/**
+	 * Get the number of vertex to vertex edges in the graph
+	 *
+	 * @return the number of edges
+	 */
+	typeWeight edgeCount()const {
+	  return dcb.edgeCount();
+	}
+	
 	/**
 	 * Get a snapshot of the current community mapping as a R Matrix
 	 * Format of the file is:
@@ -363,6 +381,7 @@ RCPP_MODULE(DynCommRcppModule) {
 				 .method("results", &DynCommRcpp::results)
 				 .method("communityCount", &DynCommRcpp::communityCount)
 				 .method("communities", &DynCommRcpp::communities)
+				 .method("communitiesEdgeCount", &DynCommRcpp::communitiesEdgeCount)
 				 .method("communityInnerEdgesWeight", &DynCommRcpp::communityInnerEdgesWeight)
 				 .method("communityTotalWeight", &DynCommRcpp::communityTotalWeight)
          .method("communityEdgeWeight", &DynCommRcpp::communityEdgeWeight)
@@ -372,6 +391,7 @@ RCPP_MODULE(DynCommRcppModule) {
 	       .method("vertexCount", &DynCommRcpp::vertexCount)
 				 .method("verticesAll", &DynCommRcpp::verticesAll)
          .method("vertices", &DynCommRcpp::vertices)
+         .method("edgeCount", &DynCommRcpp::edgeCount)
          .method("communityMappingFile", &DynCommRcpp::communityMappingFile)
          .method("communityMappingMatrix", &DynCommRcpp::communityMappingMatrix)
          .method("neighbours", &DynCommRcpp::neighbours)

@@ -675,6 +675,18 @@ DynComm <- function(Algorithm=ALGORITHM$LOUVAIN,Criterion=CRITERION$MODULARITY,P
     },
     
     #' 
+    #'   \item{communitiesEdgeCount()}{Get the number of community to community edges in the graph. See \code{\link{communitiesEdgeCount}}}
+    #'   
+    communitiesEdgeCount=function() {
+      if(pst==POSTPROCESSING$NONE){
+        return(alg$communitiesEdgeCount())
+      }
+      else{
+        return(prc$communitiesEdgeCount(pst,pstid))
+      }
+    },
+    
+    #' 
     #'   \item{communityNeighbours(community)}{
     #'   Get the neighbours of the given community after the last iteration. 
     #'   See \code{\link{communityNeighbours}}
@@ -878,6 +890,18 @@ DynComm <- function(Algorithm=ALGORITHM$LOUVAIN,Criterion=CRITERION$MODULARITY,P
       return(internalVertices(community))
     },
         
+    #' 
+    #'   \item{edgeCount()}{Get the number of vertex to vertex edges in the graph. See \code{\link{edgeCount}}}
+    #'   
+    edgeCount=function() {
+      if(pst==POSTPROCESSING$NONE){
+        return(alg$edgeCount())
+      }
+      else{
+        return(prc$edgeCount(pst,pstid))
+      }
+    },
+    
     #' 
     #'   \item{communityMapping(differential, file)}{
     #'   Get the community mapping for all communities after the last iteration.
@@ -1409,6 +1433,52 @@ DynComm.communities = function(dyncomm){
   return(dyncomm$communities())
 }
 
+#' @name communitiesEdgeCount
+#'
+#' @title communitiesEdgeCount()
+#'
+#' @author poltergeist0
+#' 
+#' @description 
+#' This method returns the number of community to community edges in the graph
+#' from the selected post processing algorithm or the main algorithm, after the 
+#' last iteration.
+#'
+#' @rdname communitiesEdgeCount
+#'
+#' @docType methods
+#'
+#' @usage 
+# communitiesEdgeCount()
+#' DynComm.communitiesEdgeCount(dyncomm)
+#'
+#' @param dyncomm A DynComm object, if not using the inline version of the 
+#'   function call
+#' 
+#' @method DynComm communitiesEdgeCount
+#'
+#' @return the number of community to community edges in the graph
+#'
+#' @seealso \code{\link{DynComm}} , \code{\link{postProcess}}
+#' 
+#' @export DynComm.communitiesEdgeCount
+#'
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
+#' dc$communitiesEdgeCount()
+#'}
+#' \dontrun{
+#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
+#' communitiesEdgeCount(dc)
+#'}
+#'
+DynComm.communitiesEdgeCount=function(dyncomm) {
+  return(dyncomm$communitiesEdgeCount())
+}
+
 #' @name communityNeighbours
 #'
 #' @title communityNeighbours(community)
@@ -1822,6 +1892,52 @@ DynComm.verticesAll <- function(dyncomm){
 }
 DynComm.nodesAll <- function(dyncomm){
   return(dyncomm$verticesAll())
+}
+
+#' @name edgeCount
+#'
+#' @title edgeCount()
+#'
+#' @author poltergeist0
+#' 
+#' @description 
+#' This method returns the number of vertex to vertex edges in the graph from the
+#' selected post processing algorithm or the main algorithm, after the last 
+#' iteration.
+#'
+#' @rdname edgeCount
+#'
+#' @docType methods
+#'
+#' @usage 
+# edgeCount()
+#' DynComm.edgeCount(dyncomm)
+#'
+#' @param dyncomm A DynComm object, if not using the inline version of the 
+#'   function call
+#' 
+#' @method DynComm edgeCount
+#'
+#' @return the number of vertex to vertex edges in the graph
+#'
+#' @seealso \code{\link{DynComm}} , \code{\link{postProcess}}
+#' 
+#' @export DynComm.edgeCount
+#'
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
+#' dc$edgeCount()
+#'}
+#' \dontrun{
+#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
+#' edgeCount(dc)
+#'}
+#'
+DynComm.edgeCount=function(dyncomm) {
+  return(dyncomm$edgeCount())
 }
 
 #' @name neighbours

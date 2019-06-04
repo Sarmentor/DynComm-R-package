@@ -356,6 +356,21 @@ DynCommMain <- function(Algorithm,Criterion,Parameters)
         }
     },
     
+    #' 
+    #'   \item{communitiesEdgeCount()}{Get the number of community to community edges in the graph. See \code{\link{communitiesEdgeCount}}}
+    #'   
+    communitiesEdgeCount=function() {
+      if(alg>=1 & alg<=10000){
+        return(dc$communitiesEdgeCount())
+      }
+      # else if(alg>=10001 & alg<=20000){
+      #   # print("Python algorithm")
+      #   return(dc$communitiesEdgeCount())
+      # }
+      else{
+        return(NA)
+      }
+    },
     
     #' 
     #'   \item{communityNeighbours(community)}{Get the neighbours of the given community after the last iteration. See \code{\link{communityNeighbours}}}
@@ -530,6 +545,22 @@ DynCommMain <- function(Algorithm,Criterion,Parameters)
       # }
       else{
         return(list())
+      }
+    },
+    
+    #' 
+    #'   \item{edgeCount()}{Get the number of vertex to vertex edges in the graph. See \code{\link{edgeCount}}}
+    #'   
+    edgeCount=function() {
+      if(alg>=1 & alg<=10000){
+        return(dc$edgeCount())
+      }
+      # else if(alg>=10001 & alg<=20000){
+      #   # print("Python algorithm")
+      #   return(dc$edgeCount())
+      # }
+      else{
+        return(NA)
       }
     },
     

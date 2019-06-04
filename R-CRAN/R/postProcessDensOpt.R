@@ -315,6 +315,9 @@ postProcessDensOpt <- function(dyncomm, Parameters=NULL)
       if(apiFunction==APIFUNCTIONS$COMMUNITIES){
         return(TRUE)
       }
+      else if(apiFunction==APIFUNCTIONS$COMMUNITIESEDGECOUNT){
+        return(TRUE)
+      }
       else if(apiFunction==APIFUNCTIONS$COMMUNITY){
         return(TRUE)
       }
@@ -399,6 +402,13 @@ postProcessDensOpt <- function(dyncomm, Parameters=NULL)
       return(unique(commsNew[[2]]))
     },
     
+    
+    #' 
+    #'   \item{communitiesEdgeCount()}{Get the number of community to community edges in the graph. See \code{\link{communitiesEdgeCount}}}
+    #'   
+    communitiesEdgeCount=function(){
+      return(nrow(edgcc))
+    },
     
     #' 
     #'   \item{communityNeighbours(community)}{Get the neighbours of the given community after the last iteration. See \link{communityNeighbours}}
@@ -498,7 +508,9 @@ postProcessDensOpt <- function(dyncomm, Parameters=NULL)
         a<-commsNew[which(is.element(commsNew[,1],a[,1])) & commsNew[,2]!=a[,2],]
         write.table(a, file=file, row.names=FALSE, col.names=FALSE, sep = "\t")
       }
-      write.table(commsNew, file=file, row.names=FALSE, col.names=FALSE, sep = "\t")
+      else{
+        write.table(commsNew, file=file, row.names=FALSE, col.names=FALSE, sep = "\t")
+      }
       return(TRUE)
     }
     

@@ -187,6 +187,9 @@ TemplateDynCommPostProcess <- function(dyncomm, Parameters=NULL)
       if(apiFunction==APIFUNCTIONS$COMMUNITIES){
         return(TRUE)
       }
+      else if(apiFunction==APIFUNCTIONS$COMMUNITIESEDGECOUNT){
+        return(TRUE)
+      }
       else if(apiFunction==APIFUNCTIONS$COMMUNITY){
         return(TRUE)
       }
@@ -222,6 +225,9 @@ TemplateDynCommPostProcess <- function(dyncomm, Parameters=NULL)
       }
       # algorithms dealing with vertices need to implement these too
       else if(apiFunction==APIFUNCTIONS$EDGEWEIGHT){
+        return(TRUE)
+      }
+      else if(apiFunction==APIFUNCTIONS$EDGECOUNT){
         return(TRUE)
       }
       else if(apiFunction==APIFUNCTIONS$NEIGHBOURS){
@@ -295,6 +301,13 @@ TemplateDynCommPostProcess <- function(dyncomm, Parameters=NULL)
       return(list())
     },
     
+    #' 
+    #'   \item{communitiesEdgeCount()}{Get the number of community to community edges in the graph. See \code{\link{communitiesEdgeCount}}}
+    #'   
+    communitiesEdgeCount=function(){
+      ########## implement #############
+      return(NA)
+    },
     
     #' 
     #'   \item{communityNeighbours(community)}{Get the neighbours of the given community after the last iteration. See \code{\link{communityNeighbours}}}
@@ -394,6 +407,14 @@ TemplateDynCommPostProcess <- function(dyncomm, Parameters=NULL)
       ########## implement #############
       return(list())
     },
+    
+    #' 
+    #'   \item{edgeCount()}{Get the number of vertex to vertex edges in the graph. See \code{\link{edgeCount}}}
+    #'   
+    edgeCount=function(){
+      ########## implement #############
+      return(NA)
+    }
     
     #' 
     #'   \item{communityMapping(differential)}{Get the community mapping for all communities after the last iteration.See \code{\link{communityMapping}}}

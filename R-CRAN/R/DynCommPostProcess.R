@@ -104,6 +104,7 @@ POSTPROCESSING <- list(
 #' @format A named list with the names of all API functions:
 #'  \describe{
 #'    \item{COMMUNITIES}{Get all communities after the last iteration. See \code{\link{communities}}}
+#'    \item{COMMUNITIESEDGECOUNT}{Get the number of community to community edges in the graph. See \code{\link{communitiesEdgeCount}}}
 #'    \item{COMMUNITY}{Get the community of the given vertex after the last iteration. See \code{\link{community}}}
 #'    \item{COMMUNITYCOUNT}{Get the number of communities after the last iteration. See \code{\link{communityCount}}}
 #'    \item{COMMUNITYEDGEWEIGHT}{Get the weight of the edge that goes from source to destination after the last iteration. See \code{\link{communityEdgeWeight}}}
@@ -113,6 +114,7 @@ POSTPROCESSING <- list(
 #'    \item{COMMUNITYNEIGHBOURS}{Get the neighbours of the given community after the last iteration. See \code{\link{communityNeighbours}}}
 #'    \item{COMMUNITYTOTALWEIGHT}{Get the sum of weights of all edges of the given community after the last iteration. See \code{\link{communityTotalWeight}}}
 #'    \item{COMMUNITYVERTEXCOUNT}{Get the amount of vertices in the given community after the last iteration. See \code{\link{communityVertexCount}}}
+#'    \item{EDGECOUNT}{Get the number of vertex to vertex edges in the graph. See \code{\link{edgeCount}}}
 #'    \item{EDGEWEIGHT}{Get the weight of the edge that goes from source vertex to destination vertex after the last iteration. See \code{\link{edgeWeight}}}
 #'    \item{NEIGHBOURS}{Get the neighbours of the given vertex after the last iteration. See \code{\link{neighbours}}}
 #'    \item{QUALITY}{Get the quality measurement of the graph after the last iteration. See \code{\link{quality}}}
@@ -149,6 +151,8 @@ APIFUNCTIONS <- list(
   ,VERTEXCOUNT=16L
   ,VERTICESALL=17L
   ,VERTICES=18L
+  ,COMMUNITIESEDGECOUNT=19
+  ,EDGECOUNT=20
 )
 
 #' @name DynCommPostProcess
@@ -417,6 +421,31 @@ DynCommPostProcess <- function(postProcessing=POSTPROCESSING$NONE, id=1, previou
       }
     },
     
+    #' 
+    #'   \item{communitiesEdgeCount()}{Get the number of community to community edges in the graph. See \code{\link{communitiesEdgeCount}}}
+    #'   
+    communitiesEdgeCount=function(postProcessing=POSTPROCESSING$NONE,ID=1){
+      if((postProcessing==POSTPROCESSING$NONE || (pst==postProcessing && id==ID)) && alg$has(APIFUNCTIONS$COMMUNITIESEDGECOUNT)){
+        #this object
+        return(alg$communitiesEdgeCount())
+      }
+      else{ #it is not me (its the one armed man :P )
+        #return from the previous object
+        if(is.null(prv)){
+          #should never get here. There is always a previous
+          return(NA)
+        }
+        else{# there is a previous
+          if(is(prv,"DynCommMain")){ #is main algorithm
+            #do not pass type and id
+            return(prv$communitiesEdgeCount())
+          }
+          else{ #is another post processing algorithm
+            return(prv$communitiesEdgeCount(postProcessing,ID))
+          }
+        }
+      }
+    },
     
     #' 
     #'   \item{communityNeighbours(community)}{Get the neighbours of the given community after the last iteration. See \code{\link{communityNeighbours}}}
@@ -700,6 +729,32 @@ DynCommPostProcess <- function(postProcessing=POSTPROCESSING$NONE, id=1, previou
           }
           else{ #is another post processing algorithm
             return(prv$vertices(community,postProcessing,ID))
+          }
+        }
+      }
+    },
+    
+    #' 
+    #'   \item{edgeCount()}{Get the number of vertex to vertex edges in the graph. See \code{\link{edgeCount}}}
+    #'   
+    edgeCount=function(postProcessing=POSTPROCESSING$NONE,ID=1){
+      if((postProcessing==POSTPROCESSING$NONE || (pst==postProcessing && id==ID)) && alg$has(APIFUNCTIONS$EDGECOUNT)){
+        #this object
+        return(alg$edgeCount())
+      }
+      else{ #it is not me (its the one armed man :P )
+        #return from the previous object
+        if(is.null(prv)){
+          #should never get here. There is always a previous
+          return(NA)
+        }
+        else{# there is a previous
+          if(is(prv,"DynCommMain")){ #is main algorithm
+            #do not pass type and id
+            return(prv$edgeCount())
+          }
+          else{ #is another post processing algorithm
+            return(prv$edgeCount(postProcessing,ID))
           }
         }
       }

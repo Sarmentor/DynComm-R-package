@@ -1,0 +1,908 @@
+\hypertarget{classDynCommBase}{}\section{Dyn\+Comm\+Base Class Reference}
+\label{classDynCommBase}\index{Dyn\+Comm\+Base@{Dyn\+Comm\+Base}}
+
+
+Dynamic Communities base class.  
+
+
+
+
+{\ttfamily \#include $<$Dyn\+Comm\+Base.\+h$>$}
+
+
+
+Inheritance diagram for Dyn\+Comm\+Base\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=205pt]{classDynCommBase__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Dyn\+Comm\+Base\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDynCommBase__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classDynCommBase_a69682c03778e2f5d6b52c8139b26f454}{Dyn\+Comm\+Base} ()=delete
+\item 
+\hyperlink{classDynCommBase_a3dd8b3480d39f8be793d64a312b4da87}{Dyn\+Comm\+Base} (\hyperlink{classAlgorithm_a38e19a8c3dc51b97563a34d9e59a748d}{Algorithm\+::\+A\+L\+G\+O\+R\+I\+T\+HM} algorithm=\hyperlink{classAlgorithm_a38e19a8c3dc51b97563a34d9e59a748dab77e66715d6be972cdbf6cc4d990e732}{Algorithm\+::\+A\+L\+G\+O\+R\+I\+T\+H\+M\+::\+L\+O\+U\+V\+A\+IN}, const \hyperlink{classCriterion_a55594c223ce0837b8319c46c66cb648f}{Criterion\+::\+C\+R\+I\+T\+E\+R\+I\+ON} \&\hyperlink{classDynCommBase_a316b2c63a025810211d205ef6bf1d06c}{quality}=\hyperlink{classCriterion_a55594c223ce0837b8319c46c66cb648fa2a7d416fbe43baf234420601ea73d946}{Criterion\+::\+C\+R\+I\+T\+E\+R\+I\+O\+N\+::\+M\+O\+D\+U\+L\+A\+R\+I\+TY}, \hyperlink{structProgramParameters}{Program\+Parameters} \&algorithm\+Parameters=\hyperlink{program_8h_ae2d819404495f80f31db7676c1329d19}{arguments\+Default})
+\item 
+bool \hyperlink{classDynCommBase_a85ff9898ef25b12f3e80842c7b2696fe}{add\+Remove\+Edges} (\hyperlink{classReaderInterface}{Reader\+Interface}$<$ \hyperlink{classEdge}{Edge} $>$ $\ast$reader)
+\item 
+\hyperlink{criterionInterface_8h_af71ff22f6355fd69a4a62104bfd59a83}{type\+Criterion} \hyperlink{classDynCommBase_a316b2c63a025810211d205ef6bf1d06c}{quality} () const
+\item 
+int \hyperlink{classDynCommBase_add5d1d59a3f20b4ba039342b31551fb3}{community\+Count} () const
+\item 
+\hyperlink{graphUndirectedGroupable_8h_ab79c7252155ca17cb49aa0b1fea30116}{type\+Communities} \hyperlink{classDynCommBase_a064d9909a91cfe25acf05e6bd1fc967d}{communities} () const
+\item 
+\hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \hyperlink{classDynCommBase_af95d4ab7f1814514fd5961900731ba12}{communities\+Edge\+Count} () const
+\item 
+\hyperlink{graphInterface_8h_ae8d27008f15586bbf419af7ad2e0a48a}{type\+Links\+Range\+Const} \hyperlink{classDynCommBase_aba6f1f0fdd67a1d7f546d63706a60cde}{community\+Neighbours} (\hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \hyperlink{classDynCommBase_a651753518a2de4ea52caea518e74d878}{community}) const
+\item 
+\hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \hyperlink{classDynCommBase_ada91e7e914eb8be7f8c25f4c0c81156a}{community\+Inner\+Edges\+Weight} (\hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \hyperlink{classDynCommBase_a651753518a2de4ea52caea518e74d878}{community}) const
+\item 
+\hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \hyperlink{classDynCommBase_a9e7f2493dd9f2381dbfbe94b91ac49f4}{community\+Total\+Weight} (\hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \hyperlink{classDynCommBase_a651753518a2de4ea52caea518e74d878}{community}) const
+\item 
+\hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \hyperlink{classDynCommBase_a1ef408ec71d82b008fc0229416c77b61}{community\+Edge\+Weight} (\hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} source, \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} destination) const
+\item 
+int \hyperlink{classDynCommBase_ad02f1853b63e1ceaf24b05cfdbcf7a49}{community\+Vertex\+Count} (\hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \hyperlink{classDynCommBase_a651753518a2de4ea52caea518e74d878}{community}) const
+\item 
+\hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \hyperlink{classDynCommBase_a651753518a2de4ea52caea518e74d878}{community} (\hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} vertex) const
+\item 
+unsigned int \hyperlink{classDynCommBase_ae415f1a7792158845f69d6850b762d87}{vertex\+Count} () const
+\item 
+\hyperlink{graphInterface_8h_a21d54d8a139def524d3b0d6f71ec4974}{type\+Vertex\+List} \hyperlink{classDynCommBase_ae240fba572935f26a72f73e39e115169}{vertices} () const
+\item 
+\hyperlink{graphInterface_8h_a21d54d8a139def524d3b0d6f71ec4974}{type\+Vertex\+List} \hyperlink{classDynCommBase_ae56cd1fc5a69fcd4d0e0a073f3f2e36b}{vertices} (\hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \hyperlink{classDynCommBase_a651753518a2de4ea52caea518e74d878}{community}) const
+\item 
+\hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \hyperlink{classDynCommBase_a5f7d75431e0f774c1c92f096d6a7c429}{edge\+Count} () const
+\item 
+bool \hyperlink{classDynCommBase_a75ed5e0546d756a3b327f41e292620b2}{community\+Mapping} (\hyperlink{classWriterInterface}{Writer\+Interface} $\ast$writer, bool community\+First=true, bool differential=true) const
+\item 
+\hyperlink{graphInterface_8h_ae8d27008f15586bbf419af7ad2e0a48a}{type\+Links\+Range\+Const} \hyperlink{classDynCommBase_a3500faab82a0547422b2202b79f49718}{neighbours} (\hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} vertex) const
+\begin{DoxyCompactList}\small\item\em Get the neighbours of a vertex. \end{DoxyCompactList}\item 
+\hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \hyperlink{classDynCommBase_ae48a572da3c7b375429e96e717b15787}{weight} (const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&source, const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&destination) const
+\item 
+\hyperlink{systemDefines_8h_abc0f5bc07737e498f287334775dff2b6}{uint64} \hyperlink{classDynCommBase_a5b40eb14cef877fde1db8b6476f6a2ce}{time} (bool accumulated=true) const
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classAlgorithm}{Algorithm} \hyperlink{classDynCommBase_a966f54b7ba340fa782146659998760ed}{algrthm}
+\item 
+\hyperlink{classGraphUndirectedGroupable}{Graph\+Undirected\+Groupable} \hyperlink{classDynCommBase_ae79d443436131554acb4b3ed24908701}{grph}
+\item 
+\hyperlink{classCriterion}{Criterion} \hyperlink{classDynCommBase_a6de9b4c868b4b8ca2923db6f6b1f08f7}{qlt}
+\item 
+\hyperlink{structProgramParameters}{Program\+Parameters} \hyperlink{classDynCommBase_a61a92fd07b37a8153fda9cfebd779dc4}{prmtrs}
+\item 
+\hyperlink{systemDefines_8h_abc0f5bc07737e498f287334775dff2b6}{uint64} \hyperlink{classDynCommBase_ac796111a001f3c815d4b72e66da47cc2}{time\+Total} =0
+\item 
+\hyperlink{systemDefines_8h_abc0f5bc07737e498f287334775dff2b6}{uint64} \hyperlink{classDynCommBase_a7795433997aa908ce2b8be2b3f15aba0}{time\+Start} =0
+\item 
+\hyperlink{systemDefines_8h_abc0f5bc07737e498f287334775dff2b6}{uint64} \hyperlink{classDynCommBase_ae63166e1cbb91574ff23e4c667fad445}{time\+Processing} =0
+\item 
+\hyperlink{graphUndirectedGroupable_8h_a8d8ff0ef0315e7cd3b62e467487cd0e1}{type\+Community\+List} \hyperlink{classDynCommBase_ac8cd68d0bff480bc59878668369aa2a5}{old\+Communities}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Dynamic Communities base class. 
+
+Simple class that only converts between data types and dispatches function calls to the correct object (graph, criterion or algorithm).
+
+\begin{DoxyAuthor}{Author}
+poltergeist0
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019-\/02-\/02 
+\end{DoxyDate}
+
+
+Definition at line 42 of file Dyn\+Comm\+Base.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classDynCommBase_a69682c03778e2f5d6b52c8139b26f454}\label{classDynCommBase_a69682c03778e2f5d6b52c8139b26f454}} 
+\index{Dyn\+Comm\+Base@{Dyn\+Comm\+Base}!Dyn\+Comm\+Base@{Dyn\+Comm\+Base}}
+\index{Dyn\+Comm\+Base@{Dyn\+Comm\+Base}!Dyn\+Comm\+Base@{Dyn\+Comm\+Base}}
+\subsubsection{\texorpdfstring{Dyn\+Comm\+Base()}{DynCommBase()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Dyn\+Comm\+Base\+::\+Dyn\+Comm\+Base (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+Default constructor not acceptable. Must be passed at least the chosen algorithm and the graph \mbox{\Hypertarget{classDynCommBase_a3dd8b3480d39f8be793d64a312b4da87}\label{classDynCommBase_a3dd8b3480d39f8be793d64a312b4da87}} 
+\index{Dyn\+Comm\+Base@{Dyn\+Comm\+Base}!Dyn\+Comm\+Base@{Dyn\+Comm\+Base}}
+\index{Dyn\+Comm\+Base@{Dyn\+Comm\+Base}!Dyn\+Comm\+Base@{Dyn\+Comm\+Base}}
+\subsubsection{\texorpdfstring{Dyn\+Comm\+Base()}{DynCommBase()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Dyn\+Comm\+Base\+::\+Dyn\+Comm\+Base (\begin{DoxyParamCaption}\item[{\hyperlink{classAlgorithm_a38e19a8c3dc51b97563a34d9e59a748d}{Algorithm\+::\+A\+L\+G\+O\+R\+I\+T\+HM}}]{algorithm = {\ttfamily \hyperlink{classAlgorithm_a38e19a8c3dc51b97563a34d9e59a748dab77e66715d6be972cdbf6cc4d990e732}{Algorithm\+::\+A\+L\+G\+O\+R\+I\+T\+H\+M\+::\+L\+O\+U\+V\+A\+IN}},  }\item[{const \hyperlink{classCriterion_a55594c223ce0837b8319c46c66cb648f}{Criterion\+::\+C\+R\+I\+T\+E\+R\+I\+ON} \&}]{quality = {\ttfamily \hyperlink{classCriterion_a55594c223ce0837b8319c46c66cb648fa2a7d416fbe43baf234420601ea73d946}{Criterion\+::\+C\+R\+I\+T\+E\+R\+I\+O\+N\+::\+M\+O\+D\+U\+L\+A\+R\+I\+TY}},  }\item[{\hyperlink{structProgramParameters}{Program\+Parameters} \&}]{algorithm\+Parameters = {\ttfamily \hyperlink{program_8h_ae2d819404495f80f31db7676c1329d19}{arguments\+Default}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructor 
+
+Definition at line 81 of file Dyn\+Comm\+Base.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classDynCommBase_a85ff9898ef25b12f3e80842c7b2696fe}\label{classDynCommBase_a85ff9898ef25b12f3e80842c7b2696fe}} 
+\index{Dyn\+Comm\+Base@{Dyn\+Comm\+Base}!add\+Remove\+Edges@{add\+Remove\+Edges}}
+\index{add\+Remove\+Edges@{add\+Remove\+Edges}!Dyn\+Comm\+Base@{Dyn\+Comm\+Base}}
+\subsubsection{\texorpdfstring{add\+Remove\+Edges()}{addRemoveEdges()}}
+{\footnotesize\ttfamily bool Dyn\+Comm\+Base\+::add\+Remove\+Edges (\begin{DoxyParamCaption}\item[{\hyperlink{classReaderInterface}{Reader\+Interface}$<$ \hyperlink{classEdge}{Edge} $>$ $\ast$}]{reader }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Function to add and remove edges from the graph. Any edge with a weight different from zero is inserted. Any edge with a weight of exactly zero is removed. \begin{DoxyReturn}{Returns}
+true if adding/removing succeeded 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classDynCommBaseInterface_a08720be341a0e75c3535749219f7377b}{Dyn\+Comm\+Base\+Interface}.
+
+
+
+Definition at line 102 of file Dyn\+Comm\+Base.\+h.
+
+
+
+References Map\+Reversable$<$ T, U $>$\+::add(), Algorithm\+::add\+Remove\+Edges(), Graph\+Undirected\+Groupable\+::community(), Time\+::current\+Time(), Graph\+Undirected\+::get\+Vertices(), time\+Processing, and time\+Start.
+
+
+
+Referenced by Dyn\+Comm\+Rcpp\+::add\+Remove\+Edges\+File(), and Dyn\+Comm\+Rcpp\+::add\+Remove\+Edges\+Matrix().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDynCommBase_a85ff9898ef25b12f3e80842c7b2696fe_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classDynCommBase_a064d9909a91cfe25acf05e6bd1fc967d}\label{classDynCommBase_a064d9909a91cfe25acf05e6bd1fc967d}} 
+\index{Dyn\+Comm\+Base@{Dyn\+Comm\+Base}!communities@{communities}}
+\index{communities@{communities}!Dyn\+Comm\+Base@{Dyn\+Comm\+Base}}
+\subsubsection{\texorpdfstring{communities()}{communities()}}
+{\footnotesize\ttfamily \hyperlink{graphUndirectedGroupable_8h_ab79c7252155ca17cb49aa0b1fea30116}{type\+Communities} Dyn\+Comm\+Base\+::communities (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+the list of all existing communities 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classDynCommBaseInterface_aedba7e43ae301ab910340f1d766d1698}{Dyn\+Comm\+Base\+Interface}.
+
+
+
+Definition at line 135 of file Dyn\+Comm\+Base.\+h.
+
+
+
+References Graph\+Undirected\+Groupable\+::communities().
+
+
+
+Referenced by Dyn\+Comm\+Rcpp\+::communities().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDynCommBase_a064d9909a91cfe25acf05e6bd1fc967d_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classDynCommBase_af95d4ab7f1814514fd5961900731ba12}\label{classDynCommBase_af95d4ab7f1814514fd5961900731ba12}} 
+\index{Dyn\+Comm\+Base@{Dyn\+Comm\+Base}!communities\+Edge\+Count@{communities\+Edge\+Count}}
+\index{communities\+Edge\+Count@{communities\+Edge\+Count}!Dyn\+Comm\+Base@{Dyn\+Comm\+Base}}
+\subsubsection{\texorpdfstring{communities\+Edge\+Count()}{communitiesEdgeCount()}}
+{\footnotesize\ttfamily \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} Dyn\+Comm\+Base\+::communities\+Edge\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get the number of community to community edges in the graph
+
+\begin{DoxyReturn}{Returns}
+the number of edges 
+\end{DoxyReturn}
+
+
+Definition at line 144 of file Dyn\+Comm\+Base.\+h.
+
+
+
+References Graph\+Undirected\+Groupable\+::communities\+Edge\+Count().
+
+
+
+Referenced by Dyn\+Comm\+Rcpp\+::communities\+Edge\+Count().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDynCommBase_af95d4ab7f1814514fd5961900731ba12_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classDynCommBase_a651753518a2de4ea52caea518e74d878}\label{classDynCommBase_a651753518a2de4ea52caea518e74d878}} 
+\index{Dyn\+Comm\+Base@{Dyn\+Comm\+Base}!community@{community}}
+\index{community@{community}!Dyn\+Comm\+Base@{Dyn\+Comm\+Base}}
+\subsubsection{\texorpdfstring{community()}{community()}}
+{\footnotesize\ttfamily \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} Dyn\+Comm\+Base\+::community (\begin{DoxyParamCaption}\item[{\hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex}}]{vertex }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the community of the given vertex or a special community of no\+G\+Roup if the vertex does not exist 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classDynCommBaseInterface_a9453a177580033aa1d4d9f165350ceba}{Dyn\+Comm\+Base\+Interface}.
+
+
+
+Definition at line 210 of file Dyn\+Comm\+Base.\+h.
+
+
+
+References Graph\+Undirected\+Groupable\+::community().
+
+
+
+Referenced by Dyn\+Comm\+Rcpp\+::community(), and Dyn\+Comm\+Rcpp\+::community\+Mapping\+Matrix().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDynCommBase_a651753518a2de4ea52caea518e74d878_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classDynCommBase_add5d1d59a3f20b4ba039342b31551fb3}\label{classDynCommBase_add5d1d59a3f20b4ba039342b31551fb3}} 
+\index{Dyn\+Comm\+Base@{Dyn\+Comm\+Base}!community\+Count@{community\+Count}}
+\index{community\+Count@{community\+Count}!Dyn\+Comm\+Base@{Dyn\+Comm\+Base}}
+\subsubsection{\texorpdfstring{community\+Count()}{communityCount()}}
+{\footnotesize\ttfamily int Dyn\+Comm\+Base\+::community\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+the number of existing communities 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classDynCommBaseInterface_aa61588ce385fd66855e17747cf188a85}{Dyn\+Comm\+Base\+Interface}.
+
+
+
+Definition at line 128 of file Dyn\+Comm\+Base.\+h.
+
+
+
+References Graph\+Undirected\+Groupable\+::community\+Count().
+
+
+
+Referenced by Dyn\+Comm\+Rcpp\+::community\+Count().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDynCommBase_add5d1d59a3f20b4ba039342b31551fb3_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classDynCommBase_a1ef408ec71d82b008fc0229416c77b61}\label{classDynCommBase_a1ef408ec71d82b008fc0229416c77b61}} 
+\index{Dyn\+Comm\+Base@{Dyn\+Comm\+Base}!community\+Edge\+Weight@{community\+Edge\+Weight}}
+\index{community\+Edge\+Weight@{community\+Edge\+Weight}!Dyn\+Comm\+Base@{Dyn\+Comm\+Base}}
+\subsubsection{\texorpdfstring{community\+Edge\+Weight()}{communityEdgeWeight()}}
+{\footnotesize\ttfamily \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} Dyn\+Comm\+Base\+::community\+Edge\+Weight (\begin{DoxyParamCaption}\item[{\hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community}}]{source,  }\item[{\hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community}}]{destination }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Get the weight of the edge form by two communities
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & community \\
+\hline
+{\em destination} & community \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the weight of the edge 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classDynCommBaseInterface_a17c322600ba39050005153845dfd3021}{Dyn\+Comm\+Base\+Interface}.
+
+
+
+Definition at line 186 of file Dyn\+Comm\+Base.\+h.
+
+
+
+References Graph\+Undirected\+Groupable\+::weight\+Community().
+
+
+
+Referenced by Dyn\+Comm\+Rcpp\+::community\+Edge\+Weight().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDynCommBase_a1ef408ec71d82b008fc0229416c77b61_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classDynCommBase_ada91e7e914eb8be7f8c25f4c0c81156a}\label{classDynCommBase_ada91e7e914eb8be7f8c25f4c0c81156a}} 
+\index{Dyn\+Comm\+Base@{Dyn\+Comm\+Base}!community\+Inner\+Edges\+Weight@{community\+Inner\+Edges\+Weight}}
+\index{community\+Inner\+Edges\+Weight@{community\+Inner\+Edges\+Weight}!Dyn\+Comm\+Base@{Dyn\+Comm\+Base}}
+\subsubsection{\texorpdfstring{community\+Inner\+Edges\+Weight()}{communityInnerEdgesWeight()}}
+{\footnotesize\ttfamily \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} Dyn\+Comm\+Base\+::community\+Inner\+Edges\+Weight (\begin{DoxyParamCaption}\item[{\hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community}}]{community }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Get the sum of the weights of all edges of the given community where both vertices of an edge belong to the given community.
+
+
+\begin{DoxyParams}{Parameters}
+{\em community} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the sum of the weights of all inner edges 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classDynCommBaseInterface_a0e68dcfcc55385ce60b000d76ccd2d86}{Dyn\+Comm\+Base\+Interface}.
+
+
+
+Definition at line 165 of file Dyn\+Comm\+Base.\+h.
+
+
+
+References Graph\+Undirected\+Groupable\+::inner\+Edges().
+
+
+
+Referenced by Dyn\+Comm\+Rcpp\+::community\+Inner\+Edges\+Weight().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDynCommBase_ada91e7e914eb8be7f8c25f4c0c81156a_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classDynCommBase_a75ed5e0546d756a3b327f41e292620b2}\label{classDynCommBase_a75ed5e0546d756a3b327f41e292620b2}} 
+\index{Dyn\+Comm\+Base@{Dyn\+Comm\+Base}!community\+Mapping@{community\+Mapping}}
+\index{community\+Mapping@{community\+Mapping}!Dyn\+Comm\+Base@{Dyn\+Comm\+Base}}
+\subsubsection{\texorpdfstring{community\+Mapping()}{communityMapping()}}
+{\footnotesize\ttfamily bool Dyn\+Comm\+Base\+::community\+Mapping (\begin{DoxyParamCaption}\item[{\hyperlink{classWriterInterface}{Writer\+Interface} $\ast$}]{writer,  }\item[{bool}]{community\+First = {\ttfamily true},  }\item[{bool}]{differential = {\ttfamily true} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Get a snapshot of the current community mapping. If community\+First is true the result will be one community per line with each line being a community followed by a list of vertices. If false, the result will be a vertex per line with each line being a single vertex and a single community. The differential parameter will probably be moved inside the writer as a parameter
+
+
+\begin{DoxyParams}{Parameters}
+{\em writer} & \\
+\hline
+{\em community\+First} & if true returns a community followed by a list of vertices, otherwise a vertex and its community \\
+\hline
+{\em differential} & return only what changed in the last iteration of the algorithm \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the operation succeeded 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classDynCommBaseInterface_a0985625f987f7f428d76f3baac54e398}{Dyn\+Comm\+Base\+Interface}.
+
+
+
+Definition at line 263 of file Dyn\+Comm\+Base.\+h.
+
+
+
+References Map\+Reversable$<$ T, U $>$\+::cbegin(), Map\+Reversable$<$ T, U $>$\+::cend(), Graph\+Undirected\+Groupable\+::communities(), Graph\+Undirected\+Groupable\+::community(), Graph\+Undirected\+::get\+Vertices(), Writer\+Interface\+::\+L\+I\+NE, Map\+Reversable$<$ T, U $>$\+::size(), Writer\+Interface\+::\+V\+A\+L\+UE, Map\+Reversable$<$ T, U $>$\+::value(), Graph\+Undirected\+::vertex\+Count(), vertices(), and Writer\+Interface\+::write().
+
+
+
+Referenced by Dyn\+Comm\+Rcpp\+::community\+Mapping\+File().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDynCommBase_a75ed5e0546d756a3b327f41e292620b2_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classDynCommBase_aba6f1f0fdd67a1d7f546d63706a60cde}\label{classDynCommBase_aba6f1f0fdd67a1d7f546d63706a60cde}} 
+\index{Dyn\+Comm\+Base@{Dyn\+Comm\+Base}!community\+Neighbours@{community\+Neighbours}}
+\index{community\+Neighbours@{community\+Neighbours}!Dyn\+Comm\+Base@{Dyn\+Comm\+Base}}
+\subsubsection{\texorpdfstring{community\+Neighbours()}{communityNeighbours()}}
+{\footnotesize\ttfamily \hyperlink{graphInterface_8h_ae8d27008f15586bbf419af7ad2e0a48a}{type\+Links\+Range\+Const} Dyn\+Comm\+Base\+::community\+Neighbours (\begin{DoxyParamCaption}\item[{\hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community}}]{community }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Get the communities that are neighbours of the given community
+
+
+\begin{DoxyParams}{Parameters}
+{\em community} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the neighbouring communities 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classDynCommBaseInterface_afbae10b36098f57576378255d9c09faf}{Dyn\+Comm\+Base\+Interface}.
+
+
+
+Definition at line 154 of file Dyn\+Comm\+Base.\+h.
+
+
+
+References Graph\+Undirected\+Groupable\+::neighbouring\+Communities().
+
+
+
+Referenced by Dyn\+Comm\+Rcpp\+::community\+Neighbours().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDynCommBase_aba6f1f0fdd67a1d7f546d63706a60cde_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classDynCommBase_a9e7f2493dd9f2381dbfbe94b91ac49f4}\label{classDynCommBase_a9e7f2493dd9f2381dbfbe94b91ac49f4}} 
+\index{Dyn\+Comm\+Base@{Dyn\+Comm\+Base}!community\+Total\+Weight@{community\+Total\+Weight}}
+\index{community\+Total\+Weight@{community\+Total\+Weight}!Dyn\+Comm\+Base@{Dyn\+Comm\+Base}}
+\subsubsection{\texorpdfstring{community\+Total\+Weight()}{communityTotalWeight()}}
+{\footnotesize\ttfamily \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} Dyn\+Comm\+Base\+::community\+Total\+Weight (\begin{DoxyParamCaption}\item[{\hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community}}]{community }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Get the sum of the weights of all edges of the given community.
+
+
+\begin{DoxyParams}{Parameters}
+{\em community} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the sum of the weights of all edges 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classDynCommBaseInterface_a06e0b8a06e9c1067e12f574458db3eb0}{Dyn\+Comm\+Base\+Interface}.
+
+
+
+Definition at line 175 of file Dyn\+Comm\+Base.\+h.
+
+
+
+References Graph\+Undirected\+Groupable\+::total\+Edges().
+
+
+
+Referenced by Dyn\+Comm\+Rcpp\+::community\+Total\+Weight().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDynCommBase_a9e7f2493dd9f2381dbfbe94b91ac49f4_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classDynCommBase_ad02f1853b63e1ceaf24b05cfdbcf7a49}\label{classDynCommBase_ad02f1853b63e1ceaf24b05cfdbcf7a49}} 
+\index{Dyn\+Comm\+Base@{Dyn\+Comm\+Base}!community\+Vertex\+Count@{community\+Vertex\+Count}}
+\index{community\+Vertex\+Count@{community\+Vertex\+Count}!Dyn\+Comm\+Base@{Dyn\+Comm\+Base}}
+\subsubsection{\texorpdfstring{community\+Vertex\+Count()}{communityVertexCount()}}
+{\footnotesize\ttfamily int Dyn\+Comm\+Base\+::community\+Vertex\+Count (\begin{DoxyParamCaption}\item[{\hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community}}]{community }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Get the number of vertices in the given community
+
+
+\begin{DoxyParams}{Parameters}
+{\em community} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the number of vertices 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classDynCommBaseInterface_a2b4c4a130a2de5eb6cd79af88969ef3c}{Dyn\+Comm\+Base\+Interface}.
+
+
+
+Definition at line 196 of file Dyn\+Comm\+Base.\+h.
+
+
+
+References Graph\+Undirected\+Groupable\+::vertices().
+
+
+
+Referenced by Dyn\+Comm\+Rcpp\+::community\+Vertex\+Count().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDynCommBase_ad02f1853b63e1ceaf24b05cfdbcf7a49_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classDynCommBase_a5f7d75431e0f774c1c92f096d6a7c429}\label{classDynCommBase_a5f7d75431e0f774c1c92f096d6a7c429}} 
+\index{Dyn\+Comm\+Base@{Dyn\+Comm\+Base}!edge\+Count@{edge\+Count}}
+\index{edge\+Count@{edge\+Count}!Dyn\+Comm\+Base@{Dyn\+Comm\+Base}}
+\subsubsection{\texorpdfstring{edge\+Count()}{edgeCount()}}
+{\footnotesize\ttfamily \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} Dyn\+Comm\+Base\+::edge\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get the number of vertex to vertex edges in the graph
+
+\begin{DoxyReturn}{Returns}
+the number of edges 
+\end{DoxyReturn}
+
+
+Definition at line 246 of file Dyn\+Comm\+Base.\+h.
+
+
+
+References Graph\+Undirected\+::edge\+Count().
+
+
+
+Referenced by Dyn\+Comm\+Rcpp\+::edge\+Count().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDynCommBase_a5f7d75431e0f774c1c92f096d6a7c429_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classDynCommBase_a3500faab82a0547422b2202b79f49718}\label{classDynCommBase_a3500faab82a0547422b2202b79f49718}} 
+\index{Dyn\+Comm\+Base@{Dyn\+Comm\+Base}!neighbours@{neighbours}}
+\index{neighbours@{neighbours}!Dyn\+Comm\+Base@{Dyn\+Comm\+Base}}
+\subsubsection{\texorpdfstring{neighbours()}{neighbours()}}
+{\footnotesize\ttfamily \hyperlink{graphInterface_8h_ae8d27008f15586bbf419af7ad2e0a48a}{type\+Links\+Range\+Const} Dyn\+Comm\+Base\+::neighbours (\begin{DoxyParamCaption}\item[{\hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex}}]{vertex }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Get the neighbours of a vertex. 
+
+The pair can change between calls if the Indexed edge list is modified. 
+\begin{DoxyParams}{Parameters}
+{\em vertex} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointers to the first and last neighbour of the vertex 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classDynCommBaseInterface_a9d6f5345d8cdf9e0d70b7a71bff8ade6}{Dyn\+Comm\+Base\+Interface}.
+
+
+
+Definition at line 394 of file Dyn\+Comm\+Base.\+h.
+
+
+
+References Graph\+Undirected\+::neighbours().
+
+
+
+Referenced by Dyn\+Comm\+Rcpp\+::neighbours().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDynCommBase_a3500faab82a0547422b2202b79f49718_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classDynCommBase_a316b2c63a025810211d205ef6bf1d06c}\label{classDynCommBase_a316b2c63a025810211d205ef6bf1d06c}} 
+\index{Dyn\+Comm\+Base@{Dyn\+Comm\+Base}!quality@{quality}}
+\index{quality@{quality}!Dyn\+Comm\+Base@{Dyn\+Comm\+Base}}
+\subsubsection{\texorpdfstring{quality()}{quality()}}
+{\footnotesize\ttfamily \hyperlink{criterionInterface_8h_af71ff22f6355fd69a4a62104bfd59a83}{type\+Criterion} Dyn\+Comm\+Base\+::quality (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+the current quality measure of the community mapping on the graph 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classDynCommBaseInterface_a42863260fe57e0982be227255d4f8464}{Dyn\+Comm\+Base\+Interface}.
+
+
+
+Definition at line 121 of file Dyn\+Comm\+Base.\+h.
+
+
+
+References Criterion\+::quality().
+
+
+
+Referenced by Dyn\+Comm\+Rcpp\+::quality().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDynCommBase_a316b2c63a025810211d205ef6bf1d06c_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classDynCommBase_a5b40eb14cef877fde1db8b6476f6a2ce}\label{classDynCommBase_a5b40eb14cef877fde1db8b6476f6a2ce}} 
+\index{Dyn\+Comm\+Base@{Dyn\+Comm\+Base}!time@{time}}
+\index{time@{time}!Dyn\+Comm\+Base@{Dyn\+Comm\+Base}}
+\subsubsection{\texorpdfstring{time()}{time()}}
+{\footnotesize\ttfamily \hyperlink{systemDefines_8h_abc0f5bc07737e498f287334775dff2b6}{uint64} Dyn\+Comm\+Base\+::time (\begin{DoxyParamCaption}\item[{bool}]{accumulated = {\ttfamily true} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+the total processing time in nanoseconds 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classDynCommBaseInterface_a6fb483ffc71baf6f0d4f6a0371e34ca9}{Dyn\+Comm\+Base\+Interface}.
+
+
+
+Definition at line 409 of file Dyn\+Comm\+Base.\+h.
+
+
+
+References time\+Processing, and time\+Total.
+
+
+
+Referenced by Dyn\+Comm\+Rcpp\+::results(), and Dyn\+Comm\+Rcpp\+::time().
+
+\mbox{\Hypertarget{classDynCommBase_ae415f1a7792158845f69d6850b762d87}\label{classDynCommBase_ae415f1a7792158845f69d6850b762d87}} 
+\index{Dyn\+Comm\+Base@{Dyn\+Comm\+Base}!vertex\+Count@{vertex\+Count}}
+\index{vertex\+Count@{vertex\+Count}!Dyn\+Comm\+Base@{Dyn\+Comm\+Base}}
+\subsubsection{\texorpdfstring{vertex\+Count()}{vertexCount()}}
+{\footnotesize\ttfamily unsigned int Dyn\+Comm\+Base\+::vertex\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+the number of vertices in the graph 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classDynCommBaseInterface_a792b9c74e55abbc48fbc078bc5fead0c}{Dyn\+Comm\+Base\+Interface}.
+
+
+
+Definition at line 217 of file Dyn\+Comm\+Base.\+h.
+
+
+
+References Graph\+Undirected\+::vertex\+Count().
+
+
+
+Referenced by Dyn\+Comm\+Rcpp\+::community\+Mapping\+Matrix(), and Dyn\+Comm\+Rcpp\+::vertex\+Count().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDynCommBase_ae415f1a7792158845f69d6850b762d87_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classDynCommBase_ae240fba572935f26a72f73e39e115169}\label{classDynCommBase_ae240fba572935f26a72f73e39e115169}} 
+\index{Dyn\+Comm\+Base@{Dyn\+Comm\+Base}!vertices@{vertices}}
+\index{vertices@{vertices}!Dyn\+Comm\+Base@{Dyn\+Comm\+Base}}
+\subsubsection{\texorpdfstring{vertices()}{vertices()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \hyperlink{graphInterface_8h_a21d54d8a139def524d3b0d6f71ec4974}{type\+Vertex\+List} Dyn\+Comm\+Base\+::vertices (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+a constant set with all vertices 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classDynCommBaseInterface_af5023d7b81f4413cc8052df01067f71f}{Dyn\+Comm\+Base\+Interface}.
+
+
+
+Definition at line 224 of file Dyn\+Comm\+Base.\+h.
+
+
+
+References Graph\+Undirected\+::get\+Vertices().
+
+
+
+Referenced by community\+Mapping(), Dyn\+Comm\+Rcpp\+::community\+Mapping\+Matrix(), Dyn\+Comm\+Rcpp\+::vertices(), and Dyn\+Comm\+Rcpp\+::vertices\+All().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDynCommBase_ae240fba572935f26a72f73e39e115169_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classDynCommBase_ae56cd1fc5a69fcd4d0e0a073f3f2e36b}\label{classDynCommBase_ae56cd1fc5a69fcd4d0e0a073f3f2e36b}} 
+\index{Dyn\+Comm\+Base@{Dyn\+Comm\+Base}!vertices@{vertices}}
+\index{vertices@{vertices}!Dyn\+Comm\+Base@{Dyn\+Comm\+Base}}
+\subsubsection{\texorpdfstring{vertices()}{vertices()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \hyperlink{graphInterface_8h_a21d54d8a139def524d3b0d6f71ec4974}{type\+Vertex\+List} Dyn\+Comm\+Base\+::vertices (\begin{DoxyParamCaption}\item[{\hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community}}]{community }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+a list of all vertices belonging to the given community 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classDynCommBaseInterface_ab178106e07cf3ad86ce2deb17dd5666e}{Dyn\+Comm\+Base\+Interface}.
+
+
+
+Definition at line 231 of file Dyn\+Comm\+Base.\+h.
+
+
+
+References Graph\+Undirected\+Groupable\+::vertices().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDynCommBase_ae56cd1fc5a69fcd4d0e0a073f3f2e36b_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classDynCommBase_ae48a572da3c7b375429e96e717b15787}\label{classDynCommBase_ae48a572da3c7b375429e96e717b15787}} 
+\index{Dyn\+Comm\+Base@{Dyn\+Comm\+Base}!weight@{weight}}
+\index{weight@{weight}!Dyn\+Comm\+Base@{Dyn\+Comm\+Base}}
+\subsubsection{\texorpdfstring{weight()}{weight()}}
+{\footnotesize\ttfamily \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} Dyn\+Comm\+Base\+::weight (\begin{DoxyParamCaption}\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{source,  }\item[{const \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} \&}]{destination }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+the weight of the edge 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classDynCommBaseInterface_a31514affa49ac05ccf3318b3558cf0b2}{Dyn\+Comm\+Base\+Interface}.
+
+
+
+Definition at line 401 of file Dyn\+Comm\+Base.\+h.
+
+
+
+References Graph\+Undirected\+::weight().
+
+
+
+Referenced by Dyn\+Comm\+Rcpp\+::edge\+Weight().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDynCommBase_ae48a572da3c7b375429e96e717b15787_cgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classDynCommBase_a966f54b7ba340fa782146659998760ed}\label{classDynCommBase_a966f54b7ba340fa782146659998760ed}} 
+\index{Dyn\+Comm\+Base@{Dyn\+Comm\+Base}!algrthm@{algrthm}}
+\index{algrthm@{algrthm}!Dyn\+Comm\+Base@{Dyn\+Comm\+Base}}
+\subsubsection{\texorpdfstring{algrthm}{algrthm}}
+{\footnotesize\ttfamily \hyperlink{classAlgorithm}{Algorithm} Dyn\+Comm\+Base\+::algrthm\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 44 of file Dyn\+Comm\+Base.\+h.
+
+\mbox{\Hypertarget{classDynCommBase_ae79d443436131554acb4b3ed24908701}\label{classDynCommBase_ae79d443436131554acb4b3ed24908701}} 
+\index{Dyn\+Comm\+Base@{Dyn\+Comm\+Base}!grph@{grph}}
+\index{grph@{grph}!Dyn\+Comm\+Base@{Dyn\+Comm\+Base}}
+\subsubsection{\texorpdfstring{grph}{grph}}
+{\footnotesize\ttfamily \hyperlink{classGraphUndirectedGroupable}{Graph\+Undirected\+Groupable} Dyn\+Comm\+Base\+::grph\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 45 of file Dyn\+Comm\+Base.\+h.
+
+\mbox{\Hypertarget{classDynCommBase_ac8cd68d0bff480bc59878668369aa2a5}\label{classDynCommBase_ac8cd68d0bff480bc59878668369aa2a5}} 
+\index{Dyn\+Comm\+Base@{Dyn\+Comm\+Base}!old\+Communities@{old\+Communities}}
+\index{old\+Communities@{old\+Communities}!Dyn\+Comm\+Base@{Dyn\+Comm\+Base}}
+\subsubsection{\texorpdfstring{old\+Communities}{oldCommunities}}
+{\footnotesize\ttfamily \hyperlink{graphUndirectedGroupable_8h_a8d8ff0ef0315e7cd3b62e467487cd0e1}{type\+Community\+List} Dyn\+Comm\+Base\+::old\+Communities\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 69 of file Dyn\+Comm\+Base.\+h.
+
+\mbox{\Hypertarget{classDynCommBase_a61a92fd07b37a8153fda9cfebd779dc4}\label{classDynCommBase_a61a92fd07b37a8153fda9cfebd779dc4}} 
+\index{Dyn\+Comm\+Base@{Dyn\+Comm\+Base}!prmtrs@{prmtrs}}
+\index{prmtrs@{prmtrs}!Dyn\+Comm\+Base@{Dyn\+Comm\+Base}}
+\subsubsection{\texorpdfstring{prmtrs}{prmtrs}}
+{\footnotesize\ttfamily \hyperlink{structProgramParameters}{Program\+Parameters} Dyn\+Comm\+Base\+::prmtrs\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 47 of file Dyn\+Comm\+Base.\+h.
+
+\mbox{\Hypertarget{classDynCommBase_a6de9b4c868b4b8ca2923db6f6b1f08f7}\label{classDynCommBase_a6de9b4c868b4b8ca2923db6f6b1f08f7}} 
+\index{Dyn\+Comm\+Base@{Dyn\+Comm\+Base}!qlt@{qlt}}
+\index{qlt@{qlt}!Dyn\+Comm\+Base@{Dyn\+Comm\+Base}}
+\subsubsection{\texorpdfstring{qlt}{qlt}}
+{\footnotesize\ttfamily \hyperlink{classCriterion}{Criterion} Dyn\+Comm\+Base\+::qlt\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 46 of file Dyn\+Comm\+Base.\+h.
+
+\mbox{\Hypertarget{classDynCommBase_ae63166e1cbb91574ff23e4c667fad445}\label{classDynCommBase_ae63166e1cbb91574ff23e4c667fad445}} 
+\index{Dyn\+Comm\+Base@{Dyn\+Comm\+Base}!time\+Processing@{time\+Processing}}
+\index{time\+Processing@{time\+Processing}!Dyn\+Comm\+Base@{Dyn\+Comm\+Base}}
+\subsubsection{\texorpdfstring{time\+Processing}{timeProcessing}}
+{\footnotesize\ttfamily \hyperlink{systemDefines_8h_abc0f5bc07737e498f287334775dff2b6}{uint64} Dyn\+Comm\+Base\+::time\+Processing =0\hspace{0.3cm}{\ttfamily [private]}}
+
+total time used for processing 
+
+Definition at line 62 of file Dyn\+Comm\+Base.\+h.
+
+
+
+Referenced by add\+Remove\+Edges(), and time().
+
+\mbox{\Hypertarget{classDynCommBase_a7795433997aa908ce2b8be2b3f15aba0}\label{classDynCommBase_a7795433997aa908ce2b8be2b3f15aba0}} 
+\index{Dyn\+Comm\+Base@{Dyn\+Comm\+Base}!time\+Start@{time\+Start}}
+\index{time\+Start@{time\+Start}!Dyn\+Comm\+Base@{Dyn\+Comm\+Base}}
+\subsubsection{\texorpdfstring{time\+Start}{timeStart}}
+{\footnotesize\ttfamily \hyperlink{systemDefines_8h_abc0f5bc07737e498f287334775dff2b6}{uint64} Dyn\+Comm\+Base\+::time\+Start =0\hspace{0.3cm}{\ttfamily [private]}}
+
+auxiliary time used to store the start time 
+
+Definition at line 57 of file Dyn\+Comm\+Base.\+h.
+
+
+
+Referenced by add\+Remove\+Edges().
+
+\mbox{\Hypertarget{classDynCommBase_ac796111a001f3c815d4b72e66da47cc2}\label{classDynCommBase_ac796111a001f3c815d4b72e66da47cc2}} 
+\index{Dyn\+Comm\+Base@{Dyn\+Comm\+Base}!time\+Total@{time\+Total}}
+\index{time\+Total@{time\+Total}!Dyn\+Comm\+Base@{Dyn\+Comm\+Base}}
+\subsubsection{\texorpdfstring{time\+Total}{timeTotal}}
+{\footnotesize\ttfamily \hyperlink{systemDefines_8h_abc0f5bc07737e498f287334775dff2b6}{uint64} Dyn\+Comm\+Base\+::time\+Total =0\hspace{0.3cm}{\ttfamily [private]}}
+
+total accumulated time used for processing 
+
+Definition at line 52 of file Dyn\+Comm\+Base.\+h.
+
+
+
+Referenced by time().
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+R-\/\+C\+R\+A\+N/src/base/\+Cpp/\hyperlink{DynCommBase_8h}{Dyn\+Comm\+Base.\+h}\end{DoxyCompactItemize}

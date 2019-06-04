@@ -7,6 +7,7 @@
 \format{A named list with the names of all API functions:
  \describe{
    \item{COMMUNITIES}{Get all communities after the last iteration. See \code{\link{communities}}}
+   \item{COMMUNITIESEDGECOUNT}{Get the number of community to community edges in the graph. See \code{\link{communitiesEdgeCount}}}
    \item{COMMUNITY}{Get the community of the given vertex after the last iteration. See \code{\link{community}}}
    \item{COMMUNITYCOUNT}{Get the number of communities after the last iteration. See \code{\link{communityCount}}}
    \item{COMMUNITYEDGEWEIGHT}{Get the weight of the edge that goes from source to destination after the last iteration. See \code{\link{communityEdgeWeight}}}
@@ -16,6 +17,7 @@
    \item{COMMUNITYNEIGHBOURS}{Get the neighbours of the given community after the last iteration. See \code{\link{communityNeighbours}}}
    \item{COMMUNITYTOTALWEIGHT}{Get the sum of weights of all edges of the given community after the last iteration. See \code{\link{communityTotalWeight}}}
    \item{COMMUNITYVERTEXCOUNT}{Get the amount of vertices in the given community after the last iteration. See \code{\link{communityVertexCount}}}
+   \item{EDGECOUNT}{Get the number of vertex to vertex edges in the graph. See \code{\link{edgeCount}}}
    \item{EDGEWEIGHT}{Get the weight of the edge that goes from source vertex to destination vertex after the last iteration. See \code{\link{edgeWeight}}}
    \item{NEIGHBOURS}{Get the neighbours of the given vertex after the last iteration. See \code{\link{neighbours}}}
    \item{QUALITY}{Get the quality measurement of the graph after the last iteration. See \code{\link{quality}}}

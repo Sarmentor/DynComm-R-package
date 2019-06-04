@@ -216,6 +216,14 @@ TemplateDynCommMain <- function(Algorithm,Criterion,Parameters)
     
     
     #' 
+    #'   \item{communitiesEdgeCount()}{Get the number of community to community edges in the graph. See \code{\link{communitiesEdgeCount}}}
+    #'   
+    communitiesEdgeCount=function(){
+      ########## implement #############
+      return(NA)
+    },
+    
+    #' 
     #'   \item{communityNeighbours(community)}{Get the neighbours of the given community after the last iteration. See \code{\link{communityNeighbours}}}
     #'   
     # community is an unsigned integer
@@ -313,6 +321,14 @@ TemplateDynCommMain <- function(Algorithm,Criterion,Parameters)
       ########## implement #############
       return(list())
     },
+    
+    #' 
+    #'   \item{edgeCount()}{Get the number of vertex to vertex edges in the graph. See \code{\link{edgeCount}}}
+    #'   
+    edgeCount=function(){
+      ########## implement #############
+      return(NA)
+    }
     
     #' 
     #'   \item{communityMapping(differential)}{Get the community mapping for all communities after the last iteration.See \code{\link{communityMapping}}}
