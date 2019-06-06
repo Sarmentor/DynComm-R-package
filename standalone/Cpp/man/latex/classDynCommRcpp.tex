@@ -1,0 +1,799 @@
+\hypertarget{classDynCommRcpp}{}\section{Dyn\+Comm\+Rcpp Class Reference}
+\label{classDynCommRcpp}\index{Dyn\+Comm\+Rcpp@{Dyn\+Comm\+Rcpp}}
+
+
+Collaboration diagram for Dyn\+Comm\+Rcpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDynCommRcpp__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classDynCommRcpp_a65289b1838009023b527237b64c073a2}{Dyn\+Comm\+Rcpp} ()=delete
+\item 
+\hyperlink{classDynCommRcpp_a1e3ae3a0be89f2a661dc09d7842a3ac7}{Dyn\+Comm\+Rcpp} (\hyperlink{classAlgorithm_a38e19a8c3dc51b97563a34d9e59a748d}{Algorithm\+::\+A\+L\+G\+O\+R\+I\+T\+HM} algorithm=\hyperlink{classAlgorithm_a38e19a8c3dc51b97563a34d9e59a748dab77e66715d6be972cdbf6cc4d990e732}{Algorithm\+::\+A\+L\+G\+O\+R\+I\+T\+H\+M\+::\+L\+O\+U\+V\+A\+IN}, const \hyperlink{classCriterion_a55594c223ce0837b8319c46c66cb648f}{Criterion\+::\+C\+R\+I\+T\+E\+R\+I\+ON} \&\hyperlink{classDynCommRcpp_a3d9d6845d9e67941da187bca511cdfcf}{quality}=\hyperlink{classCriterion_a55594c223ce0837b8319c46c66cb648fa2a7d416fbe43baf234420601ea73d946}{Criterion\+::\+C\+R\+I\+T\+E\+R\+I\+O\+N\+::\+M\+O\+D\+U\+L\+A\+R\+I\+TY}, Rcpp\+::\+Character\+Matrix algorithm\+Parameters=Rcpp\+::\+Character\+Matrix())
+\item 
+bool \hyperlink{classDynCommRcpp_a9080af5a73f77db6eff4d7a41596902a}{add\+Remove\+Edges\+File} (std\+::string graph\+Add\+Remove)
+\item 
+bool \hyperlink{classDynCommRcpp_ae9fb6b69740abb2d52721ec76d744811}{add\+Remove\+Edges\+Matrix} (Rcpp\+::\+Numeric\+Matrix graph\+Add\+Remove=Rcpp\+::\+Numeric\+Matrix())
+\item 
+double \hyperlink{classDynCommRcpp_a3d9d6845d9e67941da187bca511cdfcf}{quality} ()
+\item 
+int \hyperlink{classDynCommRcpp_a67948d5821c2ccffc4dbf47bac6fba70}{community\+Count} ()
+\item 
+Rcpp\+::\+Numeric\+Vector \hyperlink{classDynCommRcpp_ade6d5c2ebbb13f2efb3988d0d0ac2c1e}{communities} ()
+\item 
+\hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \hyperlink{classDynCommRcpp_a1a4622783fe2ed76e1c2321204b4b844}{communities\+Edge\+Count} () const
+\item 
+Rcpp\+::\+Numeric\+Matrix \hyperlink{classDynCommRcpp_ad23168e5fa7cf85d5508c646f3e39b9b}{community\+Neighbours} (\hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \hyperlink{classDynCommRcpp_ac3c8c1759d2ab106b757557e09834ec5}{community}) const
+\item 
+\hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \hyperlink{classDynCommRcpp_aed6b4f1e844956429eb9a15d8d6df7b6}{community\+Inner\+Edges\+Weight} (int \hyperlink{classDynCommRcpp_ac3c8c1759d2ab106b757557e09834ec5}{community})
+\item 
+\hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \hyperlink{classDynCommRcpp_a687e7be3ae84f1a80a3648435bd473a3}{community\+Total\+Weight} (int \hyperlink{classDynCommRcpp_ac3c8c1759d2ab106b757557e09834ec5}{community})
+\item 
+\hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \hyperlink{classDynCommRcpp_ad74a2abe244e62d9df2b98aeea0d3155}{community\+Edge\+Weight} (\hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} source, \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} destination) const
+\item 
+int \hyperlink{classDynCommRcpp_ab856335d737d2292df6f86e9cf199d58}{community\+Vertex\+Count} (int \hyperlink{classDynCommRcpp_ac3c8c1759d2ab106b757557e09834ec5}{community})
+\item 
+\hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} \hyperlink{classDynCommRcpp_ac3c8c1759d2ab106b757557e09834ec5}{community} (\hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} vertex) const
+\item 
+unsigned int \hyperlink{classDynCommRcpp_af7bc0e9dc9a2c1e232b3e28b63388629}{vertex\+Count} () const
+\item 
+Rcpp\+::\+Numeric\+Vector \hyperlink{classDynCommRcpp_aa2aa3fe8c7af4239bd9b3c6a669329ec}{vertices\+All} ()
+\item 
+Rcpp\+::\+Numeric\+Vector \hyperlink{classDynCommRcpp_ad849d8e27c9f8aec2f6cdf89b06b9be4}{vertices} (int \hyperlink{classDynCommRcpp_ac3c8c1759d2ab106b757557e09834ec5}{community})
+\item 
+\hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \hyperlink{classDynCommRcpp_aaa83772d4e3bc2407991116a196f3ce0}{edge\+Count} () const
+\item 
+Rcpp\+::\+Numeric\+Matrix \hyperlink{classDynCommRcpp_aaa996ab5e558887d3bc5394af78a2e95}{community\+Mapping\+Matrix} (bool differential=true)
+\item 
+Rcpp\+::\+Numeric\+Matrix \hyperlink{classDynCommRcpp_a132aff4ca6f76fd006b2faccbfd01e04}{community\+Mapping\+File} (bool community\+First=true, bool differential=true, const std\+::string \&file=\char`\"{}community\+Mapping.\+txt\char`\"{})
+\item 
+Rcpp\+::\+Character\+Matrix \hyperlink{classDynCommRcpp_a4120d9f0232611e4ecb497eaf6e4706a}{results} (bool differential=true)
+\item 
+Rcpp\+::\+Numeric\+Matrix \hyperlink{classDynCommRcpp_abbda8cc950c360c1b89859ebe9233535}{neighbours} (\hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} vertex) const
+\item 
+\hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} \hyperlink{classDynCommRcpp_a9a9aaf2512541f308d935e48c583f410}{edge\+Weight} (\hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} source, \hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex} destination) const
+\item 
+\hyperlink{systemDefines_8h_abc0f5bc07737e498f287334775dff2b6}{uint64} \hyperlink{classDynCommRcpp_a89773080b66fd210a7e22234ba04a19f}{time} (bool differential=false)
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structProgramParameters}{Program\+Parameters} \hyperlink{classDynCommRcpp_a52692d421657ffcbe6a97762de9deddc}{convert\+To\+Parameters} (Rcpp\+::\+Character\+Matrix algorithm\+Parameters=Rcpp\+::\+Character\+Matrix())
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structProgramParameters}{Program\+Parameters} \hyperlink{classDynCommRcpp_a686a84dced9c0cd812cb184d48958758}{prmtrs}
+\item 
+\hyperlink{classDynCommBase}{Dyn\+Comm\+Base} \hyperlink{classDynCommRcpp_a29aa77f1324fd9891a67feedea880961}{dcb}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Dynamic Communities class that handles all the IO for the base class. This (file/class) is the R version. 
+
+Definition at line 48 of file Dyn\+Comm\+Rcpp.\+cpp.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classDynCommRcpp_a65289b1838009023b527237b64c073a2}\label{classDynCommRcpp_a65289b1838009023b527237b64c073a2}} 
+\index{Dyn\+Comm\+Rcpp@{Dyn\+Comm\+Rcpp}!Dyn\+Comm\+Rcpp@{Dyn\+Comm\+Rcpp}}
+\index{Dyn\+Comm\+Rcpp@{Dyn\+Comm\+Rcpp}!Dyn\+Comm\+Rcpp@{Dyn\+Comm\+Rcpp}}
+\subsubsection{\texorpdfstring{Dyn\+Comm\+Rcpp()}{DynCommRcpp()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Dyn\+Comm\+Rcpp\+::\+Dyn\+Comm\+Rcpp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+Default constructor not acceptable. Must be passed at least the chosen algorithm and the graph \mbox{\Hypertarget{classDynCommRcpp_a1e3ae3a0be89f2a661dc09d7842a3ac7}\label{classDynCommRcpp_a1e3ae3a0be89f2a661dc09d7842a3ac7}} 
+\index{Dyn\+Comm\+Rcpp@{Dyn\+Comm\+Rcpp}!Dyn\+Comm\+Rcpp@{Dyn\+Comm\+Rcpp}}
+\index{Dyn\+Comm\+Rcpp@{Dyn\+Comm\+Rcpp}!Dyn\+Comm\+Rcpp@{Dyn\+Comm\+Rcpp}}
+\subsubsection{\texorpdfstring{Dyn\+Comm\+Rcpp()}{DynCommRcpp()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Dyn\+Comm\+Rcpp\+::\+Dyn\+Comm\+Rcpp (\begin{DoxyParamCaption}\item[{\hyperlink{classAlgorithm_a38e19a8c3dc51b97563a34d9e59a748d}{Algorithm\+::\+A\+L\+G\+O\+R\+I\+T\+HM}}]{algorithm = {\ttfamily \hyperlink{classAlgorithm_a38e19a8c3dc51b97563a34d9e59a748dab77e66715d6be972cdbf6cc4d990e732}{Algorithm\+::\+A\+L\+G\+O\+R\+I\+T\+H\+M\+::\+L\+O\+U\+V\+A\+IN}},  }\item[{const \hyperlink{classCriterion_a55594c223ce0837b8319c46c66cb648f}{Criterion\+::\+C\+R\+I\+T\+E\+R\+I\+ON} \&}]{quality = {\ttfamily \hyperlink{classCriterion_a55594c223ce0837b8319c46c66cb648fa2a7d416fbe43baf234420601ea73d946}{Criterion\+::\+C\+R\+I\+T\+E\+R\+I\+O\+N\+::\+M\+O\+D\+U\+L\+A\+R\+I\+TY}},  }\item[{Rcpp\+::\+Character\+Matrix}]{algorithm\+Parameters = {\ttfamily Rcpp\+:\+:CharacterMatrix()} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructor for loading graph from white character (tab or space) separated values file Format of file is\+:
+\begin{DoxyItemize}
+\item one edge per line
+\item edge contains two or three values separated by a white space, in this order, source vertex, destination vertex and, optionally, a weight
+\item if weight is not given, it will default to 1
+\item edges with a weight of exactly zero are not added
+\item source and destination vertices are integers between 0 and M\+A\+X\+\_\+\+I\+N\+T\+E\+G\+E\+R\+\_\+\+V\+A\+L\+U\+E-\/1
+\item weight is a double
+\item M\+A\+X\+\_\+\+I\+N\+T\+E\+G\+E\+R\+\_\+\+V\+A\+L\+UE depends on the platform being 32bit or 64bit. It is the maximum value of an integer in that platform 
+\end{DoxyItemize}
+
+Definition at line 95 of file Dyn\+Comm\+Rcpp.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classDynCommRcpp_a9080af5a73f77db6eff4d7a41596902a}\label{classDynCommRcpp_a9080af5a73f77db6eff4d7a41596902a}} 
+\index{Dyn\+Comm\+Rcpp@{Dyn\+Comm\+Rcpp}!add\+Remove\+Edges\+File@{add\+Remove\+Edges\+File}}
+\index{add\+Remove\+Edges\+File@{add\+Remove\+Edges\+File}!Dyn\+Comm\+Rcpp@{Dyn\+Comm\+Rcpp}}
+\subsubsection{\texorpdfstring{add\+Remove\+Edges\+File()}{addRemoveEdgesFile()}}
+{\footnotesize\ttfamily bool Dyn\+Comm\+Rcpp\+::add\+Remove\+Edges\+File (\begin{DoxyParamCaption}\item[{std\+::string}]{graph\+Add\+Remove }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Function to add and remove edges from the graph using a file. After successfully adding/removing, the algorithm will automatically run again. Any edge with a weight different from zero is inserted. Any edge with a weight of exactly zero is removed. The weight column is optional Format of the file is\+:
+\begin{DoxyItemize}
+\item one edge per line
+\item edge contains two or three columns, in this order, source vertex, destination vertex and, optionally, a weight
+\item if weight is not given, it will default to 1
+\item edges with a weight of exactly zero are removed
+\item source and destination vertices are integers between 0 and M\+A\+X\+\_\+\+I\+N\+T\+E\+G\+E\+R\+\_\+\+V\+A\+L\+U\+E-\/1
+\item weight is a double
+\item M\+A\+X\+\_\+\+I\+N\+T\+E\+G\+E\+R\+\_\+\+V\+A\+L\+UE depends on the platform being 32bit or 64bit. It is the maximum value of an integer in that platform \begin{DoxyReturn}{Returns}
+true if adding/removing succeeded 
+\end{DoxyReturn}
+
+\end{DoxyItemize}
+
+Definition at line 122 of file Dyn\+Comm\+Rcpp.\+cpp.
+
+
+
+References Dyn\+Comm\+Base\+::add\+Remove\+Edges(), and Program\+Parameters\+::filename.
+
+
+
+Referenced by R\+C\+P\+P\+\_\+\+M\+O\+D\+U\+L\+E().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDynCommRcpp_a9080af5a73f77db6eff4d7a41596902a_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classDynCommRcpp_ae9fb6b69740abb2d52721ec76d744811}\label{classDynCommRcpp_ae9fb6b69740abb2d52721ec76d744811}} 
+\index{Dyn\+Comm\+Rcpp@{Dyn\+Comm\+Rcpp}!add\+Remove\+Edges\+Matrix@{add\+Remove\+Edges\+Matrix}}
+\index{add\+Remove\+Edges\+Matrix@{add\+Remove\+Edges\+Matrix}!Dyn\+Comm\+Rcpp@{Dyn\+Comm\+Rcpp}}
+\subsubsection{\texorpdfstring{add\+Remove\+Edges\+Matrix()}{addRemoveEdgesMatrix()}}
+{\footnotesize\ttfamily bool Dyn\+Comm\+Rcpp\+::add\+Remove\+Edges\+Matrix (\begin{DoxyParamCaption}\item[{Rcpp\+::\+Numeric\+Matrix}]{graph\+Add\+Remove = {\ttfamily Rcpp\+:\+:NumericMatrix()} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Function to add and remove edges from the graph using a matrix. After successfully adding/removing, the algorithm will automatically run again. Any edge with a weight different from zero is inserted. Any edge with a weight of exactly zero is removed. The weight column is optional Format of the matrix is\+:
+\begin{DoxyItemize}
+\item one edge per line
+\item edge contains two or three columns, in this order, source vertex, destination vertex and, optionally, a weight
+\item if weight is not given, it will default to 1
+\item edges with a weight of exactly zero are removed
+\item source and destination vertices are integers between 0 and M\+A\+X\+\_\+\+I\+N\+T\+E\+G\+E\+R\+\_\+\+V\+A\+L\+U\+E-\/1
+\item weight is a double
+\item M\+A\+X\+\_\+\+I\+N\+T\+E\+G\+E\+R\+\_\+\+V\+A\+L\+UE depends on the platform being 32bit or 64bit. It is the maximum value of an integer in that platform \begin{DoxyReturn}{Returns}
+true if adding/removing succeeded 
+\end{DoxyReturn}
+
+\end{DoxyItemize}
+
+Definition at line 146 of file Dyn\+Comm\+Rcpp.\+cpp.
+
+
+
+References Dyn\+Comm\+Base\+::add\+Remove\+Edges().
+
+
+
+Referenced by R\+C\+P\+P\+\_\+\+M\+O\+D\+U\+L\+E().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDynCommRcpp_ae9fb6b69740abb2d52721ec76d744811_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classDynCommRcpp_ade6d5c2ebbb13f2efb3988d0d0ac2c1e}\label{classDynCommRcpp_ade6d5c2ebbb13f2efb3988d0d0ac2c1e}} 
+\index{Dyn\+Comm\+Rcpp@{Dyn\+Comm\+Rcpp}!communities@{communities}}
+\index{communities@{communities}!Dyn\+Comm\+Rcpp@{Dyn\+Comm\+Rcpp}}
+\subsubsection{\texorpdfstring{communities()}{communities()}}
+{\footnotesize\ttfamily Rcpp\+::\+Numeric\+Vector Dyn\+Comm\+Rcpp\+::communities (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+a list of all communities 
+\end{DoxyReturn}
+
+
+Definition at line 170 of file Dyn\+Comm\+Rcpp.\+cpp.
+
+
+
+References Dyn\+Comm\+Base\+::communities().
+
+
+
+Referenced by R\+C\+P\+P\+\_\+\+M\+O\+D\+U\+L\+E().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDynCommRcpp_ade6d5c2ebbb13f2efb3988d0d0ac2c1e_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classDynCommRcpp_a1a4622783fe2ed76e1c2321204b4b844}\label{classDynCommRcpp_a1a4622783fe2ed76e1c2321204b4b844}} 
+\index{Dyn\+Comm\+Rcpp@{Dyn\+Comm\+Rcpp}!communities\+Edge\+Count@{communities\+Edge\+Count}}
+\index{communities\+Edge\+Count@{communities\+Edge\+Count}!Dyn\+Comm\+Rcpp@{Dyn\+Comm\+Rcpp}}
+\subsubsection{\texorpdfstring{communities\+Edge\+Count()}{communitiesEdgeCount()}}
+{\footnotesize\ttfamily \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} Dyn\+Comm\+Rcpp\+::communities\+Edge\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get the number of community to community edges in the graph
+
+\begin{DoxyReturn}{Returns}
+the number of edges 
+\end{DoxyReturn}
+
+
+Definition at line 187 of file Dyn\+Comm\+Rcpp.\+cpp.
+
+
+
+References Dyn\+Comm\+Base\+::communities\+Edge\+Count().
+
+
+
+Referenced by R\+C\+P\+P\+\_\+\+M\+O\+D\+U\+L\+E().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDynCommRcpp_a1a4622783fe2ed76e1c2321204b4b844_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classDynCommRcpp_ac3c8c1759d2ab106b757557e09834ec5}\label{classDynCommRcpp_ac3c8c1759d2ab106b757557e09834ec5}} 
+\index{Dyn\+Comm\+Rcpp@{Dyn\+Comm\+Rcpp}!community@{community}}
+\index{community@{community}!Dyn\+Comm\+Rcpp@{Dyn\+Comm\+Rcpp}}
+\subsubsection{\texorpdfstring{community()}{community()}}
+{\footnotesize\ttfamily \hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community} Dyn\+Comm\+Rcpp\+::community (\begin{DoxyParamCaption}\item[{\hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex}}]{vertex }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 232 of file Dyn\+Comm\+Rcpp.\+cpp.
+
+
+
+References Dyn\+Comm\+Base\+::community().
+
+
+
+Referenced by R\+C\+P\+P\+\_\+\+M\+O\+D\+U\+L\+E().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDynCommRcpp_ac3c8c1759d2ab106b757557e09834ec5_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classDynCommRcpp_a67948d5821c2ccffc4dbf47bac6fba70}\label{classDynCommRcpp_a67948d5821c2ccffc4dbf47bac6fba70}} 
+\index{Dyn\+Comm\+Rcpp@{Dyn\+Comm\+Rcpp}!community\+Count@{community\+Count}}
+\index{community\+Count@{community\+Count}!Dyn\+Comm\+Rcpp@{Dyn\+Comm\+Rcpp}}
+\subsubsection{\texorpdfstring{community\+Count()}{communityCount()}}
+{\footnotesize\ttfamily int Dyn\+Comm\+Rcpp\+::community\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+the number of communities 
+\end{DoxyReturn}
+
+
+Definition at line 163 of file Dyn\+Comm\+Rcpp.\+cpp.
+
+
+
+References Dyn\+Comm\+Base\+::community\+Count().
+
+
+
+Referenced by R\+C\+P\+P\+\_\+\+M\+O\+D\+U\+L\+E().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDynCommRcpp_a67948d5821c2ccffc4dbf47bac6fba70_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classDynCommRcpp_ad74a2abe244e62d9df2b98aeea0d3155}\label{classDynCommRcpp_ad74a2abe244e62d9df2b98aeea0d3155}} 
+\index{Dyn\+Comm\+Rcpp@{Dyn\+Comm\+Rcpp}!community\+Edge\+Weight@{community\+Edge\+Weight}}
+\index{community\+Edge\+Weight@{community\+Edge\+Weight}!Dyn\+Comm\+Rcpp@{Dyn\+Comm\+Rcpp}}
+\subsubsection{\texorpdfstring{community\+Edge\+Weight()}{communityEdgeWeight()}}
+{\footnotesize\ttfamily \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} Dyn\+Comm\+Rcpp\+::community\+Edge\+Weight (\begin{DoxyParamCaption}\item[{\hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community}}]{source,  }\item[{\hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community}}]{destination }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 224 of file Dyn\+Comm\+Rcpp.\+cpp.
+
+
+
+References Dyn\+Comm\+Base\+::community\+Edge\+Weight().
+
+
+
+Referenced by R\+C\+P\+P\+\_\+\+M\+O\+D\+U\+L\+E().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDynCommRcpp_ad74a2abe244e62d9df2b98aeea0d3155_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classDynCommRcpp_aed6b4f1e844956429eb9a15d8d6df7b6}\label{classDynCommRcpp_aed6b4f1e844956429eb9a15d8d6df7b6}} 
+\index{Dyn\+Comm\+Rcpp@{Dyn\+Comm\+Rcpp}!community\+Inner\+Edges\+Weight@{community\+Inner\+Edges\+Weight}}
+\index{community\+Inner\+Edges\+Weight@{community\+Inner\+Edges\+Weight}!Dyn\+Comm\+Rcpp@{Dyn\+Comm\+Rcpp}}
+\subsubsection{\texorpdfstring{community\+Inner\+Edges\+Weight()}{communityInnerEdgesWeight()}}
+{\footnotesize\ttfamily \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} Dyn\+Comm\+Rcpp\+::community\+Inner\+Edges\+Weight (\begin{DoxyParamCaption}\item[{int}]{community }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 212 of file Dyn\+Comm\+Rcpp.\+cpp.
+
+
+
+References Dyn\+Comm\+Base\+::community\+Inner\+Edges\+Weight().
+
+
+
+Referenced by R\+C\+P\+P\+\_\+\+M\+O\+D\+U\+L\+E().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDynCommRcpp_aed6b4f1e844956429eb9a15d8d6df7b6_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classDynCommRcpp_a132aff4ca6f76fd006b2faccbfd01e04}\label{classDynCommRcpp_a132aff4ca6f76fd006b2faccbfd01e04}} 
+\index{Dyn\+Comm\+Rcpp@{Dyn\+Comm\+Rcpp}!community\+Mapping\+File@{community\+Mapping\+File}}
+\index{community\+Mapping\+File@{community\+Mapping\+File}!Dyn\+Comm\+Rcpp@{Dyn\+Comm\+Rcpp}}
+\subsubsection{\texorpdfstring{community\+Mapping\+File()}{communityMappingFile()}}
+{\footnotesize\ttfamily Rcpp\+::\+Numeric\+Matrix Dyn\+Comm\+Rcpp\+::community\+Mapping\+File (\begin{DoxyParamCaption}\item[{bool}]{community\+First = {\ttfamily true},  }\item[{bool}]{differential = {\ttfamily true},  }\item[{const std\+::string \&}]{file = {\ttfamily \char`\"{}communityMapping.txt\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get a snapshot of the current community mapping as a R Matrix Format of the file is\+:
+\begin{DoxyItemize}
+\item one vertex mapping per line
+\item mapping contains two columns, in this order, vertex and community
+\item vertex and community are integers between 0 and M\+A\+X\+\_\+\+I\+N\+T\+E\+G\+E\+R\+\_\+\+V\+A\+L\+U\+E-\/1
+\item M\+A\+X\+\_\+\+I\+N\+T\+E\+G\+E\+R\+\_\+\+V\+A\+L\+UE depends on the platform being 32bit or 64bit. It is the maximum value of an integer in that platform 
+\end{DoxyItemize}
+
+Definition at line 305 of file Dyn\+Comm\+Rcpp.\+cpp.
+
+
+
+References Dyn\+Comm\+Base\+::community\+Mapping(), and Program\+Parameters\+::outfilename.
+
+
+
+Referenced by R\+C\+P\+P\+\_\+\+M\+O\+D\+U\+L\+E().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDynCommRcpp_a132aff4ca6f76fd006b2faccbfd01e04_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classDynCommRcpp_aaa996ab5e558887d3bc5394af78a2e95}\label{classDynCommRcpp_aaa996ab5e558887d3bc5394af78a2e95}} 
+\index{Dyn\+Comm\+Rcpp@{Dyn\+Comm\+Rcpp}!community\+Mapping\+Matrix@{community\+Mapping\+Matrix}}
+\index{community\+Mapping\+Matrix@{community\+Mapping\+Matrix}!Dyn\+Comm\+Rcpp@{Dyn\+Comm\+Rcpp}}
+\subsubsection{\texorpdfstring{community\+Mapping\+Matrix()}{communityMappingMatrix()}}
+{\footnotesize\ttfamily Rcpp\+::\+Numeric\+Matrix Dyn\+Comm\+Rcpp\+::community\+Mapping\+Matrix (\begin{DoxyParamCaption}\item[{bool}]{differential = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get a snapshot of the current community mapping as a R Matrix Format of the file is\+:
+\begin{DoxyItemize}
+\item one vertex mapping per line
+\item mapping contains two columns, in this order, vertex and community
+\item vertex and community are integers between 0 and M\+A\+X\+\_\+\+I\+N\+T\+E\+G\+E\+R\+\_\+\+V\+A\+L\+U\+E-\/1
+\item M\+A\+X\+\_\+\+I\+N\+T\+E\+G\+E\+R\+\_\+\+V\+A\+L\+UE depends on the platform being 32bit or 64bit. It is the maximum value of an integer in that platform 
+\end{DoxyItemize}
+
+Definition at line 284 of file Dyn\+Comm\+Rcpp.\+cpp.
+
+
+
+References Dyn\+Comm\+Base\+::community(), Dyn\+Comm\+Base\+::vertex\+Count(), and Dyn\+Comm\+Base\+::vertices().
+
+
+
+Referenced by R\+C\+P\+P\+\_\+\+M\+O\+D\+U\+L\+E().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDynCommRcpp_aaa996ab5e558887d3bc5394af78a2e95_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classDynCommRcpp_ad23168e5fa7cf85d5508c646f3e39b9b}\label{classDynCommRcpp_ad23168e5fa7cf85d5508c646f3e39b9b}} 
+\index{Dyn\+Comm\+Rcpp@{Dyn\+Comm\+Rcpp}!community\+Neighbours@{community\+Neighbours}}
+\index{community\+Neighbours@{community\+Neighbours}!Dyn\+Comm\+Rcpp@{Dyn\+Comm\+Rcpp}}
+\subsubsection{\texorpdfstring{community\+Neighbours()}{communityNeighbours()}}
+{\footnotesize\ttfamily Rcpp\+::\+Numeric\+Matrix Dyn\+Comm\+Rcpp\+::community\+Neighbours (\begin{DoxyParamCaption}\item[{\hyperlink{graphUndirectedGroupable_8h_a914da95c9ea7f14f4b7f875c36818556}{type\+Community}}]{community }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+a matrix of neighbouring communities of the given community and the weight of their edge 
+\end{DoxyReturn}
+
+
+Definition at line 194 of file Dyn\+Comm\+Rcpp.\+cpp.
+
+
+
+References Dyn\+Comm\+Base\+::community\+Neighbours().
+
+
+
+Referenced by R\+C\+P\+P\+\_\+\+M\+O\+D\+U\+L\+E().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDynCommRcpp_ad23168e5fa7cf85d5508c646f3e39b9b_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classDynCommRcpp_a687e7be3ae84f1a80a3648435bd473a3}\label{classDynCommRcpp_a687e7be3ae84f1a80a3648435bd473a3}} 
+\index{Dyn\+Comm\+Rcpp@{Dyn\+Comm\+Rcpp}!community\+Total\+Weight@{community\+Total\+Weight}}
+\index{community\+Total\+Weight@{community\+Total\+Weight}!Dyn\+Comm\+Rcpp@{Dyn\+Comm\+Rcpp}}
+\subsubsection{\texorpdfstring{community\+Total\+Weight()}{communityTotalWeight()}}
+{\footnotesize\ttfamily \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} Dyn\+Comm\+Rcpp\+::community\+Total\+Weight (\begin{DoxyParamCaption}\item[{int}]{community }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 218 of file Dyn\+Comm\+Rcpp.\+cpp.
+
+
+
+References Dyn\+Comm\+Base\+::community\+Total\+Weight().
+
+
+
+Referenced by R\+C\+P\+P\+\_\+\+M\+O\+D\+U\+L\+E().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDynCommRcpp_a687e7be3ae84f1a80a3648435bd473a3_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classDynCommRcpp_ab856335d737d2292df6f86e9cf199d58}\label{classDynCommRcpp_ab856335d737d2292df6f86e9cf199d58}} 
+\index{Dyn\+Comm\+Rcpp@{Dyn\+Comm\+Rcpp}!community\+Vertex\+Count@{community\+Vertex\+Count}}
+\index{community\+Vertex\+Count@{community\+Vertex\+Count}!Dyn\+Comm\+Rcpp@{Dyn\+Comm\+Rcpp}}
+\subsubsection{\texorpdfstring{community\+Vertex\+Count()}{communityVertexCount()}}
+{\footnotesize\ttfamily int Dyn\+Comm\+Rcpp\+::community\+Vertex\+Count (\begin{DoxyParamCaption}\item[{int}]{community }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 228 of file Dyn\+Comm\+Rcpp.\+cpp.
+
+
+
+References Dyn\+Comm\+Base\+::community\+Vertex\+Count().
+
+
+
+Referenced by R\+C\+P\+P\+\_\+\+M\+O\+D\+U\+L\+E().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDynCommRcpp_ab856335d737d2292df6f86e9cf199d58_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classDynCommRcpp_a52692d421657ffcbe6a97762de9deddc}\label{classDynCommRcpp_a52692d421657ffcbe6a97762de9deddc}} 
+\index{Dyn\+Comm\+Rcpp@{Dyn\+Comm\+Rcpp}!convert\+To\+Parameters@{convert\+To\+Parameters}}
+\index{convert\+To\+Parameters@{convert\+To\+Parameters}!Dyn\+Comm\+Rcpp@{Dyn\+Comm\+Rcpp}}
+\subsubsection{\texorpdfstring{convert\+To\+Parameters()}{convertToParameters()}}
+{\footnotesize\ttfamily \hyperlink{structProgramParameters}{Program\+Parameters} Dyn\+Comm\+Rcpp\+::convert\+To\+Parameters (\begin{DoxyParamCaption}\item[{Rcpp\+::\+Character\+Matrix}]{algorithm\+Parameters = {\ttfamily Rcpp\+:\+:CharacterMatrix()} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Definition at line 53 of file Dyn\+Comm\+Rcpp.\+cpp.
+
+
+
+References parse\+\_\+arg().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDynCommRcpp_a52692d421657ffcbe6a97762de9deddc_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classDynCommRcpp_aaa83772d4e3bc2407991116a196f3ce0}\label{classDynCommRcpp_aaa83772d4e3bc2407991116a196f3ce0}} 
+\index{Dyn\+Comm\+Rcpp@{Dyn\+Comm\+Rcpp}!edge\+Count@{edge\+Count}}
+\index{edge\+Count@{edge\+Count}!Dyn\+Comm\+Rcpp@{Dyn\+Comm\+Rcpp}}
+\subsubsection{\texorpdfstring{edge\+Count()}{edgeCount()}}
+{\footnotesize\ttfamily \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} Dyn\+Comm\+Rcpp\+::edge\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get the number of vertex to vertex edges in the graph
+
+\begin{DoxyReturn}{Returns}
+the number of edges 
+\end{DoxyReturn}
+
+
+Definition at line 272 of file Dyn\+Comm\+Rcpp.\+cpp.
+
+
+
+References Dyn\+Comm\+Base\+::edge\+Count().
+
+
+
+Referenced by R\+C\+P\+P\+\_\+\+M\+O\+D\+U\+L\+E().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDynCommRcpp_aaa83772d4e3bc2407991116a196f3ce0_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classDynCommRcpp_a9a9aaf2512541f308d935e48c583f410}\label{classDynCommRcpp_a9a9aaf2512541f308d935e48c583f410}} 
+\index{Dyn\+Comm\+Rcpp@{Dyn\+Comm\+Rcpp}!edge\+Weight@{edge\+Weight}}
+\index{edge\+Weight@{edge\+Weight}!Dyn\+Comm\+Rcpp@{Dyn\+Comm\+Rcpp}}
+\subsubsection{\texorpdfstring{edge\+Weight()}{edgeWeight()}}
+{\footnotesize\ttfamily \hyperlink{edge_8h_a2e7ea3be891ac8b52f749ec73fee6dd2}{type\+Weight} Dyn\+Comm\+Rcpp\+::edge\+Weight (\begin{DoxyParamCaption}\item[{\hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex}}]{source,  }\item[{\hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex}}]{destination }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 344 of file Dyn\+Comm\+Rcpp.\+cpp.
+
+
+
+References Dyn\+Comm\+Base\+::weight().
+
+
+
+Referenced by R\+C\+P\+P\+\_\+\+M\+O\+D\+U\+L\+E().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDynCommRcpp_a9a9aaf2512541f308d935e48c583f410_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classDynCommRcpp_abbda8cc950c360c1b89859ebe9233535}\label{classDynCommRcpp_abbda8cc950c360c1b89859ebe9233535}} 
+\index{Dyn\+Comm\+Rcpp@{Dyn\+Comm\+Rcpp}!neighbours@{neighbours}}
+\index{neighbours@{neighbours}!Dyn\+Comm\+Rcpp@{Dyn\+Comm\+Rcpp}}
+\subsubsection{\texorpdfstring{neighbours()}{neighbours()}}
+{\footnotesize\ttfamily Rcpp\+::\+Numeric\+Matrix Dyn\+Comm\+Rcpp\+::neighbours (\begin{DoxyParamCaption}\item[{\hyperlink{edge_8h_a5fbd20c46956d479cb10afc9855223f6}{type\+Vertex}}]{vertex }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+a list of neighbouring communities of the given community 
+\end{DoxyReturn}
+
+
+Definition at line 326 of file Dyn\+Comm\+Rcpp.\+cpp.
+
+
+
+References Dyn\+Comm\+Base\+::neighbours().
+
+
+
+Referenced by R\+C\+P\+P\+\_\+\+M\+O\+D\+U\+L\+E().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDynCommRcpp_abbda8cc950c360c1b89859ebe9233535_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classDynCommRcpp_a3d9d6845d9e67941da187bca511cdfcf}\label{classDynCommRcpp_a3d9d6845d9e67941da187bca511cdfcf}} 
+\index{Dyn\+Comm\+Rcpp@{Dyn\+Comm\+Rcpp}!quality@{quality}}
+\index{quality@{quality}!Dyn\+Comm\+Rcpp@{Dyn\+Comm\+Rcpp}}
+\subsubsection{\texorpdfstring{quality()}{quality()}}
+{\footnotesize\ttfamily double Dyn\+Comm\+Rcpp\+::quality (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+the current quality measure of the community mapping on the graph 
+\end{DoxyReturn}
+
+
+Definition at line 156 of file Dyn\+Comm\+Rcpp.\+cpp.
+
+
+
+References Dyn\+Comm\+Base\+::quality().
+
+
+
+Referenced by R\+C\+P\+P\+\_\+\+M\+O\+D\+U\+L\+E().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDynCommRcpp_a3d9d6845d9e67941da187bca511cdfcf_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classDynCommRcpp_a4120d9f0232611e4ecb497eaf6e4706a}\label{classDynCommRcpp_a4120d9f0232611e4ecb497eaf6e4706a}} 
+\index{Dyn\+Comm\+Rcpp@{Dyn\+Comm\+Rcpp}!results@{results}}
+\index{results@{results}!Dyn\+Comm\+Rcpp@{Dyn\+Comm\+Rcpp}}
+\subsubsection{\texorpdfstring{results()}{results()}}
+{\footnotesize\ttfamily Rcpp\+::\+Character\+Matrix Dyn\+Comm\+Rcpp\+::results (\begin{DoxyParamCaption}\item[{bool}]{differential = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 316 of file Dyn\+Comm\+Rcpp.\+cpp.
+
+
+
+References Dyn\+Comm\+Base\+::time().
+
+
+
+Referenced by R\+C\+P\+P\+\_\+\+M\+O\+D\+U\+L\+E().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=349pt]{classDynCommRcpp_a4120d9f0232611e4ecb497eaf6e4706a_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classDynCommRcpp_a89773080b66fd210a7e22234ba04a19f}\label{classDynCommRcpp_a89773080b66fd210a7e22234ba04a19f}} 
+\index{Dyn\+Comm\+Rcpp@{Dyn\+Comm\+Rcpp}!time@{time}}
+\index{time@{time}!Dyn\+Comm\+Rcpp@{Dyn\+Comm\+Rcpp}}
+\subsubsection{\texorpdfstring{time()}{time()}}
+{\footnotesize\ttfamily \hyperlink{systemDefines_8h_abc0f5bc07737e498f287334775dff2b6}{uint64} Dyn\+Comm\+Rcpp\+::time (\begin{DoxyParamCaption}\item[{bool}]{differential = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 348 of file Dyn\+Comm\+Rcpp.\+cpp.
+
+
+
+References Dyn\+Comm\+Base\+::time().
+
+
+
+Referenced by R\+C\+P\+P\+\_\+\+M\+O\+D\+U\+L\+E().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=339pt]{classDynCommRcpp_a89773080b66fd210a7e22234ba04a19f_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classDynCommRcpp_af7bc0e9dc9a2c1e232b3e28b63388629}\label{classDynCommRcpp_af7bc0e9dc9a2c1e232b3e28b63388629}} 
+\index{Dyn\+Comm\+Rcpp@{Dyn\+Comm\+Rcpp}!vertex\+Count@{vertex\+Count}}
+\index{vertex\+Count@{vertex\+Count}!Dyn\+Comm\+Rcpp@{Dyn\+Comm\+Rcpp}}
+\subsubsection{\texorpdfstring{vertex\+Count()}{vertexCount()}}
+{\footnotesize\ttfamily unsigned int Dyn\+Comm\+Rcpp\+::vertex\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 236 of file Dyn\+Comm\+Rcpp.\+cpp.
+
+
+
+References Dyn\+Comm\+Base\+::vertex\+Count().
+
+
+
+Referenced by R\+C\+P\+P\+\_\+\+M\+O\+D\+U\+L\+E().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDynCommRcpp_af7bc0e9dc9a2c1e232b3e28b63388629_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classDynCommRcpp_ad849d8e27c9f8aec2f6cdf89b06b9be4}\label{classDynCommRcpp_ad849d8e27c9f8aec2f6cdf89b06b9be4}} 
+\index{Dyn\+Comm\+Rcpp@{Dyn\+Comm\+Rcpp}!vertices@{vertices}}
+\index{vertices@{vertices}!Dyn\+Comm\+Rcpp@{Dyn\+Comm\+Rcpp}}
+\subsubsection{\texorpdfstring{vertices()}{vertices()}}
+{\footnotesize\ttfamily Rcpp\+::\+Numeric\+Vector Dyn\+Comm\+Rcpp\+::vertices (\begin{DoxyParamCaption}\item[{int}]{community }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+a list of all vertices belonging to the given community 
+\end{DoxyReturn}
+
+
+Definition at line 255 of file Dyn\+Comm\+Rcpp.\+cpp.
+
+
+
+References Dyn\+Comm\+Base\+::vertices().
+
+
+
+Referenced by R\+C\+P\+P\+\_\+\+M\+O\+D\+U\+L\+E().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDynCommRcpp_ad849d8e27c9f8aec2f6cdf89b06b9be4_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classDynCommRcpp_aa2aa3fe8c7af4239bd9b3c6a669329ec}\label{classDynCommRcpp_aa2aa3fe8c7af4239bd9b3c6a669329ec}} 
+\index{Dyn\+Comm\+Rcpp@{Dyn\+Comm\+Rcpp}!vertices\+All@{vertices\+All}}
+\index{vertices\+All@{vertices\+All}!Dyn\+Comm\+Rcpp@{Dyn\+Comm\+Rcpp}}
+\subsubsection{\texorpdfstring{vertices\+All()}{verticesAll()}}
+{\footnotesize\ttfamily Rcpp\+::\+Numeric\+Vector Dyn\+Comm\+Rcpp\+::vertices\+All (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 240 of file Dyn\+Comm\+Rcpp.\+cpp.
+
+
+
+References Dyn\+Comm\+Base\+::vertices().
+
+
+
+Referenced by R\+C\+P\+P\+\_\+\+M\+O\+D\+U\+L\+E().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDynCommRcpp_aa2aa3fe8c7af4239bd9b3c6a669329ec_cgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classDynCommRcpp_a29aa77f1324fd9891a67feedea880961}\label{classDynCommRcpp_a29aa77f1324fd9891a67feedea880961}} 
+\index{Dyn\+Comm\+Rcpp@{Dyn\+Comm\+Rcpp}!dcb@{dcb}}
+\index{dcb@{dcb}!Dyn\+Comm\+Rcpp@{Dyn\+Comm\+Rcpp}}
+\subsubsection{\texorpdfstring{dcb}{dcb}}
+{\footnotesize\ttfamily \hyperlink{classDynCommBase}{Dyn\+Comm\+Base} Dyn\+Comm\+Rcpp\+::dcb\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 51 of file Dyn\+Comm\+Rcpp.\+cpp.
+
+\mbox{\Hypertarget{classDynCommRcpp_a686a84dced9c0cd812cb184d48958758}\label{classDynCommRcpp_a686a84dced9c0cd812cb184d48958758}} 
+\index{Dyn\+Comm\+Rcpp@{Dyn\+Comm\+Rcpp}!prmtrs@{prmtrs}}
+\index{prmtrs@{prmtrs}!Dyn\+Comm\+Rcpp@{Dyn\+Comm\+Rcpp}}
+\subsubsection{\texorpdfstring{prmtrs}{prmtrs}}
+{\footnotesize\ttfamily \hyperlink{structProgramParameters}{Program\+Parameters} Dyn\+Comm\+Rcpp\+::prmtrs\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 50 of file Dyn\+Comm\+Rcpp.\+cpp.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+R-\/\+C\+R\+A\+N/src/\hyperlink{DynCommRcpp_8cpp}{Dyn\+Comm\+Rcpp.\+cpp}\end{DoxyCompactItemize}

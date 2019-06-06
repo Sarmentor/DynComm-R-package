@@ -63,6 +63,9 @@ It is an algorithm currently developed for directed networks only.
   \item{communities()}{Get all communities after the last iteration. See \link{communities}}
   
 
+  \item{communitiesEdgeCount()}{Get the number of community to community edges in the graph. See \code{\link{communitiesEdgeCount}}}
+  
+
   \item{communityNeighbours(community)}{Get the neighbours of the given community after the last iteration. See \link{communityNeighbours}}
   
 

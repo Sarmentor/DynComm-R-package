@@ -135,6 +135,9 @@ The first column names the parameter and the second defines its value.
   \item{communities()}{Get all communities after the last iteration. See \code{\link{communities}}}
   
 
+  \item{communitiesEdgeCount()}{Get the number of community to community edges in the graph. See \code{\link{communitiesEdgeCount}}}
+  
+
   \item{communityNeighbours(community)}{
   Get the neighbours of the given community after the last iteration. 
   See \code{\link{communityNeighbours}}
@@ -211,6 +214,9 @@ The first column names the parameter and the second defines its value.
   
 
   \item{nodes(community)}{Alias for vertices(community). See \code{\link{vertices}}}
+  
+
+  \item{edgeCount()}{Get the number of vertex to vertex edges in the graph. See \code{\link{edgeCount}}}
   
 
   \item{communityMapping(differential, file)}{

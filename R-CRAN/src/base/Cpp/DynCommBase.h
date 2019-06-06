@@ -137,9 +137,18 @@ public:
 	}
 
 	/**
+	 * Get the number of community to community edges in the graph
+	 *
+	 * @return the number of edges
+	 */
+	typeWeight communitiesEdgeCount()const {
+		return grph.communitiesEdgeCount();
+	}
+
+	/**
 	 * Get the communities that are neighbours of the given community
 	 *
-	 * @param com
+	 * @param community
 	 * @return the neighbouring communities
 	 */
 	typeLinksRangeConst communityNeighbours(typeCommunity community)const {
@@ -150,7 +159,7 @@ public:
 	 * Get the sum of the weights of all edges of the given community where both
 	 * vertices of an edge belong to the given community.
 	 *
-	 * @param c
+	 * @param community
 	 * @return the sum of the weights of all inner edges
 	 */
 	typeWeight communityInnerEdgesWeight(typeCommunity community)const {return grph.innerEdges(community);}
@@ -160,7 +169,7 @@ public:
 	/**
 	 * Get the sum of the weights of all edges of the given community.
 	 *
-	 * @param c
+	 * @param community
 	 * @return the sum of the weights of all edges
 	 */
 	typeWeight communityTotalWeight(typeCommunity community)const {return grph.totalEdges(community);}
@@ -227,6 +236,15 @@ public:
 			lst.insert(p.second);
 		}
 		return lst;
+	}
+
+	/**
+	 * Get the number of vertex to vertex edges in the graph
+	 *
+	 * @return the number of edges
+	 */
+	typeWeight edgeCount()const {
+		return grph.edgeCount();
 	}
 
 	/**
