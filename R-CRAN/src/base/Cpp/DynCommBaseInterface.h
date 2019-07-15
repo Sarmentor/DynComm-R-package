@@ -162,7 +162,7 @@ public:
 	/**
 	 * @return the time spent on processing
 	 */
-	virtual uint64 time(bool accumulated=true)const=0;
+	// virtual uint64 time(bool accumulated=true)const=0;
 
 };
 

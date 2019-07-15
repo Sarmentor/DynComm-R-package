@@ -109,38 +109,41 @@ struct ProgramParameters{
  * @param par
  */
 void parse_arg(const std::string & name, const std::string & value, ProgramParameters & par) {
-  if(name.compare("o")){
+  // COUT << "name=" << name << "; value=" << value << "\n";
+  // COUT << "=" << name.compare("w") << "\n";
+  if(name.compare("o")==0){
     par.outfilename = std::string(value);
   }
-  else if(name.compare("w")){
+  else if(name.compare("w")==0){
+    // COUT << "Setting WEIGHT" << "\n";
     par.type = LINK_WEIGHT::WEIGHTED;
     par.filename_w = value;
   }
-  else if(name.compare("q")){
+  else if(name.compare("q")==0){
     par.id_qual = std::stoi(value.c_str());
   }
-  else if(name.compare("c")){
+  else if(name.compare("c")==0){
     par.alpha = std::stof(value);
   }
-  else if(name.compare("k")){
+  else if(name.compare("k")==0){
     par.kmin = std::stoi(value);
   }
-  else if(name.compare("p")){
+  else if(name.compare("p")==0){
     par.filename_part = value;
   }
-  else if(name.compare("e")){
+  else if(name.compare("e")==0){
     par.precision = std::stof(value);
   }
-  else if(name.compare("l")){
+  else if(name.compare("l")==0){
     par.display_level = std::stoi(value);
   }
-  else if(name.compare("s")){
+  else if(name.compare("s")==0){
     par.directory = value;
   }
-  else if(name.compare("v")){
+  else if(name.compare("v")==0){
     par.verbose = true;
   }
-  else if(name.compare("f")){
+  else if(name.compare("f")==0){
     if (par.filename=="") par.filename = value;
   }
 }

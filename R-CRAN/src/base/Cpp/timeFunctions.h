@@ -74,76 +74,76 @@ inline uint64 currentTime(){
  *
  * @date 2018-11-12
  */
-class TimeKeeper{
-private:
-	/*
-	 * reference time used for calculations of elapsed time
-	 */
-	uint64 r;
-
-	/*
-	 * base time (time referential) to be used instead of epoch
-	 */
-	uint64 t;
-
-	inline uint64 validateBaseTime(const uint64& time) const{
-		if(time<=r){
-			return time;
-		}
-		return 0;
-	}
-	inline uint64 validateTime(const uint64& time) const{
-		if(time>=r){
-			return time;
-		}
-		return std::numeric_limits<uint64>::max();
-	}
-public:
-	TimeKeeper(uint64 time=0):r(currentTime()),t(validateBaseTime(time)){}
-	/**
-	 * set base (intended) time and possibly update the reference time
-	 */
-	inline uint64 set(uint64 time=0, bool update=true){
-		if(update){
-			r=currentTime();
-		}
-		t=validateBaseTime(time);
-		return get();
-	}
-
-	/**
-	 * get current time or the elapsed time regarding the saved reference time or translate a time to the configured time referential
-	 * If there is no base time and the given time is zero, return the current time (time since epoch)
-	 * If there is no base time and the given time is not zero, return the elapsed time since the last call to set or the constructor
-	 * If there is base time and the given time is zero, return the elapsed time since reference time in regard to the configured base time
-	 * If there is base time and the given time is not zero, return the time difference of the given time compared to the reference time in regard to the configured base time
-	 *
-	 * @param time
-	 * @return
-	 */
-	inline uint64 get(const uint64& time=0) const{
-		if(t==0){
-			if(time==0){
-				return currentTime();//return the current time (time since epoch)
-			}
-			else{
-				return validateTime(time)-r;//return the difference of the given time compared to the reference time (stored on the last call of set or the constructor)
-			}
-		}
-		else{
-			if(time==0){
-				return currentTime()-r+t;//return the elapsed time since reference time in regard to the configured base time
-			}
-			else{
-				uint64 x=validateTime(time);
-				//return the time difference of the given time compared to the reference time in regard to the configured base time
-				return ((x==std::numeric_limits<uint64>::max())?std::numeric_limits<uint64>::max():x-r+t);
-			}
-		}
-	}
-};
-
-TimeKeeper timeKeep;//by default make it return the current time
+// class TimeKeeper{
+// private:
+// 	/*
+// 	 * reference time used for calculations of elapsed time
+// 	 */
+// 	uint64 r;
+// 
+// 	/*
+// 	 * base time (time referential) to be used instead of epoch
+// 	 */
+// 	uint64 t;
+// 
+// 	inline uint64 validateBaseTime(const uint64& time) const{
+// 		if(time<=r){
+// 			return time;
+// 		}
+// 		return 0;
+// 	}
+// 	inline uint64 validateTime(const uint64& time) const{
+// 		if(time>=r){
+// 			return time;
+// 		}
+// 		return std::numeric_limits<uint64>::max();
+// 	}
+// public:
+// 	TimeKeeper(uint64 time=0):r(currentTime()),t(validateBaseTime(time)){}
+// 	/**
+// 	 * set base (intended) time and possibly update the reference time
+// 	 */
+// 	inline uint64 set(uint64 time=0, bool update=true){
+// 		if(update){
+// 			r=currentTime();
+// 		}
+// 		t=validateBaseTime(time);
+// 		return get();
+// 	}
+// 
+// 	/**
+// 	 * get current time or the elapsed time regarding the saved reference time or translate a time to the configured time referential
+// 	 * If there is no base time and the given time is zero, return the current time (time since epoch)
+// 	 * If there is no base time and the given time is not zero, return the elapsed time since the last call to set or the constructor
+// 	 * If there is base time and the given time is zero, return the elapsed time since reference time in regard to the configured base time
+// 	 * If there is base time and the given time is not zero, return the time difference of the given time compared to the reference time in regard to the configured base time
+// 	 *
+// 	 * @param time
+// 	 * @return
+// 	 */
+// 	inline uint64 get(const uint64& time=0) const{
+// 		if(t==0){
+// 			if(time==0){
+// 				return currentTime();//return the current time (time since epoch)
+// 			}
+// 			else{
+// 				return validateTime(time)-r;//return the difference of the given time compared to the reference time (stored on the last call of set or the constructor)
+// 			}
+// 		}
+// 		else{
+// 			if(time==0){
+// 				return currentTime()-r+t;//return the elapsed time since reference time in regard to the configured base time
+// 			}
+// 			else{
+// 				uint64 x=validateTime(time);
+// 				//return the time difference of the given time compared to the reference time in regard to the configured base time
+// 				return ((x==std::numeric_limits<uint64>::max())?std::numeric_limits<uint64>::max():x-r+t);
+// 			}
+// 		}
+// 	}
+// };
+// 
+// TimeKeeper timeKeep;//by default make it return the current time
 
 }  // namespace Time
 
