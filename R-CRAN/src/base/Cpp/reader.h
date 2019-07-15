@@ -422,6 +422,8 @@ public:
       typeVertex dest;
       typeWeight weight;
       if(dt.rows()>lineNumber){//there are rows to process
+        // COUT << dt.cols() << "\n";
+        // COUT << ((par.type==LINK_WEIGHT::WEIGHTED)?"WEIGHTED":"UNWEIGHTED") << "\n";
         if(dt.cols()==3){//weighted
           src=dt(lineNumber,0);
           dest=dt(lineNumber,1);

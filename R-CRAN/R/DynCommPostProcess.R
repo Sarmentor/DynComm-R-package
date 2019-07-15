@@ -1,6 +1,7 @@
 ########################### Developer Notice ###########################
 # Description:
-# This file holds the DynComm post processing algorithms.
+# This file aggregates all DynComm post processing algorithms implemented in 
+# every language.
 #
 # Internally, this object, dispatches calls to objects that do the actual work.
 #
@@ -18,8 +19,8 @@
 # Author: poltergeist0
 # Date: 2019-01-01
 
-########################### Include R sources here ###########################
-source ("R/postProcessDensOpt.R")
+# source ("R/postProcessDensOpt.R")
+source ("R/DynCommPostProcessR.R")
 
 ########################### API Documentation ###########################
 
@@ -64,7 +65,7 @@ source ("R/postProcessDensOpt.R")
 #'
 ########## list new algorithms here #############
 POSTPROCESSING <- list(
-  # C++ algorithms are listed from 1 to 10000
+  #### C++ algorithms are listed from 1 to 10000
   NONE=1L #reserved to indicate no post processing
   # ,COUNTLOW=2L #filter out communities with edge count lower than a given value (high pass filter)
   # ,COUNTHIGH=3L #filter out communities with edge count higher than a given value (low pass filter)
@@ -76,8 +77,9 @@ POSTPROCESSING <- list(
   # ,WEIGHTBETWEEN=9L  #filter out communities with total weight between a given value lower and higher value (band-stop or band-rejection filter)
   # ,WEIGHTTOP=10L  #get the top n communities with higher total weight
   # ,WEIGHTBOTTOM=11L  #get the bottom n communities with lower total weight
-  ,DENSOPT=100L
-  # Python algorithms are listed from 10001 to 20000
+  #### Python algorithms are listed from 10001 to 20000
+  #### R algorithms are listed from 20001 to 30000
+  ,DENSOPT=20001L
 )
 
 #' @name APIFUNCTIONS
@@ -272,17 +274,31 @@ DynCommPostProcess <- function(postProcessing=POSTPROCESSING$NONE, id=1, previou
   algorithms = function(){
     # print(pst)
     # print(postProcessing)
-    if(postProcessing==POSTPROCESSING$DENSOPT){
-      assign("pst",POSTPROCESSING$DENSOPT,thisEnv)
-      return(postProcessDensOpt(prv,prm))
+    # if(postProcessing==POSTPROCESSING$DENSOPT){
+    #   assign("pst",POSTPROCESSING$DENSOPT,thisEnv)
+    #   return(postProcessDensOpt(prv,prm))
+    # }
+    # return(NULL)
+    tmp<-NULL
+    if(postProcessing>=20001 & postProcessing<=30000){
+      # R algorithm
+      # if(postProcessing==POSTPROCESSING$DENSOPT){
+      #   tmp<-postProcessDensOpt(prv,prm)
+      # }
+      tmp<-DynCommPostProcessR(postProcessing,prv, prm)
     }
-    return(NULL)
+    if(!is.null(tmp)){#algorithm exists
+      assign("pst",postProcessing,thisEnv)
+    }
+    return(tmp)
   }
   
   ########## constructor #############
   start_time <- floor(as.numeric(Sys.time())*1000000000) #nanoseconds
+  # start_timeC <- currentTime() #nanoseconds
   alg <- algorithms()  #algorithm selection
   end_time <- floor(as.numeric(Sys.time())*1000000000) #nanoseconds
+  # end_timeC <- currentTime() #nanoseconds
 
   ## Create the list used to represent an
   ## object for this class
@@ -819,6 +835,8 @@ DynCommPostProcess <- function(postProcessing=POSTPROCESSING$NONE, id=1, previou
       if((postProcessing==POSTPROCESSING$NONE || (pst==postProcessing && id==ID))){
         #this object
         # return(alg$time(differential))
+        # print(end_time-start_time)
+        # print(end_timeC-start_timeC)
         return((end_time-start_time)+prv$time(differential))
       }
       else{ #it is not me (its the one armed man :P )
@@ -852,6 +870,7 @@ DynCommPostProcess <- function(postProcessing=POSTPROCESSING$NONE, id=1, previou
   
   ## Set the name for the class
   class(me) <- append(class(me),"DynCommPostProcess")
+  
   if(is.null(alg)) return(NULL)
   return(me)
 }
