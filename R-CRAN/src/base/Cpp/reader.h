@@ -126,6 +126,41 @@ private:
 	Edge ed;
 	int state=0;//=0 error; =1 reads edge; =4 reads newline; =5 end of file
 
+	//from https://stackoverflow.com/questions/6089231/getting-std-ifstream-to-handle-lf-cr-and-crlf
+	std::istream& getline(std::istream& is, std::string& t)
+	{
+	    t.clear();
+
+	    // The characters in the stream are read one-by-one using a std::streambuf.
+	    // That is faster than reading them one-by-one using the std::istream.
+	    // Code that uses streambuf this way must be guarded by a sentry object.
+	    // The sentry object performs various tasks,
+	    // such as thread synchronization and updating the stream state.
+
+	    std::istream::sentry se(is, true);
+	    std::streambuf* sb = is.rdbuf();
+
+	    for(;;) {
+	        int c = sb->sbumpc();
+	        switch (c) {
+	        case '\n':
+	            return is;
+	        case '\r':
+	            if(sb->sgetc() == '\n')
+	                sb->sbumpc();
+	            return is;
+	        case std::streambuf::traits_type::eof():
+	            // Also handle the case when the last line has no line ending
+	            if(t.empty())
+	                is.setstate(std::ios::eofbit);
+	            return is;
+	        default:
+	            t += (char)c;
+	        }
+	    }
+	    return is;
+	}
+
 public:
 	ReaderFileEdge(const ProgramParameters & parameters):stts("Ok"),par(parameters),lineNumber(1),ed(noEdge),state(4){
 		finput.open(parameters.filename,std::fstream::in);
@@ -174,8 +209,10 @@ public:
 				typeVertex dest;
 				typeWeight weight;
 				std::string line;
-				std::getline(finput, line);
+//				std::getline(finput, line);
+				getline(finput, line);
 				if (finput) {
+				  // CERR << "Reading line " << lineNumber << "(" << line << ")\n";
 					std::istringstream line_buffer(line);
 					line_buffer >> src >> std::ws >> dest >> std::ws >> weight;
 //					CERR << "fail="<< line_buffer.fail()<< "; eof="<< line_buffer.eof()<< "; bad="<< line_buffer.bad()<< "; count="<< line_buffer.gcount()<< "\n";
@@ -192,10 +229,12 @@ public:
 								std::string s;
 								line_buffer >> s;
 //								CERR << "fail="<< line_buffer.fail()<< "; eof="<< line_buffer.eof()<< "; bad="<< line_buffer.bad()<< "; count="<< line_buffer.gcount()<< "\n";
+//								CERR << "Comment line " << lineNumber << "(" << line << ")\n";
 								state=4;
 						}
 						else{//success reading without weight
 							state=1;
+//						  CERR << "No weight line " << lineNumber << "(" << line << ")\n";
 							weight=1;
 							ed=Edge(src,dest,weight);
 							lineNumber++;
@@ -203,6 +242,7 @@ public:
 					}
 					else{//success reading with weight
 						state=1;
+//					  CERR << "Weight line " << lineNumber << "(" << line << ")\n";
 						if(par.type==LINK_WEIGHT::UNWEIGHTED){//ignore weight read from stream
 							if(weight!=0) weight=1;//only ignore if edge is to be inserted
 						}
@@ -214,6 +254,7 @@ public:
 				else{
 					if(finput.eof()){
 						state=5;
+//					  CERR << "End of file\n";
 						stts="End of file\n";
 						return noEdge;
 					}
