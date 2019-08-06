@@ -17,8 +17,8 @@
  ************************************************************************
  ************************************************************************/
 
-#ifndef SRC_DYNCOMMBASE_H_
-#define SRC_DYNCOMMBASE_H_
+#ifndef SRC_DYNCOMMSPLIT_H_
+#define SRC_DYNCOMMSPLIT_H_
 
 #include "defines.h"
 #include "DynCommBaseInterface.h"
@@ -26,8 +26,6 @@
 #include "criterion.h"
 #include "timeFunctions.h"
 #include "mapReversable.h"
-#include "DebugLog.h"
-
 
 /**
  * @brief Dynamic Communities base class.
@@ -41,7 +39,7 @@
  *
  * @date 2019-02-02
  */
-class DynCommBase:private DynCommBaseInterface{
+class DynCommSplit:private DynCommBaseInterface{
 private:
 	Algorithm algrthm;//algorithm
 	GraphUndirectedGroupable grph;//graph with edges
@@ -51,17 +49,17 @@ private:
 	/**
 	 * total accumulated time used for processing
 	 */
-	uint64 timeTotal=0;
+	// uint64 timeTotal=0;
 
 	/**
 	 * auxiliary time used to store the start time
 	 */
-	uint64 timeStart=0;
+	// uint64 timeStart=0;
 
 	/**
 	 * total time used for processing
 	 */
-	uint64 timeProcessing=0;
+	// uint64 timeProcessing=0;
 
 	/*
 	 * map used to keep the old relation between the graph vertices and their communities
@@ -70,19 +68,17 @@ private:
 	 */
 	typeCommunityList oldCommunities;
 
-//	DynCommSingle
-
 public:
 	/**
 	 * Default constructor not acceptable.
 	 * Must be passed at least the chosen algorithm and the graph
 	 */
-	DynCommBase()=delete;
+	DynCommSplit()=delete;
 
 	/**
 	 * Constructor
 	 */
-	DynCommBase(
+	DynCommSplit(
 			 ALGORITHM algorithm=ALGORITHM::LOUVAIN
 			,const Criterion::CRITERION & quality=Criterion::CRITERION::MODULARITY
 			, ProgramParameters & algorithmParameters=argumentsDefault
@@ -91,11 +87,10 @@ public:
 		algrthm(grph,qlt,algorithm,algorithmParameters)
 	,qlt(grph,quality,algorithmParameters)
 	,prmtrs(algorithmParameters)
-	,timeTotal(0)
-	,timeStart(Time::currentTime())
-	,timeProcessing(0)
+	// ,timeTotal(0)
+	// ,timeStart(Time::currentTime())
+	// ,timeProcessing(0)
 	{
-		dbg.init(algorithmParameters);
 	}
 
 	/**
@@ -105,27 +100,18 @@ public:
 	 * @return true if adding/removing succeeded
 	 */
 	bool addRemoveEdges(ReaderInterface<Edge> * reader){
-		dbg.pre(DEBUG_LEVEL::MODIFICATIONS,"DCBa", debugPrint());
-		timeStart=Time::currentTime();
+		// timeStart=Time::currentTime();
 		//store old communities
-		dbg.msg(DEBUG_LEVEL::ACTIONS, "bckp c");
 		oldCommunities=typeCommunityList();//first clean map
 		const typeVertexList & vs=grph.getVertices();
 		for(typeVertexListIteratorConst it=vs.cbegin();it!=vs.cend();++it){
 			const typeVertex & v=*it;
 			oldCommunities.add(v,grph.community(v));
 		}
-		dbg.msg(DEBUG_LEVEL::VERIFY, "o"+std::to_string(oldCommunities.size())+"c"+std::to_string(grph.vertexCount()));
-//		dbg.val(DEBUG_LEVEL::VERIFY, std::to_string(oldCommunities.size()));
-//		dbg.msg(DEBUG_LEVEL::VERIFY, "c"+std::to_string(grph.vertexCount()));
-//		dbg.msg(DEBUG_LEVEL::VERIFY, std::to_string(grph.vertexCount()));
 		bool b=algrthm.addRemoveEdges(reader);
-		uint64 tm=Time::currentTime();
-		timeProcessing=tm-timeStart;
-		timeTotal+=timeProcessing;
-		dbg.msg(DEBUG_LEVEL::CALLS, "r"+std::to_string(b));
-//		dbg.msg(DEBUG_LEVEL::CALLS,std::to_string(b));
-		dbg.post(DEBUG_LEVEL::MODIFICATIONS,debugPrint());
+		// uint64 tm=Time::currentTime();
+		// timeProcessing=tm-timeStart;
+		// timeTotal+=timeProcessing;
 		return b;
 	}
 
@@ -275,12 +261,6 @@ public:
 	 * @return true if the operation succeeded
 	 */
 	bool communityMapping(WriterInterface * writer,bool communityFirst=true,bool differential=true) const{
-		dbg.pre(DEBUG_LEVEL::MODIFICATIONS,"DCBm", debugPrint());
-//		dbg.val(DEBUG_LEVEL::CALLS, "c");
-//		dbg.val(DEBUG_LEVEL::CALLS,std::to_string(communityFirst));
-//		dbg.val(DEBUG_LEVEL::CALLS, "d");
-//		dbg.msg(DEBUG_LEVEL::CALLS,std::to_string(differential));
-		dbg.msg(DEBUG_LEVEL::CALLS,"c"+std::to_string(communityFirst)+"d"+std::to_string(differential));
 		if(differential){
 			if(communityFirst){
 				const typeCommunities & gc=grph.communities();
@@ -289,7 +269,6 @@ public:
 					typeVertexList n=vertices(c);
 					typeVertexList changed=typeVertexList();//empty set of vertices that changed community
 					//check vertices that existed or are new
-					dbg.val(DEBUG_LEVEL::ACTIONS, "e");
 					for(typeVertexListIteratorConst itn=n.cbegin();itn!=n.cend();++itn){
 						const typeVertex & v=*itn;
 						const typeCommunityListIteratorConst & itc=oldCommunities.value(v);
@@ -303,7 +282,6 @@ public:
 							}
 						}
 					}
-					dbg.val(DEBUG_LEVEL::ACTIONS, std::to_string(changed.size()));
 					if(changed.size()>0){
 						unsigned int i=1;
 						writer->write(std::to_string(c),WriterInterface::WRITETYPE::VALUE);
@@ -319,7 +297,6 @@ public:
 						}
 					}
 					//check vertices that no longer exist
-					dbg.val(DEBUG_LEVEL::ACTIONS, "r");
 					changed.clear();
 					if(grph.vertexCount()!=oldCommunities.size()){//some vertices no longer exist
 						const typeVertexList & vs=grph.getVertices();
@@ -330,7 +307,6 @@ public:
 							}
 						}
 					}
-					dbg.msg(DEBUG_LEVEL::ACTIONS, std::to_string(changed.size()));
 					if(changed.size()>0){
 						unsigned int i=1;
 						writer->write("NA",WriterInterface::WRITETYPE::VALUE);
@@ -349,7 +325,6 @@ public:
 			}
 			else{//vertex first
 				//check vertices that existed or are new
-				dbg.val(DEBUG_LEVEL::ACTIONS, "e");
 				const typeVertexList & vs=grph.getVertices();
 				for(typeVertexListIteratorConst it=vs.cbegin();it!=vs.cend();++it){
 					const typeVertex & v=*it;
@@ -368,7 +343,6 @@ public:
 					}
 				}
 				//check vertices that no longer exist
-				dbg.msg(DEBUG_LEVEL::ACTIONS, "r"+std::to_string(vs.size()!=oldCommunities.size()));
 				if(vs.size()!=oldCommunities.size()){
 					for(typeCommunityListIteratorConst itn=oldCommunities.cbegin();itn!=oldCommunities.cend();++itn){
 						const typeVertex & v=(*itn).first;
@@ -408,7 +382,6 @@ public:
 				}
 			}
 		}
-		dbg.post(DEBUG_LEVEL::MODIFICATIONS,debugPrint());
 		return true;
 	}
 
@@ -433,26 +406,11 @@ public:
 	 *
 	 * @return the total processing time in nanoseconds
 	 */
-	uint64 time(bool accumulated=true)const{
-	  if(!accumulated) return timeProcessing;
-	  return timeTotal;
-	}
-
-	const std::string debugPrint()const {
-		std::stringstream ss;
-//		for(typeVertexListIteratorConst itn=vertices.cbegin();itn!=vertices.cend();++itn){
-//			const typeVertex & vertex=*itn;
-//			typeLinksRangeConst p=neighbours(vertex);
-//			for (typeLinksIteratorConst it=p.first ; it!=p.second ; ++it){
-//				const typeLinksPair & a=*it;
-//				const HalfEdge & e=a.second;
-//				ss << vertex << "+" << e.destination() << "=" << e.weight() << ";";
-//			}
-//		}
-//		ss << total_weight << ";" << max_weight;
-		return ss.str();
-	}
+	// uint64 time(bool accumulated=true)const{
+	//   if(!accumulated) return timeProcessing;
+	//   return timeTotal;
+	// }
 
 };
 
-#endif /* SRC_DYNCOMMBASE_H_ */
+#endif /* SRC_DYNCOMMSPLIT_H_ */

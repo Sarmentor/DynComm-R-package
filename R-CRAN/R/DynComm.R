@@ -18,6 +18,10 @@
 # "add parameters here". The first column is the parameter name and the second is 
 # the default value.
 #
+# Algorithm parameters should be documented after the marker that says "document
+# parameters here". The first column is the parameter name and the second is the 
+# default value.
+#
 # Main algorithms are handled by the DynCommMain object. Post processing
 # algorithms are handled by the DynCommPostProcess object. Changes should be in
 # those objects. They can be found in the files with the same name as the object.
@@ -242,7 +246,7 @@ source('R/DynCommPostProcess.R')
 #' @export
 #'
 #' @examples
-#' Parameters<-matrix(c("-e","0.1","-w", "FALSE"),ncol=2, byrow=TRUE)
+#' Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
 #' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
 #' dc$addRemoveEdges(
 #' matrix(
@@ -310,6 +314,7 @@ source('R/DynCommPostProcess.R')
 #' dc$postProcess()
 #' 
 #'
+########################### document parameters here ###########################
 #' @section PARAMETERS:
 #' A two column matrix defining additional parameters to be passed to the
 #' selected ALGORITHM and CRITERION.
@@ -373,6 +378,7 @@ DynComm <- function(Algorithm=ALGORITHM$LOUVAIN,Criterion=CRITERION$MODULARITY,P
   
   ########## constructor #############
   prm <- NULL
+  # print(Parameters)
   if(is.null(Parameters) || !is.matrix(Parameters) || ncol(Parameters)!=2){
     # not a valid parameters matrix. Use default values for all parameters
     prm<-matrix(
@@ -404,7 +410,7 @@ DynComm <- function(Algorithm=ALGORITHM$LOUVAIN,Criterion=CRITERION$MODULARITY,P
     assign("prc",NULL,thisEnv)
     b<-FALSE
     # validate no actions
-    if(is.null(act) || length(act)==0){
+    if(is.null(act) || length(act)<=0){
       #setting to NULL always succeeds
       assign("act", NULL,thisEnv)
       return(TRUE)
@@ -413,7 +419,7 @@ DynComm <- function(Algorithm=ALGORITHM$LOUVAIN,Criterion=CRITERION$MODULARITY,P
       # validate actions list does not contain POSTPROCESSING$NONE
       for (cnt in act) {
         if((!is.null(cnt)) && is.list(cnt) && length(cnt)>0){
-            if(cnt[1]!=POSTPROCESSING$NONE){
+            if(cnt[[1]]!=POSTPROCESSING$NONE){
               b<-TRUE
             }
             else{
@@ -435,23 +441,24 @@ DynComm <- function(Algorithm=ALGORITHM$LOUVAIN,Criterion=CRITERION$MODULARITY,P
         else{#actions exist
           # if there is more than the main algorithm, get biggest id for the current action
           if(!is(prc,"DynCommBase")){
-            q<-prc$exists(cnt[1],i)
+            q<-prc$exists(cnt[[1]],i)
             # increment id while a post processing object of the given type exists
             while(q){
               i<-i+1
-              q<-prc$exists(cnt[1],i)
+              q<-prc$exists(cnt[[1]],i)
             }
           }
         }
         # select the latest post processing algorithm and id as default for posterior user operations
-        assign("pst", cnt[1],thisEnv)
+        assign("pst", cnt[[1]],thisEnv)
         assign("pstid", i,thisEnv)
         # create post processing object and assign it to the end of the queue
-        tmp <- DynCommPostProcess(pst,pstid,prc,cnt[2]) #TODO pass parameters to post processing
+        tmp <- DynCommPostProcess(pst,pstid,prc,cnt[2])
         if(is.null(tmp)){
           #TODO improve error message
           print("Invalid post processing")
           print(pst)
+          print(cnt[[1]])
           assign("pst",POSTPROCESSING$NONE,thisEnv)
           assign("prc",NULL,thisEnv)
           return(FALSE)
@@ -495,6 +502,15 @@ DynComm <- function(Algorithm=ALGORITHM$LOUVAIN,Criterion=CRITERION$MODULARITY,P
     return(b)
   }
   
+  internalVertexCount=function(){
+    if(pst==POSTPROCESSING$NONE){
+      return(alg$vertexCount())
+    }
+    else{
+      return(prc$vertexCount(pst,pstid))
+    }
+  }
+  
   internalVerticesAll=function(){
     if(pst==POSTPROCESSING$NONE){
       return(alg$verticesAll())
@@ -510,6 +526,15 @@ DynComm <- function(Algorithm=ALGORITHM$LOUVAIN,Criterion=CRITERION$MODULARITY,P
     }
     else{
       return(prc$vertices(community,pst,pstid))
+    }
+  }
+  
+  internalEdgeWeight=function(source=1,destination=1){
+    if(pst==POSTPROCESSING$NONE){
+      return(alg$edgeWeight(source,destination))
+    }
+    else{
+      return(prc$edgeWeight(source,destination,pst,pstid))
     }
   }
   
@@ -792,19 +817,21 @@ DynComm <- function(Algorithm=ALGORITHM$LOUVAIN,Criterion=CRITERION$MODULARITY,P
     #'   }
     #'   
     vertexCount=function(){
-      if(pst==POSTPROCESSING$NONE){
-        return(alg$vertexCount())
-      }
-      else{
-        return(prc$vertexCount(pst,pstid))
-      }
+      # if(pst==POSTPROCESSING$NONE){
+      #   return(alg$vertexCount())
+      # }
+      # else{
+      #   return(prc$vertexCount(pst,pstid))
+      # }
+      return(internalVertexCount())
     },
 
     #' 
     #'   \item{nodesCount()}{Alias for vertexCount(). See \code{\link{vertexCount}}}
     #'   
     nodesCount=function(){
-      return(vertexCount())
+      # return(vertexCount())
+      return(internalVertexCount())
     },
     
     #' 
@@ -851,19 +878,21 @@ DynComm <- function(Algorithm=ALGORITHM$LOUVAIN,Criterion=CRITERION$MODULARITY,P
     #'   }
     #'   
     edgeWeight=function(source=1,destination=1){
-      if(pst==POSTPROCESSING$NONE){
-        return(alg$edgeWeight(source,destination))
-      }
-      else{
-        return(prc$edgeWeight(source,destination,pst,pstid))
-      }
+      # if(pst==POSTPROCESSING$NONE){
+      #   return(alg$edgeWeight(source,destination))
+      # }
+      # else{
+      #   return(prc$edgeWeight(source,destination,pst,pstid))
+      # }
+      return(internalEdgeWeight(source,destination))
     },
     
     #' 
     #'   \item{edge(source,destination)}{Alias for edgeWeight(). See \code{\link{edgeWeight}}}
     #'   
     edge=function(source=1,destination=1){
-      return(edgeWeight(source,destination))
+      # return(edgeWeight(source,destination))
+      return(internalEdgeWeight(source,destination))
     },
     
     #' 
@@ -934,6 +963,8 @@ DynComm <- function(Algorithm=ALGORITHM$LOUVAIN,Criterion=CRITERION$MODULARITY,P
     #'   }
     #'   
     time=function(differential=FALSE){
+      # print("DynComm")
+      # print(pst)
       if(pst==POSTPROCESSING$NONE){
         return(alg$time(differential))
       }
@@ -1231,7 +1262,8 @@ DynComm.results <- function(dyncomm,differential=TRUE){
 #'   }
 #'   \item{File input}{
 #' The file must have only one edge per line, with values separated by a white
-#' space (both SPACE and TAB work in any amount and combination).
+#' space (both SPACE and TAB work in any amount and combination). The line must 
+#' end with a newline character (also known as linefeed, LF or '\\n').
 #' 
 #' The first value is the source vertex, the second is the destination vertex, 
 #' and the third is the weight.

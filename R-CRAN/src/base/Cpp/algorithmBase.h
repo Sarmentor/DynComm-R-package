@@ -100,6 +100,13 @@ public:
 		ss << grph.toString(f);
 		return ss.str();
 	}
+
+	const std::string debugPrint()const{
+		std::stringstream ss;
+		ss << grph.debugPrint()<< "\n";
+		return ss.str();
+	}
+
 };
 
 #endif /* SRC_ALGORITHMBASE_H_ */

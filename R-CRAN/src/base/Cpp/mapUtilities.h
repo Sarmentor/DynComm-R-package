@@ -73,6 +73,16 @@ template<typename T, typename U,typename std::enable_if<std::is_fundamental<T>::
 	return s;
 }
 
+template<typename T, typename U,typename std::enable_if<std::is_fundamental<T>::value && std::is_fundamental<U>::value,T>::type=0 > std::string debugPrint(std::map<T, U> const& m) {
+	std::stringstream ss;
+	for(typename std::map<T,U>::const_iterator it=m.cbegin();it!=m.cend();it++){
+		const std::pair<T,U> & p=*it;
+		ss << p.first << "+" << p.second << ";";
+	}
+	std::string s=ss.str();
+	return s;
+}
+
 }  // namespace map
 
 

@@ -18,7 +18,7 @@
 #define GRAPHUNDIRECTEDGROUPABLE_H_
 
 #include "mapReversable.h"
-#include <math.h>
+#include <cmath>
 
 #include "graphUndirected.h"
 #include "setUtilities.h"
@@ -269,7 +269,7 @@ public:
 	bool addEdge(const typeVertex & source, const typeVertex & destination, const typeWeight & weight=1.0, const bool & replace=false){
 		//get old weight of edge if it exists
 		typeWeight w=GraphUndirected::weight(source,destination);
-		if(isnan(w)) w=0;
+		if(std::isnan(w)) w=0;
 		//get existing nodes before adding new edge to check for self loops afterwards. Can not check before adding to graph because nodes might not exist
 		bool b=GraphUndirected::addEdge(source,destination,weight,replace);
 		if(b){
@@ -302,7 +302,7 @@ public:
 				update(total,cc1,ww,true);
 				update(total,cc2,ww,true);
 				typeWeight ccw=cc.weight(cc1,cc2);
-				if(isnan(ccw))cc.addEdge(cc1,cc2,weight);
+				if(std::isnan(ccw))cc.addEdge(cc1,cc2,weight);
 				else{
 					ccw=ccw+ww;
 					cc.addEdge(cc1,cc2,ccw,true);
@@ -355,7 +355,7 @@ public:
 	 */
 	bool removeEdge(const typeVertex & source, const typeVertex & destination){
 		typeWeight weight=GraphUndirected::weight(source,destination);
-		if(isnan(weight)){
+		if(std::isnan(weight)){
 
 		}
 		else{
@@ -437,7 +437,7 @@ public:
 	/**
 	 * @return the number of existing communities
 	 */
-	const typeWeight communityCount()const{return cc.vertexCount();}
+	const typeWeight communityCount()const{return total.size();}
 
 	/**
 	 *
@@ -487,7 +487,7 @@ public:
 		typeWeight a2=neighboursCommunityWeight(vertex,c);
 		typeWeight w=neighboursWeight(vertex);
 		typeWeight in=weight(vertex,vertex);
-		if(isnan(in))in=0;
+		if(std::isnan(in))in=0;
 		update(inner,com,2*a1+in,true);
 		update(inner,c,2*a2+in,false);
 		update(total,com,w+in,true);
@@ -505,7 +505,7 @@ public:
 				const typeCommunity & co=community(dest);
 					if(c!=co){
 						typeWeight cw=cc.weight(c,co);
-						if(isnan(cw)){
+						if(std::isnan(cw)){
 						}
 						else{
 							cw-=wei;
@@ -519,7 +519,7 @@ public:
 					}
 				if(co!=com){
 					typeWeight cw=cc.weight(co,com);
-					if(isnan(cw)){
+					if(std::isnan(cw)){
 						cc.addEdge(co,com,wei);
 					}
 					else{
@@ -720,27 +720,58 @@ public:
 	 * @return true if operation succeeded. False, otherwise
 	 */
 	bool communitiesToGraph(){
-		typeVertexList nd;
+//	  CERR << "sync other runs communitiesToGraph\n";
+		dbg.pre(DEBUG_LEVEL::MODIFICATIONS,"Gctg", debugPrint());
+	  typeVertexList nd;
 		//remove edge if community!=node else update weight
+//		dbg.msg(DEBUG_LEVEL::ACTIONS, "r");
 		typeLinksRangeConst e=edges();
+		typeLinks edgsRem;
+		typeLinks edgsUpd;
 		typeLinksIteratorConst it=e.first;
+//		CERR << "communitiesToGraph remove or update edge\n";
 		while(it!=e.second){
 			const typeLinksPair & p=*it;
 			const typeVertex & s=p.first;
 			const typeVertex & d=p.second.destination();
 			if(s!=community(s) || d!=community(d)){
 				++it;
-				GraphUndirected::removeEdge(s,d);
+//				dbg.msg(DEBUG_LEVEL::ACTIONS, "r"+std::to_string(s)+"#"+std::to_string(d)+"="+std::to_string(GraphUndirected::weight(s, d)));
+//				GraphUndirected::removeEdge(s,d);
+//				dbg.msg(DEBUG_LEVEL::ACTIONS, debugPrint());
+				edgsRem.insert(p);
 			}
 			else{
 				nd.insert(s);
 				nd.insert(d);
 				const typeWeight & w=weightCommunity(s,d);
 				++it;
-				GraphUndirected::addEdge(s,d,w,true);//update weight
+//				dbg.msg(DEBUG_LEVEL::ACTIONS, "u"+std::to_string(s)+"#"+std::to_string(d)+"="+std::to_string(GraphUndirected::weight(s, d))+">"+std::to_string(w));
+//				GraphUndirected::addEdge(s,d,w,true);//update weight
+//				dbg.msg(DEBUG_LEVEL::ACTIONS, debugPrint());
+				edgsUpd.insert(std::make_pair(s, HalfEdge(d,w)));
 			}
 		}
+		for(it=edgsRem.cbegin();it!=edgsRem.cend();++it){
+			const typeLinksPair & p=*it;
+			const typeVertex & s=p.first;
+			const typeVertex & d=p.second.destination();
+			dbg.msg(DEBUG_LEVEL::ACTIONS, "r"+std::to_string(s)+"#"+std::to_string(d)+"="+std::to_string(GraphUndirected::weight(s, d)));
+			GraphUndirected::removeEdge(s,d);
+			dbg.msg(DEBUG_LEVEL::ACTIONS, debugPrint());
+		}
+		for(it=edgsUpd.cbegin();it!=edgsUpd.cend();++it){
+			const typeLinksPair & p=*it;
+			const typeVertex & s=p.first;
+			const typeVertex & d=p.second.destination();
+			const typeWeight & w=p.second.weight();
+			dbg.msg(DEBUG_LEVEL::ACTIONS, "u"+std::to_string(s)+"#"+std::to_string(d)+"="+std::to_string(GraphUndirected::weight(s, d))+">"+std::to_string(w));
+			GraphUndirected::addEdge(s,d,w,true);//update weight
+			dbg.msg(DEBUG_LEVEL::ACTIONS, debugPrint());
+		}
+		dbg.msg(DEBUG_LEVEL::ACTIONS, "m"+debugPrint());
 		//add any links from cc missing
+//		CERR << "communitiesToGraph add missing cc\n";
 		typeLinksRangeConst ee=cc.edges();
 		typeLinksIteratorConst it2=ee.first;
 		while(it2!=ee.second){
@@ -748,7 +779,7 @@ public:
 			const typeVertex & s=p.first;
 			const typeVertex & d=p.second.destination();
 			const typeWeight & w=cc.weight(s,d);
-			if(!isnan(w)){
+			if(!std::isnan(w)){
 				nd.insert(s);
 				nd.insert(d);
 				GraphUndirected::addEdge(s,d,p.second.weight());//add missing link
@@ -756,6 +787,8 @@ public:
 			++it2;
 		}
 		//add inner edges
+		dbg.msg(DEBUG_LEVEL::ACTIONS, "i"+debugPrint());
+//		CERR << "communitiesToGraph add inner edge\n";
 		typeCommunityEdgesIteratorConst iti=inner.cbegin();
 		while(iti!=inner.cend()){
 			const typeCommunityEdgesPair & p=*iti;
@@ -766,6 +799,8 @@ public:
 			++iti;
 		}
 		//remove non existing nodes from n2c
+		dbg.msg(DEBUG_LEVEL::ACTIONS, "n"+debugPrint());
+//		CERR << "communitiesToGraph remove non existing n2c\n";
 		typeCommunityListIteratorConst itc=n2c.cbegin();
 		while(itc!=n2c.cend()){
 			const typeCommunityListPair & p=*itc;
@@ -779,6 +814,7 @@ public:
 				++itc;
 			}
 		}
+		dbg.post(DEBUG_LEVEL::MODIFICATIONS,debugPrint());
 		return true;
 	}
 
@@ -801,6 +837,16 @@ public:
 		ss << map::toString(total,f(1));
 		f.header("cc=");
 		ss << cc.toString(f);
+		return ss.str();
+	}
+
+	const std::string debugPrint()const{
+		std::stringstream ss;
+		ss << "g" << GraphUndirected::debugPrint() << "\n";
+		ss << n2c.debugPrint() << "\n";
+		ss << "i" << map::debugPrint(inner) << "\n";
+		ss << "t" << map::debugPrint(total) << "\n";
+		ss << "c"<< cc.debugPrint();
 		return ss.str();
 	}
 };

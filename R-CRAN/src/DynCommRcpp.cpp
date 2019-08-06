@@ -93,7 +93,7 @@ public:
 	 *   - MAX_INTEGER_VALUE depends on the platform being 32bit or 64bit. It is the maximum value of an integer in that platform
 	 */
 	DynCommRcpp(
-			Algorithm::ALGORITHM algorithm=Algorithm::ALGORITHM::LOUVAIN
+	    ALGORITHM algorithm=ALGORITHM::LOUVAIN
 			,const Criterion::CRITERION & quality=Criterion::CRITERION::MODULARITY
 			,Rcpp::CharacterMatrix algorithmParameters=Rcpp::CharacterMatrix()
 	)
@@ -349,13 +349,19 @@ public:
 
 };
 
+// // [[Rcpp::export]]
+double currentTime() {
+  return Time::currentTime();
+}
 
-RCPP_EXPOSED_ENUM_NODECL(Algorithm::ALGORITHM)
+RCPP_EXPOSED_ENUM_NODECL(ALGORITHM)
 RCPP_EXPOSED_ENUM_NODECL(Criterion::CRITERION)
 
 RCPP_MODULE(DynCommRcppModule) {
 	using namespace Rcpp;
 
+  function("currentTime"   , &currentTime );
+  
 	class_<DummyAlgorithm>("Algorithm")
     		  .default_constructor()
 			  ;
@@ -364,8 +370,8 @@ RCPP_MODULE(DynCommRcppModule) {
     		  .default_constructor()
 			  ;
 
-	enum_<Algorithm::ALGORITHM, DummyAlgorithm>("TypeOfAlgorithm")
-    		  .value("LOUVAIN", Algorithm::ALGORITHM::LOUVAIN)
+	enum_<ALGORITHM, DummyAlgorithm>("TypeOfAlgorithm")
+    		  .value("LOUVAIN", ALGORITHM::LOUVAIN)
 			  ;
 
 	enum_<Criterion::CRITERION, DummyQuality>("TypeOfQuality")
@@ -374,7 +380,7 @@ RCPP_MODULE(DynCommRcppModule) {
 			  ;
 
 	class_<DynCommRcpp>( "DynCommRcpp")
-    		 .constructor< Algorithm::ALGORITHM, Criterion::CRITERION, Rcpp::CharacterMatrix>()
+    		 .constructor< ALGORITHM, Criterion::CRITERION, Rcpp::CharacterMatrix>()
 				 .method("addRemoveEdgesMatrix", &DynCommRcpp::addRemoveEdgesMatrix)
 				 .method("addRemoveEdgesFile", &DynCommRcpp::addRemoveEdgesFile)
 				 .method("quality", &DynCommRcpp::quality)

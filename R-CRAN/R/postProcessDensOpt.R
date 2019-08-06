@@ -299,7 +299,7 @@ postProcessDensOpt <- function(dyncomm, Parameters=NULL)
   }
   #clean unnecessary variables after calculations
   edg<-NULL
-  cmm<-NULL
+  # cmm<-NULL
   we<-NULL
   # TODO: optimize commsNew and edgcc away if the community mapping has not changed
   
@@ -357,9 +357,6 @@ postProcessDensOpt <- function(dyncomm, Parameters=NULL)
       else if(apiFunction==APIFUNCTIONS$RESULTS){
         return(TRUE)
       }
-      # else if(apiFunction==APIFUNCTIONS$TIME){
-      #   return(TRUE)
-      # }
       # else if(apiFunction==APIFUNCTIONS$VERTEXCOUNT){
       #   return(TRUE)
       # }
@@ -493,6 +490,8 @@ postProcessDensOpt <- function(dyncomm, Parameters=NULL)
     #'   
     communityMappingMatrix = function(differential=TRUE){
       if(differential){
+        # print(ver)
+        # print(cmm)
         a<-matrix(data=c(ver,cmm),ncol=2,byrow = FALSE)
         return(commsNew[which(is.element(commsNew[,1],a[,1])) & commsNew[,2]!=a[,2],])
       }
@@ -514,13 +513,6 @@ postProcessDensOpt <- function(dyncomm, Parameters=NULL)
       return(TRUE)
     }
     
-    #,
-    # #' 
-    # #'   \item{time()}{Get the cumulative time spent on processing after the last iteration. See \link{time}}
-    # #'   
-    # time=function(differential=FALSE){#PostProcessing, ID){
-    #   return((end_time-start_time)+prv$time(differential))
-    # }
   )
   # close methods section of the documentation
   #' 

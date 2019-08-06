@@ -265,6 +265,14 @@ public:
 		ss << multimap::toString(r,f);
 		return ss.str();
 	}
+
+	std::string debugPrint()const{
+		std::stringstream ss;
+		ss << "m" << map::debugPrint(m) << "\n";
+		ss << "r"<< multimap::debugPrint(r);
+		return ss.str();
+	}
+
 };
 
 

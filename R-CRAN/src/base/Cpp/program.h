@@ -21,6 +21,10 @@
 #include <string>
 #include <iostream>
 #include <sstream>
+#include <cstring> //strlen
+#include "debugUtilities.h"
+
+//#include "DebugLog.h"
 
 /**
  * enumeration used to indicate if the edges being added to a graph are
@@ -100,6 +104,11 @@ struct ProgramParameters{
 	bool verbose = false;
 
 	std::string directory=".";
+
+	DEBUG_LEVEL debugLevel=DEBUG_LEVEL::NONE;
+	unsigned int debugDepth=4;
+	std::string debugFilename="debugCpp.log";
+
 }argumentsDefault;//variable with default program parameters
 
 /**
@@ -142,6 +151,15 @@ void parse_arg(const std::string & name, const std::string & value, ProgramParam
   }
   else if(name.compare("f")){
     if (par.filename=="") par.filename = value;
+  }
+  else if(name.compare("dl")){
+	  par.debugLevel=fromInt(std::stoi(value));
+  }
+  else if(name.compare("dd")){
+	  par.debugDepth=std::stoi(value);
+  }
+  else if(name.compare("df")){
+    if (value!="") par.debugFilename = value;
   }
 }
 
@@ -202,6 +220,24 @@ void parse_args(int argc, char *argv[], ProgramParameters & par) {
 				break;
 			case 'h':
 				usage(argv[0], "");
+				break;
+			case 'd':
+				if(strlen(argv[i])>=2){
+					switch(argv[i][2]) {
+						case 'l':
+							par.debugLevel=fromInt(atoi(argv[i+1]));
+							++i;
+							break;
+						case 'd':
+							par.debugDepth=atoi(argv[i+1]);
+							++i;
+							break;
+						case 'f':
+							par.debugFilename=argv[i+1];
+							++i;
+							break;
+					}
+				}
 				break;
 			default:
 				usage(argv[0], "Unknown option\n");

@@ -47,7 +47,8 @@ If any edge is to be removed, the third column is mandatory.
   }
   \item{File input}{
 The file must have only one edge per line, with values separated by a white
-space (both SPACE and TAB work in any amount and combination).
+space (both SPACE and TAB work in any amount and combination). The line must 
+end with a newline character (also known as linefeed, LF or '\\n').
 
 The first value is the source vertex, the second is the destination vertex, 
 and the third is the weight.
