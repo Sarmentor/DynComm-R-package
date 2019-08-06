@@ -159,6 +159,15 @@ template<typename T, typename U,typename std::enable_if<std::is_fundamental<T>::
 	return ss.str();
 }
 
+template<typename T, typename U,typename std::enable_if<std::is_fundamental<T>::value && std::is_fundamental<U>::value,T>::type=0 > std::string debugPrint(std::multimap<T, U> const& m) {
+	std::stringstream ss;
+	for(typename std::multimap<T,U>::const_iterator it=m.cbegin();it!=m.cend();it++){
+		const std::pair<T,U> & p=*it;
+		ss << p.first << "+" << p.second << ";";
+	}
+	return ss.str();
+}
+
 /**
  * get the minimum value attributed to a given key
  * @param map

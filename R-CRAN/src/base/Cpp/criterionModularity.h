@@ -75,8 +75,17 @@ public:
 		//TODO review the formulas
 		typeWeight q  = 0.0L;
 		const typeWeight & m2 = g.totalWeight();
-		for (typeVertexListIterator it=g.getVertices().begin() ; it!=g.getVertices().end() ; it++){
-			const typeVertex & i=*it;
+//		for (typeVertexListIterator it=g.getVertices().begin() ; it!=g.getVertices().end() ; it++){
+//			const typeVertex & i=*it;
+//			const typeWeight & a = g.innerEdges(i);
+//			const typeWeight & t = g.totalEdges(i);
+//			if (t > 0.0L){
+//				q += a - (t*t) / m2;
+//			}
+//		}
+		typeCommunities c=g.communities();
+		for (typeCommunities::const_iterator it=c.cbegin() ; it!=c.cend() ; it++){
+			const typeCommunity & i=*it;
 			const typeWeight & a = g.innerEdges(i);
 			const typeWeight & t = g.totalEdges(i);
 			if (t > 0.0L){

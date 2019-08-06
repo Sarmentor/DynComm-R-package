@@ -129,6 +129,12 @@ public:
 		s.append(std::to_string(wght));
 		return s;
 	}
+
+	const std::string debugPrint()const {
+		std::stringstream ss;
+		ss << dst << "=" << wght;
+		return ss.str();
+	}
 };
 
 
@@ -251,6 +257,14 @@ public:
 		s.append(HalfEdge::toString());
 		s.append(sf.tupleClose());
 		return s;
+	}
+
+	const std::string debugPrint(bool add=false, bool remove=false)const {
+		std::stringstream ss;
+		if(add) ss << src << "+" << HalfEdge::debugPrint();
+		else if(remove) ss << src << "-" << HalfEdge::debugPrint();
+		else ss << src << "#" << HalfEdge::debugPrint();
+		return ss.str();
 	}
 };
 

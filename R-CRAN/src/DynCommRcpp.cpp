@@ -93,7 +93,7 @@ public:
 	 *   - MAX_INTEGER_VALUE depends on the platform being 32bit or 64bit. It is the maximum value of an integer in that platform
 	 */
 	DynCommRcpp(
-			ALGORITHM algorithm=ALGORITHM::LOUVAIN
+	    ALGORITHM algorithm=ALGORITHM::LOUVAIN
 			,const Criterion::CRITERION & quality=Criterion::CRITERION::MODULARITY
 			,Rcpp::CharacterMatrix algorithmParameters=Rcpp::CharacterMatrix()
 	)

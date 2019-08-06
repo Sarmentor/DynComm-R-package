@@ -235,7 +235,7 @@ The first column names the parameter and the second defines its value.
 }
 
 \examples{
-Parameters<-matrix(c("-e","0.1","-w", "FALSE"),ncol=2, byrow=TRUE)
+Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
 dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
 dc$addRemoveEdges(
 matrix(

@@ -292,6 +292,7 @@ private:
 	 * @return true if there was an improvement in quality. False, otherwise
 	 */
     bool one_level(){
+    	dbg.pre(DEBUG_LEVEL::MODIFICATIONS,"ALo", debugPrint());
 		bool improvement=false ;
 		int nb_moves;
 		long double new_qual = quality();
@@ -303,6 +304,8 @@ private:
 		//   or there is an improvement of quality greater than a given epsilon
 		//   or a predefined number of passes have been done
 		do {
+//		  CERR << "one level " << new_qual << ")\n";
+			dbg.val(DEBUG_LEVEL::ACTIONS, "d"+std::to_string(new_qual));
 			cur_qual = new_qual;
 			nb_moves = 0;
 
@@ -329,21 +332,26 @@ private:
 					}
 				}
 				// insert node in the nearest community
-				community(vertex,best_comm);
 				if (best_comm!=node_comm){
+					dbg.val(DEBUG_LEVEL::ACTIONS, "v"+std::to_string(vertex)+">"+std::to_string(best_comm)+"="+std::to_string(best_increase));
+					community(vertex,best_comm);
 					nb_moves++;
 				}
 			}
 
 			new_qual = quality();
 
-			if (nb_moves>0)
+			if (nb_moves>0 && new_qual-cur_qual > prmtrs.precision)
 				improvement=true;
-
+//			CERR << "improvement " << nb_moves << ">0 && " << new_qual-cur_qual << ">" << prmtrs.precision << "\n";
+			dbg.msg(DEBUG_LEVEL::ACTIONS, "c"+std::to_string(new_qual)+"m"+std::to_string(nb_moves)+"e"+std::to_string(new_qual-cur_qual));
 		} while (nb_moves>0 && new_qual-cur_qual > prmtrs.precision);
 
 		//sync changed communities back to reference graph
+		dbg.msg(DEBUG_LEVEL::ACTIONS, "f"+std::to_string(firstRun));
+		dbg.msg(DEBUG_LEVEL::ACTIONS, "y"+debugPrint());
 		if(firstRun){
+//		  CERR << "sync first run\n";
 			typeCommunities coms=grph.communities();//get all found communities
 			for(typeCommunities::const_iterator itc=coms.cbegin();itc!=coms.cend();++itc){
 				const typeCommunity & srcc=*itc;
@@ -365,22 +373,34 @@ private:
 			firstRun=false;
 		}
 		else{//not the first run
+//		  CERR << "sync other runs\n";
 			typeVertexListConst coms=cg.getVertices();
 			for(typeVertexListIteratorConst itc=coms.cbegin();itc!=coms.cend();++itc){
+//			  CERR << "sync other runs vertices " << &(*itc) << "!=" << &(*coms.cend()) << "\n";
 				const typeVertex & n=*itc;
 				const typeCommunity & c=cg.community(n);
 				if(n!=c){//community has changed
 					typeCommunityListRange r=grph.vertices(n);
-					for(typeCommunityListRangeIteratorConst itr=r.first;itr!=r.second;){
+					std::list<typeVertex> vrt;
+					for(typeCommunityListRangeIteratorConst itr=r.first;itr!=r.second;++itr){
+//					  CERR << "sync other runs community changed " << n << " to " << c << " ; it=" << &(*itr) << "!=" << &(*r.second) << "\n";
 						const typeCommunityListRangePair & p=*itr;
 						const typeVertex & nd=p.second;
-						++itr;
+						vrt.push_back(nd);
+					}
+					for(std::list<typeVertex>::const_iterator itr=vrt.cbegin();itr!=vrt.cend();++itr){
+//					  CERR << "sync other runs community changed " << n << " to " << c << " ; it=" << &(*itr) << "!=" << &(*r.second) << "\n";
+						const typeVertex & nd=*itr;
+//						dbg.msg(DEBUG_LEVEL::ACTIONS, "n"+std::to_string(n)+"c"+std::to_string(c)+"d"+std::to_string(nd));
 						grph.community(nd,c);
+//						dbg.msg(DEBUG_LEVEL::ACTIONS, debugPrint());
 					}
 				}
 			}
 			cg.communitiesToGraph();
 		}
+		dbg.msg(DEBUG_LEVEL::CALLS, "r"+std::to_string(improvement));
+		dbg.post(DEBUG_LEVEL::MODIFICATIONS,debugPrint());
 		return improvement;
   }
 
@@ -399,6 +419,8 @@ public:
 	 * @return true if all operations succeeded. False, otherwise.
 	 */
 	bool addRemoveEdgePre(const typeVertex & source, const typeVertex & destination, const typeWeight & weight=1.0){
+//		dbg.pre(DEBUG_LEVEL::MODIFICATIONS,"ALae", debugPrint());
+//		dbg.msg(DEBUG_LEVEL::CALLS,"s"+std::to_string(source)+"d"+std::to_string(destination)+"w"+std::to_string(weight));
 		if(weight!=0.0){//add edge
 
 		}
@@ -407,11 +429,11 @@ public:
 				const typeCommunity & c1=grph.community(source);
 				const typeCommunity & c2=grph.community(destination);
 				typeWeight w=cg.weight(c1,c2);//get weight of link if it exists
-				if(isnan(w)){//edge does not exist
+				if(std::isnan(w)){//edge does not exist
 				}
 				else{//edge already exists
 					typeWeight weight=grph.weight(source,destination);
-					if(isnan(weight)) return false;
+					if(std::isnan(weight)) return false;
 					if(c1==c2) w-=2*weight;
 					else w-=weight;
 					if(w!=0) cg.addEdge(c1,c2,w,true);//replace
@@ -419,6 +441,7 @@ public:
 				}
 			}
 		}
+//		dbg.post(DEBUG_LEVEL::MODIFICATIONS, debugPrint());
 		return true;
 	}
 
@@ -436,12 +459,14 @@ public:
 	 * @return true if all operations succeeded. False, otherwise.
 	 */
 	bool addRemoveEdgePost(const typeVertex & source, const typeVertex & destination, const typeWeight & weight=1.0){
+//		dbg.pre(DEBUG_LEVEL::MODIFICATIONS,"ALae", debugPrint());
+//		dbg.msg(DEBUG_LEVEL::CALLS,"s"+std::to_string(source)+"d"+std::to_string(destination)+"w"+std::to_string(weight));
 		if(weight!=0.0){//add edge
 			if(!firstRun){
 				const typeCommunity & c1=grph.community(source);
 				const typeCommunity & c2=grph.community(destination);
 				typeWeight w=cg.weight(c1,c2);//get weight of link if it exists
-				if(isnan(w)){//edge does not exist
+				if(std::isnan(w)){//edge does not exist
 					if(c1==c2) w=2*weight;
 					cg.addEdge(c1,c2,weight);
 				}
@@ -462,6 +487,7 @@ public:
 		else{//remove edge
 
 		}
+//		dbg.post(DEBUG_LEVEL::MODIFICATIONS, debugPrint());
 		return true;
 	}
 
@@ -472,17 +498,21 @@ public:
 	 * @return true if all operations succeeded. False, otherwise.
 	 */
 	bool run(){
-			bool improvement = true;
-			int level = 0;
-			//main cycle
-			do {
-				//group nodes into communities
-				improvement = one_level();
-				//get quality of the new grouping
-				++level;
-			} while(improvement);
-			return true;
-	  }
+		dbg.pre(DEBUG_LEVEL::MODIFICATIONS,"ALr", debugPrint());
+		bool improvement = true;
+		int level = 0;
+		//main cycle
+//			CERR << "running\n";
+		do {
+			//group nodes into communities
+			improvement = one_level();
+			//get quality of the new grouping
+			++level;
+		} while(improvement);
+//			CERR << "end run\n";
+		dbg.post(DEBUG_LEVEL::MODIFICATIONS,debugPrint());
+		return true;
+	}
 
 public:
 	/**
@@ -530,6 +560,13 @@ public:
 		ss << AlgorithmBase::toString(sf);
 		f.header("cg:");
 		ss << cg.toString(f);
+		return ss.str();
+	}
+
+	const std::string debugPrint()const{
+		std::stringstream ss;
+		ss << AlgorithmBase::debugPrint();
+		ss << "cg"<< cg.debugPrint();
 		return ss.str();
 	}
 
