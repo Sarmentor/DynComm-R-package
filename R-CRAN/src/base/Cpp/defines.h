@@ -23,6 +23,27 @@
  */
 #define FLAG_RCPP
 
+/**
+ * Define the following flag to compile with debug logging enabled
+ */
+#define FLAG_DEBUG_LOGGING
+
+/**
+ * Define the following flag to compile with debug actions enabled.
+ * Debug actions are functions that are run to verify the integraty of objects
+ * and of actions (functions called) performed to them.
+ */
+//#define FLAG_DEBUG_ACTIONS	//NOT YET USED
+
+enum class DEBUG_LEVEL:unsigned int{
+	NONE=0	//no debugging
+	,TRACE=100	//function calls without parameters
+	,CALLS=200	//function calls with parameters and return
+	,MODIFICATIONS=300	//function calls with parameters and pre and post operation snapshots
+	,ACTIONS=400	//function calls with parameters and pre and post operation snapshots and actions performed inside function
+	,VERIFY=5000	//verify operations give correct result
+	,ALL=10000	//prints everything
+};
 
 /*
  * Redirect output and error streams, and program exit to the correct place if

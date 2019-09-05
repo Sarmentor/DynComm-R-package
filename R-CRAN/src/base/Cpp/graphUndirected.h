@@ -20,6 +20,7 @@
 #include "multimapUtilities.h"
 #include <sstream>
 #include <limits>
+#include "DebugLog.h"
 
 /**
  * @brief Graph.
@@ -96,6 +97,8 @@ public:
 	bool addEdge(const typeVertex & source, const typeVertex & destination, const typeWeight & weight=1.0, const bool & replace=false){
 		if(source==noVertex || destination==noVertex) return false;
 		if(replace && weight==0) return false;
+//		dbg.pre(DEBUG_LEVEL::MODIFICATIONS,"Ga", debugPrint());
+//		dbg.msg(std::to_string(source));
 		bool result=false;
 		if (vertices.find(source)==vertices.end()) {//node does not exist
 			vertices.insert(source);//create
@@ -138,6 +141,7 @@ public:
 			}
 			result=true;
 		}
+//		dbg.post(DEBUG_LEVEL::MODIFICATIONS,debugPrint());
 		return result;
 	}
 
@@ -357,6 +361,21 @@ public:
 		}
 		ss << f.setClose() << f.setOpen() << f.tupleOpen()<< total_weight << f.valueSeparator()<< max_weight << f.tupleClose();
 		f.end(ss,true);
+		return ss.str();
+	}
+
+	const std::string debugPrint()const {
+		std::stringstream ss;
+		for(typeVertexListIteratorConst itn=vertices.cbegin();itn!=vertices.cend();++itn){
+			const typeVertex & vertex=*itn;
+			typeLinksRangeConst p=neighbours(vertex);
+			for (typeLinksIteratorConst it=p.first ; it!=p.second ; ++it){
+				const typeLinksPair & a=*it;
+				const HalfEdge & e=a.second;
+				ss << vertex << "+" << e.destination() << "=" << e.weight() << ";";
+			}
+		}
+		ss << total_weight << ";" << max_weight;
 		return ss.str();
 	}
 

@@ -21,13 +21,13 @@
 #define SRC_DYNCOMMBASE_H_
 
 #include "defines.h"
-// #include "DynCommBaseInterface.h"
-// #include "algorithm.h"
-// #include "criterion.h"
+#include "DynCommBaseInterface.h"
+#include "algorithm.h"
+#include "criterion.h"
 #include "timeFunctions.h"
-// #include "mapReversable.h"
-#include "DynCommSingle.h"
-#include "DynCommSplit.h"
+#include "mapReversable.h"
+#include "DebugLog.h"
+
 
 /**
  * @brief Dynamic Communities base class.
@@ -43,6 +43,10 @@
  */
 class DynCommBase:private DynCommBaseInterface{
 private:
+	Algorithm algrthm;//algorithm
+	GraphUndirectedGroupable grph;//graph with edges
+	Criterion qlt;//criterion
+	ProgramParameters prmtrs;//algorithm parameters
 
 	/**
 	 * total accumulated time used for processing
@@ -59,10 +63,15 @@ private:
 	 */
 	uint64 timeProcessing=0;
 
-	const bool alg;
-  DynCommSingle sngl;
-  DynCommSplit splt;
-  
+	/*
+	 * map used to keep the old relation between the graph vertices and their communities
+	 * It is used to keep track of vertices that change communities between iterations
+	 * of the algorithm to reply to differential=true communityMapping calls.
+	 */
+	typeCommunityList oldCommunities;
+
+//	DynCommSingle
+
 public:
 	/**
 	 * Default constructor not acceptable.
@@ -79,13 +88,14 @@ public:
 			, ProgramParameters & algorithmParameters=argumentsDefault
 	)
 	:
-    alg(isSingle(algorithm))
-    ,sngl(algorithm,quality,algorithmParameters)
-	  ,splt(algorithm,quality,algorithmParameters)
-  	,timeTotal(0)
-  	,timeStart(Time::currentTime())
-  	,timeProcessing(0)
+		algrthm(grph,qlt,algorithm,algorithmParameters)
+	,qlt(grph,quality,algorithmParameters)
+	,prmtrs(algorithmParameters)
+	,timeTotal(0)
+	,timeStart(Time::currentTime())
+	,timeProcessing(0)
 	{
+		dbg.init(algorithmParameters);
 	}
 
 	/**
@@ -95,25 +105,27 @@ public:
 	 * @return true if adding/removing succeeded
 	 */
 	bool addRemoveEdges(ReaderInterface<Edge> * reader){
+		dbg.pre(DEBUG_LEVEL::MODIFICATIONS,"DCBa", debugPrint());
 		timeStart=Time::currentTime();
-		// //store old communities
-		// oldCommunities=typeCommunityList();//first clean map
-		// const typeVertexList & vs=grph.getVertices();
-		// for(typeVertexListIteratorConst it=vs.cbegin();it!=vs.cend();++it){
-		// 	const typeVertex & v=*it;
-		// 	oldCommunities.add(v,grph.community(v));
-		// }
-		// bool b=algrthm.addRemoveEdges(reader);
-		bool b=false;
-		if(alg){
-		  b=sngl.addRemoveEdges(reader);
+		//store old communities
+		dbg.msg(DEBUG_LEVEL::ACTIONS, "bckp c");
+		oldCommunities=typeCommunityList();//first clean map
+		const typeVertexList & vs=grph.getVertices();
+		for(typeVertexListIteratorConst it=vs.cbegin();it!=vs.cend();++it){
+			const typeVertex & v=*it;
+			oldCommunities.add(v,grph.community(v));
 		}
-		else{
-		  b=splt.addRemoveEdges(reader);
-		}
+		dbg.msg(DEBUG_LEVEL::VERIFY, "o"+std::to_string(oldCommunities.size())+"c"+std::to_string(grph.vertexCount()));
+//		dbg.val(DEBUG_LEVEL::VERIFY, std::to_string(oldCommunities.size()));
+//		dbg.msg(DEBUG_LEVEL::VERIFY, "c"+std::to_string(grph.vertexCount()));
+//		dbg.msg(DEBUG_LEVEL::VERIFY, std::to_string(grph.vertexCount()));
+		bool b=algrthm.addRemoveEdges(reader);
 		uint64 tm=Time::currentTime();
 		timeProcessing=tm-timeStart;
 		timeTotal+=timeProcessing;
+		dbg.msg(DEBUG_LEVEL::CALLS, "r"+std::to_string(b));
+//		dbg.msg(DEBUG_LEVEL::CALLS,std::to_string(b));
+		dbg.post(DEBUG_LEVEL::MODIFICATIONS,debugPrint());
 		return b;
 	}
 
@@ -121,39 +133,21 @@ public:
 	 * @return the current quality measure of the community mapping on the graph
 	 */
 	typeCriterion quality()const {
-		// return qlt.quality();
-	  if(alg){
-	    return sngl.quality();
-	  }
-	  else{
-	    return splt.quality();
-	  }
+		return qlt.quality();
 	}
 
 	/**
 	 * @return the number of existing communities
 	 */
 	int communityCount()const {
-		// return grph.communityCount();
-		if(alg){
-		  return sngl.communityCount();
-		}
-		else{
-		  return splt.communityCount();
-		}
+		return grph.communityCount();
 	}
 
 	/**
 	 * @return the list of all existing communities
 	 */
 	typeCommunities communities()const {
-		// return grph.communities();
-		if(alg){
-		  return sngl.communities();
-		}
-		else{
-		  return splt.communities();
-		}
+		return grph.communities();
 	}
 
 	/**
@@ -162,13 +156,7 @@ public:
 	 * @return the number of edges
 	 */
 	typeWeight communitiesEdgeCount()const {
-		// return grph.communitiesEdgeCount();
-	  if(alg){
-	    return sngl.communitiesEdgeCount();
-	  }
-	  else{
-	    return splt.communitiesEdgeCount();
-	  }
+		return grph.communitiesEdgeCount();
 	}
 
 	/**
@@ -178,13 +166,7 @@ public:
 	 * @return the neighbouring communities
 	 */
 	typeLinksRangeConst communityNeighbours(typeCommunity community)const {
-		// return grph.neighbouringCommunities(community);
-	  if(alg){
-	    return sngl.communityNeighbours(community);
-	  }
-	  else{
-	    return splt.communityNeighbours(community);
-	  }
+		return grph.neighbouringCommunities(community);
 	}
 
 	/**
@@ -194,15 +176,7 @@ public:
 	 * @param community
 	 * @return the sum of the weights of all inner edges
 	 */
-	typeWeight communityInnerEdgesWeight(typeCommunity community)const {
-	  // return grph.innerEdges(community);
-	  if(alg){
-	    return sngl.communityInnerEdgesWeight(community);
-	  }
-	  else{
-	    return splt.communityInnerEdgesWeight(community);
-	  }
-	}
+	typeWeight communityInnerEdgesWeight(typeCommunity community)const {return grph.innerEdges(community);}
 
 	//		int communityInnerEdgesCount(int community){return grph.i
 
@@ -212,15 +186,7 @@ public:
 	 * @param community
 	 * @return the sum of the weights of all edges
 	 */
-	typeWeight communityTotalWeight(typeCommunity community)const {
-	  // return grph.totalEdges(community);
-	  if(alg){
-	    return sngl.communityTotalWeight(community);
-	  }
-	  else{
-	    return splt.communityTotalWeight(community);
-	  }
-	}
+	typeWeight communityTotalWeight(typeCommunity community)const {return grph.totalEdges(community);}
 
 	//		int communityTotalEdgesCount(int community){
 
@@ -232,13 +198,7 @@ public:
 	 * @return the weight of the edge
 	 */
 	typeWeight communityEdgeWeight(typeCommunity source,typeCommunity destination)const{
-		// return grph.weightCommunity(source, destination);
-	  if(alg){
-	    return sngl.communityEdgeWeight(source, destination);
-	  }
-	  else{
-	    return splt.communityEdgeWeight(source, destination);
-	  }
+		return grph.weightCommunity(source, destination);
 	}
 
 	/**
@@ -248,18 +208,12 @@ public:
 	 * @return the number of vertices
 	 */
 	int communityVertexCount(typeCommunity community)const {
-		// unsigned int cnt=0;
-		// typeCommunityListRange r=grph.vertices(community);
-		// for(typeCommunityListRangeIteratorConst it=r.first; it!=r.second; ++it){
-		// 	++cnt;
-		// }
-		// return cnt;
-		if(alg){
-		  return sngl.communityVertexCount(community);
+		unsigned int cnt=0;
+		typeCommunityListRange r=grph.vertices(community);
+		for(typeCommunityListRangeIteratorConst it=r.first; it!=r.second; ++it){
+			++cnt;
 		}
-		else{
-		  return splt.communityVertexCount(community);
-		}
+		return cnt;
 	}
 
 	/**
@@ -268,58 +222,34 @@ public:
 	 * @return the community of the given vertex or a special community of noGRoup if the vertex does not exist
 	 */
 	typeCommunity community(typeVertex vertex)const{
-		// return grph.community(vertex);
-	  if(alg){
-	    return sngl.community(vertex);
-	  }
-	  else{
-	    return splt.community(vertex);
-	  }
+		return grph.community(vertex);
 	}
 
 	/**
 	 * @return the number of vertices in the graph
 	 */
 	unsigned int vertexCount()const{
-		// return grph.vertexCount();
-	  if(alg){
-	    return sngl.vertexCount();
-	  }
-	  else{
-	    return splt.vertexCount();
-	  }
+		return grph.vertexCount();
 	}
 
 	/**
 	 * @return a constant set with all vertices
 	 */
 	typeVertexList vertices()const{
-		// return grph.getVertices();
-	  if(alg){
-	    return sngl.vertices();
-	  }
-	  else{
-	    return splt.vertices();
-	  }
+		return grph.getVertices();
 	}
 
 	/**
 	 * @return a list of all vertices belonging to the given community
 	 */
 	typeVertexList vertices(typeCommunity community)const {
-		// typeVertexList lst;
-		// typeCommunityListRange r=grph.vertices(community);
-		// for(typeCommunityListRangeIteratorConst it=r.first; it!=r.second; ++it){
-		// 	typeCommunityListRangePair p=*it;
-		// 	lst.insert(p.second);
-		// }
-		// return lst;
-		if(alg){
-		  return sngl.vertices(community);
+		typeVertexList lst;
+		typeCommunityListRange r=grph.vertices(community);
+		for(typeCommunityListRangeIteratorConst it=r.first; it!=r.second; ++it){
+			typeCommunityListRangePair p=*it;
+			lst.insert(p.second);
 		}
-		else{
-		  return splt.vertices(community);
-		}
+		return lst;
 	}
 
 	/**
@@ -328,13 +258,7 @@ public:
 	 * @return the number of edges
 	 */
 	typeWeight edgeCount()const {
-		// return grph.edgeCount();
-	  if(alg){
-	    return sngl.edgeCount();
-	  }
-	  else{
-	    return splt.edgeCount();
-	  }
+		return grph.edgeCount();
 	}
 
 	/**
@@ -351,134 +275,141 @@ public:
 	 * @return true if the operation succeeded
 	 */
 	bool communityMapping(WriterInterface * writer,bool communityFirst=true,bool differential=true) const{
-		// if(differential){
-		// 	if(communityFirst){
-		// 		const typeCommunities & gc=grph.communities();
-		// 		for(typeCommunities::const_iterator it=gc.cbegin();it!=gc.cend();++it){
-		// 			const typeCommunity &c=*it;
-		// 			typeVertexList n=vertices(c);
-		// 			typeVertexList changed=typeVertexList();//empty set of vertices that changed community
-		// 			//check vertices that existed or are new
-		// 			for(typeVertexListIteratorConst itn=n.cbegin();itn!=n.cend();++itn){
-		// 				const typeVertex & v=*itn;
-		// 				const typeCommunityListIteratorConst & itc=oldCommunities.value(v);
-		// 				if(itc==oldCommunities.cend()){//vertex did not exist so consider it changed community
-		// 					changed.insert(v);
-		// 				}
-		// 				else{//vertex existed
-		// 					const typeCommunity & oc=(*itc).second;
-		// 					if(c!=oc){//changed community
-		// 						changed.insert(v);
-		// 					}
-		// 				}
-		// 			}
-		// 			if(changed.size()>0){
-		// 				unsigned int i=1;
-		// 				writer->write(std::to_string(c),WriterInterface::WRITETYPE::VALUE);
-		// 				for(typeVertexListIteratorConst itn=changed.cbegin();itn!=changed.cend();++itn){
-		// 					const typeVertex & v=*itn;
-		// 					if(i==changed.size()){//last value
-		// 						writer->write(std::to_string(v),WriterInterface::WRITETYPE::LINE);
-		// 					}
-		// 					else{
-		// 						writer->write(std::to_string(v),WriterInterface::WRITETYPE::VALUE);
-		// 					}
-		// 					++i;
-		// 				}
-		// 			}
-		// 			//check vertices that no longer exist
-		// 			changed.clear();
-		// 			if(grph.vertexCount()!=oldCommunities.size()){//some vertices no longer exist
-		// 				const typeVertexList & vs=grph.getVertices();
-		// 				for(typeCommunityListIteratorConst itn=oldCommunities.cbegin();itn!=oldCommunities.cend();++itn){
-		// 					const typeVertex & v=(*itn).first;
-		// 					if(vs.find(v)==vs.end()){//vertex no longer exists so consider it changed community
-		// 						changed.insert(v);
-		// 					}
-		// 				}
-		// 			}
-		// 			if(changed.size()>0){
-		// 				unsigned int i=1;
-		// 				writer->write("NA",WriterInterface::WRITETYPE::VALUE);
-		// 				for(typeVertexListIteratorConst itn=changed.cbegin();itn!=changed.cend();++itn){
-		// 					const typeVertex & v=*itn;
-		// 					if(i==changed.size()){//last value
-		// 						writer->write(std::to_string(v),WriterInterface::WRITETYPE::LINE);
-		// 					}
-		// 					else{
-		// 						writer->write(std::to_string(v),WriterInterface::WRITETYPE::VALUE);
-		// 					}
-		// 					++i;
-		// 				}
-		// 			}
-		// 		}
-		// 	}
-		// 	else{//vertex first
-		// 		//check vertices that existed or are new
-		// 		const typeVertexList & vs=grph.getVertices();
-		// 		for(typeVertexListIteratorConst it=vs.cbegin();it!=vs.cend();++it){
-		// 			const typeVertex & v=*it;
-		// 			const typeCommunity & c=grph.community(v);
-		// 			const typeCommunityListIteratorConst itc=oldCommunities.value(v);
-		// 			if(itc==oldCommunities.cend()){//vertex did not exist so consider it changed community
-		// 				writer->write(std::to_string(v),WriterInterface::WRITETYPE::VALUE);
-		// 				writer->write(std::to_string(c),WriterInterface::WRITETYPE::LINE);
-		// 			}
-		// 			else{//vertex existed
-		// 				const typeCommunity & oc=(*itc).second;
-		// 				if(c!=oc){//changed community
-		// 					writer->write(std::to_string(v),WriterInterface::WRITETYPE::VALUE);
-		// 					writer->write(std::to_string(c),WriterInterface::WRITETYPE::LINE);
-		// 				}
-		// 			}
-		// 		}
-		// 		//check vertices that no longer exist
-		// 		if(vs.size()!=oldCommunities.size()){
-		// 			for(typeCommunityListIteratorConst itn=oldCommunities.cbegin();itn!=oldCommunities.cend();++itn){
-		// 				const typeVertex & v=(*itn).first;
-		// 				if(vs.find(v)==vs.end()){//vertex no longer exists so consider it changed community
-		// 					writer->write(std::to_string(v),WriterInterface::WRITETYPE::VALUE);
-		// 					writer->write("NA",WriterInterface::WRITETYPE::LINE);
-		// 				}
-		// 			}
-		// 		}
-		// 	}
-		// }
-		// else{//not differential
-		// 	if(communityFirst){
-		// 		const typeCommunities & gc=grph.communities();
-		// 		for(typeCommunities::const_iterator it=gc.cbegin();it!=gc.cend();++it){
-		// 			const typeCommunity &c=*it;
-		// 			writer->write(std::to_string(c),WriterInterface::WRITETYPE::VALUE);
-		// 			typeVertexList n=vertices(c);
-		// 			unsigned int i=1;
-		// 			for(typeVertexListIteratorConst itn=n.cbegin();itn!=n.cend();++itn){
-		// 				if(i==n.size()){//last value
-		// 					writer->write(std::to_string(*itn),WriterInterface::WRITETYPE::LINE);
-		// 				}
-		// 				else{
-		// 					writer->write(std::to_string(*itn),WriterInterface::WRITETYPE::VALUE);
-		// 				}
-		// 				++i;
-		// 			}
-		// 		}
-		// 	}
-		// 	else{//vertex first
-		// 		const typeVertexList & vs=grph.getVertices();
-		// 		for(typeVertexListIteratorConst it=vs.cbegin();it!=vs.cend();++it){
-		// 			const typeVertex & v=*it;
-		// 			writer->write(std::to_string(v),WriterInterface::WRITETYPE::VALUE);
-		// 			writer->write(std::to_string(grph.community(v)),WriterInterface::WRITETYPE::LINE);
-		// 		}
-		// 	}
-		// }
-		// return true;
-		if(alg){
-		  return sngl.communityMapping(writer, communityFirst ,differential);
+		dbg.pre(DEBUG_LEVEL::MODIFICATIONS,"DCBm", debugPrint());
+//		dbg.val(DEBUG_LEVEL::CALLS, "c");
+//		dbg.val(DEBUG_LEVEL::CALLS,std::to_string(communityFirst));
+//		dbg.val(DEBUG_LEVEL::CALLS, "d");
+//		dbg.msg(DEBUG_LEVEL::CALLS,std::to_string(differential));
+		dbg.msg(DEBUG_LEVEL::CALLS,"c"+std::to_string(communityFirst)+"d"+std::to_string(differential));
+		if(differential){
+			if(communityFirst){
+				const typeCommunities & gc=grph.communities();
+				for(typeCommunities::const_iterator it=gc.cbegin();it!=gc.cend();++it){
+					const typeCommunity &c=*it;
+					typeVertexList n=vertices(c);
+					typeVertexList changed=typeVertexList();//empty set of vertices that changed community
+					//check vertices that existed or are new
+					dbg.val(DEBUG_LEVEL::ACTIONS, "e");
+					for(typeVertexListIteratorConst itn=n.cbegin();itn!=n.cend();++itn){
+						const typeVertex & v=*itn;
+						const typeCommunityListIteratorConst & itc=oldCommunities.value(v);
+						if(itc==oldCommunities.cend()){//vertex did not exist so consider it changed community
+							changed.insert(v);
+						}
+						else{//vertex existed
+							const typeCommunity & oc=(*itc).second;
+							if(c!=oc){//changed community
+								changed.insert(v);
+							}
+						}
+					}
+					dbg.val(DEBUG_LEVEL::ACTIONS, std::to_string(changed.size()));
+					if(changed.size()>0){
+						unsigned int i=1;
+						writer->write(std::to_string(c),WriterInterface::WRITETYPE::VALUE);
+						for(typeVertexListIteratorConst itn=changed.cbegin();itn!=changed.cend();++itn){
+							const typeVertex & v=*itn;
+							if(i==changed.size()){//last value
+								writer->write(std::to_string(v),WriterInterface::WRITETYPE::LINE);
+							}
+							else{
+								writer->write(std::to_string(v),WriterInterface::WRITETYPE::VALUE);
+							}
+							++i;
+						}
+					}
+					//check vertices that no longer exist
+					dbg.val(DEBUG_LEVEL::ACTIONS, "r");
+					changed.clear();
+					if(grph.vertexCount()!=oldCommunities.size()){//some vertices no longer exist
+						const typeVertexList & vs=grph.getVertices();
+						for(typeCommunityListIteratorConst itn=oldCommunities.cbegin();itn!=oldCommunities.cend();++itn){
+							const typeVertex & v=(*itn).first;
+							if(vs.find(v)==vs.end()){//vertex no longer exists so consider it changed community
+								changed.insert(v);
+							}
+						}
+					}
+					dbg.msg(DEBUG_LEVEL::ACTIONS, std::to_string(changed.size()));
+					if(changed.size()>0){
+						unsigned int i=1;
+						writer->write("NA",WriterInterface::WRITETYPE::VALUE);
+						for(typeVertexListIteratorConst itn=changed.cbegin();itn!=changed.cend();++itn){
+							const typeVertex & v=*itn;
+							if(i==changed.size()){//last value
+								writer->write(std::to_string(v),WriterInterface::WRITETYPE::LINE);
+							}
+							else{
+								writer->write(std::to_string(v),WriterInterface::WRITETYPE::VALUE);
+							}
+							++i;
+						}
+					}
+				}
+			}
+			else{//vertex first
+				//check vertices that existed or are new
+				dbg.val(DEBUG_LEVEL::ACTIONS, "e");
+				const typeVertexList & vs=grph.getVertices();
+				for(typeVertexListIteratorConst it=vs.cbegin();it!=vs.cend();++it){
+					const typeVertex & v=*it;
+					const typeCommunity & c=grph.community(v);
+					const typeCommunityListIteratorConst itc=oldCommunities.value(v);
+					if(itc==oldCommunities.cend()){//vertex did not exist so consider it changed community
+						writer->write(std::to_string(v),WriterInterface::WRITETYPE::VALUE);
+						writer->write(std::to_string(c),WriterInterface::WRITETYPE::LINE);
+					}
+					else{//vertex existed
+						const typeCommunity & oc=(*itc).second;
+						if(c!=oc){//changed community
+							writer->write(std::to_string(v),WriterInterface::WRITETYPE::VALUE);
+							writer->write(std::to_string(c),WriterInterface::WRITETYPE::LINE);
+						}
+					}
+				}
+				//check vertices that no longer exist
+				dbg.msg(DEBUG_LEVEL::ACTIONS, "r"+std::to_string(vs.size()!=oldCommunities.size()));
+				if(vs.size()!=oldCommunities.size()){
+					for(typeCommunityListIteratorConst itn=oldCommunities.cbegin();itn!=oldCommunities.cend();++itn){
+						const typeVertex & v=(*itn).first;
+						if(vs.find(v)==vs.end()){//vertex no longer exists so consider it changed community
+							writer->write(std::to_string(v),WriterInterface::WRITETYPE::VALUE);
+							writer->write("NA",WriterInterface::WRITETYPE::LINE);
+						}
+					}
+				}
+			}
 		}
-		else{
-		  return splt.communityMapping(writer, communityFirst ,differential);
+		else{//not differential
+			if(communityFirst){
+				const typeCommunities & gc=grph.communities();
+				for(typeCommunities::const_iterator it=gc.cbegin();it!=gc.cend();++it){
+					const typeCommunity &c=*it;
+					writer->write(std::to_string(c),WriterInterface::WRITETYPE::VALUE);
+					typeVertexList n=vertices(c);
+					unsigned int i=1;
+					for(typeVertexListIteratorConst itn=n.cbegin();itn!=n.cend();++itn){
+						if(i==n.size()){//last value
+							writer->write(std::to_string(*itn),WriterInterface::WRITETYPE::LINE);
+						}
+						else{
+							writer->write(std::to_string(*itn),WriterInterface::WRITETYPE::VALUE);
+						}
+						++i;
+					}
+				}
+			}
+			else{//vertex first
+				const typeVertexList & vs=grph.getVertices();
+				for(typeVertexListIteratorConst it=vs.cbegin();it!=vs.cend();++it){
+					const typeVertex & v=*it;
+					writer->write(std::to_string(v),WriterInterface::WRITETYPE::VALUE);
+					writer->write(std::to_string(grph.community(v)),WriterInterface::WRITETYPE::LINE);
+				}
+			}
 		}
+		dbg.post(DEBUG_LEVEL::MODIFICATIONS,debugPrint());
+		return true;
 	}
 
 	/**
@@ -488,26 +419,14 @@ public:
 	 * @return pointers to the first and last neighbour of the vertex
 	 */
 	typeLinksRangeConst neighbours(typeVertex vertex)const {
-		// return grph.neighbours(vertex);
-	  if(alg){
-	    return sngl.neighbours(vertex);
-	  }
-	  else{
-	    return splt.neighbours(vertex);
-	  }
+		return grph.neighbours(vertex);
 	}
 
 	/**
 	 * @return the weight of the edge
 	 */
 	typeWeight weight(const typeVertex & source, const typeVertex & destination) const {
-		// return grph.weight(source,destination);
-	  if(alg){
-	    return sngl.weight(source,destination);
-	  }
-	  else{
-	    return splt.weight(source,destination);
-	  }
+		return grph.weight(source,destination);
 	}
 
 	/**
@@ -517,6 +436,21 @@ public:
 	uint64 time(bool accumulated=true)const{
 	  if(!accumulated) return timeProcessing;
 	  return timeTotal;
+	}
+
+	const std::string debugPrint()const {
+		std::stringstream ss;
+//		for(typeVertexListIteratorConst itn=vertices.cbegin();itn!=vertices.cend();++itn){
+//			const typeVertex & vertex=*itn;
+//			typeLinksRangeConst p=neighbours(vertex);
+//			for (typeLinksIteratorConst it=p.first ; it!=p.second ; ++it){
+//				const typeLinksPair & a=*it;
+//				const HalfEdge & e=a.second;
+//				ss << vertex << "+" << e.destination() << "=" << e.weight() << ";";
+//			}
+//		}
+//		ss << total_weight << ";" << max_weight;
+		return ss.str();
 	}
 
 };

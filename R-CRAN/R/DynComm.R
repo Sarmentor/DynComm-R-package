@@ -246,7 +246,7 @@ source('R/DynCommPostProcess.R')
 #' @export
 #'
 #' @examples
-#' Parameters<-matrix(c("-e","0.1","-w", "FALSE"),ncol=2, byrow=TRUE)
+#' Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
 #' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
 #' dc$addRemoveEdges(
 #' matrix(
@@ -1262,7 +1262,8 @@ DynComm.results <- function(dyncomm,differential=TRUE){
 #'   }
 #'   \item{File input}{
 #' The file must have only one edge per line, with values separated by a white
-#' space (both SPACE and TAB work in any amount and combination).
+#' space (both SPACE and TAB work in any amount and combination). The line must 
+#' end with a newline character (also known as linefeed, LF or '\\n').
 #' 
 #' The first value is the source vertex, the second is the destination vertex, 
 #' and the third is the weight.

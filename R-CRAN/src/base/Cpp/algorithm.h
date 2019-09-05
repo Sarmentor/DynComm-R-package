@@ -37,15 +37,16 @@
 #ifndef SRC_ALGORITHM_H_
 #define SRC_ALGORITHM_H_
 
-#include "algorithmList.h"
 #include "algorithmInterface.h"
-#include "algorithmLouvain.h"
 #include "criterion.h"
+#include "algorithmList.h"
+
 /* **********************************************************************
  ************************************************************************
  * TODO: Add algorithm include file here
  ************************************************************************
  ************************************************************************/
+#include "algorithmLouvain.h"
 
 
 /**
@@ -63,18 +64,18 @@
  */
 class Algorithm: private AlgorithmBase{
 public:
-// /* **********************************************************************
-//  ************************************************************************
-//  * TODO: Add algorithm name to enumeration. Use the same name used in R
-//  ************************************************************************
-//  ************************************************************************/
-// 	/**
-// 	 * Enumeration with the list of supported Dynamic Communities algorithms.
-// 	 * This enumeration must start at 1 since this code is used in R and R
-// 	 * indexing (for arrays, etc) starts at 1 instead of 0.
-// 	 * Otherwise C++ would assign the first algorithm a 0.
-// 	 */
-// 	enum class ALGORITHM:unsigned int{LOUVAIN=1,SHAKEN};
+/* **********************************************************************
+ ************************************************************************
+ * TODO: Add algorithm name to enumeration. Use the same name used in R
+ ************************************************************************
+ ************************************************************************/
+	/**
+	 * Enumeration with the list of supported Dynamic Communities algorithms.
+	 * This enumeration must start at 1 since this code is used in R and R
+	 * indexing (for arrays, etc) starts at 1 instead of 0.
+	 * Otherwise C++ would assign the first algorithm a 0.
+	 */
+//	enum class ALGORITHM:unsigned int{LOUVAIN=1,SHAKEN};
 
 private:
 	/*
@@ -222,6 +223,7 @@ public:
 	 * @return true if adding/removing succeeded
 	 */
 	bool addRemoveEdges(ReaderInterface<Edge> * reader){
+		dbg.pre(DEBUG_LEVEL::MODIFICATIONS,"Aa", debugPrint());
 		//TODO add reader error handling
 		ReaderInterface<Edge>::NEXTTYPE n=reader->hasNext();
 		if(n==ReaderInterface<Edge>::NEXTTYPE::CANNOTOPEN) return false;
@@ -230,9 +232,11 @@ public:
 				Edge ed=reader->next();
 				addRemoveEdgePre(ed.source(),ed.destination(),ed.weight());
 				if(ed.weight()==0){
+//					dbg.msg(DEBUG_LEVEL::ACTIONS, "a");
 					grph.removeEdge(ed);
 				}
 				else{
+//					dbg.msg(DEBUG_LEVEL::ACTIONS, "r");
 					grph.addEdge(ed,true);
 				}
 				addRemoveEdgePost(ed.source(),ed.destination(),ed.weight());
@@ -242,7 +246,10 @@ public:
 			}
 			n=reader->hasNext();
 		}
-		return run();
+		bool b=run();
+		dbg.msg(DEBUG_LEVEL::CALLS, "r"+std::to_string(b));
+		dbg.post(DEBUG_LEVEL::MODIFICATIONS,debugPrint());
+		return b;
 	}
 
 	/**
@@ -268,6 +275,26 @@ public:
 			//		case ALGORITHM::
 			}
 	  }
+
+	const std::string debugPrint()const {
+//		std::stringstream ss;
+		switch(algrthm){
+		default:
+		case ALGORITHM::LOUVAIN:
+			return algorithmLouvain.debugPrint();
+		break;
+/* **********************************************************************
+************************************************************************
+* TODO: Add algorithm call to toString
+************************************************************************
+************************************************************************/
+		//		case ALGORITHM::SHAKEN:
+		//			return louvain.addRemoveEdges(reader);
+		//		case ALGORITHM::
+		}
+//		return ss.str();
+	}
+
 };
 
 #endif /* SRC_ALGORITHM_H_ */

@@ -23,6 +23,8 @@
 #include <string>
 #include "program.h"
 #include "edge.h"
+#include <fstream>
+#include <ostream>
 
 /**
  * @brief Interface for a simple stream forward writer.
@@ -85,10 +87,12 @@ private:
 public:
 	WriterStream(std::ostream & stream,const ProgramParameters & parameters):str(stream),stts("Ok"),par(parameters),lineNumber(1),state(3){}
 
-	~WriterStream(){}
+	~WriterStream(){
+		str.flush();//force flush
+	}
 
 	bool isReady(){
-		if (state==5) return true;
+		if (state>0) return true;
 		return false;
 	}
 
@@ -199,6 +203,115 @@ public:
 			return "The file does not exist\n";
 		}
 		return f.status();
+	}
+};
+
+/**
+ * @brief Writer to file output stream.
+ *
+ * @details
+ * This writer can not write backwards, only append to the end.
+ *
+ * @author poltergeist0
+ *
+ * @date 2019-02-06
+ */
+class WriterDebugLogFile: public WriterInterface{
+private:
+	std::ofstream foutput;
+//	std::ostream & str;
+	std::string stts;
+	ProgramParameters par;
+	unsigned int lineNumber=1;
+	int state=0;//=0 error; =1 write object; =2 write comment; = 3 ready/waiting/start of line
+
+public:
+	WriterDebugLogFile():stts("Not initialized"),lineNumber(1),state(3){}
+
+	void init(const ProgramParameters & parameters){
+		par=parameters;
+		foutput.open(parameters.debugFilename,std::fstream::out);
+		if(foutput.is_open()){
+			stts="Ok";
+		}
+	}
+
+	~WriterDebugLogFile(){
+		if(foutput.is_open()){
+			foutput.flush();
+			foutput.close();
+		}
+	}
+
+	bool isReady(){
+		if(!foutput.is_open()){
+			return false;
+		}
+		if (state>0) return true;
+		return false;
+	}
+
+	/**
+	 * @brief Write a certain type of object to file stream
+	 * @details
+	 * The type parameter defines the type of object being written. This is used
+	 * to automatically add carriage returns, value separators and prepare writing
+	 * of the next object type.
+	 *
+	 * @param type defines what is being written
+	 * @return true if writing succeeded
+	 */
+	bool write(const std::string & object,const WRITETYPE & type=WRITETYPE::VALUE){
+		if(!foutput.is_open()){
+			return false;
+		}
+		switch(state){
+		case 1://previously wrote object
+			switch(type){
+			case WRITETYPE::COMMENT://requesting write comment. Must write new line before
+				foutput << "\n#"<< object<<"\n";
+				foutput.flush();
+				state=3;
+				break;
+			case WRITETYPE::LINE://requesting write new line after value
+				foutput << object<<"\n";
+				foutput.flush();
+				state=3;
+				break;
+			case WRITETYPE::VALUE://requesting write another value. Must insert separator before
+				foutput << object;
+				state=1;
+				break;
+			}
+			return true;
+			break;
+		case 3://ready/waiting/start of line
+			switch(type){
+			case WRITETYPE::COMMENT://requesting write comment
+				foutput << "#"<< object<<"\n";
+				foutput.flush();
+				state=3;
+				break;
+			case WRITETYPE::LINE://requesting write new line after value
+				foutput << object<<"\n";
+				foutput.flush();
+				state=3;
+				break;
+			case WRITETYPE::VALUE://requesting write value
+				foutput << object;
+				state=1;
+				break;
+			}
+			break;
+		}
+		return false;
+	}
+
+	std::string status(){
+		if(!foutput.is_open()){
+			return "The file does not exist or is not open.\n";
+		}
+		return stts;
 	}
 };
 

@@ -23,7 +23,7 @@ source ("R/postProcessDensOpt.R")
 #' 
 #' @keywords internal
 #' 
-#' @title DynCommPostProcessR(postProcessing, id, previous, Parameters)
+#' @title DynCommPostProcessR(postProcessing, previous, Parameters)
 #'
 #' @author poltergeist0
 #' 
@@ -38,7 +38,7 @@ source ("R/postProcessDensOpt.R")
 #' 
 # @docType class
 #' 
-#' @usage DynCommPostProcessR(postProcessing, id, previous, Parameters)
+#' @usage DynCommPostProcessR(postProcessing, previous, Parameters)
 #' 
 #' @param Algorithm One of the available ALGORITHM See \code{\link{ALGORITHM}}
 #' 

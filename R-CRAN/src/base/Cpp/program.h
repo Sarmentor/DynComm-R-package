@@ -21,6 +21,10 @@
 #include <string>
 #include <iostream>
 #include <sstream>
+#include <cstring> //strlen
+#include "debugUtilities.h"
+
+//#include "DebugLog.h"
 
 /**
  * enumeration used to indicate if the edges being added to a graph are
@@ -100,6 +104,11 @@ struct ProgramParameters{
 	bool verbose = false;
 
 	std::string directory=".";
+
+	DEBUG_LEVEL debugLevel=DEBUG_LEVEL::NONE;
+	unsigned int debugDepth=4;
+	std::string debugFilename="debugCpp.log";
+
 }argumentsDefault;//variable with default program parameters
 
 /**
@@ -109,42 +118,48 @@ struct ProgramParameters{
  * @param par
  */
 void parse_arg(const std::string & name, const std::string & value, ProgramParameters & par) {
-  // COUT << "name=" << name << "; value=" << value << "\n";
-  // COUT << "=" << name.compare("w") << "\n";
-  if(name.compare("o")==0){
+  if(name.compare("o")){
     par.outfilename = std::string(value);
   }
-  else if(name.compare("w")==0){
-    // COUT << "Setting WEIGHT" << "\n";
+  else if(name.compare("w")){
     par.type = LINK_WEIGHT::WEIGHTED;
     par.filename_w = value;
   }
-  else if(name.compare("q")==0){
+  else if(name.compare("q")){
     par.id_qual = std::stoi(value.c_str());
   }
-  else if(name.compare("c")==0){
+  else if(name.compare("c")){
     par.alpha = std::stof(value);
   }
-  else if(name.compare("k")==0){
+  else if(name.compare("k")){
     par.kmin = std::stoi(value);
   }
-  else if(name.compare("p")==0){
+  else if(name.compare("p")){
     par.filename_part = value;
   }
-  else if(name.compare("e")==0){
+  else if(name.compare("e")){
     par.precision = std::stof(value);
   }
-  else if(name.compare("l")==0){
+  else if(name.compare("l")){
     par.display_level = std::stoi(value);
   }
-  else if(name.compare("s")==0){
+  else if(name.compare("s")){
     par.directory = value;
   }
-  else if(name.compare("v")==0){
+  else if(name.compare("v")){
     par.verbose = true;
   }
-  else if(name.compare("f")==0){
+  else if(name.compare("f")){
     if (par.filename=="") par.filename = value;
+  }
+  else if(name.compare("dl")){
+	  par.debugLevel=fromInt(std::stoi(value));
+  }
+  else if(name.compare("dd")){
+	  par.debugDepth=std::stoi(value);
+  }
+  else if(name.compare("df")){
+    if (value!="") par.debugFilename = value;
   }
 }
 
@@ -205,6 +220,24 @@ void parse_args(int argc, char *argv[], ProgramParameters & par) {
 				break;
 			case 'h':
 				usage(argv[0], "");
+				break;
+			case 'd':
+				if(strlen(argv[i])>=2){
+					switch(argv[i][2]) {
+						case 'l':
+							par.debugLevel=fromInt(atoi(argv[i+1]));
+							++i;
+							break;
+						case 'd':
+							par.debugDepth=atoi(argv[i+1]);
+							++i;
+							break;
+						case 'f':
+							par.debugFilename=argv[i+1];
+							++i;
+							break;
+					}
+				}
 				break;
 			default:
 				usage(argv[0], "Unknown option\n");
