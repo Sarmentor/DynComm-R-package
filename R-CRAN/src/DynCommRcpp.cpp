@@ -101,6 +101,7 @@ public:
 		prmtrs(convertToParameters(algorithmParameters))
 	,dcb(algorithm,quality, prmtrs)
 	{
+	  // COUT << "prmtrs\n" << prmtrs.toString();
 	}
 
 	/**

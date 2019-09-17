@@ -109,6 +109,28 @@ struct ProgramParameters{
 	unsigned int debugDepth=4;
 	std::string debugFilename="debugCpp.log";
 
+	std::string toString() const {
+	  std::stringstream ss;
+	  ss << "filename" << filename << "\n";
+	  ss << "outfilename" << outfilename << "\n";
+	  ss << "filename_part" << filename_part << "\n";
+	  ss << "type" << ((int)type) << "\n";
+	  ss << "nb_pass" << nb_pass << "\n";
+	  ss << "precision" << precision << "\n";
+	  ss << "display_level" << display_level << "\n";
+	  ss << "id_qual" << id_qual << "\n";
+	  ss << "alpha" << alpha << "\n";
+	  ss << "kmin" << kmin << "\n";
+	  ss << "sum_se" << sum_se << "\n";
+	  ss << "sum_sq" << sum_sq << "\n";
+	  ss << "max_w" << max_w << "\n";
+	  ss << "verbose" << verbose << "\n";
+	  ss << "directory" << directory << "\n";
+	  ss << "debugLevel" << ((int)debugLevel) << "\n";
+	  ss << "debugDepth" << debugDepth << "\n";
+	  ss << "debugFilename" << debugFilename << "\n";
+    return ss.str();	  
+	}
 }argumentsDefault;//variable with default program parameters
 
 /**
@@ -118,47 +140,48 @@ struct ProgramParameters{
  * @param par
  */
 void parse_arg(const std::string & name, const std::string & value, ProgramParameters & par) {
-  if(name.compare("o")){
+  // COUT << "name= " << name << " ; value= " << value << "\n" << name.compare("df") << "\n" ;
+  if(name.compare("o")==0){
     par.outfilename = std::string(value);
   }
-  else if(name.compare("w")){
+  else if(name.compare("w")==0){
     par.type = LINK_WEIGHT::WEIGHTED;
     par.filename_w = value;
   }
-  else if(name.compare("q")){
+  else if(name.compare("q")==0){
     par.id_qual = std::stoi(value.c_str());
   }
-  else if(name.compare("c")){
+  else if(name.compare("c")==0){
     par.alpha = std::stof(value);
   }
-  else if(name.compare("k")){
+  else if(name.compare("k")==0){
     par.kmin = std::stoi(value);
   }
-  else if(name.compare("p")){
+  else if(name.compare("p")==0){
     par.filename_part = value;
   }
-  else if(name.compare("e")){
+  else if(name.compare("e")==0){
     par.precision = std::stof(value);
   }
-  else if(name.compare("l")){
+  else if(name.compare("l")==0){
     par.display_level = std::stoi(value);
   }
-  else if(name.compare("s")){
+  else if(name.compare("s")==0){
     par.directory = value;
   }
-  else if(name.compare("v")){
+  else if(name.compare("v")==0){
     par.verbose = true;
   }
-  else if(name.compare("f")){
+  else if(name.compare("f")==0){
     if (par.filename=="") par.filename = value;
   }
-  else if(name.compare("dl")){
+  else if(name.compare("dl")==0){
 	  par.debugLevel=fromInt(std::stoi(value));
   }
-  else if(name.compare("dd")){
+  else if(name.compare("dd")==0){
 	  par.debugDepth=std::stoi(value);
   }
-  else if(name.compare("df")){
+  else if(name.compare("df")==0){
     if (value!="") par.debugFilename = value;
   }
 }

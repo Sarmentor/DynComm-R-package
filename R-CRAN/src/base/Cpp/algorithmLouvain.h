@@ -345,6 +345,7 @@ private:
 				improvement=true;
 //			CERR << "improvement " << nb_moves << ">0 && " << new_qual-cur_qual << ">" << prmtrs.precision << "\n";
 			dbg.msg(DEBUG_LEVEL::ACTIONS, "c"+std::to_string(new_qual)+"m"+std::to_string(nb_moves)+"e"+std::to_string(new_qual-cur_qual));
+			// COUT << "e=" << new_qual-cur_qual << ">" << prmtrs.precision;
 		} while (nb_moves>0 && new_qual-cur_qual > prmtrs.precision);
 
 		//sync changed communities back to reference graph
