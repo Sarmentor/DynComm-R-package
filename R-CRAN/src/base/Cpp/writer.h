@@ -218,35 +218,60 @@ public:
  */
 class WriterDebugLogFile: public WriterInterface{
 private:
-	std::ofstream foutput;
-//	std::ostream & str;
+	std::ostream & foutput;
+	std::ofstream file;
 	std::string stts;
 	ProgramParameters par;
 	unsigned int lineNumber=1;
 	int state=0;//=0 error; =1 write object; =2 write comment; = 3 ready/waiting/start of line
 
 public:
-	WriterDebugLogFile():stts("Not initialized"),lineNumber(1),state(3){}
+	WriterDebugLogFile():foutput(CERR),file(),stts("Not initialized"),lineNumber(1),state(3){}
 
 	void init(const ProgramParameters & parameters){
 		par=parameters;
-		foutput.open(parameters.debugFilename,std::fstream::out);
-		if(foutput.is_open()){
-			stts="Ok";
+		if(parameters.debugFilename.length()>0){
+//			file=new std::ofstream(parameters.debugFilename,std::fstream::out);
+			file.open(parameters.debugFilename,std::fstream::out);
+			if(file.is_open()){
+//				std::ostream* fp = &file;
+//				foutput.basic_ostream(__sb)=&std::ostream(*fp);
+				foutput.rdbuf(file.rdbuf());
+			}
+
+//			std::ostream* fp = &CERR;
+//			    std::ofstream fout;
+//			    if (argc > 1) {
+//			        fout.open(argv[1]);
+//			        fp = &fout;
+//			    }
+//			    process(*fp);
 		}
+//		else{//use std::err if no file name is given
+//			std::ostream* fp = &CERR;
+//			foutput=*fp;
+//		}
+//		if(foutput.is_open()){
+//			stts="Ok";
+//		}
+		stts="Ok";
 	}
 
 	~WriterDebugLogFile(){
-		if(foutput.is_open()){
-			foutput.flush();
-			foutput.close();
+//		if(foutput.is_open()){
+//			foutput.flush();
+//			foutput.close();
+//		}
+		if(file.is_open()){
+			file.flush();
+			file.close();
 		}
 	}
 
 	bool isReady(){
-		if(!foutput.is_open()){
-			return false;
-		}
+//		if(!foutput.is_open()){
+//			return false;
+//		}
 		if (state>0) return true;
 		return false;
 	}
@@ -262,9 +287,9 @@ public:
 	 * @return true if writing succeeded
 	 */
 	bool write(const std::string & object,const WRITETYPE & type=WRITETYPE::VALUE){
-		if(!foutput.is_open()){
-			return false;
-		}
+//		if(!foutput.is_open()){
+//			return false;
+//		}
 		switch(state){
 		case 1://previously wrote object
 			switch(type){
@@ -308,9 +333,9 @@ public:
 	}
 
 	std::string status(){
-		if(!foutput.is_open()){
-			return "The file does not exist or is not open.\n";
-		}
+//		if(!foutput.is_open()){
+//			return "The file does not exist or is not open.\n";
+//		}
 		return stts;
 	}
 };

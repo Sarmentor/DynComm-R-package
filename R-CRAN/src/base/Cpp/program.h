@@ -107,7 +107,7 @@ struct ProgramParameters{
 
 	DEBUG_LEVEL debugLevel=DEBUG_LEVEL::NONE;
 	unsigned int debugDepth=4;
-	std::string debugFilename="debugCpp.log";
+	std::string debugFilename="debugCpp.log";// empty string means std::err
 
 	std::string toString() const {
 	  std::stringstream ss;

@@ -422,8 +422,26 @@ public:
 	bool addRemoveEdgePre(const typeVertex & source, const typeVertex & destination, const typeWeight & weight=1.0){
 //		dbg.pre(DEBUG_LEVEL::MODIFICATIONS,"ALae", debugPrint());
 //		dbg.msg(DEBUG_LEVEL::CALLS,"s"+std::to_string(source)+"d"+std::to_string(destination)+"w"+std::to_string(weight));
-		if(weight!=0.0){//add edge
-
+		if(weight!=0.0){//add or modify edge
+			typeWeight wg=grph.weight(source,destination);//get weight of link if it exists
+			if(std::isnan(wg)){//edge does not exist
+				//do nothing
+			}
+			else{//edge already exists
+				//decrease old weight
+				const typeCommunity & c1=grph.community(source);
+				const typeCommunity & c2=grph.community(destination);
+				typeWeight w=cg.weight(c1,c2);//get weight of link if it exists
+				if(std::isnan(w)){//edge does not exist
+					//do nothing
+				}
+				else{//edge already exists
+					if(c1==c2) w-=2*wg;
+					else w-=wg;
+					if(w==0) cg.removeEdge(c1, c2);
+					else cg.addEdge(c1,c2,w,true);
+				}
+			}
 		}
 		else{//remove edge
 			if(!firstRun){
@@ -469,7 +487,8 @@ public:
 				typeWeight w=cg.weight(c1,c2);//get weight of link if it exists
 				if(std::isnan(w)){//edge does not exist
 					if(c1==c2) w=2*weight;
-					cg.addEdge(c1,c2,weight);
+					else w=weight;
+					cg.addEdge(c1,c2,w);
 				}
 				else{//edge already exists
 					if(c1==c2) w+=2*weight;

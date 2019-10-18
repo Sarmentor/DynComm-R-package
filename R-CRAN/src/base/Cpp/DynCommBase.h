@@ -208,12 +208,13 @@ public:
 	 * @return the number of vertices
 	 */
 	int communityVertexCount(typeCommunity community)const {
-		unsigned int cnt=0;
-		typeCommunityListRange r=grph.vertices(community);
-		for(typeCommunityListRangeIteratorConst it=r.first; it!=r.second; ++it){
-			++cnt;
-		}
-		return cnt;
+//		unsigned int cnt=0;
+//		typeCommunityListRange r=grph.vertices(community);
+//		for(typeCommunityListRangeIteratorConst it=r.first; it!=r.second; ++it){
+//			++cnt;
+//		}
+//		return cnt;
+		return grph.communityVertexCount(community);
 	}
 
 	/**
@@ -450,6 +451,8 @@ public:
 //			}
 //		}
 //		ss << total_weight << ";" << max_weight;
+		ss << algrthm.debugPrint();
+//		ss << grph.debugPrint();
 		return ss.str();
 	}
 

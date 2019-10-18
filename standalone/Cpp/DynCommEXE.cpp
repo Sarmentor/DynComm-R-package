@@ -30,17 +30,24 @@ int main(int argc, char *argv[]) {
 
 	ProgramParameters parameters;
 //	parse_args(argc, argv,parameters);
-	std::string origin="1 2\n#comment\n\n1 3\n2 3\n3 6\n4 6\n4 5\n5 7\n6 7";
+//	std::string origin="1 2\n#comment\n\n1 3\n2 3\n3 6\n4 6\n4 5\n5 7\n6 7";
 //	unsigned int size=0;
 //	std::string sequences[size];//={"3 6 0\n1 4 1","2 3 0\n5 6 1","1 4 0\n8 9 1","5 6 0\n8 9 0\n2 3 1\n3 6 1"};
-	unsigned int size=4;
-	std::string sequences[size]={"3 6 0\n1 4 1","2 3 0\n5 6 1","1 4 0\n8 9 1","5 6 0\n8 9 0\n2 3 1\n3 6 1"};
+//	unsigned int size=4;
+//	std::string sequences[size]={"3 6 0\n1 4 1","2 3 0\n5 6 1","1 4 0\n8 9 1","5 6 0\n8 9 0\n2 3 1\n3 6 1"};
+//	std::string origin="149 181 0.249683\n149 181 0.240531\n149 181 0.125624\n149 181 0.127816\n253 271 0.151593\n149 181 0.12727\n271 299 0.161972\n149 299 0.144484";
+	std::string origin="149 181 0.249683";
+	parameters.type=LINK_WEIGHT::WEIGHTED;
+//	parameters.debugLevel=DEBUG_LEVEL::ACTIONS;
+	parameters.debugFilename="";
+	unsigned int size=7;
+	std::string sequences[size]={"149 181 0.240531","149 181 0.125624","149 181 0.127816","253 271 0.151593","149 181 0.12727","271 299 0.161972","149 299 0.144484"};
 
 //	bool improvement=true;
 	bool hasAddRemove = false;
 	unsigned int index=0;
 
-	DynCommBase c(Algorithm::ALGORITHM::LOUVAIN,Criterion::CRITERION::MODULARITY,parameters);//call algorithm constructor
+	DynCommBase c(ALGORITHM::LOUVAIN,Criterion::CRITERION::MODULARITY,parameters);//call algorithm constructor
 
 	ProgramParameters p=parameters;//WARNING: workaround. All addRemoveEdges are weighted
 	p.type=LINK_WEIGHT::WEIGHTED;
@@ -63,6 +70,7 @@ int main(int argc, char *argv[]) {
 		if(index<size) hasAddRemove=true;
 
 		if(hasAddRemove){
+			COUT << c.debugPrint()<<"\n";
 			COUT << "comm count="<< c.communityCount()<<"\n";
 			COUT << "comms="<< set::toString(c.communities())<<"\n";
 			COUT << "comm 1 node count="<< c.communityVertexCount(1)<<"\n";
@@ -79,6 +87,7 @@ int main(int argc, char *argv[]) {
 		++index;
 
 	} while(hasAddRemove);
+	COUT << c.debugPrint()<<"\n";
 	COUT << "comm count="<< c.communityCount()<<"\n";
 	COUT << "comms="<< set::toString(c.communities())<<"\n";
 	COUT << "comm 1 node count="<< c.communityVertexCount(1)<<"\n";

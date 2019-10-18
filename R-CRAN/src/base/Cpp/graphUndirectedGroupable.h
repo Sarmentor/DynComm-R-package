@@ -473,6 +473,21 @@ public:
 	}
 
 	/**
+	 * Get the number of vertices in the given community
+	 *
+	 * @param community
+	 * @return the number of vertices
+	 */
+	int communityVertexCount(typeCommunity community)const {
+		unsigned int cnt=0;
+		typeCommunityListRange r=vertices(community);
+		for(typeCommunityListRangeIteratorConst it=r.first; it!=r.second; ++it){
+			++cnt;
+		}
+		return cnt;
+	}
+
+	/**
 	 * set the community of a single vertex
 	 * @param vertex is the vertex to be assigned a new community
 	 * @param community is the new community
@@ -503,6 +518,11 @@ public:
 			if(dest!=vertex){
 				const typeWeight & wei=he.weight();
 				const typeCommunity & co=community(dest);
+				if(communityVertexCount(c)<=1){
+					//this is the only vertex and is about to change community so delete edge
+					cc.removeEdge(c,co);
+				}
+				else{
 					if(c!=co){
 						typeWeight cw=cc.weight(c,co);
 						if(std::isnan(cw)){
@@ -517,6 +537,7 @@ public:
 							}
 						}
 					}
+				}
 				if(co!=com){
 					typeWeight cw=cc.weight(co,com);
 					if(std::isnan(cw)){
