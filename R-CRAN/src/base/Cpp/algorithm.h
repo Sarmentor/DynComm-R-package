@@ -230,6 +230,7 @@ public:
 		while(n!=ReaderInterface<Edge>::NEXTTYPE::CANNOTOPEN && n!=ReaderInterface<Edge>::NEXTTYPE::ENDOFFILE){
 			if(n==ReaderInterface<Edge>::NEXTTYPE::VALUE){
 				Edge ed=reader->next();
+				dbg.msg(DEBUG_LEVEL::CALLS, "e"+ed.debugPrint());
 				addRemoveEdgePre(ed.source(),ed.destination(),ed.weight());
 				if(ed.weight()==0){
 //					dbg.msg(DEBUG_LEVEL::ACTIONS, "a");
