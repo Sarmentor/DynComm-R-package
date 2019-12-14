@@ -43,10 +43,10 @@
  */
 class DynCommBase:private DynCommBaseInterface{
 private:
-	Algorithm algrthm;//algorithm
 	GraphUndirectedGroupable grph;//graph with edges
 	Criterion qlt;//criterion
 	ProgramParameters prmtrs;//algorithm parameters
+	Algorithm algrthm;//algorithm
 
 	/**
 	 * total accumulated time used for processing
@@ -88,9 +88,9 @@ public:
 			, ProgramParameters & algorithmParameters=argumentsDefault
 	)
 	:
-		algrthm(grph,qlt,algorithm,algorithmParameters)
-	,qlt(grph,quality,algorithmParameters)
+	qlt(grph,quality,algorithmParameters)
 	,prmtrs(algorithmParameters)
+	,algrthm(grph,qlt,algorithm,algorithmParameters)
 	,timeTotal(0)
 	,timeStart(Time::currentTime())
 	,timeProcessing(0)

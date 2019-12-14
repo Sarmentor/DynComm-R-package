@@ -85,6 +85,8 @@ public:
 //		if(f.isReady()) initialized=true;
 //	}
 
+	const DEBUG_LEVEL& debugLevel()const{return p.debugLevel;}
+
 	bool init(const ProgramParameters & parameters){
 		if(p.debugLevel==DEBUG_LEVEL::NONE){//not initialized yet
 			p=parameters;

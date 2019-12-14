@@ -333,7 +333,7 @@ private:
 				}
 				// insert node in the nearest community
 				if (best_comm!=node_comm){
-					dbg.val(DEBUG_LEVEL::ACTIONS, "v"+std::to_string(vertex)+">"+std::to_string(best_comm)+"="+std::to_string(best_increase));
+					dbg.val(DEBUG_LEVEL::ACTIONS, "v"+std::to_string(vertex)+">"+std::to_string(best_comm)+"="+std::to_string(best_increase)+"\n");
 					community(vertex,best_comm);
 					nb_moves++;
 				}
@@ -398,6 +398,7 @@ private:
 					}
 				}
 			}
+			dbg.msg(DEBUG_LEVEL::MODIFICATIONS,debugPrint());
 			cg.communitiesToGraph();
 		}
 		dbg.msg(DEBUG_LEVEL::CALLS, "r"+std::to_string(improvement));
@@ -438,6 +439,7 @@ public:
 				else{//edge already exists
 					if(c1==c2) w-=2*wg;
 					else w-=wg;
+					if(std::fabs(w)<std::numeric_limits<typeWeight>::epsilon()) w=0;
 					if(w==0) cg.removeEdge(c1, c2);
 					else cg.addEdge(c1,c2,w,true);
 				}
@@ -455,6 +457,7 @@ public:
 					if(std::isnan(weight)) return false;
 					if(c1==c2) w-=2*weight;
 					else w-=weight;
+					if(std::fabs(w)<std::numeric_limits<typeWeight>::epsilon()) w=0;
 					if(w!=0) cg.addEdge(c1,c2,w,true);//replace
 					else cg.removeEdge(c1,c2);
 				}

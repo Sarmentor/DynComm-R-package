@@ -26,11 +26,11 @@
 /**
  * Define the following flag to compile with debug logging enabled
  */
-#define FLAG_DEBUG_LOGGING
+//#define FLAG_DEBUG_LOGGING
 
 /**
  * Define the following flag to compile with debug actions enabled.
- * Debug actions are functions that are run to verify the integraty of objects
+ * Debug actions are functions that are run to verify the integrity of objects
  * and of actions (functions called) performed to them.
  */
 //#define FLAG_DEBUG_ACTIONS	//NOT YET USED

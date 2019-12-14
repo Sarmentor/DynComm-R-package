@@ -163,7 +163,7 @@ private:
 
 public:
 	ReaderFileEdge(const ProgramParameters & parameters):stts("Ok"),par(parameters),lineNumber(1),ed(noEdge),state(4){
-		finput.open(parameters.filename,std::fstream::in);
+		finput.open(parameters.directory+parameters.filename,std::fstream::in);
 		next();
 	}
 
@@ -195,6 +195,7 @@ public:
 		if (!finput.is_open()) {
 			std::stringstream ss;
 			ss<<"The file " << par.filename << " does not exist\n";
+			state=0;
 			return noEdge;
 		}
 			switch(state){

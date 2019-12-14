@@ -21,6 +21,7 @@
 #include <sstream>
 #include <limits>
 #include "DebugLog.h"
+#include "debugging.h"
 
 /**
  * @brief Graph.
@@ -71,17 +72,343 @@ private:
 		total_weight += newWeight;//add new value
 	}
 
+	/******************************************************************************
+	 ******************************************************************************
+	 ******************************************************************************
+	 * Functions used for debugging ONLY
+	 * Verify consistency of the class member as a set
+	 ******************************************************************************
+	 ******************************************************************************
+	 ******************************************************************************/
+//#ifndef NDEBUG
+	typeVertexList debugNodes;
+	typeLinks debugLinks;
+
+	typeWeight debugTotal_weight;
+	typeWeight debugMax_weight;
+//#endif	//NDEBUG
+
+	void debugVerify() const{
+//#ifndef NDEBUG
+		//verify that all nodes have edges
+		for(typeVertexListIteratorConst it=vertices.cbegin();it!=vertices.cend();++it){
+			const typeVertex & p=*it;
+			ASSERT_NOT_EQUAL(p,noVertex);//check that vertex is valid
+			typeLinksRangeConst r=links.equal_range(p);
+			ASSERT_NOT_EQUAL_ITERATOR(r.first,r.second);
+		}
+		//verify edges (weights and vertices)
+		typeWeight t=0;
+		typeWeight m=std::numeric_limits<typeWeight>::min();
+		for(typeLinksIteratorConst it=links.cbegin();it!=links.cend();++it){
+			const typeLinksPair & p=*it;
+			ASSERT_NOT_EQUAL(p.first,noVertex);//check that vertex is valid
+			const HalfEdge & e=p.second;
+			ASSERT_NOT_EQUAL(e.destination(),noVertex);//check that vertex is valid
+			const typeWeight & w=e.weight();
+			ASSERT_NOT_NAN(w);//check that there is a value
+			ASSERT_NOT_APPROXIMATE(w,0,ASSERT_PRECISION_LIMIT);//check that it is not zero
+			t+=w;
+			if(m<w)m=w;
+		}
+		ASSERT_APPROXIMATE(t,total_weight,ASSERT_PRECISION_LIMIT);
+		ASSERT_APPROXIMATE(m,max_weight,ASSERT_PRECISION_LIMIT);
+//#endif	//NDEBUG
+	}
+
+	void debugSaveState(){
+		if(dbg.debugLevel()>=DEBUG_LEVEL::VERIFY){
+			debugVerify();
+			//copy listings
+			debugNodes=std::set<typeVertex>(vertices);
+			debugLinks=typeLinks(links);
+			debugTotal_weight=total_weight;
+			debugMax_weight=max_weight;
+			//verify sizes
+			ASSERT_EQUAL(debugNodes.size(),vertices.size());
+			ASSERT_EQUAL(debugLinks.size(),links.size());
+			//verify values in nodes
+			for(typeVertexListIteratorConst it=vertices.cbegin();it!=vertices.cend();++it){
+				const typeVertex & p=*it;
+				ASSERT_NOT_EQUAL_ITERATOR(debugNodes.find(p),debugNodes.cend());
+			}
+			//verify values in links
+			for(typeLinksIteratorConst it=links.cbegin();it!=links.cend();++it){
+				const typeLinksPair & p=*it;
+				ASSERT_NOT_EQUAL_ITERATOR(multimap::find(debugLinks,p.first,p.second),debugLinks.cend());
+			}
+		}
+	}
+
+	/**
+	 * Verifies consistency of internal data and conformity of implementation
+	 *
+	 * AddEdge returns true if either the edge was successfully added or replaced. False if the edge
+	 * exists and either replace parameter was false or the given weight is zero ( since a weight of
+	 * zero would cause the removal of the edge)
+	 *
+	 * The following use cases are verified:
+	 * 	- source/destination node did not exist (before the operation) and was created (after the operation)
+	 * 	- size of node list after operation is equal to the size before the operation plus the number of created nodes
+	 * 	- if requested edge did not existed, add it
+	 * 		= if source and destination are the same
+	 * 			+ size of link list is increased by 1
+	 * 			+ total weight is increased by weight
+	 * 		= if source and destination are not the same
+	 * 			+ size of link list is increased by 2
+	 * 			+ total weight is increased by 2*weight
+	 * 	- if requested edge existed and replace was true, replace its weight
+	 * 	- if requested edge existed and replace was false, do nothing
+	 *
+	 * @param added
+	 * @param source
+	 * @param destination
+	 * @param weight
+	 * @param replace
+	 */
+	void debugAddEdge(const bool & added,const typeVertex & source, const typeVertex & destination, const typeWeight & weight=1.0, const bool & replace=false) const{
+		if(dbg.debugLevel()>=DEBUG_LEVEL::VERIFY){
+			debugVerify();
+			ASSERT_NOT_EQUAL(source,noVertex);//check that vertex is valid
+			ASSERT_NOT_EQUAL(destination,noVertex);//check that vertex is valid
+			ASSERT_NOT_NAN(weight);//check that there is a value
+			if(added){//edge was added
+				ASSERT_NOT_APPROXIMATE(weight,0,ASSERT_PRECISION_LIMIT);//very bad case. Can not request to add edge with weight equal to zero and add it anyway
+			}
+	//		ASSERT_NOT_APPROXIMATE(weight,0,ASSERT_PRECISION_LIMIT);//can not request to add edge with weight equal to zero
+			int incNodes=0;
+			//verify if node existed or was added
+			ASSERT_NOT_EQUAL_ITERATOR(vertices.find(source),vertices.cend());
+			ASSERT_NOT_EQUAL_ITERATOR(vertices.find(destination),vertices.cend());
+			if(debugNodes.find(source)==debugNodes.cend()){//did not exist
+				++incNodes;
+			}
+	//		else{//existed
+	//			if(added) ASSERT(replace);//very bad case. Node existed and was added despite replace being false
+	//		}
+			if(source!=destination){
+				if(debugNodes.find(destination)==debugNodes.cend()){//did not exist
+					++incNodes;
+				}
+	//			else{//existed
+	//				if(added) ASSERT(replace);//very bad case. Node existed and was added despite replace being false
+	//			}
+			}
+			//verify nodes sizes
+			ASSERT_EQUAL(vertices.size(),debugNodes.size()+incNodes);
+			typeWeight t=0;
+			typeWeight m=std::numeric_limits<typeWeight>::min();
+			//verify requested edge
+			if(added){
+				if(debugLinks.size()>0 && multimap::find(debugLinks,source,destination)!=debugLinks.cend()){//edge existed before the operation
+					ASSERT_EQUAL(links.size(),debugLinks.size());
+					//verify edge existed before
+					if(source!=destination){
+						ASSERT_NOT_EQUAL_ITERATOR(multimap::find(debugLinks,destination,source),debugLinks.cend());
+					}
+					//verify it still exists
+					ASSERT_NOT_EQUAL_ITERATOR(multimap::find(links,source,destination),links.cend());
+					ASSERT_NOT_EQUAL_ITERATOR(multimap::find(links,destination,source),links.cend());
+				}
+				else{//edge did not exist before the operation
+					if(source==destination){
+						ASSERT_EQUAL(links.size(),debugLinks.size()+1);
+					}
+					else{
+						ASSERT_EQUAL(links.size(),debugLinks.size()+2);
+					}
+					//verify if new edge was added (did not existed)
+					ASSERT_EQUAL_ITERATOR(multimap::find(debugLinks,destination,source),debugLinks.cend());
+					//verify it exists now
+					ASSERT_NOT_EQUAL_ITERATOR(multimap::find(links,source,destination),links.cend());
+					ASSERT_NOT_EQUAL_ITERATOR(multimap::find(links,destination,source),links.cend());
+					typeWeight w=(multimap::find(links,source,destination))->second.weight();
+					t+=w;
+					if(source!=destination){
+						w=(multimap::find(links,destination,source))->second.weight();
+						t+=w;
+					}
+					if(m<w) m=w;
+				}
+				//verify new weight was recorded
+				ASSERT_EQUAL((multimap::find(links,source,destination))->second.weight(),weight);
+			}
+			else{//not added because already existed and was not requested to be replaced
+				//verify sizes have not changed
+				ASSERT_EQUAL(links.size(),debugLinks.size());
+
+				ASSERT_NOT_EQUAL_ITERATOR(multimap::find(debugLinks,source,destination),debugLinks.cend());
+				ASSERT_NOT_EQUAL_ITERATOR(multimap::find(debugLinks,destination,source),debugLinks.cend());
+				//verify the new edge does exists
+				ASSERT_NOT_EQUAL_ITERATOR(multimap::find(links,source,destination),links.cend());
+				ASSERT_NOT_EQUAL_ITERATOR(multimap::find(links,destination,source),links.cend());
+			}
+			//verify if old values are still present except for the replaced value, if one was replaced
+			for(typeLinksIteratorConst it=debugLinks.cbegin();it!=debugLinks.cend();++it){
+				const typeLinksPair & p=*it;
+				ASSERT_NOT_EQUAL_ITERATOR(multimap::find(links,p.first,p.second),links.cend());
+				if(replace && ((p.first==source && p.second==destination)||(p.first==destination && p.second==source))){//if it was a replaced value
+					ASSERT_EQUAL((multimap::find(links,p.first,p.second))->second.weight(),weight);
+				}
+				else{// if it was not a replaced value, the weight must be the old value
+					ASSERT_EQUAL((multimap::find(links,p.first,p.second))->second.weight(),p.second.weight());
+				}
+				typeWeight w=(multimap::find(links,p.first,p.second))->second.weight();
+				t+=w;
+				if(m<w) m=w;
+			}
+			ASSERT_APPROXIMATE(total_weight,t,ASSERT_PRECISION_LIMIT);
+			ASSERT_APPROXIMATE(max_weight,m,ASSERT_PRECISION_LIMIT);
+		}
+	}
+
+	void debugRemove(const bool & removed,const typeVertex & source, const typeVertex & destination) const{
+		if(dbg.debugLevel()>=DEBUG_LEVEL::VERIFY){
+			debugVerify();
+			ASSERT_NOT_EQUAL(source,noVertex);//check that vertex is valid
+			ASSERT_NOT_EQUAL(destination,noVertex);//check that vertex is valid
+			int decNodes=0;
+			//check if the edge no longer exists even if it never did
+			ASSERT_EQUAL_ITERATOR(multimap::find(links,source,destination),links.cend());
+			ASSERT_EQUAL_ITERATOR(multimap::find(links,destination,source),links.cend());
+			//verify if the nodes were removed
+			typeLinksRangeConst r=debugLinks.equal_range(source);
+			if(r.first!=r.second){//edge existed
+				if(std::distance(r.first,r.second)==1){//there was only one entry
+					if((r.first)->first==source && (r.first)->second==destination){//it was the entry requested to remove
+						//check if the node was removed
+						ASSERT_EQUAL_ITERATOR(vertices.find(source),vertices.cend());
+						++decNodes;
+					}
+				}
+				else{//there were more entries
+					//check if node was not removed
+					ASSERT_NOT_EQUAL_ITERATOR(vertices.find(source),vertices.cend());
+				}
+			}
+			else{//edge did not existed
+				ASSERT(!removed);//bad case. Edge did not existed and was still removed
+			}
+			if(source!=destination){
+				r=debugLinks.equal_range(destination);
+				if(r.first!=r.second){//edge existed
+					if(std::distance(r.first,r.second)==1){//there was only one entry
+						if((r.first)->first==destination && (r.first)->second==source){//it was the entry requested to remove
+							//check if the node was removed
+							ASSERT_EQUAL_ITERATOR(vertices.find(destination),vertices.cend());
+							++decNodes;
+						}
+					}
+					else{//there were more entries
+						//check if node was not removed
+						ASSERT_NOT_EQUAL_ITERATOR(vertices.find(destination),vertices.cend());
+					}
+				}
+				else{//edge did not existed
+					ASSERT(!removed);//bad case. Edge did not existed and was still removed
+				}
+			}
+			//verify nodes sizes
+			ASSERT_EQUAL(vertices.size(),debugNodes.size()-decNodes);
+			//verify requested edge
+			if(debugLinks.size()>0 && multimap::find(debugLinks,source,destination)!=debugLinks.cend()){//existed
+				if(removed){//was removed
+					if(source==destination){
+						ASSERT_EQUAL(links.size(),debugLinks.size()-1);
+					}
+					else{
+						ASSERT_EQUAL(links.size(),debugLinks.size()-2);
+					}
+				}
+				else{//was not removed
+					ASSERT_EQUAL(links.size(),debugLinks.size());
+				}
+			}
+			else{//did not exist
+				//verify sizes have not changed
+				ASSERT_EQUAL(links.size(),debugLinks.size());
+			}
+			//verify if old values are still present except for the removed value, if one was removed
+			typeWeight t=0;
+			typeWeight m=std::numeric_limits<typeWeight>::min();
+			for(typeLinksIteratorConst it=debugLinks.cbegin();it!=debugLinks.cend();++it){
+				const typeLinksPair & p=*it;
+	//			ASSERT_EQUAL(multimap::find(links,p.first,p.second)!=links.cend());
+				if(removed && ((p.first==source && p.second==destination)||(p.first==destination && p.second==source))){//if it was the removed value
+				}
+				else{// if it was not the removed value
+					ASSERT_NOT_EQUAL_ITERATOR(multimap::find(links,p.first,p.second),links.cend());//edge still exists
+					typeWeight w=(multimap::find(links,p.first,p.second))->second.weight();
+					t+=w;
+					if(m<w) m=w;
+				}
+			}
+	//		ASSERT_EQUAL(total_weight,t);
+	//		ASSERT_EQUAL(max_weight,m);
+			ASSERT_APPROXIMATE(t,total_weight,ASSERT_PRECISION_LIMIT);
+			ASSERT_APPROXIMATE(m,max_weight,ASSERT_PRECISION_LIMIT);
+		}
+	}
+
+	void debugReplace(const bool & replaced,const typeVertex & oldValue, const typeVertex & newValue) const{
+		if(dbg.debugLevel()>=DEBUG_LEVEL::VERIFY){
+			debugVerify();
+			//verify sizes
+			ASSERT_EQUAL(debugNodes.size(),vertices.size());
+			ASSERT_EQUAL(debugLinks.size(),links.size());
+			ASSERT_EQUAL(debugTotal_weight,total_weight);
+			ASSERT_EQUAL(debugMax_weight,max_weight);
+			//verify values and weights
+			typeWeight w=0;
+			typeWeight t=0;
+			typeWeight m=std::numeric_limits<typeWeight>::min();
+			for(typeLinksIteratorConst it=debugLinks.cbegin();it!=debugLinks.cend();++it){
+				const typeLinksPair & p=*it;
+				if(replaced){
+					if(p.first==oldValue && p.second==oldValue){//both were old value
+						ASSERT_NOT_EQUAL_ITERATOR(multimap::find(links,newValue,newValue),links.cend());
+						w=(multimap::find(links,newValue,newValue))->second.weight();
+					}
+					else{//only one or none were old value
+						if(p.first==oldValue){//only the source was the old value
+							ASSERT_NOT_EQUAL_ITERATOR(multimap::find(links,newValue,p.second),links.cend());
+							w=(multimap::find(links,newValue,p.second))->second.weight();
+						}
+						else{//the source was not old value
+							if(p.second==oldValue){//only the destination was the old value
+								ASSERT_NOT_EQUAL_ITERATOR(multimap::find(links,p.first,newValue),links.cend());
+								w=(multimap::find(links,p.first,newValue))->second.weight();
+							}
+							else{//none was old value
+								ASSERT_NOT_EQUAL_ITERATOR(multimap::find(links,p.first,p.second),links.cend());
+								w=(multimap::find(links,p.first,p.second))->second.weight();
+							}
+						}
+					}
+				}
+				else{// if it was not replaced
+					ASSERT_NOT_EQUAL_ITERATOR(multimap::find(links,p.first,p.second),links.cend());//edge still exists
+					w=(multimap::find(links,p.first,p.second))->second.weight();
+				}
+				t+=w;
+				if(m<w) m=w;
+			}
+			ASSERT_APPROXIMATE(total_weight,t, ASSERT_PRECISION_LIMIT);
+			ASSERT_APPROXIMATE(max_weight,m, ASSERT_PRECISION_LIMIT);
+		}
+	}
+
 public:
 
 	/**
 	 * default constructor
 	 */
-	GraphUndirected():total_weight(0.0),max_weight(std::numeric_limits<typeWeight>::min()){}
+	GraphUndirected():total_weight(0.0),max_weight(std::numeric_limits<typeWeight>::min()),debugTotal_weight(0),debugMax_weight(0){}
 
 	/**
 	 * Copy constructor
 	 */
-	GraphUndirected(const GraphUndirected & original):vertices(typeVertexList(original.vertices)),links(typeLinks(original.links)),total_weight(original.total_weight),max_weight(original.max_weight){}
+	GraphUndirected(const GraphUndirected & original):vertices(typeVertexList(original.vertices)),links(typeLinks(original.links)),total_weight(original.total_weight),max_weight(original.max_weight),debugTotal_weight(0),debugMax_weight(0){}
 
 	typeLinksRangeConst edges()const {return std::make_pair(links.cbegin(),links.cend());}
 
@@ -97,8 +424,13 @@ public:
 	bool addEdge(const typeVertex & source, const typeVertex & destination, const typeWeight & weight=1.0, const bool & replace=false){
 		if(source==noVertex || destination==noVertex) return false;
 		if(replace && weight==0) return false;
-//		dbg.pre(DEBUG_LEVEL::MODIFICATIONS,"Ga", debugPrint());
-//		dbg.msg(std::to_string(source));
+		debugSaveState();
+		typeVertex debugSource=source;
+		typeVertex debugDestination=destination;
+		typeWeight debugWeight=weight;
+		bool debugReplace=replace;
+		dbg.pre(DEBUG_LEVEL::MODIFICATIONS,"Ga", debugPrint());
+		dbg.msg(DEBUG_LEVEL::CALLS,"e"+std::to_string(source)+"#"+std::to_string(destination)+"="+std::to_string(weight));
 		bool result=false;
 		if (vertices.find(source)==vertices.end()) {//node does not exist
 			vertices.insert(source);//create
@@ -141,7 +473,8 @@ public:
 			}
 			result=true;
 		}
-//		dbg.post(DEBUG_LEVEL::MODIFICATIONS,debugPrint());
+		dbg.post(DEBUG_LEVEL::MODIFICATIONS,debugPrint());
+		debugAddEdge(result,debugSource,debugDestination,debugWeight,debugReplace);
 		return result;
 	}
 
@@ -161,6 +494,9 @@ public:
 	 * @return true if the edge existed and was successfully removed
 	 */
 	bool removeEdge(const typeVertex & source, const typeVertex & destination){
+		debugSaveState();
+		typeVertex debugSource=source;
+		typeVertex debugDestination=destination;
 		bool result=false;
 		typeLinksIterator it=multimap::find(links,source,destination);
 		if(it!=links.end()){
@@ -186,6 +522,7 @@ public:
 			if(max_weight==we) updateMaxWeight();
 			result=true;
 		}
+		debugRemove(result,debugSource,debugDestination);
 		return result;
 	}
 
@@ -302,6 +639,9 @@ public:
 		if(itn==vertices.cend()) return false;//node does not exist so it can not be replaced
 		if(oldValue==newValue)return true;//ignore if values are the same
 		bool result=false;
+		debugSaveState();
+		typeVertex debugOldValue=oldValue;
+		typeVertex debugNewValue=newValue;
 		typeLinksRange v=links.equal_range(newValue);//find range with new value
 		if(v.first!=v.second){//there are already edges with newValue
 //			return false;
@@ -337,6 +677,7 @@ public:
 			vertices.erase(oldValue);
 			result=true;
 		}
+		debugReplace(result,debugOldValue,debugNewValue);
 		return result;
 	}
 
