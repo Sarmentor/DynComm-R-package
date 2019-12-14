@@ -71,6 +71,29 @@
 	#include <cmath>
 	#include <sstream>
 	#include <iostream>
+	#include <exception>
+
+  /* if compiling with no c++ debugging support, define the __ASSERT_FUNCTION
+   * macro so that program runtime debugging still has pretty function names
+   * in the debugging information.
+   * The following code was extracted from assert.h without modification.
+   */
+  #ifdef NDEBUG
+    /* Version 2.4 and later of GCC define a magical variable `__PRETTY_FUNCTION__'
+     which contains the name of the function currently being defined.
+     This is broken in G++ before version 2.6.
+     C9x has a similar variable called __func__, but prefer the GCC one since
+     it demangles C++ function names.  */
+    # if defined __cplusplus ? __GNUC_PREREQ (2, 6) : __GNUC_PREREQ (2, 4)
+    #   define __ASSERT_FUNCTION	__extension__ __PRETTY_FUNCTION__
+    # else
+    #  if defined __STDC_VERSION__ && __STDC_VERSION__ >= 199901L
+    #   define __ASSERT_FUNCTION	__func__
+    #  else
+    #   define __ASSERT_FUNCTION	((const char *) 0)
+    #  endif
+    # endif
+  #endif /* NDEBUG.  */
 
 	inline static void debug_backtrace(std::stringstream & ss, const int & backtraceBufferSize){
 		int nptrs;
@@ -92,6 +115,14 @@
 		}
 	}
 
+	inline static std::string debug_assert_throw(
+			const char *file,unsigned int line,
+			const char *function,const std::string & expression){
+		std::stringstream ss;
+		ss << "DynComm" << ": " << file << ":" << line << ": " << function << ": Assertion '" << expression  << "' failed\n";
+		return ss.str();
+	}
+
 	inline static void debug_assert(
 			const std::string & expression,
 			const std::string & value,
@@ -104,8 +135,9 @@
 			if(message.size()>0)ss << message << "\n";
 			ss << expression << "\n" << value << "\n";
 			debug_backtrace(ss,backtraceBufferSize);
-			std::cerr << ss.str();
-			__assert_fail (expression.c_str(), file, line, function);
+			CERR << ss.str();
+//			__assert_fail (expression.c_str(), file, line, function);
+			throw std::logic_error(debug_assert_throw(file, line, function, expression));
 		}
 	}
 
@@ -164,8 +196,9 @@
 			}
 			ss << value2 << "\n";
 			debug_backtrace(ss,backtraceBufferSize);
-			std::cerr << ss.str();
-			__assert_fail (s.c_str(), file, line, function);
+			CERR << ss.str();
+//			__assert_fail (s.c_str(), file, line, function);
+			throw std::logic_error(debug_assert_throw(file, line, function, s));
 		}
 	}
 
