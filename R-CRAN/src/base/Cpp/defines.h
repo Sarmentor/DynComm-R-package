@@ -18,6 +18,13 @@
 #define DEFINES_H_
 
 /**
+ * Define the version of the C++ source code.
+ * Must be updated before submitting each stable version
+ */
+
+const unsigned long DYNCOMM_CPP_VERSION=20200121;
+
+/**
  * Define the following flag if compiling for R CRAN. Otherwise, code is compiled
  * to be standalone
  */

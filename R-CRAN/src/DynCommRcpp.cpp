@@ -348,6 +348,8 @@ public:
 
 	uint64 time(bool differential=false){return dcb.time(differential);}
 
+	uint64 version(){return dcb.version();}
+
 };
 
 // // [[Rcpp::export]]
@@ -404,6 +406,7 @@ RCPP_MODULE(DynCommRcppModule) {
          .method("neighbours", &DynCommRcpp::neighbours)
          .method("edgeWeight", &DynCommRcpp::edgeWeight)
 		     .method("time", &DynCommRcpp::time)
+		     .method("version", &DynCommRcpp::version)
 				 ;
 }
 

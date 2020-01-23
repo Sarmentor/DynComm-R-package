@@ -38,9 +38,10 @@ int main(int argc, char *argv[]) {
 //	std::string origin="149 181 0.249683\n149 181 0.240531\n149 181 0.125624\n149 181 0.127816\n253 271 0.151593\n149 181 0.12727\n271 299 0.161972\n149 299 0.144484";
 //	std::string origin="149 181 0.249683";
 //	std::string origin="";
-	std::string origin="2019-10-27 15:03:01.224514-partial.sims.txt";
+//	std::string origin="2019-10-27 15:03:01.224514-partial.sims.txt";
+	std::string origin="2020-01-19 19:11:39.746-partial.sims.txt";
 	parameters.type=LINK_WEIGHT::WEIGHTED;
-//	parameters.debugLevel=DEBUG_LEVEL::ALL;
+	parameters.debugLevel=DEBUG_LEVEL::ALL;
 	parameters.debugDepth=5;
 	parameters.debugFilename="";
 //	unsigned int size=3;
@@ -59,7 +60,8 @@ int main(int argc, char *argv[]) {
 	p.directory="/home/poltergeist0/Desktop/debugCpp/Edges/";
 
 //	ReaderStringEdge rd(origin,parameters);
-	parameters.directory="/home/poltergeist0/Desktop/debugCpp/Edges/";
+//	parameters.directory="/home/poltergeist0/Desktop/debugCpp/Edges/";
+	parameters.directory="/home/poltergeist0/Desktop/r_projects/2020-01-19-v3-results/";
 	parameters.filename=origin;
 	ReaderFileEdge rd(parameters);
 	c.addRemoveEdges(&rd);
@@ -76,7 +78,7 @@ int main(int argc, char *argv[]) {
 
 
 		// check if sequence exists
-		if(index<size) hasAddRemove=true;
+//		if(index<size) hasAddRemove=true;
 
 		if(hasAddRemove){
 			COUT << c.debugPrint()<<"\n";

@@ -439,6 +439,8 @@ public:
 	  return timeTotal;
 	}
 
+	uint64 version()const {return DYNCOMM_CPP_VERSION;}
+
 	const std::string debugPrint()const {
 		std::stringstream ss;
 //		for(typeVertexListIteratorConst itn=vertices.cbegin();itn!=vertices.cend();++itn){

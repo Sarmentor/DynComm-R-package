@@ -33,6 +33,7 @@
  */
 enum class LINK_WEIGHT:unsigned int {WEIGHTED=1, UNWEIGHTED};
 
+#ifndef FLAG_RCPP
 /**
  * Usage print for standalone program
  * @param prog_name is the name of the executable
@@ -77,6 +78,7 @@ void usage(const std::string & prog_name, const std::string & more) {
 	COUT << ss.str();
 	exit(0);
 }
+#endif //FLAG_RCPP
 
 /**
  * Program parameters structure with default parameters
@@ -133,6 +135,7 @@ struct ProgramParameters{
 	}
 }argumentsDefault;//variable with default program parameters
 
+#ifdef FLAG_RCPP
 /**
  * Parsing function for parameters passed to R
  * @param name
@@ -186,6 +189,7 @@ void parse_arg(const std::string & name, const std::string & value, ProgramParam
   }
 }
 
+#else //FLAG_RCPP
 /**
  * Parsing function for program parameters passed to the standalone program
  * @param argc
@@ -273,5 +277,7 @@ void parse_args(int argc, char *argv[], ProgramParameters & par) {
 		}
 	}
 }
+
+#endif //FLAG_RCPP
 
 #endif /* PROGRAM_H_ */
