@@ -971,7 +971,24 @@ DynComm <- function(Algorithm=ALGORITHM$LOUVAIN,Criterion=CRITERION$MODULARITY,P
       else{
         return(prc$time(differential,pst,pstid))
       }
-    }
+    },
+    
+    #' 
+    #'   \item{version()}{
+    #'   Get the source code versions of the different sources. 
+    #'   See \code{\link{version}}
+    #'   }
+    #'   
+#    version=function(){
+#      # print("DynComm")
+#      # print(pst)
+#      if(pst==POSTPROCESSING$NONE){
+#        return(alg$version())
+#      }
+#      else{
+#        return(prc$version(pst,pstid))
+#      }
+#    }
     
   )
   # close methods section of the documentation

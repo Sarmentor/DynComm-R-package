@@ -24,6 +24,7 @@
 #include <fstream>
 #include "program.h"
 #include "edge.h"
+#include "systemDefines.h"
 
 /**
  * @brief Interface for a simple stream forward reader.
@@ -70,6 +71,11 @@ public:
 	 * @return either an ok message or an error message
 	 */
 	virtual std::string status()=0;
+
+	/**
+	 * @return number of lines that were read
+	 */
+	virtual uint64 lineCounter()const =0;
 };
 
 /**
@@ -102,6 +108,8 @@ public:
 	std::string next(READTYPE type=READTYPE::VALUE){return "End of file\n";}
 
 	std::string status(){return "End of file\n";}
+
+	uint64 lineCounter()const {return 0;}
 };
 
 
@@ -163,7 +171,15 @@ private:
 
 public:
 	ReaderFileEdge(const ProgramParameters & parameters):stts("Ok"),par(parameters),lineNumber(1),ed(noEdge),state(4){
-		finput.open(parameters.filename,std::fstream::in);
+		dbg.msg(DEBUG_LEVEL::ACTIONS, "file=" +parameters.directory+parameters.filename,false);
+		finput.open(parameters.directory+parameters.filename,std::fstream::in);
+		if(!finput){//failed to open as file relative to directory
+			//try open as absolute path
+			dbg.msg(DEBUG_LEVEL::ACTIONS,"status: fail=" + std::to_string(finput.fail())+" ; bad=" + std::to_string(finput.bad())+" ; eof=" +std::to_string(finput.eof()),true);
+			dbg.msg(DEBUG_LEVEL::ACTIONS, "file=" +parameters.filename,false);
+			finput.open(parameters.filename,std::fstream::in);
+		}
+		dbg.msg(DEBUG_LEVEL::ACTIONS,"status: fail=" + std::to_string(finput.fail())+" ; bad=" + std::to_string(finput.bad())+" ; eof=" +std::to_string(finput.eof()),true);
 		next();
 	}
 
@@ -195,6 +211,7 @@ public:
 		if (!finput.is_open()) {
 			std::stringstream ss;
 			ss<<"The file " << par.filename << " does not exist\n";
+			state=0;
 			return noEdge;
 		}
 			switch(state){
@@ -274,6 +291,8 @@ public:
 	}
 
 	std::string status(){return stts;}
+
+	uint64 lineCounter()const {return lineNumber-1;}//line number starts at one so it needs to be adjusted
 };
 
 /**
@@ -398,6 +417,8 @@ public:
 	}
 
 	std::string status(){return stts;}
+
+	uint64 lineCounter()const{return lineNumber-1;}//line number starts at one so it needs to be adjusted
 };
 
 #ifdef FLAG_RCPP
@@ -501,6 +522,8 @@ public:
   }
   
   std::string status(){return stts;}
+
+	uint64 lineCounter()const{return lineNumber;}
 };
 #endif //FLAG_RCPP
 

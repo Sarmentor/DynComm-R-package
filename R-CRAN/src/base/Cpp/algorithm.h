@@ -226,10 +226,11 @@ public:
 		dbg.pre(DEBUG_LEVEL::MODIFICATIONS,"Aa", debugPrint());
 		//TODO add reader error handling
 		ReaderInterface<Edge>::NEXTTYPE n=reader->hasNext();
-		if(n==ReaderInterface<Edge>::NEXTTYPE::CANNOTOPEN) return false;
+//		if(n==ReaderInterface<Edge>::NEXTTYPE::CANNOTOPEN) return false;
 		while(n!=ReaderInterface<Edge>::NEXTTYPE::CANNOTOPEN && n!=ReaderInterface<Edge>::NEXTTYPE::ENDOFFILE){
 			if(n==ReaderInterface<Edge>::NEXTTYPE::VALUE){
 				Edge ed=reader->next();
+				dbg.msg(DEBUG_LEVEL::CALLS, "e"+ed.debugPrint());
 				addRemoveEdgePre(ed.source(),ed.destination(),ed.weight());
 				if(ed.weight()==0){
 //					dbg.msg(DEBUG_LEVEL::ACTIONS, "a");
@@ -246,7 +247,11 @@ public:
 			}
 			n=reader->hasNext();
 		}
-		bool b=run();
+		bool b=false;
+		if(n!=ReaderInterface<Edge>::NEXTTYPE::CANNOTOPEN){
+			if(reader->lineCounter()>0) b=run();
+			else b=true;//succeed if the file is empty
+		}
 		dbg.msg(DEBUG_LEVEL::CALLS, "r"+std::to_string(b));
 		dbg.post(DEBUG_LEVEL::MODIFICATIONS,debugPrint());
 		return b;

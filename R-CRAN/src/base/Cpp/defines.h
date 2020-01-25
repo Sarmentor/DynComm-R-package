@@ -18,6 +18,13 @@
 #define DEFINES_H_
 
 /**
+ * Define the version of the C++ source code.
+ * Must be updated before submitting each stable version
+ */
+
+const unsigned long DYNCOMM_CPP_VERSION=20200121;
+
+/**
  * Define the following flag if compiling for R CRAN. Otherwise, code is compiled
  * to be standalone
  */
@@ -26,11 +33,11 @@
 /**
  * Define the following flag to compile with debug logging enabled
  */
-#define FLAG_DEBUG_LOGGING
+//#define FLAG_DEBUG_LOGGING
 
 /**
  * Define the following flag to compile with debug actions enabled.
- * Debug actions are functions that are run to verify the integraty of objects
+ * Debug actions are functions that are run to verify the integrity of objects
  * and of actions (functions called) performed to them.
  */
 //#define FLAG_DEBUG_ACTIONS	//NOT YET USED

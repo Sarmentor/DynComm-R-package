@@ -43,10 +43,10 @@
  */
 class DynCommBase:private DynCommBaseInterface{
 private:
-	Algorithm algrthm;//algorithm
 	GraphUndirectedGroupable grph;//graph with edges
 	Criterion qlt;//criterion
 	ProgramParameters prmtrs;//algorithm parameters
+	Algorithm algrthm;//algorithm
 
 	/**
 	 * total accumulated time used for processing
@@ -88,9 +88,9 @@ public:
 			, ProgramParameters & algorithmParameters=argumentsDefault
 	)
 	:
-		algrthm(grph,qlt,algorithm,algorithmParameters)
-	,qlt(grph,quality,algorithmParameters)
+	qlt(grph,quality,algorithmParameters)
 	,prmtrs(algorithmParameters)
+	,algrthm(grph,qlt,algorithm,algorithmParameters)
 	,timeTotal(0)
 	,timeStart(Time::currentTime())
 	,timeProcessing(0)
@@ -208,12 +208,13 @@ public:
 	 * @return the number of vertices
 	 */
 	int communityVertexCount(typeCommunity community)const {
-		unsigned int cnt=0;
-		typeCommunityListRange r=grph.vertices(community);
-		for(typeCommunityListRangeIteratorConst it=r.first; it!=r.second; ++it){
-			++cnt;
-		}
-		return cnt;
+//		unsigned int cnt=0;
+//		typeCommunityListRange r=grph.vertices(community);
+//		for(typeCommunityListRangeIteratorConst it=r.first; it!=r.second; ++it){
+//			++cnt;
+//		}
+//		return cnt;
+		return grph.communityVertexCount(community);
 	}
 
 	/**
@@ -438,6 +439,8 @@ public:
 	  return timeTotal;
 	}
 
+	uint64 version()const {return DYNCOMM_CPP_VERSION;}
+
 	const std::string debugPrint()const {
 		std::stringstream ss;
 //		for(typeVertexListIteratorConst itn=vertices.cbegin();itn!=vertices.cend();++itn){
@@ -450,6 +453,8 @@ public:
 //			}
 //		}
 //		ss << total_weight << ";" << max_weight;
+		ss << algrthm.debugPrint();
+//		ss << grph.debugPrint();
 		return ss.str();
 	}
 

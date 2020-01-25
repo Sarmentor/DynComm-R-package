@@ -78,6 +78,13 @@ private:
 		}
 	}
 
+	std::string writeParameters()const {
+		std::stringstream ss;
+		ss << "DYNCOMM_CPP_VERSION=" << DYNCOMM_CPP_VERSION << "\n";
+		ss << p.toString();
+		return ss.str();
+	}
+
 public:
 	DebugLog():initialized(false),p(argumentsDefault),path(){}
 
@@ -85,12 +92,17 @@ public:
 //		if(f.isReady()) initialized=true;
 //	}
 
+	const DEBUG_LEVEL& debugLevel()const{return p.debugLevel;}
+
 	bool init(const ProgramParameters & parameters){
 		if(p.debugLevel==DEBUG_LEVEL::NONE){//not initialized yet
 			p=parameters;
 			if(parameters.debugLevel>DEBUG_LEVEL::NONE){//requested debugging
 				f.init(parameters);
-				if(f.isReady()) initialized=true;
+				if(f.isReady()){
+					initialized=true;
+					f.write(writeParameters(),WriterInterface::WRITETYPE::LINE);
+				}
 			}
 			else{
 				initialized=true;//succeed to initialize but nothing will ever be printed
