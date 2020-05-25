@@ -15,7 +15,7 @@ Please note we have a code of conduct, please follow it in all your interactions
    Pull Request would represent.
    
 
-    - A released version number consists of three numbers, "\<major\>.\<minor\>.\<patch\>". For version number 201901.01.0, 201901 is the major number and tells you the year and month of release, 01 is the minor number, and 0 is the patch number.
+    - A released version number consists of three numbers, "\<major\>.\<minor\>.\<patch\>". For version number 201901.01.0000, 201901 is the major number and tells you the year and month of release, 01 is the minor number, and 0000 is the patch number.
     
     - An in-development package has a fourth component: the development version. This should start at 9000. For example, the first version of the package should be XXXXXX.0.0.9000. There are two reasons for this recommendation: first, it makes it easy to see if a package is released or in-development, and the use of the fourth place means that you’re not limited to what the next version will be. XXXXXX.0.1, XXXXXX.1.0 and XXXXXX.0.0 are all greater than XXXXXX.0.0.9000.
 
