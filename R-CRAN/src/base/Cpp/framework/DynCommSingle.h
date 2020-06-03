@@ -23,10 +23,10 @@
 #include "defines.h"
 #include "DynCommBaseInterface.h"
 // #include "algorithm.h"
-#include "criterion.h"
-#include "timeFunctions.h"
+#include "criterion/criterion.h"
+#include "time/timeFunctions.h"
 // #include "mapReversable.h"
-#include "algorithmList.h"
+#include "../algorithms/algorithmList.h"
 
 /**
  * @brief Dynamic Communities base class.

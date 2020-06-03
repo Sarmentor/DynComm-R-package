@@ -16,7 +16,7 @@
 #define EDGE_H_
 
 #include <limits>
-#include "stringFormatter.h"
+#include "../utilities/stringFormatter.h"
 
 /**
  * Data type definition for a single vertex

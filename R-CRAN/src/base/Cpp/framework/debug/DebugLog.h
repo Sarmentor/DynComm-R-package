@@ -10,8 +10,8 @@
 
 #include <list>
 #include <sstream>
-#include "writer.h"
-#include "program.h"
+#include "../io/writer.h"
+#include "../program.h"
 
 class DebugLog{
 //public:

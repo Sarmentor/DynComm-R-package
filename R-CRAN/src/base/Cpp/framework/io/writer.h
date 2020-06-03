@@ -21,8 +21,8 @@
 #define SRC_WRITER_H_
 
 #include <string>
-#include "program.h"
-#include "edge.h"
+#include "../program.h"
+#include "../graph/edge.h"
 #include <fstream>
 #include <ostream>
 

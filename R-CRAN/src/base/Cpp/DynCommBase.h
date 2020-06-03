@@ -20,13 +20,13 @@
 #ifndef SRC_DYNCOMMBASE_H_
 #define SRC_DYNCOMMBASE_H_
 
-#include "defines.h"
-#include "DynCommBaseInterface.h"
-#include "algorithm.h"
-#include "criterion.h"
-#include "timeFunctions.h"
-#include "mapReversable.h"
-#include "DebugLog.h"
+#include "framework/defines.h"
+#include "framework/DynCommBaseInterface.h"
+#include "framework/algorithm/algorithm.h"
+#include "framework/criterion/criterion.h"
+#include "framework/time/timeFunctions.h"
+#include "framework/graph/mapReversable.h"
+#include "framework/debug/DebugLog.h"
 
 
 /**

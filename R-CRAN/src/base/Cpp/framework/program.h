@@ -22,7 +22,7 @@
 #include <iostream>
 #include <sstream>
 #include <cstring> //strlen
-#include "debugUtilities.h"
+#include "debug/debugUtilities.h"
 
 //#include "DebugLog.h"
 

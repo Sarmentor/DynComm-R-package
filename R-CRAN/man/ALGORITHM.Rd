@@ -27,6 +27,7 @@ to the communities depending on the value of the quality obtained.
 \examples{
 ALGORITHM$LOUVAIN
 
+
 }
 \seealso{
 \code{\link{DynComm}}

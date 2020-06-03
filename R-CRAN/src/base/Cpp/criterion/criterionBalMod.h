@@ -16,7 +16,7 @@
 #ifndef CRITERIONBALMOD_H_
 #define CRITERIONBALMOD_H_
 
-#include "criterionBase.h"
+#include "../framework/criterion/criterionBase.h"
 
 /**
  * @brief Balanced Modularity criterion

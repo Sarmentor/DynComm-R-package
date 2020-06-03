@@ -31,8 +31,8 @@
 #ifndef CRITERIONINTERFACE_H_
 #define CRITERIONINTERFACE_H_
 
-#include "program.h"
-#include "graphUndirectedGroupable.h"
+#include "../program.h"
+#include "../graph/graphUndirectedGroupable.h"
 
 /**
  * Data type for quality

@@ -17,7 +17,7 @@
 #ifndef SRC_ALGORITHMLOUVAIN_H_
 #define SRC_ALGORITHMLOUVAIN_H_
 
-#include "algorithmBase.h"
+#include "../framework/algorithm/algorithmBase.h"
 
 /**
  * @brief Class that implements the Dynamic Louvain algorithm

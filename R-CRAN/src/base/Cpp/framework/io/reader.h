@@ -22,9 +22,9 @@
 
 #include <string>
 #include <fstream>
-#include "program.h"
-#include "edge.h"
-#include "systemDefines.h"
+#include "../program.h"
+#include "../graph/edge.h"
+#include "../systemDefines.h"
 
 /**
  * @brief Interface for a simple stream forward reader.

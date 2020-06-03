@@ -24,7 +24,7 @@
 #define CRITERIONBASE_H_
 
 #include "criterionInterface.h"
-#include "graphUndirectedGroupable.h"
+#include "../graph/graphUndirectedGroupable.h"
 
 /**
  * @brief Base class for criterion.

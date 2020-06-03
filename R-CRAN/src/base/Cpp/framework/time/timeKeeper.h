@@ -19,8 +19,8 @@
 
 #include <sys/time.h>	//gettimeofday
 
-#include "defines.h"
-#include "systemDefines.h"
+#include "../defines.h"
+#include "../systemDefines.h"
 #include <limits>
 
 namespace Time {

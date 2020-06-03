@@ -18,7 +18,7 @@
  ************************************************************************
  ************************************************************************/
 
-#include "base/Cpp/defines.h"
+#include "base/Cpp/framework/defines.h"
 
 #ifdef FLAG_RCPP
 
@@ -28,18 +28,18 @@
  * Dummy class used to implement Enumeration like variables and function parameters in R from C++.
  * May be removed in the future when R starts supporting C++ class enumerations.
  */
-class DummyEnum {
-	int x;
-	int get_x() {return x;}
-};
-
-class DummyAlgorithm: public DummyEnum{
-
-};
-
-class DummyQuality: public DummyEnum{
-
-};
+// class DummyEnum {
+// 	int x;
+// 	int get_x() {return x;}
+// };
+// 
+// class DummyAlgorithm: public DummyEnum{
+// 
+// };
+// 
+// class DummyQuality: public DummyEnum{
+// 
+// };
 
 /**
  * Dynamic Communities class that handles all the IO for the base class.
@@ -52,7 +52,7 @@ private:
 
 	ProgramParameters convertToParameters(Rcpp::CharacterMatrix algorithmParameters=Rcpp::CharacterMatrix()){
 		int nrow = algorithmParameters.nrow();
-		int ncol = algorithmParameters.ncol();
+		// int ncol = algorithmParameters.ncol();
 		ProgramParameters p;
 		// COUT << nrow << "\n";
 		for (int i = 0; i < nrow; ++i) {
@@ -365,22 +365,22 @@ RCPP_MODULE(DynCommRcppModule) {
 
   function("currentTime"   , &currentTime );
   
-	class_<DummyAlgorithm>("Algorithm")
-    		  .default_constructor()
-			  ;
-
-	class_<DummyQuality>("Quality")
-    		  .default_constructor()
-			  ;
-
-	enum_<ALGORITHM, DummyAlgorithm>("TypeOfAlgorithm")
-    		  .value("LOUVAIN", ALGORITHM::LOUVAIN)
-			  ;
-
-	enum_<Criterion::CRITERION, DummyQuality>("TypeOfQuality")
-    		  .value("MODULARITY", Criterion::CRITERION::MODULARITY)
-  			  .value("BALMOD", Criterion::CRITERION::BALMOD)
-			  ;
+// 	class_<DummyAlgorithm>("Algorithm")
+//     		  .default_constructor()
+// 			  ;
+// 
+// 	class_<DummyQuality>("Quality")
+//     		  .default_constructor()
+// 			  ;
+// 
+// 	enum_<ALGORITHM, DummyAlgorithm>("TypeOfAlgorithm")
+//     		  .value("LOUVAIN", ALGORITHM::LOUVAIN)
+// 			  ;
+// 
+// 	enum_<Criterion::CRITERION, DummyQuality>("TypeOfQuality")
+//     		  .value("MODULARITY", Criterion::CRITERION::MODULARITY)
+//   			  .value("BALMOD", Criterion::CRITERION::BALMOD)
+// 			  ;
 
 	class_<DynCommRcpp>( "DynCommRcpp")
     		 .constructor< ALGORITHM, Criterion::CRITERION, Rcpp::CharacterMatrix>()

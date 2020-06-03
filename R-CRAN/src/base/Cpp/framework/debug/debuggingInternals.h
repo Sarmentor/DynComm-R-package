@@ -47,24 +47,31 @@
  **************************************************************************
  */
 
+#include "../systemDefines.h"
 /**
  * define the internals for an equal assert
  * the default delay is 3 seconds
  */
 #ifndef FLAG_DEBUG
 
-	#define ZERT_DO_NOT_USE_DIRECTLY3(expression1,expression2,value1,value2,precision,message) do{}while(0)
-	#define ZERT_DO_NOT_USE_DIRECTLY3NOT(expression1,expression2,value1,value2,precision,message) do{}while(0)
-	#define ZERT_DO_NOT_USE_DIRECTLY2(expression1,expression2,value1,value2,message) do{}while(0)
-	#define ZERT_DO_NOT_USE_DIRECTLY2NOT(expression1,expression2,value1,value2,message) do{}while(0)
-	#define ZERT_DO_NOT_USE_DIRECTLY1(expression,value,message) do{}while(0)
-	#define ZERT_DO_NOT_USE_DIRECTLY1NOT(expression,value,message) do{}while(0)
-	#define ASSERT_ITERATOR(expression1,expression2,value1,value2,valu1,valu2,message) do{}while(0)
-	#define ASSERT_ITERATOR_NOT(expression1,expression2,value1,value2,valu1,valu2,message) do{}while(0)
+  #define ZERT_DO_NOT_USE_DIRECTLY3(expression1,expression2,value1,value2,precision,message) do{}while(0)
+  #define ZERT_DO_NOT_USE_DIRECTLY3NOT(expression1,expression2,value1,value2,precision,message) do{}while(0)
+  #define ZERT_DO_NOT_USE_DIRECTLY2S(expression1,expression2,value1,value2,precision,message) do{}while(0)
+  #define ZERT_DO_NOT_USE_DIRECTLY2SE(expression1,expression2,value1,value2,precision,message) do{}while(0)
+  #define ZERT_DO_NOT_USE_DIRECTLY2G(expression1,expression2,value1,value2,precision,message) do{}while(0)
+  #define ZERT_DO_NOT_USE_DIRECTLY2GE(expression1,expression2,value1,value2,precision,message) do{}while(0)
+  #define ZERT_DO_NOT_USE_DIRECTLY2(expression1,expression2,value1,value2,message) do{}while(0)
+  #define ZERT_DO_NOT_USE_DIRECTLY2NOT(expression1,expression2,value1,value2,message) do{}while(0)
+  #define ZERT_DO_NOT_USE_DIRECTLY1(expression,value,message) do{}while(0)
+  #define ZERT_DO_NOT_USE_DIRECTLY1NOT(expression,value,message) do{}while(0)
+  #define ZERT_DO_NOT_USE_DIRECTLYNAN(expression,value,message) do{}while(0)
+  #define ZERT_DO_NOT_USE_DIRECTLYNAN_NOT(expression,value,message) do{}while(0)
+  #define ZERT_DO_NOT_USE_DIRECTLY_ITERATOR(expression1,expression2,value1,value2,valu1,valu2,message) do{}while(0)
+  #define ZERT_DO_NOT_USE_DIRECTLY_ITERATOR_NOT(expression1,expression2,value1,value2,valu1,valu2,message) do{}while(0)
 
 #else //FLAG_DEBUG
 
-	#include <execinfo.h>
+	// #include <execinfo.h>
 	#include <cassert>
 	#include <chrono>
 	#include <thread>
@@ -73,47 +80,47 @@
 	#include <iostream>
 	#include <exception>
 
-  /* if compiling with no c++ debugging support, define the __ASSERT_FUNCTION
-   * macro so that program runtime debugging still has pretty function names
-   * in the debugging information.
-   * The following code was extracted from assert.h without modification.
-   */
-  #ifdef NDEBUG
-    /* Version 2.4 and later of GCC define a magical variable `__PRETTY_FUNCTION__'
-     which contains the name of the function currently being defined.
-     This is broken in G++ before version 2.6.
-     C9x has a similar variable called __func__, but prefer the GCC one since
-     it demangles C++ function names.  */
-    # if defined __cplusplus ? __GNUC_PREREQ (2, 6) : __GNUC_PREREQ (2, 4)
-    #   define __ASSERT_FUNCTION	__extension__ __PRETTY_FUNCTION__
-    # else
-    #  if defined __STDC_VERSION__ && __STDC_VERSION__ >= 199901L
-    #   define __ASSERT_FUNCTION	__func__
-    #  else
-    #   define __ASSERT_FUNCTION	((const char *) 0)
-    #  endif
-    # endif
-  #endif /* NDEBUG.  */
+  // /* if compiling with no c++ debugging support, define the __ASSERT_FUNCTION
+  //  * macro so that program runtime debugging still has pretty function names
+  //  * in the debugging information.
+  //  * The following code was extracted from assert.h without modification.
+  //  */
+  // #ifdef NDEBUG
+  //   /* Version 2.4 and later of GCC define a magical variable `__PRETTY_FUNCTION__'
+  //    which contains the name of the function currently being defined.
+  //    This is broken in G++ before version 2.6.
+  //    C9x has a similar variable called __func__, but prefer the GCC one since
+  //    it demangles C++ function names.  */
+  //   # if defined __cplusplus ? __GNUC_PREREQ (2, 6) : __GNUC_PREREQ (2, 4)
+  //   #   define __ASSERT_FUNCTION	__extension__ __PRETTY_FUNCTION__
+  //   # else
+  //   #  if defined __STDC_VERSION__ && __STDC_VERSION__ >= 199901L
+  //   #   define __ASSERT_FUNCTION	__func__
+  //   #  else
+  //   #   define __ASSERT_FUNCTION	((const char *) 0)
+  //   #  endif
+  //   # endif
+  // #endif /* NDEBUG.  */
 
-	inline static void debug_backtrace(std::stringstream & ss, const int & backtraceBufferSize){
-		int nptrs;
-		void *buffer[backtraceBufferSize];
-		char **strings;
-		nptrs = backtrace(buffer, backtraceBufferSize);
-		strings = backtrace_symbols(buffer, nptrs);
-		if (strings == NULL) {
-			ss<< "ERROR retrieving backtrace symbols\n";
-			for (int j = 0; j < nptrs; j++){
-				ss<< buffer[j] << "\n";
-			}
-		}
-		else{
-			for (int j = 0; j < nptrs; j++){
-				ss<< strings[j] << "\n";
-			}
-			free(strings);
-		}
-	}
+	// inline static void debug_backtrace(std::stringstream & ss, const int & backtraceBufferSize){
+	// 	int nptrs;
+	// 	void *buffer[backtraceBufferSize];
+	// 	char **strings;
+	// 	nptrs = backtrace(buffer, backtraceBufferSize);
+	// 	strings = backtrace_symbols(buffer, nptrs);
+	// 	if (strings == NULL) {
+	// 		ss<< "ERROR retrieving backtrace symbols\n";
+	// 		for (int j = 0; j < nptrs; j++){
+	// 			ss<< buffer[j] << "\n";
+	// 		}
+	// 	}
+	// 	else{
+	// 		for (int j = 0; j < nptrs; j++){
+	// 			ss<< strings[j] << "\n";
+	// 		}
+	// 		free(strings);
+	// 	}
+	// }
 
 	inline static std::string debug_assert_throw(
 			const char *file,unsigned int line,

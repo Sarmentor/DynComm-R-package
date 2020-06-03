@@ -16,9 +16,9 @@
 #ifndef SRC_DYNCOMMBASEINTERFACE_H_
 #define SRC_DYNCOMMBASEINTERFACE_H_
 
-#include "criterionInterface.h"
-#include "reader.h"
-#include "writer.h"
+#include "criterion/criterionInterface.h"
+#include "io/reader.h"
+#include "io/writer.h"
 #include "systemDefines.h"
 
 typedef ReaderInterface<Edge> ReaderEdgeBase;

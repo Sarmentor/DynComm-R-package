@@ -18,7 +18,7 @@
 #ifndef CRITERIONMODULARITY_H_
 #define CRITERIONMODULARITY_H_
 
-#include "criterionBase.h"
+#include "../framework/criterion/criterionBase.h"
 
 /**
  * @brief Newman-Girvan criterion

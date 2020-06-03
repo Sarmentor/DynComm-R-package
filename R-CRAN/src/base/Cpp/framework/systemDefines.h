@@ -48,6 +48,34 @@
   	typedef u_int32_t uint32;
   	typedef u_int64_t uint64;
   # endif //MinGW 32bit and 64bit
+  	
+  	inline static void debug_backtrace(std::stringstream & ss, const int & backtraceBufferSize){
+  	  //on windows systems this does nothing (for now)
+  	}
+  	
+  	/* if compiling with no c++ debugging support, define the __ASSERT_FUNCTION
+  	 * macro so that program runtime debugging still has pretty function names
+  	 * in the debugging information.
+  	 * The following code was extracted from assert.h without modification.
+  	 */
+    // #ifdef NDEBUG
+      	/* Version 2.4 and later of GCC define a magical variable `__PRETTY_FUNCTION__'
+      	 which contains the name of the function currently being defined.
+      	 This is broken in G++ before version 2.6.
+      	 C9x has a similar variable called __func__, but prefer the GCC one since
+      	 it demangles C++ function names.  */
+    // # if defined __cplusplus ? __GNUC_PREREQ (2, 6) : __GNUC_PREREQ (2, 4)
+    // #   define __ASSERT_FUNCTION	__extension__ __PRETTY_FUNCTION__
+    // # else
+    // #  if defined __STDC_VERSION__ && __STDC_VERSION__ >= 199901L
+    // #   define __ASSERT_FUNCTION	__func__
+    // #  else
+    #   define __ASSERT_FUNCTION	((const char *) 0)
+    // #  endif
+    // # endif
+    // #endif /* NDEBUG.  */
+      	
+  	
 # else //Windows
 /**
  * Non-Windows System Definitions section
@@ -65,6 +93,51 @@
 	typedef uint16_t uint16;
 	typedef uint32_t uint32;
 	typedef uint64_t uint64;
+	
+  #include <execinfo.h>
+	inline static void debug_backtrace(std::stringstream & ss, const int & backtraceBufferSize){
+	  int nptrs;
+	  void *buffer[backtraceBufferSize];
+	  char **strings;
+	  nptrs = backtrace(buffer, backtraceBufferSize);
+	  strings = backtrace_symbols(buffer, nptrs);
+	  if (strings == NULL) {
+	    ss<< "ERROR retrieving backtrace symbols\n";
+	    for (int j = 0; j < nptrs; j++){
+	      ss<< buffer[j] << "\n";
+	    }
+	  }
+	  else{
+	    for (int j = 0; j < nptrs; j++){
+	      ss<< strings[j] << "\n";
+	    }
+	    free(strings);
+	  }
+	}
+	
+	/* if compiling with no c++ debugging support, define the __ASSERT_FUNCTION
+	 * macro so that program runtime debugging still has pretty function names
+	 * in the debugging information.
+	 * The following code was extracted from assert.h without modification.
+	 */
+  #ifdef NDEBUG
+  	/* Version 2.4 and later of GCC define a magical variable `__PRETTY_FUNCTION__'
+  	 which contains the name of the function currently being defined.
+  	 This is broken in G++ before version 2.6.
+  	 C9x has a similar variable called __func__, but prefer the GCC one since
+  	 it demangles C++ function names.  */
+  # if defined __cplusplus ? __GNUC_PREREQ (2, 6) : __GNUC_PREREQ (2, 4)
+  #   define __ASSERT_FUNCTION	__extension__ __PRETTY_FUNCTION__
+  # else
+  #  if defined __STDC_VERSION__ && __STDC_VERSION__ >= 199901L
+  #   define __ASSERT_FUNCTION	__func__
+  #  else
+  #   define __ASSERT_FUNCTION	((const char *) 0)
+  #  endif
+  # endif
+  #endif /* NDEBUG.  */
+  	
+	
 /**
  * End of System Definitions section
  */

@@ -22,8 +22,8 @@
 #ifndef CRITERION_H_
 #define CRITERION_H_
 
-#include "criterionBalMod.h"
-#include "criterionModularity.h"
+#include "../../criterion/criterionBalMod.h"
+#include "../../criterion/criterionModularity.h"
 /* **********************************************************************
  ************************************************************************
  * TODO: Add criterion include file here

@@ -22,7 +22,7 @@
 #include <string>
 #include <sstream>
 
-#include "stringFormatter.h"
+#include "../utilities/stringFormatter.h"
 
 namespace map {
 

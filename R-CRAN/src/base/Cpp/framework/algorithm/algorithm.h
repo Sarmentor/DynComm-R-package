@@ -38,15 +38,8 @@
 #define SRC_ALGORITHM_H_
 
 #include "algorithmInterface.h"
-#include "criterion.h"
-#include "algorithmList.h"
-
-/* **********************************************************************
- ************************************************************************
- * TODO: Add algorithm include file here
- ************************************************************************
- ************************************************************************/
-#include "algorithmLouvain.h"
+#include "../criterion/criterion.h"
+#include "../../algorithms/algorithmList.h"
 
 
 /**
@@ -63,20 +56,6 @@
  * @date 2019-01-01
  */
 class Algorithm: private AlgorithmBase{
-public:
-/* **********************************************************************
- ************************************************************************
- * TODO: Add algorithm name to enumeration. Use the same name used in R
- ************************************************************************
- ************************************************************************/
-	/**
-	 * Enumeration with the list of supported Dynamic Communities algorithms.
-	 * This enumeration must start at 1 since this code is used in R and R
-	 * indexing (for arrays, etc) starts at 1 instead of 0.
-	 * Otherwise C++ would assign the first algorithm a 0.
-	 */
-//	enum class ALGORITHM:unsigned int{LOUVAIN=1,SHAKEN};
-
 private:
 	/*
 	 * algorithm selection. Can not be changed after initialization

@@ -8,7 +8,7 @@
 #ifndef DEBUGUTILITIES_H_
 #define DEBUGUTILITIES_H_
 
-#include "defines.h"
+#include "../defines.h"
 
 DEBUG_LEVEL fromInt(const int & i){
 	switch (i) {

@@ -20,8 +20,8 @@
 #include "multimapUtilities.h"
 #include <sstream>
 #include <limits>
-#include "DebugLog.h"
-#include "debugging.h"
+#include "../debug/DebugLog.h"
+#include "../debug/debugging.h"
 
 /**
  * @brief Graph.

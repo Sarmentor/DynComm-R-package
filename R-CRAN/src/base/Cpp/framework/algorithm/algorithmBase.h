@@ -24,10 +24,10 @@
 #ifndef SRC_ALGORITHMBASE_H_
 #define SRC_ALGORITHMBASE_H_
 
-#include "program.h"
-#include "reader.h"
+#include "../program.h"
+#include "../io/reader.h"
 #include "algorithmInterface.h"
-#include "criterion.h"
+#include "../criterion/criterion.h"
 
 /**
  * @brief Base class for algorithms.
