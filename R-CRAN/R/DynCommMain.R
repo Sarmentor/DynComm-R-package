@@ -65,6 +65,8 @@ source("R/CRITERION.R")
 #' ALGORITHM$LOUVAIN
 # ALGORITHM$TILES
 #' 
+# @export DynComm::ALGORITHM
+#' 
 #' @export
 #'
 ########## list new algorithms here #############

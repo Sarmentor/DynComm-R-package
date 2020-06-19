@@ -56,7 +56,7 @@
 #' 
 #' @docType package
 ########################### List imports here ###########################
-#' @import Rcpp methods
+#' @import Rcpp methods igraph
 #' @importFrom Rdpack reprompt
 #' @importFrom utils write.table
 #' @useDynLib DynComm
@@ -971,7 +971,7 @@ DynComm <- function(Algorithm=ALGORITHM$LOUVAIN,Criterion=CRITERION$MODULARITY,P
       else{
         return(prc$time(differential,pst,pstid))
       }
-    },
+    }
     
     #' 
     #'   \item{version()}{

@@ -231,6 +231,12 @@ The first column names the parameter and the second defines its value.
   }
   
 
+  \item{version()}{
+  Get the source code versions of the different sources. 
+  See \code{\link{version}}
+  }
+  
+
 }
 }
 

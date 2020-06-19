@@ -20,13 +20,13 @@
 #ifndef SRC_DYNCOMMBASE_H_
 #define SRC_DYNCOMMBASE_H_
 
-#include "defines.h"
-#include "DynCommBaseInterface.h"
-#include "algorithm.h"
-#include "criterion.h"
-#include "timeFunctions.h"
-#include "mapReversable.h"
-#include "DebugLog.h"
+#include "framework/defines.h"
+#include "framework/DynCommBaseInterface.h"
+#include "framework/algorithm/algorithm.h"
+#include "framework/criterion/criterion.h"
+#include "framework/time/timeFunctions.h"
+#include "framework/graph/mapReversable.h"
+#include "framework/debug/DebugLog.h"
 
 
 /**
@@ -435,7 +435,11 @@ public:
 	 * @return the total processing time in nanoseconds
 	 */
 	uint64 time(bool accumulated=true)const{
-	  if(!accumulated) return timeProcessing;
+	  if(!accumulated){
+		  dbg.msg(DEBUG_LEVEL::CALLS, "Time="+std::to_string(timeProcessing)+" nsec");
+		  return timeProcessing;
+	  }
+	  dbg.msg(DEBUG_LEVEL::CALLS, "Time="+std::to_string(timeTotal)+" nsec");
 	  return timeTotal;
 	}
 
