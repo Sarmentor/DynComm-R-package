@@ -1,7 +1,7 @@
 Package: DynComm
 Type: Package
 Title: Dynamic Network Communities Detection and Generation
-Version: 201901.01.0
+Version: 201901.01.0004
 Author: Rui Portocarrero Sarmento, Luís Lemos, Giulio Rossetti, Vera Costa
 Maintainer: Rui P. Sarmento <email@ruisarmento.com>
 Description: This package is used for evolving network analysis regarding 
@@ -13,11 +13,12 @@ Description: This package is used for evolving network analysis regarding
 License: file LICENSE
 Encoding: UTF-8
 LazyData: false
-Imports: reticulate, Rcpp (>= 0.12.15), rJava, igraph, Rdpack, methods
-Depends: 
+Imports: Rcpp (>= 0.12.15), Rdpack, methods
+Depends: igraph
 LinkingTo: Rcpp
 RcppModules: DynCommRcpp
 RdMacros: Rdpack
 SystemRequirements: C++11
 Suggests: devtools
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.0
+StagedInstall: no
