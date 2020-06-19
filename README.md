@@ -47,29 +47,11 @@ Features planned to be added:
   
 - Implement stand alone User Interfaces
 
-## Project directory structure
+## Known bugs / limitations
 
-The following are the most important files/folders to be aware in the root of the github project page:
+### Not being fixed in the current version
+- Edges that are not removed and calculations with differences in values: This is related to the way floating point numbers are subtracted in hardware and how numbers are represented in binary. When a number, like one third, that can not be completely represented in binary at a given number of bits (say 64 bit), is subtracted to another number, the result may deviate slightly from expected. When trying to hit exactly zero, like when removing edges, they may not be removed but linger with a very small value like 0.33X10^-17. The same happens when calculating weight aggregates, like the total weight of the graph, which influence the value of quality. These errors accumulate over time. A workaround is to snapshot the current graph and feed it to a new DynComm object. This is not being fixed in this version since it requires reimplementation of the graph object.
 
-- **DynComm_xxxxxx.xx.xxxx.tar.gz** is the latest stable source code version of the package where xxxxxx.xx.xxxx are numbers indicating the version.
-
-- **manual.pdf** file contains the printer ready version of the description of the functions available in the User Interface with examples. This documentation might be outdated in comparison with the one available through the R help system.
-
-- **LICENSE** file describes the license agreement under which this project is shared.
-
-- **CODE_OF_CONDUCT** file describes behaviour restrictions that users submiting issues and contributors to this project must adhere to.
-
-- **test** directory contains small test networks.
-
-- **oldReleases** contains previous releases of the source code version of the package and are stored only for historical reasons. Never use these versions for current work.
-
-- **R-CRAN** is the root folder of the source code of this package.
-
-- **CONTRIBUTING** file contains guidelines that contributors to this project must adhere to.
-
-- **dev** is a folder with templates and documentation that might be useful for developers wishing to contribute to this project.
-
-- **standalone** is a folder with source code for stand alone versions of User Interfaces that allow to run parts of this project without R.
 
 ## Software
 
