@@ -316,8 +316,8 @@ public:
 	
 	Rcpp::CharacterMatrix results(bool differential=true){
 		Rcpp::CharacterMatrix v(1,2);
-		v(0,0)="time differential";
-		v(0,1)=std::to_string(dcb.time(false));
+		v(0,0)="time delta";
+		v(0,1)=std::to_string(dcb.time(true));
     return v;
 	}
 

@@ -434,8 +434,8 @@ public:
 	 *
 	 * @return the total processing time in nanoseconds
 	 */
-	uint64 time(bool accumulated=true)const{
-	  if(!accumulated){
+	uint64 time(bool differential=false)const{
+	  if(differential){
 		  dbg.msg(DEBUG_LEVEL::CALLS, "Time="+std::to_string(timeProcessing)+" nsec");
 		  return timeProcessing;
 	  }

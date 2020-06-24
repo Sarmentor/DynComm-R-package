@@ -23,8 +23,6 @@ Currently implemented features are:
 
   - Classical Newman-Girvan, also called Modularity (Modularity)
   
-  - Balanced Modularity (BalMod)
-  
 - Post-processing algorithms:
 
   - Community Density Optimization
@@ -39,6 +37,8 @@ Features planned to be added:
 
 - Criterion:
 
+  - Balanced Modularity (BalMod)
+  
 - Post-processing algorithms:
 
   - Top N
@@ -53,6 +53,30 @@ Features planned to be added:
 - Edges that are not removed and calculations with differences in values: This is related to the way floating point numbers are subtracted in hardware and how numbers are represented in binary. When a number, like one third, that can not be completely represented in binary at a given number of bits (say 64 bit), is subtracted to another number, the result may deviate slightly from expected. When trying to hit exactly zero, like when removing edges, they may not be removed but linger with a very small value like 0.33X10^-17. The same happens when calculating weight aggregates, like the total weight of the graph, which influence the value of quality. These errors accumulate over time. A workaround is to snapshot the current graph and feed it to a new DynComm object. This is not being fixed in this version since it requires reimplementation of the graph object.
 
 
+## Project directory structure
+
+The following are the most important files/directories to be aware in the root of the github project page:
+
+- **DynComm_xxxxxx.xx.xxxx.tar.gz** is the latest stable source code version of the package where xxxxxx.xx.xxxx are numbers indicating the version.
+
+- **manual.pdf** file contains the printer ready version of the description of the functions available in the User Interface with examples. This documentation might be outdated in comparison with the one available through the R help system.
+
+- **LICENSE** file describes the license agreement under which this project is shared.
+
+- **CODE_OF_CONDUCT** file describes behaviour restrictions that users submiting issues and contributors to this project must adhere to.
+
+- **test** directory contains small test networks.
+
+- **oldReleases** contains previous releases of the source code version of the package and are stored only for historical reasons. Never use these versions for current work.
+
+- **R-CRAN** is the root directory of the source code of this package.
+
+- **CONTRIBUTING** file contains guidelines that contributors to this project must adhere to.
+
+- **dev** is a directory with templates and documentation that might be useful for developers wishing to contribute to this project.
+
+- **standalone** is a directory with source code for stand alone versions of User Interfaces that allow to run parts of this project without R.
+
 ## Software
 
 To be able to use this package, the following software must be installed in your system, in the order presented. Search the web for more details on how to install and configure the software on your operating system, if required.
@@ -65,11 +89,11 @@ To be able to use this package, the following software must be installed in your
 
 The latest version of this package (201901.01.0004) was tested in Xubuntu 20.04 64 bit and Windows 7 Ultimate 64 bit. 
 
-You can install the stable binary (already compiled executable) version of this package from CRAN, if available, using the following command from within your R console:
+You can install the stable version of this package from CRAN, if available, using the following command from within your R console:
 
 `install.packages("DynComm")`
 
-Otherwise, or to get the latest stable version, you need to compile the source code version provided in the root of the project.
+Otherwise, or to get the latest stable version, you need to compile the source code version provided in the directory named "R-CRAN" in the root of the project.
 
 ### Additional steps for the source code version
 
@@ -106,6 +130,8 @@ The safest route is to download the latest stable source code version file from 
 To get the most recent version, which may not be stable nor functional, you can use the source code of the GitHub master version using the following command from within your R console:
 
 `devtools::install_github("softskillsgroup/DynComm-R-package/R-CRAN")`
+
+If you get errors about paths, directories or files using Staged Installation (the default), you might have to change "StagedInstall: yes" to "StagedInstall: no" in the DESCRIPTION file in order to be able to compile and install locally.
 
 ## Documentation
 

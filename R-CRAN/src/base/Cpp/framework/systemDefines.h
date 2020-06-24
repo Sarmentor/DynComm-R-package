@@ -97,7 +97,8 @@
   #include <execinfo.h>
 	inline static void debug_backtrace(std::stringstream & ss, const int & backtraceBufferSize){
 	  int nptrs;
-	  void *buffer[backtraceBufferSize];
+//	  void *buffer[backtraceBufferSize];
+	  void **buffer=new void*[backtraceBufferSize];
 	  char **strings;
 	  nptrs = backtrace(buffer, backtraceBufferSize);
 	  strings = backtrace_symbols(buffer, nptrs);
@@ -113,6 +114,7 @@
 	    }
 	    free(strings);
 	  }
+	  delete [] buffer;
 	}
 	
 	/* if compiling with no c++ debugging support, define the __ASSERT_FUNCTION
