@@ -26,7 +26,6 @@ int main(int argc, char *argv[]) {
 //	COUT << tm2.set() << " ; " << t2 << "\n";
 //	COUT << tm2.get(t2) << " ; " << t2 << "\n";
 //	COUT << tm2.set(t2) << " ; " << t2 << "\n";
-
 	{//test 1 with paper graph, 1 pass (static louvain)
 		COUT << "********* test 1 with paper graph, 1 pass (static louvain) *********\n";
 		dbg.pre(DEBUG_LEVEL::MODIFICATIONS,"DC","test 1 with paper graph, 1 pass (static louvain)");
@@ -107,7 +106,8 @@ int main(int argc, char *argv[]) {
 				c.communityMapping(&wr);
 				COUT << "\n";
 				COUT << c.quality()<<"\n";
-				COUT << c.time()<<"ns\n";
+				COUT << c.time(true)<<"ns\n";
+				COUT << c.time(false)<<"ns\n";
 				ReaderStringEdge rd2(sequences[index],p);
 				c.addRemoveEdges(&rd2);
 			}
@@ -127,6 +127,7 @@ int main(int argc, char *argv[]) {
 		COUT << ss.str();
 		COUT << "\n";
 		COUT << c.quality()<<"\n";
+		COUT << c.time(true)<<"ns\n";
 		COUT << c.time(false)<<"ns\n";
 		//assert quality=0.367188
 		dbg.msg(DEBUG_LEVEL::CALLS, "Quality="+std::to_string(c.quality()));
@@ -174,7 +175,8 @@ int main(int argc, char *argv[]) {
 				c.communityMapping(&wr);
 				COUT << "\n";
 				COUT << c.quality()<<"\n";
-				COUT << c.time()<<"ns\n";
+				COUT << c.time(true)<<"ns\n";
+				COUT << c.time(false)<<"ns\n";
 				ReaderStringEdge rd2(sequences[index],p);
 				c.addRemoveEdges(&rd2);
 			}
@@ -194,6 +196,7 @@ int main(int argc, char *argv[]) {
 		COUT << ss.str();
 		COUT << "\n";
 		COUT << c.quality()<<"\n";
+		COUT << c.time(true)<<"ns\n";
 		COUT << c.time(false)<<"ns\n";
 		//assert quality=0.367188
 		dbg.msg(DEBUG_LEVEL::CALLS, "Quality="+std::to_string(c.quality()));
@@ -241,7 +244,8 @@ int main(int argc, char *argv[]) {
 				c.communityMapping(&wr);
 				COUT << "\n";
 				COUT << c.quality()<<"\n";
-				COUT << c.time()<<"ns\n";
+				COUT << c.time(true)<<"ns\n";
+				COUT << c.time(false)<<"ns\n";
 				ReaderStringEdge rd2(sequences[index],p);
 				c.addRemoveEdges(&rd2);
 			}
@@ -261,6 +265,7 @@ int main(int argc, char *argv[]) {
 		COUT << ss.str();
 		COUT << "\n";
 		COUT << c.quality()<<"\n";
+		COUT << c.time(true)<<"ns\n";
 		COUT << c.time(false)<<"ns\n";
 		//assert quality=0.367188
 		dbg.msg(DEBUG_LEVEL::CALLS, "Quality="+std::to_string(c.quality()));

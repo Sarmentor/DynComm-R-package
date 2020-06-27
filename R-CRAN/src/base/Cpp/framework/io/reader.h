@@ -439,7 +439,7 @@ private:
   std::string stts;
   const ProgramParameters & par;
   const Rcpp::NumericMatrix & dt;
-  unsigned int lineNumber=0;
+  int lineNumber=0;
   Edge ed;
   int state=0;//=0 error; =1 reads edge; =4 reads newline; =5 end of file
   

@@ -152,7 +152,7 @@ postProcessDensOpt <- function(dyncomm, Parameters=NULL)
             # cat("New community for a found component!!! \n\n")
             sapply(x,FUN=function(y){
               df.comms[as.numeric(df.comms$node)==y,2] <<- new.comms[n]
-              cat("Changing node ", y, "community label from ", igraph::membership(comms)[y] , " to ", new.comms[n], ".\n")
+              # cat("Changing node ", y, "community label from ", igraph::membership(comms)[y] , " to ", new.comms[n], ".\n")
             })
           })
           
@@ -374,7 +374,8 @@ postProcessDensOpt <- function(dyncomm, Parameters=NULL)
     #' 
     #'   \item{results(differential)}{Get additional results of the algorithm or the currently selected post processing steps. See \code{\link{results}}}
     #'   
-    results = function(){#postProcessing,ID=1){
+    results = function(differential=TRUE){#postProcessing,ID=1){
+		if(differential){}#do nothing. Checks differential just to avoid an error about being unused
       return(matrix(data=c("old modularity",modOld,"new modularity",mod,"old mean", meanOld,"new mean", mean),ncol=2,byrow = TRUE))
     },
 

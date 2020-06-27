@@ -339,7 +339,9 @@ DynCommPostProcess <- function(postProcessing=POSTPROCESSING$NONE, id=1, previou
     results = function(differential=TRUE,postProcessing=POSTPROCESSING$NONE,ID=1){
       if((postProcessing==POSTPROCESSING$NONE || (pst==postProcessing && id==ID)) && alg$has(APIFUNCTIONS$RESULTS)){
         #this object
-        return(alg$results(differential))
+		tmp <- alg$results(differential)
+		tmp <- rbind(tmp,c("time delta",(end_time-start_time)))
+        return(tmp)
       }
       else{ #it is not me (its the one armed man :P )
         #return from the previous object
