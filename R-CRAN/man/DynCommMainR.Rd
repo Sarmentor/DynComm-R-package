@@ -147,7 +147,7 @@ The first column names the parameter and the second defines its value.
 }
 
 \examples{
-\dontrun{
+\donttest{
 Parameters<-matrix(c("-e","0.1"),1,2,TRUE)
 dc<-DynCommMainR(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
 dc$addRemoveEdgesFile("initial_graph.txt")

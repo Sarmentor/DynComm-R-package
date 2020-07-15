@@ -65,7 +65,7 @@
 # @export
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' Parameters<-matrix(c("-e","0.1"),1,2,TRUE)
 #' dc<-DynCommMain(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
 #' dc$addRemoveEdgesFile("initial_graph.txt")

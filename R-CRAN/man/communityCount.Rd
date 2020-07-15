@@ -3,10 +3,10 @@
 \docType{methods}
 \name{communityCount}
 \alias{communityCount}
-\alias{DynComm.communityCount}
-\title{communityCount()}
+\alias{communityCount.DynComm}
+\title{communityCount}
 \usage{
-DynComm.communityCount(dyncomm)
+communityCount.DynComm(dyncomm)
 }
 \arguments{
 \item{dyncomm}{A DynComm object, if not using the inline version of the 
@@ -20,11 +20,11 @@ Get the number of communities from the selected post processing algorithm or
 the main algorithm, after the last iteration.
 }
 \examples{
-\dontrun{
+\donttest{
 dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
 dc$communityCount()
 }
-\dontrun{
+\donttest{
 dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
 communityCount(dc)
 }

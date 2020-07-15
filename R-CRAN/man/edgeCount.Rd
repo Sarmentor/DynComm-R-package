@@ -3,10 +3,10 @@
 \docType{methods}
 \name{edgeCount}
 \alias{edgeCount}
-\alias{DynComm.edgeCount}
-\title{edgeCount()}
+\alias{edgeCount.DynComm}
+\title{edgeCount}
 \usage{
-DynComm.edgeCount(dyncomm)
+edgeCount.DynComm(dyncomm)
 }
 \arguments{
 \item{dyncomm}{A DynComm object, if not using the inline version of the 
@@ -21,11 +21,11 @@ selected post processing algorithm or the main algorithm, after the last
 iteration.
 }
 \examples{
-\dontrun{
+\donttest{
 dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
 dc$edgeCount()
 }
-\dontrun{
+\donttest{
 dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
 edgeCount(dc)
 }

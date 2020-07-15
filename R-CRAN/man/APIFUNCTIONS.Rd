@@ -4,7 +4,8 @@
 \name{APIFUNCTIONS}
 \alias{APIFUNCTIONS}
 \title{List of API functions.}
-\format{A named list with the names of all API functions:
+\format{
+A named list with the names of all API functions:
  \describe{
    \item{COMMUNITIES}{Get all communities after the last iteration. See \code{\link{communities}}}
    \item{COMMUNITIESEDGECOUNT}{Get the number of community to community edges in the graph. See \code{\link{communitiesEdgeCount}}}
@@ -25,7 +26,8 @@
    \item{VERTEXCOUNT}{Get the total number of vertices after the last iteration. See \code{\link{vertexCount}}}
    \item{VERTICESALL}{Get all vertices in the graph after the last iteration. See \code{\link{verticesAll}}}
    \item{VERTICES}{Get all vertices belonging to the given community after the last iteration. See \code{\link{vertices}}}
- }}
+ }
+}
 \usage{
 APIFUNCTIONS
 }

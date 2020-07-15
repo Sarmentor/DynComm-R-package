@@ -6,13 +6,15 @@
 \alias{criterion}
 \alias{Criterion}
 \title{List of available CRITERION (quality measurement functions).}
-\format{A named list with the names of the available CRITERION:
+\format{
+A named list with the names of the available CRITERION:
 \describe{
  \item{MODULARITY}{
    Newman-Girvan \cr
    See \code{\link{CRITERION_MODULARITY}}
  }
-}}
+}
+}
 \usage{
 CRITERION
 }

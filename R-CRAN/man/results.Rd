@@ -3,10 +3,10 @@
 \docType{methods}
 \name{results}
 \alias{results}
-\alias{DynComm.results}
-\title{results(differential)}
+\alias{results.DynComm}
+\title{results}
 \usage{
-DynComm.results(dyncomm,differential)
+results.DynComm(dyncomm,differential)
 }
 \arguments{
 \item{dyncomm}{A DynComm object, if not using the inline version of the 
@@ -26,17 +26,17 @@ select an algorithm.
 }
 \details{
 Additional results are any results other than those returned by other 
-existing functions like \code{\link{quality}}, \code{\link{time}} and 
+existing functions like \code{\link{quality}}, \code{\link{mytime}} and 
 \code{\link{communityMapping}}.
 Passing the parameter differential set to TRUE, will return only results that
 have changed from the previous to last iteration.
 }
 \examples{
-\dontrun{
+\donttest{
 dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
 dc$results()
 }
-\dontrun{
+\donttest{
 dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
 results(dc)
 }

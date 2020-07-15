@@ -3,10 +3,10 @@
 \docType{methods}
 \name{communitiesEdgeCount}
 \alias{communitiesEdgeCount}
-\alias{DynComm.communitiesEdgeCount}
-\title{communitiesEdgeCount()}
+\alias{communitiesEdgeCount.DynComm}
+\title{communitiesEdgeCount}
 \usage{
-DynComm.communitiesEdgeCount(dyncomm)
+communitiesEdgeCount.DynComm(dyncomm)
 }
 \arguments{
 \item{dyncomm}{A DynComm object, if not using the inline version of the 
@@ -21,11 +21,11 @@ from the selected post processing algorithm or the main algorithm, after the
 last iteration.
 }
 \examples{
-\dontrun{
+\donttest{
 dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
 dc$communitiesEdgeCount()
 }
-\dontrun{
+\donttest{
 dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
 communitiesEdgeCount(dc)
 }

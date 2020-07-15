@@ -3,10 +3,10 @@
 \docType{methods}
 \name{quality}
 \alias{quality}
-\alias{DynComm.quality}
-\title{quality()}
+\alias{quality.DynComm}
+\title{quality}
 \usage{
-DynComm.quality(dyncomm)
+quality.DynComm(dyncomm)
 }
 \arguments{
 \item{dyncomm}{A DynComm object, if not using the inline version of the 
@@ -20,11 +20,11 @@ Get the quality measurement of the graph from the selected post processing
 algorithm or the main algorithm, after the last iteration.
 }
 \examples{
-\dontrun{
+\donttest{
 dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
 dc$quality()
 }
-\dontrun{
+\donttest{
 dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
 quality(dc)
 }

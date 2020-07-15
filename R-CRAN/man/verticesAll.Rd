@@ -3,12 +3,12 @@
 \docType{methods}
 \name{verticesAll}
 \alias{verticesAll}
-\alias{DynComm.verticesAll}
-\alias{DynComm.nodesAll}
-\title{verticesAll()}
+\alias{verticesAll.DynComm}
+\alias{nodesAll.DynComm}
+\title{verticesAll}
 \usage{
-DynComm.verticesAll(dyncomm)
-DynComm.nodesAll(dyncomm)
+verticesAll.DynComm(dyncomm)
+nodesAll.DynComm(dyncomm)
 }
 \arguments{
 \item{dyncomm}{A DynComm object, if not using the inline version of the 
@@ -22,11 +22,11 @@ Get all vertices in the graph from the selected post processing algorithm or
 the main algorithm, after the last iteration.
 }
 \examples{
-\dontrun{
+\donttest{
 dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
 dc$verticesAll()
 }
-\dontrun{
+\donttest{
 dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
 verticesAll(dc)
 }

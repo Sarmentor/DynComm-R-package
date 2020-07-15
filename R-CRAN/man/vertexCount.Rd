@@ -3,12 +3,12 @@
 \docType{methods}
 \name{vertexCount}
 \alias{vertexCount}
-\alias{DynComm.vertexCount}
-\alias{DynComm.nodesCount}
-\title{vertexCount()}
+\alias{vertexCount.DynComm}
+\alias{nodesCount.DynComm}
+\title{vertexCount}
 \usage{
-DynComm.vertexCount(dyncomm)
-DynComm.nodesCount(dyncomm)
+vertexCount.DynComm(dyncomm)
+nodesCount.DynComm(dyncomm)
 }
 \arguments{
 \item{dyncomm}{A DynComm object, if not using the inline version of the 
@@ -27,11 +27,11 @@ that do not exist in the graph, or removed, if they are not part of any edge aft
 removing an edge.
 }
 \examples{
-\dontrun{
+\donttest{
 dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
 dc$vertexCount()
 }
-\dontrun{
+\donttest{
 dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
 vertexCount(dc)
 }

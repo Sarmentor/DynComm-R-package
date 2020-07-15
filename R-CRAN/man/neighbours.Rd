@@ -3,10 +3,10 @@
 \docType{methods}
 \name{neighbours}
 \alias{neighbours}
-\alias{DynComm.neighbours}
-\title{neighbours(vertex)}
+\alias{neighbours.DynComm}
+\title{neighbours}
 \usage{
-DynComm.neighbours(dyncomm,vertex)
+neighbours.DynComm(dyncomm,vertex)
 }
 \arguments{
 \item{dyncomm}{A DynComm object, if not using the inline version of the 
@@ -24,11 +24,11 @@ vertex in the graph from the selected post processing algorithm or the main
 algorithm, after the last iteration.
 }
 \examples{
-\dontrun{
+\donttest{
 dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
 dc$neighbours(vertex)
 }
-\dontrun{
+\donttest{
 dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
 neighbours(dc,vertex)
 }

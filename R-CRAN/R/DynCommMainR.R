@@ -51,7 +51,7 @@
 # @export
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' Parameters<-matrix(c("-e","0.1"),1,2,TRUE)
 #' dc<-DynCommMainR(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
 #' dc$addRemoveEdgesFile("initial_graph.txt")
@@ -496,7 +496,7 @@ DynCommMainR <- function(Algorithm,Criterion,Parameters)
     #' 
     #'   \item{time()}{Get the cumulative time spent on processing after the last iteration. See \code{\link{time}}}
     #'   
-    time=function(differential=FALSE){
+    mytime=function(differential=FALSE){
       # if(alg==){
       #   return(dc$time(differential))
       # }

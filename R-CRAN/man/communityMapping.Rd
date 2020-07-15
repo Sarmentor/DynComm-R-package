@@ -3,10 +3,10 @@
 \docType{methods}
 \name{communityMapping}
 \alias{communityMapping}
-\alias{DynComm.communityMapping}
-\title{communityMapping(differential, file)}
+\alias{communityMapping.DynComm}
+\title{communityMapping}
 \usage{
-DynComm.communityMapping(dyncomm,differential, file)
+communityMapping.DynComm(dyncomm,differential, file)
 }
 \arguments{
 \item{dyncomm}{A DynComm object, if not using the inline version of the 
@@ -39,11 +39,11 @@ a single vertex followed by its community. All values are separated by a white
 character.
 }
 \examples{
-\dontrun{
+\donttest{
 dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
 dc$communityMapping()
 }
-\dontrun{
+\donttest{
 dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
 communityMapping(dc)
 }

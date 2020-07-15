@@ -169,10 +169,10 @@ CRITERION <- list(
 #'
 #' @seealso \code{\link{DynComm}}
 #' 
-# @export
+#' @export DynCommMain
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' Parameters<-matrix(c("-e","0.1"),1,2,TRUE)
 #' dc<-DynCommMain(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
 #' dc$addRemoveEdgesFile("initial_graph.txt")
@@ -181,7 +181,7 @@ CRITERION <- list(
 #' dc$communityNodeCount(1)
 #' dc$vertices(1)
 #' dc$communityMapping(TRUE)
-#' dc$time()
+#' dc$mytime()
 #' dc$addRemoveEdgesFile("s0000000000.txt")
 #' }
 #'
@@ -614,7 +614,7 @@ DynCommMain <- function(Algorithm,Criterion,Parameters)
     #' 
     #'   \item{time()}{Get the cumulative time spent on processing after the last iteration. See \code{\link{time}}}
     #'   
-    time=function(differential=FALSE){
+    mytime=function(differential=FALSE){
       if((alg>=1 & alg<=10000) | (alg>=20001 & alg<=30000)){ # R and C++ calls are identical
         return(dc$time(differential))
       }

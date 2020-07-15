@@ -3,14 +3,14 @@
 \docType{methods}
 \name{addRemoveEdges}
 \alias{addRemoveEdges}
-\alias{DynComm.addRemoveEdges}
-\alias{DynComm.addRemove}
-\alias{DynComm.add}
-\title{addRemoveEdges(graphAddRemove)}
+\alias{addRemoveEdges.DynComm}
+\alias{addRemove.DynComm}
+\alias{add.DynComm}
+\title{addRemoveEdges}
 \usage{
-DynComm.addRemoveEdges(dyncomm,graphAddRemove)
-DynComm.addRemove(dyncomm,graphAddRemove)
-DynComm.add(dyncomm,graphAddRemove)
+addRemoveEdges.DynComm(dyncomm,graphAddRemove)
+addRemove.DynComm(dyncomm,graphAddRemove)
+add.DynComm(dyncomm,graphAddRemove)
 }
 \arguments{
 \item{dyncomm}{A DynComm object, if not using the inline version of the 
@@ -62,11 +62,11 @@ so some rows may have weights defined and others not.
 }
 }
 \examples{
-\dontrun{
+\donttest{
 dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
 dc$addRemoveEdges("graphAddRemoveFile.txt")
 }
-\dontrun{
+\donttest{
 dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
 addRemoveEdges(dc,"graphAddRemoveFile.txt")
 }

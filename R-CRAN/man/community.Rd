@@ -3,10 +3,10 @@
 \docType{methods}
 \name{community}
 \alias{community}
-\alias{DynComm.community}
-\title{community(vertex)}
+\alias{community.DynComm}
+\title{community}
 \usage{
-DynComm.community(dyncomm,vertex)
+community.DynComm(dyncomm,vertex)
 }
 \arguments{
 \item{dyncomm}{A DynComm object, if not using the inline version of the 
@@ -22,11 +22,11 @@ Get the community of the given vertex from the selected post processing
 algorithm or the main algorithm, after the last iteration.
 }
 \examples{
-\dontrun{
+\donttest{
 dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
 dc$community(8)
 }
-\dontrun{
+\donttest{
 dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
 community(dc,8)
 }

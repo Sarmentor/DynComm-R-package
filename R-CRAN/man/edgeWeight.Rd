@@ -3,10 +3,10 @@
 \docType{methods}
 \name{edgeWeight}
 \alias{edgeWeight}
-\alias{DynComm.edgeWeight}
-\title{edgeWeight(source,destination)}
+\alias{edgeWeight.DynComm}
+\title{edgeWeight}
 \usage{
-DynComm.edgeWeight(dyncomm,source,destination)
+edgeWeight.DynComm(dyncomm,source,destination)
 }
 \arguments{
 \item{dyncomm}{A DynComm object, if not using the inline version of the 
@@ -25,11 +25,11 @@ from the selected post processing algorithm or the main algorithm, after the
 last iteration.
 }
 \examples{
-\dontrun{
+\donttest{
 dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
 dc$edgeWeight(12,42)
 }
-\dontrun{
+\donttest{
 dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
 edgeWeight(dc,12,42)
 }

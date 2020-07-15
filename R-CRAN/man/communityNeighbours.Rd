@@ -3,10 +3,10 @@
 \docType{methods}
 \name{communityNeighbours}
 \alias{communityNeighbours}
-\alias{DynComm.communityNeighbours}
-\title{communityNeighbours(community)}
+\alias{communityNeighbours.DynComm}
+\title{communityNeighbours}
 \usage{
-DynComm.communityNeighbours(dyncomm,community)
+communityNeighbours.DynComm(dyncomm,community)
 }
 \arguments{
 \item{dyncomm}{A DynComm object, if not using the inline version of the 
@@ -28,11 +28,11 @@ The return value is a matrix with two columns. The first is the neighbour and
 the second is the weight of the edge that connects them.
 }
 \examples{
-\dontrun{
+\donttest{
 dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
 dc$communityNeighbours(community)
 }
-\dontrun{
+\donttest{
 dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
 communityNeighbours(dc,community)
 }

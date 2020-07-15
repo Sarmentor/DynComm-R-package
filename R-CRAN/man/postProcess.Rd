@@ -3,10 +3,10 @@
 \docType{methods}
 \name{postProcess}
 \alias{postProcess}
-\alias{DynComm.postProcess}
-\title{postProcess(actions)}
+\alias{postProcess.DynComm}
+\title{postProcess}
 \usage{
-DynComm.postProcess(dyncomm,actions)
+postProcess.DynComm(dyncomm,actions)
 }
 \arguments{
 \item{dyncomm}{A DynComm object, if not using the inline version of the 
@@ -42,7 +42,7 @@ help page of each respective algorithm.
 This slighty awkward syntax is due to R not supporting matrix of matrices.
 }
 \examples{
-\dontrun{
+\donttest{
 dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
 dc$postProcess(
   list(
@@ -61,7 +61,7 @@ dc$postProcess(NULL)  #remove post processing
 ## or just
 ## dc$postProcess()
 }
-\dontrun{
+\donttest{
 dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
 postProcess(dc,
   list(

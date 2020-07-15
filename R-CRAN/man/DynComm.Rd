@@ -225,9 +225,9 @@ The first column names the parameter and the second defines its value.
   }
   
 
-  \item{time(differential)}{
+  \item{mytime(differential)}{
   Get the cumulative time spent on processing after the last iteration. 
-  See \code{\link{time}}
+  See \code{\link{mytime}}
   }
   
 
@@ -252,7 +252,7 @@ c(10,20,10,30,20,30,30,60,40,60,40,50,50,70,60,70)
 ## dc$addRemoveEdges("initial_graph.txt")
 dc$communityCount()
 ## You can use the non inline version of the functions
-DynComm.communities(dc)
+communities.DynComm(dc)
 ## Several alias have been defined.
 ## In this case, communityNodeCount is alias of communityVertexCount
 dc$communityNodeCount(10)
@@ -264,7 +264,7 @@ dc$community(10) ##this parameter is a vertex not a community. Do not confuse th
 dc$vertices(10)
 dc$communityMapping(TRUE)
 dc$quality()
-dc$time()
+dc$mytime()
 ## lets add post processing :)
 dc$postProcess(
 list(
@@ -279,12 +279,12 @@ dc$communityMapping(TRUE)
 dc$quality()
 ## time is now the total time of the main algorithm plus the time of every...
 ## post processing algorithm up to the one selected
-dc$time()
+dc$mytime()
 ## get back to main algorithm results to check they haven't changed
 dc$select(POSTPROCESSING$NONE)
 dc$communityMapping(TRUE)
 dc$quality()
-dc$time()
+dc$mytime()
 ## add and remove edges. Notice that there is one more column to give...
 ## weights of zero on the edges to remove. In this case, all other weights...
 ## are ignored because the graph is set to ignore weights (parameter w is...
@@ -299,12 +299,12 @@ c(30,60,0,40,60,0.23,10,80,2342,80,90,3.1415)
 ## densopt algorithm
 dc$communityMapping(TRUE)
 dc$quality()
-dc$time()
+dc$mytime()
 ## get back to main algorithm results to check them
 dc$select(POSTPROCESSING$NONE)
 dc$communityMapping(TRUE)
 dc$quality()
-dc$time()
+dc$mytime()
 ## lets reset/remove post processing
 dc$postProcess()
 

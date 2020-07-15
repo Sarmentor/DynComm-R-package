@@ -6,7 +6,8 @@
 \alias{algorithm}
 \alias{Algorithm}
 \title{List of available algorithms.}
-\format{A named list with the names of the available algorithms:
+\format{
+A named list with the names of the available algorithms:
  \describe{
    \item{LOUVAIN}{
      is a greedy optimization method to extract communities from large networks 
@@ -15,7 +16,8 @@
      See \code{\link{ALGORITHM_LOUVAIN}}\cr
      @references \insertRef{cordeiro2016dynamic}{DynComm}
    }
- }}
+ }
+}
 \usage{
 ALGORITHM
 }

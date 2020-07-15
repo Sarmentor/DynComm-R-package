@@ -3,10 +3,10 @@
 \docType{methods}
 \name{communities}
 \alias{communities}
-\alias{DynComm.communities}
-\title{communities()}
+\alias{communities.DynComm}
+\title{communities}
 \usage{
-DynComm.communities(dyncomm)
+communities.DynComm(dyncomm)
 }
 \arguments{
 \item{dyncomm}{A DynComm object, if not using the inline version of the 
@@ -20,11 +20,11 @@ This method returns all communities from the selected post processing
 algorithm or the main algorithm, after the last iteration.
 }
 \examples{
-\dontrun{
+\donttest{
 dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
 dc$communities()
 }
-\dontrun{
+\donttest{
 dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
 communities(dc)
 }

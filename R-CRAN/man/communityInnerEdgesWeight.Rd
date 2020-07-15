@@ -3,10 +3,10 @@
 \docType{methods}
 \name{communityInnerEdgesWeight}
 \alias{communityInnerEdgesWeight}
-\alias{DynComm.communityInnerEdgesWeight}
-\title{communityInnerEdgesWeight(community)}
+\alias{communityInnerEdgesWeight.DynComm}
+\title{communityInnerEdgesWeight}
 \usage{
-DynComm.communityInnerEdgesWeight(dyncomm,community)
+communityInnerEdgesWeight.DynComm(dyncomm,community)
 }
 \arguments{
 \item{dyncomm}{A DynComm object, if not using the inline version of the 
@@ -23,11 +23,11 @@ selected post processing algorithm or the main algorithm, after the last
 iteration.
 }
 \examples{
-\dontrun{
+\donttest{
 dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
 dc$communityInnerEdgesWeight(1)
 }
-\dontrun{
+\donttest{
 dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
 communityInnerEdgesWeight(dc,1)
 }
