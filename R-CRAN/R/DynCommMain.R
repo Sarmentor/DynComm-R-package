@@ -1,6 +1,6 @@
 ########################### Developer Notice ###########################
 # Description:
-# This file holds all the DynComm main algorithms. It also holds the lists of 
+# This file holds all the DynComm main algorithms. It also holds the lists of
 # available algorithms (ALGORITHM) and criterion (CRITERION).
 #
 # Internally, this object, dispatches calls to objects that do the actual work.
@@ -11,7 +11,7 @@
 # New criterion should have their name added to the list of criterion
 # (CRITERION).
 #
-# New main algorithms source code must be added to their corresponding files as 
+# New main algorithms source code must be added to their corresponding files as
 # stated in the developer documentation.
 #
 # More developer information can be found in the project source page on GitHub at
@@ -35,38 +35,38 @@ source("R/CRITERION.R")
 #' @name ALGORITHM
 #'
 #' @aliases algorithm Algorithm
-#' 
+#'
 #' @title List of available algorithms.
-#' 
+#'
 #' @author poltergeist0
-#' 
-#' @description 
+#'
+#' @description
 #' An algorithm mainly defines how vertices and/or communities are processed,
-#' when criterion is applyed (quality measurements occur) and what happens 
+#' when criterion is applyed (quality measurements occur) and what happens
 #' to the communities depending on the value of the quality obtained.
 #'
 #' @usage ALGORITHM
-#' 
+#'
 ########## document new algorithms here #############
 #' @format A named list with the names of the available algorithms:
 #'  \describe{
 #'    \item{LOUVAIN}{
-#'      is a greedy optimization method to extract communities from large networks 
-#'      by optimizing the density of edges inside communities to edges outside 
+#'      is a greedy optimization method to extract communities from large networks
+#'      by optimizing the density of edges inside communities to edges outside
 #'      communities. \cr
 #'      See \code{\link{ALGORITHM_LOUVAIN}}\cr
 #'      @references \insertRef{cordeiro2016dynamic}{DynComm}
 #'    }
 #'  }
-#'  
+#'
 #' @seealso \code{\link{DynComm}}
-#' 
+#'
 #' @examples
 #' ALGORITHM$LOUVAIN
 # ALGORITHM$TILES
-#' 
+#'
 # @export DynComm::ALGORITHM
-#' 
+#'
 #' @export
 #'
 ########## list new algorithms here #############
@@ -83,30 +83,30 @@ ALGORITHM <- list(
 #' @name CRITERION
 #'
 #' @aliases criterion Criterion
-#' 
+#'
 #' @title List of available CRITERION (quality measurement functions).
-#' 
+#'
 #' @author poltergeist0
-#' 
-#' @description 
-#' A criterion is used to indicate the proximity of the current grouping 
-#' of vertices (communities) to the optimum one. 
-#' 
-#' @details 
+#'
+#' @description
+#' A criterion is used to indicate the proximity of the current grouping
+#' of vertices (communities) to the optimum one.
+#'
+#' @details
 #' Theoretically, the bigger the value returned by the criterion, the closer the
 #' current grouping is to the best possible grouping.
-#' 
-#' Each CRITERION internally defines two functions. One is used to 
-#' evaluate if moving a vertex from one group (community) to another 
-#' possibly yields a better overall result. The other is used to measure 
-#' the actual overall quality of the entire grouping (current community 
+#'
+#' Each CRITERION internally defines two functions. One is used to
+#' evaluate if moving a vertex from one group (community) to another
+#' possibly yields a better overall result. The other is used to measure
+#' the actual overall quality of the entire grouping (current community
 #' mapping).
-#' 
+#'
 #' Not all criterion might be available for all algorithms. See each algorithms'
 #' help to find which criterion is supported
 #'
 #' @usage CRITERION
-#' 
+#'
 ########## document new criterion here #############
 #' @format A named list with the names of the available CRITERION:
 #' \describe{
@@ -116,13 +116,13 @@ ALGORITHM <- list(
 #'  }
 #   \item{BALMOD}{Balanced Modularity}
 #'}
-#'  
+#'
 #' @seealso \code{\link{DynComm}}
-#' 
+#'
 #' @examples
 #' CRITERION$MODULARITY
 # CRITERION$BALMOD
-#' 
+#'
 #' @export
 #'
 ########## list new criterions here #############
@@ -135,55 +135,55 @@ CRITERION <- list(
 
 ########################### Main Algorithm Documentation ###########################
 #' @name DynCommMain
-#' 
+#'
 #' @keywords internal
-#' 
+#'
 # @aliases Dyncommmain dyncommmain
-#' 
+#'
 #' @title DynCommMain
 #'
 #' @author poltergeist0
-#' 
-#' @description 
-#' Provides a single interface for all main algorithms in the different 
+#'
+#' @description
+#' Provides a single interface for all main algorithms in the different
 #' languages.
-#' 
-#' @details 
-#' Includes methods to get results of processing and to interact with the 
+#'
+#' @details
+#' Includes methods to get results of processing and to interact with the
 #' vertices, edges and communities.
 #'
 #' @rdname DynCommMain
-#' 
+#'
 # @docType class
-#' 
+#'
 #' @usage DynCommMain(Algorithm,Criterion,Parameters)
-#' 
+#'
 #' @param Algorithm One of the available ALGORITHM See \code{\link{ALGORITHM}}
-#' 
+#'
 #' @param Criterion One of the available CRITERION. See \code{\link{CRITERION}}
-#' 
+#'
 #' @param Parameters A two column matrix defining additional parameters. See
 #'   the PARAMETERS section on this page
 #'
 #' @return \code{DynCommMain} object
 #'
 #' @seealso \code{\link{DynComm}}
-#' 
-#' @export DynCommMain
 #'
-#' @examples
-#' \donttest{
-#' Parameters<-matrix(c("-e","0.1"),1,2,TRUE)
-#' dc<-DynCommMain(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
-#' dc$addRemoveEdgesFile("initial_graph.txt")
-#' dc$communityCount()
-#' dc$communities()
-#' dc$communityNodeCount(1)
-#' dc$vertices(1)
-#' dc$communityMapping(TRUE)
-#' dc$mytime()
-#' dc$addRemoveEdgesFile("s0000000000.txt")
-#' }
+# @export DynCommMain
+#'
+# @examples
+# \donttest{
+# Parameters<-matrix(c("-e","0.1"),1,2,TRUE)
+# dc<-DynCommMain(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+# dc$addRemoveEdgesFile("initial_graph.txt")
+# dc$communityCount()
+# dc$communities()
+# dc$communityNodeCount(1)
+# dc$vertices(1)
+# dc$communityMapping(TRUE)
+# dc$time()
+# dc$addRemoveEdgesFile("s0000000000.txt")
+# }
 #'
 #' @section PARAMETERS:
 #' A two column matrix defining additional parameters to be passed to the
@@ -203,11 +203,11 @@ CRITERION <- list(
 #'   \item{
 #'   -w
 #'   }{
-#'   Treat graph as weighted. In other words, do not ignore weights for edges 
+#'   Treat graph as weighted. In other words, do not ignore weights for edges
 #'   that define them when inserting edges in the graph.
 #'   A weight of exactly zero removes the edge instead of inserting so its
 #'   weight is never ignored.
-#'   Without this parameter defined or for edges that do not have a weight defined, 
+#'   Without this parameter defined or for edges that do not have a weight defined,
 #'   edges are assigned the default value of 1 (one).
 #'   As an example, reading from a file may define weights (a third column) for
 #'   some edges (defined in rows, one per row) and not for others. With this
@@ -217,7 +217,7 @@ CRITERION <- list(
 #'   \item{
 #'   -e
 #'   }{
-#'   Stops when, on a cycle of the algorithm, the quality is increased by less 
+#'   Stops when, on a cycle of the algorithm, the quality is increased by less
 #'   than the value given in this parameter.
 #'   }
 #'   \item{
@@ -230,18 +230,18 @@ CRITERION <- list(
 #'   Default TRUE
 #'   }
 #' }
-#' 
+#'
 #' @section Methods:
 #' \describe{
-#' 
+#'
 # derived from example in https://www.cyclismo.org/tutorial/R/s3Classes.html
 DynCommMain <- function(Algorithm,Criterion,Parameters)
 {
-  
+
   ## Get the environment for this
   ## instance of the function.
   thisEnv <- environment()
-  
+
   ########## constructor #############
   alg <- Algorithm
   qlt <- Criterion
@@ -269,14 +269,14 @@ DynCommMain <- function(Algorithm,Criterion,Parameters)
   ## Create the list used to represent an
   ## object for this class
   me <- list(
-    
+
     ## Define the environment where this list is defined so
     ## that I can refer to it later.
     thisEnv = thisEnv,
-    
-    #' 
+
+    #'
     #'   \item{results(differential)}{Get additional results of the algorithm or the currently selected post processing steps. See \code{\link{results}}}
-    #'   
+    #'
     results = function(differential=TRUE)
     {
       if((alg>=1 & alg<=10000) | (alg>=20001 & alg<=30000)){ # R and C++ calls are identical
@@ -291,9 +291,9 @@ DynCommMain <- function(Algorithm,Criterion,Parameters)
       }
     },
 
-    #' 
+    #'
     #'   \item{addRemoveEdges(graphAddRemove)}{Add and remove edges read from a file. See \code{\link{addRemoveEdges}}}
-    #'   
+    #'
     addRemoveEdgesFile = function(graphAddRemoveFile){
       if((alg>=1 & alg<=10000) | (alg>=20001 & alg<=30000)){ # R and C++ calls are identical
         return(dc$addRemoveEdgesFile(graphAddRemoveFile))
@@ -307,9 +307,9 @@ DynCommMain <- function(Algorithm,Criterion,Parameters)
       }
     },
 
-    #' 
+    #'
     #'   \item{addRemoveEdges(graphAddRemove)}{Add and remove edges read from a matrix. See \code{\link{addRemoveEdges}}}
-    #'   
+    #'
     addRemoveEdgesMatrix = function(graphAddRemoveMatrix){
       if((alg>=1 & alg<=10000) | (alg>=20001 & alg<=30000)){ # R and C++ calls are identical
         return(dc$addRemoveEdgesMatrix(graphAddRemoveMatrix))
@@ -322,10 +322,10 @@ DynCommMain <- function(Algorithm,Criterion,Parameters)
         return(FALSE)
       }
     },
-    
-    #' 
+
+    #'
     #'   \item{quality()}{Get the quality measurement of the graph after the last iteration. See \code{\link{quality}}}
-    #'   
+    #'
     quality=function(){
       if((alg>=1 & alg<=10000) | (alg>=20001 & alg<=30000)){ # R and C++ calls are identical
         return(dc$quality())
@@ -338,10 +338,10 @@ DynCommMain <- function(Algorithm,Criterion,Parameters)
         return(NA)
       }
     },
-    
-    #' 
+
+    #'
     #'   \item{communityCount()}{Get the number of communities after the last iteration. See \code{\link{communityCount}}}
-    #'   
+    #'
     communityCount=function(){
       if((alg>=1 & alg<=10000) | (alg>=20001 & alg<=30000)){ # R and C++ calls are identical
         return(dc$communityCount())
@@ -354,10 +354,10 @@ DynCommMain <- function(Algorithm,Criterion,Parameters)
           return(NA)
         }
     },
-    
-    #' 
+
+    #'
     #'   \item{communities()}{Get all communities after the last iteration. See \code{\link{communities}}}
-    #'   
+    #'
     communities=function(){
       if((alg>=1 & alg<=10000) | (alg>=20001 & alg<=30000)){ # R and C++ calls are identical
         return(dc$communities())
@@ -370,10 +370,10 @@ DynCommMain <- function(Algorithm,Criterion,Parameters)
         return(list())
         }
     },
-    
-    #' 
+
+    #'
     #'   \item{communitiesEdgeCount()}{Get the number of community to community edges in the graph. See \code{\link{communitiesEdgeCount}}}
-    #'   
+    #'
     communitiesEdgeCount=function() {
       if((alg>=1 & alg<=10000) | (alg>=20001 & alg<=30000)){ # R and C++ calls are identical
         return(dc$communitiesEdgeCount())
@@ -386,10 +386,10 @@ DynCommMain <- function(Algorithm,Criterion,Parameters)
         return(NA)
       }
     },
-    
-    #' 
+
+    #'
     #'   \item{communityNeighbours(community)}{Get the neighbours of the given community after the last iteration. See \code{\link{communityNeighbours}}}
-    #'   
+    #'
     communityNeighbours=function(community){
       if((alg>=1 & alg<=10000) | (alg>=20001 & alg<=30000)){ # R and C++ calls are identical
         return(dc$communityNeighbours(community))
@@ -402,10 +402,10 @@ DynCommMain <- function(Algorithm,Criterion,Parameters)
         return(matrix(nrow=0,ncol=2,byrow=TRUE,dimnames = list(c(),c("neighbour","weight"))))
       }
     },
-    
-    #' 
+
+    #'
     #'   \item{communityInnerEdgesWeight(community)}{Get the sum of weights of the inner edges of the given community after the last iteration. See \code{\link{communityInnerEdgesWeight}}}
-    #'   
+    #'
     communityInnerEdgesWeight=function(community){
       if((alg>=1 & alg<=10000) | (alg>=20001 & alg<=30000)){ # R and C++ calls are identical
         return(dc$communityInnerEdgesWeight(community))
@@ -418,10 +418,10 @@ DynCommMain <- function(Algorithm,Criterion,Parameters)
         return(NA)
       }
     },
-    
-    #' 
+
+    #'
     #'   \item{communityTotalWeight(community)}{Get the sum of weights of all edges of the given community after the last iteration. See \code{\link{communityTotalWeight}}}
-    #'   
+    #'
     communityTotalWeight=function(community){
       if((alg>=1 & alg<=10000) | (alg>=20001 & alg<=30000)){ # R and C++ calls are identical
         return(dc$communityTotalWeight(community))
@@ -435,9 +435,9 @@ DynCommMain <- function(Algorithm,Criterion,Parameters)
       }
     },
 
-    #' 
+    #'
     #'   \item{communityEdgeWeight(source,destination)}{Get the weight of the edge that goes from source to destination after the last iteration. See \code{\link{communityEdgeWeight}}}
-    #'   
+    #'
     communityEdgeWeight=function(source,destination){
       if((alg>=1 & alg<=10000) | (alg>=20001 & alg<=30000)){ # R and C++ calls are identical
         return(dc$communityEdgeWeight(source,destination))
@@ -450,10 +450,10 @@ DynCommMain <- function(Algorithm,Criterion,Parameters)
         return(NA)
       }
     },
-        
-    #' 
+
+    #'
     #'   \item{communityVertexCount(community)}{Get the amount of vertices in the given community after the last iteration. See \code{\link{communityVertexCount}}}
-    #'   
+    #'
     communityVertexCount=function(community){
       if((alg>=1 & alg<=10000) | (alg>=20001 & alg<=30000)){ # R and C++ calls are identical
         return(dc$communityVertexCount(community))
@@ -466,10 +466,10 @@ DynCommMain <- function(Algorithm,Criterion,Parameters)
         return(NA)
       }
     },
-        
-    #' 
+
+    #'
     #'   \item{community(vertex)}{Get the community of the given vertex after the last iteration. See \code{\link{community}}}
-    #'   
+    #'
     community=function(vertex){
       if((alg>=1 & alg<=10000) | (alg>=20001 & alg<=30000)){ # R and C++ calls are identical
         return(dc$community(vertex))
@@ -482,10 +482,10 @@ DynCommMain <- function(Algorithm,Criterion,Parameters)
         return(NA)
       }
     },
-        
-    #' 
+
+    #'
     #'   \item{vertexCount()}{Get the total number of vertices after the last iteration. See \code{\link{vertexCount}}}
-    #'   
+    #'
     vertexCount=function(){
       if((alg>=1 & alg<=10000) | (alg>=20001 & alg<=30000)){ # R and C++ calls are identical
         return(dc$vertexCount())
@@ -499,9 +499,9 @@ DynCommMain <- function(Algorithm,Criterion,Parameters)
       }
     },
 
-    #' 
+    #'
     #'   \item{verticesAll()}{Get all vertices in the graph after the last iteration. See \code{\link{verticesAll}}}
-    #'   
+    #'
     verticesAll=function(){
       if((alg>=1 & alg<=10000) | (alg>=20001 & alg<=30000)){ # R and C++ calls are identical
         return(dc$verticesAll())
@@ -514,10 +514,10 @@ DynCommMain <- function(Algorithm,Criterion,Parameters)
         return(list())
       }
     },
-        
-    #' 
+
+    #'
     #'   \item{neighbours(vertex)}{Get the neighbours of the given vertex after the last iteration. See \code{\link{neighbours}}}
-    #'   
+    #'
     neighbours=function(vertex){
       if((alg>=1 & alg<=10000) | (alg>=20001 & alg<=30000)){ # R and C++ calls are identical
         return(dc$neighbours(vertex))
@@ -530,10 +530,10 @@ DynCommMain <- function(Algorithm,Criterion,Parameters)
         return(matrix(nrow=0,ncol=2,byrow=TRUE,dimnames = list(c(),c("neighbour","weight"))))
       }
     },
-    
-    #' 
+
+    #'
     #'   \item{edgeWeight(source,destination)}{Get the weight of the edge that goes from source vertex to destination vertex after the last iteration. See \code{\link{edgeWeight}}}
-    #'   
+    #'
     edgeWeight=function(source,destination){
       if((alg>=1 & alg<=10000) | (alg>=20001 & alg<=30000)){ # R and C++ calls are identical
         return(dc$edgeWeight(source,destination))
@@ -546,10 +546,10 @@ DynCommMain <- function(Algorithm,Criterion,Parameters)
         return(NA)
       }
     },
-    
-    #' 
+
+    #'
     #'   \item{vertices(community)}{Get all vertices belonging to the given community after the last iteration. See \code{\link{vertices}}}
-    #'   
+    #'
     vertices=function(community){
       if((alg>=1 & alg<=10000) | (alg>=20001 & alg<=30000)){ # R and C++ calls are identical
         return(dc$vertices(community))
@@ -562,10 +562,10 @@ DynCommMain <- function(Algorithm,Criterion,Parameters)
         return(list())
       }
     },
-    
-    #' 
+
+    #'
     #'   \item{edgeCount()}{Get the number of vertex to vertex edges in the graph. See \code{\link{edgeCount}}}
-    #'   
+    #'
     edgeCount=function() {
       if((alg>=1 & alg<=10000) | (alg>=20001 & alg<=30000)){ # R and C++ calls are identical
         return(dc$edgeCount())
@@ -578,10 +578,10 @@ DynCommMain <- function(Algorithm,Criterion,Parameters)
         return(NA)
       }
     },
-    
-    #' 
+
+    #'
     #'   \item{communityMapping(differential)}{Get the community mapping for all communities after the last iteration.See \code{\link{communityMapping}}}
-    #'   
+    #'
     communityMappingMatrix = function(differential=TRUE){
       if((alg>=1 & alg<=10000) | (alg>=20001 & alg<=30000)){ # R and C++ calls are identical
         return(dc$communityMappingMatrix(differential))
@@ -594,10 +594,10 @@ DynCommMain <- function(Algorithm,Criterion,Parameters)
         return(matrix(nrow=0,ncol=2,byrow=TRUE,dimnames = list(c(),c("vertex","community"))))
       }
     },
-    
-    #' 
+
+    #'
     #'   \item{communityMapping(differential)}{Get the community mapping for all communities after the last iteration.See \code{\link{communityMapping}}}
-    #'   
+    #'
     communityMappingFile = function(differential=TRUE,file=""){
       if((alg>=1 & alg<=10000) | (alg>=20001 & alg<=30000)){ # R and C++ calls are identical
         return(dc$communityMappingFile(prm[which(prm=="cv"),2], differential,file))
@@ -610,11 +610,11 @@ DynCommMain <- function(Algorithm,Criterion,Parameters)
         return(matrix(nrow=0,ncol=1,byrow=TRUE,dimnames = list(c(),c("reply"))))
       }
     },
-    
-    #' 
+
+    #'
     #'   \item{time()}{Get the cumulative time spent on processing after the last iteration. See \code{\link{time}}}
-    #'   
-    mytime=function(differential=FALSE){
+    #'
+    time=function(differential=FALSE){
       if((alg>=1 & alg<=10000) | (alg>=20001 & alg<=30000)){ # R and C++ calls are identical
         return(dc$time(differential))
       }
@@ -626,16 +626,16 @@ DynCommMain <- function(Algorithm,Criterion,Parameters)
         return(NA)
       }
     }
-    
+
   )
   # close methods section of the documentation
-  #' 
+  #'
   #' }
-  #' 
+  #'
 
   ## Define the value of the list within the current environment.
   assign('this',me,envir=thisEnv)
-  
+
   ## Set the name for the class
   class(me) <- append(class(me),"DynCommMain")
   return(me)

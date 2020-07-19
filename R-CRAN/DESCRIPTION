@@ -10,10 +10,11 @@ Description: Used for evolving network analysis regarding
   Edges, which can have new nodes, can be added or deleted. Changes in the 
   communities are calculated without recalculating communities for the entire 
   graph.
-  REFERENCE: M. Cordeiro et al. (2016) <DOI:10.1007/s13278-016-0325-1>
-	G. Rossetti et al. (2017) <DOI:10.1007/s10994-016-5582-8>
-	G. Rossetti (2017) <DOI:10.1093/comnet/cnx016>
-	R. Sarmento (2019) <arXiv:1904.12593>
+  It is based on the following work.
+  M. Cordeiro et al. (2016) <DOI:10.1007/s13278-016-0325-1>.
+  G. Rossetti et al. (2017) <DOI:10.1007/s10994-016-5582-8>.
+  G. Rossetti (2017) <DOI:10.1093/comnet/cnx016>.
+  R. Sarmento (2019) <arXiv:1904.12593>.
 License: GPL-2
 Encoding: UTF-8
 LazyData: false
