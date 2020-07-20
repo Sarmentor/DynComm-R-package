@@ -26,7 +26,7 @@
  * between the call to addRemoveEdgePre and addRemoveEdgePost so the programmer
  * does not have to be concerned with it.
  *
- * The call to function run also occurs automatically but, this mytime. after the
+ * The call to function run also occurs automatically but, this time after the
  * last call to addRemoveEdgePost.
  *
  * See the implementation of the addRemoveEdges function of class "Algorithm"

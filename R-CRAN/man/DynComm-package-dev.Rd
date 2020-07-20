@@ -11,47 +11,47 @@ algorithms to the DynComm package.
 \details{
 Implementing new algorithms in new packages is a lot of work.
 
-With this package, we try to accomplish two things: make the addition of new 
+With this package, we try to accomplish two things: make the addition of new
 algorithms easier and concentrate dynamic community detection algorithms in a
 single package, no matter the language used to write them.
 
-Always read the entirety of the instructions even if they do not seem to apply 
-to your case. Care was taken to make the instructions as general as possible, 
+Always read the entirety of the instructions even if they do not seem to apply
+to your case. Care was taken to make the instructions as general as possible,
 mentioning specificities only when they differ from the general case.
 
-Most of the instructions described are for algorithms writen in R, since it is 
+Most of the instructions described are for algorithms writen in R, since it is
 the language used for the user interface and is the easiest to integrate.
 
-Algorithms writen in other languages will also need this information in order 
+Algorithms writen in other languages will also need this information in order
 to know the types of the inputs and outputs of the functions.
 
-It is advisable to always read the "Developer Notice" on the beginning of the 
+It is advisable to always read the "Developer Notice" on the beginning of the
 files mentioned in these instructions. It will contain useful information about
 the source code on the file and where new code can be added.
 
-Whenever "Project", "Project Page" or "Project source" is mentioned, the 
-developer should know that it refers to the project source code page on 
+Whenever "Project", "Project Page" or "Project source" is mentioned, the
+developer should know that it refers to the project source code page on
 GitHub (\href{https://github.com/softskillsgroup/DynComm-R-package}{GitHub project source}).
 
 The project source has the following organization:
 \describe{
   \item{\strong{Root}}{
 This is the root folder of the project source code.
-It contains files about the project source code and the folders "dev", "R-CRAN", 
+It contains files about the project source code and the folders "dev", "R-CRAN",
 "test" and "standalone".
     \describe{
       \item{\strong{dev}}{
-Folder with templates for developers of new main algorithms, new criterion and 
-new post processing algorithms. Also contains these instructions in text 
+Folder with templates for developers of new main algorithms, new criterion and
+new post processing algorithms. Also contains these instructions in text
 format.
       }
       \item{\strong{R-CRAN}}{
-Contains the source code for the actual DynComm package. Internally, has the 
-same organization as required by any R package project. The most important 
+Contains the source code for the actual DynComm package. Internally, has the
+same organization as required by any R package project. The most important
 folders are named "inst", "src" and "R".
         \describe{
           \item{\strong{inst}}{
-Contains a file named "REFERENCES.bib" where bibliographic references are 
+Contains a file named "REFERENCES.bib" where bibliographic references are
 stored using the bibtex format.
           }
           \item{\strong{src}}{
@@ -59,30 +59,30 @@ The root of this folder contains files in other languages that implement an
 interaction layer between R and the respective programming language. The actual
 source code that implements a certain algorithm is placed inside a sub-folder
 named after the programming language inside the folder "base".\cr
-As an example, the Dynamic Louvain algorithm used in this package was 
+As an example, the Dynamic Louvain algorithm used in this package was
 implemented in C++11. There is a file named "DynCommRcpp.cpp" which
-implements the interaction layer using Rcpp. This layer only converts data 
-types from R to C++, instantiates a Louvain object and redirects calls to 
+implements the interaction layer using Rcpp. This layer only converts data
+types from R to C++, instantiates a Louvain object and redirects calls to
 methods of that object on the C++ source file named "DynCommBase.h".
           }
           \item{\strong{R}}{
-This is the folder that contains all R source code files where the architecture 
-of the package is implemented, along with some main algorithms and post 
+This is the folder that contains all R source code files where the architecture
+of the package is implemented, along with some main algorithms and post
 processing algorithms, and all the documentation.\cr
-Some of the adaptation layers for some programming languages, like Python, are 
-in this folder since they must be implemented inside an R source file, as 
-opposed to programming languages like C++ where Rcpp must be inside a C++ 
+Some of the adaptation layers for some programming languages, like Python, are
+in this folder since they must be implemented inside an R source file, as
+opposed to programming languages like C++ where Rcpp must be inside a C++
 source code file.
           }
         }
       }
       \item{\strong{test}}{
-Folder with a few sample files with data that can be used to run examples and 
+Folder with a few sample files with data that can be used to run examples and
 test the code.
       }
       \item{\strong{standalone}}{
-Contains the standalone (command line) versions of the algorithms, for the 
-algorithms that provide them, in case anyone wants to run the algorithms 
+Contains the standalone (command line) versions of the algorithms, for the
+algorithms that provide them, in case anyone wants to run the algorithms
 outside of the R environment.\cr
 Each program is inside a folder with the name of the programming language used
 to implement it. As an example, C++ programs are inside a folder named "Cpp".\cr
@@ -94,7 +94,7 @@ Post processing algorithms are not provided.
   }
 }
 
-In case of doubt, missing information or if you are implementing in a language 
+In case of doubt, missing information or if you are implementing in a language
 that is still not supported, contact the maintainer of the package.
 
 Follow the instructions of the links below in order to add your main algorithm,

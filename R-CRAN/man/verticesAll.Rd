@@ -4,21 +4,24 @@
 \name{verticesAll}
 \alias{verticesAll}
 \alias{verticesAll.DynComm}
+\alias{nodesAll}
 \alias{nodesAll.DynComm}
 \title{verticesAll}
 \usage{
-verticesAll.DynComm(dyncomm)
-nodesAll.DynComm(dyncomm)
+verticesAll(x, ...)
+nodesAll(x, ...)
 }
 \arguments{
-\item{dyncomm}{A DynComm object, if not using the inline version of the 
+\item{x}{A DynComm object, if not using the inline version of the
 function call}
+
+\item{...}{Any future additional parameters}
 }
 \value{
 a list of all vertices in the graph
 }
 \description{
-Get all vertices in the graph from the selected post processing algorithm or 
+Get all vertices in the graph from the selected post processing algorithm or
 the main algorithm, after the last iteration.
 }
 \examples{

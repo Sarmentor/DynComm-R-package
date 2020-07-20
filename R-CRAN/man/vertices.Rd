@@ -4,23 +4,26 @@
 \name{vertices}
 \alias{vertices}
 \alias{vertices.DynComm}
+\alias{nodes}
 \alias{nodes.DynComm}
 \title{vertices}
 \usage{
-vertices.DynComm(dyncomm,community)
-nodes.DynComm(dyncomm,community)
+vertices(x,community, ...)
+nodes(x,community, ...)
 }
 \arguments{
-\item{dyncomm}{A DynComm object, if not using the inline version of the 
+\item{x}{A DynComm object, if not using the inline version of the
 function call}
 
 \item{community}{The name of the intended community}
+
+\item{...}{Any future additional parameters}
 }
 \value{
 a list of vertices belonging to the given community
 }
 \description{
-Get all vertices belonging to the given community from the selected post 
+Get all vertices belonging to the given community from the selected post
 processing algorithm or the main algorithm, after the last iteration.
 }
 \examples{

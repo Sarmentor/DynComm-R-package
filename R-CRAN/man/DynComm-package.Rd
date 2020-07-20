@@ -5,19 +5,19 @@
 \alias{DynComm-package}
 \title{DynComm: Dynamic Network Communities Detection}
 \description{
-Bundle of algorithms used for evolving network analysis regarding 
+Bundle of algorithms used for evolving network analysis regarding
 community detection.
 }
 \details{
-Implements several algorithms, using a common API, that calculate 
+Implements several algorithms, using a common API, that calculate
 communities for graphs whose vertices and edges change over time.
-Edges, which can have new vertices, can be added or deleted, and changes in 
-the communities are calculated without recalculating communities for the 
+Edges, which can have new vertices, can be added or deleted, and changes in
+the communities are calculated without recalculating communities for the
 entire graph.
 }
 \section{Referenced Work}{
 
-This package uses the following work as reference material for the 
+This package uses the following work as reference material for the
 implementation of the algorithms.
 }
 

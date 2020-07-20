@@ -4,8 +4,7 @@
 \name{POSTPROCESSING}
 \alias{POSTPROCESSING}
 \title{List of available post processing algorithms.}
-\format{
-A named list with the names of the available algorithms:
+\format{A named list with the names of the available algorithms:
  \describe{
    \item{DENSOPT}{
      Density optimization is an algorithm that provides a community 
@@ -13,8 +12,7 @@ A named list with the names of the available algorithms:
      See \code{\link{postProcessDensOpt}}\cr
      @references \insertRef{Sarmento2019Apr}{DynComm}
    }
- }
-}
+ }}
 \usage{
 POSTPROCESSING
 }

@@ -4,23 +4,26 @@
 \name{communityVertexCount}
 \alias{communityVertexCount}
 \alias{communityVertexCount.DynComm}
+\alias{communityNodeCount}
 \alias{communityNodeCount.DynComm}
 \title{communityVertexCount}
 \usage{
-communityVertexCount.DynComm(dyncomm,community)
-communityNodeCount.DynComm(dyncomm,community)
+communityVertexCount(x,community, ...)
+communityNodeCount(x,community, ...)
 }
 \arguments{
-\item{dyncomm}{A DynComm object, if not using the inline version of the 
+\item{x}{A DynComm object, if not using the inline version of the
 function call}
 
 \item{community}{The name of the intended community}
+
+\item{...}{Any future additional parameters}
 }
 \value{
 an unsigned integer with the number of vertices in the given community
 }
 \description{
-Get the amount of vertices in the given community from the selected post 
+Get the amount of vertices in the given community from the selected post
 processing algorithm or the main algorithm, after the last iteration.
 }
 \examples{

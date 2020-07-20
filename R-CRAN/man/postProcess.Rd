@@ -6,40 +6,42 @@
 \alias{postProcess.DynComm}
 \title{postProcess}
 \usage{
-postProcess.DynComm(dyncomm,actions)
+postProcess(x,actions, ...)
 }
 \arguments{
-\item{dyncomm}{A DynComm object, if not using the inline version of the 
+\item{x}{A DynComm object, if not using the inline version of the
 function call}
 
 \item{actions}{A list of post processing actions/steps}
+
+\item{...}{Any future additional parameters}
 }
 \value{
 FALSE if any kind of error occurred. Otherwise, TRUE
 }
 \description{
-This method receives a list of actions to perform in post processing in the 
+This method receives a list of actions to perform in post processing in the
 same order they are listed from left to right.
 }
 \details{
 Several actions of the same type are allowed. They receive an internal ID
-number that starts at one and increments by one unit with each action of the 
-same type. Later, this ID can be used to select the intended action and get 
+number that starts at one and increments by one unit with each action of the
+same type. Later, this ID can be used to select the intended action and get
 results from it.
 
-Post processing can be reset (removed) be setting actions to NULL (default 
+Post processing can be reset (removed) be setting actions to NULL (default
 value) or passing an empty list.
 
 The format of the actions is a list of action. Each action is a list of the
 action name (see \code{\link{POSTPROCESSING}}) and parameters. The parameters
-is a matrix of two columns, the first having the name of the parameter and, 
-the second, the value of the parameter. The parameters is optional, and may 
+is a matrix of two columns, the first having the name of the parameter and,
+the second, the value of the parameter. The parameters is optional, and may
 be missing, in which case default values are used, if required at all.
 
 The parameters accepted by each post processing algorithm can be found on the
 help page of each respective algorithm.
 
-This slighty awkward syntax is due to R not supporting matrix of matrices.
+This slightly awkward syntax is due to R not supporting matrix of matrices.
 }
 \examples{
 \donttest{
@@ -83,8 +85,8 @@ postProcess(dc,NULL)  #remove post processing
 
 }
 \seealso{
-\code{\link{DynComm}} 
-, \code{\link{select}} 
+\code{\link{DynComm}}
+, \code{\link{select}}
 , \code{\link{POSTPROCESSING}}
 }
 \author{

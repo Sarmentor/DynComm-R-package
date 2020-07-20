@@ -6,21 +6,23 @@
 \alias{neighbours.DynComm}
 \title{neighbours}
 \usage{
-neighbours.DynComm(dyncomm,vertex)
+neighbours(x,vertex, ...)
 }
 \arguments{
-\item{dyncomm}{A DynComm object, if not using the inline version of the 
+\item{x}{A DynComm object, if not using the inline version of the
 function call}
 
 \item{vertex}{The vertex to get neighbours from}
+
+\item{...}{Any future additional parameters}
 }
 \value{
-a matrix of all vertices in the graph that are neighbours of the 
+a matrix of all vertices in the graph that are neighbours of the
 given vertex and their edge weight
 }
 \description{
-Get all neighbours (vertices connected through direct edges) of the given 
-vertex in the graph from the selected post processing algorithm or the main 
+Get all neighbours (vertices connected through direct edges) of the given
+vertex in the graph from the selected post processing algorithm or the main
 algorithm, after the last iteration.
 }
 \examples{

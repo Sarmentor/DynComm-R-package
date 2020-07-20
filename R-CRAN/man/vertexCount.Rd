@@ -4,15 +4,18 @@
 \name{vertexCount}
 \alias{vertexCount}
 \alias{vertexCount.DynComm}
-\alias{nodesCount.DynComm}
+\alias{nodeCount}
+\alias{nodeCount.DynComm}
 \title{vertexCount}
 \usage{
-vertexCount.DynComm(dyncomm)
-nodesCount.DynComm(dyncomm)
+vertexCount(x, ...)
+nodeCount(x, ...)
 }
 \arguments{
-\item{dyncomm}{A DynComm object, if not using the inline version of the 
+\item{x}{A DynComm object, if not using the inline version of the
 function call}
+
+\item{...}{Any future additional parameters}
 }
 \value{
 an unsigned integer with the number of vertices in the graph
@@ -22,8 +25,8 @@ Get the total number of vertices from the selected post processing
 algorithm or the main algorithm, after the last iteration.
 }
 \details{
-It can be useful since vertices can be added, if an edge being added has vertices 
-that do not exist in the graph, or removed, if they are not part of any edge after 
+It can be useful since vertices can be added, if an edge being added has vertices
+that do not exist in the graph, or removed, if they are not part of any edge after
 removing an edge.
 }
 \examples{

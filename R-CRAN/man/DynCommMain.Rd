@@ -18,11 +18,11 @@ the PARAMETERS section on this page}
 \code{DynCommMain} object
 }
 \description{
-Provides a single interface for all main algorithms in the different 
+Provides a single interface for all main algorithms in the different
 languages.
 }
 \details{
-Includes methods to get results of processing and to interact with the 
+Includes methods to get results of processing and to interact with the
 vertices, edges and communities.
 }
 \section{PARAMETERS}{
@@ -44,11 +44,11 @@ The first column names the parameter and the second defines its value.
   \item{
   -w
   }{
-  Treat graph as weighted. In other words, do not ignore weights for edges 
+  Treat graph as weighted. In other words, do not ignore weights for edges
   that define them when inserting edges in the graph.
   A weight of exactly zero removes the edge instead of inserting so its
   weight is never ignored.
-  Without this parameter defined or for edges that do not have a weight defined, 
+  Without this parameter defined or for edges that do not have a weight defined,
   edges are assigned the default value of 1 (one).
   As an example, reading from a file may define weights (a third column) for
   some edges (defined in rows, one per row) and not for others. With this
@@ -58,7 +58,7 @@ The first column names the parameter and the second defines its value.
   \item{
   -e
   }{
-  Stops when, on a cycle of the algorithm, the quality is increased by less 
+  Stops when, on a cycle of the algorithm, the quality is increased by less
   than the value given in this parameter.
   }
   \item{
@@ -79,89 +79,74 @@ The first column names the parameter and the second defines its value.
 
 
   \item{results(differential)}{Get additional results of the algorithm or the currently selected post processing steps. See \code{\link{results}}}
-  
+
 
   \item{addRemoveEdges(graphAddRemove)}{Add and remove edges read from a file. See \code{\link{addRemoveEdges}}}
-  
+
 
   \item{addRemoveEdges(graphAddRemove)}{Add and remove edges read from a matrix. See \code{\link{addRemoveEdges}}}
-  
+
 
   \item{quality()}{Get the quality measurement of the graph after the last iteration. See \code{\link{quality}}}
-  
+
 
   \item{communityCount()}{Get the number of communities after the last iteration. See \code{\link{communityCount}}}
-  
+
 
   \item{communities()}{Get all communities after the last iteration. See \code{\link{communities}}}
-  
+
 
   \item{communitiesEdgeCount()}{Get the number of community to community edges in the graph. See \code{\link{communitiesEdgeCount}}}
-  
+
 
   \item{communityNeighbours(community)}{Get the neighbours of the given community after the last iteration. See \code{\link{communityNeighbours}}}
-  
+
 
   \item{communityInnerEdgesWeight(community)}{Get the sum of weights of the inner edges of the given community after the last iteration. See \code{\link{communityInnerEdgesWeight}}}
-  
+
 
   \item{communityTotalWeight(community)}{Get the sum of weights of all edges of the given community after the last iteration. See \code{\link{communityTotalWeight}}}
-  
+
 
   \item{communityEdgeWeight(source,destination)}{Get the weight of the edge that goes from source to destination after the last iteration. See \code{\link{communityEdgeWeight}}}
-  
+
 
   \item{communityVertexCount(community)}{Get the amount of vertices in the given community after the last iteration. See \code{\link{communityVertexCount}}}
-  
+
 
   \item{community(vertex)}{Get the community of the given vertex after the last iteration. See \code{\link{community}}}
-  
+
 
   \item{vertexCount()}{Get the total number of vertices after the last iteration. See \code{\link{vertexCount}}}
-  
+
 
   \item{verticesAll()}{Get all vertices in the graph after the last iteration. See \code{\link{verticesAll}}}
-  
+
 
   \item{neighbours(vertex)}{Get the neighbours of the given vertex after the last iteration. See \code{\link{neighbours}}}
-  
+
 
   \item{edgeWeight(source,destination)}{Get the weight of the edge that goes from source vertex to destination vertex after the last iteration. See \code{\link{edgeWeight}}}
-  
+
 
   \item{vertices(community)}{Get all vertices belonging to the given community after the last iteration. See \code{\link{vertices}}}
-  
+
 
   \item{edgeCount()}{Get the number of vertex to vertex edges in the graph. See \code{\link{edgeCount}}}
-  
+
 
   \item{communityMapping(differential)}{Get the community mapping for all communities after the last iteration.See \code{\link{communityMapping}}}
-  
+
 
   \item{communityMapping(differential)}{Get the community mapping for all communities after the last iteration.See \code{\link{communityMapping}}}
-  
+
 
   \item{time()}{Get the cumulative time spent on processing after the last iteration. See \code{\link{time}}}
-  
+
 
 }
 }
 
-\examples{
-\donttest{
-Parameters<-matrix(c("-e","0.1"),1,2,TRUE)
-dc<-DynCommMain(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
-dc$addRemoveEdgesFile("initial_graph.txt")
-dc$communityCount()
-dc$communities()
-dc$communityNodeCount(1)
-dc$vertices(1)
-dc$communityMapping(TRUE)
-dc$time()
-dc$addRemoveEdgesFile("s0000000000.txt")
-}
-
-}
 \seealso{
 \code{\link{DynComm}}
 }

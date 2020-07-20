@@ -6,18 +6,20 @@
 \alias{edgeCount.DynComm}
 \title{edgeCount}
 \usage{
-edgeCount.DynComm(dyncomm)
+edgeCount(x, ...)
 }
 \arguments{
-\item{dyncomm}{A DynComm object, if not using the inline version of the 
+\item{x}{A DynComm object, if not using the inline version of the
 function call}
+
+\item{...}{Any future additional parameters}
 }
 \value{
 the number of vertex to vertex edges in the graph
 }
 \description{
 This method returns the number of vertex to vertex edges in the graph from the
-selected post processing algorithm or the main algorithm, after the last 
+selected post processing algorithm or the main algorithm, after the last
 iteration.
 }
 \examples{
