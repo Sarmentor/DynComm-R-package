@@ -6,27 +6,29 @@
 \alias{results.DynComm}
 \title{results}
 \usage{
-results.DynComm(dyncomm,differential)
+results(x,differential, ...)
 }
 \arguments{
-\item{dyncomm}{A DynComm object, if not using the inline version of the 
+\item{x}{A DynComm object, if not using the inline version of the
 function call}
 
-\item{differential}{If TRUE, only values that have changed in the latest run 
+\item{differential}{If TRUE, only values that have changed in the latest run
 will be returned}
+
+\item{...}{Any future additional parameters}
 }
 \value{
-a two column matrix where, the first column is the name of the 
+a two column matrix where, the first column is the name of the
 result and, the second column is its value.
 }
 \description{
 This method returns additional results from the selected post processing
-algorithm or the main algorithm. See \code{\link{select}} to know how to 
+algorithm or the main algorithm. See \code{\link{select}} to know how to
 select an algorithm.
 }
 \details{
-Additional results are any results other than those returned by other 
-existing functions like \code{\link{quality}}, \code{\link{mytime}} and 
+Additional results are any results other than those returned by other
+existing functions like \code{\link{quality}}, \code{\link{time}} and
 \code{\link{communityMapping}}.
 Passing the parameter differential set to TRUE, will return only results that
 have changed from the previous to last iteration.

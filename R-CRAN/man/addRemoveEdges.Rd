@@ -4,32 +4,36 @@
 \name{addRemoveEdges}
 \alias{addRemoveEdges}
 \alias{addRemoveEdges.DynComm}
+\alias{addRemove}
+\alias{add}
 \alias{addRemove.DynComm}
 \alias{add.DynComm}
 \title{addRemoveEdges}
 \usage{
-addRemoveEdges.DynComm(dyncomm,graphAddRemove)
-addRemove.DynComm(dyncomm,graphAddRemove)
-add.DynComm(dyncomm,graphAddRemove)
+addRemoveEdges(x,graphAddRemove, ...)
+addRemove(x,graphAddRemove, ...)
+add(x,graphAddRemove, ...)
 }
 \arguments{
-\item{dyncomm}{A DynComm object, if not using the inline version of the 
+\item{x}{A DynComm object, if not using the inline version of the
 function call}
 
-\item{graphAddRemove}{Either the matrix or the filename that contains the 
+\item{graphAddRemove}{Either the matrix or the filename that contains the
 edges to add/remove}
+
+\item{...}{Any future additional parameters}
 }
 \value{
 FALSE if any kind of error occurred. Otherwise, TRUE
 }
 \description{
-This method reads edges from either a matrix or a file and adds or removes 
+This method reads edges from either a matrix or a file and adds or removes
 them to/from the graph.
 }
 \details{
 If the weight is exactly zero, the edge is removed from the graph.
 
-If a vertex, mentioned in the source or destination, does not exist it will be 
+If a vertex, mentioned in the source or destination, does not exist it will be
 added to the graph.
 
 If any post processing algorithm exists, it is automatically calculated after
@@ -40,23 +44,23 @@ the main algorithm.
 The matrix must have at least two columns with the source and destination
 vertices.
 
-If all edges are to be added with the default weight, a third column 
-is optional. 
+If all edges are to be added with the default weight, a third column
+is optional.
 
 If any edge is to be removed, the third column is mandatory.
   }
   \item{File input}{
 The file must have only one edge per line, with values separated by a white
-space (both SPACE and TAB work in any amount and combination). The line must 
+space (both SPACE and TAB work in any amount and combination). The line must
 end with a newline character (also known as linefeed, LF or '\\n').
 
-The first value is the source vertex, the second is the destination vertex, 
+The first value is the source vertex, the second is the destination vertex,
 and the third is the weight.
 
 The weight can be ommited if the edge is to be added using the default weight
 of 1 (one), or if the parameter to ignore weights was set.
 
-The method detects automatically if the weight is present on a row by row basis 
+The method detects automatically if the weight is present on a row by row basis
 so some rows may have weights defined and others not.
   }
 }

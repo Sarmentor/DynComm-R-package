@@ -833,13 +833,13 @@ DynCommPostProcess <- function(postProcessing=POSTPROCESSING$NONE, id=1, previou
     #' 
     #'   \item{time()}{Get the cumulative time spent on processing after the last iteration. See \code{\link{time}}}
     #'   
-    mytime=function(differential=FALSE,postProcessing=POSTPROCESSING$NONE,ID=1){
+    time=function(differential=FALSE,postProcessing=POSTPROCESSING$NONE,ID=1){
       if((postProcessing==POSTPROCESSING$NONE || (pst==postProcessing && id==ID))){
         #this object
         # return(alg$time(differential))
         # print(end_time-start_time)
         # print(end_timeC-start_timeC)
-        return((end_time-start_time)+prv$mytime(differential))
+        return((end_time-start_time)+prv$time(differential))
       }
       else{ #it is not me (its the one armed man :P )
         #return from the previous object
@@ -850,7 +850,7 @@ DynCommPostProcess <- function(postProcessing=POSTPROCESSING$NONE, id=1, previou
         else{# there is a previous
           if(is(prv,"DynCommMain")){ #is main algorithm
             #do not pass type and id
-            return(prv$mytime(differential))
+            return(prv$time(differential))
           }
           else{ #is another post processing algorithm
             return(prv$time(differential,postProcessing,ID))

@@ -6,11 +6,13 @@
 \alias{quality.DynComm}
 \title{quality}
 \usage{
-quality.DynComm(dyncomm)
+quality(x, ...)
 }
 \arguments{
-\item{dyncomm}{A DynComm object, if not using the inline version of the 
+\item{x}{A DynComm object, if not using the inline version of the
 function call}
+
+\item{...}{Any future additional parameters}
 }
 \value{
 a floating point number

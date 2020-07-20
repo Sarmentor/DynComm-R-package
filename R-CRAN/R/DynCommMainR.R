@@ -496,7 +496,7 @@ DynCommMainR <- function(Algorithm,Criterion,Parameters)
     #' 
     #'   \item{time()}{Get the cumulative time spent on processing after the last iteration. See \code{\link{time}}}
     #'   
-    mytime=function(differential=FALSE){
+    time=function(differential=FALSE){
       # if(alg==){
       #   return(dc$time(differential))
       # }

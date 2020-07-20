@@ -6,17 +6,19 @@
 \alias{communityMapping.DynComm}
 \title{communityMapping}
 \usage{
-communityMapping.DynComm(dyncomm,differential, file)
+communityMapping(x,differential, file, ...)
 }
 \arguments{
-\item{dyncomm}{A DynComm object, if not using the inline version of the 
+\item{x}{A DynComm object, if not using the inline version of the
 function call}
 
-\item{differential}{If TRUE, only values that have changed in the latest run 
+\item{differential}{If TRUE, only values that have changed in the latest run
 will be returned}
 
-\item{file}{If given, outputs the community mapping to the given file instead 
+\item{file}{If given, outputs the community mapping to the given file instead
 of the console}
+
+\item{...}{Any future additional parameters}
 }
 \value{
 a matrix with either the community mapping or a boolean value
@@ -26,13 +28,13 @@ Get the community mapping for all communities from the selected post processing
 algorithm or the main algorithm, after the last iteration.
 }
 \details{
-If file is not given, returns a two column matrix with vertices in 
+If file is not given, returns a two column matrix with vertices in
 the first column and the communities in the second.
 
-If file is given, returns a single row, single column matrix with TRUE or 
+If file is given, returns a single row, single column matrix with TRUE or
 FALSE, depending whether if writing to file succeeded or failed, respectively.
 
-When writing to file, if the Community-Vertex program parameter is TRUE, each 
+When writing to file, if the Community-Vertex program parameter is TRUE, each
 line of the file will have the community first, followed by a list of vertices
 that belong to the community. If that parameter is FALSE, each line will have
 a single vertex followed by its community. All values are separated by a white

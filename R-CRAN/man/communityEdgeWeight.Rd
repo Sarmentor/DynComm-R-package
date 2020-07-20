@@ -6,23 +6,25 @@
 \alias{communityEdgeWeight.DynComm}
 \title{communityEdgeWeight}
 \usage{
-communityEdgeWeight.DynComm(dyncomm,source,destination)
+communityEdgeWeight(x,source,destination, ...)
 }
 \arguments{
-\item{dyncomm}{A DynComm object, if not using the inline version of the 
+\item{x}{A DynComm object, if not using the inline version of the
 function call}
 
 \item{source}{The name of the source community that is part of the edge}
 
-\item{destination}{The name of the destination community that is part of the 
+\item{destination}{The name of the destination community that is part of the
 edge}
+
+\item{...}{Any future additional parameters}
 }
 \value{
 a floating point number with the weight
 }
 \description{
-Get the weight of the edge that goes from source community to destination 
-community from the selected post processing algorithm or the main algorithm, 
+Get the weight of the edge that goes from source community to destination
+community from the selected post processing algorithm or the main algorithm,
 after the last iteration.
 }
 \examples{

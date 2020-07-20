@@ -6,31 +6,33 @@
 \alias{select.DynComm}
 \title{select}
 \usage{
-select.DynComm(dyncomm,postProcessing, id)
+select(x,postProcessing, id, ...)
 }
 \arguments{
-\item{dyncomm}{A DynComm object, if not using the inline version of the 
+\item{x}{A DynComm object, if not using the inline version of the
 function call}
 
-\item{postProcessing}{The name of the post processing algorithm. Default 
+\item{postProcessing}{The name of the post processing algorithm. Default
 POSTPROCESSING$NONE. See \code{\link{POSTPROCESSING}}}
 
 \item{id}{The ID of the post processing algorithm. Default value is 1}
+
+\item{...}{Any future additional parameters}
 }
 \value{
 FALSE if the algorithm does not exist in the chain. Otherwise, TRUE
 }
 \description{
-This method allows for the selection of which result should be shown. Any of 
+This method allows for the selection of which result should be shown. Any of
 the post processing algorithms and the main algorithm can be choosen.
 }
 \details{
-The ID parameter is used to distinguish between several post processing 
-algorithms of the same type. It is not required for neither the main 
+The ID parameter is used to distinguish between several post processing
+algorithms of the same type. It is not required for neither the main
 algorithm nor any post processing algorithm type that only appears one time.
 
-The main algorithm can be selected with POSTPROCESSING$NONE (default value) 
-and the ID is ignored. See \code{\link{POSTPROCESSING}} for other available 
+The main algorithm can be selected with POSTPROCESSING$NONE (default value)
+and the ID is ignored. See \code{\link{POSTPROCESSING}} for other available
 algorithms.
 
 If there are no actions defined for post processing, this function fails.

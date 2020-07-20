@@ -6,13 +6,15 @@
 \alias{community.DynComm}
 \title{community}
 \usage{
-community.DynComm(dyncomm,vertex)
+community(x,vertex, ...)
 }
 \arguments{
-\item{dyncomm}{A DynComm object, if not using the inline version of the 
+\item{x}{A DynComm object, if not using the inline version of the
 function call}
 
 \item{vertex}{The name of the intended vertex}
+
+\item{...}{Any future additional parameters}
 }
 \value{
 an unsigned integer with the community of the given vertex

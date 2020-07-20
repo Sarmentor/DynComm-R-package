@@ -6,19 +6,21 @@
 \alias{communityTotalWeight.DynComm}
 \title{communityTotalWeight}
 \usage{
-communityTotalWeight.DynComm(dyncomm,community)
+communityTotalWeight(x,community, ...)
 }
 \arguments{
-\item{dyncomm}{A DynComm object, if not using the inline version of the 
+\item{x}{A DynComm object, if not using the inline version of the
 function call}
 
 \item{community}{The name of the intended community}
+
+\item{...}{Any future additional parameters}
 }
 \value{
 a floating point number with the weight
 }
 \description{
-Get the sum of weights of all edges of the given community from the selected 
+Get the sum of weights of all edges of the given community from the selected
 post processing algorithm or the main algorithm, after the last iteration.
 }
 \examples{

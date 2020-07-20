@@ -6,17 +6,19 @@
 \alias{communityCount.DynComm}
 \title{communityCount}
 \usage{
-communityCount.DynComm(dyncomm)
+communityCount(x, ...)
 }
 \arguments{
-\item{dyncomm}{A DynComm object, if not using the inline version of the 
+\item{x}{A DynComm object, if not using the inline version of the
 function call}
+
+\item{...}{Any future additional parameters}
 }
 \value{
 an unsigned integer value with the number of communities
 }
 \description{
-Get the number of communities from the selected post processing algorithm or 
+Get the number of communities from the selected post processing algorithm or
 the main algorithm, after the last iteration.
 }
 \examples{

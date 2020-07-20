@@ -6,21 +6,23 @@
 \alias{communityNeighbours.DynComm}
 \title{communityNeighbours}
 \usage{
-communityNeighbours.DynComm(dyncomm,community)
+communityNeighbours(x,community, ...)
 }
 \arguments{
-\item{dyncomm}{A DynComm object, if not using the inline version of the 
+\item{x}{A DynComm object, if not using the inline version of the
 function call}
 
 \item{community}{The community to get neighbours from}
+
+\item{...}{Any future additional parameters}
 }
 \value{
-a matrix of all communities in the graph that are neighbours of the 
+a matrix of all communities in the graph that are neighbours of the
 given community and their edge weight
 }
 \description{
-Get all neighbours (communities connected through direct edges) of the given 
-community in the graph from the selected post processing algorithm or the main 
+Get all neighbours (communities connected through direct edges) of the given
+community in the graph from the selected post processing algorithm or the main
 algorithm, after the last iteration.
 }
 \details{
