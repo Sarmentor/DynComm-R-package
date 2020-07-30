@@ -309,15 +309,20 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 
 ### ** Examples
 
+library(DynComm)
+Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+#adding edges with the use of a matrix
+dc$addRemoveEdges(
+ matrix(
+   c(10,20,10,30,20,30,30,60,40,60,40,50,50,70,60,70)
+   ,ncol=2,byrow=TRUE)
+)
 ## Not run: 
 ##D dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
+##D #adding edges with the use of a file
 ##D dc$addRemoveEdges("graphAddRemoveFile.txt")
 ## End(Not run)
-## Not run: 
-##D dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-##D addRemoveEdges(dc,"graphAddRemoveFile.txt")
-## End(Not run)
-
 
 
 
@@ -336,14 +341,17 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 
 ### ** Examples
 
-## Not run: 
-##D dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-##D dc$communities()
-## End(Not run)
-## Not run: 
-##D dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-##D communities(dc)
-## End(Not run)
+library(DynComm)
+
+Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+dc$addRemoveEdges(
+ matrix(
+   c(10,20,10,30,20,30,30,60,40,60,40,50,50,70,60,70)
+   ,ncol=2,byrow=TRUE)
+)
+
+dc$communities()
 
 
 
@@ -363,14 +371,18 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 
 ### ** Examples
 
-## Not run: 
-##D dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-##D dc$communitiesEdgeCount()
-## End(Not run)
-## Not run: 
-##D dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-##D communitiesEdgeCount(dc)
-## End(Not run)
+library(DynComm)
+
+Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+dc$addRemoveEdges(
+ matrix(
+   c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
+      ,ncol=2)
+)
+
+dc$communities()
+dc$communitiesEdgeCount()
 
 
 
@@ -390,14 +402,18 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 
 ### ** Examples
 
-## Not run: 
-##D dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-##D dc$community(8)
-## End(Not run)
-## Not run: 
-##D dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-##D community(dc,8)
-## End(Not run)
+library(DynComm)
+
+Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+dc$addRemoveEdges(
+ matrix(
+   c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
+      ,ncol=2)
+)
+
+dc$communities()
+dc$community(1)
 
 
 
@@ -417,14 +433,18 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 
 ### ** Examples
 
-## Not run: 
-##D dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-##D dc$communityCount()
-## End(Not run)
-## Not run: 
-##D dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-##D communityCount(dc)
-## End(Not run)
+library(DynComm)
+
+Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+dc$addRemoveEdges(
+ matrix(
+   c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
+      ,ncol=2)
+)
+
+dc$communities()
+dc$communityCount()
 
 
 
@@ -444,14 +464,18 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 
 ### ** Examples
 
-## Not run: 
-##D dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-##D dc$communityEdgeWeight(12,42)
-## End(Not run)
-## Not run: 
-##D dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-##D communityEdgeWeight(dc,12,42)
-## End(Not run)
+library(DynComm)
+
+Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+dc$addRemoveEdges(
+ matrix(
+   c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
+      ,ncol=2)
+)
+
+dc$communities()
+dc$communityEdgeWeight(0,12)
 
 
 
@@ -471,14 +495,18 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 
 ### ** Examples
 
-## Not run: 
-##D dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-##D dc$communityInnerEdgesWeight(1)
-## End(Not run)
-## Not run: 
-##D dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-##D communityInnerEdgesWeight(dc,1)
-## End(Not run)
+library(DynComm)
+
+Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+dc$addRemoveEdges(
+ matrix(
+   c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
+      ,ncol=2)
+)
+dc$communities()
+dc$communityInnerEdgesWeight(1)
+dc$communityInnerEdgesWeight(0)
 
 
 
@@ -498,14 +526,18 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 
 ### ** Examples
 
-## Not run: 
-##D dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-##D dc$communityMapping()
-## End(Not run)
-## Not run: 
-##D dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-##D communityMapping(dc)
-## End(Not run)
+library(DynComm)
+
+Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+dc$addRemoveEdges(
+ matrix(
+   c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
+      ,ncol=2)
+)
+
+dc$communities()
+dc$communityMapping()
 
 
 
@@ -525,14 +557,18 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 
 ### ** Examples
 
-## Not run: 
-##D dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-##D dc$communityNeighbours(community)
-## End(Not run)
-## Not run: 
-##D dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-##D communityNeighbours(dc,community)
-## End(Not run)
+library(DynComm)
+
+Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+dc$addRemoveEdges(
+ matrix(
+   c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
+      ,ncol=2)
+) 
+
+dc$communities()
+dc$communityNeighbours(12)
 
 
 
@@ -552,14 +588,19 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 
 ### ** Examples
 
-## Not run: 
-##D dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-##D dc$communityTotalWeight(1)
-## End(Not run)
-## Not run: 
-##D dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-##D communityTotalWeight(dc,1)
-## End(Not run)
+library(DynComm)
+
+Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+dc$addRemoveEdges(
+ matrix(
+   c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
+      ,ncol=2)
+)
+
+dc$communities()
+dc$communityTotalWeight(1)
+dc$communityTotalWeight(12)
 
 
 
@@ -580,14 +621,18 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 
 ### ** Examples
 
-## Not run: 
-##D dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-##D dc$communityVertexCount(3)
-## End(Not run)
-## Not run: 
-##D dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-##D communityVertexCount(dc,3)
-## End(Not run)
+library(DynComm)
+
+Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+dc$addRemoveEdges(
+ matrix(
+   c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
+      ,ncol=2)
+)
+
+dc$communities()
+dc$communityVertexCount(12)
 
 
 
@@ -607,14 +652,17 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 
 ### ** Examples
 
-## Not run: 
-##D dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-##D dc$edgeCount()
-## End(Not run)
-## Not run: 
-##D dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-##D edgeCount(dc)
-## End(Not run)
+library(DynComm)
+
+Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+dc$addRemoveEdges(
+ matrix(
+   c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
+      ,ncol=2)
+)
+
+dc$edgeCount()
 
 
 
@@ -634,14 +682,17 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 
 ### ** Examples
 
-## Not run: 
-##D dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-##D dc$edgeWeight(12,42)
-## End(Not run)
-## Not run: 
-##D dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-##D edgeWeight(dc,12,42)
-## End(Not run)
+library(DynComm)
+
+Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+dc$addRemoveEdges(
+ matrix(
+   c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
+      ,ncol=2)
+)
+
+dc$edgeWeight(0,2)
 
 
 
@@ -661,14 +712,17 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 
 ### ** Examples
 
-## Not run: 
-##D dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-##D dc$neighbours(vertex)
-## End(Not run)
-## Not run: 
-##D dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-##D neighbours(dc,vertex)
-## End(Not run)
+library(DynComm)
+
+Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+dc$addRemoveEdges(
+ matrix(
+   c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
+      ,ncol=2)
+)
+
+dc$neighbours(2)
 
 
 
@@ -689,6 +743,7 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 ### ** Examples
 
 ## Not run: 
+##D parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
 ##D dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
 ##D dc$postProcess(
 ##D   list(
@@ -708,23 +763,19 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 ##D ## dc$postProcess()
 ## End(Not run)
 ## Not run: 
-##D dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-##D postProcess(dc,
-##D   list(
-##D     list(POSTPROCESSING$WEIGHTTOP,matrix(data=c("n",10),ncol=2,byrow=TRUE))
-##D     ,list(POSTPROCESSING$DENSOPT)
-##D     ,list(POSTPROCESSING$WEIGHTTOP,matrix(data=c("n",3),ncol=2,byrow=TRUE))
+##D parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+##D   dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
+##D   dc$addRemoveEdges(
+##D    matrix(
+##D       c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
+##D       ,ncol=2)
 ##D   )
-##D )
-##D # first POSTPROCESSING$WEIGHTTOP gets ID=1 and second gets ID=2
-##D # POSTPROCESSING$DENSOPT uses default parameters
-##D select(dc,POSTPROCESSING$WEIGHTTOP,1)  #selects the results of the first WEIGHTTOP
-##D select(dc,POSTPROCESSING$WEIGHTTOP,2)  #selects the results of the second WEIGHTTOP
-##D select(dc,POSTPROCESSING$NONE)  #selects the main algorithm results
-##D select(dc,POSTPROCESSING$DENSOPT)  #selects the results of densopt
-##D postProcess(dc,NULL)  #remove post processing
-##D ## or just
-##D ## postProcess(dc)
+##D   dc$postProcess(
+##D     list(list(POSTPROCESSING$DENSOPT))
+##D   )
+##D  
+##D   dc$select(POSTPROCESSING$DENSOPT)  #selects the results of densopt
+##D 
 ## End(Not run)
 
 
@@ -777,14 +828,15 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 
 ### ** Examples
 
-## Not run: 
-##D dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-##D dc$quality()
-## End(Not run)
-## Not run: 
-##D dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-##D quality(dc)
-## End(Not run)
+library(DynComm)
+Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+dc$addRemoveEdges(
+ matrix(
+   c(10,20,10,30,20,30,30,60,40,60,40,50,50,70,60,70)
+   ,ncol=2,byrow=TRUE)
+)
+dc$quality()
 
 
 
@@ -804,14 +856,15 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 
 ### ** Examples
 
-## Not run: 
-##D dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-##D dc$results()
-## End(Not run)
-## Not run: 
-##D dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-##D results(dc)
-## End(Not run)
+library(DynComm)
+Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+dc$addRemoveEdges(
+ matrix(
+   c(10,20,10,30,20,30,30,60,40,60,40,50,50,70,60,70)
+   ,ncol=2,byrow=TRUE)
+)
+dc$results()
 
 
 
@@ -832,6 +885,7 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 ### ** Examples
 
 ## Not run: 
+##D parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
 ##D dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
 ##D dc$postProcess(
 ##D   list(
@@ -847,6 +901,7 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 ##D dc$select(POSTPROCESSING$NONE)  #selects the main algorithm results
 ## End(Not run)
 ## Not run: 
+##D parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
 ##D dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
 ##D postProcess(dc,
 ##D   list(
@@ -880,16 +935,17 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 
 ### ** Examples
 
-## Not run: 
-##D dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-##D dc$time()
-##D ## 2.3
-## End(Not run)
-## Not run: 
-##D dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-##D time(dc)
-##D ## 2.3
-## End(Not run)
+library(DynComm)
+
+Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+dc$addRemoveEdges(
+ matrix(
+   c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
+      ,ncol=2)
+)
+
+dc$time()
 
 
 
@@ -909,14 +965,18 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 
 ### ** Examples
 
-## Not run: 
-##D dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-##D dc$vertexCount()
-## End(Not run)
-## Not run: 
-##D dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-##D vertexCount(dc)
-## End(Not run)
+library(DynComm)
+
+Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+dc$addRemoveEdges(
+ matrix(
+   c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
+      ,ncol=2)
+)
+
+dc$communities()
+dc$communityVertexCount(12)
 
 
 
@@ -936,14 +996,18 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 
 ### ** Examples
 
-## Not run: 
-##D dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-##D dc$vertices(6)
-## End(Not run)
-## Not run: 
-##D dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-##D vertices(dc,6)
-## End(Not run)
+library(DynComm)
+
+Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+dc$addRemoveEdges(
+ matrix(
+   c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
+      ,ncol=2)
+)
+
+dc$communities()
+dc$vertices(12)
 
 
 
@@ -963,14 +1027,17 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 
 ### ** Examples
 
-## Not run: 
-##D dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-##D dc$verticesAll()
-## End(Not run)
-## Not run: 
-##D dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-##D verticesAll(dc)
-## End(Not run)
+library(DynComm)
+
+Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+dc$addRemoveEdges(
+ matrix(
+   c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
+      ,ncol=2)
+)
+
+dc$verticesAll()
 
 
 

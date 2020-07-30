@@ -2,7 +2,21 @@ Package: DynComm
 Type: Package
 Title: Dynamic Network Communities Detection and Generation
 Version: 2020.1.4
-Author: Rui Portocarrero Sarmento, Luís Lemos, Mário Cordeiro, Giulio Rossetti
+Authors@R: 
+  c(person(given = "Rui P.",
+           family = "Sarmento",
+           role = c("aut", "cre"),
+           email = "email@ruisarmento.com",
+           comment = c(ORCID = "0000-0003-1891-5295")),
+    person(given = "Luís",
+           family = "Lemos",
+           role = c("aut")),
+    person(given = "Mário",
+           family = "Cordeiro",
+           role = c("ctb")),
+	person(given = "Giulio",
+           family = "Rossetti",
+           role = c("ctb")))
 Maintainer: Rui P. Sarmento <email@ruisarmento.com>
 Description: Used for evolving network analysis regarding 
   community detection. Implements several algorithms that calculate communities 
@@ -27,4 +41,8 @@ Suggests: devtools
 RoxygenNote: 7.1.0
 StagedInstall: yes
 NeedsCompilation: yes
-Packaged: 2020-07-21 11:00:48 UTC; sarmentor
+Packaged: 2020-07-30 11:34:59 UTC; sarmentor
+Author: Rui P. Sarmento [aut, cre] (<https://orcid.org/0000-0003-1891-5295>),
+  Luís Lemos [aut],
+  Mário Cordeiro [ctb],
+  Giulio Rossetti [ctb]

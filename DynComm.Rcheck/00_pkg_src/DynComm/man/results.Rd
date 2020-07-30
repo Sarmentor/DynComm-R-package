@@ -32,14 +32,15 @@ Passing the parameter differential set to TRUE, will return only results that
 have changed from the previous to last iteration.
 }
 \examples{
-\dontrun{
-dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
+library(DynComm)
+Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+dc$addRemoveEdges(
+ matrix(
+   c(10,20,10,30,20,30,30,60,40,60,40,50,50,70,60,70)
+   ,ncol=2,byrow=TRUE)
+)
 dc$results()
-}
-\dontrun{
-dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-results(dc)
-}
 
 }
 \seealso{

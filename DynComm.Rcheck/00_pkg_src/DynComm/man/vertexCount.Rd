@@ -27,14 +27,18 @@ that do not exist in the graph, or removed, if they are not part of any edge aft
 removing an edge.
 }
 \examples{
-\dontrun{
-dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-dc$vertexCount()
-}
-\dontrun{
-dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-vertexCount(dc)
-}
+library(DynComm)
+
+Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+dc$addRemoveEdges(
+ matrix(
+   c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
+      ,ncol=2)
+)
+
+dc$communities()
+dc$communityVertexCount(12)
 
 }
 \seealso{

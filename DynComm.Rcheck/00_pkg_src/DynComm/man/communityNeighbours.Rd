@@ -28,14 +28,18 @@ The return value is a matrix with two columns. The first is the neighbour and
 the second is the weight of the edge that connects them.
 }
 \examples{
-\dontrun{
-dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-dc$communityNeighbours(community)
-}
-\dontrun{
-dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-communityNeighbours(dc,community)
-}
+library(DynComm)
+
+Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+dc$addRemoveEdges(
+ matrix(
+   c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
+      ,ncol=2)
+) 
+
+dc$communities()
+dc$communityNeighbours(12)
 
 }
 \seealso{

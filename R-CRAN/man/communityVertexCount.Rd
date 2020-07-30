@@ -24,14 +24,18 @@ Get the amount of vertices in the given community from the selected post
 processing algorithm or the main algorithm, after the last iteration.
 }
 \examples{
-\dontrun{
-dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-dc$communityVertexCount(3)
-}
-\dontrun{
-dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-communityVertexCount(dc,3)
-}
+library(DynComm)
+
+Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+dc$addRemoveEdges(
+ matrix(
+   c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
+      ,ncol=2)
+)
+
+dc$communities()
+dc$communityVertexCount(12)
 
 }
 \seealso{

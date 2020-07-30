@@ -62,15 +62,20 @@ so some rows may have weights defined and others not.
 }
 }
 \examples{
+library(DynComm)
+Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+#adding edges with the use of a matrix
+dc$addRemoveEdges(
+ matrix(
+   c(10,20,10,30,20,30,30,60,40,60,40,50,50,70,60,70)
+   ,ncol=2,byrow=TRUE)
+)
 \dontrun{
 dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
+#adding edges with the use of a file
 dc$addRemoveEdges("graphAddRemoveFile.txt")
 }
-\dontrun{
-dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-addRemoveEdges(dc,"graphAddRemoveFile.txt")
-}
-
 }
 \seealso{
 \code{\link{DynComm}} , \code{\link{postProcess}}

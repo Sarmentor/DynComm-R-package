@@ -37,6 +37,7 @@ If there are no actions defined for post processing, this function fails.
 }
 \examples{
 \dontrun{
+parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
 dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
 dc$postProcess(
   list(
@@ -52,6 +53,7 @@ dc$select(POSTPROCESSING$WEIGHTTOP,2)  #selects the results of the second WEIGHT
 dc$select(POSTPROCESSING$NONE)  #selects the main algorithm results
 }
 \dontrun{
+parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
 dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
 postProcess(dc,
   list(
