@@ -41,7 +41,7 @@ Suggests: devtools
 RoxygenNote: 7.1.0
 StagedInstall: yes
 NeedsCompilation: yes
-Packaged: 2020-07-30 11:34:59 UTC; sarmentor
+Packaged: 2020-08-06 16:51:29 UTC; sarmentor
 Author: Rui P. Sarmento [aut, cre] (<https://orcid.org/0000-0003-1891-5295>),
   Luís Lemos [aut],
   Mário Cordeiro [ctb],

@@ -36,38 +36,26 @@ algorithms.
 If there are no actions defined for post processing, this function fails.
 }
 \examples{
-\dontrun{
+library(DynComm)
 parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
-dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-dc$postProcess(
-  list(
-    list(POSTPROCESSING$WEIGHTTOP,matrix(data=c("n",10),ncol=2,byrow=TRUE))
-    ,list(POSTPROCESSING$DENSOPT)
-    ,list(POSTPROCESSING$WEIGHTTOP,matrix(data=c("n",3),ncol=2,byrow=TRUE))
+  dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
+  dc$addRemoveEdges(
+   matrix(
+      c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
+      ,ncol=2)
   )
-)
-# first POSTPROCESSING$WEIGHTTOP gets ID=1 and second gets ID=2
-# POSTPROCESSING$DENSOPT uses default parameters
-dc$select(POSTPROCESSING$WEIGHTTOP,1)  #selects the results of the first WEIGHTTOP
-dc$select(POSTPROCESSING$WEIGHTTOP,2)  #selects the results of the second WEIGHTTOP
-dc$select(POSTPROCESSING$NONE)  #selects the main algorithm results
-}
-\dontrun{
-parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
-dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-postProcess(dc,
-  list(
-    list(POSTPROCESSING$WEIGHTTOP,matrix(data=c("n",10),ncol=2,byrow=TRUE))
-    ,list(POSTPROCESSING$DENSOPT)
-    ,list(POSTPROCESSING$WEIGHTTOP,matrix(data=c("n",3),ncol=2,byrow=TRUE))
+  dc$postProcess(
+    list(
+ 	     list(POSTPROCESSING$DENSOPT)
+  	)
   )
-)
-# first POSTPROCESSING$WEIGHTTOP gets ID=1 and second gets ID=2
-# POSTPROCESSING$DENSOPT uses default parameters
-select(dc,POSTPROCESSING$WEIGHTTOP,1)  #selects the results of the first WEIGHTTOP
-select(dc,POSTPROCESSING$WEIGHTTOP,2)  #selects the results of the second WEIGHTTOP
-select(dc,POSTPROCESSING$NONE)  #selects the main algorithm results
-}
+ dc$select(POSTPROCESSING$DENSOPT)  #selects the results of densopt
+ dc$select(POSTPROCESSING$NONE)  #selects the main algorithm results
+
+ dc$postProcess(NULL)  #remove post processing
+ ## or just
+ ## dc$postProcess()
+
 
 }
 \seealso{

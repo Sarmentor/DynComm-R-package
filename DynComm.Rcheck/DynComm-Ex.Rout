@@ -152,33 +152,18 @@ code for methods in class “Rcpp_DynCommRcpp” was not checked for suspicious 
 > dc$quality()
 [1] 0.3671875
 > dc$time()
-[1] 1799717
+[1] 1793846
 > ## lets add post processing :)
 > dc$postProcess(
 + list(
 + list(POSTPROCESSING$DENSOPT)
 + )
 + )
-Modularity is implemented for undirected graphs only.
-Modularity is implemented for undirected graphs only.
-Modularity is implemented for undirected graphs only.
-[1] TRUE
-> ## the results of the last step of post processing are selected automatically
-> ## densopt post processing algorithm may change the community mapping so...
-> ## check it
-> dc$communityMapping(TRUE)
-     vertex community
-> ## densopt post processing algorithm may change quality so check it
-> dc$quality()
-[1] 0.3671875
-> ## time is now the total time of the main algorithm plus the time of every...
-> ## post processing algorithm up to the one selected
-> dc$time()
-[1] 14983973
-> ## get back to main algorithm results to check they haven't changed
-> dc$select(POSTPROCESSING$NONE)
-[1] TRUE
-> dc$communityMapping(TRUE)
+Called from: internalRecreatePostProcessing()
+Browse[1]> ## the results of the last step of post processing are selected automatically
+Browse[1]> ## densopt post processing algorithm may change the community mapping so...
+Browse[1]> ## check it
+Browse[1]> dc$communityMapping(TRUE)
      [,1] [,2]
 [1,]   10   10
 [2,]   20   10
@@ -187,36 +172,43 @@ Modularity is implemented for undirected graphs only.
 [5,]   50   40
 [6,]   60   40
 [7,]   70   40
-> dc$quality()
+Browse[1]> ## densopt post processing algorithm may change quality so check it
+Browse[1]> dc$quality()
 [1] 0.3671875
-> dc$time()
-[1] 1799717
-> ## add and remove edges. Notice that there is one more column to give...
-> ## weights of zero on the edges to remove. In this case, all other weights...
-> ## are ignored because the graph is set to ignore weights (parameter w is...
-> ## false).
-> dc$addRemoveEdges(
+Browse[1]> ## time is now the total time of the main algorithm plus the time of every...
+Browse[1]> ## post processing algorithm up to the one selected
+Browse[1]> dc$time()
+[1] 1793846
+Browse[1]> ## get back to main algorithm results to check they haven't changed
+Browse[1]> dc$select(POSTPROCESSING$NONE)
+[1] TRUE
+Browse[1]> dc$communityMapping(TRUE)
+     [,1] [,2]
+[1,]   10   10
+[2,]   20   10
+[3,]   30   10
+[4,]   40   40
+[5,]   50   40
+[6,]   60   40
+[7,]   70   40
+Browse[1]> dc$quality()
+[1] 0.3671875
+Browse[1]> dc$time()
+[1] 1793846
+Browse[1]> ## add and remove edges. Notice that there is one more column to give...
+Browse[1]> ## weights of zero on the edges to remove. In this case, all other weights...
+Browse[1]> ## are ignored because the graph is set to ignore weights (parameter w is...
+Browse[1]> ## false).
+Browse[1]> dc$addRemoveEdges(
 + matrix(
 + c(30,60,0,40,60,0.23,10,80,2342,80,90,3.1415)
 + ,ncol=3,byrow=TRUE)
 + )
-Modularity is implemented for undirected graphs only.
-Modularity is implemented for undirected graphs only.
-Modularity is implemented for undirected graphs only.
-[1] TRUE
-> ## since the post processing was not reset, it will be automatically...
-> ## calculated and results switched to the last step. In this case, to the...
-> ## densopt algorithm
-> dc$communityMapping(TRUE)
-     vertex community
-> dc$quality()
-[1] 0.4197531
-> dc$time()
-[1] 11890030
-> ## get back to main algorithm results to check them
-> dc$select(POSTPROCESSING$NONE)
-[1] TRUE
-> dc$communityMapping(TRUE)
+Called from: internalRecreatePostProcessing()
+Browse[3]> ## since the post processing was not reset, it will be automatically...
+Browse[3]> ## calculated and results switched to the last step. In this case, to the...
+Browse[3]> ## densopt algorithm
+Browse[3]> dc$communityMapping(TRUE)
       [,1] [,2]
  [1,]   10   10
  [2,]   20   20
@@ -227,24 +219,56 @@ Modularity is implemented for undirected graphs only.
  [7,]   70   40
  [8,]   80   10
  [9,]   90   10
-> dc$quality()
+Browse[3]> dc$quality()
 [1] 0.003590343
-> dc$time()
-[1] 4646766
-> ## lets reset/remove post processing
-> dc$postProcess()
+Browse[3]> dc$time()
+[1] 4555341
+Browse[3]> ## get back to main algorithm results to check them
+Browse[3]> dc$select(POSTPROCESSING$NONE)
 [1] TRUE
-> 
-> 
-> 
-> 
-> 
-> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
-> base::cat("DynComm", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
-> cleanEx()
-> nameEx("DynCommMain")
-> ### * DynCommMain
-> 
+Browse[3]> dc$communityMapping(TRUE)
+      [,1] [,2]
+ [1,]   10   10
+ [2,]   20   20
+ [3,]   30   20
+ [4,]   40   40
+ [5,]   50   40
+ [6,]   60   40
+ [7,]   70   40
+ [8,]   80   10
+ [9,]   90   10
+Browse[3]> dc$quality()
+[1] 0.003590343
+Browse[3]> dc$time()
+[1] 4555341
+Browse[3]> ## lets reset/remove post processing
+Browse[3]> dc$postProcess()
+[1] TRUE
+Browse[3]> 
+debug: if (cnt[[1]] != POSTPROCESSING$NONE) {
+    b <- TRUE
+} else {
+    return(FALSE)
+}
+Browse[4]> 
+debug: b <- TRUE
+Browse[4]> 
+[1] TRUE
+Browse[1]> 
+debug: if (cnt[[1]] != POSTPROCESSING$NONE) {
+    b <- TRUE
+} else {
+    return(FALSE)
+}
+Browse[2]> 
+debug: b <- TRUE
+Browse[2]> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+Browse[2]> base::cat("DynComm", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+Browse[2]> cleanEx()
+Browse[2]> nameEx("DynCommMain")
+Browse[2]> ### * DynCommMain
+Browse[2]> 
+[1] TRUE
 > flush(stderr()); flush(stdout())
 > 
 > base::assign(".ptime", proc.time(), pos = "CheckExEnv")
@@ -892,53 +916,56 @@ Modularity is implemented for undirected graphs only.
 > 
 > ### ** Examples
 > 
-> ## Not run: 
-> ##D parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
-> ##D dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-> ##D dc$postProcess(
-> ##D   list(
-> ##D     list(POSTPROCESSING$WEIGHTTOP,matrix(data=c("n",10),ncol=2,byrow=TRUE))
-> ##D     ,list(POSTPROCESSING$DENSOPT)
-> ##D     ,list(POSTPROCESSING$WEIGHTTOP,matrix(data=c("n",3),ncol=2,byrow=TRUE))
-> ##D   )
-> ##D )
-> ##D # first POSTPROCESSING$WEIGHTTOP gets ID=1 and second gets ID=2
-> ##D # POSTPROCESSING$DENSOPT uses default parameters
-> ##D dc$select(POSTPROCESSING$WEIGHTTOP,1)  #selects the results of the first WEIGHTTOP
-> ##D dc$select(POSTPROCESSING$WEIGHTTOP,2)  #selects the results of the second WEIGHTTOP
-> ##D dc$select(POSTPROCESSING$NONE)  #selects the main algorithm results
-> ##D dc$select(POSTPROCESSING$DENSOPT)  #selects the results of densopt
-> ##D dc$postProcess(NULL)  #remove post processing
-> ##D ## or just
-> ##D ## dc$postProcess()
-> ## End(Not run)
-> ## Not run: 
-> ##D parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
-> ##D   dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-> ##D   dc$addRemoveEdges(
-> ##D    matrix(
-> ##D       c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
-> ##D       ,ncol=2)
-> ##D   )
-> ##D   dc$postProcess(
-> ##D     list(list(POSTPROCESSING$DENSOPT))
-> ##D   )
-> ##D  
-> ##D   dc$select(POSTPROCESSING$DENSOPT)  #selects the results of densopt
-> ##D 
-> ## End(Not run)
-> 
-> 
-> 
-> 
-> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
-> base::cat("postProcess", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
-> cleanEx()
-> nameEx("postProcessDensOpt")
-> ### * postProcessDensOpt
-> 
-> flush(stderr()); flush(stdout())
-> 
+> library(DynComm)
+> parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+>   dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
+>   dc$addRemoveEdges(
++    matrix(
++       c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
++       ,ncol=2)
++   )
+[1] TRUE
+>   dc$postProcess(
++     list(
++  	     list(POSTPROCESSING$DENSOPT)
++   	)
++   )
+Called from: internalRecreatePostProcessing()
+Browse[1]>  dc$select(POSTPROCESSING$DENSOPT)  #selects the results of densopt
+Called from: internalRecreatePostProcessing()
+Browse[3]>  dc$select(POSTPROCESSING$NONE)  #selects the main algorithm results
+[1] TRUE
+Browse[3]>  dc$postProcess(NULL)  #remove post processing
+[1] TRUE
+Browse[3]>  ## or just
+Browse[3]>  ## dc$postProcess()
+Browse[3]> 
+debug: if (cnt[[1]] != POSTPROCESSING$NONE) {
+    b <- TRUE
+} else {
+    return(FALSE)
+}
+Browse[4]> 
+debug: b <- TRUE
+Browse[4]> 
+Error in prc$exists(postProcessing, id) : attempt to apply non-function
+Calls: <Anonymous> -> internalRecreatePostProcessing -> <Anonymous>
+Browse[1]> 
+debug: if (cnt[[1]] != POSTPROCESSING$NONE) {
+    b <- TRUE
+} else {
+    return(FALSE)
+}
+Browse[2]> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+Browse[2]> base::cat("postProcess", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+Browse[2]> cleanEx()
+Browse[2]> nameEx("postProcessDensOpt")
+Browse[2]> ### * postProcessDensOpt
+Browse[2]> 
+debug: b <- TRUE
+Browse[2]> flush(stderr()); flush(stdout())
+Browse[2]> 
+[1] TRUE
 > base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 > ### Name: postProcessDensOpt
 > ### Title: Density Optimization
@@ -1019,7 +1046,7 @@ Modularity is implemented for undirected graphs only.
 [1] TRUE
 > dc$results()
      [,1]         [,2]     
-[1,] "time delta" "2287608"
+[1,] "time delta" "1693348"
 > 
 > 
 > 
@@ -1039,42 +1066,50 @@ Modularity is implemented for undirected graphs only.
 > 
 > ### ** Examples
 > 
-> ## Not run: 
-> ##D parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
-> ##D dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-> ##D dc$postProcess(
-> ##D   list(
-> ##D     list(POSTPROCESSING$WEIGHTTOP,matrix(data=c("n",10),ncol=2,byrow=TRUE))
-> ##D     ,list(POSTPROCESSING$DENSOPT)
-> ##D     ,list(POSTPROCESSING$WEIGHTTOP,matrix(data=c("n",3),ncol=2,byrow=TRUE))
-> ##D   )
-> ##D )
-> ##D # first POSTPROCESSING$WEIGHTTOP gets ID=1 and second gets ID=2
-> ##D # POSTPROCESSING$DENSOPT uses default parameters
-> ##D dc$select(POSTPROCESSING$WEIGHTTOP,1)  #selects the results of the first WEIGHTTOP
-> ##D dc$select(POSTPROCESSING$WEIGHTTOP,2)  #selects the results of the second WEIGHTTOP
-> ##D dc$select(POSTPROCESSING$NONE)  #selects the main algorithm results
-> ## End(Not run)
-> ## Not run: 
-> ##D parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
-> ##D dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-> ##D postProcess(dc,
-> ##D   list(
-> ##D     list(POSTPROCESSING$WEIGHTTOP,matrix(data=c("n",10),ncol=2,byrow=TRUE))
-> ##D     ,list(POSTPROCESSING$DENSOPT)
-> ##D     ,list(POSTPROCESSING$WEIGHTTOP,matrix(data=c("n",3),ncol=2,byrow=TRUE))
-> ##D   )
-> ##D )
-> ##D # first POSTPROCESSING$WEIGHTTOP gets ID=1 and second gets ID=2
-> ##D # POSTPROCESSING$DENSOPT uses default parameters
-> ##D select(dc,POSTPROCESSING$WEIGHTTOP,1)  #selects the results of the first WEIGHTTOP
-> ##D select(dc,POSTPROCESSING$WEIGHTTOP,2)  #selects the results of the second WEIGHTTOP
-> ##D select(dc,POSTPROCESSING$NONE)  #selects the main algorithm results
-> ## End(Not run)
-> 
-> 
-> 
-> 
+> library(DynComm)
+> parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+>   dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
+>   dc$addRemoveEdges(
++    matrix(
++       c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
++       ,ncol=2)
++   )
+[1] TRUE
+>   dc$postProcess(
++     list(
++  	     list(POSTPROCESSING$DENSOPT)
++   	)
++   )
+Called from: internalRecreatePostProcessing()
+Browse[1]>  dc$select(POSTPROCESSING$DENSOPT)  #selects the results of densopt
+Called from: internalRecreatePostProcessing()
+Browse[3]>  dc$select(POSTPROCESSING$NONE)  #selects the main algorithm results
+[1] TRUE
+Browse[3]> 
+debug: if (cnt[[1]] != POSTPROCESSING$NONE) {
+    b <- TRUE
+} else {
+    return(FALSE)
+}
+Browse[4]>  dc$postProcess(NULL)  #remove post processing
+[1] TRUE
+Browse[4]>  ## or just
+Browse[4]>  ## dc$postProcess()
+Browse[4]> 
+debug: b <- TRUE
+Browse[4]> 
+Error in prc$exists(postProcessing, id) : attempt to apply non-function
+Calls: <Anonymous> -> internalRecreatePostProcessing -> <Anonymous>
+Browse[1]> 
+debug: if (cnt[[1]] != POSTPROCESSING$NONE) {
+    b <- TRUE
+} else {
+    return(FALSE)
+}
+Browse[2]> 
+debug: b <- TRUE
+Browse[2]> 
+[1] TRUE
 > base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 > base::cat("select", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 > cleanEx()
@@ -1102,7 +1137,7 @@ Modularity is implemented for undirected graphs only.
 [1] TRUE
 > 
 > dc$time()
-[1] 3644295
+[1] 3616989
 > 
 > 
 > 
@@ -1214,7 +1249,7 @@ Modularity is implemented for undirected graphs only.
 > cleanEx()
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  1.455 0.004 1.459 0 0 
+Time elapsed:  1.516 0.029 1.544 0 0 
 > grDevices::dev.off()
 null device 
           1 

@@ -742,41 +742,24 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 
 ### ** Examples
 
-## Not run: 
-##D parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
-##D dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-##D dc$postProcess(
-##D   list(
-##D     list(POSTPROCESSING$WEIGHTTOP,matrix(data=c("n",10),ncol=2,byrow=TRUE))
-##D     ,list(POSTPROCESSING$DENSOPT)
-##D     ,list(POSTPROCESSING$WEIGHTTOP,matrix(data=c("n",3),ncol=2,byrow=TRUE))
-##D   )
-##D )
-##D # first POSTPROCESSING$WEIGHTTOP gets ID=1 and second gets ID=2
-##D # POSTPROCESSING$DENSOPT uses default parameters
-##D dc$select(POSTPROCESSING$WEIGHTTOP,1)  #selects the results of the first WEIGHTTOP
-##D dc$select(POSTPROCESSING$WEIGHTTOP,2)  #selects the results of the second WEIGHTTOP
-##D dc$select(POSTPROCESSING$NONE)  #selects the main algorithm results
-##D dc$select(POSTPROCESSING$DENSOPT)  #selects the results of densopt
-##D dc$postProcess(NULL)  #remove post processing
-##D ## or just
-##D ## dc$postProcess()
-## End(Not run)
-## Not run: 
-##D parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
-##D   dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-##D   dc$addRemoveEdges(
-##D    matrix(
-##D       c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
-##D       ,ncol=2)
-##D   )
-##D   dc$postProcess(
-##D     list(list(POSTPROCESSING$DENSOPT))
-##D   )
-##D  
-##D   dc$select(POSTPROCESSING$DENSOPT)  #selects the results of densopt
-##D 
-## End(Not run)
+library(DynComm)
+parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+  dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
+  dc$addRemoveEdges(
+   matrix(
+      c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
+      ,ncol=2)
+  )
+  dc$postProcess(
+    list(
+ 	     list(POSTPROCESSING$DENSOPT)
+  	)
+  )
+ dc$select(POSTPROCESSING$DENSOPT)  #selects the results of densopt
+ dc$select(POSTPROCESSING$NONE)  #selects the main algorithm results
+ dc$postProcess(NULL)  #remove post processing
+ ## or just
+ ## dc$postProcess()
 
 
 
@@ -884,38 +867,26 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 
 ### ** Examples
 
-## Not run: 
-##D parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
-##D dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-##D dc$postProcess(
-##D   list(
-##D     list(POSTPROCESSING$WEIGHTTOP,matrix(data=c("n",10),ncol=2,byrow=TRUE))
-##D     ,list(POSTPROCESSING$DENSOPT)
-##D     ,list(POSTPROCESSING$WEIGHTTOP,matrix(data=c("n",3),ncol=2,byrow=TRUE))
-##D   )
-##D )
-##D # first POSTPROCESSING$WEIGHTTOP gets ID=1 and second gets ID=2
-##D # POSTPROCESSING$DENSOPT uses default parameters
-##D dc$select(POSTPROCESSING$WEIGHTTOP,1)  #selects the results of the first WEIGHTTOP
-##D dc$select(POSTPROCESSING$WEIGHTTOP,2)  #selects the results of the second WEIGHTTOP
-##D dc$select(POSTPROCESSING$NONE)  #selects the main algorithm results
-## End(Not run)
-## Not run: 
-##D parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
-##D dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-##D postProcess(dc,
-##D   list(
-##D     list(POSTPROCESSING$WEIGHTTOP,matrix(data=c("n",10),ncol=2,byrow=TRUE))
-##D     ,list(POSTPROCESSING$DENSOPT)
-##D     ,list(POSTPROCESSING$WEIGHTTOP,matrix(data=c("n",3),ncol=2,byrow=TRUE))
-##D   )
-##D )
-##D # first POSTPROCESSING$WEIGHTTOP gets ID=1 and second gets ID=2
-##D # POSTPROCESSING$DENSOPT uses default parameters
-##D select(dc,POSTPROCESSING$WEIGHTTOP,1)  #selects the results of the first WEIGHTTOP
-##D select(dc,POSTPROCESSING$WEIGHTTOP,2)  #selects the results of the second WEIGHTTOP
-##D select(dc,POSTPROCESSING$NONE)  #selects the main algorithm results
-## End(Not run)
+library(DynComm)
+parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+  dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
+  dc$addRemoveEdges(
+   matrix(
+      c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
+      ,ncol=2)
+  )
+  dc$postProcess(
+    list(
+ 	     list(POSTPROCESSING$DENSOPT)
+  	)
+  )
+ dc$select(POSTPROCESSING$DENSOPT)  #selects the results of densopt
+ dc$select(POSTPROCESSING$NONE)  #selects the main algorithm results
+
+ dc$postProcess(NULL)  #remove post processing
+ ## or just
+ ## dc$postProcess()
+
 
 
 
