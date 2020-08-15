@@ -1307,11 +1307,11 @@ DynComm.results <- function(dyncomm,differential=TRUE){
 #'    c(10,20,10,30,20,30,30,60,40,60,40,50,50,70,60,70)
 #'    ,ncol=2,byrow=TRUE)
 #' )
-#' \dontrun{
-#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
+#'
+#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
 #' #adding edges with the use of a file
-#' dc$addRemoveEdges("graphAddRemoveFile.txt")
-#' }
+#' dc$addRemoveEdges(system.file("extdata","graphAddRemoveFile.txt",package = "DynComm"))
+#' 
 
 DynComm.addRemoveEdges <- function(dyncomm,graphAddRemove){
   return(dyncomm$addRemoveEdges(graphAddRemove))

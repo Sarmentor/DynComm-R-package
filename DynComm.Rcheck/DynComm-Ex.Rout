@@ -152,7 +152,7 @@ code for methods in class “Rcpp_DynCommRcpp” was not checked for suspicious 
 > dc$quality()
 [1] 0.3671875
 > dc$time()
-[1] 1793846
+[1] 1923379
 > ## lets add post processing :)
 > dc$postProcess(
 + list(
@@ -178,7 +178,7 @@ Browse[1]> dc$quality()
 Browse[1]> ## time is now the total time of the main algorithm plus the time of every...
 Browse[1]> ## post processing algorithm up to the one selected
 Browse[1]> dc$time()
-[1] 1793846
+[1] 1923379
 Browse[1]> ## get back to main algorithm results to check they haven't changed
 Browse[1]> dc$select(POSTPROCESSING$NONE)
 [1] TRUE
@@ -194,7 +194,7 @@ Browse[1]> dc$communityMapping(TRUE)
 Browse[1]> dc$quality()
 [1] 0.3671875
 Browse[1]> dc$time()
-[1] 1793846
+[1] 1923379
 Browse[1]> ## add and remove edges. Notice that there is one more column to give...
 Browse[1]> ## weights of zero on the edges to remove. In this case, all other weights...
 Browse[1]> ## are ignored because the graph is set to ignore weights (parameter w is...
@@ -222,7 +222,7 @@ Browse[3]> dc$communityMapping(TRUE)
 Browse[3]> dc$quality()
 [1] 0.003590343
 Browse[3]> dc$time()
-[1] 4555341
+[1] 4858509
 Browse[3]> ## get back to main algorithm results to check them
 Browse[3]> dc$select(POSTPROCESSING$NONE)
 [1] TRUE
@@ -240,7 +240,7 @@ Browse[3]> dc$communityMapping(TRUE)
 Browse[3]> dc$quality()
 [1] 0.003590343
 Browse[3]> dc$time()
-[1] 4555341
+[1] 4858509
 Browse[3]> ## lets reset/remove post processing
 Browse[3]> dc$postProcess()
 [1] TRUE
@@ -439,11 +439,12 @@ Browse[2]>
 +    ,ncol=2,byrow=TRUE)
 + )
 [1] TRUE
-> ## Not run: 
-> ##D dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-> ##D #adding edges with the use of a file
-> ##D dc$addRemoveEdges("graphAddRemoveFile.txt")
-> ## End(Not run)
+> 
+> dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+> #adding edges with the use of a file
+> dc$addRemoveEdges(system.file("extdata","graphAddRemoveFile.txt",package = "DynComm"))
+[1] TRUE
+> 
 > 
 > 
 > 
@@ -1046,7 +1047,7 @@ Browse[2]>
 [1] TRUE
 > dc$results()
      [,1]         [,2]     
-[1,] "time delta" "1693348"
+[1,] "time delta" "1839108"
 > 
 > 
 > 
@@ -1137,7 +1138,7 @@ Browse[2]>
 [1] TRUE
 > 
 > dc$time()
-[1] 3616989
+[1] 3953733
 > 
 > 
 > 
@@ -1249,7 +1250,7 @@ Browse[2]>
 > cleanEx()
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  1.516 0.029 1.544 0 0 
+Time elapsed:  1.613 0.016 1.629 0 0 
 > grDevices::dev.off()
 null device 
           1 
