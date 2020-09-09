@@ -1,5 +1,5 @@
 
-R version 4.0.1 (2020-06-06) -- "See Things Now"
+R version 4.0.2 (2020-06-22) -- "Taking Off Again"
 Copyright (C) 2020 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
@@ -45,8 +45,6 @@ The following object is masked from ‘package:base’:
 
     union
 
-code for methods in class “Rcpp_DynCommRcpp” was not checked for suspicious field assignments (recommended package ‘codetools’ not available?)
-code for methods in class “Rcpp_DynCommRcpp” was not checked for suspicious field assignments (recommended package ‘codetools’ not available?)
 > 
 > base::assign(".oldSearch", base::search(), pos = 'CheckExEnv')
 > base::assign(".old_wd", base::getwd(), pos = 'CheckExEnv')
@@ -152,7 +150,7 @@ code for methods in class “Rcpp_DynCommRcpp” was not checked for suspicious 
 > dc$quality()
 [1] 0.3671875
 > dc$time()
-[1] 1923379
+[1] 1888867
 > ## lets add post processing :)
 > dc$postProcess(
 + list(
@@ -178,7 +176,7 @@ Browse[1]> dc$quality()
 Browse[1]> ## time is now the total time of the main algorithm plus the time of every...
 Browse[1]> ## post processing algorithm up to the one selected
 Browse[1]> dc$time()
-[1] 1923379
+[1] 1888867
 Browse[1]> ## get back to main algorithm results to check they haven't changed
 Browse[1]> dc$select(POSTPROCESSING$NONE)
 [1] TRUE
@@ -194,7 +192,7 @@ Browse[1]> dc$communityMapping(TRUE)
 Browse[1]> dc$quality()
 [1] 0.3671875
 Browse[1]> dc$time()
-[1] 1923379
+[1] 1888867
 Browse[1]> ## add and remove edges. Notice that there is one more column to give...
 Browse[1]> ## weights of zero on the edges to remove. In this case, all other weights...
 Browse[1]> ## are ignored because the graph is set to ignore weights (parameter w is...
@@ -222,7 +220,7 @@ Browse[3]> dc$communityMapping(TRUE)
 Browse[3]> dc$quality()
 [1] 0.003590343
 Browse[3]> dc$time()
-[1] 4858509
+[1] 4810777
 Browse[3]> ## get back to main algorithm results to check them
 Browse[3]> dc$select(POSTPROCESSING$NONE)
 [1] TRUE
@@ -240,7 +238,7 @@ Browse[3]> dc$communityMapping(TRUE)
 Browse[3]> dc$quality()
 [1] 0.003590343
 Browse[3]> dc$time()
-[1] 4858509
+[1] 4810777
 Browse[3]> ## lets reset/remove post processing
 Browse[3]> dc$postProcess()
 [1] TRUE
@@ -1047,7 +1045,7 @@ Browse[2]>
 [1] TRUE
 > dc$results()
      [,1]         [,2]     
-[1,] "time delta" "1839108"
+[1,] "time delta" "1873887"
 > 
 > 
 > 
@@ -1138,7 +1136,7 @@ Browse[2]>
 [1] TRUE
 > 
 > dc$time()
-[1] 3953733
+[1] 3834645
 > 
 > 
 > 
@@ -1250,7 +1248,7 @@ Browse[2]>
 > cleanEx()
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  1.613 0.016 1.629 0 0 
+Time elapsed:  1.583 0.012 1.599 0 0 
 > grDevices::dev.off()
 null device 
           1 

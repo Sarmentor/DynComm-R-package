@@ -123,19 +123,29 @@
 	 * The following code was extracted from assert.h without modification.
 	 */
   #ifdef NDEBUG
-  	/* Version 2.4 and later of GCC define a magical variable `__PRETTY_FUNCTION__'
-  	 which contains the name of the function currently being defined.
-  	 This is broken in G++ before version 2.6.
-  	 C9x has a similar variable called __func__, but prefer the GCC one since
-  	 it demangles C++ function names.  */
-  # if defined __cplusplus ? __GNUC_PREREQ (2, 6) : __GNUC_PREREQ (2, 4)
-  #   define __ASSERT_FUNCTION	__extension__ __PRETTY_FUNCTION__
-  # else
-  #  if defined __STDC_VERSION__ && __STDC_VERSION__ >= 199901L
-  #   define __ASSERT_FUNCTION	__func__
+  // Defines gi__GNUC_PREREQ if glibc's features.h isn't available.
+  # ifndef __GNUC_PREREQ
+  #  if defined(__GNUC__) && defined(__GNUC_MINOR__)
+  #   define __GNUC_PREREQ(maj, min) \
+         ((__GNUC__ << 16) + __GNUC_MINOR__ >= ((maj) << 16) + (min))
   #  else
-  #   define __ASSERT_FUNCTION	((const char *) 0)
+  #   define __GNUC_PREREQ(maj, min) 0
   #  endif
+  # endif
+
+	/* Version 2.4 and later of GCC define a magical variable `__PRETTY_FUNCTION__'
+  	 which contains the name of the function currently being defined.
+  	 "This is broken in G++ before version 2.6."
+  	 C9x has a similar variable called __func__, but prefer the GCC one since
+  	 it demangles C++ function names.
+  	 On Clang, we assume `__PRETTY_FUNCTION__` is always available.
+  	 */
+  # if defined __clang__ || (defined __cplusplus ? __GNUC_PREREQ (2, 6) : __GNUC_PREREQ (2, 4))
+  #	 define __ASSERT_FUNCTION	__extension__ __PRETTY_FUNCTION__
+  # elif defined __STDC_VERSION__ && __STDC_VERSION__ >= 199901L
+  #  define __ASSERT_FUNCTION	__func__
+  # else
+  #  define __ASSERT_FUNCTION	((const char *) 0)
   # endif
   #endif /* NDEBUG.  */
   	
