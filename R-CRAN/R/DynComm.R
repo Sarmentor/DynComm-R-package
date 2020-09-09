@@ -419,6 +419,7 @@ DynComm <- function(Algorithm=ALGORITHM$LOUVAIN,Criterion=CRITERION$MODULARITY,P
       # validate actions list does not contain POSTPROCESSING$NONE
       for (cnt in act) {
         if((!is.null(cnt)) && is.list(cnt) && length(cnt)>0){
+           browser()
             if(cnt[[1]]!=POSTPROCESSING$NONE){
               b<-TRUE
             }
@@ -1064,45 +1065,25 @@ DynComm <- function(Algorithm=ALGORITHM$LOUVAIN,Criterion=CRITERION$MODULARITY,P
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-#' dc$postProcess(
-#'   list(
-#'     list(POSTPROCESSING$WEIGHTTOP,matrix(data=c("n",10),ncol=2,byrow=TRUE))
-#'     ,list(POSTPROCESSING$DENSOPT)
-#'     ,list(POSTPROCESSING$WEIGHTTOP,matrix(data=c("n",3),ncol=2,byrow=TRUE))
+#' library(DynComm)
+#' parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+#'   dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
+#'   dc$addRemoveEdges(
+#'    matrix(
+#'       c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
+#'       ,ncol=2)
 #'   )
-#' )
-#' # first POSTPROCESSING$WEIGHTTOP gets ID=1 and second gets ID=2
-#' # POSTPROCESSING$DENSOPT uses default parameters
-#' dc$select(POSTPROCESSING$WEIGHTTOP,1)  #selects the results of the first WEIGHTTOP
-#' dc$select(POSTPROCESSING$WEIGHTTOP,2)  #selects the results of the second WEIGHTTOP
-#' dc$select(POSTPROCESSING$NONE)  #selects the main algorithm results
-#' dc$select(POSTPROCESSING$DENSOPT)  #selects the results of densopt
-#' dc$postProcess(NULL)  #remove post processing
-#' ## or just
-#' ## dc$postProcess()
-#' }
-#' \dontrun{
-#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-#' postProcess(dc,
-#'   list(
-#'     list(POSTPROCESSING$WEIGHTTOP,matrix(data=c("n",10),ncol=2,byrow=TRUE))
-#'     ,list(POSTPROCESSING$DENSOPT)
-#'     ,list(POSTPROCESSING$WEIGHTTOP,matrix(data=c("n",3),ncol=2,byrow=TRUE))
+#'   dc$postProcess(
+#'     list(
+#'  	     list(POSTPROCESSING$DENSOPT)
+#'   	)
 #'   )
-#' )
-#' # first POSTPROCESSING$WEIGHTTOP gets ID=1 and second gets ID=2
-#' # POSTPROCESSING$DENSOPT uses default parameters
-#' select(dc,POSTPROCESSING$WEIGHTTOP,1)  #selects the results of the first WEIGHTTOP
-#' select(dc,POSTPROCESSING$WEIGHTTOP,2)  #selects the results of the second WEIGHTTOP
-#' select(dc,POSTPROCESSING$NONE)  #selects the main algorithm results
-#' select(dc,POSTPROCESSING$DENSOPT)  #selects the results of densopt
-#' postProcess(dc,NULL)  #remove post processing
-#' ## or just
-#' ## postProcess(dc)
-#' }
-#' 
+#'  dc$select(POSTPROCESSING$DENSOPT)  #selects the results of densopt
+#'  dc$select(POSTPROCESSING$NONE)  #selects the main algorithm results
+#'  dc$postProcess(NULL)  #remove post processing
+#'  ## or just
+#'  ## dc$postProcess()
+#'
 DynComm.postProcess <- function(dyncomm,actions=NULL){
   return(dyncomm$postProcess(actions))
 }
@@ -1154,36 +1135,26 @@ DynComm.postProcess <- function(dyncomm,actions=NULL){
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-#' dc$postProcess(
-#'   list(
-#'     list(POSTPROCESSING$WEIGHTTOP,matrix(data=c("n",10),ncol=2,byrow=TRUE))
-#'     ,list(POSTPROCESSING$DENSOPT)
-#'     ,list(POSTPROCESSING$WEIGHTTOP,matrix(data=c("n",3),ncol=2,byrow=TRUE))
+#' library(DynComm)
+#' parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+#'   dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
+#'   dc$addRemoveEdges(
+#'    matrix(
+#'       c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
+#'       ,ncol=2)
 #'   )
-#' )
-#' # first POSTPROCESSING$WEIGHTTOP gets ID=1 and second gets ID=2
-#' # POSTPROCESSING$DENSOPT uses default parameters
-#' dc$select(POSTPROCESSING$WEIGHTTOP,1)  #selects the results of the first WEIGHTTOP
-#' dc$select(POSTPROCESSING$WEIGHTTOP,2)  #selects the results of the second WEIGHTTOP
-#' dc$select(POSTPROCESSING$NONE)  #selects the main algorithm results
-#' }
-#' \dontrun{
-#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-#' postProcess(dc,
-#'   list(
-#'     list(POSTPROCESSING$WEIGHTTOP,matrix(data=c("n",10),ncol=2,byrow=TRUE))
-#'     ,list(POSTPROCESSING$DENSOPT)
-#'     ,list(POSTPROCESSING$WEIGHTTOP,matrix(data=c("n",3),ncol=2,byrow=TRUE))
+#'   dc$postProcess(
+#'     list(
+#'  	     list(POSTPROCESSING$DENSOPT)
+#'   	)
 #'   )
-#' )
-#' # first POSTPROCESSING$WEIGHTTOP gets ID=1 and second gets ID=2
-#' # POSTPROCESSING$DENSOPT uses default parameters
-#' select(dc,POSTPROCESSING$WEIGHTTOP,1)  #selects the results of the first WEIGHTTOP
-#' select(dc,POSTPROCESSING$WEIGHTTOP,2)  #selects the results of the second WEIGHTTOP
-#' select(dc,POSTPROCESSING$NONE)  #selects the main algorithm results
-#' }
+#'  dc$select(POSTPROCESSING$DENSOPT)  #selects the results of densopt
+#'  dc$select(POSTPROCESSING$NONE)  #selects the main algorithm results
+#' 
+#'  dc$postProcess(NULL)  #remove post processing
+#'  ## or just
+#'  ## dc$postProcess()
+#'
 #' 
 DynComm.select <- function(dyncomm,postProcessing=POSTPROCESSING$NONE, id=1){
   return(dyncomm$select(postProcessing=POSTPROCESSING$NONE, id=1))
@@ -1233,14 +1204,15 @@ DynComm.select <- function(dyncomm,postProcessing=POSTPROCESSING$NONE, id=1){
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
+#' library(DynComm)
+#' Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+#' dc$addRemoveEdges(
+#'  matrix(
+#'    c(10,20,10,30,20,30,30,60,40,60,40,50,50,70,60,70)
+#'    ,ncol=2,byrow=TRUE)
+#' )
 #' dc$results()
-#' }
-#' \dontrun{
-#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-#' results(dc)
-#' }
 #' 
 DynComm.results <- function(dyncomm,differential=TRUE){
   return(dyncomm$results(differential))
@@ -1326,15 +1298,21 @@ DynComm.results <- function(dyncomm,differential=TRUE){
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-#' dc$addRemoveEdges("graphAddRemoveFile.txt")
-#' }
-#' \dontrun{
-#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-#' addRemoveEdges(dc,"graphAddRemoveFile.txt")
-#' }
+#' library(DynComm)
+#' Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+#' #adding edges with the use of a matrix
+#' dc$addRemoveEdges(
+#'  matrix(
+#'    c(10,20,10,30,20,30,30,60,40,60,40,50,50,70,60,70)
+#'    ,ncol=2,byrow=TRUE)
+#' )
+#'
+#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+#' #adding edges with the use of a file
+#' dc$addRemoveEdges(system.file("extdata","graphAddRemoveFile.txt",package = "DynComm"))
 #' 
+
 DynComm.addRemoveEdges <- function(dyncomm,graphAddRemove){
   return(dyncomm$addRemoveEdges(graphAddRemove))
 }
@@ -1377,14 +1355,15 @@ DynComm.add <- function(dyncomm,graphAddRemove){
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
+#' library(DynComm)
+#' Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+#' dc$addRemoveEdges(
+#'  matrix(
+#'    c(10,20,10,30,20,30,30,60,40,60,40,50,50,70,60,70)
+#'    ,ncol=2,byrow=TRUE)
+#' )
 #' dc$quality()
-#'}
-#' \dontrun{
-#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-#' quality(dc)
-#'}
 #'
 DynComm.quality <- function(dyncomm){
   return(dyncomm$quality())
@@ -1424,14 +1403,18 @@ DynComm.quality <- function(dyncomm){
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
+#' library(DynComm)
+#' 
+#' Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+#' dc$addRemoveEdges(
+#'  matrix(
+#'    c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
+#'       ,ncol=2)
+#' )
+#' 
+#' dc$communities()
 #' dc$communityCount()
-#'}
-#' \dontrun{
-#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-#' communityCount(dc)
-#'}
 #'
 DynComm.communityCount <- function(dyncomm){
   return(dyncomm$communityCount())
@@ -1469,14 +1452,17 @@ DynComm.communityCount <- function(dyncomm){
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
+#' library(DynComm)
+#' 
+#' Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+#' dc$addRemoveEdges(
+#'  matrix(
+#'    c(10,20,10,30,20,30,30,60,40,60,40,50,50,70,60,70)
+#'    ,ncol=2,byrow=TRUE)
+#' )
+#' 
 #' dc$communities()
-#'}
-#' \dontrun{
-#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-#' communities(dc)
-#'}
 #'
 DynComm.communities = function(dyncomm){
   return(dyncomm$communities())
@@ -1515,14 +1501,18 @@ DynComm.communities = function(dyncomm){
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
+#' library(DynComm)
+#' 
+#' Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+#' dc$addRemoveEdges(
+#'  matrix(
+#'    c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
+#'       ,ncol=2)
+#' )
+#' 
+#' dc$communities()
 #' dc$communitiesEdgeCount()
-#'}
-#' \dontrun{
-#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-#' communitiesEdgeCount(dc)
-#'}
 #'
 DynComm.communitiesEdgeCount=function(dyncomm) {
   return(dyncomm$communitiesEdgeCount())
@@ -1568,14 +1558,18 @@ DynComm.communitiesEdgeCount=function(dyncomm) {
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-#' dc$communityNeighbours(community)
-#'}
-#' \dontrun{
-#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-#' communityNeighbours(dc,community)
-#'}
+#' library(DynComm)
+#' 
+#' Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+#' dc$addRemoveEdges(
+#'  matrix(
+#'    c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
+#'       ,ncol=2)
+#' ) 
+#' 
+#' dc$communities()
+#' dc$communityNeighbours(12)
 #'
 DynComm.communityNeighbours <- function(dyncomm,community){
   return(dyncomm$communityNeighbours(community))
@@ -1616,14 +1610,18 @@ DynComm.communityNeighbours <- function(dyncomm,community){
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
+#' library(DynComm)
+#' 
+#' Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+#' dc$addRemoveEdges(
+#'  matrix(
+#'    c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
+#'       ,ncol=2)
+#' )
+#' dc$communities()
 #' dc$communityInnerEdgesWeight(1)
-#'}
-#' \dontrun{
-#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-#' communityInnerEdgesWeight(dc,1)
-#'}
+#' dc$communityInnerEdgesWeight(0)
 #'
 DynComm.communityInnerEdgesWeight <- function(dyncomm,community){
   return(dyncomm$communityInnerEdgesWeight(community))
@@ -1663,14 +1661,19 @@ DynComm.communityInnerEdgesWeight <- function(dyncomm,community){
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
+#' library(DynComm)
+#' 
+#' Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+#' dc$addRemoveEdges(
+#'  matrix(
+#'    c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
+#'       ,ncol=2)
+#' )
+#' 
+#' dc$communities()
 #' dc$communityTotalWeight(1)
-#'}
-#' \dontrun{
-#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-#' communityTotalWeight(dc,1)
-#'}
+#' dc$communityTotalWeight(12)
 #'
 DynComm.communityTotalWeight <- function(dyncomm,community){
   return(dyncomm$communityTotalWeight(community))
@@ -1714,14 +1717,18 @@ DynComm.communityTotalWeight <- function(dyncomm,community){
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-#' dc$communityEdgeWeight(12,42)
-#'}
-#' \dontrun{
-#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-#' communityEdgeWeight(dc,12,42)
-#'}
+#' library(DynComm)
+#' 
+#' Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+#' dc$addRemoveEdges(
+#'  matrix(
+#'    c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
+#'       ,ncol=2)
+#' )
+#' 
+#' dc$communities()
+#' dc$communityEdgeWeight(0,12)
 #'
 DynComm.communityEdgeWeight <- function(dyncomm,source,destination){
   return(dyncomm$communityEdgeWeight(source,destination))
@@ -1767,14 +1774,18 @@ DynComm.communityEdgeWeight <- function(dyncomm,source,destination){
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-#' dc$communityVertexCount(3)
-#'}
-#' \dontrun{
-#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-#' communityVertexCount(dc,3)
-#'}
+#' library(DynComm)
+#' 
+#' Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+#' dc$addRemoveEdges(
+#'  matrix(
+#'    c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
+#'       ,ncol=2)
+#' )
+#' 
+#' dc$communities()
+#' dc$communityVertexCount(12)
 #'
 DynComm.communityVertexCount <- function(dyncomm,community){
   return(dyncomm$communityVertexCount())
@@ -1817,14 +1828,18 @@ DynComm.communityNodeCount <- function(dyncomm,community){
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-#' dc$community(8)
-#'}
-#' \dontrun{
-#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-#' community(dc,8)
-#'}
+#' library(DynComm)
+#' 
+#' Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+#' dc$addRemoveEdges(
+#'  matrix(
+#'    c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
+#'       ,ncol=2)
+#' )
+#' 
+#' dc$communities()
+#' dc$community(1)
 #'
 DynComm.community <- function(dyncomm,vertex){
   return(dyncomm$community(vertex))
@@ -1873,14 +1888,18 @@ DynComm.community <- function(dyncomm,vertex){
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-#' dc$vertexCount()
-#'}
-#' \dontrun{
-#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-#' vertexCount(dc)
-#'}
+#' library(DynComm)
+#' 
+#' Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+#' dc$addRemoveEdges(
+#'  matrix(
+#'    c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
+#'       ,ncol=2)
+#' )
+#' 
+#' dc$communities()
+#' dc$communityVertexCount(12)
 #'
 DynComm.vertexCount <- function(dyncomm){
   return(dyncomm$vertexCount())
@@ -1927,14 +1946,17 @@ DynComm.nodesCount <- function(dyncomm){
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
+#' library(DynComm)
+#' 
+#' Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+#' dc$addRemoveEdges(
+#'  matrix(
+#'    c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
+#'       ,ncol=2)
+#' )
+#' 
 #' dc$verticesAll()
-#'}
-#' \dontrun{
-#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-#' verticesAll(dc)
-#'}
 #'
 DynComm.verticesAll <- function(dyncomm){
   return(dyncomm$verticesAll())
@@ -1976,14 +1998,17 @@ DynComm.nodesAll <- function(dyncomm){
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
+#' library(DynComm)
+#' 
+#' Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+#' dc$addRemoveEdges(
+#'  matrix(
+#'    c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
+#'       ,ncol=2)
+#' )
+#' 
 #' dc$edgeCount()
-#'}
-#' \dontrun{
-#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-#' edgeCount(dc)
-#'}
 #'
 DynComm.edgeCount=function(dyncomm) {
   return(dyncomm$edgeCount())
@@ -2025,14 +2050,17 @@ DynComm.edgeCount=function(dyncomm) {
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-#' dc$neighbours(vertex)
-#'}
-#' \dontrun{
-#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-#' neighbours(dc,vertex)
-#'}
+#' library(DynComm)
+#' 
+#' Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+#' dc$addRemoveEdges(
+#'  matrix(
+#'    c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
+#'       ,ncol=2)
+#' )
+#' 
+#' dc$neighbours(2)
 #'
 DynComm.neighbours <- function(dyncomm,vertex){
   return(dyncomm$neighbours(vertex))
@@ -2075,14 +2103,17 @@ DynComm.neighbours <- function(dyncomm,vertex){
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-#' dc$edgeWeight(12,42)
-#'}
-#' \dontrun{
-#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-#' edgeWeight(dc,12,42)
-#'}
+#' library(DynComm)
+#' 
+#' Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+#' dc$addRemoveEdges(
+#'  matrix(
+#'    c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
+#'       ,ncol=2)
+#' )
+#' 
+#' dc$edgeWeight(0,2)
 #'
 DynComm.edgeWeight <- function(dyncomm,source,destination){
   return(dyncomm$edgeWeight(source,destination))
@@ -2128,14 +2159,18 @@ DynComm.edgeWeight <- function(dyncomm,source,destination){
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-#' dc$vertices(6)
-#'}
-#' \dontrun{
-#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-#' vertices(dc,6)
-#'}
+#' library(DynComm)
+#' 
+#' Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+#' dc$addRemoveEdges(
+#'  matrix(
+#'    c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
+#'       ,ncol=2)
+#' )
+#' 
+#' dc$communities()
+#' dc$vertices(12)
 #'
 DynComm.vertices <- function(dyncomm,community){
   return(dyncomm$vertices(community))
@@ -2195,14 +2230,18 @@ DynComm.nodes <- function(dyncomm,community){
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
+#' library(DynComm)
+#' 
+#' Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+#' dc$addRemoveEdges(
+#'  matrix(
+#'    c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
+#'       ,ncol=2)
+#' )
+#' 
+#' dc$communities()
 #' dc$communityMapping()
-#'}
-#' \dontrun{
-#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-#' communityMapping(dc)
-#'}
 #'
 DynComm.communityMapping <- function(dyncomm,differential=TRUE, file=""){
   return(dyncomm$communityMapping(differential,file))
@@ -2252,16 +2291,17 @@ DynComm.communityMapping <- function(dyncomm,differential=TRUE, file=""){
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
+#' library(DynComm)
+#' 
+#' Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+#' dc$addRemoveEdges(
+#'  matrix(
+#'    c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
+#'       ,ncol=2)
+#' )
+#' 
 #' dc$time()
-#' ## 2.3
-#' }
-#' \dontrun{
-#' dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-#' time(dc)
-#' ## 2.3
-#' }
 #' 
 DynComm.time <- function(dyncomm,differential=FALSE){
   return(dyncomm$time(differential))

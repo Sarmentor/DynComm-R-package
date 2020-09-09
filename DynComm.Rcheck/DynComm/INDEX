@@ -1,0 +1,40 @@
+ALGORITHM               List of available algorithms.
+ALGORITHM-dev           DynComm Documentation for Developers of new
+                        Main Algorithms
+ALGORITHM_LOUVAIN       ALGORITHM_LOUVAIN
+CRITERION               List of available CRITERION (quality
+                        measurement functions).
+CRITERION-dev           DynComm Documentation for Developers of new
+                        Criterion for Main Algorithms
+CRITERION_MODULARITY    CRITERION_MODULARITY
+DynComm                 DynComm
+DynComm-package         DynComm: Dynamic Network Communities Detection
+DynComm-package-dev     DynComm Documentation for Developers
+POSTPROCESSING          List of available post processing algorithms.
+POSTPROCESSING-dev      DynComm Documentation for Developers of new
+                        Post Processing Algorithms
+POSTPROCESSING_DENSOPT
+                        POSTPROCESSING_DENSOPT
+addRemoveEdges          addRemoveEdges(graphAddRemove)
+communities             communities()
+communitiesEdgeCount    communitiesEdgeCount()
+community               community(vertex)
+communityCount          communityCount()
+communityEdgeWeight     communityEdgeWeight(source,destination)
+communityInnerEdgesWeight
+                        communityInnerEdgesWeight(community)
+communityMapping        communityMapping(differential, file)
+communityNeighbours     communityNeighbours(community)
+communityTotalWeight    communityTotalWeight(community)
+communityVertexCount    communityVertexCount(community)
+edgeCount               edgeCount()
+edgeWeight              edgeWeight(source,destination)
+neighbours              neighbours(vertex)
+postProcess             postProcess(actions)
+quality                 quality()
+results                 results(differential)
+select                  select(postProcessing, id)
+time                    time(differential=FALSE)
+vertexCount             vertexCount()
+vertices                vertices(community)
+verticesAll             verticesAll()

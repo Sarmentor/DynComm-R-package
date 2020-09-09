@@ -1,0 +1,827 @@
+Hmm ... looks like a package
+
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+LaTeX2e <2020-02-02> patch level 2
+L3 programming layer <2020-02-14>
+(./Rd2.tex
+(/usr/share/texlive/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2019/12/20 v1.4l Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/bk10.clo))
+(/usr/share/R/share/texmf/tex/latex/Rd.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/longtable.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/bm.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/alltt.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/verbatim.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/times.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/inconsolata/zi4.sty
+`inconsolata-zi4' v1.12, 2019/05/17 Text macros for Inconsolata (msharpe)
+(/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/keyval.tex)))))
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def))
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/share/texlive/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/pdftexcmds/pdftexcmds.sty
+(/usr/share/texlive/texmf-dist/tex/generic/infwarerr/infwarerr.sty))
+(/usr/share/texlive/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/pdfescape/pdfescape.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hycolor/hycolor.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/auxhook/auxhook.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/usr/share/texlive/texmf-dist/tex/generic/intcalc/intcalc.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/etexcmds/etexcmds.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/bitset/bitset.sty
+(/usr/share/texlive/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty))
+(/usr/share/texlive/texmf-dist/tex/generic/atbegshi/atbegshi.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
+(/usr/share/texlive/texmf-dist/tex/latex/atveryend/atveryend.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+(/usr/share/texlive/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty)))
+
+Package hyperref Warning: Option `hyperindex' has already been used,
+(hyperref)                setting the option has no effect on input line 377.
+
+
+Package hyperref Warning: Option `pagebackref' has already been used,
+(hyperref)                setting the option has no effect on input line 377.
+
+) (/usr/share/texlive/texmf-dist/tex/latex/base/makeidx.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty)
+Writing index file Rd2.idx
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def)
+No file Rd2.aux.
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd)
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/inconsolata/t1zi4.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1phv.fd) [1{/var/lib/texmf/fon
+ts/map/pdftex/updmap/pdftex.map}]
+Overfull \hbox (11.3497pt too wide) in paragraph at lines 77--93
+\T1/ptm/m/n/10 ISSN 0885-6125, doi: [][]10.1007/s10994-016-5582-8[][], [][]$\T1
+/zi4/m/n/10 https : / / doi . org / 10 . 1007 / s10994-[]016-[]5582-[]8$[][]\T1
+/ptm/m/n/10 .
+
+Overfull \hbox (20.69966pt too wide) in paragraph at lines 77--93
+\T1/zi4/m/n/10 6 / 893 / 3925036 ? guestAccessKey = c3470adf-[]391d-[]4fad-[]b9
+35-[]63e71e4df06a$[][]\T1/ptm/m/n/10 . Sar-mento RP (2019).
+[2] [3] [4] [5] [6] [7] [8]
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 518--518
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+[9]
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 571--571
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 622--622
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+[10] [11]
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 679--679
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+[12]
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 733--733
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+[13]
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 804--804
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+[14]
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 864--864
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+[15]
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 917--917
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+[16]
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 973--973
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+[17] [18] [19] [20]
+Overfull \hbox (22.91801pt too wide) in paragraph at lines 1314--1315
+[]\T1/ptm/m/n/10 Alias for com-mu-ni-tyVer-tex-Count(). See [][]\T1/zi4/m/n/10 
+communityVertexCount[][][] 
+[21] [22] (/usr/share/texlive/texmf-dist/tex/latex/inconsolata/ts1zi4.fd)
+[23]
+Overfull \hbox (4.29733pt too wide) in paragraph at lines 1522--1524
+[]\T1/ptm/m/n/10 Contains a file named "REF-ER-ENCES.bib" where bib-li-o-graphi
+c ref-er-ences are stored
+[24] [25]
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 1640--1640
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+[26]
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 1695--1695
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+[27]
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 1749--1749
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+
+Overfull \hbox (17.32692pt too wide) in paragraph at lines 1790--1795
+[]\T1/ptm/m/n/10 The for-mat of the ac-tions is a list of ac-tion. Each ac-tion
+ is a list of the ac-tion name (see [][]\T1/zi4/m/n/10 POSTPROCESSING[][][]\T1/
+ptm/m/n/10 )
+[28]
+Overfull \hbox (32.26248pt too wide) in paragraph at lines 1823--1823
+ []      \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,
+2,18,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+
+Overfull \hbox (6.92616pt too wide) in paragraph at lines 1860--1867
+\T1/ptm/m/n/10 @ref-er-ences Sar-mento RP (2019). ``Density-based Com-mu-nity D
+e-tec-tion/Optimization.'' \T1/ptm/m/it/10 arXiv\T1/ptm/m/n/10 .
+[29] [30] [31] [32] [33]
+Overfull \hbox (7.16821pt too wide) in paragraph at lines 2179--2181
+[]\T1/ptm/m/n/10 The name of the post pro-cess-ing al-go-rithm. De-fault POST-P
+RO-CESS-ING$NONE.
+[34]
+Overfull \hbox (32.26248pt too wide) in paragraph at lines 2217--2217
+ []      \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,
+2,18,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+[35]
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 2288--2288
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+[36]
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 2346--2346
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+[37]
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 2401--2401
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+[38]
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 2454--2454
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+No file Rd2.ind.
+[39] (/tmp/RtmpaNTkvx/Rd2pdf365042243561/Rd2.aux)
+
+Package rerunfilecheck Warning: File `Rd2.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+ )
+(see the transcript file for additional information)pdfTeX warning (dest): name
+{Rfn.postProcessDensOpt} has been referenced but does not exist, replaced by a 
+fixed one
+
+pdfTeX warning (dest): name{Rfn.version} has been referenced but does not exist
+, replaced by a fixed one
+
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-ts1.enc}{/usr/sha
+re/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texlive/texmf-dis
+t/fonts/enc/dvips/inconsolata/i4-t1-0.enc}</usr/share/texlive/texmf-dist/fonts/
+type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/ur
+w/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on Rd2.pdf (39 pages, 159331 bytes).
+Transcript written on Rd2.log.
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+LaTeX2e <2020-02-02> patch level 2
+L3 programming layer <2020-02-14>
+(./Rd2.tex
+(/usr/share/texlive/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2019/12/20 v1.4l Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/bk10.clo))
+(/usr/share/R/share/texmf/tex/latex/Rd.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/longtable.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/bm.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/alltt.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/verbatim.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/times.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/inconsolata/zi4.sty
+`inconsolata-zi4' v1.12, 2019/05/17 Text macros for Inconsolata (msharpe)
+(/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/keyval.tex)))))
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def))
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/share/texlive/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/pdftexcmds/pdftexcmds.sty
+(/usr/share/texlive/texmf-dist/tex/generic/infwarerr/infwarerr.sty))
+(/usr/share/texlive/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/pdfescape/pdfescape.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hycolor/hycolor.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/auxhook/auxhook.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/usr/share/texlive/texmf-dist/tex/generic/intcalc/intcalc.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/etexcmds/etexcmds.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/bitset/bitset.sty
+(/usr/share/texlive/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty))
+(/usr/share/texlive/texmf-dist/tex/generic/atbegshi/atbegshi.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
+(/usr/share/texlive/texmf-dist/tex/latex/atveryend/atveryend.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+(/usr/share/texlive/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty)))
+
+Package hyperref Warning: Option `hyperindex' has already been used,
+(hyperref)                setting the option has no effect on input line 377.
+
+
+Package hyperref Warning: Option `pagebackref' has already been used,
+(hyperref)                setting the option has no effect on input line 377.
+
+) (/usr/share/texlive/texmf-dist/tex/latex/base/makeidx.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty)
+Writing index file Rd2.idx
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def)
+(/tmp/RtmpaNTkvx/Rd2pdf365042243561/Rd2.aux)
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd)
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty))
+(/tmp/RtmpaNTkvx/Rd2pdf365042243561/Rd2.out)
+(/tmp/RtmpaNTkvx/Rd2pdf365042243561/Rd2.out)
+(/usr/share/texlive/texmf-dist/tex/latex/inconsolata/t1zi4.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1phv.fd)
+(/tmp/RtmpaNTkvx/Rd2pdf365042243561/Rd2.toc [1{/var/lib/texmf/fonts/map/pdftex/
+updmap/pdftex.map}]) [2]
+Overfull \hbox (11.3497pt too wide) in paragraph at lines 77--93
+\T1/ptm/m/n/10 ISSN 0885-6125, doi: [][]10.1007/s10994-016-5582-8[][], [][]$\T1
+/zi4/m/n/10 https : / / doi . org / 10 . 1007 / s10994-[]016-[]5582-[]8$[][]\T1
+/ptm/m/n/10 .
+
+Overfull \hbox (20.69966pt too wide) in paragraph at lines 77--93
+\T1/zi4/m/n/10 6 / 893 / 3925036 ? guestAccessKey = c3470adf-[]391d-[]4fad-[]b9
+35-[]63e71e4df06a$[][]\T1/ptm/m/n/10 . Sar-mento RP (2019).
+[3] [4] [5] [6] [7] [8] [9]
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 518--518
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+[10]
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 571--571
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 622--622
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+[11] [12]
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 679--679
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+[13]
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 733--733
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+[14]
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 804--804
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+[15]
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 864--864
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+[16]
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 917--917
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+[17]
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 973--973
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+[18] [19] [20] [21]
+Overfull \hbox (22.91801pt too wide) in paragraph at lines 1314--1315
+[]\T1/ptm/m/n/10 Alias for com-mu-ni-tyVer-tex-Count(). See [][]\T1/zi4/m/n/10 
+communityVertexCount[][][] 
+[22] [23] (/usr/share/texlive/texmf-dist/tex/latex/inconsolata/ts1zi4.fd)
+[24]
+Overfull \hbox (4.29733pt too wide) in paragraph at lines 1522--1524
+[]\T1/ptm/m/n/10 Contains a file named "REF-ER-ENCES.bib" where bib-li-o-graphi
+c ref-er-ences are stored
+[25] [26]
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 1640--1640
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+[27]
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 1695--1695
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+[28]
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 1749--1749
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+
+Overfull \hbox (17.32692pt too wide) in paragraph at lines 1790--1795
+[]\T1/ptm/m/n/10 The for-mat of the ac-tions is a list of ac-tion. Each ac-tion
+ is a list of the ac-tion name (see [][]\T1/zi4/m/n/10 POSTPROCESSING[][][]\T1/
+ptm/m/n/10 )
+[29]
+Overfull \hbox (32.26248pt too wide) in paragraph at lines 1823--1823
+ []      \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,
+2,18,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+
+Overfull \hbox (6.92616pt too wide) in paragraph at lines 1860--1867
+\T1/ptm/m/n/10 @ref-er-ences Sar-mento RP (2019). ``Density-based Com-mu-nity D
+e-tec-tion/Optimization.'' \T1/ptm/m/it/10 arXiv\T1/ptm/m/n/10 .
+[30] [31] [32] [33] [34]
+Overfull \hbox (7.16821pt too wide) in paragraph at lines 2179--2181
+[]\T1/ptm/m/n/10 The name of the post pro-cess-ing al-go-rithm. De-fault POST-P
+RO-CESS-ING$NONE.
+[35]
+Overfull \hbox (32.26248pt too wide) in paragraph at lines 2217--2217
+ []      \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,
+2,18,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+[36]
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 2288--2288
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+[37]
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 2346--2346
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+[38]
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 2401--2401
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+[39]
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 2454--2454
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+No file Rd2.ind.
+[40] (/tmp/RtmpaNTkvx/Rd2pdf365042243561/Rd2.aux) )
+(see the transcript file for additional information)pdfTeX warning (dest): name
+{Rfn.postProcessDensOpt} has been referenced but does not exist, replaced by a 
+fixed one
+
+pdfTeX warning (dest): name{Rfn.version} has been referenced but does not exist
+, replaced by a fixed one
+
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-ts1.enc}{/usr/sha
+re/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texlive/texmf-dis
+t/fonts/enc/dvips/inconsolata/i4-t1-0.enc}</usr/share/texlive/texmf-dist/fonts/
+type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/ur
+w/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on Rd2.pdf (40 pages, 163312 bytes).
+Transcript written on Rd2.log.
+This is makeindex, version 2.15 [TeX Live 2019] (kpathsea + Thai support).
+Scanning input file Rd2.idx....done (170 entries accepted, 9 rejected).
+Sorting entries....done (1292 comparisons).
+Generating output file Rd2.ind....done (180 lines written, 1 warning).
+Output written in Rd2.ind.
+Transcript written in Rd2.ilg.
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+LaTeX2e <2020-02-02> patch level 2
+L3 programming layer <2020-02-14>
+(./Rd2.tex
+(/usr/share/texlive/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2019/12/20 v1.4l Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/bk10.clo))
+(/usr/share/R/share/texmf/tex/latex/Rd.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/longtable.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/bm.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/alltt.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/verbatim.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/times.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/inconsolata/zi4.sty
+`inconsolata-zi4' v1.12, 2019/05/17 Text macros for Inconsolata (msharpe)
+(/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/keyval.tex)))))
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def))
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/share/texlive/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/pdftexcmds/pdftexcmds.sty
+(/usr/share/texlive/texmf-dist/tex/generic/infwarerr/infwarerr.sty))
+(/usr/share/texlive/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/pdfescape/pdfescape.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hycolor/hycolor.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/auxhook/auxhook.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/usr/share/texlive/texmf-dist/tex/generic/intcalc/intcalc.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/etexcmds/etexcmds.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/bitset/bitset.sty
+(/usr/share/texlive/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty))
+(/usr/share/texlive/texmf-dist/tex/generic/atbegshi/atbegshi.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
+(/usr/share/texlive/texmf-dist/tex/latex/atveryend/atveryend.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+(/usr/share/texlive/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty)))
+
+Package hyperref Warning: Option `hyperindex' has already been used,
+(hyperref)                setting the option has no effect on input line 377.
+
+
+Package hyperref Warning: Option `pagebackref' has already been used,
+(hyperref)                setting the option has no effect on input line 377.
+
+) (/usr/share/texlive/texmf-dist/tex/latex/base/makeidx.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty)
+Writing index file Rd2.idx
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def)
+(/tmp/RtmpaNTkvx/Rd2pdf365042243561/Rd2.aux)
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd)
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty))
+(/tmp/RtmpaNTkvx/Rd2pdf365042243561/Rd2.out)
+(/tmp/RtmpaNTkvx/Rd2pdf365042243561/Rd2.out)
+(/usr/share/texlive/texmf-dist/tex/latex/inconsolata/t1zi4.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1phv.fd)
+(/tmp/RtmpaNTkvx/Rd2pdf365042243561/Rd2.toc [1{/var/lib/texmf/fonts/map/pdftex/
+updmap/pdftex.map}]) [2]
+Overfull \hbox (11.3497pt too wide) in paragraph at lines 77--93
+\T1/ptm/m/n/10 ISSN 0885-6125, doi: [][]10.1007/s10994-016-5582-8[][], [][]$\T1
+/zi4/m/n/10 https : / / doi . org / 10 . 1007 / s10994-[]016-[]5582-[]8$[][]\T1
+/ptm/m/n/10 .
+
+Overfull \hbox (20.69966pt too wide) in paragraph at lines 77--93
+\T1/zi4/m/n/10 6 / 893 / 3925036 ? guestAccessKey = c3470adf-[]391d-[]4fad-[]b9
+35-[]63e71e4df06a$[][]\T1/ptm/m/n/10 . Sar-mento RP (2019).
+[3] [4] [5] [6] [7] [8] [9]
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 518--518
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+[10]
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 571--571
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 622--622
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+[11] [12]
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 679--679
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+[13]
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 733--733
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+[14]
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 804--804
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+[15]
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 864--864
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+[16]
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 917--917
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+[17]
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 973--973
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+[18] [19] [20] [21]
+Overfull \hbox (22.91801pt too wide) in paragraph at lines 1314--1315
+[]\T1/ptm/m/n/10 Alias for com-mu-ni-tyVer-tex-Count(). See [][]\T1/zi4/m/n/10 
+communityVertexCount[][][] 
+[22] [23] (/usr/share/texlive/texmf-dist/tex/latex/inconsolata/ts1zi4.fd)
+[24]
+Overfull \hbox (4.29733pt too wide) in paragraph at lines 1522--1524
+[]\T1/ptm/m/n/10 Contains a file named "REF-ER-ENCES.bib" where bib-li-o-graphi
+c ref-er-ences are stored
+[25] [26]
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 1640--1640
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+[27]
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 1695--1695
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+[28]
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 1749--1749
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+
+Overfull \hbox (17.32692pt too wide) in paragraph at lines 1790--1795
+[]\T1/ptm/m/n/10 The for-mat of the ac-tions is a list of ac-tion. Each ac-tion
+ is a list of the ac-tion name (see [][]\T1/zi4/m/n/10 POSTPROCESSING[][][]\T1/
+ptm/m/n/10 )
+[29]
+Overfull \hbox (32.26248pt too wide) in paragraph at lines 1823--1823
+ []      \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,
+2,18,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+
+Overfull \hbox (6.92616pt too wide) in paragraph at lines 1860--1867
+\T1/ptm/m/n/10 @ref-er-ences Sar-mento RP (2019). ``Density-based Com-mu-nity D
+e-tec-tion/Optimization.'' \T1/ptm/m/it/10 arXiv\T1/ptm/m/n/10 .
+[30] [31] [32] [33] [34]
+Overfull \hbox (7.16821pt too wide) in paragraph at lines 2179--2181
+[]\T1/ptm/m/n/10 The name of the post pro-cess-ing al-go-rithm. De-fault POST-P
+RO-CESS-ING$NONE.
+[35]
+Overfull \hbox (32.26248pt too wide) in paragraph at lines 2217--2217
+ []      \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,
+2,18,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+[36]
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 2288--2288
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+[37]
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 2346--2346
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+[38]
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 2401--2401
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+[39]
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 2454--2454
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+(/tmp/RtmpaNTkvx/Rd2pdf365042243561/Rd2.ind [40]
+
+LaTeX Font Warning: Font shape `T1/zi4/m/it' undefined
+(Font)              using `T1/zi4/m/n' instead on input line 14.
+
+[41] [42]) (/tmp/RtmpaNTkvx/Rd2pdf365042243561/Rd2.aux)
+
+Package rerunfilecheck Warning: File `Rd2.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+ )
+(see the transcript file for additional information)pdfTeX warning (dest): name
+{Rfn.postProcessDensOpt} has been referenced but does not exist, replaced by a 
+fixed one
+
+pdfTeX warning (dest): name{Rfn.version} has been referenced but does not exist
+, replaced by a fixed one
+
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-ts1.enc}{/usr/sha
+re/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texlive/texmf-dis
+t/fonts/enc/dvips/inconsolata/i4-t1-0.enc}</usr/share/texlive/texmf-dist/fonts/
+type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/time
+s/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on Rd2.pdf (42 pages, 178251 bytes).
+Transcript written on Rd2.log.
+This is makeindex, version 2.15 [TeX Live 2019] (kpathsea + Thai support).
+Scanning input file Rd2.idx....done (170 entries accepted, 9 rejected).
+Sorting entries....done (1292 comparisons).
+Generating output file Rd2.ind....done (180 lines written, 1 warning).
+Output written in Rd2.ind.
+Transcript written in Rd2.ilg.
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+LaTeX2e <2020-02-02> patch level 2
+L3 programming layer <2020-02-14>
+(./Rd2.tex
+(/usr/share/texlive/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2019/12/20 v1.4l Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/bk10.clo))
+(/usr/share/R/share/texmf/tex/latex/Rd.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/longtable.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/bm.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/alltt.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/verbatim.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/times.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/inconsolata/zi4.sty
+`inconsolata-zi4' v1.12, 2019/05/17 Text macros for Inconsolata (msharpe)
+(/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/keyval.tex)))))
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def))
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/share/texlive/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/pdftexcmds/pdftexcmds.sty
+(/usr/share/texlive/texmf-dist/tex/generic/infwarerr/infwarerr.sty))
+(/usr/share/texlive/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/pdfescape/pdfescape.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hycolor/hycolor.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/auxhook/auxhook.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/usr/share/texlive/texmf-dist/tex/generic/intcalc/intcalc.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/etexcmds/etexcmds.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/bitset/bitset.sty
+(/usr/share/texlive/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty))
+(/usr/share/texlive/texmf-dist/tex/generic/atbegshi/atbegshi.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
+(/usr/share/texlive/texmf-dist/tex/latex/atveryend/atveryend.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+(/usr/share/texlive/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty)))
+
+Package hyperref Warning: Option `hyperindex' has already been used,
+(hyperref)                setting the option has no effect on input line 377.
+
+
+Package hyperref Warning: Option `pagebackref' has already been used,
+(hyperref)                setting the option has no effect on input line 377.
+
+) (/usr/share/texlive/texmf-dist/tex/latex/base/makeidx.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty)
+Writing index file Rd2.idx
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def)
+(/tmp/RtmpaNTkvx/Rd2pdf365042243561/Rd2.aux)
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd)
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty))
+(/tmp/RtmpaNTkvx/Rd2pdf365042243561/Rd2.out)
+(/tmp/RtmpaNTkvx/Rd2pdf365042243561/Rd2.out)
+(/usr/share/texlive/texmf-dist/tex/latex/inconsolata/t1zi4.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1phv.fd)
+(/tmp/RtmpaNTkvx/Rd2pdf365042243561/Rd2.toc [1{/var/lib/texmf/fonts/map/pdftex/
+updmap/pdftex.map}]) [2]
+Overfull \hbox (11.3497pt too wide) in paragraph at lines 77--93
+\T1/ptm/m/n/10 ISSN 0885-6125, doi: [][]10.1007/s10994-016-5582-8[][], [][]$\T1
+/zi4/m/n/10 https : / / doi . org / 10 . 1007 / s10994-[]016-[]5582-[]8$[][]\T1
+/ptm/m/n/10 .
+
+Overfull \hbox (20.69966pt too wide) in paragraph at lines 77--93
+\T1/zi4/m/n/10 6 / 893 / 3925036 ? guestAccessKey = c3470adf-[]391d-[]4fad-[]b9
+35-[]63e71e4df06a$[][]\T1/ptm/m/n/10 . Sar-mento RP (2019).
+[3] [4] [5] [6] [7] [8] [9]
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 518--518
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+[10]
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 571--571
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 622--622
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+[11] [12]
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 679--679
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+[13]
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 733--733
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+[14]
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 804--804
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+[15]
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 864--864
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+[16]
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 917--917
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+[17]
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 973--973
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+[18] [19] [20] [21]
+Overfull \hbox (22.91801pt too wide) in paragraph at lines 1314--1315
+[]\T1/ptm/m/n/10 Alias for com-mu-ni-tyVer-tex-Count(). See [][]\T1/zi4/m/n/10 
+communityVertexCount[][][] 
+[22] [23] (/usr/share/texlive/texmf-dist/tex/latex/inconsolata/ts1zi4.fd)
+[24]
+Overfull \hbox (4.29733pt too wide) in paragraph at lines 1522--1524
+[]\T1/ptm/m/n/10 Contains a file named "REF-ER-ENCES.bib" where bib-li-o-graphi
+c ref-er-ences are stored
+[25] [26]
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 1640--1640
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+[27]
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 1695--1695
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+[28]
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 1749--1749
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+
+Overfull \hbox (17.32692pt too wide) in paragraph at lines 1790--1795
+[]\T1/ptm/m/n/10 The for-mat of the ac-tions is a list of ac-tion. Each ac-tion
+ is a list of the ac-tion name (see [][]\T1/zi4/m/n/10 POSTPROCESSING[][][]\T1/
+ptm/m/n/10 )
+[29]
+Overfull \hbox (32.26248pt too wide) in paragraph at lines 1823--1823
+ []      \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,
+2,18,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+
+Overfull \hbox (6.92616pt too wide) in paragraph at lines 1860--1867
+\T1/ptm/m/n/10 @ref-er-ences Sar-mento RP (2019). ``Density-based Com-mu-nity D
+e-tec-tion/Optimization.'' \T1/ptm/m/it/10 arXiv\T1/ptm/m/n/10 .
+[30] [31] [32] [33] [34]
+Overfull \hbox (7.16821pt too wide) in paragraph at lines 2179--2181
+[]\T1/ptm/m/n/10 The name of the post pro-cess-ing al-go-rithm. De-fault POST-P
+RO-CESS-ING$NONE.
+[35]
+Overfull \hbox (32.26248pt too wide) in paragraph at lines 2217--2217
+ []      \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,
+2,18,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+[36]
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 2288--2288
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+[37]
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 2346--2346
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+[38]
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 2401--2401
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+[39]
+Overfull \hbox (23.27168pt too wide) in paragraph at lines 2454--2454
+ []   \T1/zi4/m/n/9 c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,1
+8,12,19,20,2,3,11,12,4,9,5,9,22)[] 
+(/tmp/RtmpaNTkvx/Rd2pdf365042243561/Rd2.ind [40]
+
+LaTeX Font Warning: Font shape `T1/zi4/m/it' undefined
+(Font)              using `T1/zi4/m/n' instead on input line 14.
+
+[41] [42]) (/tmp/RtmpaNTkvx/Rd2pdf365042243561/Rd2.aux)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+ )
+(see the transcript file for additional information)pdfTeX warning (dest): name
+{Rfn.postProcessDensOpt} has been referenced but does not exist, replaced by a 
+fixed one
+
+pdfTeX warning (dest): name{Rfn.version} has been referenced but does not exist
+, replaced by a fixed one
+
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-ts1.enc}{/usr/sha
+re/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texlive/texmf-dis
+t/fonts/enc/dvips/inconsolata/i4-t1-0.enc}</usr/share/texlive/texmf-dist/fonts/
+type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/time
+s/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on Rd2.pdf (42 pages, 178505 bytes).
+Transcript written on Rd2.log.
+Saving output to ‘DynComm-manual.pdf’ ...
+Done
+You may want to clean up by 'rm -Rf /tmp/RtmpaNTkvx/Rd2pdf365042243561'

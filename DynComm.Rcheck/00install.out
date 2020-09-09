@@ -1,0 +1,18 @@
+* installing *source* package ‘DynComm’ ...
+** using staged installation
+** libs
+g++ -std=gnu++11 -I"/usr/share/R/include" -DNDEBUG  -I'/home/rms/R/x86_64-pc-linux-gnu-library/4.0/Rcpp/include'    -fpic  -g -O2 -fdebug-prefix-map=/build/r-base-5iUtQS/r-base-4.0.2=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g  -c DynCommRcpp.cpp -o DynCommRcpp.o
+g++ -std=gnu++11 -I"/usr/share/R/include" -DNDEBUG  -I'/home/rms/R/x86_64-pc-linux-gnu-library/4.0/Rcpp/include'    -fpic  -g -O2 -fdebug-prefix-map=/build/r-base-5iUtQS/r-base-4.0.2=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g  -c RcppExports.cpp -o RcppExports.o
+g++ -std=gnu++11 -shared -L/usr/lib/R/lib -Wl,-Bsymbolic-functions -Wl,-z,relro -o DynComm.so DynCommRcpp.o RcppExports.o -L/usr/lib/R/lib -lR
+installing to /home/rms/Dropbox/Educação/Doutoramento/Tese/Dyncomm R Package/DynComm-R-package/DynComm-R-package/DynComm.Rcheck/00LOCK-DynComm/00new/DynComm/libs
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (DynComm)

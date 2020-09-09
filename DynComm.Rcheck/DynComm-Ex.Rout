@@ -1,0 +1,1260 @@
+
+R version 4.0.2 (2020-06-22) -- "Taking Off Again"
+Copyright (C) 2020 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> pkgname <- "DynComm"
+> source(file.path(R.home("share"), "R", "examples-header.R"))
+> options(warn = 1)
+> base::assign(".ExTimings", "DynComm-Ex.timings", pos = 'CheckExEnv')
+> base::cat("name\tuser\tsystem\telapsed\n", file=base::get(".ExTimings", pos = 'CheckExEnv'))
+> base::assign(".format_ptime",
++ function(x) {
++   if(!is.na(x[4L])) x[1L] <- x[1L] + x[4L]
++   if(!is.na(x[5L])) x[2L] <- x[2L] + x[5L]
++   options(OutDec = '.')
++   format(x[1L:3L], digits = 7L)
++ },
++ pos = 'CheckExEnv')
+> 
+> ### * </HEADER>
+> library('DynComm')
+Loading required package: igraph
+
+Attaching package: ‘igraph’
+
+The following objects are masked from ‘package:stats’:
+
+    decompose, spectrum
+
+The following object is masked from ‘package:base’:
+
+    union
+
+> 
+> base::assign(".oldSearch", base::search(), pos = 'CheckExEnv')
+> base::assign(".old_wd", base::getwd(), pos = 'CheckExEnv')
+> cleanEx()
+> nameEx("ALGORITHM")
+> ### * ALGORITHM
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: ALGORITHM
+> ### Title: List of available algorithms.
+> ### Aliases: ALGORITHM algorithm Algorithm
+> ### Keywords: datasets
+> 
+> ### ** Examples
+> 
+> ALGORITHM$LOUVAIN
+[1] 1
+> 
+> 
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("ALGORITHM", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("CRITERION")
+> ### * CRITERION
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: CRITERION
+> ### Title: List of available CRITERION (quality measurement functions).
+> ### Aliases: CRITERION criterion Criterion
+> ### Keywords: datasets
+> 
+> ### ** Examples
+> 
+> CRITERION$MODULARITY
+[1] 1
+> 
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("CRITERION", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("DynComm")
+> ### * DynComm
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: DynComm
+> ### Title: DynComm
+> ### Aliases: DynComm
+> 
+> ### ** Examples
+> 
+> Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+> dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+> dc$addRemoveEdges(
++ matrix(
++ c(10,20,10,30,20,30,30,60,40,60,40,50,50,70,60,70)
++ ,ncol=2,byrow=TRUE)
++ )
+[1] TRUE
+> ## or
+> ## dc$addRemoveEdges("initial_graph.txt")
+> dc$communityCount()
+[1] 2
+> ## You can use the non inline version of the functions
+> DynComm.communities(dc)
+[1] 10 40
+> ## Several alias have been defined.
+> ## In this case, communityNodeCount is alias of communityVertexCount
+> dc$communityNodeCount(10)
+[1] 3
+> dc$communityNeighbours(10)
+     neighbour weight
+[1,]        40      1
+> dc$communityInnerEdgesWeight(10)
+[1] 6
+> dc$communityTotalWeight(10)
+[1] 7
+> dc$communityEdgeWeight(10,40)
+[1] 1
+> dc$community(10) ##this parameter is a vertex not a community. Do not confuse them 
+[1] 10
+> dc$vertices(10)
+[1] 10 20 30
+> dc$communityMapping(TRUE)
+     [,1] [,2]
+[1,]   10   10
+[2,]   20   10
+[3,]   30   10
+[4,]   40   40
+[5,]   50   40
+[6,]   60   40
+[7,]   70   40
+> dc$quality()
+[1] 0.3671875
+> dc$time()
+[1] 1888867
+> ## lets add post processing :)
+> dc$postProcess(
++ list(
++ list(POSTPROCESSING$DENSOPT)
++ )
++ )
+Called from: internalRecreatePostProcessing()
+Browse[1]> ## the results of the last step of post processing are selected automatically
+Browse[1]> ## densopt post processing algorithm may change the community mapping so...
+Browse[1]> ## check it
+Browse[1]> dc$communityMapping(TRUE)
+     [,1] [,2]
+[1,]   10   10
+[2,]   20   10
+[3,]   30   10
+[4,]   40   40
+[5,]   50   40
+[6,]   60   40
+[7,]   70   40
+Browse[1]> ## densopt post processing algorithm may change quality so check it
+Browse[1]> dc$quality()
+[1] 0.3671875
+Browse[1]> ## time is now the total time of the main algorithm plus the time of every...
+Browse[1]> ## post processing algorithm up to the one selected
+Browse[1]> dc$time()
+[1] 1888867
+Browse[1]> ## get back to main algorithm results to check they haven't changed
+Browse[1]> dc$select(POSTPROCESSING$NONE)
+[1] TRUE
+Browse[1]> dc$communityMapping(TRUE)
+     [,1] [,2]
+[1,]   10   10
+[2,]   20   10
+[3,]   30   10
+[4,]   40   40
+[5,]   50   40
+[6,]   60   40
+[7,]   70   40
+Browse[1]> dc$quality()
+[1] 0.3671875
+Browse[1]> dc$time()
+[1] 1888867
+Browse[1]> ## add and remove edges. Notice that there is one more column to give...
+Browse[1]> ## weights of zero on the edges to remove. In this case, all other weights...
+Browse[1]> ## are ignored because the graph is set to ignore weights (parameter w is...
+Browse[1]> ## false).
+Browse[1]> dc$addRemoveEdges(
++ matrix(
++ c(30,60,0,40,60,0.23,10,80,2342,80,90,3.1415)
++ ,ncol=3,byrow=TRUE)
++ )
+Called from: internalRecreatePostProcessing()
+Browse[3]> ## since the post processing was not reset, it will be automatically...
+Browse[3]> ## calculated and results switched to the last step. In this case, to the...
+Browse[3]> ## densopt algorithm
+Browse[3]> dc$communityMapping(TRUE)
+      [,1] [,2]
+ [1,]   10   10
+ [2,]   20   20
+ [3,]   30   20
+ [4,]   40   40
+ [5,]   50   40
+ [6,]   60   40
+ [7,]   70   40
+ [8,]   80   10
+ [9,]   90   10
+Browse[3]> dc$quality()
+[1] 0.003590343
+Browse[3]> dc$time()
+[1] 4810777
+Browse[3]> ## get back to main algorithm results to check them
+Browse[3]> dc$select(POSTPROCESSING$NONE)
+[1] TRUE
+Browse[3]> dc$communityMapping(TRUE)
+      [,1] [,2]
+ [1,]   10   10
+ [2,]   20   20
+ [3,]   30   20
+ [4,]   40   40
+ [5,]   50   40
+ [6,]   60   40
+ [7,]   70   40
+ [8,]   80   10
+ [9,]   90   10
+Browse[3]> dc$quality()
+[1] 0.003590343
+Browse[3]> dc$time()
+[1] 4810777
+Browse[3]> ## lets reset/remove post processing
+Browse[3]> dc$postProcess()
+[1] TRUE
+Browse[3]> 
+debug: if (cnt[[1]] != POSTPROCESSING$NONE) {
+    b <- TRUE
+} else {
+    return(FALSE)
+}
+Browse[4]> 
+debug: b <- TRUE
+Browse[4]> 
+[1] TRUE
+Browse[1]> 
+debug: if (cnt[[1]] != POSTPROCESSING$NONE) {
+    b <- TRUE
+} else {
+    return(FALSE)
+}
+Browse[2]> 
+debug: b <- TRUE
+Browse[2]> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+Browse[2]> base::cat("DynComm", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+Browse[2]> cleanEx()
+Browse[2]> nameEx("DynCommMain")
+Browse[2]> ### * DynCommMain
+Browse[2]> 
+[1] TRUE
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: DynCommMain
+> ### Title: DynCommMain
+> ### Aliases: DynCommMain
+> ### Keywords: internal
+> 
+> ### ** Examples
+> 
+> ## Not run: 
+> ##D Parameters<-matrix(c("-e","0.1"),1,2,TRUE)
+> ##D dc<-DynCommMain(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+> ##D dc$addRemoveEdgesFile("initial_graph.txt")
+> ##D dc$communityCount()
+> ##D dc$communities()
+> ##D dc$communityNodeCount(1)
+> ##D dc$vertices(1)
+> ##D dc$communityMapping(TRUE)
+> ##D dc$time()
+> ##D dc$addRemoveEdgesFile("s0000000000.txt")
+> ## End(Not run)
+> 
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("DynCommMain", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("DynCommMainR")
+> ### * DynCommMainR
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: DynCommMainR
+> ### Title: DynCommMainR
+> ### Aliases: DynCommMainR
+> ### Keywords: internal
+> 
+> ### ** Examples
+> 
+> ## Not run: 
+> ##D Parameters<-matrix(c("-e","0.1"),1,2,TRUE)
+> ##D dc<-DynCommMainR(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+> ##D dc$addRemoveEdgesFile("initial_graph.txt")
+> ##D dc$communityCount()
+> ##D dc$communities()
+> ##D dc$communityNodeCount(1)
+> ##D dc$vertices(1)
+> ##D dc$communityMapping(TRUE)
+> ##D dc$time()
+> ##D dc$addRemoveEdgesFile("s0000000000.txt")
+> ## End(Not run)
+> 
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("DynCommMainR", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("DynCommPostProcess")
+> ### * DynCommPostProcess
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: DynCommPostProcess
+> ### Title: DynCommPostProcess(postProcessing, id, previous, Parameters)
+> ### Aliases: DynCommPostProcess
+> ### Keywords: internal
+> 
+> ### ** Examples
+> 
+> ## Not run: 
+> ##D Parameters<-matrix(c("-e","0.1"),1,2,TRUE)
+> ##D dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+> ##D dc$addRemoveEdgesFile("initial_graph.txt")
+> ##D dc$communityCount()
+> ##D dc$communities()
+> ##D dc$communityNodeCount(1)
+> ##D dc$vertices(1)
+> ##D dc$communityMapping(TRUE)
+> ##D dc$time()
+> ##D dc$addRemoveEdgesFile("s0000000000.txt")
+> ## End(Not run)
+> 
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("DynCommPostProcess", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("DynCommPostProcessR")
+> ### * DynCommPostProcessR
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: DynCommPostProcessR
+> ### Title: DynCommPostProcessR(postProcessing, previous, Parameters)
+> ### Aliases: DynCommPostProcessR
+> ### Keywords: internal
+> 
+> ### ** Examples
+> 
+> ## Not run: 
+> ##D Parameters<-matrix(c("-e","0.1"),1,2,TRUE)
+> ##D dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+> ##D dc$addRemoveEdgesFile("initial_graph.txt")
+> ##D dc$communityCount()
+> ##D dc$communities()
+> ##D dc$communityNodeCount(1)
+> ##D dc$vertices(1)
+> ##D dc$communityMapping(TRUE)
+> ##D dc$time()
+> ##D dc$addRemoveEdgesFile("s0000000000.txt")
+> ## End(Not run)
+> 
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("DynCommPostProcessR", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("POSTPROCESSING")
+> ### * POSTPROCESSING
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: POSTPROCESSING
+> ### Title: List of available post processing algorithms.
+> ### Aliases: POSTPROCESSING
+> ### Keywords: datasets
+> 
+> ### ** Examples
+> 
+> POSTPROCESSING$DENSOPT
+[1] 20001
+> 
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("POSTPROCESSING", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("addRemoveEdges")
+> ### * addRemoveEdges
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: addRemoveEdges
+> ### Title: addRemoveEdges(graphAddRemove)
+> ### Aliases: addRemoveEdges DynComm.addRemoveEdges DynComm.addRemove
+> ###   DynComm.add
+> 
+> ### ** Examples
+> 
+> library(DynComm)
+> Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+> dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+> #adding edges with the use of a matrix
+> dc$addRemoveEdges(
++  matrix(
++    c(10,20,10,30,20,30,30,60,40,60,40,50,50,70,60,70)
++    ,ncol=2,byrow=TRUE)
++ )
+[1] TRUE
+> 
+> dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+> #adding edges with the use of a file
+> dc$addRemoveEdges(system.file("extdata","graphAddRemoveFile.txt",package = "DynComm"))
+[1] TRUE
+> 
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("addRemoveEdges", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("communities")
+> ### * communities
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: communities
+> ### Title: communities()
+> ### Aliases: communities DynComm.communities
+> 
+> ### ** Examples
+> 
+> library(DynComm)
+> 
+> Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+> dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+> dc$addRemoveEdges(
++  matrix(
++    c(10,20,10,30,20,30,30,60,40,60,40,50,50,70,60,70)
++    ,ncol=2,byrow=TRUE)
++ )
+[1] TRUE
+> 
+> dc$communities()
+[1] 10 40
+> 
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("communities", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("communitiesEdgeCount")
+> ### * communitiesEdgeCount
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: communitiesEdgeCount
+> ### Title: communitiesEdgeCount()
+> ### Aliases: communitiesEdgeCount DynComm.communitiesEdgeCount
+> 
+> ### ** Examples
+> 
+> library(DynComm)
+> 
+> Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+> dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+> dc$addRemoveEdges(
++  matrix(
++    c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
++       ,ncol=2)
++ )
+[1] TRUE
+> 
+> dc$communities()
+[1]  0  1 12
+> dc$communitiesEdgeCount()
+[1] 7
+> 
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("communitiesEdgeCount", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("community")
+> ### * community
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: community
+> ### Title: community(vertex)
+> ### Aliases: community DynComm.community
+> 
+> ### ** Examples
+> 
+> library(DynComm)
+> 
+> Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+> dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+> dc$addRemoveEdges(
++  matrix(
++    c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
++       ,ncol=2)
++ )
+[1] TRUE
+> 
+> dc$communities()
+[1]  0  1 12
+> dc$community(1)
+[1] 1
+> 
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("community", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("communityCount")
+> ### * communityCount
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: communityCount
+> ### Title: communityCount()
+> ### Aliases: communityCount DynComm.communityCount
+> 
+> ### ** Examples
+> 
+> library(DynComm)
+> 
+> Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+> dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+> dc$addRemoveEdges(
++  matrix(
++    c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
++       ,ncol=2)
++ )
+[1] TRUE
+> 
+> dc$communities()
+[1]  0  1 12
+> dc$communityCount()
+[1] 3
+> 
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("communityCount", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("communityEdgeWeight")
+> ### * communityEdgeWeight
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: communityEdgeWeight
+> ### Title: communityEdgeWeight(source,destination)
+> ### Aliases: communityEdgeWeight DynComm.communityEdgeWeight
+> 
+> ### ** Examples
+> 
+> library(DynComm)
+> 
+> Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+> dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+> dc$addRemoveEdges(
++  matrix(
++    c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
++       ,ncol=2)
++ )
+[1] TRUE
+> 
+> dc$communities()
+[1]  0  1 12
+> dc$communityEdgeWeight(0,12)
+[1] 1
+> 
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("communityEdgeWeight", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("communityInnerEdgesWeight")
+> ### * communityInnerEdgesWeight
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: communityInnerEdgesWeight
+> ### Title: communityInnerEdgesWeight(community)
+> ### Aliases: communityInnerEdgesWeight DynComm.communityInnerEdgesWeight
+> 
+> ### ** Examples
+> 
+> library(DynComm)
+> 
+> Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+> dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+> dc$addRemoveEdges(
++  matrix(
++    c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
++       ,ncol=2)
++ )
+[1] TRUE
+> dc$communities()
+[1]  0  1 12
+> dc$communityInnerEdgesWeight(1)
+[1] 4
+> dc$communityInnerEdgesWeight(0)
+[1] 16
+> 
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("communityInnerEdgesWeight", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("communityMapping")
+> ### * communityMapping
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: communityMapping
+> ### Title: communityMapping(differential, file)
+> ### Aliases: communityMapping DynComm.communityMapping
+> 
+> ### ** Examples
+> 
+> library(DynComm)
+> 
+> Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+> dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+> dc$addRemoveEdges(
++  matrix(
++    c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
++       ,ncol=2)
++ )
+[1] TRUE
+> 
+> dc$communities()
+[1]  0  1 12
+> dc$communityMapping()
+      [,1] [,2]
+ [1,]    0    0
+ [2,]    1    1
+ [3,]    2    0
+ [4,]    3    0
+ [5,]    4    0
+ [6,]    5    1
+ [7,]    9    1
+ [8,]   11    0
+ [9,]   12   12
+[10,]   13    0
+[11,]   18    0
+[12,]   19    0
+[13,]   20    0
+[14,]   22   12
+> 
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("communityMapping", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("communityNeighbours")
+> ### * communityNeighbours
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: communityNeighbours
+> ### Title: communityNeighbours(community)
+> ### Aliases: communityNeighbours DynComm.communityNeighbours
+> 
+> ### ** Examples
+> 
+> library(DynComm)
+> 
+> Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+> dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+> dc$addRemoveEdges(
++  matrix(
++    c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
++       ,ncol=2)
++ ) 
+[1] TRUE
+> 
+> dc$communities()
+[1]  0  1 12
+> dc$communityNeighbours(12)
+     neighbour weight
+[1,]         0      1
+> 
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("communityNeighbours", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("communityTotalWeight")
+> ### * communityTotalWeight
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: communityTotalWeight
+> ### Title: communityTotalWeight(community)
+> ### Aliases: communityTotalWeight DynComm.communityTotalWeight
+> 
+> ### ** Examples
+> 
+> library(DynComm)
+> 
+> Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+> dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+> dc$addRemoveEdges(
++  matrix(
++    c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
++       ,ncol=2)
++ )
+[1] TRUE
+> 
+> dc$communities()
+[1]  0  1 12
+> dc$communityTotalWeight(1)
+[1] 5
+> dc$communityTotalWeight(12)
+[1] 3
+> 
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("communityTotalWeight", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("communityVertexCount")
+> ### * communityVertexCount
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: communityVertexCount
+> ### Title: communityVertexCount(community)
+> ### Aliases: communityVertexCount DynComm.communityVertexCount
+> ###   DynComm.communityNodeCount
+> 
+> ### ** Examples
+> 
+> library(DynComm)
+> 
+> Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+> dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+> dc$addRemoveEdges(
++  matrix(
++    c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
++       ,ncol=2)
++ )
+[1] TRUE
+> 
+> dc$communities()
+[1]  0  1 12
+> dc$communityVertexCount(12)
+[1] 2
+> 
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("communityVertexCount", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("edgeCount")
+> ### * edgeCount
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: edgeCount
+> ### Title: edgeCount()
+> ### Aliases: edgeCount DynComm.edgeCount
+> 
+> ### ** Examples
+> 
+> library(DynComm)
+> 
+> Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+> dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+> dc$addRemoveEdges(
++  matrix(
++    c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
++       ,ncol=2)
++ )
+[1] TRUE
+> 
+> dc$edgeCount()
+[1] 26
+> 
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("edgeCount", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("edgeWeight")
+> ### * edgeWeight
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: edgeWeight
+> ### Title: edgeWeight(source,destination)
+> ### Aliases: edgeWeight DynComm.edgeWeight
+> 
+> ### ** Examples
+> 
+> library(DynComm)
+> 
+> Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+> dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+> dc$addRemoveEdges(
++  matrix(
++    c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
++       ,ncol=2)
++ )
+[1] TRUE
+> 
+> dc$edgeWeight(0,2)
+[1] 1
+> 
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("edgeWeight", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("neighbours")
+> ### * neighbours
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: neighbours
+> ### Title: neighbours(vertex)
+> ### Aliases: neighbours DynComm.neighbours
+> 
+> ### ** Examples
+> 
+> library(DynComm)
+> 
+> Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+> dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+> dc$addRemoveEdges(
++  matrix(
++    c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
++       ,ncol=2)
++ )
+[1] TRUE
+> 
+> dc$neighbours(2)
+     neighbour weight
+[1,]         0      1
+> 
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("neighbours", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("postProcess")
+> ### * postProcess
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: postProcess
+> ### Title: postProcess(actions)
+> ### Aliases: postProcess DynComm.postProcess
+> 
+> ### ** Examples
+> 
+> library(DynComm)
+> parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+>   dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
+>   dc$addRemoveEdges(
++    matrix(
++       c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
++       ,ncol=2)
++   )
+[1] TRUE
+>   dc$postProcess(
++     list(
++  	     list(POSTPROCESSING$DENSOPT)
++   	)
++   )
+Called from: internalRecreatePostProcessing()
+Browse[1]>  dc$select(POSTPROCESSING$DENSOPT)  #selects the results of densopt
+Called from: internalRecreatePostProcessing()
+Browse[3]>  dc$select(POSTPROCESSING$NONE)  #selects the main algorithm results
+[1] TRUE
+Browse[3]>  dc$postProcess(NULL)  #remove post processing
+[1] TRUE
+Browse[3]>  ## or just
+Browse[3]>  ## dc$postProcess()
+Browse[3]> 
+debug: if (cnt[[1]] != POSTPROCESSING$NONE) {
+    b <- TRUE
+} else {
+    return(FALSE)
+}
+Browse[4]> 
+debug: b <- TRUE
+Browse[4]> 
+Error in prc$exists(postProcessing, id) : attempt to apply non-function
+Calls: <Anonymous> -> internalRecreatePostProcessing -> <Anonymous>
+Browse[1]> 
+debug: if (cnt[[1]] != POSTPROCESSING$NONE) {
+    b <- TRUE
+} else {
+    return(FALSE)
+}
+Browse[2]> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+Browse[2]> base::cat("postProcess", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+Browse[2]> cleanEx()
+Browse[2]> nameEx("postProcessDensOpt")
+Browse[2]> ### * postProcessDensOpt
+Browse[2]> 
+debug: b <- TRUE
+Browse[2]> flush(stderr()); flush(stdout())
+Browse[2]> 
+[1] TRUE
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: postProcessDensOpt
+> ### Title: Density Optimization
+> ### Aliases: postProcessDensOpt
+> ### Keywords: internal
+> 
+> ### ** Examples
+> 
+> ## Not run: 
+> ##D Parameters<-matrix(c("-e","0.1"),1,2,TRUE)
+> ##D dc<-DynCommMain(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+> ##D dc$addRemoveEdgesFile("initial_graph.txt")
+> ##D dc$communityCount()
+> ##D dc$communities()
+> ##D dc$communityNodeCount(1)
+> ##D dc$vertices(1)
+> ##D dc$communityMapping(TRUE)
+> ##D dc$time()
+> ##D dc$addRemoveEdgesFile("s0000000000.txt")
+> ## End(Not run)
+> 
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("postProcessDensOpt", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("quality")
+> ### * quality
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: quality
+> ### Title: quality()
+> ### Aliases: quality DynComm.quality
+> 
+> ### ** Examples
+> 
+> library(DynComm)
+> Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+> dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+> dc$addRemoveEdges(
++  matrix(
++    c(10,20,10,30,20,30,30,60,40,60,40,50,50,70,60,70)
++    ,ncol=2,byrow=TRUE)
++ )
+[1] TRUE
+> dc$quality()
+[1] 0.3671875
+> 
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("quality", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("results")
+> ### * results
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: results
+> ### Title: results(differential)
+> ### Aliases: results DynComm.results
+> 
+> ### ** Examples
+> 
+> library(DynComm)
+> Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+> dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+> dc$addRemoveEdges(
++  matrix(
++    c(10,20,10,30,20,30,30,60,40,60,40,50,50,70,60,70)
++    ,ncol=2,byrow=TRUE)
++ )
+[1] TRUE
+> dc$results()
+     [,1]         [,2]     
+[1,] "time delta" "1873887"
+> 
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("results", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("select")
+> ### * select
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: select
+> ### Title: select(postProcessing, id)
+> ### Aliases: select DynComm.select
+> 
+> ### ** Examples
+> 
+> library(DynComm)
+> parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+>   dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
+>   dc$addRemoveEdges(
++    matrix(
++       c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
++       ,ncol=2)
++   )
+[1] TRUE
+>   dc$postProcess(
++     list(
++  	     list(POSTPROCESSING$DENSOPT)
++   	)
++   )
+Called from: internalRecreatePostProcessing()
+Browse[1]>  dc$select(POSTPROCESSING$DENSOPT)  #selects the results of densopt
+Called from: internalRecreatePostProcessing()
+Browse[3]>  dc$select(POSTPROCESSING$NONE)  #selects the main algorithm results
+[1] TRUE
+Browse[3]> 
+debug: if (cnt[[1]] != POSTPROCESSING$NONE) {
+    b <- TRUE
+} else {
+    return(FALSE)
+}
+Browse[4]>  dc$postProcess(NULL)  #remove post processing
+[1] TRUE
+Browse[4]>  ## or just
+Browse[4]>  ## dc$postProcess()
+Browse[4]> 
+debug: b <- TRUE
+Browse[4]> 
+Error in prc$exists(postProcessing, id) : attempt to apply non-function
+Calls: <Anonymous> -> internalRecreatePostProcessing -> <Anonymous>
+Browse[1]> 
+debug: if (cnt[[1]] != POSTPROCESSING$NONE) {
+    b <- TRUE
+} else {
+    return(FALSE)
+}
+Browse[2]> 
+debug: b <- TRUE
+Browse[2]> 
+[1] TRUE
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("select", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("time")
+> ### * time
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: time
+> ### Title: time(differential=FALSE)
+> ### Aliases: time DynComm.time
+> 
+> ### ** Examples
+> 
+> library(DynComm)
+> 
+> Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+> dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+> dc$addRemoveEdges(
++  matrix(
++    c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
++       ,ncol=2)
++ )
+[1] TRUE
+> 
+> dc$time()
+[1] 3834645
+> 
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("time", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("vertexCount")
+> ### * vertexCount
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: vertexCount
+> ### Title: vertexCount()
+> ### Aliases: vertexCount DynComm.vertexCount DynComm.nodesCount
+> 
+> ### ** Examples
+> 
+> library(DynComm)
+> 
+> Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+> dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+> dc$addRemoveEdges(
++  matrix(
++    c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
++       ,ncol=2)
++ )
+[1] TRUE
+> 
+> dc$communities()
+[1]  0  1 12
+> dc$communityVertexCount(12)
+[1] 2
+> 
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("vertexCount", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("vertices")
+> ### * vertices
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: vertices
+> ### Title: vertices(community)
+> ### Aliases: vertices DynComm.vertices DynComm.nodes
+> 
+> ### ** Examples
+> 
+> library(DynComm)
+> 
+> Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+> dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+> dc$addRemoveEdges(
++  matrix(
++    c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
++       ,ncol=2)
++ )
+[1] TRUE
+> 
+> dc$communities()
+[1]  0  1 12
+> dc$vertices(12)
+[1] 12 22
+> 
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("vertices", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("verticesAll")
+> ### * verticesAll
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: verticesAll
+> ### Title: verticesAll()
+> ### Aliases: verticesAll DynComm.verticesAll DynComm.nodesAll
+> 
+> ### ** Examples
+> 
+> library(DynComm)
+> 
+> Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+> dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+> dc$addRemoveEdges(
++  matrix(
++    c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,12,13,1,1,1,2,2,2,18,12,19,20,2,3,11,12,4,9,5,9,22)
++       ,ncol=2)
++ )
+[1] TRUE
+> 
+> dc$verticesAll()
+ [1]  0  1  2  3  4  5  9 11 12 13 18 19 20 22
+> 
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("verticesAll", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> ### * <FOOTER>
+> ###
+> cleanEx()
+> options(digits = 7L)
+> base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
+Time elapsed:  1.583 0.012 1.599 0 0 
+> grDevices::dev.off()
+null device 
+          1 
+> ###
+> ### Local variables: ***
+> ### mode: outline-minor ***
+> ### outline-regexp: "\\(> \\)?### [*]+" ***
+> ### End: ***
+> quit('no')

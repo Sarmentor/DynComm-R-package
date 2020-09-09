@@ -20,14 +20,17 @@ This method returns all communities from the selected post processing
 algorithm or the main algorithm, after the last iteration.
 }
 \examples{
-\dontrun{
-dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
+library(DynComm)
+
+Parameters<-matrix(c("e","0.1","w", "FALSE"),ncol=2, byrow=TRUE)
+dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,Parameters)
+dc$addRemoveEdges(
+ matrix(
+   c(10,20,10,30,20,30,30,60,40,60,40,50,50,70,60,70)
+   ,ncol=2,byrow=TRUE)
+)
+
 dc$communities()
-}
-\dontrun{
-dc<-DynComm(ALGORITHM$LOUVAIN,CRITERION$MODULARITY,parameters)
-communities(dc)
-}
 
 }
 \seealso{
