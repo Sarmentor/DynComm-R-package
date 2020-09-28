@@ -38,5 +38,5 @@ RcppModules: DynCommRcpp
 RdMacros: Rdpack
 SystemRequirements: C++11
 Suggests: devtools
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1
 StagedInstall: yes

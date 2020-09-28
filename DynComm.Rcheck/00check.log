@@ -13,6 +13,11 @@ Maintainer: ‘Rui P. Sarmento <email@ruisarmento.com>’
 New submission
 
 Package was archived on CRAN
+
+CRAN repository db overrides:
+  X-CRAN-Comment: Archived on 2020-08-26 as code was not portable.
+
+  Installation failures on macOS and Solaris
 * checking package namespace information ... OK
 * checking package dependencies ... OK
 * checking if this is a source package ... OK
