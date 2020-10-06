@@ -439,7 +439,7 @@ public:
 				else{//edge already exists
 					if(c1==c2) w-=2*wg;
 					else w-=wg;
-					if(std::fabs(w)<std::numeric_limits<typeWeight>::epsilon()) w=0;
+					if(std::fabsl(w)<std::numeric_limits<typeWeight>::epsilon()) w=0;
 					if(w==0) cg.removeEdge(c1, c2);
 					else cg.addEdge(c1,c2,w,true);
 				}
@@ -457,7 +457,7 @@ public:
 					if(std::isnan(weight)) return false;
 					if(c1==c2) w-=2*weight;
 					else w-=weight;
-					if(std::fabs(w)<std::numeric_limits<typeWeight>::epsilon()) w=0;
+					if(std::fabsl(w)<std::numeric_limits<typeWeight>::epsilon()) w=0;
 					if(w!=0) cg.addEdge(c1,c2,w,true);//replace
 					else cg.removeEdge(c1,c2);
 				}
