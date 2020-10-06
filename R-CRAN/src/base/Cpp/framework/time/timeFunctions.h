@@ -55,13 +55,23 @@ inline uint64 longTime(const timespec& t){
  * @return the current time or epoch (0) if an error occurred
  */
 inline uint64 currentTime(){
-//	timeval tm;
-//	if(gettimeofday(&tm,NULL)==0){//DEPRECATED but is the one to use in fedora13 since there is no other better
-	timespec tm;
-	if(clock_gettime(CLOCK_REALTIME, &tm)==0){//this is the one to use on modern systems
-		return longTime(tm);
-	}
-	return 0;//return epoch on error so that further processing can detect and possibly correct
+	timespec now;
+	#ifndef CLOCK_REALTIME // old OS X versions do not have clock_gettime, use clock_get_time instead
+		// https://gist.github.com/jbenet/1087739
+		clock_serv_t cclock;
+		mach_timespec_t mts;
+		host_get_clock_service(mach_host_self(), CALENDAR_CLOCK, &cclock);
+		clock_get_time(cclock, &mts);
+		mach_port_deallocate(mach_task_self(), cclock);
+		now.tv_sec = mts.tv_sec;
+		now.tv_nsec = mts.tv_nsec;
+		return longTime(now);
+	#else
+		if (clock_gettime(CLOCK_REALTIME, &now) == 0) {
+			return longTime(now);
+		}
+	#endif
+	return 0; //return epoch on error so that further processing can detect and possibly correct
 }
 
 /**
