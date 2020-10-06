@@ -234,7 +234,7 @@ private:
 			if(add) w=(it->second+weight);
 			else{
 				w=(it->second-weight);
-				if(std::fabsl(w)<std::numeric_limits<typeWeight>::epsilon()*2) w=0;
+				if(fabsl(w)<std::numeric_limits<typeWeight>::epsilon()*2) w=0;
 			}
 			if(w==0){
 				ce.erase(it);
@@ -1241,7 +1241,7 @@ public:
 			if(cc1==cc2){
 				if(replace){
 					ww-=w;
-					if(std::fabsl(ww)<std::numeric_limits<typeWeight>::epsilon()*2) ww=0;
+					if(fabsl(ww)<std::numeric_limits<typeWeight>::epsilon()*2) ww=0;
 				}
 				bool b=false;
 				if(source==destination){// ww=ww/2;
@@ -1260,7 +1260,7 @@ public:
 			else{//cc1!=cc2
 				if(replace){
 					ww-=w;
-					if(std::fabsl(ww)<std::numeric_limits<typeWeight>::epsilon()*2) ww=0;
+					if(fabsl(ww)<std::numeric_limits<typeWeight>::epsilon()*2) ww=0;
 				}
 //				update(total,cc1,2*ww,true);
 //				update(total,cc2,2*ww,true);
@@ -1374,9 +1374,9 @@ public:
 				update(total,c1,weight,false);
 				update(total,c2,weight,false);
 				typeWeight cw=cc.weight(c1,c2);
-//				if(std::fabsl(cw-weight)<std::numeric_limits<typeWeight>::epsilon()*2) cw=weight;//temporary correction
+//				if(fabsl(cw-weight)<std::numeric_limits<typeWeight>::epsilon()*2) cw=weight;//temporary correction
 //				if(cw-weight!=0) cc.addEdge(c1,c2,cw-weight,true);//update weight in cc
-				if(std::fabsl(cw-weight)>=std::numeric_limits<typeWeight>::epsilon()*2) cc.addEdge(c1,c2,cw-weight,true);//update weight in cc
+				if(fabsl(cw-weight)>=std::numeric_limits<typeWeight>::epsilon()*2) cc.addEdge(c1,c2,cw-weight,true);//update weight in cc
 				else cc.removeEdge(c1,c2);
 //				typeLinksIterator it=multimap::find(ccl,c1,c2);
 //				if(it->second.weight()<1){//no more edges
@@ -1564,7 +1564,7 @@ public:
 						else{
 //							ccl
 							cw-=wei;
-							if(std::fabsl(cw)<std::numeric_limits<typeWeight>::epsilon()*2) cw=0;
+							if(fabsl(cw)<std::numeric_limits<typeWeight>::epsilon()*2) cw=0;
 							if(cw!=0){
 								cc.addEdge(c,co,cw,true);
 							}
