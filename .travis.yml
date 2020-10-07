@@ -4,5 +4,3 @@ before_install:
 repos:
   CRAN: https://cloud.r-project.org
 cache: false
-os: osx
-osx_image: xcode8
