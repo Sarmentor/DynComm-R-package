@@ -1,7 +1,7 @@
 Package: DynComm
 Type: Package
 Title: Dynamic Network Communities Detection and Generation
-Version: 2020.1.5
+Version: 2020.1.6
 Authors@R: 
   c(person(given = "Rui P.",
            family = "Sarmento",

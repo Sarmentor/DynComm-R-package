@@ -5,19 +5,10 @@
 * using option ‘--as-cran’
 * checking for file ‘DynComm/DESCRIPTION’ ... OK
 * checking extension type ... Package
-* this is package ‘DynComm’ version ‘2020.1.5’
+* this is package ‘DynComm’ version ‘2020.1.6’
 * package encoding: UTF-8
-* checking CRAN incoming feasibility ... NOTE
+* checking CRAN incoming feasibility ... Note_to_CRAN_maintainers
 Maintainer: ‘Rui P. Sarmento <email@ruisarmento.com>’
-
-New submission
-
-Package was archived on CRAN
-
-CRAN repository db overrides:
-  X-CRAN-Comment: Archived on 2020-08-26 as code was not portable.
-
-  Installation failures on macOS and Solaris
 * checking package namespace information ... OK
 * checking package dependencies ... OK
 * checking if this is a source package ... OK
@@ -33,8 +24,7 @@ CRAN repository db overrides:
   sub-directories of 1Mb or more:
     libs   9.2Mb
 * checking package directory ... OK
-* checking for future file timestamps ... NOTE
-unable to verify current time
+* checking for future file timestamps ... OK
 * checking DESCRIPTION meta-information ... OK
 * checking top-level files ... OK
 * checking for left-over files ... OK
@@ -75,4 +65,4 @@ unable to verify current time
 * checking for non-standard things in the check directory ... OK
 * checking for detritus in the temp directory ... OK
 * DONE
-Status: 3 NOTEs
+Status: 1 NOTE

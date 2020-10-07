@@ -150,7 +150,7 @@ The following object is masked from ‘package:base’:
 > dc$quality()
 [1] 0.3671875
 > dc$time()
-[1] 1935772
+[1] 1857093
 > ## lets add post processing :)
 > dc$postProcess(
 + list(
@@ -176,7 +176,7 @@ Browse[1]> dc$quality()
 Browse[1]> ## time is now the total time of the main algorithm plus the time of every...
 Browse[1]> ## post processing algorithm up to the one selected
 Browse[1]> dc$time()
-[1] 1935772
+[1] 1857093
 Browse[1]> ## get back to main algorithm results to check they haven't changed
 Browse[1]> dc$select(POSTPROCESSING$NONE)
 [1] TRUE
@@ -192,7 +192,7 @@ Browse[1]> dc$communityMapping(TRUE)
 Browse[1]> dc$quality()
 [1] 0.3671875
 Browse[1]> dc$time()
-[1] 1935772
+[1] 1857093
 Browse[1]> ## add and remove edges. Notice that there is one more column to give...
 Browse[1]> ## weights of zero on the edges to remove. In this case, all other weights...
 Browse[1]> ## are ignored because the graph is set to ignore weights (parameter w is...
@@ -220,7 +220,7 @@ Browse[3]> dc$communityMapping(TRUE)
 Browse[3]> dc$quality()
 [1] 0.003590343
 Browse[3]> dc$time()
-[1] 4885690
+[1] 4766503
 Browse[3]> ## get back to main algorithm results to check them
 Browse[3]> dc$select(POSTPROCESSING$NONE)
 [1] TRUE
@@ -238,7 +238,7 @@ Browse[3]> dc$communityMapping(TRUE)
 Browse[3]> dc$quality()
 [1] 0.003590343
 Browse[3]> dc$time()
-[1] 4885690
+[1] 4766503
 Browse[3]> ## lets reset/remove post processing
 Browse[3]> dc$postProcess()
 [1] TRUE
@@ -1045,7 +1045,7 @@ Browse[2]>
 [1] TRUE
 > dc$results()
      [,1]         [,2]     
-[1,] "time delta" "1910462"
+[1,] "time delta" "1894043"
 > 
 > 
 > 
@@ -1136,7 +1136,7 @@ Browse[2]>
 [1] TRUE
 > 
 > dc$time()
-[1] 3916405
+[1] 3781007
 > 
 > 
 > 
@@ -1248,7 +1248,7 @@ Browse[2]>
 > cleanEx()
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  1.586 0.012 1.598 0 0 
+Time elapsed:  1.584 0.024 1.608 0 0 
 > grDevices::dev.off()
 null device 
           1 

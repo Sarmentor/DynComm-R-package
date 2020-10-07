@@ -210,8 +210,8 @@
 	}
 
 
-#define ZERT_DO_NOT_USE_DIRECTLY3(expression1,expression2,value1,value2,precision,message) debug_assert(expression1,expression2,#value1,#value2,debug_assert_comparison::EQUAL,fabs((value1)-(value2))<precision,ASSERT_DELAY,ASSERT_BACKTRACE_BUFFER_SIZE, __FILE__, __LINE__, __ASSERT_FUNCTION,message)
-#define ZERT_DO_NOT_USE_DIRECTLY3NOT(expression1,expression2,value1,value2,precision,message) debug_assert(expression1,expression2,#value1,#value2,debug_assert_comparison::INEQUAL,fabs((value1)-(value2))>=precision,ASSERT_DELAY,ASSERT_BACKTRACE_BUFFER_SIZE, __FILE__, __LINE__, __ASSERT_FUNCTION,message)
+#define ZERT_DO_NOT_USE_DIRECTLY3(expression1,expression2,value1,value2,precision,message) debug_assert(expression1,expression2,#value1,#value2,debug_assert_comparison::EQUAL,fabsl((value1)-(value2))<precision,ASSERT_DELAY,ASSERT_BACKTRACE_BUFFER_SIZE, __FILE__, __LINE__, __ASSERT_FUNCTION,message)
+#define ZERT_DO_NOT_USE_DIRECTLY3NOT(expression1,expression2,value1,value2,precision,message) debug_assert(expression1,expression2,#value1,#value2,debug_assert_comparison::INEQUAL,fabsl((value1)-(value2))>=precision,ASSERT_DELAY,ASSERT_BACKTRACE_BUFFER_SIZE, __FILE__, __LINE__, __ASSERT_FUNCTION,message)
 #define ZERT_DO_NOT_USE_DIRECTLY2S(expression1,expression2,value1,value2,precision,message) debug_assert(expression1,expression2,#value1,#value2,debug_assert_comparison::SMALLER,value1<value2+precision,ASSERT_DELAY,ASSERT_BACKTRACE_BUFFER_SIZE, __FILE__, __LINE__, __ASSERT_FUNCTION,message)
 #define ZERT_DO_NOT_USE_DIRECTLY2SE(expression1,expression2,value1,value2,precision,message) debug_assert(expression1,expression2,#value1,#value2,debug_assert_comparison::SMALLER_EQUAL,value1<=value2+precision,ASSERT_DELAY,ASSERT_BACKTRACE_BUFFER_SIZE, __FILE__, __LINE__, __ASSERT_FUNCTION,message)
 #define ZERT_DO_NOT_USE_DIRECTLY2G(expression1,expression2,value1,value2,precision,message) debug_assert(expression1,expression2,#value1,#value2,debug_assert_comparison::GREATER,value1+precision>value2,ASSERT_DELAY,ASSERT_BACKTRACE_BUFFER_SIZE, __FILE__, __LINE__, __ASSERT_FUNCTION,message)
